@@ -1,3 +1,5 @@
+#ifdef EMERALD
+
 #include "global.h"
 #include "battle.h"
 #include "title_screen.h"
@@ -867,3 +869,5 @@ static void UpdateLegendaryMarkingColor(u8 frameNum)
         LoadPalette(&color, BG_PLTT_ID(14) + 15, sizeof(color));
    }
 }
+
+#endif // EMERALD

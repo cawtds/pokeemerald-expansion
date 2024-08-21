@@ -37,6 +37,17 @@
 // Uncomment to fix some identified minor bugs
 #define BUGFIX
 
+// Define the game version
+#if defined(EMERALD)
+#define GAME_VERSION (VERSION_EMERALD)
+#else
+#if defined(FIRERED)
+#define GAME_VERSION (VERSION_FIRE_RED)
+#else
+#define GAME_VERSION (VERSION_LEAF_GREEN)
+#endif
+#endif
+
 // Various undefined behavior bugs may or may not prevent compilation with
 // newer compilers. So always fix them when using a modern compiler.
 #if MODERN || defined(BUGFIX)

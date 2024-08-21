@@ -34,6 +34,7 @@ else
 EXE :=
 endif
 
+GAME_VERSION ?= EMERALD
 TITLE        := POKEMON EMER
 GAME_CODE    := BPEE
 MAKER_CODE   := 01
@@ -41,6 +42,29 @@ REVISION     := 0
 TEST         ?= 0
 ANALYZE      ?= 0
 UNUSED_ERROR ?= 0
+
+
+# game version
+ifeq ($(GAME_VERSION),EMERALD)
+TITLE       := POKEMON EMER
+GAME_CODE   := BPEE
+BUILD_NAME  := emerald
+else
+ifeq ($(GAME_VERSION),FIRERED)
+TITLE       := POKEMON FIRE
+GAME_CODE   := BPRE
+BUILD_NAME  := firered
+else
+ifeq ($(GAME_VERSION),LEAFGREEN)
+TITLE       := POKEMON LEAF
+GAME_CODE   := BPGE
+BUILD_NAME  := leafgreen
+else
+$(error unknown version $(GAME_VERSION))
+endif
+endif
+endif
+
 
 ifeq (check,$(MAKECMDGOALS))
   TEST := 1
@@ -83,7 +107,7 @@ SONG_BUILDDIR = $(OBJ_DIR)/$(SONG_SUBDIR)
 MID_BUILDDIR = $(OBJ_DIR)/$(MID_SUBDIR)
 TEST_BUILDDIR = $(OBJ_DIR)/$(TEST_SUBDIR)
 
-ASFLAGS := -mcpu=arm7tdmi --defsym MODERN=1
+ASFLAGS := -mcpu=arm7tdmi --defsym MODERN=1 --defsym $(GAME_VERSION)=1
 
 CC1              = $(shell $(PATH_ARMCC) --print-prog-name=cc1) -quiet
 override CFLAGS += -mthumb -mthumb-interwork -O2 -mabi=apcs-gnu -mtune=arm7tdmi -march=armv4t -fno-toplevel-reorder -Wno-pointer-to-int-cast -std=gnu17 -Werror -Wall -Wno-strict-aliasing -Wno-attribute-alias -Woverride-init
@@ -109,7 +133,7 @@ ifeq ($(TEST),1)
 OBJ_DIR := $(TEST_OBJ_DIR_NAME)
 endif
 
-CPPFLAGS := -iquote include -iquote $(GFLIB_SUBDIR) -Wno-trigraphs -DMODERN=1 -DTESTING=$(TEST)
+CPPFLAGS := -iquote include -iquote $(GFLIB_SUBDIR) -Wno-trigraphs -DMODERN=1 -DTESTING=$(TEST) -D$(GAME_VERSION)
 
 SHA1 := $(shell { command -v sha1sum || command -v shasum; } 2>/dev/null) -c
 GFX := tools/gbagfx/gbagfx$(EXE)
@@ -467,6 +491,10 @@ check: $(TESTELF)
 
 libagbsyscall:
 	@$(MAKE) -C libagbsyscall TOOLCHAIN=$(TOOLCHAIN) MODERN=1
+
+firered:                ; @$(MAKE) GAME_VERSION=FIRERED
+leafgreen:              ; @$(MAKE) GAME_VERSION=LEAFGREEN
+emerald:				; @$(MAKE) GAME_VERSION=EMERALD
 
 ###################
 ### Symbol file ###

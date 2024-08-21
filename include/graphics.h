@@ -3376,4 +3376,17 @@ extern const u32 gBattleIcons_Gfx2[];
 extern const u32 gBattleIcons_Pal1[];
 extern const u32 gBattleIcons_Pal2[];
 
+// title_screen
+extern const u16 gGraphics_TitleScreen_GameTitleLogoPals[];
+extern const u8 gGraphics_TitleScreen_GameTitleLogoTiles[];
+extern const u8 gGraphics_TitleScreen_GameTitleLogoMap[];
+extern const u16 gGraphics_TitleScreen_BoxArtMonPals[];
+extern const u8 gGraphics_TitleScreen_BoxArtMonTiles[];
+extern const u8 gGraphics_TitleScreen_BoxArtMonMap[];
+extern u16 gGraphics_TitleScreen_BackgroundPals[]; // If this is const, title_screen.c does not match
+extern const u8 gGraphics_TitleScreen_CopyrightPressStartTiles[];
+extern const u8 gGraphics_TitleScreen_CopyrightPressStartMap[];
+extern const u16 gTitleScreen_Slash_Pal[];
+extern const u32 gTitleScreen_BlankSprite_Tiles[];
+
 #endif //GUARD_GRAPHICS_H
