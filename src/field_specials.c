@@ -977,8 +977,8 @@ static bool32 IsBuildingPCTile(u32 tileId)
 
 static bool32 IsPlayerHousePCTile(u32 tileId)
 {
-    return gMapHeader.mapLayout->secondaryTileset == &gTileset_BrendansMaysHouse 
-        && (tileId == METATILE_BrendansMaysHouse_BrendanPC_On 
+    return gMapHeader.mapLayout->secondaryTileset == &gTileset_BrendansMaysHouse
+        && (tileId == METATILE_BrendansMaysHouse_BrendanPC_On
             || tileId == METATILE_BrendansMaysHouse_BrendanPC_Off
             || tileId == METATILE_BrendansMaysHouse_MayPC_On
             || tileId == METATILE_BrendansMaysHouse_MayPC_Off);
@@ -4275,4 +4275,11 @@ void PreparePartyForSkyBattle(void)
     }
     VarSet(B_VAR_SKY_BATTLE,participatingPokemonSlot);
     CompactPartySlots();
+}
+
+void UseBlankMessageToCancelPokemonPic(void)
+{
+    u8 t = EOS;
+    AddTextPrinterParameterized(0, FONT_NORMAL, &t, 0, 1, 0, NULL);
+    ScriptMenu_HidePokemonPic();
 }

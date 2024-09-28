@@ -115,17 +115,15 @@ struct DisableStruct
     u8 disableTimer:4;
     u8 encoreTimer:4;
     u8 perishSongTimer:4;
-    u8 furyCutterCounter;
     u8 rolloutTimer:4;
     u8 rolloutTimerStartValue:4;
-    u8 chargeTimer:4;
     u8 tauntTimer:4;
+    u8 furyCutterCounter;
     u8 battlerPreventingEscape;
     u8 battlerWithSureHit;
     u8 isFirstTurn;
-    u8 truantCounter:1;
-    u8 truantSwitchInHack:1;
     u8 mimickedMoves:4;
+    u8 chargeTimer:4;
     u8 rechargeTimer;
     u8 autotomizeCount;
     u8 slowStartTimer;
@@ -138,6 +136,8 @@ struct DisableStruct
     u8 wrapTurns;
     u8 tormentTimer:4; // used for G-Max Meltdown
     u8 usedMoves:4;
+    u8 truantCounter:1;
+    u8 truantSwitchInHack:1;
     u8 noRetreat:1;
     u8 tarShot:1;
     u8 octolock:1;
@@ -221,7 +221,7 @@ struct SpecialStatus
     u8 faintedHasReplacement:1;
     u8 focusBanded:1;
     u8 focusSashed:1;
-    u8 unused:1;
+    u8 unused:2;
     // End of byte
     u8 sturdied:1;
     u8 stormDrainRedirected:1;
@@ -600,12 +600,34 @@ struct LostItem
     u16 stolen:1;
 };
 
-#if HQ_RANDOM == TRUE
 struct BattleVideo {
     u32 battleTypeFlags;
     rng_value_t rngSeed;
 };
-#endif
+
+enum BattleIntroStates
+{
+    BATTLE_INTRO_STATE_GET_MON_DATA,
+    BATTLE_INTRO_STATE_LOOP_BATTLER_DATA,
+    BATTLE_INTRO_STATE_PREPARE_BG_SLIDE,
+    BATTLE_INTRO_STATE_WAIT_FOR_BG_SLIDE,
+    BATTLE_INTRO_STATE_DRAW_SPRITES,
+    BATTLE_INTRO_STATE_DRAW_PARTY_SUMMARY,
+    BATTLE_INTRO_STATE_WAIT_FOR_PARTY_SUMMARY,
+    BATTLE_INTRO_STATE_INTRO_TEXT,
+    BATTLE_INTRO_STATE_WAIT_FOR_INTRO_TEXT,
+    BATTLE_INTRO_STATE_TRAINER_SEND_OUT_TEXT,
+    BATTLE_INTRO_STATE_WAIT_FOR_TRAINER_SEND_OUT_TEXT,
+    BATTLE_INTRO_STATE_TRAINER_1_SEND_OUT_ANIM,
+    BATTLE_INTRO_STATE_TRAINER_2_SEND_OUT_ANIM,
+    BATTLE_INTRO_STATE_WAIT_FOR_TRAINER_2_SEND_OUT_ANIM,
+    BATTLE_INTRO_STATE_WAIT_FOR_WILD_BATTLE_TEXT,
+    BATTLE_INTRO_STATE_PRINT_PLAYER_SEND_OUT_TEXT,
+    BATTLE_INTRO_STATE_WAIT_FOR_PLAYER_SEND_OUT_TEXT,
+    BATTLE_INTRO_STATE_PRINT_PLAYER_1_SEND_OUT_TEXT,
+    BATTLE_INTRO_STATE_PRINT_PLAYER_2_SEND_OUT_TEXT,
+    BATTLE_INTRO_STATE_SET_DEX_AND_BATTLE_VARS
+};
 
 struct BattleStruct
 {
@@ -676,18 +698,14 @@ struct BattleStruct
     u16 chosenItem[MAX_BATTLERS_COUNT];
     u16 choicedMove[MAX_BATTLERS_COUNT];
     u16 changedItems[MAX_BATTLERS_COUNT];
+    u8 canPickupItem;
     u8 switchInBattlerCounter;
     u8 arenaTurnCounter;
     u8 turnSideTracker;
     u16 lastTakenMoveFrom[MAX_BATTLERS_COUNT][MAX_BATTLERS_COUNT]; // a 2-D array [target][attacker]
     union {
         struct LinkBattlerHeader linkBattlerHeader;
-
-        #if HQ_RANDOM == FALSE
-        u32 battleVideo[2];
-        #else
         struct BattleVideo battleVideo;
-        #endif
     } multiBuffer;
     u8 wishPerishSongState;
     u8 wishPerishSongBattlerId;
@@ -725,7 +743,7 @@ struct BattleStruct
     struct BattleGimmickData gimmick;
     const u8 *trainerSlideMsg;
     bool8 trainerSlideLowHpMsgDone;
-    u8 introState;
+    enum BattleIntroStates introState:8;
     u8 ateBerry[2]; // array id determined by side, each party pokemon as bit
     u8 stolenStats[NUM_BATTLE_STATS]; // hp byte is used for which stats to raise, other inform about by how many stages
     u8 lastMoveFailed; // as bits for each battler, for the sake of Stomping Tantrum
@@ -763,7 +781,6 @@ struct BattleStruct
     bool8 effectsBeforeUsingMoveDone:1; // Mega Evo and Focus Punch/Shell Trap effects.
     u8 targetsDone[MAX_BATTLERS_COUNT]; // Each battler as a bit.
     u16 overwrittenAbilities[MAX_BATTLERS_COUNT];    // abilities overwritten during battle (keep separate from battle history in case of switching)
-    bool8 allowedToChangeFormInWeather[PARTY_SIZE][NUM_BATTLE_SIDES]; // For each party member and side, used by Ice Face.
     u8 battleBondTransformed[NUM_BATTLE_SIDES]; // Bitfield for each party.
     u8 storedHealingWish:4; // Each battler as a bit.
     u8 storedLunarDance:4; // Each battler as a bit.
@@ -801,6 +818,7 @@ struct BattleStruct
     u8 categoryOverride; // for Z-Moves and Max Moves
     u32 stellarBoostFlags[NUM_BATTLE_SIDES]; // stored as a bitfield of flags for all types for each side
     u8 fickleBeamBoosted:1;
+    u8 obedienceResult:3;
 };
 
 // The palaceFlags member of struct BattleStruct contains 1 flag per move to indicate which moves the AI should consider,
@@ -961,7 +979,10 @@ struct BattleHealthboxInfo
     u8 animationState;
     u8 partyStatusDelayTimer;
     u8 matrixNum;
-    u8 shadowSpriteId;
+
+    u8 shadowSpriteIdPrimary;
+    u8 shadowSpriteIdSecondary;
+
     u8 soundTimer;
     u8 introEndDelay;
     u8 field_A;
@@ -1132,11 +1153,10 @@ static inline u32 GetBattlerSide(u32 battler)
     return GetBattlerPosition(battler) & BIT_SIDE;
 }
 
-static inline struct Pokemon* GetBattlerData(u32 battlerId)
+static inline struct Pokemon* GetPartyBattlerData(u32 battler)
 {
-    u32 index = gBattlerPartyIndexes[battlerId];
-
-    return (GetBattlerSide(battlerId) == B_SIDE_OPPONENT) ? &gEnemyParty[index] : &gPlayerParty[index];
+    u32 index = gBattlerPartyIndexes[battler];
+    return (GetBattlerSide(battler) == B_SIDE_OPPONENT) ? &gEnemyParty[index] : &gPlayerParty[index];
 }
 
 static inline struct Pokemon *GetSideParty(u32 side)
@@ -1155,3 +1175,4 @@ static inline bool32 IsDoubleBattle(void)
 }
 
 #endif // GUARD_BATTLE_H
+
