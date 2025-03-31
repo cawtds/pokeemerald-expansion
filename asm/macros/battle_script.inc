@@ -630,9 +630,8 @@
 	.byte \battler
 	.endm
 
-	.macro recordlastability battler:req
+	.macro unused_0x70 battler:req
 	.byte 0x70
-	.byte \battler
 	.endm
 
 	.macro buffermovetolearn
@@ -1197,9 +1196,8 @@
 	.4byte \ptr
 	.endm
 
-	.macro pursuitdoubles ptr:req
+	.macro unused_0xec
 	.byte 0xec
-	.4byte \ptr
 	.endm
 
 	.macro snatchsetbattlers
