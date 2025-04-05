@@ -9778,7 +9778,7 @@ static void Cmd_weightdamagecalculation(void)
     s32 i;
     for (i = 0; sWeightToDamageTable[i] != 0xFFFF; i += 2)
     {
-        if (sWeightToDamageTable[i] > GetPokedexHeightWeight(SpeciesToNationalPokedexNum(gBattleMons[gBattlerTarget].species), 1))
+        if (sWeightToDamageTable[i] > GetSpeciesWeight(gBattleMons[gBattlerTarget].species))
             break;
     }
 

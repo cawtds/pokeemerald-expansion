@@ -2250,7 +2250,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     checksum = CalculateBoxMonChecksum(boxMon);
     SetBoxMonData(boxMon, MON_DATA_CHECKSUM, &checksum);
     EncryptBoxMon(boxMon);
-    GetSpeciesName(speciesName, species);
+    StringCopy(speciesName, GetSpeciesName(species));
     SetBoxMonData(boxMon, MON_DATA_NICKNAME, speciesName);
     SetBoxMonData(boxMon, MON_DATA_LANGUAGE, &gGameLanguage);
     SetBoxMonData(boxMon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
@@ -4605,22 +4605,35 @@ bool8 IsPokemonStorageFull(void)
     return TRUE;
 }
 
-void GetSpeciesName(u8 *name, u16 species)
+const u8 *GetSpeciesName(u16 species)
 {
-    s32 i;
+    if (gSpeciesInfo[species].speciesName[0] == 0)
+        return gSpeciesInfo[SPECIES_NONE].speciesName;
+    return gSpeciesInfo[species].speciesName;
+}
 
-    for (i = 0; i <= POKEMON_NAME_LENGTH; i++)
-    {
-        if (species > NUM_SPECIES)
-            name[i] = gSpeciesNames[SPECIES_NONE][i];
-        else
-            name[i] = gSpeciesNames[species][i];
+const u8 *GetSpeciesCategory(u16 species)
+{
+    if (gSpeciesInfo[species].categoryName[0] == 0)
+        return gSpeciesInfo[SPECIES_NONE].categoryName;
+    return gSpeciesInfo[species].categoryName;
+}
 
-        if (name[i] == EOS)
-            break;
-    }
+const u8 *GetSpeciesPokedexDescription(u16 species)
+{
+    if (gSpeciesInfo[species].description == NULL)
+        return gSpeciesInfo[SPECIES_NONE].description;
+    return gSpeciesInfo[species].description;
+}
 
-    name[i] = EOS;
+u16 GetSpeciesHeight(u16 species)
+{
+    return gSpeciesInfo[species].height;
+}
+
+u16 GetSpeciesWeight(u16 species)
+{
+    return gSpeciesInfo[species].weight;
 }
 
 u8 CalculatePPWithBonus(u16 move, u8 ppBonuses, u8 moveIndex)
@@ -7123,9 +7136,4 @@ u8 *MonSpritesGfxManager_GetSpritePtr(u8 managerId, u8 spriteNum)
 
         return gfx->spritePointers[spriteNum];
     }
-}
-
-static bool32 IsSpeciesEnabled(u16 species)
-{
-    return gSpeciesInfo[species].baseHP > 0 || species == SPECIES_EGG;
 }

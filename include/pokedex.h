@@ -32,7 +32,6 @@ struct PokedexEntry
 };  /*size = 0x20*/
 
 void ResetPokedex(void);
-u16 GetPokedexHeightWeight(u16 dexNum, u8 data);
 u16 GetNationalPokedexCount(u8);
 u16 GetHoennPokedexCount(u8);
 u8 DisplayCaughtMonDexPage(u16 dexNum, u32 otId, u32 personality);
