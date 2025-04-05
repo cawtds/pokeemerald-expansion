@@ -6232,7 +6232,6 @@ u32 CanSpeciesLearnTMHM(u16 species, u16 moveId)
     {
         return 0;
     }
-    species = SanitizeSpeciesId(species);
 
     for (i = 0; gSpeciesInfo[species].tmhmLearnset[i] != MOVE_UNAVAILABLE; i++)
     {
@@ -7129,12 +7128,4 @@ u8 *MonSpritesGfxManager_GetSpritePtr(u8 managerId, u8 spriteNum)
 static bool32 IsSpeciesEnabled(u16 species)
 {
     return gSpeciesInfo[species].baseHP > 0 || species == SPECIES_EGG;
-}
-
-u16 SanitizeSpeciesId(u16 species)
-{
-    if (species > NUM_SPECIES || !IsSpeciesEnabled(species))
-        return SPECIES_NONE;
-    else
-        return species;
 }

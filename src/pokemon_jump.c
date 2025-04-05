@@ -504,7 +504,7 @@ static void ResetForNewGame(struct PokemonJump *jump)
 
 static s16 GetSpeciesPokemonJumpType(u16 species)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].jumpType;
+    return gSpeciesInfo[species].jumpType;
 }
 
 static void InitPlayerAndJumpTypes(void)
