@@ -2,6 +2,8 @@
 #define GUARD_POKEMON_H
 
 #include "sprite.h"
+#include "constants/party_menu.h"
+#include "constants/tms_hms.h"
 
 // Property labels for Get(Box)MonData / Set(Box)MonData
 enum {
@@ -94,6 +96,41 @@ enum {
     MON_DATA_SPEED2,
     MON_DATA_SPATK2,
     MON_DATA_SPDEF2,
+};
+
+enum {
+    PKMN_JUMP_TYPE_NONE,
+    PKMN_JUMP_TYPE_NORMAL,
+    PKMN_JUMP_TYPE_FAST,
+    PKMN_JUMP_TYPE_SLOW,
+};
+
+struct MonCoords
+{
+    // This would use a bitfield, but some function
+    // uses it as a u8 and casting won't match.
+    u8 size; // u8 width:4, height:4;
+    u8 y_offset;
+};
+
+/* Expands to:
+ * struct TMHMLearnset
+ * {
+ *     u32 FOCUS_PUNCH:1;
+ *     ...
+ *     u32 CUT:1;
+ *     ...
+ * }; */
+#define TMHM_LEARN(id) u32 id:1;
+struct TMHMLearnset
+{
+    FOREACH_TMHM(TMHM_LEARN)
+};
+#undef TMHM_LEARN
+
+union TMHMLearnsetUnion {
+    struct TMHMLearnset learnset;
+    u32 as_u32s[sizeof(struct TMHMLearnset) / sizeof(u32)];
 };
 
 struct PokemonSubstruct0
@@ -294,6 +331,13 @@ struct BattlePokemon
     /*0x54*/ u32 otId;
 };
 
+struct Evolution
+{
+    u16 method;
+    u16 param;
+    u16 targetSpecies;
+};
+
 struct SpeciesInfo
 {
  /* 0x00 */ u8 baseHP;
@@ -322,6 +366,37 @@ struct SpeciesInfo
  /* 0x18 */ u8 safariZoneFleeRate;
  /* 0x19 */ u8 bodyColor : 7;
             u8 noFlip : 1;
+            // new
+            u8 frontAnimId;
+            u8 frontAnimDelay;
+            u8 frontPicSize; // The dimensions of this drawn pixel area.
+            u8 frontPicYOffset; // The number of pixels between the drawn pixel area and the bottom edge.
+            u8 backAnimId;
+            const union AnimCmd *const *frontAnimFrames;
+            u8 backPicSize; // The dimensions of this drawn pixel area.
+            u8 backPicYOffset; // The number of pixels between the drawn pixel area and the bottom edge.
+            const u32 *frontPic;
+            const u32 *backPic;
+            const u32 *palette;
+            const u32 *shinyPalette;
+            const u8 *iconSprite;
+            u8 iconPalIndex:3;        
+            u16 jumpType;
+            struct Evolution evolutions[EVOS_PER_MON];
+            const u16 *levelUpLearnset;
+            const u16 *tmhmLearnset;
+            const u16 *tutorLearnset;
+            const u8 *footprint;
+            u8 speciesName[POKEMON_NAME_LENGTH + 1];
+            // struct PokedexEntry
+            u8 categoryName[12];
+            u16 height; //in decimeters
+            u16 weight; //in hectograms
+            const u8 *description;
+            u16 pokemonScale;
+            u16 pokemonOffset;
+            u16 trainerScale;
+            u16 trainerOffset;
 };
 
 struct BattleMove
@@ -350,13 +425,6 @@ struct __attribute__((packed)) LevelUpMove
 {
     u16 move:9;
     u16 level:7;
-};
-
-struct Evolution
-{
-    u16 method;
-    u16 param;
-    u16 targetSpecies;
 };
 
 #define NUM_UNOWN_FORMS 28
@@ -499,8 +567,8 @@ u8 CheckPartyHasHadPokerus(struct Pokemon *party, u8 selection);
 void UpdatePartyPokerusTime(u16 days);
 void PartySpreadPokerus(struct Pokemon *party);
 bool8 TryIncrementMonLevel(struct Pokemon *mon);
-u32 CanMonLearnTMHM(struct Pokemon *mon, u8 tm);
-u32 CanSpeciesLearnTMHM(u16 species, u8 tm);
+u32 CanMonLearnTMHM(struct Pokemon *mon, u16 moveId);
+u32 CanSpeciesLearnTMHM(u16 species, u16 moveId);
 u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves);
 u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves);
 u8 GetNumberOfRelearnableMoves(struct Pokemon *mon);
@@ -543,5 +611,7 @@ bool8 HasTwoFramesAnimation(u16 species);
 struct MonSpritesGfxManager *CreateMonSpritesGfxManager(u8 managerId, u8 mode);
 void DestroyMonSpritesGfxManager(u8 managerId);
 u8 *MonSpritesGfxManager_GetSpritePtr(u8 managerId, u8 spriteNum);
+
+u16 SanitizeSpeciesId(u16 species);
 
 #endif // GUARD_POKEMON_H

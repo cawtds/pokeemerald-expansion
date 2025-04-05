@@ -13,6 +13,7 @@
 #include "event_data.h"
 #include "evolution_scene.h"
 #include "field_specials.h"
+#include "graphics.h"
 #include "item.h"
 #include "link.h"
 #include "main.h"
@@ -1391,14 +1392,16 @@ const s8 gNatureStatTable[NUM_NATURES][NUM_NATURE_STATS] =
     [NATURE_QUIRKY]  = {    0,      0,      0,      0,      0   },
 };
 
+#include "data/pokemon_graphics/front_pic_anims.h"
 #include "data/pokemon/tmhm_learnsets.h"
 #include "data/pokemon/trainer_class_lookups.h"
 #include "data/pokemon/cry_ids.h"
 #include "data/pokemon/experience_tables.h"
-#include "data/pokemon/species_info.h"
 #include "data/pokemon/level_up_learnsets.h"
 #include "data/pokemon/evolution.h"
 #include "data/pokemon/level_up_learnset_pointers.h"
+#include "data/pokemon/tutor_learnsets_new.h"
+#include "data/pokemon/species_info.h"
 
 // SPECIES_NONE are ignored in the following two tables, so decrement before accessing these arrays to get the right result
 
@@ -6215,62 +6218,28 @@ bool8 TryIncrementMonLevel(struct Pokemon *mon)
     }
 }
 
-u32 CanMonLearnTMHM(struct Pokemon *mon, u8 tm)
+u32 CanMonLearnTMHM(struct Pokemon *mon, u16 moveId)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
-    if (species == SPECIES_EGG)
-    {
-        return 0;
-    }
 
-    // Fewer than 64 moves, use GF's method (for matching).
-    if (sizeof(struct TMHMLearnset) <= 8)
-    {
-        if (tm < 32)
-        {
-            u32 mask = 1 << tm;
-            return gTMHMLearnsets[species].as_u32s[0] & mask;
-        }
-        else
-        {
-            u32 mask = 1 << (tm - 32);
-            return gTMHMLearnsets[species].as_u32s[1] & mask;
-        }
-    }
-    else
-    {
-        u32 index = tm / 32;
-        u32 mask = 1 << (tm % 32);
-        return gTMHMLearnsets[species].as_u32s[index] & mask;
-    }
+    return CanSpeciesLearnTMHM(species, moveId);
 }
 
-u32 CanSpeciesLearnTMHM(u16 species, u8 tm)
+u32 CanSpeciesLearnTMHM(u16 species, u16 moveId)
 {
+    u32 i = 0;
     if (species == SPECIES_EGG)
     {
         return 0;
     }
-    // Fewer than 64 moves, use GF's method (for matching).
-    if (sizeof(struct TMHMLearnset) <= 8)
+    species = SanitizeSpeciesId(species);
+
+    for (i = 0; gSpeciesInfo[species].tmhmLearnset[i] != MOVE_UNAVAILABLE; i++)
     {
-        if (tm < 32)
-        {
-            u32 mask = 1 << tm;
-            return gTMHMLearnsets[species].as_u32s[0] & mask;
-        }
-        else
-        {
-            u32 mask = 1 << (tm - 32);
-            return gTMHMLearnsets[species].as_u32s[1] & mask;
-        }
+        if (gSpeciesInfo[species].tmhmLearnset[i] == moveId)
+            return TRUE;
     }
-    else
-    {
-        u32 index = tm / 32;
-        u32 mask = 1 << (tm % 32);
-        return gTMHMLearnsets[species].as_u32s[index] & mask;
-    }
+    return FALSE;
 }
 
 u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
@@ -7155,4 +7124,17 @@ u8 *MonSpritesGfxManager_GetSpritePtr(u8 managerId, u8 spriteNum)
 
         return gfx->spritePointers[spriteNum];
     }
+}
+
+static bool32 IsSpeciesEnabled(u16 species)
+{
+    return gSpeciesInfo[species].baseHP > 0 || species == SPECIES_EGG;
+}
+
+u16 SanitizeSpeciesId(u16 species)
+{
+    if (species > NUM_SPECIES || !IsSpeciesEnabled(species))
+        return SPECIES_NONE;
+    else
+        return species;
 }
