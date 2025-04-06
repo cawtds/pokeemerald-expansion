@@ -359,6 +359,7 @@ struct SpeciesInfo
             const u16 *levelUpLearnset;
             const u16 *tmhmLearnset;
             const u16 *tutorLearnset;
+            const u16 *eggMoveLearnset;
             const u8 *footprint;
             u8 speciesName[POKEMON_NAME_LENGTH + 1];
             u16 cryId;
@@ -512,6 +513,7 @@ const u8 *GetSpeciesCategory(u16 species);
 const u8 *GetSpeciesPokedexDescription(u16 species);
 u16 GetSpeciesHeight(u16 species);
 u16 GetSpeciesWeight(u16 species);
+const u16 *GetSpeciesEggMoves(u16 species);
 u8 CalculatePPWithBonus(u16 move, u8 ppBonuses, u8 moveIndex);
 void RemoveMonPPBonus(struct Pokemon *mon, u8 moveIndex);
 void RemoveBattleMonPPBonus(struct BattlePokemon *mon, u8 moveIndex);
