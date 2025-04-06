@@ -381,13 +381,16 @@ struct SpeciesInfo
             const u32 *shinyPalette;
             const u8 *iconSprite;
             u8 iconPalIndex:3;        
-            u16 jumpType;
+            u8 pokemonJumpType:2;
+            u8 enemyMonElevation; // This determines how much higher above the usual position the enemy Pokémon is during battle. Species that float or fly have nonzero values.
             struct Evolution evolutions[EVOS_PER_MON];
             const u16 *levelUpLearnset;
             const u16 *tmhmLearnset;
             const u16 *tutorLearnset;
             const u8 *footprint;
             u8 speciesName[POKEMON_NAME_LENGTH + 1];
+            u16 cryId;
+            u16 natDexNum;
             // struct PokedexEntry
             u8 categoryName[12];
             u16 height; //in decimeters

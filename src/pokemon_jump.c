@@ -504,7 +504,7 @@ static void ResetForNewGame(struct PokemonJump *jump)
 
 static s16 GetSpeciesPokemonJumpType(u16 species)
 {
-    return gSpeciesInfo[species].jumpType;
+    return gSpeciesInfo[species].pokemonJumpType;
 }
 
 static void InitPlayerAndJumpTypes(void)
@@ -2225,7 +2225,7 @@ static u8 *GetPokeJumpPlayerName(u8 multiplayerId)
 
 bool32 IsSpeciesAllowedInPokemonJump(u16 species)
 {
-    return gSpeciesInfo[species].jumpType != PKMN_JUMP_TYPE_NONE;
+    return gSpeciesInfo[species].pokemonJumpType != PKMN_JUMP_TYPE_NONE;
 }
 
 void IsPokemonJumpSpeciesInParty(void)

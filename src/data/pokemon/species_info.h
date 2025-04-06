@@ -44,6 +44,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_NONE] =
     {
         .speciesName = _("??????????"),
+        .natDexNum = NATIONAL_DEX_NONE,
         .categoryName = _("UNKNOWN"),
         .height = 0,
         .weight = 0,
@@ -73,7 +74,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sNoneTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_Bulbasaur,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_BULBASAUR] =
@@ -105,6 +106,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("BULBASAUR"),
+        .cryId = CRY_BULBASAUR,
+        .natDexNum = NATIONAL_DEX_BULBASAUR,
         .categoryName = _("SEED"),
         .height = 7,
         .weight = 69,
@@ -134,7 +137,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sBulbasaurTMHMLearnset,
         .tutorLearnset = sBulbasaurTutorLearnset,
         .footprint = gMonFootprint_Bulbasaur,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 16, SPECIES_IVYSAUR},
@@ -170,6 +173,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("IVYSAUR"),
+        .cryId = CRY_IVYSAUR,
+        .natDexNum = NATIONAL_DEX_IVYSAUR,
         .categoryName = _("SEED"),
         .height = 10,
         .weight = 130,
@@ -199,7 +204,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sIvysaurTMHMLearnset,
         .tutorLearnset = sIvysaurTutorLearnset,
         .footprint = gMonFootprint_Ivysaur,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 32, SPECIES_VENUSAUR},
@@ -235,6 +240,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("VENUSAUR"),
+        .cryId = CRY_VENUSAUR,
+        .natDexNum = NATIONAL_DEX_VENUSAUR,
         .categoryName = _("SEED"),
         .height = 20,
         .weight = 1000,
@@ -264,7 +271,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sVenusaurTMHMLearnset,
         .tutorLearnset = sVenusaurTutorLearnset,
         .footprint = gMonFootprint_Venusaur,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_CHARMANDER] =
@@ -296,6 +303,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("CHARMANDER"),
+        .cryId = CRY_CHARMANDER,
+        .natDexNum = NATIONAL_DEX_CHARMANDER,
         .categoryName = _("LIZARD"),
         .height = 6,
         .weight = 85,
@@ -325,7 +334,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCharmanderTMHMLearnset,
         .tutorLearnset = sCharmanderTutorLearnset,
         .footprint = gMonFootprint_Charmander,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 16, SPECIES_CHARMELEON},
@@ -361,6 +370,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("CHARMELEON"),
+        .cryId = CRY_CHARMELEON,
+        .natDexNum = NATIONAL_DEX_CHARMELEON,
         .categoryName = _("FLAME"),
         .height = 11,
         .weight = 190,
@@ -390,7 +401,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCharmeleonTMHMLearnset,
         .tutorLearnset = sCharmeleonTutorLearnset,
         .footprint = gMonFootprint_Charmeleon,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 36, SPECIES_CHARIZARD},
@@ -426,6 +437,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("CHARIZARD"),
+        .cryId = CRY_CHARIZARD,
+        .natDexNum = NATIONAL_DEX_CHARIZARD,
         .categoryName = _("FLAME"),
         .height = 17,
         .weight = 905,
@@ -455,7 +468,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCharizardTMHMLearnset,
         .tutorLearnset = sCharizardTutorLearnset,
         .footprint = gMonFootprint_Charizard,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SQUIRTLE] =
@@ -487,6 +500,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("SQUIRTLE"),
+        .cryId = CRY_SQUIRTLE,
+        .natDexNum = NATIONAL_DEX_SQUIRTLE,
         .categoryName = _("TINY TURTLE"),
         .height = 5,
         .weight = 90,
@@ -516,7 +531,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSquirtleTMHMLearnset,
         .tutorLearnset = sSquirtleTutorLearnset,
         .footprint = gMonFootprint_Squirtle,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 16, SPECIES_WARTORTLE},
@@ -552,6 +567,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("WARTORTLE"),
+        .cryId = CRY_WARTORTLE,
+        .natDexNum = NATIONAL_DEX_WARTORTLE,
         .categoryName = _("TURTLE"),
         .height = 10,
         .weight = 225,
@@ -581,7 +598,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sWartortleTMHMLearnset,
         .tutorLearnset = sWartortleTutorLearnset,
         .footprint = gMonFootprint_Wartortle,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 36, SPECIES_BLASTOISE},
@@ -617,6 +634,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("BLASTOISE"),
+        .cryId = CRY_BLASTOISE,
+        .natDexNum = NATIONAL_DEX_BLASTOISE,
         .categoryName = _("SHELLFISH"),
         .height = 16,
         .weight = 855,
@@ -647,7 +666,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sBlastoiseTMHMLearnset,
         .tutorLearnset = sBlastoiseTutorLearnset,
         .footprint = gMonFootprint_Blastoise,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_CATERPIE] =
@@ -679,6 +698,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("CATERPIE"),
+        .cryId = CRY_CATERPIE,
+        .natDexNum = NATIONAL_DEX_CATERPIE,
         .categoryName = _("WORM"),
         .height = 3,
         .weight = 29,
@@ -708,7 +729,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCaterpieTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_Caterpie,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL,  7, SPECIES_METAPOD},
@@ -744,6 +765,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("METAPOD"),
+        .cryId = CRY_METAPOD,
+        .natDexNum = NATIONAL_DEX_METAPOD,
         .categoryName = _("COCOON"),
         .height = 7,
         .weight = 99,
@@ -773,7 +796,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMetapodTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_Metapod,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 10, SPECIES_BUTTERFREE},
@@ -809,6 +832,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .speciesName = _("BUTTERFREE"),
+        .cryId = CRY_BUTTERFREE,
+        .natDexNum = NATIONAL_DEX_BUTTERFREE,
         .categoryName = _("BUTTERFLY"),
         .height = 11,
         .weight = 320,
@@ -838,7 +863,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sButterfreeTMHMLearnset,
         .tutorLearnset = sButterfreeTutorLearnset,
         .footprint = gMonFootprint_Butterfree,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_WEEDLE] =
@@ -870,6 +896,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("WEEDLE"),
+        .cryId = CRY_WEEDLE,
+        .natDexNum = NATIONAL_DEX_WEEDLE,
         .categoryName = _("HAIRY BUG"),
         .height = 3,
         .weight = 32,
@@ -900,7 +928,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sWeedleTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_Weedle,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL,  7, SPECIES_KAKUNA},
@@ -936,6 +964,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("KAKUNA"),
+        .cryId = CRY_KAKUNA,
+        .natDexNum = NATIONAL_DEX_KAKUNA,
         .categoryName = _("COCOON"),
         .height = 6,
         .weight = 100,
@@ -966,7 +996,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sKakunaTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_Kakuna,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 10, SPECIES_BEEDRILL},
@@ -1002,6 +1032,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("BEEDRILL"),
+        .cryId = CRY_BEEDRILL,
+        .natDexNum = NATIONAL_DEX_BEEDRILL,
         .categoryName = _("POISON BEE"),
         .height = 10,
         .weight = 295,
@@ -1032,7 +1064,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sBeedrillTMHMLearnset,
         .tutorLearnset = sBeedrillTutorLearnset,
         .footprint = gMonFootprint_Beedrill,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_PIDGEY] =
@@ -1064,6 +1097,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("PIDGEY"),
+        .cryId = CRY_PIDGEY,
+        .natDexNum = NATIONAL_DEX_PIDGEY,
         .categoryName = _("TINY BIRD"),
         .height = 3,
         .weight = 18,
@@ -1093,7 +1128,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPidgeyTMHMLearnset,
         .tutorLearnset = sPidgeyTutorLearnset,
         .footprint = gMonFootprint_Pidgey,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 16,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 18, SPECIES_PIDGEOTTO},
@@ -1129,6 +1165,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("PIDGEOTTO"),
+        .cryId = CRY_PIDGEOTTO,
+        .natDexNum = NATIONAL_DEX_PIDGEOTTO,
         .categoryName = _("BIRD"),
         .height = 11,
         .weight = 300,
@@ -1159,7 +1197,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPidgeottoTMHMLearnset,
         .tutorLearnset = sPidgeottoTutorLearnset,
         .footprint = gMonFootprint_Pidgeotto,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 36, SPECIES_PIDGEOT},
@@ -1195,6 +1233,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("PIDGEOT"),
+        .cryId = CRY_PIDGEOT,
+        .natDexNum = NATIONAL_DEX_PIDGEOT,
         .categoryName = _("BIRD"),
         .height = 15,
         .weight = 395,
@@ -1224,7 +1264,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPidgeotTMHMLearnset,
         .tutorLearnset = sPidgeotTutorLearnset,
         .footprint = gMonFootprint_Pidgeot,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 4,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_RATTATA] =
@@ -1256,6 +1297,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("RATTATA"),
+        .cryId = CRY_RATTATA,
+        .natDexNum = NATIONAL_DEX_RATTATA,
         .categoryName = _("MOUSE"),
         .height = 3,
         .weight = 35,
@@ -1285,7 +1328,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sRattataTMHMLearnset,
         .tutorLearnset = sRattataTutorLearnset,
         .footprint = gMonFootprint_Rattata,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 20, SPECIES_RATICATE},
@@ -1321,6 +1364,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("RATICATE"),
+        .cryId = CRY_RATICATE,
+        .natDexNum = NATIONAL_DEX_RATICATE,
         .categoryName = _("MOUSE"),
         .height = 7,
         .weight = 185,
@@ -1350,7 +1395,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sRaticateTMHMLearnset,
         .tutorLearnset = sRaticateTutorLearnset,
         .footprint = gMonFootprint_Raticate,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
     },
 
     [SPECIES_SPEAROW] =
@@ -1382,6 +1427,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("SPEAROW"),
+        .cryId = CRY_SPEAROW,
+        .natDexNum = NATIONAL_DEX_SPEAROW,
         .categoryName = _("TINY BIRD"),
         .height = 3,
         .weight = 20,
@@ -1411,7 +1458,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSpearowTMHMLearnset,
         .tutorLearnset = sSpearowTutorLearnset,
         .footprint = gMonFootprint_Spearow,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 20, SPECIES_FEAROW},
@@ -1447,6 +1494,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("FEAROW"),
+        .cryId = CRY_FEAROW,
+        .natDexNum = NATIONAL_DEX_FEAROW,
         .categoryName = _("BEAK"),
         .height = 12,
         .weight = 380,
@@ -1477,7 +1526,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sFearowTMHMLearnset,
         .tutorLearnset = sFearowTutorLearnset,
         .footprint = gMonFootprint_Fearow,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 6,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_EKANS] =
@@ -1509,6 +1559,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("EKANS"),
+        .cryId = CRY_EKANS,
+        .natDexNum = NATIONAL_DEX_EKANS,
         .categoryName = _("SNAKE"),
         .height = 20,
         .weight = 69,
@@ -1539,7 +1591,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sEkansTMHMLearnset,
         .tutorLearnset = sEkansTutorLearnset,
         .footprint = gMonFootprint_Ekans,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 22, SPECIES_ARBOK},
@@ -1575,6 +1627,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("ARBOK"),
+        .cryId = CRY_ARBOK,
+        .natDexNum = NATIONAL_DEX_ARBOK,
         .categoryName = _("COBRA"),
         .height = 35,
         .weight = 650,
@@ -1604,7 +1658,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sArbokTMHMLearnset,
         .tutorLearnset = sArbokTutorLearnset,
         .footprint = gMonFootprint_Arbok,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_PIKACHU] =
@@ -1636,6 +1690,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("PIKACHU"),
+        .cryId = CRY_PIKACHU,
+        .natDexNum = NATIONAL_DEX_PIKACHU,
         .categoryName = _("MOUSE"),
         .height = 4,
         .weight = 60,
@@ -1665,7 +1721,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPikachuTMHMLearnset,
         .tutorLearnset = sPikachuTutorLearnset,
         .footprint = gMonFootprint_Pikachu,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_ITEM, ITEM_THUNDER_STONE, SPECIES_RAICHU},
@@ -1701,6 +1757,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("RAICHU"),
+        .cryId = CRY_RAICHU,
+        .natDexNum = NATIONAL_DEX_RAICHU,
         .categoryName = _("MOUSE"),
         .height = 8,
         .weight = 300,
@@ -1730,7 +1788,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sRaichuTMHMLearnset,
         .tutorLearnset = sRaichuTutorLearnset,
         .footprint = gMonFootprint_Raichu,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SANDSHREW] =
@@ -1762,6 +1820,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("SANDSHREW"),
+        .cryId = CRY_SANDSHREW,
+        .natDexNum = NATIONAL_DEX_SANDSHREW,
         .categoryName = _("MOUSE"),
         .height = 6,
         .weight = 120,
@@ -1791,7 +1851,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSandshrewTMHMLearnset,
         .tutorLearnset = sSandshrewTutorLearnset,
         .footprint = gMonFootprint_Sandshrew,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 22, SPECIES_SANDSLASH},
@@ -1827,6 +1887,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("SANDSLASH"),
+        .cryId = CRY_SANDSLASH,
+        .natDexNum = NATIONAL_DEX_SANDSLASH,
         .categoryName = _("MOUSE"),
         .height = 10,
         .weight = 295,
@@ -1856,7 +1918,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSandslashTMHMLearnset,
         .tutorLearnset = sSandslashTutorLearnset,
         .footprint = gMonFootprint_Sandslash,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_NIDORAN_F] =
@@ -1888,6 +1950,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("NIDORAN♀"),
+        .cryId = CRY_NIDORAN_F,
+        .natDexNum = NATIONAL_DEX_NIDORAN_F,
         .categoryName = _("POISON PIN"),
         .height = 4,
         .weight = 70,
@@ -1918,7 +1982,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sNidoranFTMHMLearnset,
         .tutorLearnset = sNidoranFTutorLearnset,
         .footprint = gMonFootprint_NidoranF,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 16, SPECIES_NIDORINA},
@@ -1954,6 +2018,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("NIDORINA"),
+        .cryId = CRY_NIDORINA,
+        .natDexNum = NATIONAL_DEX_NIDORINA,
         .categoryName = _("POISON PIN"),
         .height = 8,
         .weight = 200,
@@ -1983,7 +2049,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sNidorinaTMHMLearnset,
         .tutorLearnset = sNidorinaTutorLearnset,
         .footprint = gMonFootprint_Nidorina,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_ITEM, ITEM_MOON_STONE, SPECIES_NIDOQUEEN},
@@ -2019,6 +2085,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("NIDOQUEEN"),
+        .cryId = CRY_NIDOQUEEN,
+        .natDexNum = NATIONAL_DEX_NIDOQUEEN,
         .categoryName = _("DRILL"),
         .height = 13,
         .weight = 600,
@@ -2048,7 +2116,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sNidoqueenTMHMLearnset,
         .tutorLearnset = sNidoqueenTutorLearnset,
         .footprint = gMonFootprint_Nidoqueen,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_NIDORAN_M] =
@@ -2080,6 +2148,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("NIDORAN♂"),
+        .cryId = CRY_NIDORAN_M,
+        .natDexNum = NATIONAL_DEX_NIDORAN_M,
         .categoryName = _("POISON PIN"),
         .height = 5,
         .weight = 90,
@@ -2109,7 +2179,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sNidoranMTMHMLearnset,
         .tutorLearnset = sNidoranMTutorLearnset,
         .footprint = gMonFootprint_NidoranM,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 16, SPECIES_NIDORINO},
@@ -2145,6 +2215,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("NIDORINO"),
+        .cryId = CRY_NIDORINO,
+        .natDexNum = NATIONAL_DEX_NIDORINO,
         .categoryName = _("POISON PIN"),
         .height = 9,
         .weight = 195,
@@ -2174,7 +2246,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sNidorinoTMHMLearnset,
         .tutorLearnset = sNidorinoTutorLearnset,
         .footprint = gMonFootprint_Nidorino,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_ITEM, ITEM_MOON_STONE, SPECIES_NIDOKING},
@@ -2210,6 +2282,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("NIDOKING"),
+        .cryId = CRY_NIDOKING,
+        .natDexNum = NATIONAL_DEX_NIDOKING,
         .categoryName = _("DRILL"),
         .height = 14,
         .weight = 620,
@@ -2240,7 +2314,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sNidokingTMHMLearnset,
         .tutorLearnset = sNidokingTutorLearnset,
         .footprint = gMonFootprint_Nidoking,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_CLEFAIRY] =
@@ -2272,6 +2346,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("CLEFAIRY"),
+        .cryId = CRY_CLEFAIRY,
+        .natDexNum = NATIONAL_DEX_CLEFAIRY,
         .categoryName = _("FAIRY"),
         .height = 6,
         .weight = 75,
@@ -2301,7 +2377,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sClefairyTMHMLearnset,
         .tutorLearnset = sClefairyTutorLearnset,
         .footprint = gMonFootprint_Clefairy,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_ITEM, ITEM_MOON_STONE, SPECIES_CLEFABLE},
@@ -2337,6 +2413,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("CLEFABLE"),
+        .cryId = CRY_CLEFABLE,
+        .natDexNum = NATIONAL_DEX_CLEFABLE,
         .categoryName = _("FAIRY"),
         .height = 13,
         .weight = 400,
@@ -2366,7 +2444,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sClefableTMHMLearnset,
         .tutorLearnset = sClefableTutorLearnset,
         .footprint = gMonFootprint_Clefable,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_VULPIX] =
@@ -2398,6 +2476,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("VULPIX"),
+        .cryId = CRY_VULPIX,
+        .natDexNum = NATIONAL_DEX_VULPIX,
         .categoryName = _("FOX"),
         .height = 6,
         .weight = 99,
@@ -2427,7 +2507,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sVulpixTMHMLearnset,
         .tutorLearnset = sVulpixTutorLearnset,
         .footprint = gMonFootprint_Vulpix,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_ITEM, ITEM_FIRE_STONE, SPECIES_NINETALES},
@@ -2463,6 +2543,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("NINETALES"),
+        .cryId = CRY_NINETALES,
+        .natDexNum = NATIONAL_DEX_NINETALES,
         .categoryName = _("FOX"),
         .height = 11,
         .weight = 199,
@@ -2492,7 +2574,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sNinetalesTMHMLearnset,
         .tutorLearnset = sNinetalesTutorLearnset,
         .footprint = gMonFootprint_Ninetales,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_JIGGLYPUFF] =
@@ -2524,6 +2606,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("JIGGLYPUFF"),
+        .cryId = CRY_JIGGLYPUFF,
+        .natDexNum = NATIONAL_DEX_JIGGLYPUFF,
         .categoryName = _("BALLOON"),
         .height = 5,
         .weight = 55,
@@ -2553,7 +2637,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sJigglypuffTMHMLearnset,
         .tutorLearnset = sJigglypuffTutorLearnset,
         .footprint = gMonFootprint_Jigglypuff,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_ITEM, ITEM_MOON_STONE, SPECIES_WIGGLYTUFF},
@@ -2589,6 +2673,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("WIGGLYTUFF"),
+        .cryId = CRY_WIGGLYTUFF,
+        .natDexNum = NATIONAL_DEX_WIGGLYTUFF,
         .categoryName = _("BALLOON"),
         .height = 10,
         .weight = 120,
@@ -2618,7 +2704,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sWigglytuffTMHMLearnset,
         .tutorLearnset = sWigglytuffTutorLearnset,
         .footprint = gMonFootprint_Wigglytuff,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_ZUBAT] =
@@ -2650,6 +2736,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("ZUBAT"),
+        .cryId = CRY_ZUBAT,
+        .natDexNum = NATIONAL_DEX_ZUBAT,
         .categoryName = _("BAT"),
         .height = 8,
         .weight = 75,
@@ -2679,7 +2767,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sZubatTMHMLearnset,
         .tutorLearnset = sZubatTutorLearnset,
         .footprint = gMonFootprint_Zubat,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 22, SPECIES_GOLBAT},
@@ -2715,6 +2804,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("GOLBAT"),
+        .cryId = CRY_GOLBAT,
+        .natDexNum = NATIONAL_DEX_GOLBAT,
         .categoryName = _("BAT"),
         .height = 16,
         .weight = 550,
@@ -2744,7 +2835,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGolbatTMHMLearnset,
         .tutorLearnset = sGolbatTutorLearnset,
         .footprint = gMonFootprint_Golbat,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_FRIENDSHIP, 0, SPECIES_CROBAT},
@@ -2780,6 +2872,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("ODDISH"),
+        .cryId = CRY_ODDISH,
+        .natDexNum = NATIONAL_DEX_ODDISH,
         .categoryName = _("WEED"),
         .height = 5,
         .weight = 54,
@@ -2809,7 +2903,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOddishTMHMLearnset,
         .tutorLearnset = sOddishTutorLearnset,
         .footprint = gMonFootprint_Oddish,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 21, SPECIES_GLOOM},
@@ -2845,6 +2939,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("GLOOM"),
+        .cryId = CRY_GLOOM,
+        .natDexNum = NATIONAL_DEX_GLOOM,
         .categoryName = _("WEED"),
         .height = 8,
         .weight = 86,
@@ -2874,7 +2970,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGloomTMHMLearnset,
         .tutorLearnset = sGloomTutorLearnset,
         .footprint = gMonFootprint_Gloom,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_ITEM, ITEM_LEAF_STONE, SPECIES_VILEPLUME},
@@ -2911,6 +3007,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("VILEPLUME"),
+        .cryId = CRY_VILEPLUME,
+        .natDexNum = NATIONAL_DEX_VILEPLUME,
         .categoryName = _("FLOWER"),
         .height = 12,
         .weight = 186,
@@ -2940,7 +3038,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sVileplumeTMHMLearnset,
         .tutorLearnset = sVileplumeTutorLearnset,
         .footprint = gMonFootprint_Vileplume,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_PARAS] =
@@ -2972,6 +3070,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("PARAS"),
+        .cryId = CRY_PARAS,
+        .natDexNum = NATIONAL_DEX_PARAS,
         .categoryName = _("MUSHROOM"),
         .height = 3,
         .weight = 54,
@@ -3002,7 +3102,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sParasTMHMLearnset,
         .tutorLearnset = sParasTutorLearnset,
         .footprint = gMonFootprint_Paras,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 24, SPECIES_PARASECT},
@@ -3038,6 +3138,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("PARASECT"),
+        .cryId = CRY_PARASECT,
+        .natDexNum = NATIONAL_DEX_PARASECT,
         .categoryName = _("MUSHROOM"),
         .height = 10,
         .weight = 295,
@@ -3068,7 +3170,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sParasectTMHMLearnset,
         .tutorLearnset = sParasectTutorLearnset,
         .footprint = gMonFootprint_Parasect,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_VENONAT] =
@@ -3100,6 +3202,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("VENONAT"),
+        .cryId = CRY_VENONAT,
+        .natDexNum = NATIONAL_DEX_VENONAT,
         .categoryName = _("INSECT"),
         .height = 10,
         .weight = 300,
@@ -3130,7 +3234,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sVenonatTMHMLearnset,
         .tutorLearnset = sVenonatTutorLearnset,
         .footprint = gMonFootprint_Venonat,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 31, SPECIES_VENOMOTH},
@@ -3166,6 +3270,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("VENOMOTH"),
+        .cryId = CRY_VENOMOTH,
+        .natDexNum = NATIONAL_DEX_VENOMOTH,
         .categoryName = _("POISON MOTH"),
         .height = 15,
         .weight = 125,
@@ -3195,7 +3301,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sVenomothTMHMLearnset,
         .tutorLearnset = sVenomothTutorLearnset,
         .footprint = gMonFootprint_Venomoth,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_DIGLETT] =
@@ -3227,6 +3334,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("DIGLETT"),
+        .cryId = CRY_DIGLETT,
+        .natDexNum = NATIONAL_DEX_DIGLETT,
         .categoryName = _("MOLE"),
         .height = 2,
         .weight = 8,
@@ -3257,7 +3366,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sDiglettTMHMLearnset,
         .tutorLearnset = sDiglettTutorLearnset,
         .footprint = gMonFootprint_Diglett,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 26, SPECIES_DUGTRIO},
@@ -3293,6 +3402,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("DUGTRIO"),
+        .cryId = CRY_DUGTRIO,
+        .natDexNum = NATIONAL_DEX_DUGTRIO,
         .categoryName = _("MOLE"),
         .height = 7,
         .weight = 333,
@@ -3323,7 +3434,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sDugtrioTMHMLearnset,
         .tutorLearnset = sDugtrioTutorLearnset,
         .footprint = gMonFootprint_Dugtrio,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_MEOWTH] =
@@ -3355,6 +3466,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("MEOWTH"),
+        .cryId = CRY_MEOWTH,
+        .natDexNum = NATIONAL_DEX_MEOWTH,
         .categoryName = _("SCRATCH CAT"),
         .height = 4,
         .weight = 42,
@@ -3385,7 +3498,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMeowthTMHMLearnset,
         .tutorLearnset = sMeowthTutorLearnset,
         .footprint = gMonFootprint_Meowth,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 28, SPECIES_PERSIAN},
@@ -3421,6 +3534,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("PERSIAN"),
+        .cryId = CRY_PERSIAN,
+        .natDexNum = NATIONAL_DEX_PERSIAN,
         .categoryName = _("CLASSY CAT"),
         .height = 10,
         .weight = 320,
@@ -3451,7 +3566,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPersianTMHMLearnset,
         .tutorLearnset = sPersianTutorLearnset,
         .footprint = gMonFootprint_Persian,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_PSYDUCK] =
@@ -3483,6 +3598,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("PSYDUCK"),
+        .cryId = CRY_PSYDUCK,
+        .natDexNum = NATIONAL_DEX_PSYDUCK,
         .categoryName = _("DUCK"),
         .height = 8,
         .weight = 196,
@@ -3512,7 +3629,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPsyduckTMHMLearnset,
         .tutorLearnset = sPsyduckTutorLearnset,
         .footprint = gMonFootprint_Psyduck,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 33, SPECIES_GOLDUCK},
@@ -3548,6 +3665,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("GOLDUCK"),
+        .cryId = CRY_GOLDUCK,
+        .natDexNum = NATIONAL_DEX_GOLDUCK,
         .categoryName = _("DUCK"),
         .height = 17,
         .weight = 766,
@@ -3577,7 +3696,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGolduckTMHMLearnset,
         .tutorLearnset = sGolduckTutorLearnset,
         .footprint = gMonFootprint_Golduck,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_MANKEY] =
@@ -3609,6 +3728,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("MANKEY"),
+        .cryId = CRY_MANKEY,
+        .natDexNum = NATIONAL_DEX_MANKEY,
         .categoryName = _("PIG MONKEY"),
         .height = 5,
         .weight = 280,
@@ -3639,7 +3760,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMankeyTMHMLearnset,
         .tutorLearnset = sMankeyTutorLearnset,
         .footprint = gMonFootprint_Mankey,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 28, SPECIES_PRIMEAPE},
@@ -3675,6 +3796,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("PRIMEAPE"),
+        .cryId = CRY_PRIMEAPE,
+        .natDexNum = NATIONAL_DEX_PRIMEAPE,
         .categoryName = _("PIG MONKEY"),
         .height = 10,
         .weight = 320,
@@ -3704,7 +3827,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPrimeapeTMHMLearnset,
         .tutorLearnset = sPrimeapeTutorLearnset,
         .footprint = gMonFootprint_Primeape,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_GROWLITHE] =
@@ -3736,6 +3859,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("GROWLITHE"),
+        .cryId = CRY_GROWLITHE,
+        .natDexNum = NATIONAL_DEX_GROWLITHE,
         .categoryName = _("PUPPY"),
         .height = 7,
         .weight = 190,
@@ -3766,7 +3891,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGrowlitheTMHMLearnset,
         .tutorLearnset = sGrowlitheTutorLearnset,
         .footprint = gMonFootprint_Growlithe,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_ITEM, ITEM_FIRE_STONE, SPECIES_ARCANINE},
@@ -3802,6 +3927,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("ARCANINE"),
+        .cryId = CRY_ARCANINE,
+        .natDexNum = NATIONAL_DEX_ARCANINE,
         .categoryName = _("LEGENDARY"),
         .height = 19,
         .weight = 1550,
@@ -3832,7 +3959,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sArcanineTMHMLearnset,
         .tutorLearnset = sArcanineTutorLearnset,
         .footprint = gMonFootprint_Arcanine,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_POLIWAG] =
@@ -3864,6 +3991,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = TRUE,
         .speciesName = _("POLIWAG"),
+        .cryId = CRY_POLIWAG,
+        .natDexNum = NATIONAL_DEX_POLIWAG,
         .categoryName = _("TADPOLE"),
         .height = 6,
         .weight = 124,
@@ -3893,7 +4022,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPoliwagTMHMLearnset,
         .tutorLearnset = sPoliwagTutorLearnset,
         .footprint = gMonFootprint_Poliwag,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 25, SPECIES_POLIWHIRL},
@@ -3929,6 +4058,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = TRUE,
         .speciesName = _("POLIWHIRL"),
+        .cryId = CRY_POLIWHIRL,
+        .natDexNum = NATIONAL_DEX_POLIWHIRL,
         .categoryName = _("TADPOLE"),
         .height = 10,
         .weight = 200,
@@ -3959,7 +4090,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPoliwhirlTMHMLearnset,
         .tutorLearnset = sPoliwhirlTutorLearnset,
         .footprint = gMonFootprint_Poliwhirl,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_ITEM, ITEM_WATER_STONE, SPECIES_POLIWRATH},
@@ -3996,6 +4127,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = TRUE,
         .speciesName = _("POLIWRATH"),
+        .cryId = CRY_POLIWRATH,
+        .natDexNum = NATIONAL_DEX_POLIWRATH,
         .categoryName = _("TADPOLE"),
         .height = 13,
         .weight = 540,
@@ -4025,7 +4158,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPoliwrathTMHMLearnset,
         .tutorLearnset = sPoliwrathTutorLearnset,
         .footprint = gMonFootprint_Poliwrath,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_ABRA] =
@@ -4057,6 +4190,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("ABRA"),
+        .cryId = CRY_ABRA,
+        .natDexNum = NATIONAL_DEX_ABRA,
         .categoryName = _("PSI"),
         .height = 9,
         .weight = 195,
@@ -4086,7 +4221,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sAbraTMHMLearnset,
         .tutorLearnset = sAbraTutorLearnset,
         .footprint = gMonFootprint_Abra,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 16, SPECIES_KADABRA},
@@ -4122,6 +4257,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("KADABRA"),
+        .cryId = CRY_KADABRA,
+        .natDexNum = NATIONAL_DEX_KADABRA,
         .categoryName = _("PSI"),
         .height = 13,
         .weight = 565,
@@ -4151,7 +4288,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sKadabraTMHMLearnset,
         .tutorLearnset = sKadabraTutorLearnset,
         .footprint = gMonFootprint_Kadabra,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_TRADE, 0, SPECIES_ALAKAZAM},
@@ -4187,6 +4324,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("ALAKAZAM"),
+        .cryId = CRY_ALAKAZAM,
+        .natDexNum = NATIONAL_DEX_ALAKAZAM,
         .categoryName = _("PSI"),
         .height = 15,
         .weight = 480,
@@ -4216,7 +4355,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sAlakazamTMHMLearnset,
         .tutorLearnset = sAlakazamTutorLearnset,
         .footprint = gMonFootprint_Alakazam,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_MACHOP] =
@@ -4248,6 +4387,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("MACHOP"),
+        .cryId = CRY_MACHOP,
+        .natDexNum = NATIONAL_DEX_MACHOP,
         .categoryName = _("SUPERPOWER"),
         .height = 8,
         .weight = 195,
@@ -4277,7 +4418,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMachopTMHMLearnset,
         .tutorLearnset = sMachopTutorLearnset,
         .footprint = gMonFootprint_Machop,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 28, SPECIES_MACHOKE},
@@ -4313,6 +4454,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("MACHOKE"),
+        .cryId = CRY_MACHOKE,
+        .natDexNum = NATIONAL_DEX_MACHOKE,
         .categoryName = _("SUPERPOWER"),
         .height = 15,
         .weight = 705,
@@ -4342,7 +4485,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMachokeTMHMLearnset,
         .tutorLearnset = sMachokeTutorLearnset,
         .footprint = gMonFootprint_Machoke,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_TRADE, 0, SPECIES_MACHAMP},
@@ -4378,6 +4521,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("MACHAMP"),
+        .cryId = CRY_MACHAMP,
+        .natDexNum = NATIONAL_DEX_MACHAMP,
         .categoryName = _("SUPERPOWER"),
         .height = 16,
         .weight = 1300,
@@ -4407,7 +4552,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMachampTMHMLearnset,
         .tutorLearnset = sMachampTutorLearnset,
         .footprint = gMonFootprint_Machamp,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_BELLSPROUT] =
@@ -4439,6 +4584,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("BELLSPROUT"),
+        .cryId = CRY_BELLSPROUT,
+        .natDexNum = NATIONAL_DEX_BELLSPROUT,
         .categoryName = _("FLOWER"),
         .height = 7,
         .weight = 40,
@@ -4468,7 +4615,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sBellsproutTMHMLearnset,
         .tutorLearnset = sBellsproutTutorLearnset,
         .footprint = gMonFootprint_Bellsprout,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 21, SPECIES_WEEPINBELL},
@@ -4504,6 +4651,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("WEEPINBELL"),
+        .cryId = CRY_WEEPINBELL,
+        .natDexNum = NATIONAL_DEX_WEEPINBELL,
         .categoryName = _("FLYCATCHER"),
         .height = 10,
         .weight = 64,
@@ -4534,7 +4683,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sWeepinbellTMHMLearnset,
         .tutorLearnset = sWeepinbellTutorLearnset,
         .footprint = gMonFootprint_Weepinbell,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_ITEM, ITEM_LEAF_STONE, SPECIES_VICTREEBEL},
@@ -4570,6 +4719,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("VICTREEBEL"),
+        .cryId = CRY_VICTREEBEL,
+        .natDexNum = NATIONAL_DEX_VICTREEBEL,
         .categoryName = _("FLYCATCHER"),
         .height = 17,
         .weight = 155,
@@ -4599,7 +4750,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sVictreebelTMHMLearnset,
         .tutorLearnset = sVictreebelTutorLearnset,
         .footprint = gMonFootprint_Victreebel,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_TENTACOOL] =
@@ -4631,6 +4782,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("TENTACOOL"),
+        .cryId = CRY_TENTACOOL,
+        .natDexNum = NATIONAL_DEX_TENTACOOL,
         .categoryName = _("JELLYFISH"),
         .height = 9,
         .weight = 455,
@@ -4660,7 +4813,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sTentacoolTMHMLearnset,
         .tutorLearnset = sTentacoolTutorLearnset,
         .footprint = gMonFootprint_Tentacool,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 30, SPECIES_TENTACRUEL},
@@ -4696,6 +4849,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("TENTACRUEL"),
+        .cryId = CRY_TENTACRUEL,
+        .natDexNum = NATIONAL_DEX_TENTACRUEL,
         .categoryName = _("JELLYFISH"),
         .height = 16,
         .weight = 550,
@@ -4725,7 +4880,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sTentacruelTMHMLearnset,
         .tutorLearnset = sTentacruelTutorLearnset,
         .footprint = gMonFootprint_Tentacruel,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_GEODUDE] =
@@ -4757,6 +4912,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("GEODUDE"),
+        .cryId = CRY_GEODUDE,
+        .natDexNum = NATIONAL_DEX_GEODUDE,
         .categoryName = _("ROCK"),
         .height = 4,
         .weight = 200,
@@ -4786,7 +4943,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGeodudeTMHMLearnset,
         .tutorLearnset = sGeodudeTutorLearnset,
         .footprint = gMonFootprint_Geodude,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 16,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 25, SPECIES_GRAVELER},
@@ -4822,6 +4980,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("GRAVELER"),
+        .cryId = CRY_GRAVELER,
+        .natDexNum = NATIONAL_DEX_GRAVELER,
         .categoryName = _("ROCK"),
         .height = 10,
         .weight = 1050,
@@ -4851,7 +5011,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGravelerTMHMLearnset,
         .tutorLearnset = sGravelerTutorLearnset,
         .footprint = gMonFootprint_Graveler,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_TRADE, 0, SPECIES_GOLEM},
@@ -4887,6 +5047,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("GOLEM"),
+        .cryId = CRY_GOLEM,
+        .natDexNum = NATIONAL_DEX_GOLEM,
         .categoryName = _("MEGATON"),
         .height = 14,
         .weight = 3000,
@@ -4916,7 +5078,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGolemTMHMLearnset,
         .tutorLearnset = sGolemTutorLearnset,
         .footprint = gMonFootprint_Golem,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_PONYTA] =
@@ -4948,6 +5110,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("PONYTA"),
+        .cryId = CRY_PONYTA,
+        .natDexNum = NATIONAL_DEX_PONYTA,
         .categoryName = _("FIRE HORSE"),
         .height = 10,
         .weight = 300,
@@ -4977,7 +5141,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPonytaTMHMLearnset,
         .tutorLearnset = sPonytaTutorLearnset,
         .footprint = gMonFootprint_Ponyta,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 40, SPECIES_RAPIDASH},
@@ -5013,6 +5177,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("RAPIDASH"),
+        .cryId = CRY_RAPIDASH,
+        .natDexNum = NATIONAL_DEX_RAPIDASH,
         .categoryName = _("FIRE HORSE"),
         .height = 17,
         .weight = 950,
@@ -5042,7 +5208,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sRapidashTMHMLearnset,
         .tutorLearnset = sRapidashTutorLearnset,
         .footprint = gMonFootprint_Rapidash,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SLOWPOKE] =
@@ -5074,6 +5240,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("SLOWPOKE"),
+        .cryId = CRY_SLOWPOKE,
+        .natDexNum = NATIONAL_DEX_SLOWPOKE,
         .categoryName = _("DOPEY"),
         .height = 12,
         .weight = 360,
@@ -5103,7 +5271,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSlowpokeTMHMLearnset,
         .tutorLearnset = sSlowpokeTutorLearnset,
         .footprint = gMonFootprint_Slowpoke,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 37, SPECIES_SLOWBRO},
@@ -5140,6 +5308,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("SLOWBRO"),
+        .cryId = CRY_SLOWBRO,
+        .natDexNum = NATIONAL_DEX_SLOWBRO,
         .categoryName = _("HERMIT CRAB"),
         .height = 16,
         .weight = 785,
@@ -5169,7 +5339,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSlowbroTMHMLearnset,
         .tutorLearnset = sSlowbroTutorLearnset,
         .footprint = gMonFootprint_Slowbro,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_MAGNEMITE] =
@@ -5201,6 +5371,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("MAGNEMITE"),
+        .cryId = CRY_MAGNEMITE,
+        .natDexNum = NATIONAL_DEX_MAGNEMITE,
         .categoryName = _("MAGNET"),
         .height = 3,
         .weight = 60,
@@ -5230,7 +5402,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMagnemiteTMHMLearnset,
         .tutorLearnset = sMagnemiteTutorLearnset,
         .footprint = gMonFootprint_Magnemite,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 16,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 30, SPECIES_MAGNETON},
@@ -5266,6 +5439,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("MAGNETON"),
+        .cryId = CRY_MAGNETON,
+        .natDexNum = NATIONAL_DEX_MAGNETON,
         .categoryName = _("MAGNET"),
         .height = 10,
         .weight = 600,
@@ -5295,7 +5470,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMagnetonTMHMLearnset,
         .tutorLearnset = sMagnetonTutorLearnset,
         .footprint = gMonFootprint_Magneton,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_FARFETCHD] =
@@ -5327,6 +5503,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("FARFETCH'D"),
+        .cryId = CRY_FARFETCHD,
+        .natDexNum = NATIONAL_DEX_FARFETCHD,
         .categoryName = _("WILD DUCK"),
         .height = 8,
         .weight = 150,
@@ -5356,7 +5534,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sFarfetchdTMHMLearnset,
         .tutorLearnset = sFarfetchdTutorLearnset,
         .footprint = gMonFootprint_Farfetchd,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_DODUO] =
@@ -5388,6 +5566,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("DODUO"),
+        .cryId = CRY_DODUO,
+        .natDexNum = NATIONAL_DEX_DODUO,
         .categoryName = _("TWIN BIRD"),
         .height = 14,
         .weight = 392,
@@ -5417,7 +5597,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sDoduoTMHMLearnset,
         .tutorLearnset = sDoduoTutorLearnset,
         .footprint = gMonFootprint_Doduo,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 31, SPECIES_DODRIO},
@@ -5453,6 +5633,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("DODRIO"),
+        .cryId = CRY_DODRIO,
+        .natDexNum = NATIONAL_DEX_DODRIO,
         .categoryName = _("TRIPLE BIRD"),
         .height = 18,
         .weight = 852,
@@ -5482,7 +5664,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sDodrioTMHMLearnset,
         .tutorLearnset = sDodrioTutorLearnset,
         .footprint = gMonFootprint_Dodrio,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SEEL] =
@@ -5514,6 +5696,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .speciesName = _("SEEL"),
+        .cryId = CRY_SEEL,
+        .natDexNum = NATIONAL_DEX_SEEL,
         .categoryName = _("SEA LION"),
         .height = 11,
         .weight = 900,
@@ -5543,7 +5727,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSeelTMHMLearnset,
         .tutorLearnset = sSeelTutorLearnset,
         .footprint = gMonFootprint_Seel,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 34, SPECIES_DEWGONG},
@@ -5579,6 +5763,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .speciesName = _("DEWGONG"),
+        .cryId = CRY_DEWGONG,
+        .natDexNum = NATIONAL_DEX_DEWGONG,
         .categoryName = _("SEA LION"),
         .height = 17,
         .weight = 1200,
@@ -5608,7 +5794,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sDewgongTMHMLearnset,
         .tutorLearnset = sDewgongTutorLearnset,
         .footprint = gMonFootprint_Dewgong,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_GRIMER] =
@@ -5640,6 +5826,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("GRIMER"),
+        .cryId = CRY_GRIMER,
+        .natDexNum = NATIONAL_DEX_GRIMER,
         .categoryName = _("SLUDGE"),
         .height = 9,
         .weight = 300,
@@ -5669,7 +5857,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGrimerTMHMLearnset,
         .tutorLearnset = sGrimerTutorLearnset,
         .footprint = gMonFootprint_Grimer,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 38, SPECIES_MUK},
@@ -5705,6 +5893,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("MUK"),
+        .cryId = CRY_MUK,
+        .natDexNum = NATIONAL_DEX_MUK,
         .categoryName = _("SLUDGE"),
         .height = 12,
         .weight = 300,
@@ -5735,7 +5925,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMukTMHMLearnset,
         .tutorLearnset = sMukTutorLearnset,
         .footprint = gMonFootprint_Muk,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SHELLDER] =
@@ -5767,6 +5957,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("SHELLDER"),
+        .cryId = CRY_SHELLDER,
+        .natDexNum = NATIONAL_DEX_SHELLDER,
         .categoryName = _("BIVALVE"),
         .height = 3,
         .weight = 40,
@@ -5797,7 +5989,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sShellderTMHMLearnset,
         .tutorLearnset = sShellderTutorLearnset,
         .footprint = gMonFootprint_Shellder,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_ITEM, ITEM_WATER_STONE, SPECIES_CLOYSTER},
@@ -5833,6 +6025,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("CLOYSTER"),
+        .cryId = CRY_CLOYSTER,
+        .natDexNum = NATIONAL_DEX_CLOYSTER,
         .categoryName = _("BIVALVE"),
         .height = 15,
         .weight = 1325,
@@ -5862,7 +6056,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCloysterTMHMLearnset,
         .tutorLearnset = sCloysterTutorLearnset,
         .footprint = gMonFootprint_Cloyster,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_GASTLY] =
@@ -5894,6 +6088,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("GASTLY"),
+        .cryId = CRY_GASTLY,
+        .natDexNum = NATIONAL_DEX_GASTLY,
         .categoryName = _("GAS"),
         .height = 13,
         .weight = 1,
@@ -5923,7 +6119,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGastlyTMHMLearnset,
         .tutorLearnset = sGastlyTutorLearnset,
         .footprint = gMonFootprint_Gastly,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 4,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 25, SPECIES_HAUNTER},
@@ -5959,6 +6156,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("HAUNTER"),
+        .cryId = CRY_HAUNTER,
+        .natDexNum = NATIONAL_DEX_HAUNTER,
         .categoryName = _("GAS"),
         .height = 16,
         .weight = 1,
@@ -5989,7 +6188,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sHaunterTMHMLearnset,
         .tutorLearnset = sHaunterTutorLearnset,
         .footprint = gMonFootprint_Haunter,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 4,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_TRADE, 0, SPECIES_GENGAR},
@@ -6025,6 +6225,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("GENGAR"),
+        .cryId = CRY_GENGAR,
+        .natDexNum = NATIONAL_DEX_GENGAR,
         .categoryName = _("SHADOW"),
         .height = 15,
         .weight = 405,
@@ -6054,7 +6256,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGengarTMHMLearnset,
         .tutorLearnset = sGengarTutorLearnset,
         .footprint = gMonFootprint_Gengar,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_ONIX] =
@@ -6086,6 +6288,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("ONIX"),
+        .cryId = CRY_ONIX,
+        .natDexNum = NATIONAL_DEX_ONIX,
         .categoryName = _("ROCK SNAKE"),
         .height = 88,
         .weight = 2100,
@@ -6115,7 +6319,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOnixTMHMLearnset,
         .tutorLearnset = sOnixTutorLearnset,
         .footprint = gMonFootprint_Onix,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_TRADE_ITEM, ITEM_METAL_COAT, SPECIES_STEELIX},
@@ -6151,6 +6355,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("DROWZEE"),
+        .cryId = CRY_DROWZEE,
+        .natDexNum = NATIONAL_DEX_DROWZEE,
         .categoryName = _("HYPNOSIS"),
         .height = 10,
         .weight = 324,
@@ -6181,7 +6387,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sDrowzeeTMHMLearnset,
         .tutorLearnset = sDrowzeeTutorLearnset,
         .footprint = gMonFootprint_Drowzee,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 26, SPECIES_HYPNO},
@@ -6217,6 +6423,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("HYPNO"),
+        .cryId = CRY_HYPNO,
+        .natDexNum = NATIONAL_DEX_HYPNO,
         .categoryName = _("HYPNOSIS"),
         .height = 16,
         .weight = 756,
@@ -6247,7 +6455,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sHypnoTMHMLearnset,
         .tutorLearnset = sHypnoTutorLearnset,
         .footprint = gMonFootprint_Hypno,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_KRABBY] =
@@ -6279,6 +6487,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("KRABBY"),
+        .cryId = CRY_KRABBY,
+        .natDexNum = NATIONAL_DEX_KRABBY,
         .categoryName = _("RIVER CRAB"),
         .height = 4,
         .weight = 65,
@@ -6308,7 +6518,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sKrabbyTMHMLearnset,
         .tutorLearnset = sKrabbyTutorLearnset,
         .footprint = gMonFootprint_Krabby,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 28, SPECIES_KINGLER},
@@ -6344,6 +6554,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = TRUE,
         .speciesName = _("KINGLER"),
+        .cryId = CRY_KINGLER,
+        .natDexNum = NATIONAL_DEX_KINGLER,
         .categoryName = _("PINCER"),
         .height = 13,
         .weight = 600,
@@ -6373,7 +6585,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sKinglerTMHMLearnset,
         .tutorLearnset = sKinglerTutorLearnset,
         .footprint = gMonFootprint_Kingler,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_VOLTORB] =
@@ -6405,6 +6617,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("VOLTORB"),
+        .cryId = CRY_VOLTORB,
+        .natDexNum = NATIONAL_DEX_VOLTORB,
         .categoryName = _("BALL"),
         .height = 5,
         .weight = 104,
@@ -6434,7 +6648,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sVoltorbTMHMLearnset,
         .tutorLearnset = sVoltorbTutorLearnset,
         .footprint = gMonFootprint_Voltorb,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 10,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 30, SPECIES_ELECTRODE},
@@ -6470,6 +6685,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("ELECTRODE"),
+        .cryId = CRY_ELECTRODE,
+        .natDexNum = NATIONAL_DEX_ELECTRODE,
         .categoryName = _("BALL"),
         .height = 12,
         .weight = 666,
@@ -6499,7 +6716,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sElectrodeTMHMLearnset,
         .tutorLearnset = sElectrodeTutorLearnset,
         .footprint = gMonFootprint_Electrode,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 12,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_EXEGGCUTE] =
@@ -6531,6 +6749,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("EXEGGCUTE"),
+        .cryId = CRY_EXEGGCUTE,
+        .natDexNum = NATIONAL_DEX_EXEGGCUTE,
         .categoryName = _("EGG"),
         .height = 4,
         .weight = 25,
@@ -6560,7 +6780,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sExeggcuteTMHMLearnset,
         .tutorLearnset = sExeggcuteTutorLearnset,
         .footprint = gMonFootprint_Exeggcute,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_ITEM, ITEM_LEAF_STONE, SPECIES_EXEGGUTOR},
@@ -6596,6 +6816,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("EXEGGUTOR"),
+        .cryId = CRY_EXEGGUTOR,
+        .natDexNum = NATIONAL_DEX_EXEGGUTOR,
         .categoryName = _("COCONUT"),
         .height = 20,
         .weight = 1200,
@@ -6625,7 +6847,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sExeggutorTMHMLearnset,
         .tutorLearnset = sExeggutorTutorLearnset,
         .footprint = gMonFootprint_Exeggutor,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_CUBONE] =
@@ -6657,6 +6879,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("CUBONE"),
+        .cryId = CRY_CUBONE,
+        .natDexNum = NATIONAL_DEX_CUBONE,
         .categoryName = _("LONELY"),
         .height = 4,
         .weight = 65,
@@ -6686,7 +6910,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCuboneTMHMLearnset,
         .tutorLearnset = sCuboneTutorLearnset,
         .footprint = gMonFootprint_Cubone,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 28, SPECIES_MAROWAK},
@@ -6722,6 +6946,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("MAROWAK"),
+        .cryId = CRY_MAROWAK,
+        .natDexNum = NATIONAL_DEX_MAROWAK,
         .categoryName = _("BONE KEEPER"),
         .height = 10,
         .weight = 450,
@@ -6751,7 +6977,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMarowakTMHMLearnset,
         .tutorLearnset = sMarowakTutorLearnset,
         .footprint = gMonFootprint_Marowak,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_HITMONLEE] =
@@ -6783,6 +7009,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("HITMONLEE"),
+        .cryId = CRY_HITMONLEE,
+        .natDexNum = NATIONAL_DEX_HITMONLEE,
         .categoryName = _("KICKING"),
         .height = 15,
         .weight = 498,
@@ -6812,7 +7040,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sHitmonleeTMHMLearnset,
         .tutorLearnset = sHitmonleeTutorLearnset,
         .footprint = gMonFootprint_Hitmonlee,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_HITMONCHAN] =
@@ -6844,6 +7072,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("HITMONCHAN"),
+        .cryId = CRY_HITMONCHAN,
+        .natDexNum = NATIONAL_DEX_HITMONCHAN,
         .categoryName = _("PUNCHING"),
         .height = 14,
         .weight = 502,
@@ -6874,7 +7104,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sHitmonchanTMHMLearnset,
         .tutorLearnset = sHitmonchanTutorLearnset,
         .footprint = gMonFootprint_Hitmonchan,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_LICKITUNG] =
@@ -6906,6 +7136,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("LICKITUNG"),
+        .cryId = CRY_LICKITUNG,
+        .natDexNum = NATIONAL_DEX_LICKITUNG,
         .categoryName = _("LICKING"),
         .height = 12,
         .weight = 655,
@@ -6935,7 +7167,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sLickitungTMHMLearnset,
         .tutorLearnset = sLickitungTutorLearnset,
         .footprint = gMonFootprint_Lickitung,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_KOFFING] =
@@ -6967,6 +7199,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("KOFFING"),
+        .cryId = CRY_KOFFING,
+        .natDexNum = NATIONAL_DEX_KOFFING,
         .categoryName = _("POISON GAS"),
         .height = 6,
         .weight = 10,
@@ -6996,7 +7230,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sKoffingTMHMLearnset,
         .tutorLearnset = sKoffingTutorLearnset,
         .footprint = gMonFootprint_Koffing,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 35, SPECIES_WEEZING},
@@ -7032,6 +7267,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("WEEZING"),
+        .cryId = CRY_WEEZING,
+        .natDexNum = NATIONAL_DEX_WEEZING,
         .categoryName = _("POISON GAS"),
         .height = 12,
         .weight = 95,
@@ -7061,7 +7298,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sWeezingTMHMLearnset,
         .tutorLearnset = sWeezingTutorLearnset,
         .footprint = gMonFootprint_Weezing,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 6,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_RHYHORN] =
@@ -7093,6 +7331,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("RHYHORN"),
+        .cryId = CRY_RHYHORN,
+        .natDexNum = NATIONAL_DEX_RHYHORN,
         .categoryName = _("SPIKES"),
         .height = 10,
         .weight = 1150,
@@ -7122,7 +7362,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sRhyhornTMHMLearnset,
         .tutorLearnset = sRhyhornTutorLearnset,
         .footprint = gMonFootprint_Rhyhorn,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 42, SPECIES_RHYDON},
@@ -7158,6 +7398,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("RHYDON"),
+        .cryId = CRY_RHYDON,
+        .natDexNum = NATIONAL_DEX_RHYDON,
         .categoryName = _("DRILL"),
         .height = 19,
         .weight = 1200,
@@ -7187,7 +7429,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sRhydonTMHMLearnset,
         .tutorLearnset = sRhydonTutorLearnset,
         .footprint = gMonFootprint_Rhydon,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_CHANSEY] =
@@ -7219,6 +7461,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("CHANSEY"),
+        .cryId = CRY_CHANSEY,
+        .natDexNum = NATIONAL_DEX_CHANSEY,
         .categoryName = _("EGG"),
         .height = 11,
         .weight = 346,
@@ -7248,7 +7492,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sChanseyTMHMLearnset,
         .tutorLearnset = sChanseyTutorLearnset,
         .footprint = gMonFootprint_Chansey,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_FRIENDSHIP, 0, SPECIES_BLISSEY},
@@ -7284,6 +7528,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("TANGELA"),
+        .cryId = CRY_TANGELA,
+        .natDexNum = NATIONAL_DEX_TANGELA,
         .categoryName = _("VINE"),
         .height = 10,
         .weight = 350,
@@ -7313,7 +7559,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sTangelaTMHMLearnset,
         .tutorLearnset = sTangelaTutorLearnset,
         .footprint = gMonFootprint_Tangela,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_KANGASKHAN] =
@@ -7345,6 +7591,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("KANGASKHAN"),
+        .cryId = CRY_KANGASKHAN,
+        .natDexNum = NATIONAL_DEX_KANGASKHAN,
         .categoryName = _("PARENT"),
         .height = 22,
         .weight = 800,
@@ -7374,7 +7622,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sKangaskhanTMHMLearnset,
         .tutorLearnset = sKangaskhanTutorLearnset,
         .footprint = gMonFootprint_Kangaskhan,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_HORSEA] =
@@ -7406,6 +7654,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("HORSEA"),
+        .cryId = CRY_HORSEA,
+        .natDexNum = NATIONAL_DEX_HORSEA,
         .categoryName = _("DRAGON"),
         .height = 4,
         .weight = 80,
@@ -7435,7 +7685,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sHorseaTMHMLearnset,
         .tutorLearnset = sHorseaTutorLearnset,
         .footprint = gMonFootprint_Horsea,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 32, SPECIES_SEADRA},
@@ -7471,6 +7721,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("SEADRA"),
+        .cryId = CRY_SEADRA,
+        .natDexNum = NATIONAL_DEX_SEADRA,
         .categoryName = _("DRAGON"),
         .height = 12,
         .weight = 250,
@@ -7500,7 +7752,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSeadraTMHMLearnset,
         .tutorLearnset = sSeadraTutorLearnset,
         .footprint = gMonFootprint_Seadra,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_TRADE_ITEM, ITEM_DRAGON_SCALE, SPECIES_KINGDRA},
@@ -7536,6 +7788,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("GOLDEEN"),
+        .cryId = CRY_GOLDEEN,
+        .natDexNum = NATIONAL_DEX_GOLDEEN,
         .categoryName = _("GOLDFISH"),
         .height = 6,
         .weight = 150,
@@ -7565,7 +7819,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGoldeenTMHMLearnset,
         .tutorLearnset = sGoldeenTutorLearnset,
         .footprint = gMonFootprint_Goldeen,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 33, SPECIES_SEAKING},
@@ -7601,6 +7855,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("SEAKING"),
+        .cryId = CRY_SEAKING,
+        .natDexNum = NATIONAL_DEX_SEAKING,
         .categoryName = _("GOLDFISH"),
         .height = 13,
         .weight = 390,
@@ -7630,7 +7886,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSeakingTMHMLearnset,
         .tutorLearnset = sSeakingTutorLearnset,
         .footprint = gMonFootprint_Seaking,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_STARYU] =
@@ -7662,6 +7918,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("STARYU"),
+        .cryId = CRY_STARYU,
+        .natDexNum = NATIONAL_DEX_STARYU,
         .categoryName = _("STAR SHAPE"),
         .height = 8,
         .weight = 345,
@@ -7691,7 +7949,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sStaryuTMHMLearnset,
         .tutorLearnset = sStaryuTutorLearnset,
         .footprint = gMonFootprint_Staryu,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_ITEM, ITEM_WATER_STONE, SPECIES_STARMIE},
@@ -7727,6 +7985,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("STARMIE"),
+        .cryId = CRY_STARMIE,
+        .natDexNum = NATIONAL_DEX_STARMIE,
         .categoryName = _("MYSTERIOUS"),
         .height = 11,
         .weight = 800,
@@ -7756,7 +8016,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sStarmieTMHMLearnset,
         .tutorLearnset = sStarmieTutorLearnset,
         .footprint = gMonFootprint_Starmie,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_MR_MIME] =
@@ -7788,6 +8048,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("MR. MIME"),
+        .cryId = CRY_MR_MIME,
+        .natDexNum = NATIONAL_DEX_MR_MIME,
         .categoryName = _("BARRIER"),
         .height = 13,
         .weight = 545,
@@ -7817,7 +8079,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMrMimeTMHMLearnset,
         .tutorLearnset = sMrMimeTutorLearnset,
         .footprint = gMonFootprint_MrMime,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SCYTHER] =
@@ -7849,6 +8111,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("SCYTHER"),
+        .cryId = CRY_SCYTHER,
+        .natDexNum = NATIONAL_DEX_SCYTHER,
         .categoryName = _("MANTIS"),
         .height = 15,
         .weight = 560,
@@ -7879,7 +8143,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sScytherTMHMLearnset,
         .tutorLearnset = sScytherTutorLearnset,
         .footprint = gMonFootprint_Scyther,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_TRADE_ITEM, ITEM_METAL_COAT, SPECIES_SCIZOR},
@@ -7915,6 +8179,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("JYNX"),
+        .cryId = CRY_JYNX,
+        .natDexNum = NATIONAL_DEX_JYNX,
         .categoryName = _("HUMAN SHAPE"),
         .height = 14,
         .weight = 406,
@@ -7944,7 +8210,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sJynxTMHMLearnset,
         .tutorLearnset = sJynxTutorLearnset,
         .footprint = gMonFootprint_Jynx,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_ELECTABUZZ] =
@@ -7976,6 +8242,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = TRUE,
         .speciesName = _("ELECTABUZZ"),
+        .cryId = CRY_ELECTABUZZ,
+        .natDexNum = NATIONAL_DEX_ELECTABUZZ,
         .categoryName = _("ELECTRIC"),
         .height = 11,
         .weight = 300,
@@ -8005,7 +8273,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sElectabuzzTMHMLearnset,
         .tutorLearnset = sElectabuzzTutorLearnset,
         .footprint = gMonFootprint_Electabuzz,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_MAGMAR] =
@@ -8037,6 +8305,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("MAGMAR"),
+        .cryId = CRY_MAGMAR,
+        .natDexNum = NATIONAL_DEX_MAGMAR,
         .categoryName = _("SPITFIRE"),
         .height = 13,
         .weight = 445,
@@ -8066,7 +8336,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMagmarTMHMLearnset,
         .tutorLearnset = sMagmarTutorLearnset,
         .footprint = gMonFootprint_Magmar,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_PINSIR] =
@@ -8098,6 +8368,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("PINSIR"),
+        .cryId = CRY_PINSIR,
+        .natDexNum = NATIONAL_DEX_PINSIR,
         .categoryName = _("STAG BEETLE"),
         .height = 15,
         .weight = 550,
@@ -8127,7 +8399,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPinsirTMHMLearnset,
         .tutorLearnset = sPinsirTutorLearnset,
         .footprint = gMonFootprint_Pinsir,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_TAUROS] =
@@ -8159,6 +8431,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("TAUROS"),
+        .cryId = CRY_TAUROS,
+        .natDexNum = NATIONAL_DEX_TAUROS,
         .categoryName = _("WILD BULL"),
         .height = 14,
         .weight = 884,
@@ -8189,7 +8463,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sTaurosTMHMLearnset,
         .tutorLearnset = sTaurosTutorLearnset,
         .footprint = gMonFootprint_Tauros,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_MAGIKARP] =
@@ -8221,6 +8495,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("MAGIKARP"),
+        .cryId = CRY_MAGIKARP,
+        .natDexNum = NATIONAL_DEX_MAGIKARP,
         .categoryName = _("FISH"),
         .height = 9,
         .weight = 100,
@@ -8250,7 +8526,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMagikarpTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_Magikarp,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 20, SPECIES_GYARADOS},
@@ -8286,6 +8562,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("GYARADOS"),
+        .cryId = CRY_GYARADOS,
+        .natDexNum = NATIONAL_DEX_GYARADOS,
         .categoryName = _("ATROCIOUS"),
         .height = 65,
         .weight = 2350,
@@ -8315,7 +8593,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGyaradosTMHMLearnset,
         .tutorLearnset = sGyaradosTutorLearnset,
         .footprint = gMonFootprint_Gyarados,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_LAPRAS] =
@@ -8347,6 +8625,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("LAPRAS"),
+        .cryId = CRY_LAPRAS,
+        .natDexNum = NATIONAL_DEX_LAPRAS,
         .categoryName = _("TRANSPORT"),
         .height = 25,
         .weight = 2200,
@@ -8376,7 +8656,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sLaprasTMHMLearnset,
         .tutorLearnset = sLaprasTutorLearnset,
         .footprint = gMonFootprint_Lapras,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_DITTO] =
@@ -8408,6 +8688,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("DITTO"),
+        .cryId = CRY_DITTO,
+        .natDexNum = NATIONAL_DEX_DITTO,
         .categoryName = _("TRANSFORM"),
         .height = 3,
         .weight = 40,
@@ -8437,7 +8719,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sDittoTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_Ditto,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
     },
 
     [SPECIES_EEVEE] =
@@ -8469,6 +8751,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("EEVEE"),
+        .cryId = CRY_EEVEE,
+        .natDexNum = NATIONAL_DEX_EEVEE,
         .categoryName = _("EVOLUTION"),
         .height = 3,
         .weight = 65,
@@ -8498,7 +8782,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sEeveeTMHMLearnset,
         .tutorLearnset = sEeveeTutorLearnset,
         .footprint = gMonFootprint_Eevee,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_ITEM, ITEM_THUNDER_STONE, SPECIES_JOLTEON},
@@ -8538,6 +8822,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("VAPOREON"),
+        .cryId = CRY_VAPOREON,
+        .natDexNum = NATIONAL_DEX_VAPOREON,
         .categoryName = _("BUBBLE JET"),
         .height = 10,
         .weight = 290,
@@ -8567,7 +8853,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sVaporeonTMHMLearnset,
         .tutorLearnset = sVaporeonTutorLearnset,
         .footprint = gMonFootprint_Vaporeon,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_JOLTEON] =
@@ -8599,6 +8885,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("JOLTEON"),
+        .cryId = CRY_JOLTEON,
+        .natDexNum = NATIONAL_DEX_JOLTEON,
         .categoryName = _("LIGHTNING"),
         .height = 8,
         .weight = 245,
@@ -8628,7 +8916,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sJolteonTMHMLearnset,
         .tutorLearnset = sJolteonTutorLearnset,
         .footprint = gMonFootprint_Jolteon,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_FLAREON] =
@@ -8660,6 +8948,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("FLAREON"),
+        .cryId = CRY_FLAREON,
+        .natDexNum = NATIONAL_DEX_FLAREON,
         .categoryName = _("FLAME"),
         .height = 9,
         .weight = 250,
@@ -8689,7 +8979,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sFlareonTMHMLearnset,
         .tutorLearnset = sFlareonTutorLearnset,
         .footprint = gMonFootprint_Flareon,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_PORYGON] =
@@ -8721,6 +9011,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("PORYGON"),
+        .cryId = CRY_PORYGON,
+        .natDexNum = NATIONAL_DEX_PORYGON,
         .categoryName = _("VIRTUAL"),
         .height = 8,
         .weight = 365,
@@ -8750,7 +9042,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPorygonTMHMLearnset,
         .tutorLearnset = sPorygonTutorLearnset,
         .footprint = gMonFootprint_Porygon,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_TRADE_ITEM, ITEM_UP_GRADE, SPECIES_PORYGON2},
@@ -8786,6 +9078,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("OMANYTE"),
+        .cryId = CRY_OMANYTE,
+        .natDexNum = NATIONAL_DEX_OMANYTE,
         .categoryName = _("SPIRAL"),
         .height = 4,
         .weight = 75,
@@ -8815,7 +9109,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOmanyteTMHMLearnset,
         .tutorLearnset = sOmanyteTutorLearnset,
         .footprint = gMonFootprint_Omanyte,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 40, SPECIES_OMASTAR},
@@ -8851,6 +9145,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("OMASTAR"),
+        .cryId = CRY_OMASTAR,
+        .natDexNum = NATIONAL_DEX_OMASTAR,
         .categoryName = _("SPIRAL"),
         .height = 10,
         .weight = 350,
@@ -8880,7 +9176,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOmastarTMHMLearnset,
         .tutorLearnset = sOmastarTutorLearnset,
         .footprint = gMonFootprint_Omastar,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_KABUTO] =
@@ -8912,6 +9208,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("KABUTO"),
+        .cryId = CRY_KABUTO,
+        .natDexNum = NATIONAL_DEX_KABUTO,
         .categoryName = _("SHELLFISH"),
         .height = 5,
         .weight = 115,
@@ -8941,7 +9239,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sKabutoTMHMLearnset,
         .tutorLearnset = sKabutoTutorLearnset,
         .footprint = gMonFootprint_Kabuto,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 40, SPECIES_KABUTOPS},
@@ -8977,6 +9275,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("KABUTOPS"),
+        .cryId = CRY_KABUTOPS,
+        .natDexNum = NATIONAL_DEX_KABUTOPS,
         .categoryName = _("SHELLFISH"),
         .height = 13,
         .weight = 405,
@@ -9006,7 +9306,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sKabutopsTMHMLearnset,
         .tutorLearnset = sKabutopsTutorLearnset,
         .footprint = gMonFootprint_Kabutops,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_AERODACTYL] =
@@ -9038,6 +9338,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("AERODACTYL"),
+        .cryId = CRY_AERODACTYL,
+        .natDexNum = NATIONAL_DEX_AERODACTYL,
         .categoryName = _("FOSSIL"),
         .height = 18,
         .weight = 590,
@@ -9067,7 +9369,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sAerodactylTMHMLearnset,
         .tutorLearnset = sAerodactylTutorLearnset,
         .footprint = gMonFootprint_Aerodactyl,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 7,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SNORLAX] =
@@ -9099,6 +9402,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .speciesName = _("SNORLAX"),
+        .cryId = CRY_SNORLAX,
+        .natDexNum = NATIONAL_DEX_SNORLAX,
         .categoryName = _("SLEEPING"),
         .height = 21,
         .weight = 4600,
@@ -9128,7 +9433,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSnorlaxTMHMLearnset,
         .tutorLearnset = sSnorlaxTutorLearnset,
         .footprint = gMonFootprint_Snorlax,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_ARTICUNO] =
@@ -9160,6 +9465,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("ARTICUNO"),
+        .cryId = CRY_ARTICUNO,
+        .natDexNum = NATIONAL_DEX_ARTICUNO,
         .categoryName = _("FREEZE"),
         .height = 17,
         .weight = 554,
@@ -9189,7 +9496,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sArticunoTMHMLearnset,
         .tutorLearnset = sArticunoTutorLearnset,
         .footprint = gMonFootprint_Articuno,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 6,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_ZAPDOS] =
@@ -9221,6 +9529,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("ZAPDOS"),
+        .cryId = CRY_ZAPDOS,
+        .natDexNum = NATIONAL_DEX_ZAPDOS,
         .categoryName = _("ELECTRIC"),
         .height = 16,
         .weight = 526,
@@ -9250,7 +9560,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sZapdosTMHMLearnset,
         .tutorLearnset = sZapdosTutorLearnset,
         .footprint = gMonFootprint_Zapdos,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_MOLTRES] =
@@ -9282,6 +9593,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("MOLTRES"),
+        .cryId = CRY_MOLTRES,
+        .natDexNum = NATIONAL_DEX_MOLTRES,
         .categoryName = _("FLAME"),
         .height = 20,
         .weight = 600,
@@ -9311,7 +9624,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMoltresTMHMLearnset,
         .tutorLearnset = sMoltresTutorLearnset,
         .footprint = gMonFootprint_Moltres,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 5,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_DRATINI] =
@@ -9343,6 +9657,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("DRATINI"),
+        .cryId = CRY_DRATINI,
+        .natDexNum = NATIONAL_DEX_DRATINI,
         .categoryName = _("DRAGON"),
         .height = 18,
         .weight = 33,
@@ -9372,7 +9688,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sDratiniTMHMLearnset,
         .tutorLearnset = sDratiniTutorLearnset,
         .footprint = gMonFootprint_Dratini,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 30, SPECIES_DRAGONAIR},
@@ -9408,6 +9724,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("DRAGONAIR"),
+        .cryId = CRY_DRAGONAIR,
+        .natDexNum = NATIONAL_DEX_DRAGONAIR,
         .categoryName = _("DRAGON"),
         .height = 40,
         .weight = 165,
@@ -9437,7 +9755,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sDragonairTMHMLearnset,
         .tutorLearnset = sDragonairTutorLearnset,
         .footprint = gMonFootprint_Dragonair,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 55, SPECIES_DRAGONITE},
@@ -9473,6 +9791,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("DRAGONITE"),
+        .cryId = CRY_DRAGONITE,
+        .natDexNum = NATIONAL_DEX_DRAGONITE,
         .categoryName = _("DRAGON"),
         .height = 22,
         .weight = 2100,
@@ -9502,7 +9822,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sDragoniteTMHMLearnset,
         .tutorLearnset = sDragoniteTutorLearnset,
         .footprint = gMonFootprint_Dragonite,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 6,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_MEWTWO] =
@@ -9534,6 +9855,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("MEWTWO"),
+        .cryId = CRY_MEWTWO,
+        .natDexNum = NATIONAL_DEX_MEWTWO,
         .categoryName = _("GENETIC"),
         .height = 20,
         .weight = 1220,
@@ -9563,7 +9886,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMewtwoTMHMLearnset,
         .tutorLearnset = sMewtwoTutorLearnset,
         .footprint = gMonFootprint_Mewtwo,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_MEW] =
@@ -9595,6 +9918,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("MEW"),
+        .cryId = CRY_MEW,
+        .natDexNum = NATIONAL_DEX_MEW,
         .categoryName = _("NEW SPECIES"),
         .height = 4,
         .weight = 40,
@@ -9624,7 +9949,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMewTMHMLearnset,
         .tutorLearnset = sMewTutorLearnset,
         .footprint = gMonFootprint_Mew,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_CHIKORITA] =
@@ -9656,6 +9982,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("CHIKORITA"),
+        .cryId = CRY_CHIKORITA,
+        .natDexNum = NATIONAL_DEX_CHIKORITA,
         .categoryName = _("LEAF"),
         .height = 9,
         .weight = 64,
@@ -9685,7 +10013,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sChikoritaTMHMLearnset,
         .tutorLearnset = sChikoritaTutorLearnset,
         .footprint = gMonFootprint_Chikorita,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 16, SPECIES_BAYLEEF},
@@ -9721,6 +10049,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("BAYLEEF"),
+        .cryId = CRY_BAYLEEF,
+        .natDexNum = NATIONAL_DEX_BAYLEEF,
         .categoryName = _("LEAF"),
         .height = 12,
         .weight = 158,
@@ -9750,7 +10080,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sBayleefTMHMLearnset,
         .tutorLearnset = sBayleefTutorLearnset,
         .footprint = gMonFootprint_Bayleef,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 32, SPECIES_MEGANIUM},
@@ -9786,6 +10116,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("MEGANIUM"),
+        .cryId = CRY_MEGANIUM,
+        .natDexNum = NATIONAL_DEX_MEGANIUM,
         .categoryName = _("HERB"),
         .height = 18,
         .weight = 1005,
@@ -9815,7 +10147,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMeganiumTMHMLearnset,
         .tutorLearnset = sMeganiumTutorLearnset,
         .footprint = gMonFootprint_Meganium,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_CYNDAQUIL] =
@@ -9847,6 +10179,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("CYNDAQUIL"),
+        .cryId = CRY_CYNDAQUIL,
+        .natDexNum = NATIONAL_DEX_CYNDAQUIL,
         .categoryName = _("FIRE MOUSE"),
         .height = 5,
         .weight = 79,
@@ -9876,7 +10210,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCyndaquilTMHMLearnset,
         .tutorLearnset = sCyndaquilTutorLearnset,
         .footprint = gMonFootprint_Cyndaquil,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 14, SPECIES_QUILAVA},
@@ -9912,6 +10246,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("QUILAVA"),
+        .cryId = CRY_QUILAVA,
+        .natDexNum = NATIONAL_DEX_QUILAVA,
         .categoryName = _("VOLCANO"),
         .height = 9,
         .weight = 190,
@@ -9941,7 +10277,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sQuilavaTMHMLearnset,
         .tutorLearnset = sQuilavaTutorLearnset,
         .footprint = gMonFootprint_Quilava,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 36, SPECIES_TYPHLOSION},
@@ -9977,6 +10313,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("TYPHLOSION"),
+        .cryId = CRY_TYPHLOSION,
+        .natDexNum = NATIONAL_DEX_TYPHLOSION,
         .categoryName = _("VOLCANO"),
         .height = 17,
         .weight = 795,
@@ -10007,7 +10345,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sTyphlosionTMHMLearnset,
         .tutorLearnset = sTyphlosionTutorLearnset,
         .footprint = gMonFootprint_Typhlosion,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_TOTODILE] =
@@ -10039,6 +10377,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("TOTODILE"),
+        .cryId = CRY_TOTODILE,
+        .natDexNum = NATIONAL_DEX_TOTODILE,
         .categoryName = _("BIG JAW"),
         .height = 6,
         .weight = 95,
@@ -10068,7 +10408,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sTotodileTMHMLearnset,
         .tutorLearnset = sTotodileTutorLearnset,
         .footprint = gMonFootprint_Totodile,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 18, SPECIES_CROCONAW},
@@ -10104,6 +10444,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = TRUE,
         .speciesName = _("CROCONAW"),
+        .cryId = CRY_CROCONAW,
+        .natDexNum = NATIONAL_DEX_CROCONAW,
         .categoryName = _("BIG JAW"),
         .height = 11,
         .weight = 250,
@@ -10133,7 +10475,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCroconawTMHMLearnset,
         .tutorLearnset = sCroconawTutorLearnset,
         .footprint = gMonFootprint_Croconaw,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 30, SPECIES_FERALIGATR},
@@ -10169,6 +10511,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("FERALIGATR"),
+        .cryId = CRY_FERALIGATR,
+        .natDexNum = NATIONAL_DEX_FERALIGATR,
         .categoryName = _("BIG JAW"),
         .height = 23,
         .weight = 888,
@@ -10199,7 +10543,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sFeraligatrTMHMLearnset,
         .tutorLearnset = sFeraligatrTutorLearnset,
         .footprint = gMonFootprint_Feraligatr,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SENTRET] =
@@ -10231,6 +10575,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("SENTRET"),
+        .cryId = CRY_SENTRET,
+        .natDexNum = NATIONAL_DEX_SENTRET,
         .categoryName = _("SCOUT"),
         .height = 8,
         .weight = 60,
@@ -10260,7 +10606,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSentretTMHMLearnset,
         .tutorLearnset = sSentretTutorLearnset,
         .footprint = gMonFootprint_Sentret,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 15, SPECIES_FURRET},
@@ -10296,6 +10642,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("FURRET"),
+        .cryId = CRY_FURRET,
+        .natDexNum = NATIONAL_DEX_FURRET,
         .categoryName = _("LONG BODY"),
         .height = 18,
         .weight = 325,
@@ -10325,7 +10673,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sFurretTMHMLearnset,
         .tutorLearnset = sFurretTutorLearnset,
         .footprint = gMonFootprint_Furret,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_HOOTHOOT] =
@@ -10357,6 +10705,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("HOOTHOOT"),
+        .cryId = CRY_HOOTHOOT,
+        .natDexNum = NATIONAL_DEX_HOOTHOOT,
         .categoryName = _("OWL"),
         .height = 7,
         .weight = 212,
@@ -10386,7 +10736,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sHoothootTMHMLearnset,
         .tutorLearnset = sHoothootTutorLearnset,
         .footprint = gMonFootprint_Hoothoot,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 20, SPECIES_NOCTOWL},
@@ -10422,6 +10772,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("NOCTOWL"),
+        .cryId = CRY_NOCTOWL,
+        .natDexNum = NATIONAL_DEX_NOCTOWL,
         .categoryName = _("OWL"),
         .height = 16,
         .weight = 408,
@@ -10451,7 +10803,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sNoctowlTMHMLearnset,
         .tutorLearnset = sNoctowlTutorLearnset,
         .footprint = gMonFootprint_Noctowl,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_LEDYBA] =
@@ -10483,6 +10835,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("LEDYBA"),
+        .cryId = CRY_LEDYBA,
+        .natDexNum = NATIONAL_DEX_LEDYBA,
         .categoryName = _("FIVE STAR"),
         .height = 10,
         .weight = 108,
@@ -10512,7 +10866,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sLedybaTMHMLearnset,
         .tutorLearnset = sLedybaTutorLearnset,
         .footprint = gMonFootprint_Ledyba,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 18, SPECIES_LEDIAN},
@@ -10548,6 +10902,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("LEDIAN"),
+        .cryId = CRY_LEDIAN,
+        .natDexNum = NATIONAL_DEX_LEDIAN,
         .categoryName = _("FIVE STAR"),
         .height = 14,
         .weight = 356,
@@ -10577,7 +10933,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sLedianTMHMLearnset,
         .tutorLearnset = sLedianTutorLearnset,
         .footprint = gMonFootprint_Ledian,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SPINARAK] =
@@ -10609,6 +10966,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("SPINARAK"),
+        .cryId = CRY_SPINARAK,
+        .natDexNum = NATIONAL_DEX_SPINARAK,
         .categoryName = _("STRING SPIT"),
         .height = 5,
         .weight = 85,
@@ -10638,7 +10997,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSpinarakTMHMLearnset,
         .tutorLearnset = sSpinarakTutorLearnset,
         .footprint = gMonFootprint_Spinarak,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 22, SPECIES_ARIADOS},
@@ -10674,6 +11033,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("ARIADOS"),
+        .cryId = CRY_ARIADOS,
+        .natDexNum = NATIONAL_DEX_ARIADOS,
         .categoryName = _("LONG LEG"),
         .height = 11,
         .weight = 335,
@@ -10703,7 +11064,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sAriadosTMHMLearnset,
         .tutorLearnset = sAriadosTutorLearnset,
         .footprint = gMonFootprint_Ariados,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_CROBAT] =
@@ -10735,6 +11096,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("CROBAT"),
+        .cryId = CRY_CROBAT,
+        .natDexNum = NATIONAL_DEX_CROBAT,
         .categoryName = _("BAT"),
         .height = 18,
         .weight = 750,
@@ -10764,7 +11127,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCrobatTMHMLearnset,
         .tutorLearnset = sCrobatTutorLearnset,
         .footprint = gMonFootprint_Crobat,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 6,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_CHINCHOU] =
@@ -10796,6 +11160,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("CHINCHOU"),
+        .cryId = CRY_CHINCHOU,
+        .natDexNum = NATIONAL_DEX_CHINCHOU,
         .categoryName = _("ANGLER"),
         .height = 5,
         .weight = 120,
@@ -10825,7 +11191,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sChinchouTMHMLearnset,
         .tutorLearnset = sChinchouTutorLearnset,
         .footprint = gMonFootprint_Chinchou,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 27, SPECIES_LANTURN},
@@ -10861,6 +11227,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("LANTURN"),
+        .cryId = CRY_LANTURN,
+        .natDexNum = NATIONAL_DEX_LANTURN,
         .categoryName = _("LIGHT"),
         .height = 12,
         .weight = 225,
@@ -10890,7 +11258,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sLanturnTMHMLearnset,
         .tutorLearnset = sLanturnTutorLearnset,
         .footprint = gMonFootprint_Lanturn,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_PICHU] =
@@ -10922,6 +11290,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("PICHU"),
+        .cryId = CRY_PICHU,
+        .natDexNum = NATIONAL_DEX_PICHU,
         .categoryName = _("TINY MOUSE"),
         .height = 3,
         .weight = 20,
@@ -10951,7 +11321,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPichuTMHMLearnset,
         .tutorLearnset = sPichuTutorLearnset,
         .footprint = gMonFootprint_Pichu,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_FRIENDSHIP, 0, SPECIES_PIKACHU},
@@ -10987,6 +11357,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("CLEFFA"),
+        .cryId = CRY_CLEFFA,
+        .natDexNum = NATIONAL_DEX_CLEFFA,
         .categoryName = _("STAR SHAPE"),
         .height = 3,
         .weight = 30,
@@ -11016,7 +11388,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCleffaTMHMLearnset,
         .tutorLearnset = sCleffaTutorLearnset,
         .footprint = gMonFootprint_Cleffa,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_FRIENDSHIP, 0, SPECIES_CLEFAIRY},
@@ -11052,6 +11424,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = TRUE,
         .speciesName = _("IGGLYBUFF"),
+        .cryId = CRY_IGGLYBUFF,
+        .natDexNum = NATIONAL_DEX_IGGLYBUFF,
         .categoryName = _("BALLOON"),
         .height = 3,
         .weight = 10,
@@ -11081,7 +11455,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sIgglybuffTMHMLearnset,
         .tutorLearnset = sIgglybuffTutorLearnset,
         .footprint = gMonFootprint_Igglybuff,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_FRIENDSHIP, 0, SPECIES_JIGGLYPUFF},
@@ -11117,6 +11491,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .speciesName = _("TOGEPI"),
+        .cryId = CRY_TOGEPI,
+        .natDexNum = NATIONAL_DEX_TOGEPI,
         .categoryName = _("SPIKE BALL"),
         .height = 3,
         .weight = 15,
@@ -11146,7 +11522,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sTogepiTMHMLearnset,
         .tutorLearnset = sTogepiTutorLearnset,
         .footprint = gMonFootprint_Togepi,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_FRIENDSHIP, 0, SPECIES_TOGETIC},
@@ -11182,6 +11558,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .speciesName = _("TOGETIC"),
+        .cryId = CRY_TOGETIC,
+        .natDexNum = NATIONAL_DEX_TOGETIC,
         .categoryName = _("HAPPINESS"),
         .height = 6,
         .weight = 32,
@@ -11211,7 +11589,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sTogeticTMHMLearnset,
         .tutorLearnset = sTogeticTutorLearnset,
         .footprint = gMonFootprint_Togetic,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_NATU] =
@@ -11243,6 +11621,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("NATU"),
+        .cryId = CRY_NATU,
+        .natDexNum = NATIONAL_DEX_NATU,
         .categoryName = _("TINY BIRD"),
         .height = 2,
         .weight = 20,
@@ -11273,7 +11653,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sNatuTMHMLearnset,
         .tutorLearnset = sNatuTutorLearnset,
         .footprint = gMonFootprint_Natu,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 25, SPECIES_XATU},
@@ -11309,6 +11689,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("XATU"),
+        .cryId = CRY_XATU,
+        .natDexNum = NATIONAL_DEX_XATU,
         .categoryName = _("MYSTIC"),
         .height = 15,
         .weight = 150,
@@ -11338,7 +11720,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sXatuTMHMLearnset,
         .tutorLearnset = sXatuTutorLearnset,
         .footprint = gMonFootprint_Xatu,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_MAREEP] =
@@ -11370,6 +11752,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .speciesName = _("MAREEP"),
+        .cryId = CRY_MAREEP,
+        .natDexNum = NATIONAL_DEX_MAREEP,
         .categoryName = _("WOOL"),
         .height = 6,
         .weight = 78,
@@ -11400,7 +11784,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMareepTMHMLearnset,
         .tutorLearnset = sMareepTutorLearnset,
         .footprint = gMonFootprint_Mareep,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 15, SPECIES_FLAAFFY},
@@ -11436,6 +11820,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("FLAAFFY"),
+        .cryId = CRY_FLAAFFY,
+        .natDexNum = NATIONAL_DEX_FLAAFFY,
         .categoryName = _("WOOL"),
         .height = 8,
         .weight = 133,
@@ -11465,7 +11851,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sFlaaffyTMHMLearnset,
         .tutorLearnset = sFlaaffyTutorLearnset,
         .footprint = gMonFootprint_Flaaffy,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 30, SPECIES_AMPHAROS},
@@ -11501,6 +11887,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("AMPHAROS"),
+        .cryId = CRY_AMPHAROS,
+        .natDexNum = NATIONAL_DEX_AMPHAROS,
         .categoryName = _("LIGHT"),
         .height = 14,
         .weight = 615,
@@ -11531,7 +11919,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sAmpharosTMHMLearnset,
         .tutorLearnset = sAmpharosTutorLearnset,
         .footprint = gMonFootprint_Ampharos,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_BELLOSSOM] =
@@ -11563,6 +11951,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("BELLOSSOM"),
+        .cryId = CRY_BELLOSSOM,
+        .natDexNum = NATIONAL_DEX_BELLOSSOM,
         .categoryName = _("FLOWER"),
         .height = 4,
         .weight = 58,
@@ -11592,7 +11982,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sBellossomTMHMLearnset,
         .tutorLearnset = sBellossomTutorLearnset,
         .footprint = gMonFootprint_Bellossom,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
     },
 
     [SPECIES_MARILL] =
@@ -11624,6 +12014,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("MARILL"),
+        .cryId = CRY_MARILL,
+        .natDexNum = NATIONAL_DEX_MARILL,
         .categoryName = _("AQUA MOUSE"),
         .height = 4,
         .weight = 85,
@@ -11653,7 +12045,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMarillTMHMLearnset,
         .tutorLearnset = sMarillTutorLearnset,
         .footprint = gMonFootprint_Marill,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 18, SPECIES_AZUMARILL},
@@ -11689,6 +12081,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("AZUMARILL"),
+        .cryId = CRY_AZUMARILL,
+        .natDexNum = NATIONAL_DEX_AZUMARILL,
         .categoryName = _("AQUA RABBIT"),
         .height = 8,
         .weight = 285,
@@ -11718,7 +12112,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sAzumarillTMHMLearnset,
         .tutorLearnset = sAzumarillTutorLearnset,
         .footprint = gMonFootprint_Azumarill,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SUDOWOODO] =
@@ -11750,6 +12144,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("SUDOWOODO"),
+        .cryId = CRY_SUDOWOODO,
+        .natDexNum = NATIONAL_DEX_SUDOWOODO,
         .categoryName = _("IMITATION"),
         .height = 12,
         .weight = 380,
@@ -11779,7 +12175,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSudowoodoTMHMLearnset,
         .tutorLearnset = sSudowoodoTutorLearnset,
         .footprint = gMonFootprint_Sudowoodo,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_POLITOED] =
@@ -11811,6 +12207,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = TRUE,
         .speciesName = _("POLITOED"),
+        .cryId = CRY_POLITOED,
+        .natDexNum = NATIONAL_DEX_POLITOED,
         .categoryName = _("FROG"),
         .height = 11,
         .weight = 339,
@@ -11841,7 +12239,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPolitoedTMHMLearnset,
         .tutorLearnset = sPolitoedTutorLearnset,
         .footprint = gMonFootprint_Politoed,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_HOPPIP] =
@@ -11873,6 +12271,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("HOPPIP"),
+        .cryId = CRY_HOPPIP,
+        .natDexNum = NATIONAL_DEX_HOPPIP,
         .categoryName = _("COTTONWEED"),
         .height = 4,
         .weight = 5,
@@ -11902,7 +12302,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sHoppipTMHMLearnset,
         .tutorLearnset = sHoppipTutorLearnset,
         .footprint = gMonFootprint_Hoppip,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 11,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 18, SPECIES_SKIPLOOM},
@@ -11938,6 +12339,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("SKIPLOOM"),
+        .cryId = CRY_SKIPLOOM,
+        .natDexNum = NATIONAL_DEX_SKIPLOOM,
         .categoryName = _("COTTONWEED"),
         .height = 6,
         .weight = 10,
@@ -11967,7 +12370,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSkiploomTMHMLearnset,
         .tutorLearnset = sSkiploomTutorLearnset,
         .footprint = gMonFootprint_Skiploom,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 12,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 27, SPECIES_JUMPLUFF},
@@ -12003,6 +12407,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("JUMPLUFF"),
+        .cryId = CRY_JUMPLUFF,
+        .natDexNum = NATIONAL_DEX_JUMPLUFF,
         .categoryName = _("COTTONWEED"),
         .height = 8,
         .weight = 30,
@@ -12032,7 +12438,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sJumpluffTMHMLearnset,
         .tutorLearnset = sJumpluffTutorLearnset,
         .footprint = gMonFootprint_Jumpluff,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 9,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_AIPOM] =
@@ -12064,6 +12471,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("AIPOM"),
+        .cryId = CRY_AIPOM,
+        .natDexNum = NATIONAL_DEX_AIPOM,
         .categoryName = _("LONG TAIL"),
         .height = 8,
         .weight = 115,
@@ -12093,7 +12502,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sAipomTMHMLearnset,
         .tutorLearnset = sAipomTutorLearnset,
         .footprint = gMonFootprint_Aipom,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SUNKERN] =
@@ -12125,6 +12534,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("SUNKERN"),
+        .cryId = CRY_SUNKERN,
+        .natDexNum = NATIONAL_DEX_SUNKERN,
         .categoryName = _("SEED"),
         .height = 3,
         .weight = 18,
@@ -12154,7 +12565,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSunkernTMHMLearnset,
         .tutorLearnset = sSunkernTutorLearnset,
         .footprint = gMonFootprint_Sunkern,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_ITEM, ITEM_SUN_STONE, SPECIES_SUNFLORA},
@@ -12190,6 +12601,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("SUNFLORA"),
+        .cryId = CRY_SUNFLORA,
+        .natDexNum = NATIONAL_DEX_SUNFLORA,
         .categoryName = _("SUN"),
         .height = 8,
         .weight = 85,
@@ -12219,7 +12632,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSunfloraTMHMLearnset,
         .tutorLearnset = sSunfloraTutorLearnset,
         .footprint = gMonFootprint_Sunflora,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_YANMA] =
@@ -12251,6 +12664,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("YANMA"),
+        .cryId = CRY_YANMA,
+        .natDexNum = NATIONAL_DEX_YANMA,
         .categoryName = _("CLEAR WING"),
         .height = 12,
         .weight = 380,
@@ -12280,7 +12695,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sYanmaTMHMLearnset,
         .tutorLearnset = sYanmaTutorLearnset,
         .footprint = gMonFootprint_Yanma,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_WOOPER] =
@@ -12312,6 +12728,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("WOOPER"),
+        .cryId = CRY_WOOPER,
+        .natDexNum = NATIONAL_DEX_WOOPER,
         .categoryName = _("WATER FISH"),
         .height = 4,
         .weight = 85,
@@ -12341,7 +12759,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sWooperTMHMLearnset,
         .tutorLearnset = sWooperTutorLearnset,
         .footprint = gMonFootprint_Wooper,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 20, SPECIES_QUAGSIRE},
@@ -12377,6 +12795,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("QUAGSIRE"),
+        .cryId = CRY_QUAGSIRE,
+        .natDexNum = NATIONAL_DEX_QUAGSIRE,
         .categoryName = _("WATER FISH"),
         .height = 14,
         .weight = 750,
@@ -12406,7 +12826,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sQuagsireTMHMLearnset,
         .tutorLearnset = sQuagsireTutorLearnset,
         .footprint = gMonFootprint_Quagsire,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_ESPEON] =
@@ -12438,6 +12858,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("ESPEON"),
+        .cryId = CRY_ESPEON,
+        .natDexNum = NATIONAL_DEX_ESPEON,
         .categoryName = _("SUN"),
         .height = 9,
         .weight = 265,
@@ -12467,7 +12889,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sEspeonTMHMLearnset,
         .tutorLearnset = sEspeonTutorLearnset,
         .footprint = gMonFootprint_Espeon,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UMBREON] =
@@ -12499,6 +12921,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .speciesName = _("UMBREON"),
+        .cryId = CRY_UMBREON,
+        .natDexNum = NATIONAL_DEX_UMBREON,
         .categoryName = _("MOONLIGHT"),
         .height = 10,
         .weight = 270,
@@ -12528,7 +12952,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sUmbreonTMHMLearnset,
         .tutorLearnset = sUmbreonTutorLearnset,
         .footprint = gMonFootprint_Umbreon,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_MURKROW] =
@@ -12560,6 +12984,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .speciesName = _("MURKROW"),
+        .cryId = CRY_MURKROW,
+        .natDexNum = NATIONAL_DEX_MURKROW,
         .categoryName = _("DARKNESS"),
         .height = 5,
         .weight = 21,
@@ -12589,7 +13015,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMurkrowTMHMLearnset,
         .tutorLearnset = sMurkrowTutorLearnset,
         .footprint = gMonFootprint_Murkrow,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SLOWKING] =
@@ -12621,6 +13047,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("SLOWKING"),
+        .cryId = CRY_SLOWKING,
+        .natDexNum = NATIONAL_DEX_SLOWKING,
         .categoryName = _("ROYAL"),
         .height = 20,
         .weight = 795,
@@ -12650,7 +13078,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSlowkingTMHMLearnset,
         .tutorLearnset = sSlowkingTutorLearnset,
         .footprint = gMonFootprint_Slowking,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_MISDREAVUS] =
@@ -12682,6 +13110,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("MISDREAVUS"),
+        .cryId = CRY_MISDREAVUS,
+        .natDexNum = NATIONAL_DEX_MISDREAVUS,
         .categoryName = _("SCREECH"),
         .height = 7,
         .weight = 10,
@@ -12711,7 +13141,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMisdreavusTMHMLearnset,
         .tutorLearnset = sMisdreavusTutorLearnset,
         .footprint = gMonFootprint_Misdreavus,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN] =
@@ -12743,6 +13174,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = TRUE,
         .speciesName = _("UNOWN"),
+        .cryId = CRY_UNOWN,
+        .natDexNum = NATIONAL_DEX_UNOWN,
         .categoryName = _("SYMBOL"),
         .height = 5,
         .weight = 50,
@@ -12772,7 +13205,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sUnownTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_Unown,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_WOBBUFFET] =
@@ -12804,6 +13238,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("WOBBUFFET"),
+        .cryId = CRY_WOBBUFFET,
+        .natDexNum = NATIONAL_DEX_WOBBUFFET,
         .categoryName = _("PATIENT"),
         .height = 13,
         .weight = 285,
@@ -12833,7 +13269,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sWobbuffetTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_Wobbuffet,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_GIRAFARIG] =
@@ -12865,6 +13301,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("GIRAFARIG"),
+        .cryId = CRY_GIRAFARIG,
+        .natDexNum = NATIONAL_DEX_GIRAFARIG,
         .categoryName = _("LONG NECK"),
         .height = 15,
         .weight = 415,
@@ -12894,7 +13332,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGirafarigTMHMLearnset,
         .tutorLearnset = sGirafarigTutorLearnset,
         .footprint = gMonFootprint_Girafarig,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_PINECO] =
@@ -12926,6 +13364,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("PINECO"),
+        .cryId = CRY_PINECO,
+        .natDexNum = NATIONAL_DEX_PINECO,
         .categoryName = _("BAGWORM"),
         .height = 6,
         .weight = 72,
@@ -12955,7 +13395,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPinecoTMHMLearnset,
         .tutorLearnset = sPinecoTutorLearnset,
         .footprint = gMonFootprint_Pineco,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 31, SPECIES_FORRETRESS},
@@ -12991,6 +13431,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("FORRETRESS"),
+        .cryId = CRY_FORRETRESS,
+        .natDexNum = NATIONAL_DEX_FORRETRESS,
         .categoryName = _("BAGWORM"),
         .height = 12,
         .weight = 1258,
@@ -13020,7 +13462,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sForretressTMHMLearnset,
         .tutorLearnset = sForretressTutorLearnset,
         .footprint = gMonFootprint_Forretress,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_DUNSPARCE] =
@@ -13052,6 +13494,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("DUNSPARCE"),
+        .cryId = CRY_DUNSPARCE,
+        .natDexNum = NATIONAL_DEX_DUNSPARCE,
         .categoryName = _("LAND SNAKE"),
         .height = 15,
         .weight = 140,
@@ -13082,7 +13526,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sDunsparceTMHMLearnset,
         .tutorLearnset = sDunsparceTutorLearnset,
         .footprint = gMonFootprint_Dunsparce,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_GLIGAR] =
@@ -13114,6 +13558,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("GLIGAR"),
+        .cryId = CRY_GLIGAR,
+        .natDexNum = NATIONAL_DEX_GLIGAR,
         .categoryName = _("FLYSCORPION"),
         .height = 11,
         .weight = 648,
@@ -13143,7 +13589,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGligarTMHMLearnset,
         .tutorLearnset = sGligarTutorLearnset,
         .footprint = gMonFootprint_Gligar,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 6,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_STEELIX] =
@@ -13175,6 +13622,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("STEELIX"),
+        .cryId = CRY_STEELIX,
+        .natDexNum = NATIONAL_DEX_STEELIX,
         .categoryName = _("IRON SNAKE"),
         .height = 92,
         .weight = 4000,
@@ -13205,7 +13654,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSteelixTMHMLearnset,
         .tutorLearnset = sSteelixTutorLearnset,
         .footprint = gMonFootprint_Steelix,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SNUBBULL] =
@@ -13237,6 +13686,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("SNUBBULL"),
+        .cryId = CRY_SNUBBULL,
+        .natDexNum = NATIONAL_DEX_SNUBBULL,
         .categoryName = _("FAIRY"),
         .height = 6,
         .weight = 78,
@@ -13266,7 +13717,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSnubbullTMHMLearnset,
         .tutorLearnset = sSnubbullTutorLearnset,
         .footprint = gMonFootprint_Snubbull,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 23, SPECIES_GRANBULL},
@@ -13302,6 +13753,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("GRANBULL"),
+        .cryId = CRY_GRANBULL,
+        .natDexNum = NATIONAL_DEX_GRANBULL,
         .categoryName = _("FAIRY"),
         .height = 14,
         .weight = 487,
@@ -13331,7 +13784,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGranbullTMHMLearnset,
         .tutorLearnset = sGranbullTutorLearnset,
         .footprint = gMonFootprint_Granbull,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_QWILFISH] =
@@ -13363,6 +13816,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("QWILFISH"),
+        .cryId = CRY_QWILFISH,
+        .natDexNum = NATIONAL_DEX_QWILFISH,
         .categoryName = _("BALLOON"),
         .height = 5,
         .weight = 39,
@@ -13393,7 +13848,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sQwilfishTMHMLearnset,
         .tutorLearnset = sQwilfishTutorLearnset,
         .footprint = gMonFootprint_Qwilfish,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SCIZOR] =
@@ -13425,6 +13880,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("SCIZOR"),
+        .cryId = CRY_SCIZOR,
+        .natDexNum = NATIONAL_DEX_SCIZOR,
         .categoryName = _("PINCER"),
         .height = 18,
         .weight = 1180,
@@ -13455,7 +13912,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sScizorTMHMLearnset,
         .tutorLearnset = sScizorTutorLearnset,
         .footprint = gMonFootprint_Scizor,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SHUCKLE] =
@@ -13487,6 +13944,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("SHUCKLE"),
+        .cryId = CRY_SHUCKLE,
+        .natDexNum = NATIONAL_DEX_SHUCKLE,
         .categoryName = _("MOLD"),
         .height = 6,
         .weight = 205,
@@ -13516,7 +13975,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sShuckleTMHMLearnset,
         .tutorLearnset = sShuckleTutorLearnset,
         .footprint = gMonFootprint_Shuckle,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
     },
 
     [SPECIES_HERACROSS] =
@@ -13548,6 +14007,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("HERACROSS"),
+        .cryId = CRY_HERACROSS,
+        .natDexNum = NATIONAL_DEX_HERACROSS,
         .categoryName = _("SINGLE HORN"),
         .height = 15,
         .weight = 540,
@@ -13577,7 +14038,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sHeracrossTMHMLearnset,
         .tutorLearnset = sHeracrossTutorLearnset,
         .footprint = gMonFootprint_Heracross,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SNEASEL] =
@@ -13609,6 +14070,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = TRUE,
         .speciesName = _("SNEASEL"),
+        .cryId = CRY_SNEASEL,
+        .natDexNum = NATIONAL_DEX_SNEASEL,
         .categoryName = _("SHARP CLAW"),
         .height = 9,
         .weight = 280,
@@ -13638,7 +14101,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSneaselTMHMLearnset,
         .tutorLearnset = sSneaselTutorLearnset,
         .footprint = gMonFootprint_Sneasel,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_TEDDIURSA] =
@@ -13670,6 +14133,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = TRUE,
         .speciesName = _("TEDDIURSA"),
+        .cryId = CRY_TEDDIURSA,
+        .natDexNum = NATIONAL_DEX_TEDDIURSA,
         .categoryName = _("LITTLE BEAR"),
         .height = 6,
         .weight = 88,
@@ -13699,7 +14164,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sTeddiursaTMHMLearnset,
         .tutorLearnset = sTeddiursaTutorLearnset,
         .footprint = gMonFootprint_Teddiursa,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 30, SPECIES_URSARING},
@@ -13735,6 +14200,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("URSARING"),
+        .cryId = CRY_URSARING,
+        .natDexNum = NATIONAL_DEX_URSARING,
         .categoryName = _("HIBERNATOR"),
         .height = 18,
         .weight = 1258,
@@ -13764,7 +14231,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sUrsaringTMHMLearnset,
         .tutorLearnset = sUrsaringTutorLearnset,
         .footprint = gMonFootprint_Ursaring,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SLUGMA] =
@@ -13796,6 +14263,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("SLUGMA"),
+        .cryId = CRY_SLUGMA,
+        .natDexNum = NATIONAL_DEX_SLUGMA,
         .categoryName = _("LAVA"),
         .height = 7,
         .weight = 350,
@@ -13825,7 +14294,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSlugmaTMHMLearnset,
         .tutorLearnset = sSlugmaTutorLearnset,
         .footprint = gMonFootprint_Slugma,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 38, SPECIES_MAGCARGO},
@@ -13861,6 +14330,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("MAGCARGO"),
+        .cryId = CRY_MAGCARGO,
+        .natDexNum = NATIONAL_DEX_MAGCARGO,
         .categoryName = _("LAVA"),
         .height = 8,
         .weight = 550,
@@ -13890,7 +14361,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMagcargoTMHMLearnset,
         .tutorLearnset = sMagcargoTutorLearnset,
         .footprint = gMonFootprint_Magcargo,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SWINUB] =
@@ -13922,6 +14393,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("SWINUB"),
+        .cryId = CRY_SWINUB,
+        .natDexNum = NATIONAL_DEX_SWINUB,
         .categoryName = _("PIG"),
         .height = 4,
         .weight = 65,
@@ -13951,7 +14424,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSwinubTMHMLearnset,
         .tutorLearnset = sSwinubTutorLearnset,
         .footprint = gMonFootprint_Swinub,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 33, SPECIES_PILOSWINE},
@@ -13987,6 +14460,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("PILOSWINE"),
+        .cryId = CRY_PILOSWINE,
+        .natDexNum = NATIONAL_DEX_PILOSWINE,
         .categoryName = _("SWINE"),
         .height = 11,
         .weight = 558,
@@ -14016,7 +14491,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPiloswineTMHMLearnset,
         .tutorLearnset = sPiloswineTutorLearnset,
         .footprint = gMonFootprint_Piloswine,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_CORSOLA] =
@@ -14048,6 +14523,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("CORSOLA"),
+        .cryId = CRY_CORSOLA,
+        .natDexNum = NATIONAL_DEX_CORSOLA,
         .categoryName = _("CORAL"),
         .height = 6,
         .weight = 50,
@@ -14077,7 +14554,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCorsolaTMHMLearnset,
         .tutorLearnset = sCorsolaTutorLearnset,
         .footprint = gMonFootprint_Corsola,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_REMORAID] =
@@ -14109,6 +14586,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("REMORAID"),
+        .cryId = CRY_REMORAID,
+        .natDexNum = NATIONAL_DEX_REMORAID,
         .categoryName = _("JET"),
         .height = 6,
         .weight = 120,
@@ -14138,7 +14617,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sRemoraidTMHMLearnset,
         .tutorLearnset = sRemoraidTutorLearnset,
         .footprint = gMonFootprint_Remoraid,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 25, SPECIES_OCTILLERY},
@@ -14174,6 +14653,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("OCTILLERY"),
+        .cryId = CRY_OCTILLERY,
+        .natDexNum = NATIONAL_DEX_OCTILLERY,
         .categoryName = _("JET"),
         .height = 9,
         .weight = 285,
@@ -14204,7 +14685,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOctilleryTMHMLearnset,
         .tutorLearnset = sOctilleryTutorLearnset,
         .footprint = gMonFootprint_Octillery,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_DELIBIRD] =
@@ -14236,6 +14717,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("DELIBIRD"),
+        .cryId = CRY_DELIBIRD,
+        .natDexNum = NATIONAL_DEX_DELIBIRD,
         .categoryName = _("DELIVERY"),
         .height = 9,
         .weight = 160,
@@ -14265,7 +14748,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sDelibirdTMHMLearnset,
         .tutorLearnset = sDelibirdTutorLearnset,
         .footprint = gMonFootprint_Delibird,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_MANTINE] =
@@ -14297,6 +14780,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("MANTINE"),
+        .cryId = CRY_MANTINE,
+        .natDexNum = NATIONAL_DEX_MANTINE,
         .categoryName = _("KITE"),
         .height = 21,
         .weight = 2200,
@@ -14326,7 +14811,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMantineTMHMLearnset,
         .tutorLearnset = sMantineTutorLearnset,
         .footprint = gMonFootprint_Mantine,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SKARMORY] =
@@ -14358,6 +14843,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("SKARMORY"),
+        .cryId = CRY_SKARMORY,
+        .natDexNum = NATIONAL_DEX_SKARMORY,
         .categoryName = _("ARMOR BIRD"),
         .height = 17,
         .weight = 505,
@@ -14387,7 +14874,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSkarmoryTMHMLearnset,
         .tutorLearnset = sSkarmoryTutorLearnset,
         .footprint = gMonFootprint_Skarmory,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_HOUNDOUR] =
@@ -14419,6 +14906,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .speciesName = _("HOUNDOUR"),
+        .cryId = CRY_HOUNDOUR,
+        .natDexNum = NATIONAL_DEX_HOUNDOUR,
         .categoryName = _("DARK"),
         .height = 6,
         .weight = 108,
@@ -14448,7 +14937,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sHoundourTMHMLearnset,
         .tutorLearnset = sHoundourTutorLearnset,
         .footprint = gMonFootprint_Houndour,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 24, SPECIES_HOUNDOOM},
@@ -14484,6 +14973,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .speciesName = _("HOUNDOOM"),
+        .cryId = CRY_HOUNDOOM,
+        .natDexNum = NATIONAL_DEX_HOUNDOOM,
         .categoryName = _("DARK"),
         .height = 14,
         .weight = 350,
@@ -14513,7 +15004,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sHoundoomTMHMLearnset,
         .tutorLearnset = sHoundoomTutorLearnset,
         .footprint = gMonFootprint_Houndoom,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_KINGDRA] =
@@ -14545,6 +15036,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("KINGDRA"),
+        .cryId = CRY_KINGDRA,
+        .natDexNum = NATIONAL_DEX_KINGDRA,
         .categoryName = _("DRAGON"),
         .height = 18,
         .weight = 1520,
@@ -14574,7 +15067,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sKingdraTMHMLearnset,
         .tutorLearnset = sKingdraTutorLearnset,
         .footprint = gMonFootprint_Kingdra,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_PHANPY] =
@@ -14606,6 +15099,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("PHANPY"),
+        .cryId = CRY_PHANPY,
+        .natDexNum = NATIONAL_DEX_PHANPY,
         .categoryName = _("LONG NOSE"),
         .height = 5,
         .weight = 335,
@@ -14635,7 +15130,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPhanpyTMHMLearnset,
         .tutorLearnset = sPhanpyTutorLearnset,
         .footprint = gMonFootprint_Phanpy,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 25, SPECIES_DONPHAN},
@@ -14671,6 +15166,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("DONPHAN"),
+        .cryId = CRY_DONPHAN,
+        .natDexNum = NATIONAL_DEX_DONPHAN,
         .categoryName = _("ARMOR"),
         .height = 11,
         .weight = 1200,
@@ -14700,7 +15197,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sDonphanTMHMLearnset,
         .tutorLearnset = sDonphanTutorLearnset,
         .footprint = gMonFootprint_Donphan,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_PORYGON2] =
@@ -14732,6 +15229,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("PORYGON2"),
+        .cryId = CRY_PORYGON2,
+        .natDexNum = NATIONAL_DEX_PORYGON2,
         .categoryName = _("VIRTUAL"),
         .height = 6,
         .weight = 325,
@@ -14761,7 +15260,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPorygon2TMHMLearnset,
         .tutorLearnset = sPorygon2TutorLearnset,
         .footprint = gMonFootprint_Porygon2,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
     },
 
     [SPECIES_STANTLER] =
@@ -14793,6 +15292,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("STANTLER"),
+        .cryId = CRY_STANTLER,
+        .natDexNum = NATIONAL_DEX_STANTLER,
         .categoryName = _("BIG HORN"),
         .height = 14,
         .weight = 712,
@@ -14822,7 +15323,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sStantlerTMHMLearnset,
         .tutorLearnset = sStantlerTutorLearnset,
         .footprint = gMonFootprint_Stantler,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SMEARGLE] =
@@ -14854,6 +15355,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .speciesName = _("SMEARGLE"),
+        .cryId = CRY_SMEARGLE,
+        .natDexNum = NATIONAL_DEX_SMEARGLE,
         .categoryName = _("PAINTER"),
         .height = 12,
         .weight = 580,
@@ -14883,7 +15386,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSmeargleTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_Smeargle,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_TYROGUE] =
@@ -14915,6 +15418,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("TYROGUE"),
+        .cryId = CRY_TYROGUE,
+        .natDexNum = NATIONAL_DEX_TYROGUE,
         .categoryName = _("SCUFFLE"),
         .height = 7,
         .weight = 210,
@@ -14944,7 +15449,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sTyrogueTMHMLearnset,
         .tutorLearnset = sTyrogueTutorLearnset,
         .footprint = gMonFootprint_Tyrogue,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL_ATK_LT_DEF, 20, SPECIES_HITMONCHAN},
@@ -14982,6 +15487,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("HITMONTOP"),
+        .cryId = CRY_HITMONTOP,
+        .natDexNum = NATIONAL_DEX_HITMONTOP,
         .categoryName = _("HANDSTAND"),
         .height = 14,
         .weight = 480,
@@ -15011,7 +15518,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sHitmontopTMHMLearnset,
         .tutorLearnset = sHitmontopTutorLearnset,
         .footprint = gMonFootprint_Hitmontop,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SMOOCHUM] =
@@ -15043,6 +15550,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("SMOOCHUM"),
+        .cryId = CRY_SMOOCHUM,
+        .natDexNum = NATIONAL_DEX_SMOOCHUM,
         .categoryName = _("KISS"),
         .height = 4,
         .weight = 60,
@@ -15073,7 +15582,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSmoochumTMHMLearnset,
         .tutorLearnset = sSmoochumTutorLearnset,
         .footprint = gMonFootprint_Smoochum,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 30, SPECIES_JYNX},
@@ -15109,6 +15618,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = TRUE,
         .speciesName = _("ELEKID"),
+        .cryId = CRY_ELEKID,
+        .natDexNum = NATIONAL_DEX_ELEKID,
         .categoryName = _("ELECTRIC"),
         .height = 6,
         .weight = 235,
@@ -15138,7 +15649,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sElekidTMHMLearnset,
         .tutorLearnset = sElekidTutorLearnset,
         .footprint = gMonFootprint_Elekid,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 30, SPECIES_ELECTABUZZ},
@@ -15174,6 +15685,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("MAGBY"),
+        .cryId = CRY_MAGBY,
+        .natDexNum = NATIONAL_DEX_MAGBY,
         .categoryName = _("LIVE COAL"),
         .height = 7,
         .weight = 214,
@@ -15203,7 +15716,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMagbyTMHMLearnset,
         .tutorLearnset = sMagbyTutorLearnset,
         .footprint = gMonFootprint_Magby,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 30, SPECIES_MAGMAR},
@@ -15239,6 +15752,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("MILTANK"),
+        .cryId = CRY_MILTANK,
+        .natDexNum = NATIONAL_DEX_MILTANK,
         .categoryName = _("MILK COW"),
         .height = 12,
         .weight = 755,
@@ -15268,7 +15783,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMiltankTMHMLearnset,
         .tutorLearnset = sMiltankTutorLearnset,
         .footprint = gMonFootprint_Miltank,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_BLISSEY] =
@@ -15300,6 +15815,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("BLISSEY"),
+        .cryId = CRY_BLISSEY,
+        .natDexNum = NATIONAL_DEX_BLISSEY,
         .categoryName = _("HAPPINESS"),
         .height = 15,
         .weight = 468,
@@ -15329,7 +15846,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sBlisseyTMHMLearnset,
         .tutorLearnset = sBlisseyTutorLearnset,
         .footprint = gMonFootprint_Blissey,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_RAIKOU] =
@@ -15361,6 +15878,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("RAIKOU"),
+        .cryId = CRY_RAIKOU,
+        .natDexNum = NATIONAL_DEX_RAIKOU,
         .categoryName = _("THUNDER"),
         .height = 19,
         .weight = 1780,
@@ -15390,7 +15909,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sRaikouTMHMLearnset,
         .tutorLearnset = sRaikouTutorLearnset,
         .footprint = gMonFootprint_Raikou,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_ENTEI] =
@@ -15422,6 +15941,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("ENTEI"),
+        .cryId = CRY_ENTEI,
+        .natDexNum = NATIONAL_DEX_ENTEI,
         .categoryName = _("VOLCANO"),
         .height = 21,
         .weight = 1980,
@@ -15451,7 +15972,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sEnteiTMHMLearnset,
         .tutorLearnset = sEnteiTutorLearnset,
         .footprint = gMonFootprint_Entei,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SUICUNE] =
@@ -15483,6 +16004,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("SUICUNE"),
+        .cryId = CRY_SUICUNE,
+        .natDexNum = NATIONAL_DEX_SUICUNE,
         .categoryName = _("AURORA"),
         .height = 20,
         .weight = 1870,
@@ -15512,7 +16035,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSuicuneTMHMLearnset,
         .tutorLearnset = sSuicuneTutorLearnset,
         .footprint = gMonFootprint_Suicune,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_LARVITAR] =
@@ -15544,6 +16067,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("LARVITAR"),
+        .cryId = CRY_LARVITAR,
+        .natDexNum = NATIONAL_DEX_LARVITAR,
         .categoryName = _("ROCK SKIN"),
         .height = 6,
         .weight = 720,
@@ -15573,7 +16098,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sLarvitarTMHMLearnset,
         .tutorLearnset = sLarvitarTutorLearnset,
         .footprint = gMonFootprint_Larvitar,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 30, SPECIES_PUPITAR},
@@ -15609,6 +16134,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("PUPITAR"),
+        .cryId = CRY_PUPITAR,
+        .natDexNum = NATIONAL_DEX_PUPITAR,
         .categoryName = _("HARD SHELL"),
         .height = 12,
         .weight = 1520,
@@ -15638,7 +16165,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPupitarTMHMLearnset,
         .tutorLearnset = sPupitarTutorLearnset,
         .footprint = gMonFootprint_Pupitar,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 55, SPECIES_TYRANITAR},
@@ -15674,6 +16201,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("TYRANITAR"),
+        .cryId = CRY_TYRANITAR,
+        .natDexNum = NATIONAL_DEX_TYRANITAR,
         .categoryName = _("ARMOR"),
         .height = 20,
         .weight = 2020,
@@ -15704,7 +16233,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sTyranitarTMHMLearnset,
         .tutorLearnset = sTyranitarTutorLearnset,
         .footprint = gMonFootprint_Tyranitar,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_LUGIA] =
@@ -15736,6 +16265,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .speciesName = _("LUGIA"),
+        .cryId = CRY_LUGIA,
+        .natDexNum = NATIONAL_DEX_LUGIA,
         .categoryName = _("DIVING"),
         .height = 52,
         .weight = 2160,
@@ -15766,7 +16297,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sLugiaTMHMLearnset,
         .tutorLearnset = sLugiaTutorLearnset,
         .footprint = gMonFootprint_Lugia,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 6,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_HO_OH] =
@@ -15798,6 +16330,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("HO-OH"),
+        .cryId = CRY_HO_OH,
+        .natDexNum = NATIONAL_DEX_HO_OH,
         .categoryName = _("RAINBOW"),
         .height = 38,
         .weight = 1990,
@@ -15827,7 +16361,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sHoOhTMHMLearnset,
         .tutorLearnset = sHoOhTutorLearnset,
         .footprint = gMonFootprint_HoOh,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 6,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_CELEBI] =
@@ -15859,6 +16394,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("CELEBI"),
+        .cryId = CRY_CELEBI,
+        .natDexNum = NATIONAL_DEX_CELEBI,
         .categoryName = _("TIME TRAVEL"),
         .height = 6,
         .weight = 50,
@@ -15888,13 +16425,15 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCelebiTMHMLearnset,
         .tutorLearnset = sCelebiTutorLearnset,
         .footprint = gMonFootprint_Celebi,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 15,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_B] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_B,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -15912,13 +16451,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownBTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_C] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_C,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -15936,13 +16476,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownCTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_D] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_D,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -15960,13 +16501,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownDTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_E] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_E,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -15984,13 +16526,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownETMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_F] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_F,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16008,13 +16551,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownFTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_G] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_G,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16032,13 +16576,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownGTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_H] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_H,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16056,13 +16601,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownHTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_I] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_I,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16080,13 +16626,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownITMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_J] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_J,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16104,13 +16651,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownJTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_K] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_K,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16128,13 +16676,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownKTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_L] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_L,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16152,13 +16701,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownLTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_M] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_M,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16176,13 +16726,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownMTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_N] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_N,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16200,13 +16751,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownNTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_O] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_O,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16224,13 +16776,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownOTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_P] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_P,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16248,13 +16801,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownPTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_Q] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_Q,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16272,13 +16826,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownQTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_R] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_R,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16296,13 +16851,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownRTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_S] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_S,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16320,13 +16876,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownSTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_T] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_T,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16344,13 +16901,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownTTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_U] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_U,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16368,13 +16926,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownUTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_V] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_V,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16392,13 +16951,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownVTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_W] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_W,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16416,13 +16976,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownWTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_X] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_X,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16440,13 +17001,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownXTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_Y] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_Y,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16464,13 +17026,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownYTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_OLD_UNOWN_Z] =
     {
         OLD_UNOWN_SPECIES_INFO,
         .speciesName = _("?"),
+        .natDexNum = NATIONAL_DEX_OLD_UNOWN_Z,
         .frontPic = gMonFrontPic_DoubleQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 4,
@@ -16488,7 +17051,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sOldUnownZTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_QuestionMark,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_TREECKO] =
@@ -16520,6 +17083,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("TREECKO"),
+        .cryId = CRY_TREECKO,
+        .natDexNum = NATIONAL_DEX_TREECKO,
         .categoryName = _("WOOD GECKO"),
         .height = 5,
         .weight = 50,
@@ -16549,7 +17114,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sTreeckoTMHMLearnset,
         .tutorLearnset = sTreeckoTutorLearnset,
         .footprint = gMonFootprint_Treecko,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 16, SPECIES_GROVYLE},
@@ -16585,6 +17150,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("GROVYLE"),
+        .cryId = CRY_GROVYLE,
+        .natDexNum = NATIONAL_DEX_GROVYLE,
         .categoryName = _("WOOD GECKO"),
         .height = 9,
         .weight = 216,
@@ -16614,7 +17181,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGrovyleTMHMLearnset,
         .tutorLearnset = sGrovyleTutorLearnset,
         .footprint = gMonFootprint_Grovyle,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 36, SPECIES_SCEPTILE},
@@ -16650,6 +17217,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("SCEPTILE"),
+        .cryId = CRY_SCEPTILE,
+        .natDexNum = NATIONAL_DEX_SCEPTILE,
         .categoryName = _("FOREST"),
         .height = 17,
         .weight = 522,
@@ -16679,7 +17248,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSceptileTMHMLearnset,
         .tutorLearnset = sSceptileTutorLearnset,
         .footprint = gMonFootprint_Sceptile,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_TORCHIC] =
@@ -16711,6 +17280,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("TORCHIC"),
+        .cryId = CRY_TORCHIC,
+        .natDexNum = NATIONAL_DEX_TORCHIC,
         .categoryName = _("CHICK"),
         .height = 4,
         .weight = 25,
@@ -16740,7 +17311,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sTorchicTMHMLearnset,
         .tutorLearnset = sTorchicTutorLearnset,
         .footprint = gMonFootprint_Torchic,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 16, SPECIES_COMBUSKEN},
@@ -16776,6 +17347,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("COMBUSKEN"),
+        .cryId = CRY_COMBUSKEN,
+        .natDexNum = NATIONAL_DEX_COMBUSKEN,
         .categoryName = _("YOUNG FOWL"),
         .height = 9,
         .weight = 195,
@@ -16805,7 +17378,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCombuskenTMHMLearnset,
         .tutorLearnset = sCombuskenTutorLearnset,
         .footprint = gMonFootprint_Combusken,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 36, SPECIES_BLAZIKEN},
@@ -16841,6 +17414,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("BLAZIKEN"),
+        .cryId = CRY_BLAZIKEN,
+        .natDexNum = NATIONAL_DEX_BLAZIKEN,
         .categoryName = _("BLAZE"),
         .height = 19,
         .weight = 520,
@@ -16870,7 +17445,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sBlazikenTMHMLearnset,
         .tutorLearnset = sBlazikenTutorLearnset,
         .footprint = gMonFootprint_Blaziken,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_MUDKIP] =
@@ -16902,6 +17477,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("MUDKIP"),
+        .cryId = CRY_MUDKIP,
+        .natDexNum = NATIONAL_DEX_MUDKIP,
         .categoryName = _("MUD FISH"),
         .height = 4,
         .weight = 76,
@@ -16931,7 +17508,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMudkipTMHMLearnset,
         .tutorLearnset = sMudkipTutorLearnset,
         .footprint = gMonFootprint_Mudkip,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 16, SPECIES_MARSHTOMP},
@@ -16967,6 +17544,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("MARSHTOMP"),
+        .cryId = CRY_MARSHTOMP,
+        .natDexNum = NATIONAL_DEX_MARSHTOMP,
         .categoryName = _("MUD FISH"),
         .height = 7,
         .weight = 280,
@@ -16996,7 +17575,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMarshtompTMHMLearnset,
         .tutorLearnset = sMarshtompTutorLearnset,
         .footprint = gMonFootprint_Marshtomp,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 36, SPECIES_SWAMPERT},
@@ -17032,6 +17611,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("SWAMPERT"),
+        .cryId = CRY_SWAMPERT,
+        .natDexNum = NATIONAL_DEX_SWAMPERT,
         .categoryName = _("MUD FISH"),
         .height = 15,
         .weight = 819,
@@ -17061,7 +17642,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSwampertTMHMLearnset,
         .tutorLearnset = sSwampertTutorLearnset,
         .footprint = gMonFootprint_Swampert,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_POOCHYENA] =
@@ -17093,6 +17674,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("POOCHYENA"),
+        .cryId = CRY_POOCHYENA,
+        .natDexNum = NATIONAL_DEX_POOCHYENA,
         .categoryName = _("BITE"),
         .height = 5,
         .weight = 136,
@@ -17122,7 +17705,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPoochyenaTMHMLearnset,
         .tutorLearnset = sPoochyenaTutorLearnset,
         .footprint = gMonFootprint_Poochyena,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 18, SPECIES_MIGHTYENA},
@@ -17158,6 +17741,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("MIGHTYENA"),
+        .cryId = CRY_MIGHTYENA,
+        .natDexNum = NATIONAL_DEX_MIGHTYENA,
         .categoryName = _("BITE"),
         .height = 10,
         .weight = 370,
@@ -17187,7 +17772,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMightyenaTMHMLearnset,
         .tutorLearnset = sMightyenaTutorLearnset,
         .footprint = gMonFootprint_Mightyena,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_ZIGZAGOON] =
@@ -17219,6 +17804,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("ZIGZAGOON"),
+        .cryId = CRY_ZIGZAGOON,
+        .natDexNum = NATIONAL_DEX_ZIGZAGOON,
         .categoryName = _("TINYRACCOON"),
         .height = 4,
         .weight = 175,
@@ -17248,7 +17835,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sZigzagoonTMHMLearnset,
         .tutorLearnset = sZigzagoonTutorLearnset,
         .footprint = gMonFootprint_Zigzagoon,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 20, SPECIES_LINOONE},
@@ -17284,6 +17871,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .speciesName = _("LINOONE"),
+        .cryId = CRY_LINOONE,
+        .natDexNum = NATIONAL_DEX_LINOONE,
         .categoryName = _("RUSHING"),
         .height = 5,
         .weight = 325,
@@ -17313,7 +17902,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sLinooneTMHMLearnset,
         .tutorLearnset = sLinooneTutorLearnset,
         .footprint = gMonFootprint_Linoone,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
     },
 
     [SPECIES_WURMPLE] =
@@ -17345,6 +17934,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("WURMPLE"),
+        .cryId = CRY_WURMPLE,
+        .natDexNum = NATIONAL_DEX_WURMPLE,
         .categoryName = _("WORM"),
         .height = 3,
         .weight = 36,
@@ -17374,7 +17965,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sWurmpleTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_Wurmple,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL_SILCOON, 7, SPECIES_SILCOON},
@@ -17411,6 +18002,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .speciesName = _("SILCOON"),
+        .cryId = CRY_SILCOON,
+        .natDexNum = NATIONAL_DEX_SILCOON,
         .categoryName = _("COCOON"),
         .height = 6,
         .weight = 100,
@@ -17440,7 +18033,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSilcoonTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_Silcoon,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 10, SPECIES_BEAUTIFLY},
@@ -17476,6 +18069,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("BEAUTIFLY"),
+        .cryId = CRY_BEAUTIFLY,
+        .natDexNum = NATIONAL_DEX_BEAUTIFLY,
         .categoryName = _("BUTTERFLY"),
         .height = 10,
         .weight = 284,
@@ -17505,7 +18100,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sBeautiflyTMHMLearnset,
         .tutorLearnset = sBeautiflyTutorLearnset,
         .footprint = gMonFootprint_Beautifly,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_CASCOON] =
@@ -17537,6 +18133,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("CASCOON"),
+        .cryId = CRY_CASCOON,
+        .natDexNum = NATIONAL_DEX_CASCOON,
         .categoryName = _("COCOON"),
         .height = 7,
         .weight = 115,
@@ -17566,7 +18164,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCascoonTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_Cascoon,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 10, SPECIES_DUSTOX},
@@ -17602,6 +18200,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("DUSTOX"),
+        .cryId = CRY_DUSTOX,
+        .natDexNum = NATIONAL_DEX_DUSTOX,
         .categoryName = _("POISON MOTH"),
         .height = 12,
         .weight = 316,
@@ -17631,7 +18231,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sDustoxTMHMLearnset,
         .tutorLearnset = sDustoxTutorLearnset,
         .footprint = gMonFootprint_Dustox,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 10,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_LOTAD] =
@@ -17663,6 +18264,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("LOTAD"),
+        .cryId = CRY_LOTAD,
+        .natDexNum = NATIONAL_DEX_LOTAD,
         .categoryName = _("WATER WEED"),
         .height = 5,
         .weight = 26,
@@ -17692,7 +18295,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sLotadTMHMLearnset,
         .tutorLearnset = sLotadTutorLearnset,
         .footprint = gMonFootprint_Lotad,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 14, SPECIES_LOMBRE},
@@ -17728,6 +18331,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("LOMBRE"),
+        .cryId = CRY_LOMBRE,
+        .natDexNum = NATIONAL_DEX_LOMBRE,
         .categoryName = _("JOLLY"),
         .height = 12,
         .weight = 325,
@@ -17757,7 +18362,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sLombreTMHMLearnset,
         .tutorLearnset = sLombreTutorLearnset,
         .footprint = gMonFootprint_Lombre,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_ITEM, ITEM_WATER_STONE, SPECIES_LUDICOLO},
@@ -17793,6 +18398,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("LUDICOLO"),
+        .cryId = CRY_LUDICOLO,
+        .natDexNum = NATIONAL_DEX_LUDICOLO,
         .categoryName = _("CAREFREE"),
         .height = 15,
         .weight = 550,
@@ -17822,7 +18429,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sLudicoloTMHMLearnset,
         .tutorLearnset = sLudicoloTutorLearnset,
         .footprint = gMonFootprint_Ludicolo,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SEEDOT] =
@@ -17854,6 +18461,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("SEEDOT"),
+        .cryId = CRY_SEEDOT,
+        .natDexNum = NATIONAL_DEX_SEEDOT,
         .categoryName = _("ACORN"),
         .height = 5,
         .weight = 40,
@@ -17883,7 +18492,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSeedotTMHMLearnset,
         .tutorLearnset = sSeedotTutorLearnset,
         .footprint = gMonFootprint_Seedot,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 14, SPECIES_NUZLEAF},
@@ -17919,6 +18528,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("NUZLEAF"),
+        .cryId = CRY_NUZLEAF,
+        .natDexNum = NATIONAL_DEX_NUZLEAF,
         .categoryName = _("WILY"),
         .height = 10,
         .weight = 280,
@@ -17948,7 +18559,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sNuzleafTMHMLearnset,
         .tutorLearnset = sNuzleafTutorLearnset,
         .footprint = gMonFootprint_Nuzleaf,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_ITEM, ITEM_LEAF_STONE, SPECIES_SHIFTRY},
@@ -17984,6 +18595,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("SHIFTRY"),
+        .cryId = CRY_SHIFTRY,
+        .natDexNum = NATIONAL_DEX_SHIFTRY,
         .categoryName = _("WICKED"),
         .height = 13,
         .weight = 596,
@@ -18013,7 +18626,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sShiftryTMHMLearnset,
         .tutorLearnset = sShiftryTutorLearnset,
         .footprint = gMonFootprint_Shiftry,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_NINCADA] =
@@ -18045,6 +18658,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("NINCADA"),
+        .cryId = CRY_NINCADA,
+        .natDexNum = NATIONAL_DEX_NINCADA,
         .categoryName = _("TRAINEE"),
         .height = 5,
         .weight = 55,
@@ -18074,7 +18689,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sNincadaTMHMLearnset,
         .tutorLearnset = sNincadaTutorLearnset,
         .footprint = gMonFootprint_Nincada,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL_NINJASK, 20, SPECIES_NINJASK},
@@ -18111,6 +18726,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("NINJASK"),
+        .cryId = CRY_NINJASK,
+        .natDexNum = NATIONAL_DEX_NINJASK,
         .categoryName = _("NINJA"),
         .height = 8,
         .weight = 120,
@@ -18140,7 +18757,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sNinjaskTMHMLearnset,
         .tutorLearnset = sNinjaskTutorLearnset,
         .footprint = gMonFootprint_Ninjask,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 10,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SHEDINJA] =
@@ -18172,6 +18790,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("SHEDINJA"),
+        .cryId = CRY_SHEDINJA,
+        .natDexNum = NATIONAL_DEX_SHEDINJA,
         .categoryName = _("SHED"),
         .height = 8,
         .weight = 12,
@@ -18201,7 +18821,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sShedinjaTMHMLearnset,
         .tutorLearnset = sShedinjaTutorLearnset,
         .footprint = gMonFootprint_Shedinja,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_TAILLOW] =
@@ -18233,6 +18854,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("TAILLOW"),
+        .cryId = CRY_TAILLOW,
+        .natDexNum = NATIONAL_DEX_TAILLOW,
         .categoryName = _("TINYSWALLOW"),
         .height = 3,
         .weight = 23,
@@ -18262,7 +18885,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sTaillowTMHMLearnset,
         .tutorLearnset = sTaillowTutorLearnset,
         .footprint = gMonFootprint_Taillow,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 22, SPECIES_SWELLOW},
@@ -18298,6 +18921,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("SWELLOW"),
+        .cryId = CRY_SWELLOW,
+        .natDexNum = NATIONAL_DEX_SWELLOW,
         .categoryName = _("SWALLOW"),
         .height = 7,
         .weight = 198,
@@ -18327,7 +18952,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSwellowTMHMLearnset,
         .tutorLearnset = sSwellowTutorLearnset,
         .footprint = gMonFootprint_Swellow,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SHROOMISH] =
@@ -18359,6 +18984,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("SHROOMISH"),
+        .cryId = CRY_SHROOMISH,
+        .natDexNum = NATIONAL_DEX_SHROOMISH,
         .categoryName = _("MUSHROOM"),
         .height = 4,
         .weight = 45,
@@ -18388,7 +19015,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sShroomishTMHMLearnset,
         .tutorLearnset = sShroomishTutorLearnset,
         .footprint = gMonFootprint_Shroomish,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 23, SPECIES_BRELOOM},
@@ -18424,6 +19051,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("BRELOOM"),
+        .cryId = CRY_BRELOOM,
+        .natDexNum = NATIONAL_DEX_BRELOOM,
         .categoryName = _("MUSHROOM"),
         .height = 12,
         .weight = 392,
@@ -18453,7 +19082,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sBreloomTMHMLearnset,
         .tutorLearnset = sBreloomTutorLearnset,
         .footprint = gMonFootprint_Breloom,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SPINDA] =
@@ -18485,6 +19114,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = TRUE,
         .speciesName = _("SPINDA"),
+        .cryId = CRY_SPINDA,
+        .natDexNum = NATIONAL_DEX_SPINDA,
         .categoryName = _("SPOT PANDA"),
         .height = 11,
         .weight = 50,
@@ -18514,7 +19145,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSpindaTMHMLearnset,
         .tutorLearnset = sSpindaTutorLearnset,
         .footprint = gMonFootprint_Spinda,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_WINGULL] =
@@ -18546,6 +19177,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .speciesName = _("WINGULL"),
+        .cryId = CRY_WINGULL,
+        .natDexNum = NATIONAL_DEX_WINGULL,
         .categoryName = _("SEAGULL"),
         .height = 6,
         .weight = 95,
@@ -18575,7 +19208,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sWingullTMHMLearnset,
         .tutorLearnset = sWingullTutorLearnset,
         .footprint = gMonFootprint_Wingull,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 16,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 25, SPECIES_PELIPPER},
@@ -18611,6 +19245,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("PELIPPER"),
+        .cryId = CRY_PELIPPER,
+        .natDexNum = NATIONAL_DEX_PELIPPER,
         .categoryName = _("WATER BIRD"),
         .height = 12,
         .weight = 280,
@@ -18640,7 +19276,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPelipperTMHMLearnset,
         .tutorLearnset = sPelipperTutorLearnset,
         .footprint = gMonFootprint_Pelipper,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SURSKIT] =
@@ -18672,6 +19309,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("SURSKIT"),
+        .cryId = CRY_SURSKIT,
+        .natDexNum = NATIONAL_DEX_SURSKIT,
         .categoryName = _("POND SKATER"),
         .height = 5,
         .weight = 17,
@@ -18701,7 +19340,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSurskitTMHMLearnset,
         .tutorLearnset = sSurskitTutorLearnset,
         .footprint = gMonFootprint_Surskit,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 22, SPECIES_MASQUERAIN},
@@ -18737,6 +19376,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("MASQUERAIN"),
+        .cryId = CRY_MASQUERAIN,
+        .natDexNum = NATIONAL_DEX_MASQUERAIN,
         .categoryName = _("EYEBALL"),
         .height = 8,
         .weight = 36,
@@ -18766,7 +19407,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMasquerainTMHMLearnset,
         .tutorLearnset = sMasquerainTutorLearnset,
         .footprint = gMonFootprint_Masquerain,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 10,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_WAILMER] =
@@ -18798,6 +19440,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("WAILMER"),
+        .cryId = CRY_WAILMER,
+        .natDexNum = NATIONAL_DEX_WAILMER,
         .categoryName = _("BALL WHALE"),
         .height = 20,
         .weight = 1300,
@@ -18827,7 +19471,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sWailmerTMHMLearnset,
         .tutorLearnset = sWailmerTutorLearnset,
         .footprint = gMonFootprint_Wailmer,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 40, SPECIES_WAILORD},
@@ -18863,6 +19507,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("WAILORD"),
+        .cryId = CRY_WAILORD,
+        .natDexNum = NATIONAL_DEX_WAILORD,
         .categoryName = _("FLOAT WHALE"),
         .height = 145,
         .weight = 3980,
@@ -18893,7 +19539,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sWailordTMHMLearnset,
         .tutorLearnset = sWailordTutorLearnset,
         .footprint = gMonFootprint_Wailord,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SKITTY] =
@@ -18925,6 +19571,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("SKITTY"),
+        .cryId = CRY_SKITTY,
+        .natDexNum = NATIONAL_DEX_SKITTY,
         .categoryName = _("KITTEN"),
         .height = 6,
         .weight = 110,
@@ -18954,7 +19602,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSkittyTMHMLearnset,
         .tutorLearnset = sSkittyTutorLearnset,
         .footprint = gMonFootprint_Skitty,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_ITEM, ITEM_MOON_STONE, SPECIES_DELCATTY},
@@ -18990,6 +19638,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("DELCATTY"),
+        .cryId = CRY_DELCATTY,
+        .natDexNum = NATIONAL_DEX_DELCATTY,
         .categoryName = _("PRIM"),
         .height = 11,
         .weight = 326,
@@ -19019,7 +19669,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sDelcattyTMHMLearnset,
         .tutorLearnset = sDelcattyTutorLearnset,
         .footprint = gMonFootprint_Delcatty,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_KECLEON] =
@@ -19051,6 +19701,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("KECLEON"),
+        .cryId = CRY_KECLEON,
+        .natDexNum = NATIONAL_DEX_KECLEON,
         .categoryName = _("COLOR SWAP"),
         .height = 10,
         .weight = 220,
@@ -19081,7 +19733,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sKecleonTMHMLearnset,
         .tutorLearnset = sKecleonTutorLearnset,
         .footprint = gMonFootprint_Kecleon,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_BALTOY] =
@@ -19113,6 +19765,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("BALTOY"),
+        .cryId = CRY_BALTOY,
+        .natDexNum = NATIONAL_DEX_BALTOY,
         .categoryName = _("CLAY DOLL"),
         .height = 5,
         .weight = 215,
@@ -19142,7 +19796,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sBaltoyTMHMLearnset,
         .tutorLearnset = sBaltoyTutorLearnset,
         .footprint = gMonFootprint_Baltoy,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 4,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 36, SPECIES_CLAYDOL},
@@ -19178,6 +19833,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .speciesName = _("CLAYDOL"),
+        .cryId = CRY_CLAYDOL,
+        .natDexNum = NATIONAL_DEX_CLAYDOL,
         .categoryName = _("CLAY DOLL"),
         .height = 15,
         .weight = 1080,
@@ -19207,7 +19864,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sClaydolTMHMLearnset,
         .tutorLearnset = sClaydolTutorLearnset,
         .footprint = gMonFootprint_Claydol,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 10,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_NOSEPASS] =
@@ -19239,6 +19897,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("NOSEPASS"),
+        .cryId = CRY_NOSEPASS,
+        .natDexNum = NATIONAL_DEX_NOSEPASS,
         .categoryName = _("COMPASS"),
         .height = 10,
         .weight = 970,
@@ -19268,7 +19928,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sNosepassTMHMLearnset,
         .tutorLearnset = sNosepassTutorLearnset,
         .footprint = gMonFootprint_Nosepass,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_TORKOAL] =
@@ -19300,6 +19960,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("TORKOAL"),
+        .cryId = CRY_TORKOAL,
+        .natDexNum = NATIONAL_DEX_TORKOAL,
         .categoryName = _("COAL"),
         .height = 5,
         .weight = 804,
@@ -19329,7 +19991,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sTorkoalTMHMLearnset,
         .tutorLearnset = sTorkoalTutorLearnset,
         .footprint = gMonFootprint_Torkoal,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
     },
 
     [SPECIES_SABLEYE] =
@@ -19361,6 +20023,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("SABLEYE"),
+        .cryId = CRY_SABLEYE,
+        .natDexNum = NATIONAL_DEX_SABLEYE,
         .categoryName = _("DARKNESS"),
         .height = 5,
         .weight = 110,
@@ -19390,7 +20054,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSableyeTMHMLearnset,
         .tutorLearnset = sSableyeTutorLearnset,
         .footprint = gMonFootprint_Sableye,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
     },
 
     [SPECIES_BARBOACH] =
@@ -19422,6 +20086,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("BARBOACH"),
+        .cryId = CRY_BARBOACH,
+        .natDexNum = NATIONAL_DEX_BARBOACH,
         .categoryName = _("WHISKERS"),
         .height = 4,
         .weight = 19,
@@ -19451,7 +20117,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sBarboachTMHMLearnset,
         .tutorLearnset = sBarboachTutorLearnset,
         .footprint = gMonFootprint_Barboach,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 30, SPECIES_WHISCASH},
@@ -19487,6 +20153,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("WHISCASH"),
+        .cryId = CRY_WHISCASH,
+        .natDexNum = NATIONAL_DEX_WHISCASH,
         .categoryName = _("WHISKERS"),
         .height = 9,
         .weight = 236,
@@ -19516,7 +20184,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sWhiscashTMHMLearnset,
         .tutorLearnset = sWhiscashTutorLearnset,
         .footprint = gMonFootprint_Whiscash,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_LUVDISC] =
@@ -19548,6 +20216,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("LUVDISC"),
+        .cryId = CRY_LUVDISC,
+        .natDexNum = NATIONAL_DEX_LUVDISC,
         .categoryName = _("RENDEZVOUS"),
         .height = 6,
         .weight = 87,
@@ -19577,7 +20247,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sLuvdiscTMHMLearnset,
         .tutorLearnset = sLuvdiscTutorLearnset,
         .footprint = gMonFootprint_Luvdisc,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_CORPHISH] =
@@ -19609,6 +20279,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("CORPHISH"),
+        .cryId = CRY_CORPHISH,
+        .natDexNum = NATIONAL_DEX_CORPHISH,
         .categoryName = _("RUFFIAN"),
         .height = 6,
         .weight = 115,
@@ -19638,7 +20310,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCorphishTMHMLearnset,
         .tutorLearnset = sCorphishTutorLearnset,
         .footprint = gMonFootprint_Corphish,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 30, SPECIES_CRAWDAUNT},
@@ -19674,6 +20346,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("CRAWDAUNT"),
+        .cryId = CRY_CRAWDAUNT,
+        .natDexNum = NATIONAL_DEX_CRAWDAUNT,
         .categoryName = _("ROGUE"),
         .height = 11,
         .weight = 328,
@@ -19703,7 +20377,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCrawdauntTMHMLearnset,
         .tutorLearnset = sCrawdauntTutorLearnset,
         .footprint = gMonFootprint_Crawdaunt,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_FEEBAS] =
@@ -19735,6 +20409,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("FEEBAS"),
+        .cryId = CRY_FEEBAS,
+        .natDexNum = NATIONAL_DEX_FEEBAS,
         .categoryName = _("FISH"),
         .height = 6,
         .weight = 74,
@@ -19764,7 +20440,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sFeebasTMHMLearnset,
         .tutorLearnset = sFeebasTutorLearnset,
         .footprint = gMonFootprint_Feebas,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_BEAUTY, 170, SPECIES_MILOTIC},
@@ -19800,6 +20476,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("MILOTIC"),
+        .cryId = CRY_MILOTIC,
+        .natDexNum = NATIONAL_DEX_MILOTIC,
         .categoryName = _("TENDER"),
         .height = 62,
         .weight = 1620,
@@ -19830,7 +20508,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMiloticTMHMLearnset,
         .tutorLearnset = sMiloticTutorLearnset,
         .footprint = gMonFootprint_Milotic,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_CARVANHA] =
@@ -19862,6 +20540,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("CARVANHA"),
+        .cryId = CRY_CARVANHA,
+        .natDexNum = NATIONAL_DEX_CARVANHA,
         .categoryName = _("SAVAGE"),
         .height = 8,
         .weight = 208,
@@ -19891,7 +20571,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCarvanhaTMHMLearnset,
         .tutorLearnset = sCarvanhaTutorLearnset,
         .footprint = gMonFootprint_Carvanha,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 30, SPECIES_SHARPEDO},
@@ -19927,6 +20607,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("SHARPEDO"),
+        .cryId = CRY_SHARPEDO,
+        .natDexNum = NATIONAL_DEX_SHARPEDO,
         .categoryName = _("BRUTAL"),
         .height = 18,
         .weight = 888,
@@ -19956,7 +20638,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSharpedoTMHMLearnset,
         .tutorLearnset = sSharpedoTutorLearnset,
         .footprint = gMonFootprint_Sharpedo,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_TRAPINCH] =
@@ -19988,6 +20670,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("TRAPINCH"),
+        .cryId = CRY_TRAPINCH,
+        .natDexNum = NATIONAL_DEX_TRAPINCH,
         .categoryName = _("ANT PIT"),
         .height = 7,
         .weight = 150,
@@ -20017,7 +20701,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sTrapinchTMHMLearnset,
         .tutorLearnset = sTrapinchTutorLearnset,
         .footprint = gMonFootprint_Trapinch,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 35, SPECIES_VIBRAVA},
@@ -20053,6 +20737,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("VIBRAVA"),
+        .cryId = CRY_VIBRAVA,
+        .natDexNum = NATIONAL_DEX_VIBRAVA,
         .categoryName = _("VIBRATION"),
         .height = 11,
         .weight = 153,
@@ -20082,7 +20768,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sVibravaTMHMLearnset,
         .tutorLearnset = sVibravaTutorLearnset,
         .footprint = gMonFootprint_Vibrava,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 45, SPECIES_FLYGON},
@@ -20118,6 +20804,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("FLYGON"),
+        .cryId = CRY_FLYGON,
+        .natDexNum = NATIONAL_DEX_FLYGON,
         .categoryName = _("MYSTIC"),
         .height = 20,
         .weight = 820,
@@ -20147,7 +20835,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sFlygonTMHMLearnset,
         .tutorLearnset = sFlygonTutorLearnset,
         .footprint = gMonFootprint_Flygon,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 7,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_MAKUHITA] =
@@ -20179,6 +20868,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("MAKUHITA"),
+        .cryId = CRY_MAKUHITA,
+        .natDexNum = NATIONAL_DEX_MAKUHITA,
         .categoryName = _("GUTS"),
         .height = 10,
         .weight = 864,
@@ -20208,7 +20899,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMakuhitaTMHMLearnset,
         .tutorLearnset = sMakuhitaTutorLearnset,
         .footprint = gMonFootprint_Makuhita,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 24, SPECIES_HARIYAMA},
@@ -20244,6 +20935,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("HARIYAMA"),
+        .cryId = CRY_HARIYAMA,
+        .natDexNum = NATIONAL_DEX_HARIYAMA,
         .categoryName = _("ARM THRUST"),
         .height = 23,
         .weight = 2538,
@@ -20273,7 +20966,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sHariyamaTMHMLearnset,
         .tutorLearnset = sHariyamaTutorLearnset,
         .footprint = gMonFootprint_Hariyama,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_ELECTRIKE] =
@@ -20305,6 +20998,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("ELECTRIKE"),
+        .cryId = CRY_ELECTRIKE,
+        .natDexNum = NATIONAL_DEX_ELECTRIKE,
         .categoryName = _("LIGHTNING"),
         .height = 6,
         .weight = 152,
@@ -20334,7 +21029,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sElectrikeTMHMLearnset,
         .tutorLearnset = sElectrikeTutorLearnset,
         .footprint = gMonFootprint_Electrike,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 26, SPECIES_MANECTRIC},
@@ -20370,6 +21065,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("MANECTRIC"),
+        .cryId = CRY_MANECTRIC,
+        .natDexNum = NATIONAL_DEX_MANECTRIC,
         .categoryName = _("DISCHARGE"),
         .height = 15,
         .weight = 402,
@@ -20399,7 +21096,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sManectricTMHMLearnset,
         .tutorLearnset = sManectricTutorLearnset,
         .footprint = gMonFootprint_Manectric,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_NUMEL] =
@@ -20431,6 +21128,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("NUMEL"),
+        .cryId = CRY_NUMEL,
+        .natDexNum = NATIONAL_DEX_NUMEL,
         .categoryName = _("NUMB"),
         .height = 7,
         .weight = 240,
@@ -20460,7 +21159,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sNumelTMHMLearnset,
         .tutorLearnset = sNumelTutorLearnset,
         .footprint = gMonFootprint_Numel,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 33, SPECIES_CAMERUPT},
@@ -20496,6 +21195,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("CAMERUPT"),
+        .cryId = CRY_CAMERUPT,
+        .natDexNum = NATIONAL_DEX_CAMERUPT,
         .categoryName = _("ERUPTION"),
         .height = 19,
         .weight = 2200,
@@ -20525,7 +21226,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCameruptTMHMLearnset,
         .tutorLearnset = sCameruptTutorLearnset,
         .footprint = gMonFootprint_Camerupt,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SPHEAL] =
@@ -20557,6 +21258,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("SPHEAL"),
+        .cryId = CRY_SPHEAL,
+        .natDexNum = NATIONAL_DEX_SPHEAL,
         .categoryName = _("CLAP"),
         .height = 8,
         .weight = 395,
@@ -20587,7 +21290,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSphealTMHMLearnset,
         .tutorLearnset = sSphealTutorLearnset,
         .footprint = gMonFootprint_Spheal,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 32, SPECIES_SEALEO},
@@ -20623,6 +21326,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("SEALEO"),
+        .cryId = CRY_SEALEO,
+        .natDexNum = NATIONAL_DEX_SEALEO,
         .categoryName = _("BALL ROLL"),
         .height = 11,
         .weight = 876,
@@ -20652,7 +21357,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSealeoTMHMLearnset,
         .tutorLearnset = sSealeoTutorLearnset,
         .footprint = gMonFootprint_Sealeo,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 44, SPECIES_WALREIN},
@@ -20688,6 +21393,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("WALREIN"),
+        .cryId = CRY_WALREIN,
+        .natDexNum = NATIONAL_DEX_WALREIN,
         .categoryName = _("ICE BREAK"),
         .height = 14,
         .weight = 1506,
@@ -20717,7 +21424,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sWalreinTMHMLearnset,
         .tutorLearnset = sWalreinTutorLearnset,
         .footprint = gMonFootprint_Walrein,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_CACNEA] =
@@ -20749,6 +21456,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("CACNEA"),
+        .cryId = CRY_CACNEA,
+        .natDexNum = NATIONAL_DEX_CACNEA,
         .categoryName = _("CACTUS"),
         .height = 4,
         .weight = 513,
@@ -20778,7 +21487,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCacneaTMHMLearnset,
         .tutorLearnset = sCacneaTutorLearnset,
         .footprint = gMonFootprint_Cacnea,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 32, SPECIES_CACTURNE},
@@ -20814,6 +21523,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("CACTURNE"),
+        .cryId = CRY_CACTURNE,
+        .natDexNum = NATIONAL_DEX_CACTURNE,
         .categoryName = _("SCARECROW"),
         .height = 13,
         .weight = 774,
@@ -20843,7 +21554,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCacturneTMHMLearnset,
         .tutorLearnset = sCacturneTutorLearnset,
         .footprint = gMonFootprint_Cacturne,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SNORUNT] =
@@ -20875,6 +21586,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("SNORUNT"),
+        .cryId = CRY_SNORUNT,
+        .natDexNum = NATIONAL_DEX_SNORUNT,
         .categoryName = _("SNOW HAT"),
         .height = 7,
         .weight = 168,
@@ -20905,7 +21618,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSnoruntTMHMLearnset,
         .tutorLearnset = sSnoruntTutorLearnset,
         .footprint = gMonFootprint_Snorunt,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 42, SPECIES_GLALIE},
@@ -20941,6 +21654,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("GLALIE"),
+        .cryId = CRY_GLALIE,
+        .natDexNum = NATIONAL_DEX_GLALIE,
         .categoryName = _("FACE"),
         .height = 15,
         .weight = 2565,
@@ -20970,7 +21685,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGlalieTMHMLearnset,
         .tutorLearnset = sGlalieTutorLearnset,
         .footprint = gMonFootprint_Glalie,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 12,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_LUNATONE] =
@@ -21002,6 +21718,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("LUNATONE"),
+        .cryId = CRY_LUNATONE,
+        .natDexNum = NATIONAL_DEX_LUNATONE,
         .categoryName = _("METEORITE"),
         .height = 10,
         .weight = 1680,
@@ -21031,7 +21749,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sLunatoneTMHMLearnset,
         .tutorLearnset = sLunatoneTutorLearnset,
         .footprint = gMonFootprint_Lunatone,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 13,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SOLROCK] =
@@ -21063,6 +21782,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("SOLROCK"),
+        .cryId = CRY_SOLROCK,
+        .natDexNum = NATIONAL_DEX_SOLROCK,
         .categoryName = _("METEORITE"),
         .height = 12,
         .weight = 1540,
@@ -21092,7 +21813,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSolrockTMHMLearnset,
         .tutorLearnset = sSolrockTutorLearnset,
         .footprint = gMonFootprint_Solrock,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 4,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_AZURILL] =
@@ -21124,6 +21846,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("AZURILL"),
+        .cryId = CRY_AZURILL,
+        .natDexNum = NATIONAL_DEX_AZURILL,
         .categoryName = _("POLKA DOT"),
         .height = 2,
         .weight = 20,
@@ -21153,7 +21877,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sAzurillTMHMLearnset,
         .tutorLearnset = sAzurillTutorLearnset,
         .footprint = gMonFootprint_Azurill,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_FRIENDSHIP, 0, SPECIES_MARILL},
@@ -21189,6 +21913,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .speciesName = _("SPOINK"),
+        .cryId = CRY_SPOINK,
+        .natDexNum = NATIONAL_DEX_SPOINK,
         .categoryName = _("BOUNCE"),
         .height = 7,
         .weight = 306,
@@ -21218,7 +21944,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSpoinkTMHMLearnset,
         .tutorLearnset = sSpoinkTutorLearnset,
         .footprint = gMonFootprint_Spoink,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 32, SPECIES_GRUMPIG},
@@ -21254,6 +21980,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("GRUMPIG"),
+        .cryId = CRY_GRUMPIG,
+        .natDexNum = NATIONAL_DEX_GRUMPIG,
         .categoryName = _("MANIPULATE"),
         .height = 9,
         .weight = 715,
@@ -21284,7 +22012,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGrumpigTMHMLearnset,
         .tutorLearnset = sGrumpigTutorLearnset,
         .footprint = gMonFootprint_Grumpig,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_PLUSLE] =
@@ -21316,6 +22044,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("PLUSLE"),
+        .cryId = CRY_PLUSLE,
+        .natDexNum = NATIONAL_DEX_PLUSLE,
         .categoryName = _("CHEERING"),
         .height = 4,
         .weight = 42,
@@ -21345,7 +22075,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sPlusleTMHMLearnset,
         .tutorLearnset = sPlusleTutorLearnset,
         .footprint = gMonFootprint_Plusle,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
     },
 
     [SPECIES_MINUN] =
@@ -21377,6 +22107,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("MINUN"),
+        .cryId = CRY_MINUN,
+        .natDexNum = NATIONAL_DEX_MINUN,
         .categoryName = _("CHEERING"),
         .height = 4,
         .weight = 42,
@@ -21406,7 +22138,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMinunTMHMLearnset,
         .tutorLearnset = sMinunTutorLearnset,
         .footprint = gMonFootprint_Minun,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
     },
 
     [SPECIES_MAWILE] =
@@ -21438,6 +22170,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .speciesName = _("MAWILE"),
+        .cryId = CRY_MAWILE,
+        .natDexNum = NATIONAL_DEX_MAWILE,
         .categoryName = _("DECEIVER"),
         .height = 6,
         .weight = 115,
@@ -21467,7 +22201,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMawileTMHMLearnset,
         .tutorLearnset = sMawileTutorLearnset,
         .footprint = gMonFootprint_Mawile,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
     },
 
     [SPECIES_MEDITITE] =
@@ -21499,6 +22233,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("MEDITITE"),
+        .cryId = CRY_MEDITITE,
+        .natDexNum = NATIONAL_DEX_MEDITITE,
         .categoryName = _("MEDITATE"),
         .height = 6,
         .weight = 112,
@@ -21528,7 +22264,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMedititeTMHMLearnset,
         .tutorLearnset = sMedititeTutorLearnset,
         .footprint = gMonFootprint_Meditite,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 37, SPECIES_MEDICHAM},
@@ -21564,6 +22300,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("MEDICHAM"),
+        .cryId = CRY_MEDICHAM,
+        .natDexNum = NATIONAL_DEX_MEDICHAM,
         .categoryName = _("MEDITATE"),
         .height = 13,
         .weight = 315,
@@ -21593,7 +22331,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMedichamTMHMLearnset,
         .tutorLearnset = sMedichamTutorLearnset,
         .footprint = gMonFootprint_Medicham,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SWABLU] =
@@ -21625,6 +22363,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("SWABLU"),
+        .cryId = CRY_SWABLU,
+        .natDexNum = NATIONAL_DEX_SWABLU,
         .categoryName = _("COTTON BIRD"),
         .height = 4,
         .weight = 12,
@@ -21654,7 +22394,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSwabluTMHMLearnset,
         .tutorLearnset = sSwabluTutorLearnset,
         .footprint = gMonFootprint_Swablu,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 12,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 35, SPECIES_ALTARIA},
@@ -21690,6 +22431,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("ALTARIA"),
+        .cryId = CRY_ALTARIA,
+        .natDexNum = NATIONAL_DEX_ALTARIA,
         .categoryName = _("HUMMING"),
         .height = 11,
         .weight = 206,
@@ -21719,7 +22462,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sAltariaTMHMLearnset,
         .tutorLearnset = sAltariaTutorLearnset,
         .footprint = gMonFootprint_Altaria,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_WYNAUT] =
@@ -21751,6 +22495,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("WYNAUT"),
+        .cryId = CRY_WYNAUT,
+        .natDexNum = NATIONAL_DEX_WYNAUT,
         .categoryName = _("BRIGHT"),
         .height = 6,
         .weight = 140,
@@ -21781,7 +22527,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sWynautTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_Wynaut,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 15, SPECIES_WOBBUFFET},
@@ -21817,6 +22563,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .speciesName = _("DUSKULL"),
+        .cryId = CRY_DUSKULL,
+        .natDexNum = NATIONAL_DEX_DUSKULL,
         .categoryName = _("REQUIEM"),
         .height = 8,
         .weight = 150,
@@ -21846,7 +22594,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sDuskullTMHMLearnset,
         .tutorLearnset = sDuskullTutorLearnset,
         .footprint = gMonFootprint_Duskull,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 9,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 37, SPECIES_DUSCLOPS},
@@ -21882,6 +22631,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .speciesName = _("DUSCLOPS"),
+        .cryId = CRY_DUSCLOPS,
+        .natDexNum = NATIONAL_DEX_DUSCLOPS,
         .categoryName = _("BECKON"),
         .height = 16,
         .weight = 306,
@@ -21912,7 +22663,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sDusclopsTMHMLearnset,
         .tutorLearnset = sDusclopsTutorLearnset,
         .footprint = gMonFootprint_Dusclops,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_ROSELIA] =
@@ -21944,6 +22695,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = TRUE,
         .speciesName = _("ROSELIA"),
+        .cryId = CRY_ROSELIA,
+        .natDexNum = NATIONAL_DEX_ROSELIA,
         .categoryName = _("THORN"),
         .height = 3,
         .weight = 20,
@@ -21973,7 +22726,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sRoseliaTMHMLearnset,
         .tutorLearnset = sRoseliaTutorLearnset,
         .footprint = gMonFootprint_Roselia,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
     },
 
     [SPECIES_SLAKOTH] =
@@ -22005,6 +22758,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("SLAKOTH"),
+        .cryId = CRY_SLAKOTH,
+        .natDexNum = NATIONAL_DEX_SLAKOTH,
         .categoryName = _("SLACKER"),
         .height = 8,
         .weight = 240,
@@ -22034,7 +22789,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSlakothTMHMLearnset,
         .tutorLearnset = sSlakothTutorLearnset,
         .footprint = gMonFootprint_Slakoth,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 18, SPECIES_VIGOROTH},
@@ -22070,6 +22825,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .speciesName = _("VIGOROTH"),
+        .cryId = CRY_VIGOROTH,
+        .natDexNum = NATIONAL_DEX_VIGOROTH,
         .categoryName = _("WILD MONKEY"),
         .height = 14,
         .weight = 465,
@@ -22099,7 +22856,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sVigorothTMHMLearnset,
         .tutorLearnset = sVigorothTutorLearnset,
         .footprint = gMonFootprint_Vigoroth,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 36, SPECIES_SLAKING},
@@ -22135,6 +22892,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("SLAKING"),
+        .cryId = CRY_SLAKING,
+        .natDexNum = NATIONAL_DEX_SLAKING,
         .categoryName = _("LAZY"),
         .height = 20,
         .weight = 1305,
@@ -22164,7 +22923,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSlakingTMHMLearnset,
         .tutorLearnset = sSlakingTutorLearnset,
         .footprint = gMonFootprint_Slaking,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_GULPIN] =
@@ -22196,6 +22955,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("GULPIN"),
+        .cryId = CRY_GULPIN,
+        .natDexNum = NATIONAL_DEX_GULPIN,
         .categoryName = _("STOMACH"),
         .height = 4,
         .weight = 103,
@@ -22225,7 +22986,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGulpinTMHMLearnset,
         .tutorLearnset = sGulpinTutorLearnset,
         .footprint = gMonFootprint_Gulpin,
-        .jumpType = PKMN_JUMP_TYPE_SLOW,
+        .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
             {EVO_LEVEL, 26, SPECIES_SWALOT},
@@ -22261,6 +23022,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("SWALOT"),
+        .cryId = CRY_SWALOT,
+        .natDexNum = NATIONAL_DEX_SWALOT,
         .categoryName = _("POISON BAG"),
         .height = 17,
         .weight = 800,
@@ -22290,7 +23053,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSwalotTMHMLearnset,
         .tutorLearnset = sSwalotTutorLearnset,
         .footprint = gMonFootprint_Swalot,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_TROPIUS] =
@@ -22322,6 +23085,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("TROPIUS"),
+        .cryId = CRY_TROPIUS,
+        .natDexNum = NATIONAL_DEX_TROPIUS,
         .categoryName = _("FRUIT"),
         .height = 20,
         .weight = 1000,
@@ -22351,7 +23116,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sTropiusTMHMLearnset,
         .tutorLearnset = sTropiusTutorLearnset,
         .footprint = gMonFootprint_Tropius,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_WHISMUR] =
@@ -22383,6 +23148,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("WHISMUR"),
+        .cryId = CRY_WHISMUR,
+        .natDexNum = NATIONAL_DEX_WHISMUR,
         .categoryName = _("WHISPER"),
         .height = 6,
         .weight = 163,
@@ -22412,7 +23179,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sWhismurTMHMLearnset,
         .tutorLearnset = sWhismurTutorLearnset,
         .footprint = gMonFootprint_Whismur,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 20, SPECIES_LOUDRED},
@@ -22448,6 +23215,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("LOUDRED"),
+        .cryId = CRY_LOUDRED,
+        .natDexNum = NATIONAL_DEX_LOUDRED,
         .categoryName = _("BIG VOICE"),
         .height = 10,
         .weight = 405,
@@ -22477,7 +23246,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sLoudredTMHMLearnset,
         .tutorLearnset = sLoudredTutorLearnset,
         .footprint = gMonFootprint_Loudred,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 40, SPECIES_EXPLOUD},
@@ -22513,6 +23282,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("EXPLOUD"),
+        .cryId = CRY_EXPLOUD,
+        .natDexNum = NATIONAL_DEX_EXPLOUD,
         .categoryName = _("LOUD NOISE"),
         .height = 15,
         .weight = 840,
@@ -22542,7 +23313,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sExploudTMHMLearnset,
         .tutorLearnset = sExploudTutorLearnset,
         .footprint = gMonFootprint_Exploud,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_CLAMPERL] =
@@ -22574,6 +23345,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("CLAMPERL"),
+        .cryId = CRY_CLAMPERL,
+        .natDexNum = NATIONAL_DEX_CLAMPERL,
         .categoryName = _("BIVALVE"),
         .height = 4,
         .weight = 525,
@@ -22603,7 +23376,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sClamperlTMHMLearnset,
         .tutorLearnset = sClamperlTutorLearnset,
         .footprint = gMonFootprint_Clamperl,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_TRADE_ITEM, ITEM_DEEP_SEA_TOOTH, SPECIES_HUNTAIL},
@@ -22640,6 +23413,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("HUNTAIL"),
+        .cryId = CRY_HUNTAIL,
+        .natDexNum = NATIONAL_DEX_HUNTAIL,
         .categoryName = _("DEEP SEA"),
         .height = 17,
         .weight = 270,
@@ -22669,7 +23444,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sHuntailTMHMLearnset,
         .tutorLearnset = sHuntailTutorLearnset,
         .footprint = gMonFootprint_Huntail,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_GOREBYSS] =
@@ -22701,6 +23476,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .speciesName = _("GOREBYSS"),
+        .cryId = CRY_GOREBYSS,
+        .natDexNum = NATIONAL_DEX_GOREBYSS,
         .categoryName = _("SOUTH SEA"),
         .height = 18,
         .weight = 226,
@@ -22730,7 +23507,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGorebyssTMHMLearnset,
         .tutorLearnset = sGorebyssTutorLearnset,
         .footprint = gMonFootprint_Gorebyss,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_ABSOL] =
@@ -22762,6 +23539,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = TRUE,
         .speciesName = _("ABSOL"),
+        .cryId = CRY_ABSOL,
+        .natDexNum = NATIONAL_DEX_ABSOL,
         .categoryName = _("DISASTER"),
         .height = 12,
         .weight = 470,
@@ -22792,7 +23571,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sAbsolTMHMLearnset,
         .tutorLearnset = sAbsolTutorLearnset,
         .footprint = gMonFootprint_Absol,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SHUPPET] =
@@ -22824,6 +23603,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .speciesName = _("SHUPPET"),
+        .cryId = CRY_SHUPPET,
+        .natDexNum = NATIONAL_DEX_SHUPPET,
         .categoryName = _("PUPPET"),
         .height = 6,
         .weight = 23,
@@ -22853,7 +23634,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sShuppetTMHMLearnset,
         .tutorLearnset = sShuppetTutorLearnset,
         .footprint = gMonFootprint_Shuppet,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 12,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 37, SPECIES_BANETTE},
@@ -22889,6 +23671,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
         .speciesName = _("BANETTE"),
+        .cryId = CRY_BANETTE,
+        .natDexNum = NATIONAL_DEX_BANETTE,
         .categoryName = _("MARIONETTE"),
         .height = 11,
         .weight = 125,
@@ -22918,7 +23702,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sBanetteTMHMLearnset,
         .tutorLearnset = sBanetteTutorLearnset,
         .footprint = gMonFootprint_Banette,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_SEVIPER] =
@@ -22950,6 +23735,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = TRUE,
         .speciesName = _("SEVIPER"),
+        .cryId = CRY_SEVIPER,
+        .natDexNum = NATIONAL_DEX_SEVIPER,
         .categoryName = _("FANG SNAKE"),
         .height = 27,
         .weight = 525,
@@ -22979,7 +23766,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSeviperTMHMLearnset,
         .tutorLearnset = sSeviperTutorLearnset,
         .footprint = gMonFootprint_Seviper,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_ZANGOOSE] =
@@ -23011,6 +23798,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = TRUE,
         .speciesName = _("ZANGOOSE"),
+        .cryId = CRY_ZANGOOSE,
+        .natDexNum = NATIONAL_DEX_ZANGOOSE,
         .categoryName = _("CAT FERRET"),
         .height = 13,
         .weight = 403,
@@ -23040,7 +23829,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sZangooseTMHMLearnset,
         .tutorLearnset = sZangooseTutorLearnset,
         .footprint = gMonFootprint_Zangoose,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_RELICANTH] =
@@ -23072,6 +23861,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("RELICANTH"),
+        .cryId = CRY_RELICANTH,
+        .natDexNum = NATIONAL_DEX_RELICANTH,
         .categoryName = _("LONGEVITY"),
         .height = 10,
         .weight = 234,
@@ -23101,7 +23892,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sRelicanthTMHMLearnset,
         .tutorLearnset = sRelicanthTutorLearnset,
         .footprint = gMonFootprint_Relicanth,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_ARON] =
@@ -23133,6 +23924,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("ARON"),
+        .cryId = CRY_ARON,
+        .natDexNum = NATIONAL_DEX_ARON,
         .categoryName = _("IRON ARMOR"),
         .height = 4,
         .weight = 600,
@@ -23162,7 +23955,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sAronTMHMLearnset,
         .tutorLearnset = sAronTutorLearnset,
         .footprint = gMonFootprint_Aron,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 32, SPECIES_LAIRON},
@@ -23198,6 +23991,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("LAIRON"),
+        .cryId = CRY_LAIRON,
+        .natDexNum = NATIONAL_DEX_LAIRON,
         .categoryName = _("IRON ARMOR"),
         .height = 9,
         .weight = 1200,
@@ -23227,7 +24022,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sLaironTMHMLearnset,
         .tutorLearnset = sLaironTutorLearnset,
         .footprint = gMonFootprint_Lairon,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 42, SPECIES_AGGRON},
@@ -23263,6 +24058,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("AGGRON"),
+        .cryId = CRY_AGGRON,
+        .natDexNum = NATIONAL_DEX_AGGRON,
         .categoryName = _("IRON ARMOR"),
         .height = 21,
         .weight = 3600,
@@ -23292,7 +24089,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sAggronTMHMLearnset,
         .tutorLearnset = sAggronTutorLearnset,
         .footprint = gMonFootprint_Aggron,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_CASTFORM] =
@@ -23324,6 +24121,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .speciesName = _("CASTFORM"),
+        .cryId = CRY_CASTFORM,
+        .natDexNum = NATIONAL_DEX_CASTFORM,
         .categoryName = _("WEATHER"),
         .height = 3,
         .weight = 8,
@@ -23353,7 +24152,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCastformTMHMLearnset,
         .tutorLearnset = sCastformTutorLearnset,
         .footprint = gMonFootprint_Castform,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 16,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_VOLBEAT] =
@@ -23385,6 +24185,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("VOLBEAT"),
+        .cryId = CRY_VOLBEAT,
+        .natDexNum = NATIONAL_DEX_VOLBEAT,
         .categoryName = _("FIREFLY"),
         .height = 7,
         .weight = 177,
@@ -23414,7 +24216,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sVolbeatTMHMLearnset,
         .tutorLearnset = sVolbeatTutorLearnset,
         .footprint = gMonFootprint_Volbeat,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
     },
 
     [SPECIES_ILLUMISE] =
@@ -23446,6 +24248,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("ILLUMISE"),
+        .cryId = CRY_ILLUMISE,
+        .natDexNum = NATIONAL_DEX_ILLUMISE,
         .categoryName = _("FIREFLY"),
         .height = 6,
         .weight = 177,
@@ -23475,7 +24279,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sIllumiseTMHMLearnset,
         .tutorLearnset = sIllumiseTutorLearnset,
         .footprint = gMonFootprint_Illumise,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
     },
 
     [SPECIES_LILEEP] =
@@ -23507,6 +24311,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
         .speciesName = _("LILEEP"),
+        .cryId = CRY_LILEEP,
+        .natDexNum = NATIONAL_DEX_LILEEP,
         .categoryName = _("SEA LILY"),
         .height = 10,
         .weight = 238,
@@ -23536,7 +24342,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sLileepTMHMLearnset,
         .tutorLearnset = sLileepTutorLearnset,
         .footprint = gMonFootprint_Lileep,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 40, SPECIES_CRADILY},
@@ -23572,6 +24378,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("CRADILY"),
+        .cryId = CRY_CRADILY,
+        .natDexNum = NATIONAL_DEX_CRADILY,
         .categoryName = _("BARNACLE"),
         .height = 15,
         .weight = 604,
@@ -23601,7 +24409,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sCradilyTMHMLearnset,
         .tutorLearnset = sCradilyTutorLearnset,
         .footprint = gMonFootprint_Cradily,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_ANORITH] =
@@ -23633,6 +24441,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("ANORITH"),
+        .cryId = CRY_ANORITH,
+        .natDexNum = NATIONAL_DEX_ANORITH,
         .categoryName = _("OLD SHRIMP"),
         .height = 7,
         .weight = 125,
@@ -23662,7 +24472,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sAnorithTMHMLearnset,
         .tutorLearnset = sAnorithTutorLearnset,
         .footprint = gMonFootprint_Anorith,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 40, SPECIES_ARMALDO},
@@ -23698,6 +24508,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("ARMALDO"),
+        .cryId = CRY_ARMALDO,
+        .natDexNum = NATIONAL_DEX_ARMALDO,
         .categoryName = _("PLATE"),
         .height = 15,
         .weight = 682,
@@ -23727,7 +24539,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sArmaldoTMHMLearnset,
         .tutorLearnset = sArmaldoTutorLearnset,
         .footprint = gMonFootprint_Armaldo,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_RALTS] =
@@ -23759,6 +24571,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .speciesName = _("RALTS"),
+        .cryId = CRY_RALTS,
+        .natDexNum = NATIONAL_DEX_RALTS,
         .categoryName = _("FEELING"),
         .height = 4,
         .weight = 66,
@@ -23788,7 +24602,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sRaltsTMHMLearnset,
         .tutorLearnset = sRaltsTutorLearnset,
         .footprint = gMonFootprint_Ralts,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 20, SPECIES_KIRLIA},
@@ -23824,6 +24638,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .speciesName = _("KIRLIA"),
+        .cryId = CRY_KIRLIA,
+        .natDexNum = NATIONAL_DEX_KIRLIA,
         .categoryName = _("EMOTION"),
         .height = 8,
         .weight = 202,
@@ -23853,7 +24669,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sKirliaTMHMLearnset,
         .tutorLearnset = sKirliaTutorLearnset,
         .footprint = gMonFootprint_Kirlia,
-        .jumpType = PKMN_JUMP_TYPE_NORMAL,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
             {EVO_LEVEL, 30, SPECIES_GARDEVOIR},
@@ -23889,6 +24705,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .speciesName = _("GARDEVOIR"),
+        .cryId = CRY_GARDEVOIR,
+        .natDexNum = NATIONAL_DEX_GARDEVOIR,
         .categoryName = _("EMBRACE"),
         .height = 16,
         .weight = 484,
@@ -23918,7 +24736,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGardevoirTMHMLearnset,
         .tutorLearnset = sGardevoirTutorLearnset,
         .footprint = gMonFootprint_Gardevoir,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_BAGON] =
@@ -23950,6 +24768,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("BAGON"),
+        .cryId = CRY_BAGON,
+        .natDexNum = NATIONAL_DEX_BAGON,
         .categoryName = _("ROCK HEAD"),
         .height = 6,
         .weight = 421,
@@ -23979,7 +24799,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sBagonTMHMLearnset,
         .tutorLearnset = sBagonTutorLearnset,
         .footprint = gMonFootprint_Bagon,
-        .jumpType = PKMN_JUMP_TYPE_FAST,
+        .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
             {EVO_LEVEL, 30, SPECIES_SHELGON},
@@ -24015,6 +24835,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
         .speciesName = _("SHELGON"),
+        .cryId = CRY_SHELGON,
+        .natDexNum = NATIONAL_DEX_SHELGON,
         .categoryName = _("ENDURANCE"),
         .height = 11,
         .weight = 1105,
@@ -24044,7 +24866,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sShelgonTMHMLearnset,
         .tutorLearnset = sShelgonTutorLearnset,
         .footprint = gMonFootprint_Shelgon,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 50, SPECIES_SALAMENCE},
@@ -24080,6 +24902,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("SALAMENCE"),
+        .cryId = CRY_SALAMENCE,
+        .natDexNum = NATIONAL_DEX_SALAMENCE,
         .categoryName = _("DRAGON"),
         .height = 15,
         .weight = 1026,
@@ -24110,7 +24934,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sSalamenceTMHMLearnset,
         .tutorLearnset = sSalamenceTutorLearnset,
         .footprint = gMonFootprint_Salamence,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_BELDUM] =
@@ -24142,6 +24966,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("BELDUM"),
+        .cryId = CRY_BELDUM,
+        .natDexNum = NATIONAL_DEX_BELDUM,
         .categoryName = _("IRON BALL"),
         .height = 6,
         .weight = 952,
@@ -24171,7 +24997,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sBeldumTMHMLearnset,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_Beldum,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 20, SPECIES_METANG},
@@ -24207,6 +25034,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("METANG"),
+        .cryId = CRY_METANG,
+        .natDexNum = NATIONAL_DEX_METANG,
         .categoryName = _("IRON CLAW"),
         .height = 12,
         .weight = 2025,
@@ -24236,7 +25065,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMetangTMHMLearnset,
         .tutorLearnset = sMetangTutorLearnset,
         .footprint = gMonFootprint_Metang,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
             {EVO_LEVEL, 45, SPECIES_METAGROSS},
@@ -24272,6 +25101,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("METAGROSS"),
+        .cryId = CRY_METAGROSS,
+        .natDexNum = NATIONAL_DEX_METAGROSS,
         .categoryName = _("IRON LEG"),
         .height = 16,
         .weight = 5500,
@@ -24301,7 +25132,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sMetagrossTMHMLearnset,
         .tutorLearnset = sMetagrossTutorLearnset,
         .footprint = gMonFootprint_Metagross,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_REGIROCK] =
@@ -24333,6 +25164,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
         .speciesName = _("REGIROCK"),
+        .cryId = CRY_REGIROCK,
+        .natDexNum = NATIONAL_DEX_REGIROCK,
         .categoryName = _("ROCK PEAK"),
         .height = 17,
         .weight = 2300,
@@ -24362,7 +25195,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sRegirockTMHMLearnset,
         .tutorLearnset = sRegirockTutorLearnset,
         .footprint = gMonFootprint_Regirock,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_REGICE] =
@@ -24394,6 +25227,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("REGICE"),
+        .cryId = CRY_REGICE,
+        .natDexNum = NATIONAL_DEX_REGICE,
         .categoryName = _("ICEBERG"),
         .height = 18,
         .weight = 1750,
@@ -24423,7 +25258,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sRegiceTMHMLearnset,
         .tutorLearnset = sRegiceTutorLearnset,
         .footprint = gMonFootprint_Regice,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_REGISTEEL] =
@@ -24455,6 +25290,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
         .speciesName = _("REGISTEEL"),
+        .cryId = CRY_REGISTEEL,
+        .natDexNum = NATIONAL_DEX_REGISTEEL,
         .categoryName = _("IRON"),
         .height = 19,
         .weight = 2050,
@@ -24484,7 +25321,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sRegisteelTMHMLearnset,
         .tutorLearnset = sRegisteelTutorLearnset,
         .footprint = gMonFootprint_Registeel,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_KYOGRE] =
@@ -24516,6 +25353,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("KYOGRE"),
+        .cryId = CRY_KYOGRE,
+        .natDexNum = NATIONAL_DEX_KYOGRE,
         .categoryName = _("SEA BASIN"),
         .height = 45,
         .weight = 3520,
@@ -24546,7 +25385,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sKyogreTMHMLearnset,
         .tutorLearnset = sKyogreTutorLearnset,
         .footprint = gMonFootprint_Kyogre,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_GROUDON] =
@@ -24578,6 +25417,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("GROUDON"),
+        .cryId = CRY_GROUDON,
+        .natDexNum = NATIONAL_DEX_GROUDON,
         .categoryName = _("CONTINENT"),
         .height = 35,
         .weight = 9500,
@@ -24607,7 +25448,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sGroudonTMHMLearnset,
         .tutorLearnset = sGroudonTutorLearnset,
         .footprint = gMonFootprint_Groudon,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_RAYQUAZA] =
@@ -24639,6 +25480,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
         .speciesName = _("RAYQUAZA"),
+        .cryId = CRY_RAYQUAZA,
+        .natDexNum = NATIONAL_DEX_RAYQUAZA,
         .categoryName = _("SKY HIGH"),
         .height = 70,
         .weight = 2065,
@@ -24669,7 +25512,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sRayquazaTMHMLearnset,
         .tutorLearnset = sRayquazaTutorLearnset,
         .footprint = gMonFootprint_Rayquaza,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 6,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_LATIAS] =
@@ -24701,6 +25545,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
         .speciesName = _("LATIAS"),
+        .cryId = CRY_LATIAS,
+        .natDexNum = NATIONAL_DEX_LATIAS,
         .categoryName = _("EON"),
         .height = 14,
         .weight = 400,
@@ -24730,7 +25576,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sLatiasTMHMLearnset,
         .tutorLearnset = sLatiasTutorLearnset,
         .footprint = gMonFootprint_Latias,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 6,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_LATIOS] =
@@ -24762,6 +25609,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("LATIOS"),
+        .cryId = CRY_LATIOS,
+        .natDexNum = NATIONAL_DEX_LATIOS,
         .categoryName = _("EON"),
         .height = 20,
         .weight = 600,
@@ -24791,7 +25640,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sLatiosTMHMLearnset,
         .tutorLearnset = sLatiosTutorLearnset,
         .footprint = gMonFootprint_Latios,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 6,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_JIRACHI] =
@@ -24823,6 +25673,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
         .speciesName = _("JIRACHI"),
+        .cryId = CRY_JIRACHI,
+        .natDexNum = NATIONAL_DEX_JIRACHI,
         .categoryName = _("WISH"),
         .height = 3,
         .weight = 11,
@@ -24852,7 +25704,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sJirachiTMHMLearnset,
         .tutorLearnset = sJirachiTutorLearnset,
         .footprint = gMonFootprint_Jirachi,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 12,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_DEOXYS] =
@@ -24884,6 +25737,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = TRUE,
         .speciesName = _("DEOXYS"),
+        .cryId = CRY_DEOXYS,
+        .natDexNum = NATIONAL_DEX_DEOXYS,
         .categoryName = _("DNA"),
         .height = 17,
         .weight = 608,
@@ -24913,7 +25768,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sDeoxysTMHMLearnset,
         .tutorLearnset = sDeoxysTutorLearnset,
         .footprint = gMonFootprint_Deoxys,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 8,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_CHIMECHO] =
@@ -24945,6 +25801,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
         .speciesName = _("CHIMECHO"),
+        .cryId = CRY_CHIMECHO,
+        .natDexNum = NATIONAL_DEX_CHIMECHO,
         .categoryName = _("WIND CHIME"),
         .height = 6,
         .weight = 10,
@@ -24974,7 +25832,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = sChimechoTMHMLearnset,
         .tutorLearnset = sChimechoTutorLearnset,
         .footprint = gMonFootprint_Chimecho,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .enemyMonElevation = 12,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_EGG] =
@@ -24995,7 +25854,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
         .footprint = gMonFootprint_Bulbasaur,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_B] =
@@ -25015,7 +25874,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_C] =
@@ -25035,7 +25894,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_D] =
@@ -25055,7 +25914,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_E] =
@@ -25075,7 +25934,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_F] =
@@ -25095,7 +25954,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_G] =
@@ -25115,7 +25974,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_H] =
@@ -25135,7 +25994,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_I] =
@@ -25155,7 +26014,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_J] =
@@ -25175,7 +26034,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_K] =
@@ -25195,7 +26054,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_L] =
@@ -25215,7 +26074,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_M] =
@@ -25235,7 +26094,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_N] =
@@ -25255,7 +26114,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_O] =
@@ -25275,7 +26134,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_P] =
@@ -25295,7 +26154,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_Q] =
@@ -25315,7 +26174,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_R] =
@@ -25335,7 +26194,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_S] =
@@ -25355,7 +26214,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_T] =
@@ -25375,7 +26234,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_U] =
@@ -25395,7 +26254,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_V] =
@@ -25415,7 +26274,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_W] =
@@ -25435,7 +26294,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_X] =
@@ -25455,7 +26314,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_Y] =
@@ -25475,7 +26334,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_Z] =
@@ -25495,7 +26354,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_EMARK] =
@@ -25515,7 +26374,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
     [SPECIES_UNOWN_QMARK] =
@@ -25535,7 +26394,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .iconPalIndex = 0,
         .tmhmLearnset = NULL,
         .tutorLearnset = NULL,
-        .jumpType = PKMN_JUMP_TYPE_NONE,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
     },
 
 };

@@ -40,6 +40,7 @@
 #include "constants/battle_frontier.h"
 #include "constants/battle_move_effects.h"
 #include "constants/battle_script_commands.h"
+#include "constants/cries.h"
 #include "constants/hold_effects.h"
 #include "constants/item_effects.h"
 #include "constants/items.h"
@@ -5689,13 +5690,7 @@ u16 HoennToNationalOrder(u16 hoennNum)
 
 u16 SpeciesToCryId(u16 species)
 {
-    if (species <= SPECIES_CELEBI - 1)
-        return species;
-
-    if (species < SPECIES_TREECKO - 1)
-        return SPECIES_UNOWN - 1;
-
-    return gSpeciesIdToCryId[species - (SPECIES_TREECKO - 1)];
+    return gSpeciesInfo[species].cryId;
 }
 
 // Spots can be drawn on Spinda's color indexes 1, 2, or 3
