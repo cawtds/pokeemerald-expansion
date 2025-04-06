@@ -105,34 +105,6 @@ enum {
     PKMN_JUMP_TYPE_SLOW,
 };
 
-struct MonCoords
-{
-    // This would use a bitfield, but some function
-    // uses it as a u8 and casting won't match.
-    u8 size; // u8 width:4, height:4;
-    u8 y_offset;
-};
-
-/* Expands to:
- * struct TMHMLearnset
- * {
- *     u32 FOCUS_PUNCH:1;
- *     ...
- *     u32 CUT:1;
- *     ...
- * }; */
-#define TMHM_LEARN(id) u32 id:1;
-struct TMHMLearnset
-{
-    FOREACH_TMHM(TMHM_LEARN)
-};
-#undef TMHM_LEARN
-
-union TMHMLearnsetUnion {
-    struct TMHMLearnset learnset;
-    u32 as_u32s[sizeof(struct TMHMLearnset) / sizeof(u32)];
-};
-
 struct PokemonSubstruct0
 {
     u16 species;
