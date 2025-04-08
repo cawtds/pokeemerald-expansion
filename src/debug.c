@@ -3257,6 +3257,23 @@ static void DebugAction_Give_Pokemon_Move(u8 taskId)
     }
 }
 
+static void CreateMonWithNatureAndShininess(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 nature, bool8 forceShiny)
+{
+    u32 personality;
+    u32 otId = (gSaveBlock2Ptr->playerTrainerId[0])
+             | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
+             | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
+             | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
+
+    do
+    {
+        personality = Random32();
+    }
+    while (nature != GetNatureFromPersonality(personality) || (forceShiny && GET_SHINY_VALUE(otId, personality) >= SHINY_ODDS));
+
+    CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
+}
+
 static void DebugAction_Give_Pokemon_ComplexCreateMon(u8 taskId) //https://github.com/ghoulslash/pokeemerald/tree/custom-givemon
 {
     u16 nationalDexNum;
@@ -3290,7 +3307,7 @@ static void DebugAction_Give_Pokemon_ComplexCreateMon(u8 taskId) //https://githu
     //Nature
     if (nature == NUM_NATURES || nature == 0xFF)
         nature = Random() % NUM_NATURES;
-    CreateMonWithNature(&mon, species, level, USE_RANDOM_IVS, nature);
+    CreateMonWithNatureAndShininess(&mon, species, level, USE_RANDOM_IVS, nature, isShiny);
 
     //Shininess
     // SetMonData(&mon, MON_DATA_IS_SHINY, &isShiny);
