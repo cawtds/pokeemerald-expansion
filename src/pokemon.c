@@ -983,7 +983,7 @@ const s8 gNatureStatTable[NUM_NATURES][NUM_NATURE_STATS] =
 #include "data/pokemon/level_up_learnsets.h"
 #include "data/pokemon/evolution.h"
 #include "data/pokemon/level_up_learnset_pointers.h"
-#include "data/pokemon/tutor_learnsets_new.h"
+#include "data/pokemon/tutor_learnsets.h"
 #include "data/pokemon/egg_moves.h"
 #include "data/pokemon/species_info.h"
 
