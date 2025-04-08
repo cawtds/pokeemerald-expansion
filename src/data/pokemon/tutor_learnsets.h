@@ -1,3 +1,8 @@
+static const u16 sNoneTutorLearnset[] =
+{
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sBulbasaurTutorLearnset[] =
 {
     MOVE_SWORDS_DANCE,
@@ -193,6 +198,16 @@ static const u16 sBlastoiseTutorLearnset[] =
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sCaterpieTutorLearnset[] =
+{
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sMetapodTutorLearnset[] =
+{
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sButterfreeTutorLearnset[] =
 {
     MOVE_DOUBLE_EDGE,
@@ -204,6 +219,16 @@ static const u16 sButterfreeTutorLearnset[] =
     MOVE_SWAGGER,
     MOVE_SLEEP_TALK,
     MOVE_SWIFT,
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sWeedleTutorLearnset[] =
+{
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sKakunaTutorLearnset[] =
+{
     MOVE_UNAVAILABLE,
 };
 
@@ -2330,6 +2355,11 @@ static const u16 sTaurosTutorLearnset[] =
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sMagikarpTutorLearnset[] =
+{
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sGyaradosTutorLearnset[] =
 {
     MOVE_BODY_SLAM,
@@ -2357,6 +2387,11 @@ static const u16 sLaprasTutorLearnset[] =
     MOVE_ENDURE,
     MOVE_SWAGGER,
     MOVE_SLEEP_TALK,
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sDittoTutorLearnset[] =
+{
     MOVE_UNAVAILABLE,
 };
 
@@ -3641,6 +3676,16 @@ static const u16 sMisdreavusTutorLearnset[] =
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sUnownTutorLearnset[] =
+{
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sWobbuffetTutorLearnset[] =
+{
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sGirafarigTutorLearnset[] =
 {
     MOVE_BODY_SLAM,
@@ -4243,6 +4288,11 @@ static const u16 sStantlerTutorLearnset[] =
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sSmeargleTutorLearnset[] =
+{
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sTyrogueTutorLearnset[] =
 {
     MOVE_MEGA_KICK,
@@ -4840,6 +4890,16 @@ static const u16 sLinooneTutorLearnset[] =
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sWurmpleTutorLearnset[] =
+{
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sSilcoonTutorLearnset[] =
+{
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sBeautiflyTutorLearnset[] =
 {
     MOVE_DOUBLE_EDGE,
@@ -4850,6 +4910,11 @@ static const u16 sBeautiflyTutorLearnset[] =
     MOVE_SWAGGER,
     MOVE_SLEEP_TALK,
     MOVE_SWIFT,
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sCascoonTutorLearnset[] =
+{
     MOVE_UNAVAILABLE,
 };
 
@@ -6091,6 +6156,11 @@ static const u16 sAltariaTutorLearnset[] =
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sWynautTutorLearnset[] =
+{
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sDuskullTutorLearnset[] =
 {
     MOVE_BODY_SLAM,
@@ -6852,6 +6922,11 @@ static const u16 sSalamenceTutorLearnset[] =
     MOVE_SWIFT,
     MOVE_DEFENSE_CURL,
     MOVE_FURY_CUTTER,
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sBeldumTutorLearnset[] =
+{
     MOVE_UNAVAILABLE,
 };
 
