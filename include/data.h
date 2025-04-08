@@ -115,8 +115,6 @@ extern const union AffineAnimCmd *const gAffineAnims_BattleSpriteContest[];
 
 extern const union AnimCmd sAnim_GeneralFrame0[];
 extern const union AnimCmd *const gAnims_MonPic[];
-extern const struct CompressedSpriteSheet gMonStillFrontPicTable[];
-extern const struct CompressedSpriteSheet gMonBackPicTable[];
 extern const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[];
 extern const struct MonCoords gTrainerFrontPicCoords[];
 extern const struct CompressedSpriteSheet gTrainerFrontPicTable[];
@@ -127,7 +125,6 @@ extern const struct CompressedSpriteSheet gTrainerBackPicTable[]; // functionall
 extern const struct CompressedSpritePalette gTrainerBackPicPaletteTable[];
 
 extern const union AnimCmd *const *const gMonFrontAnimsPtrTable[];
-extern const struct CompressedSpriteSheet gMonFrontPicTable[];
 
 extern const struct Trainer gTrainers[];
 extern const u8 gTrainerClassNames[][13];

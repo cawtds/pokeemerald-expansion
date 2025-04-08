@@ -895,19 +895,11 @@ static void Task_ShowWinnerMonBanner(u8 taskId)
         otId = gContestMons[i].otId;
         if (i == gContestPlayerMonIndex)
         {
-            HandleLoadSpecialPokePic_2(
-                &gMonFrontPicTable[species],
-                gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT],
-                species,
-                personality);
+            HandleLoadSpecialPokePic(TRUE, gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT], species, personality);
         }
         else
         {
-            HandleLoadSpecialPokePic_DontHandleDeoxys(
-                &gMonFrontPicTable[species],
-                gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT],
-                species,
-                personality);
+            HandleLoadSpecialPokePic_DontHandleDeoxys(TRUE, gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT], species, personality);
         }
 
         pokePalTag = GetMonSpritePalTagFromOtIdPersonality(species, otId, personality);
@@ -2590,9 +2582,9 @@ void ShowContestEntryMonPic(void)
         gTasks[taskId].data[0] = 0;
         gTasks[taskId].data[1] = species;
         if (gSpecialVar_0x8006 == gContestPlayerMonIndex)
-            HandleLoadSpecialPokePic_2(&gMonFrontPicTable[species], gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT], species, personality);
+            HandleLoadSpecialPokePic(TRUE, gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT], species, personality);
         else
-            HandleLoadSpecialPokePic_DontHandleDeoxys(&gMonFrontPicTable[species], gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT], species, personality);
+            HandleLoadSpecialPokePic_DontHandleDeoxys(TRUE, gMonSpritesGfxPtr->sprites.ptr[B_POSITION_OPPONENT_LEFT], species, personality);
         paletteTag = GetMonSpritePalTagFromOtIdPersonality(species, otId, personality);
         LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality), paletteTag);
         SetMultiuseSpriteTemplateToPokemon(species, B_POSITION_OPPONENT_LEFT);

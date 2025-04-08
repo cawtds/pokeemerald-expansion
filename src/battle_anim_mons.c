@@ -2098,33 +2098,17 @@ u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16
     {
         LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, trainerId, personality), OBJ_PLTT_ID(palette), PLTT_SIZE_4BPP);
         if (ignoreDeoxysForm == TRUE || ShouldIgnoreDeoxysForm(5, battlerId) == TRUE || gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies != 0)
-            LoadSpecialPokePic_DontHandleDeoxys(&gMonFrontPicTable[species],
-                                                gMonSpritesGfxPtr->buffer,
-                                                species,
-                                                personality,
-                                                TRUE);
+            LoadSpecialPokePic_DontHandleDeoxys(gMonSpritesGfxPtr->buffer, species, personality, TRUE);
         else
-            LoadSpecialPokePic_2(&gMonFrontPicTable[species],
-                                 gMonSpritesGfxPtr->buffer,
-                                 species,
-                                 personality,
-                                 TRUE);
+            LoadSpecialPokePic(gMonSpritesGfxPtr->buffer, species, personality, TRUE);
     }
     else
     {
         LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, trainerId, personality), OBJ_PLTT_ID(palette), PLTT_SIZE_4BPP);
         if (ignoreDeoxysForm == TRUE || ShouldIgnoreDeoxysForm(5, battlerId) == TRUE || gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies != 0)
-            LoadSpecialPokePic_DontHandleDeoxys(&gMonBackPicTable[species],
-                                                gMonSpritesGfxPtr->buffer,
-                                                species,
-                                                personality,
-                                                FALSE);
+            LoadSpecialPokePic_DontHandleDeoxys(gMonSpritesGfxPtr->buffer, species, personality, FALSE);
         else
-            LoadSpecialPokePic_2(&gMonBackPicTable[species],
-                                 gMonSpritesGfxPtr->buffer,
-                                 species,
-                                 personality,
-                                 FALSE);
+            LoadSpecialPokePic(gMonSpritesGfxPtr->buffer, species, personality, FALSE);
     }
 
     RequestDma3Copy(gMonSpritesGfxPtr->buffer, (void *)(OBJ_VRAM0 + (sheet * 0x20)), MON_PIC_SIZE, 1);
