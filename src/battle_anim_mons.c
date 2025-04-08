@@ -201,7 +201,7 @@ u8 GetBattlerYDelta(u8 battlerId, u16 species)
                 coordSpecies = species;
             else
                 coordSpecies = letter + SPECIES_UNOWN_B - 1;
-            ret = gMonBackPicCoords[coordSpecies].y_offset;
+            ret = gSpeciesInfo[coordSpecies].backPicYOffset;
         }
         else if (species == SPECIES_CASTFORM)
         {
@@ -209,11 +209,11 @@ u8 GetBattlerYDelta(u8 battlerId, u16 species)
         }
         else if (species > NUM_SPECIES)
         {
-            ret = gMonBackPicCoords[0].y_offset;
+            ret = gSpeciesInfo[SPECIES_NONE].backPicYOffset;
         }
         else
         {
-            ret = gMonBackPicCoords[species].y_offset;
+            ret = gSpeciesInfo[species].backPicYOffset;
         }
     }
     else
@@ -1908,7 +1908,7 @@ static u16 GetBattlerYDeltaFromSpriteId(u8 spriteId)
             if (IsContest())
             {
                 species = gContestResources->moveAnim->species;
-                return gMonBackPicCoords[species].y_offset;
+                return gSpeciesInfo[species].backPicYOffset;
             }
             else
             {
@@ -1923,7 +1923,7 @@ static u16 GetBattlerYDeltaFromSpriteId(u8 spriteId)
                     if (species == SPECIES_CASTFORM)
                         return sCastformBackSpriteYCoords[gBattleMonForms[battlerId]];
                     else
-                        return gMonBackPicCoords[species].y_offset;
+                        return gSpeciesInfo[species].backPicYOffset;
                 }
                 else
                 {
@@ -2133,7 +2133,7 @@ u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16
     if (!isBackpic)
         spriteId = CreateSprite(&sSpriteTemplates_MoveEffectMons[id], x, y + gSpeciesInfo[species].frontPicYOffset, subpriority);
     else
-        spriteId = CreateSprite(&sSpriteTemplates_MoveEffectMons[id], x, y + gMonBackPicCoords[species].y_offset, subpriority);
+        spriteId = CreateSprite(&sSpriteTemplates_MoveEffectMons[id], x, y + gSpeciesInfo[species].backPicYOffset, subpriority);
 
     if (IsContest())
     {
