@@ -24,6 +24,7 @@
 #include "menu.h"
 #include "menu_helpers.h"
 #include "mon_markings.h"
+#include "move.h"
 #include "party_menu.h"
 #include "palette.h"
 #include "pokeball.h"
@@ -313,7 +314,6 @@ static void KeepMoveSelectorVisible(u8);
 static void SummaryScreen_DestroyAnimDelayTask(void);
 
 // const rom data
-#include "data/text/move_descriptions.h"
 #include "data/text/nature_names.h"
 
 static const struct BgTemplate sBgTemplates[] =
@@ -3639,7 +3639,7 @@ static void PrintMoveDetails(u16 move)
         if (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES)
         {
             PrintMovePowerAndAccuracy(move);
-            PrintTextOnWindow(windowId, gMoveDescriptionPointers[move - 1], 6, 1, 0, 0);
+            PrintTextOnWindow(windowId, gMovesInfo[move].description, 6, 1, 0, 0);
         }
         else
         {
