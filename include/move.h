@@ -31,4 +31,17 @@ struct MoveInfo
 
 extern const struct MoveInfo gMovesInfo[MOVES_COUNT];
 
+static inline u32 SanitizeMoveId(u32 moveId)
+{
+    if (moveId >= MOVES_COUNT)
+        return MOVE_NONE;
+    else
+        return moveId;
+}
+
+static inline const u8 *GetMoveName(u32 moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].name;
+}
+
 #endif //GUARD_MOVE_H

@@ -25,6 +25,7 @@
 #include "menu.h"
 #include "menu_helpers.h"
 #include "metatile_behavior.h"
+#include "move.h"
 #include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
@@ -804,7 +805,7 @@ static void Task_ShowTMHMContainedMessage(u8 taskId)
 {
     if (JOY_NEW(A_BUTTON | B_BUTTON))
     {
-        StringCopy(gStringVar1, gMoveNames[ItemIdToBattleMoveId(gSpecialVar_ItemId)]);
+        StringCopy(gStringVar1, GetMoveName(ItemIdToBattleMoveId(gSpecialVar_ItemId)));
         StringExpandPlaceholders(gStringVar4, gText_TMHMContainedVar1);
         DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, UseTMHMYesNo);
     }

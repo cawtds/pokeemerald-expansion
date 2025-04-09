@@ -21,6 +21,7 @@
 #include "menu.h"
 #include "menu_helpers.h"
 #include "money.h"
+#include "move.h"
 #include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
@@ -1000,7 +1001,7 @@ static void Task_BuyMenu(u8 taskId)
                     CopyItemName(itemId, gStringVar1);
                     if (ItemId_GetPocket(itemId) == POCKET_TM_HM)
                     {
-                        StringCopy(gStringVar2, gMoveNames[ItemIdToBattleMoveId(itemId)]);
+                        StringCopy(gStringVar2, GetMoveName(ItemIdToBattleMoveId(itemId)));
                         BuyMenuDisplayMessage(taskId, gText_Var1CertainlyHowMany2, Task_BuyHowManyDialogueInit);
                     }
                     else

@@ -7,6 +7,7 @@
 #include "random.h"
 #include "text.h"
 #include "main.h"
+#include "move.h"
 #include "international_string_util.h"
 #include "battle.h"
 #include "frontier_util.h"
@@ -2446,7 +2447,7 @@ static void GetPotentialPartnerMoveAndSpecies(u16 trainerId, u16 monId)
         }
     }
 
-    StringCopy(gStringVar1, gMoveNames[move]);
+    StringCopy(gStringVar1, GetMoveName(move));
     StringCopy(gStringVar2, GetSpeciesName(species));
 }
 

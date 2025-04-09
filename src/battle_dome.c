@@ -23,6 +23,7 @@
 #include "decompress.h"
 #include "party_menu.h"
 #include "menu.h"
+#include "move.h"
 #include "sound.h"
 #include "pokemon_icon.h"
 #include "data.h"
@@ -4747,7 +4748,7 @@ static int BufferDomeWinString(u8 matchNum, u8 *tournamentIds)
             if (DOME_TRAINERS[tournamentId].eliminatedAt == sCompetitorRangeByMatch[matchNum][2])
             {
                 // Set initial winStringId offset
-                StringCopy(gStringVar2, gMoveNames[gSaveBlock2Ptr->frontier.domeWinningMoves[tournamentId]]);
+                StringCopy(gStringVar2, GetMoveName(gSaveBlock2Ptr->frontier.domeWinningMoves[tournamentId]));
                 winStringId = DOME_TRAINERS[tournamentId].forfeited * 2; // (DOME_TEXT_WON_USING_MOVE - 1) or (DOME_TEXT_WON_ON_FORFEIT - 1)
 
                 if (gSaveBlock2Ptr->frontier.domeWinningMoves[tournamentId] == MOVE_NONE && DOME_TRAINERS[tournamentId].forfeited == FALSE)

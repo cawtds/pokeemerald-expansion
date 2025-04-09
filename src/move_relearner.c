@@ -13,6 +13,7 @@
 #include "menu.h"
 #include "menu_helpers.h"
 #include "menu_specialized.h"
+#include "move.h"
 #include "overworld.h"
 #include "palette.h"
 #include "pokemon_summary_screen.h"
@@ -600,7 +601,7 @@ static void DoMoveRelearnerMain(void)
         }
         break;
     case MENU_STATE_PRINT_STOP_TEACHING:
-        StringCopy(gStringVar2, gMoveNames[GetCurrentSelectedMove()]);
+        StringCopy(gStringVar2, GetMoveName(GetCurrentSelectedMove()));
         PrintMessageWithPlaceholders(gText_MoveRelearnerStopTryingToTeachMove);
         sMoveRelearnerStruct->state++;
         break;
@@ -707,10 +708,10 @@ static void DoMoveRelearnerMain(void)
             {
                 u16 moveId = GetMonData(&gPlayerParty[sMoveRelearnerStruct->partyMon], MON_DATA_MOVE1 + sMoveRelearnerStruct->moveSlot);
 
-                StringCopy(gStringVar3, gMoveNames[moveId]);
+                StringCopy(gStringVar3, GetMoveName(moveId));
                 RemoveMonPPBonus(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->moveSlot);
                 SetMonMoveSlot(&gPlayerParty[sMoveRelearnerStruct->partyMon], GetCurrentSelectedMove(), sMoveRelearnerStruct->moveSlot);
-                StringCopy(gStringVar2, gMoveNames[GetCurrentSelectedMove()]);
+                StringCopy(gStringVar2, GetMoveName(GetCurrentSelectedMove()));
                 PrintMessageWithPlaceholders(gText_MoveRelearnerAndPoof);
                 sMoveRelearnerStruct->state = MENU_STATE_DOUBLE_FANFARE_FORGOT_MOVE;
                 gSpecialVar_0x8004 = TRUE;
@@ -815,7 +816,7 @@ static void HandleInput(bool8 showContest)
         PlaySE(SE_SELECT);
         RemoveScrollArrows();
         sMoveRelearnerStruct->state = MENU_STATE_PRINT_TEACH_MOVE_PROMPT;
-        StringCopy(gStringVar2, gMoveNames[itemId]);
+        StringCopy(gStringVar2, GetMoveName(itemId));
         StringExpandPlaceholders(gStringVar4, gText_MoveRelearnerTeachMoveConfirm);
         MoveRelearnerPrintMessage(gStringVar4);
         break;
@@ -904,7 +905,7 @@ static void CreateLearnableMovesList(void)
 
     for (i = 0; i < sMoveRelearnerStruct->numMenuChoices; i++)
     {
-        sMoveRelearnerStruct->menuItems[i].name = gMoveNames[sMoveRelearnerStruct->movesToLearn[i]];
+        sMoveRelearnerStruct->menuItems[i].name = GetMoveName(sMoveRelearnerStruct->movesToLearn[i]);
         sMoveRelearnerStruct->menuItems[i].id = sMoveRelearnerStruct->movesToLearn[i];
     }
 

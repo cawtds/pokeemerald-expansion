@@ -34,6 +34,7 @@
 #include "map_name_popup.h"
 #include "menu.h"
 #include "money.h"
+#include "move.h"
 #include "naming_screen.h"
 #include "new_game.h"
 #include "overworld.h"
@@ -3135,7 +3136,7 @@ static u32 GetDebugPokemonTotalEV(void)
 static void Debug_Display_MoveInfo(u32 moveId, u32 iteration, u32 digit, u8 windowId)
 {
     // Doesn't expand placeholdes so a 4th dynamic value can be shown.
-    u8 *end = StringCopy(gStringVar1, gMoveNames[moveId]);
+    u8 *end = StringCopy(gStringVar1, GetMoveName(moveId));
     // WrapFontIdToFit(gStringVar1, end, DEBUG_MENU_FONT, WindowWidthPx(windowId));
     StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
     StringCopy(gStringVar4, COMPOUND_STRING("Move "));
