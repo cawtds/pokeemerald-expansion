@@ -36,35 +36,35 @@
         .bodyColor = BODY_COLOR_BLACK,                                                  \
         .noFlip = FALSE
 
-static const union AnimCmd sAnim_Castform_0[] =
+static const union AnimCmd sAnim_CastformNormal[] =
 {
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_Castform_1[] =
+static const union AnimCmd sAnim_CastformFire[] =
 {
     ANIMCMD_FRAME(1, 1),
     ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_Castform_2[] =
+static const union AnimCmd sAnim_CastformWater[] =
 {
     ANIMCMD_FRAME(2, 1),
     ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_Castform_3[] =
+static const union AnimCmd sAnim_CastformIce[] =
 {
     ANIMCMD_FRAME(3, 1),
     ANIMCMD_END,
 };
 
 static const union AnimCmd *const sAnims_Castform[] ={
-    sAnim_Castform_0,
-    sAnim_Castform_1,
-    sAnim_Castform_2,
-    sAnim_Castform_3,
+    sAnim_CastformNormal,
+    sAnim_CastformFire,
+    sAnim_CastformWater,
+    sAnim_CastformIce,
 };
 
 const struct SpeciesInfo gSpeciesInfo[] =
