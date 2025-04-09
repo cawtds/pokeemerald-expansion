@@ -375,6 +375,32 @@ struct SpeciesInfo
             u16 trainerOffset;
 };
 
+struct MoveInfo
+{
+    const u8 *name;
+    const u8 *description;
+    u8 effect;
+    u8 power;
+    u8 type;
+    u8 accuracy;
+    u8 pp;
+    u8 secondaryEffectChance;
+    u8 target;
+    s8 priority;
+    bool8 makesContact:1;
+    bool8 protectAffected:1;
+    bool8 magicCoatAffected:1;
+    bool8 snatchAffected:1;
+    bool8 mirrorMoveAffected:1;
+    bool8 kingsRockAffected:1;
+    bool8 validApprenticeMove:1;
+    bool8 unusedFlags:1;
+    u8 contestEffect;
+    u8 contestCategory:3;
+    u8 contestComboStarterId;
+    u8 contestComboMoves[4];
+};
+
 struct BattleMove
 {
     u8 effect;
