@@ -86,6 +86,11 @@ static inline u32 GetMovePP(u32 moveId)
     return gMovesInfo[SanitizeMoveId(moveId)].pp;
 }
 
+static inline s32 GetMovePriority(u32 moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].priority;
+}
+
 static inline bool32 GetMoveIsApprenticeValid(u32 moveId)
 {
     return gMovesInfo[SanitizeMoveId(moveId)].validApprenticeMove;

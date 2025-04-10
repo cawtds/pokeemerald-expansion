@@ -13,6 +13,7 @@
 #include "link.h"
 #include "main.h"
 #include "m4a.h"
+#include "move.h"
 #include "palette.h"
 #include "pokeball.h"
 #include "pokemon.h"
@@ -1518,9 +1519,9 @@ static void PlayerPartnerHandleChooseMove(void)
     BattleAI_SetupAIData(ALL_MOVES_MASK);
     chosenMoveId = BattleAI_ChooseMoveOrAction();
 
-    if (gBattleMoves[moveInfo->moves[chosenMoveId]].target & (MOVE_TARGET_USER | MOVE_TARGET_USER_OR_SELECTED))
+    if (GetMoveTarget(moveInfo->moves[chosenMoveId]) & (MOVE_TARGET_USER | MOVE_TARGET_USER_OR_SELECTED))
         gBattlerTarget = gActiveBattler;
-    if (gBattleMoves[moveInfo->moves[chosenMoveId]].target & MOVE_TARGET_BOTH)
+    if (GetMoveTarget(moveInfo->moves[chosenMoveId]) & MOVE_TARGET_BOTH)
     {
         gBattlerTarget = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
         if (gAbsentBattlerFlags & gBitTable[gBattlerTarget])
