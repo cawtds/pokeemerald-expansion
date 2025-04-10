@@ -19,6 +19,7 @@
 #include "main.h"
 #include "palette.h"
 #include "money.h"
+#include "move.h"
 #include "bg.h"
 #include "string_util.h"
 #include "pokemon_icon.h"
@@ -1086,8 +1087,8 @@ static bool8 AccuracyCalcHelper(u16 move)
 
     gHitMarker &= ~HITMARKER_IGNORE_UNDERWATER;
 
-    if ((WEATHER_HAS_EFFECT && (gBattleWeather & B_WEATHER_RAIN) && gBattleMoves[move].effect == EFFECT_THUNDER)
-     || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW))
+    if ((WEATHER_HAS_EFFECT && (gBattleWeather & B_WEATHER_RAIN) && GetMoveEffect(move) == EFFECT_THUNDER)
+     || (GetMoveEffect(move) == EFFECT_ALWAYS_HIT || GetMoveEffect(move) == EFFECT_VITAL_THROW))
     {
         JumpIfMoveFailed(7, move);
         return TRUE;
@@ -1144,7 +1145,7 @@ static void Cmd_accuracycheck(void)
 
         moveAcc = gBattleMoves[move].accuracy;
         // check Thunder on sunny weather
-        if (WEATHER_HAS_EFFECT && gBattleWeather & B_WEATHER_SUN && gBattleMoves[move].effect == EFFECT_THUNDER)
+        if (WEATHER_HAS_EFFECT && gBattleWeather & B_WEATHER_SUN && GetMoveEffect(move) == EFFECT_THUNDER)
             moveAcc = 50;
 
         calc = sAccuracyStageRatios[buff].dividend * moveAcc;
@@ -1271,10 +1272,10 @@ static void Cmd_critcalc(void)
     gPotentialItemEffectBattler = gBattlerAttacker;
 
     critChance  = 2 * ((gBattleMons[gBattlerAttacker].status2 & STATUS2_FOCUS_ENERGY) != 0)
-                + (gBattleMoves[gCurrentMove].effect == EFFECT_HIGH_CRITICAL)
-                + (gBattleMoves[gCurrentMove].effect == EFFECT_SKY_ATTACK)
-                + (gBattleMoves[gCurrentMove].effect == EFFECT_BLAZE_KICK)
-                + (gBattleMoves[gCurrentMove].effect == EFFECT_POISON_TAIL)
+                + (GetMoveEffect(gCurrentMove) == EFFECT_HIGH_CRITICAL)
+                + (GetMoveEffect(gCurrentMove) == EFFECT_SKY_ATTACK)
+                + (GetMoveEffect(gCurrentMove) == EFFECT_BLAZE_KICK)
+                + (GetMoveEffect(gCurrentMove) == EFFECT_POISON_TAIL)
                 + (holdEffect == HOLD_EFFECT_SCOPE_LENS)
                 + 2 * (holdEffect == HOLD_EFFECT_LUCKY_PUNCH && gBattleMons[gBattlerAttacker].species == SPECIES_CHANSEY)
                 + 2 * (holdEffect == HOLD_EFFECT_STICK && gBattleMons[gBattlerAttacker].species == SPECIES_FARFETCHD);
@@ -1690,7 +1691,7 @@ static void Cmd_adjustnormaldamage(void)
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
     }
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
+     && (GetMoveEffect(gCurrentMove) == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
      && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
@@ -4410,7 +4411,7 @@ static void Cmd_moveend(void)
             }
             if (!(gAbsentBattlerFlags & gBitTable[gBattlerAttacker])
                 && !(gBattleStruct->absentBattlerFlags & gBitTable[gBattlerAttacker])
-                && gBattleMoves[originallyUsedMove].effect != EFFECT_BATON_PASS)
+                && GetMoveEffect(originallyUsedMove) != EFFECT_BATON_PASS)
             {
                 if (gHitMarker & HITMARKER_OBEYS)
                 {
@@ -4481,7 +4482,7 @@ static void Cmd_moveend(void)
                     gHitMarker |= HITMARKER_NO_ATTACKSTRING;
                     gBattleScripting.moveendState = 0;
                     MoveValuesCleanUp();
-                    BattleScriptPush(gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect]);
+                    BattleScriptPush(gBattleScriptsForMoveEffects[GetMoveEffect(gCurrentMove)]);
                     gBattlescriptCurrInstr = BattleScript_FlushMessageBox;
                     return;
                 }
@@ -4663,7 +4664,7 @@ static void Cmd_switchindataupdate(void)
         gBattleMons[gActiveBattler].item = ITEM_NONE;
     }
 
-    if (gBattleMoves[gCurrentMove].effect == EFFECT_BATON_PASS)
+    if (GetMoveEffect(gCurrentMove) == EFFECT_BATON_PASS)
     {
         for (i = 0; i < NUM_BATTLE_STATS; i++)
         {
@@ -5809,7 +5810,7 @@ static void Cmd_jumptocalledmove(void)
     else
         gChosenMove = gCurrentMove = gCalledMove;
 
-    gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
+    gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[GetMoveEffect(gCurrentMove)];
 }
 
 static void Cmd_statusanimation(void)
@@ -5955,7 +5956,7 @@ static void Cmd_adjustsetdamage(void)
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
     }
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
+     && (GetMoveEffect(gCurrentMove) == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
      && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
@@ -6607,12 +6608,12 @@ static void Cmd_setprotectlike(void)
 
     if (sProtectSuccessRates[gDisableStructs[gBattlerAttacker].protectUses] >= Random() && notLastTurn)
     {
-        if (gBattleMoves[gCurrentMove].effect == EFFECT_PROTECT)
+        if (GetMoveEffect(gCurrentMove) == EFFECT_PROTECT)
         {
             gProtectStructs[gBattlerAttacker].protected = 1;
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
         }
-        if (gBattleMoves[gCurrentMove].effect == EFFECT_ENDURE)
+        if (GetMoveEffect(gCurrentMove) == EFFECT_ENDURE)
         {
             gProtectStructs[gBattlerAttacker].endured = 1;
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_BRACED_ITSELF;
@@ -6763,7 +6764,7 @@ static void Cmd_trymirrormove(void)
         gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
         gCurrentMove = move;
         gBattlerTarget = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
-        gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
+        gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[GetMoveEffect(gCurrentMove)];
     }
     else if (validMovesCount != 0)
     {
@@ -6771,7 +6772,7 @@ static void Cmd_trymirrormove(void)
         i = Random() % validMovesCount;
         gCurrentMove = validMoves[i];
         gBattlerTarget = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
-        gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
+        gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[GetMoveEffect(gCurrentMove)];
     }
     else // no valid moves found
     {
@@ -8099,7 +8100,7 @@ static void Cmd_metronome(void)
         if (sMovesForbiddenToCopy[i] == METRONOME_FORBIDDEN_END)
         {
             gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
-            gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
+            gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[GetMoveEffect(gCurrentMove)];
             gBattlerTarget = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
             return;
         }
@@ -8398,12 +8399,12 @@ static void Cmd_copymovepermanently(void)
 
 static bool8 IsTwoTurnsMove(u16 move)
 {
-    if (gBattleMoves[move].effect == EFFECT_SKULL_BASH
-     || gBattleMoves[move].effect == EFFECT_RAZOR_WIND
-     || gBattleMoves[move].effect == EFFECT_SKY_ATTACK
-     || gBattleMoves[move].effect == EFFECT_SOLAR_BEAM
-     || gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE
-     || gBattleMoves[move].effect == EFFECT_BIDE)
+    if (GetMoveEffect(move) == EFFECT_SKULL_BASH
+     || GetMoveEffect(move) == EFFECT_RAZOR_WIND
+     || GetMoveEffect(move) == EFFECT_SKY_ATTACK
+     || GetMoveEffect(move) == EFFECT_SOLAR_BEAM
+     || GetMoveEffect(move) == EFFECT_SEMI_INVULNERABLE
+     || GetMoveEffect(move) == EFFECT_BIDE)
         return TRUE;
     else
         return FALSE;
@@ -8424,16 +8425,16 @@ static bool8 IsInvalidForSleepTalkOrAssist(u16 move)
 static u8 AttacksThisTurn(u8 battlerId, u16 move) // Note: returns 1 if it's a charging turn, otherwise 2
 {
     // first argument is unused
-    if (gBattleMoves[move].effect == EFFECT_SOLAR_BEAM
+    if (GetMoveEffect(move) == EFFECT_SOLAR_BEAM
         && (gBattleWeather & B_WEATHER_SUN))
         return 2;
 
-    if (gBattleMoves[move].effect == EFFECT_SKULL_BASH
-     || gBattleMoves[move].effect == EFFECT_RAZOR_WIND
-     || gBattleMoves[move].effect == EFFECT_SKY_ATTACK
-     || gBattleMoves[move].effect == EFFECT_SOLAR_BEAM
-     || gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE
-     || gBattleMoves[move].effect == EFFECT_BIDE)
+    if (GetMoveEffect(move) == EFFECT_SKULL_BASH
+     || GetMoveEffect(move) == EFFECT_RAZOR_WIND
+     || GetMoveEffect(move) == EFFECT_SKY_ATTACK
+     || GetMoveEffect(move) == EFFECT_SOLAR_BEAM
+     || GetMoveEffect(move) == EFFECT_SEMI_INVULNERABLE
+     || GetMoveEffect(move) == EFFECT_BIDE)
     {
         if ((gHitMarker & HITMARKER_CHARGING))
             return 1;
@@ -8833,7 +8834,7 @@ static void Cmd_friendshiptodamagecalculation(void)
 {
     CMD_ARGS();
 
-    if (gBattleMoves[gCurrentMove].effect == EFFECT_RETURN)
+    if (GetMoveEffect(gCurrentMove) == EFFECT_RETURN)
         gDynamicBasePower = 10 * (gBattleMons[gBattlerAttacker].friendship) / 25;
     else // EFFECT_FRUSTRATION
         gDynamicBasePower = 10 * (MAX_FRIENDSHIP - gBattleMons[gBattlerAttacker].friendship) / 25;
@@ -9386,7 +9387,7 @@ static void Cmd_callterrainattack(void)
     gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
     gCurrentMove = sNaturePowerMoves[gBattleTerrain];
     gBattlerTarget = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
-    BattleScriptPush(gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect]);
+    BattleScriptPush(gBattleScriptsForMoveEffects[GetMoveEffect(gCurrentMove)]);
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
@@ -10090,7 +10091,7 @@ static void Cmd_settypebasedhalvers(void)
 
     bool8 worked = FALSE;
 
-    if (gBattleMoves[gCurrentMove].effect == EFFECT_MUD_SPORT)
+    if (GetMoveEffect(gCurrentMove) == EFFECT_MUD_SPORT)
     {
         if (!(gStatuses3[gBattlerAttacker] & STATUS3_MUDSPORT))
         {

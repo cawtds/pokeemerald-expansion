@@ -12,6 +12,7 @@
 #include "gpu_regs.h"
 #include "item.h"
 #include "m4a.h"
+#include "move.h"
 #include "overworld.h"
 #include "palette.h"
 #include "random.h"
@@ -362,7 +363,7 @@ void BattleArena_InitPoints(void)
 //    - Protect, Detect, and Endure subtract 1 point
 void BattleArena_AddMindPoints(u8 battler)
 {
-    u8 moveEffect = gBattleMoves[gCurrentMove].effect;
+    u8 moveEffect = GetMoveEffect(gCurrentMove);
 
     if (moveEffect == EFFECT_FAKE_OUT || moveEffect == EFFECT_PROTECT || moveEffect == EFFECT_ENDURE)
         gBattleStruct->arenaMindPoints[battler]--;

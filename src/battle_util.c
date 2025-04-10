@@ -7,6 +7,7 @@
 #include "pokemon.h"
 #include "international_string_util.h"
 #include "item.h"
+#include "move.h"
 #include "util.h"
 #include "battle_scripts.h"
 #include "random.h"
@@ -282,7 +283,7 @@ void HandleAction_UseMove(void)
     }
     else
     {
-        gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
+        gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[GetMoveEffect(gCurrentMove)];
     }
 
     if (gBattleTypeFlags & BATTLE_TYPE_ARENA)
@@ -2048,7 +2049,7 @@ u8 AtkCanceller_UnableToUseMove(void)
             {
                 if (Random() % 5)
                 {
-                    if (gBattleMoves[gCurrentMove].effect != EFFECT_THAW_HIT) // unfreezing via a move effect happens in case 13
+                    if (GetMoveEffect(gCurrentMove) != EFFECT_THAW_HIT) // unfreezing via a move effect happens in case 13
                     {
                         gBattlescriptCurrInstr = BattleScript_MoveUsedIsFrozen;
                         gHitMarker |= HITMARKER_NO_ATTACKSTRING;
@@ -2237,7 +2238,7 @@ u8 AtkCanceller_UnableToUseMove(void)
         case CANCELLER_THAW: // move thawing
             if (gBattleMons[gBattlerAttacker].status1 & STATUS1_FREEZE)
             {
-                if (gBattleMoves[gCurrentMove].effect == EFFECT_THAW_HIT)
+                if (GetMoveEffect(gCurrentMove) == EFFECT_THAW_HIT)
                 {
                     gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_FREEZE;
                     BattleScriptPushCursor();

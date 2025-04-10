@@ -29,6 +29,7 @@
 #include "main.h"
 #include "malloc.h"
 #include "m4a.h"
+#include "move.h"
 #include "palette.h"
 #include "party_menu.h"
 #include "pokeball.h"
@@ -3154,7 +3155,7 @@ void SwitchInClearSetData(void)
     s32 i;
     u8 *ptr;
 
-    if (gBattleMoves[gCurrentMove].effect != EFFECT_BATON_PASS)
+    if (GetMoveEffect(gCurrentMove) != EFFECT_BATON_PASS)
     {
         for (i = 0; i < NUM_BATTLE_STATS; i++)
             gBattleMons[gActiveBattler].statStages[i] = DEFAULT_STAT_STAGE;
@@ -3169,7 +3170,7 @@ void SwitchInClearSetData(void)
             }
         }
     }
-    if (gBattleMoves[gCurrentMove].effect == EFFECT_BATON_PASS)
+    if (GetMoveEffect(gCurrentMove) == EFFECT_BATON_PASS)
     {
         gBattleMons[gActiveBattler].status2 &= (STATUS2_CONFUSION | STATUS2_FOCUS_ENERGY | STATUS2_SUBSTITUTE | STATUS2_ESCAPE_PREVENTION | STATUS2_CURSED);
         gStatuses3[gActiveBattler] &= (STATUS3_LEECHSEED_BATTLER | STATUS3_LEECHSEED | STATUS3_ALWAYS_HITS | STATUS3_PERISH_SONG | STATUS3_ROOTED | STATUS3_MUDSPORT | STATUS3_WATERSPORT);
@@ -3206,7 +3207,7 @@ void SwitchInClearSetData(void)
     for (i = 0; i < sizeof(struct DisableStruct); i++)
         ptr[i] = 0;
 
-    if (gBattleMoves[gCurrentMove].effect == EFFECT_BATON_PASS)
+    if (GetMoveEffect(gCurrentMove) == EFFECT_BATON_PASS)
     {
         gDisableStructs[gActiveBattler].substituteHP = disableStructCopy.substituteHP;
         gDisableStructs[gActiveBattler].battlerWithSureHit = disableStructCopy.battlerWithSureHit;

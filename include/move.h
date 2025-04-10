@@ -56,6 +56,36 @@ static inline const u8 *GetMoveDescription(u32 moveId)
     return gMovesInfo[moveId].description;
 }
 
+static inline u32 GetMoveEffect(u32 moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].effect;
+}
+
+static inline u32 GetMoveType(u32 moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].type;
+}
+
+static inline u32 GetMovePower(u32 moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].power;
+}
+
+static inline u32 GetMoveAccuracy(u32 moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].accuracy;
+}
+
+// static inline u32 GetMoveTarget(u32 moveId)
+// {
+//     return gMovesInfo[SanitizeMoveId(moveId)].target;
+// }
+
+static inline u32 GetMovePP(u32 moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].pp;
+}
+
 static inline bool32 GetMoveIsApprenticeValid(u32 moveId)
 {
     return gMovesInfo[SanitizeMoveId(moveId)].validApprenticeMove;

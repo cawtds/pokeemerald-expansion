@@ -3,6 +3,7 @@
 #include "battle.h"
 #include "battle_anim.h"
 #include "battle_tv.h"
+#include "move.h"
 #include "constants/battle_string_ids.h"
 #include "constants/battle_anim.h"
 #include "constants/moves.h"
@@ -992,7 +993,7 @@ void BattleTv_SetDataBasedOnMove(u16 move, u16 weatherFlags, struct DisableStruc
     tvPtr->pos[defSide][GetBattlerPosition(gBattlerAttacker) / 2].attackedByMonId = gBattlerPartyIndexes[gBattlerAttacker] + 1;
     tvPtr->pos[defSide][GetBattlerPosition(gBattlerAttacker) / 2].attackedByMoveSlot = moveSlot;
     tvPtr->side[atkSide].usedMoveSlot = moveSlot;
-    AddMovePoints(PTS_MOVE_EFFECT, moveSlot, gBattleMoves[move].effect, 0);
+    AddMovePoints(PTS_MOVE_EFFECT, moveSlot, GetMoveEffect(move), 0);
     AddPointsBasedOnWeather(weatherFlags, move, moveSlot);
     if (disableStructPtr->chargeTimer != 0)
         AddMovePoints(PTS_ELECTRIC, move, moveSlot, 0);

@@ -6,6 +6,7 @@
 #include "battle_setup.h"
 #include "data.h"
 #include "item.h"
+#include "move.h"
 #include "pokemon.h"
 #include "random.h"
 #include "recorded_battle.h"
@@ -1178,7 +1179,7 @@ static void Cmd_get_how_powerful_move_is(void)
 
     for (i = 0; sIgnoredPowerfulMoveEffects[i] != IGNORED_MOVES_END; i++)
     {
-        if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].effect == sIgnoredPowerfulMoveEffects[i])
+        if (GetMoveEffect(AI_THINKING_STRUCT->moveConsidered) == sIgnoredPowerfulMoveEffects[i])
             break;
     }
 
@@ -1197,7 +1198,7 @@ static void Cmd_get_how_powerful_move_is(void)
         {
             for (i = 0; sIgnoredPowerfulMoveEffects[i] != IGNORED_MOVES_END; i++)
             {
-                if (gBattleMoves[gBattleMons[sBattler_AI].moves[checkedMove]].effect == sIgnoredPowerfulMoveEffects[i])
+                if (GetMoveEffect(gBattleMons[sBattler_AI].moves[checkedMove]) == sIgnoredPowerfulMoveEffects[i])
                     break;
             }
 
@@ -1343,7 +1344,7 @@ static void Cmd_get_considered_move(void)
 
 static void Cmd_get_considered_move_effect(void)
 {
-    AI_THINKING_STRUCT->funcResult = gBattleMoves[AI_THINKING_STRUCT->moveConsidered].effect;
+    AI_THINKING_STRUCT->funcResult = GetMoveEffect(AI_THINKING_STRUCT->moveConsidered);
     gAIScriptPtr += 1;
 }
 
@@ -1657,7 +1658,7 @@ static void Cmd_get_weather(void)
 
 static void Cmd_if_effect(void)
 {
-    if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].effect == gAIScriptPtr[1])
+    if (GetMoveEffect(AI_THINKING_STRUCT->moveConsidered) == gAIScriptPtr[1])
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
     else
         gAIScriptPtr += 6;
@@ -1665,7 +1666,7 @@ static void Cmd_if_effect(void)
 
 static void Cmd_if_not_effect(void)
 {
-    if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].effect != gAIScriptPtr[1])
+    if (GetMoveEffect(AI_THINKING_STRUCT->moveConsidered) != gAIScriptPtr[1])
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
     else
         gAIScriptPtr += 6;
@@ -1887,7 +1888,7 @@ static void Cmd_if_has_move_with_effect(void)
     case AI_USER_PARTNER:
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if (gBattleMons[sBattler_AI].moves[i] != 0 && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].effect == gAIScriptPtr[2])
+            if (gBattleMons[sBattler_AI].moves[i] != 0 && GetMoveEffect(gBattleMons[sBattler_AI].moves[i]) == gAIScriptPtr[2])
                 break;
         }
         if (i == MAX_MON_MOVES)
@@ -1901,10 +1902,10 @@ static void Cmd_if_has_move_with_effect(void)
         {
             // BUG: checks sBattler_AI instead of gBattlerTarget.
             #ifndef BUGFIX
-            if (gBattleMons[sBattler_AI].moves[i] != 0 && gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]].effect == gAIScriptPtr[2])
+            if (gBattleMons[sBattler_AI].moves[i] != 0 && GetMoveEffect(BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]) == gAIScriptPtr[2])
                 break;
             #else
-            if (gBattleMons[gBattlerTarget].moves[i] != 0 && gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]].effect == gAIScriptPtr[2])
+            if (gBattleMons[gBattlerTarget].moves[i] != 0 && GetMoveEffect(BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]) == gAIScriptPtr[2])
                 break;
             #endif
         }
@@ -1926,7 +1927,7 @@ static void Cmd_if_doesnt_have_move_with_effect(void)
     case AI_USER_PARTNER:
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if(gBattleMons[sBattler_AI].moves[i] != 0 && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].effect == gAIScriptPtr[2])
+            if(gBattleMons[sBattler_AI].moves[i] != 0 && GetMoveEffect(gBattleMons[sBattler_AI].moves[i]) == gAIScriptPtr[2])
                 break;
         }
         if (i != MAX_MON_MOVES)
@@ -1938,7 +1939,7 @@ static void Cmd_if_doesnt_have_move_with_effect(void)
     case AI_TARGET_PARTNER:
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] && gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]].effect == gAIScriptPtr[2])
+            if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] && GetMoveEffect(BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]) == gAIScriptPtr[2])
                 break;
         }
         if (i != MAX_MON_MOVES)
@@ -2143,7 +2144,7 @@ static void Cmd_get_move_power_from_result(void)
 
 static void Cmd_get_move_effect_from_result(void)
 {
-    AI_THINKING_STRUCT->funcResult = gBattleMoves[AI_THINKING_STRUCT->funcResult].effect;
+    AI_THINKING_STRUCT->funcResult = GetMoveEffect(AI_THINKING_STRUCT->funcResult);
 
     gAIScriptPtr += 1;
 }
