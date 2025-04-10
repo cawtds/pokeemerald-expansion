@@ -1011,10 +1011,10 @@ void BattleTv_SetDataBasedOnMove(u16 move, u16 weatherFlags, struct DisableStruc
         tvPtr->side[atkSide ^ BIT_SIDE].explosion = TRUE;
     }
 
-    AddMovePoints(PTS_REFLECT,      gBattleMoves[move].type, gBattleMoves[move].power, 0);
-    AddMovePoints(PTS_LIGHT_SCREEN, gBattleMoves[move].type, gBattleMoves[move].power, 0);
-    AddMovePoints(PTS_WATER_SPORT,  gBattleMoves[move].type, 0,                        0);
-    AddMovePoints(PTS_MUD_SPORT,    gBattleMoves[move].type, 0,                        0);
+    AddMovePoints(PTS_REFLECT,      GetMoveType(move), gBattleMoves[move].power, 0);
+    AddMovePoints(PTS_LIGHT_SCREEN, GetMoveType(move), gBattleMoves[move].power, 0);
+    AddMovePoints(PTS_WATER_SPORT,  GetMoveType(move), 0,                        0);
+    AddMovePoints(PTS_MUD_SPORT,    GetMoveType(move), 0,                        0);
 }
 
 void BattleTv_SetDataBasedOnAnimation(u8 animationId)
@@ -1465,7 +1465,7 @@ static void TrySetBattleSeminarShow(void)
                                                     sideStatus, powerOverride,
                                                     0, gBattlerAttacker, gBattlerTarget);
 
-            if (gStatuses3[gBattlerAttacker] & STATUS3_CHARGED_UP && gBattleMoves[gCurrentMove].type == TYPE_ELECTRIC)
+            if (gStatuses3[gBattlerAttacker] & STATUS3_CHARGED_UP && GetMoveType(gCurrentMove) == TYPE_ELECTRIC)
                 gBattleMoveDamage *= 2;
             if (gProtectStructs[gBattlerAttacker].helpingHand)
                 gBattleMoveDamage = gBattleMoveDamage * 15 / 10;

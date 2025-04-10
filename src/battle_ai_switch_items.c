@@ -4,6 +4,7 @@
 #include "battle_controllers.h"
 #include "battle_main.h"
 #include "data.h"
+#include "move.h"
 #include "pokemon.h"
 #include "random.h"
 #include "util.h"
@@ -148,11 +149,11 @@ static bool8 FindMonThatAbsorbsOpponentsMove(void)
         battlerIn2 = gActiveBattler;
     }
 
-    if (gBattleMoves[gLastLandedMoves[gActiveBattler]].type == TYPE_FIRE)
+    if (GetMoveType(gLastLandedMoves[gActiveBattler]) == TYPE_FIRE)
         absorbingTypeAbility = ABILITY_FLASH_FIRE;
-    else if (gBattleMoves[gLastLandedMoves[gActiveBattler]].type == TYPE_WATER)
+    else if (GetMoveType(gLastLandedMoves[gActiveBattler]) == TYPE_WATER)
         absorbingTypeAbility = ABILITY_WATER_ABSORB;
-    else if (gBattleMoves[gLastLandedMoves[gActiveBattler]].type == TYPE_ELECTRIC)
+    else if (GetMoveType(gLastLandedMoves[gActiveBattler]) == TYPE_ELECTRIC)
         absorbingTypeAbility = ABILITY_VOLT_ABSORB;
     else
         return FALSE;

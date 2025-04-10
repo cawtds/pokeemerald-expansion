@@ -1132,7 +1132,7 @@ static void Cmd_get_type(void)
         AI_THINKING_STRUCT->funcResult = gBattleMons[gBattlerTarget].types[1];
         break;
     case AI_TYPE_MOVE: // type of move being pointed to
-        AI_THINKING_STRUCT->funcResult = gBattleMoves[AI_THINKING_STRUCT->moveConsidered].type;
+        AI_THINKING_STRUCT->funcResult = GetMoveType(AI_THINKING_STRUCT->moveConsidered);
         break;
     }
     gAIScriptPtr += 2;
@@ -2130,7 +2130,7 @@ static void Cmd_get_used_held_item(void)
 
 static void Cmd_get_move_type_from_result(void)
 {
-    AI_THINKING_STRUCT->funcResult = gBattleMoves[AI_THINKING_STRUCT->funcResult].type;
+    AI_THINKING_STRUCT->funcResult = GetMoveType(AI_THINKING_STRUCT->funcResult);
 
     gAIScriptPtr += 1;
 }

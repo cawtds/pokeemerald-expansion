@@ -7,6 +7,7 @@
 #include "cable_club.h"
 #include "link.h"
 #include "link_rfu.h"
+#include "move.h"
 #include "party_menu.h"
 #include "recorded_battle.h"
 #include "task.h"
@@ -1084,7 +1085,7 @@ void BtlController_EmitPrintString(u8 bufferId, u16 stringID)
     stringInfo->bakScriptPartyIdx = gBattleStruct->scriptPartyIdx;
     stringInfo->hpScale = gBattleStruct->hpScale;
     stringInfo->itemEffectBattler = gPotentialItemEffectBattler;
-    stringInfo->moveType = gBattleMoves[gCurrentMove].type;
+    stringInfo->moveType = GetMoveType(gCurrentMove);
 
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
         stringInfo->abilities[i] = gBattleMons[i].ability;
