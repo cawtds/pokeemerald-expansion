@@ -27,7 +27,6 @@
 #include "constants/rgb.h"
 #include "constants/battle_palace.h"
 
-extern const u8 gBattlePalaceNatureToMoveTarget[];
 extern const u8 * const gBattleAnims_General[];
 extern const u8 * const gBattleAnims_Special[];
 extern const struct CompressedSpriteSheet gSpriteSheet_EnemyShadow;
@@ -338,7 +337,7 @@ static u16 GetBattlePalaceTarget(void)
         if (gBattleMons[opposing1].hp == gBattleMons[opposing2].hp)
             return (BATTLE_OPPOSITE(gActiveBattler & BIT_SIDE) + (Random() & 2)) << 8;
 
-        switch (gBattlePalaceNatureToMoveTarget[GetNatureFromPersonality(gBattleMons[gActiveBattler].personality)])
+        switch (gNaturesInfo[GetNatureFromPersonality(gBattleMons[gActiveBattler].personality)].battlePalaceSmokescreen)
         {
         case PALACE_TARGET_STRONGER:
             if (gBattleMons[opposing1].hp > gBattleMons[opposing2].hp)
