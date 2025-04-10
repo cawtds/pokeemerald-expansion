@@ -91,7 +91,12 @@ static inline s32 GetMovePriority(u32 moveId)
     return gMovesInfo[SanitizeMoveId(moveId)].priority;
 }
 
-static inline bool32 GetMoveIsApprenticeValid(u32 moveId)
+static inline u32 GetMoveSecondaryEffectChance(u32 moveId, u32 comboMove)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].secondaryEffectChance;
+}
+
+static inline bool32 IsValidApprenticeMove(u32 moveId)
 {
     return gMovesInfo[SanitizeMoveId(moveId)].validApprenticeMove;
 }

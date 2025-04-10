@@ -433,7 +433,7 @@ static u16 GetRandomAlternateMove(u8 monId)
 
         if (TrySetMove(monId, moveId))
         {
-            if (GetMoveIsApprenticeValid(moveId))
+            if (IsValidApprenticeMove(moveId))
                 break;
             i++;
         }
