@@ -91,9 +91,39 @@ static inline s32 GetMovePriority(u32 moveId)
     return gMovesInfo[SanitizeMoveId(moveId)].priority;
 }
 
-static inline u32 GetMoveSecondaryEffectChance(u32 moveId, u32 comboMove)
+static inline u32 GetMoveSecondaryEffectChance(u32 moveId)
 {
     return gMovesInfo[SanitizeMoveId(moveId)].secondaryEffectChance;
+}
+
+static inline bool32 IsContactMove(u32 moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].makesContact;
+}
+
+static inline bool32 IsMoveAffectedByProtect(u32 moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].protectAffected;
+}
+
+static inline bool32 IsMoveAffectedByMagicCoat(u32 moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].magicCoatAffected;
+}
+
+static inline bool32 IsMoveAffectedBySnatch(u32 moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].snatchAffected;
+}
+
+static inline bool32 IsMoveAffectedByMirrorMove(u32 moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].mirrorMoveAffected;
+}
+
+static inline bool32 IsMoveAffectedByKingsRock(u32 moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].kingsRockAffected;
 }
 
 static inline bool32 IsValidApprenticeMove(u32 moveId)
