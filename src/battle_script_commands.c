@@ -1341,7 +1341,7 @@ static void ModulateDmgByType(u8 multiplier)
         gMoveResultFlags &= ~MOVE_RESULT_SUPER_EFFECTIVE;
         break;
     case TYPE_MUL_NOT_EFFECTIVE:
-        if (gBattleMoves[gCurrentMove].power && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+        if (GetMovePower(gCurrentMove) && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
         {
             if (gMoveResultFlags & MOVE_RESULT_SUPER_EFFECTIVE)
                 gMoveResultFlags &= ~MOVE_RESULT_SUPER_EFFECTIVE;
@@ -1350,7 +1350,7 @@ static void ModulateDmgByType(u8 multiplier)
         }
         break;
     case TYPE_MUL_SUPER_EFFECTIVE:
-        if (gBattleMoves[gCurrentMove].power && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+        if (GetMovePower(gCurrentMove) && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
         {
             if (gMoveResultFlags & MOVE_RESULT_NOT_VERY_EFFECTIVE)
                 gMoveResultFlags &= ~MOVE_RESULT_NOT_VERY_EFFECTIVE;
@@ -1419,7 +1419,7 @@ static void Cmd_typecalc(void)
 
     if (gBattleMons[gBattlerTarget].ability == ABILITY_WONDER_GUARD && AttacksThisTurn(gBattlerAttacker, gCurrentMove) == 2
      && (!(gMoveResultFlags & MOVE_RESULT_SUPER_EFFECTIVE) || ((gMoveResultFlags & (MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE)) == (MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE)))
-     && gBattleMoves[gCurrentMove].power)
+     && GetMovePower(gCurrentMove))
     {
         gLastUsedAbility = ABILITY_WONDER_GUARD;
         gMoveResultFlags |= MOVE_RESULT_MISSED;
@@ -1440,7 +1440,7 @@ static void CheckWonderGuardAndLevitate(void)
     s32 i = 0;
     u8 moveType;
 
-    if (gCurrentMove == MOVE_STRUGGLE || !gBattleMoves[gCurrentMove].power)
+    if (gCurrentMove == MOVE_STRUGGLE || !GetMovePower(gCurrentMove))
         return;
 
     GET_MOVE_TYPE(gCurrentMove, moveType);
@@ -1500,7 +1500,7 @@ static void CheckWonderGuardAndLevitate(void)
 
     if (gBattleMons[gBattlerTarget].ability == ABILITY_WONDER_GUARD && AttacksThisTurn(gBattlerAttacker, gCurrentMove) == 2)
     {
-        if (((flags & 2) || !(flags & 1)) && gBattleMoves[gCurrentMove].power)
+        if (((flags & 2) || !(flags & 1)) && GetMovePower(gCurrentMove))
         {
             gLastUsedAbility = ABILITY_WONDER_GUARD;
             gBattleCommunication[MISS_TYPE] = B_MSG_AVOIDED_DMG;
@@ -1524,7 +1524,7 @@ static void ModulateDmgByType2(u8 multiplier, u16 move, u8 *flags)
         *flags &= ~MOVE_RESULT_SUPER_EFFECTIVE;
         break;
     case TYPE_MUL_NOT_EFFECTIVE:
-        if (gBattleMoves[move].power && !(*flags & MOVE_RESULT_NO_EFFECT))
+        if (GetMovePower(move) && !(*flags & MOVE_RESULT_NO_EFFECT))
         {
             if (*flags & MOVE_RESULT_SUPER_EFFECTIVE)
                 *flags &= ~MOVE_RESULT_SUPER_EFFECTIVE;
@@ -1533,7 +1533,7 @@ static void ModulateDmgByType2(u8 multiplier, u16 move, u8 *flags)
         }
         break;
     case TYPE_MUL_SUPER_EFFECTIVE:
-        if (gBattleMoves[move].power && !(*flags & MOVE_RESULT_NO_EFFECT))
+        if (GetMovePower(move) && !(*flags & MOVE_RESULT_NO_EFFECT))
         {
             if (*flags & MOVE_RESULT_NOT_VERY_EFFECTIVE)
                 *flags &= ~MOVE_RESULT_NOT_VERY_EFFECTIVE;
@@ -1595,7 +1595,7 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
     if (gBattleMons[defender].ability == ABILITY_WONDER_GUARD && !(flags & MOVE_RESULT_MISSED)
         && AttacksThisTurn(attacker, move) == 2
         && (!(flags & MOVE_RESULT_SUPER_EFFECTIVE) || ((flags & (MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE)) == (MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE)))
-        && gBattleMoves[move].power)
+        && GetMovePower(move))
     {
         flags |= MOVE_RESULT_MISSED;
     }
@@ -1641,7 +1641,7 @@ u8 AI_TypeCalc(u16 move, u16 targetSpecies, u8 targetAbility)
     }
     if (targetAbility == ABILITY_WONDER_GUARD
      && (!(flags & MOVE_RESULT_SUPER_EFFECTIVE) || ((flags & (MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE)) == (MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE)))
-     && gBattleMoves[move].power)
+     && GetMovePower(move))
         flags |= MOVE_RESULT_DOESNT_AFFECT_FOE;
     return flags;
 }
@@ -4255,7 +4255,7 @@ static void Cmd_moveend(void)
                 && GetBattlerSide(gBattlerAttacker) != GetBattlerSide(gBattlerTarget)
                 && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
                 && TARGET_TURN_DAMAGED
-                && gBattleMoves[gCurrentMove].power != 0
+                && GetMovePower(gCurrentMove) != 0
                 && gBattleMons[gBattlerTarget].statStages[STAT_ATK] < MAX_STAT_STAGE)
             {
                 gBattleMons[gBattlerTarget].statStages[STAT_ATK]++;
@@ -4591,7 +4591,7 @@ static void Cmd_typecalc2(void)
         && !(flags & MOVE_RESULT_NO_EFFECT)
         && AttacksThisTurn(gBattlerAttacker, gCurrentMove) == 2
         && (!(flags & MOVE_RESULT_SUPER_EFFECTIVE) || ((flags & (MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE)) == (MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE)))
-        && gBattleMoves[gCurrentMove].power)
+        && GetMovePower(gCurrentMove))
     {
         gLastUsedAbility = ABILITY_WONDER_GUARD;
         gMoveResultFlags |= MOVE_RESULT_MISSED;
@@ -8782,7 +8782,7 @@ static void Cmd_rolloutdamagecalculation(void)
             gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_MULTIPLETURNS;
         }
 
-        gDynamicBasePower = gBattleMoves[gCurrentMove].power;
+        gDynamicBasePower = GetMovePower(gCurrentMove);
 
         for (i = 1; i < (5 - gDisableStructs[gBattlerAttacker].rolloutTimer); i++)
             gDynamicBasePower *= 2;
@@ -8821,7 +8821,7 @@ static void Cmd_furycuttercalc(void)
         if (gDisableStructs[gBattlerAttacker].furyCutterCounter != 5)
             gDisableStructs[gBattlerAttacker].furyCutterCounter++;
 
-        gDynamicBasePower = gBattleMoves[gCurrentMove].power;
+        gDynamicBasePower = GetMovePower(gCurrentMove);
 
         for (i = 1; i < gDisableStructs[gBattlerAttacker].furyCutterCounter; i++)
             gDynamicBasePower *= 2;
@@ -9246,7 +9246,7 @@ static void Cmd_trydobeatup(void)
             gBattlescriptCurrInstr = cmd->nextInstr;
 
             gBattleMoveDamage = gSpeciesInfo[GetMonData(&party[gBattleCommunication[0]], MON_DATA_SPECIES)].baseAttack;
-            gBattleMoveDamage *= gBattleMoves[gCurrentMove].power;
+            gBattleMoveDamage *= GetMovePower(gCurrentMove);
             gBattleMoveDamage *= (GetMonData(&party[gBattleCommunication[0]], MON_DATA_LEVEL) * 2 / 5 + 2);
             gBattleMoveDamage /= gSpeciesInfo[gBattleMons[gBattlerTarget].species].baseDefense;
             gBattleMoveDamage = (gBattleMoveDamage / 50) + 2;
@@ -9682,7 +9682,7 @@ static void Cmd_scaledamagebyhealthratio(void)
 
     if (gDynamicBasePower == 0)
     {
-        u8 power = gBattleMoves[gCurrentMove].power;
+        u8 power = GetMovePower(gCurrentMove);
         gDynamicBasePower = gBattleMons[gBattlerAttacker].hp * power / gBattleMons[gBattlerAttacker].maxHP;
         if (gDynamicBasePower == 0)
             gDynamicBasePower = 1;

@@ -132,7 +132,7 @@ static bool8 FindMonThatAbsorbsOpponentsMove(void)
         return FALSE;
     if (gLastLandedMoves[gActiveBattler] == MOVE_UNAVAILABLE)
         return FALSE;
-    if (gBattleMoves[gLastLandedMoves[gActiveBattler]].power == 0)
+    if (GetMovePower(gLastLandedMoves[gActiveBattler]) == 0)
         return FALSE;
 
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
@@ -233,7 +233,7 @@ static bool8 ShouldSwitchIfNaturalCure(void)
         BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SWITCH, 0);
         return TRUE;
     }
-    else if (gBattleMoves[gLastLandedMoves[gActiveBattler]].power == 0
+    else if (GetMovePower(gLastLandedMoves[gActiveBattler]) == 0
           && Random() & 1)
     {
         *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = PARTY_SIZE;
@@ -342,7 +342,7 @@ static bool8 FindMonWithFlagsAndSuperEffective(u8 flags, u8 moduloPercent)
         return FALSE;
     if (gLastHitBy[gActiveBattler] == 0xFF)
         return FALSE;
-    if (gBattleMoves[gLastLandedMoves[gActiveBattler]].power == 0)
+    if (GetMovePower(gLastLandedMoves[gActiveBattler]) == 0)
         return FALSE;
 
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
@@ -774,7 +774,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
         {
             move = GetMonData(&party[i], MON_DATA_MOVE1 + j);
             gBattleMoveDamage = 0;
-            if (move != MOVE_NONE && gBattleMoves[move].power != 1)
+            if (move != MOVE_NONE && GetMovePower(move) != 1)
             {
                 AI_CalcDmg(gActiveBattler, opposingBattler);
                 TypeCalc(move, gActiveBattler, opposingBattler);

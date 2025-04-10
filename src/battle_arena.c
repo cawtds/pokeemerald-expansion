@@ -367,7 +367,7 @@ void BattleArena_AddMindPoints(u8 battler)
 
     if (moveEffect == EFFECT_FAKE_OUT || moveEffect == EFFECT_PROTECT || moveEffect == EFFECT_ENDURE)
         gBattleStruct->arenaMindPoints[battler]--;
-    else if (gBattleMoves[gCurrentMove].power != 0
+    else if (GetMovePower(gCurrentMove) != 0
         && moveEffect != EFFECT_COUNTER
         && moveEffect != EFFECT_MIRROR_COAT
         && moveEffect != EFFECT_BIDE)

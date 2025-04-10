@@ -1011,8 +1011,8 @@ void BattleTv_SetDataBasedOnMove(u16 move, u16 weatherFlags, struct DisableStruc
         tvPtr->side[atkSide ^ BIT_SIDE].explosion = TRUE;
     }
 
-    AddMovePoints(PTS_REFLECT,      GetMoveType(move), gBattleMoves[move].power, 0);
-    AddMovePoints(PTS_LIGHT_SCREEN, GetMoveType(move), gBattleMoves[move].power, 0);
+    AddMovePoints(PTS_REFLECT,      GetMoveType(move), GetMovePower(move), 0);
+    AddMovePoints(PTS_LIGHT_SCREEN, GetMoveType(move), GetMovePower(move), 0);
     AddMovePoints(PTS_WATER_SPORT,  GetMoveType(move), 0,                        0);
     AddMovePoints(PTS_MUD_SPORT,    GetMoveType(move), 0,                        0);
 }
@@ -1436,7 +1436,7 @@ static void TrySetBattleSeminarShow(void)
         return;
     else if (gBattleTypeFlags & (BATTLE_TYPE_PALACE | BATTLE_TYPE_PIKE | BATTLE_TYPE_PYRAMID))
         return;
-    else if (gBattleMoves[gBattleMons[gBattlerAttacker].moves[gMoveSelectionCursor[gBattlerAttacker]]].power == 0)
+    else if (GetMovePower(gBattleMons[gBattlerAttacker].moves[gMoveSelectionCursor[gBattlerAttacker]]) == 0)
         return;
 
     i = 0;
@@ -1508,7 +1508,7 @@ static void TrySetBattleSeminarShow(void)
 
 static bool8 ShouldCalculateDamage(u16 moveId, s32 *dmg, u16 *powerOverride)
 {
-    if (gBattleMoves[moveId].power == 0)
+    if (GetMovePower(moveId) == 0)
     {
         *dmg = 0;
         return FALSE;

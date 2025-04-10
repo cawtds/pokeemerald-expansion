@@ -2805,7 +2805,7 @@ static int GetTypeEffectivenessPoints(int move, int targetSpecies, int mode)
     int i = 0;
     int typePower = TYPE_x1;
 
-    if (move == MOVE_NONE || move == MOVE_UNAVAILABLE || gBattleMoves[move].power == 0)
+    if (move == MOVE_NONE || move == MOVE_UNAVAILABLE || GetMovePower(move) == 0)
         return 0;
 
     defType1 = gSpeciesInfo[targetSpecies].types[0];
@@ -5241,7 +5241,7 @@ static u16 GetWinningMove(int winnerTournamentId, int loserTournamentId, u8 roun
             else
                 moveIds[i * MAX_MON_MOVES + j] = gFacilityTrainerMons[DOME_MONS[winnerTournamentId][i]].moves[j];
 
-            movePower = gBattleMoves[moveIds[i * MAX_MON_MOVES + j]].power;
+            movePower = GetMovePower(moveIds[i * MAX_MON_MOVES + j]);
             if (movePower == 0)
                 movePower = 40;
             else if (movePower == 1)

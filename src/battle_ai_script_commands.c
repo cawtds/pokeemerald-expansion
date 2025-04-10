@@ -1080,7 +1080,7 @@ static void Cmd_if_user_has_attacking_move(void)
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         if (gBattleMons[sBattler_AI].moves[i] != 0
-            && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].power != 0)
+            && GetMovePower(gBattleMons[sBattler_AI].moves[i]) != 0)
             break;
     }
 
@@ -1097,7 +1097,7 @@ static void Cmd_if_user_has_no_attacking_moves(void)
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         if (gBattleMons[sBattler_AI].moves[i] != 0
-         && gBattleMoves[gBattleMons[sBattler_AI].moves[i]].power != 0)
+         && GetMovePower(gBattleMons[sBattler_AI].moves[i]) != 0)
             break;
     }
 
@@ -1168,7 +1168,7 @@ static void Cmd_is_of_type(void)
 
 static void Cmd_get_considered_move_power(void)
 {
-    AI_THINKING_STRUCT->funcResult = gBattleMoves[AI_THINKING_STRUCT->moveConsidered].power;
+    AI_THINKING_STRUCT->funcResult = GetMovePower(AI_THINKING_STRUCT->moveConsidered);
     gAIScriptPtr += 1;
 }
 
@@ -1183,7 +1183,7 @@ static void Cmd_get_how_powerful_move_is(void)
             break;
     }
 
-    if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].power > 1
+    if (GetMovePower(AI_THINKING_STRUCT->moveConsidered) > 1
         && sIgnoredPowerfulMoveEffects[i] == IGNORED_MOVES_END)
     {
         gDynamicBasePower = 0;
@@ -1204,7 +1204,7 @@ static void Cmd_get_how_powerful_move_is(void)
 
             if (gBattleMons[sBattler_AI].moves[checkedMove] != MOVE_NONE
                 && sIgnoredPowerfulMoveEffects[i] == IGNORED_MOVES_END
-                && gBattleMoves[gBattleMons[sBattler_AI].moves[checkedMove]].power > 1)
+                && GetMovePower(gBattleMons[sBattler_AI].moves[checkedMove]) > 1)
             {
                 gCurrentMove = gBattleMons[sBattler_AI].moves[checkedMove];
                 AI_CalcDmg(sBattler_AI, gBattlerTarget);
@@ -1734,7 +1734,7 @@ static void Cmd_if_stat_level_not_equal(void)
 
 static void Cmd_if_can_faint(void)
 {
-    if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].power < 2)
+    if (GetMovePower(AI_THINKING_STRUCT->moveConsidered) < 2)
     {
         gAIScriptPtr += 5;
         return;
@@ -1763,7 +1763,7 @@ static void Cmd_if_can_faint(void)
 
 static void Cmd_if_cant_faint(void)
 {
-    if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].power < 2)
+    if (GetMovePower(AI_THINKING_STRUCT->moveConsidered) < 2)
     {
         gAIScriptPtr += 5;
         return;
@@ -2137,7 +2137,7 @@ static void Cmd_get_move_type_from_result(void)
 
 static void Cmd_get_move_power_from_result(void)
 {
-    AI_THINKING_STRUCT->funcResult = gBattleMoves[AI_THINKING_STRUCT->funcResult].power;
+    AI_THINKING_STRUCT->funcResult = GetMovePower(AI_THINKING_STRUCT->funcResult);
 
     gAIScriptPtr += 1;
 }

@@ -8,6 +8,7 @@
 #include "main.h"
 #include "dma3.h"
 #include "malloc.h"
+#include "move.h"
 #include "graphics.h"
 #include "random.h"
 #include "util.h"
@@ -302,7 +303,7 @@ static u8 GetBattlePalaceMoveGroup(u16 move)
     case MOVE_TARGET_RANDOM:
     case MOVE_TARGET_BOTH:
     case MOVE_TARGET_FOES_AND_ALLY:
-        if (gBattleMoves[move].power == 0)
+        if (GetMovePower(move) == 0)
             return PALACE_MOVE_GROUP_SUPPORT;
         else
             return PALACE_MOVE_GROUP_ATTACK;
