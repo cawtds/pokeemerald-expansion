@@ -224,6 +224,7 @@ extern const u8 BattleScript_ActionGetNear[];
 extern const u8 BattleScript_ActionThrowPokeblock[];
 
 // battle_move_effects.h
+extern const u8 BattleScript_EffectPlaceholder[];
 extern const u8 BattleScript_EffectHit[];
 extern const u8 BattleScript_EffectSleep[];
 extern const u8 BattleScript_EffectPoisonHit[];

@@ -4416,7 +4416,7 @@ static void Cmd_moveend(void)
                     gHitMarker |= HITMARKER_NO_ATTACKSTRING;
                     gBattleScripting.moveendState = 0;
                     MoveValuesCleanUp();
-                    BattleScriptPush(gBattleScriptsForMoveEffects[GetMoveEffect(gCurrentMove)]);
+                    BattleScriptPush(GetMoveBattleScript(gCurrentMove));
                     gBattlescriptCurrInstr = BattleScript_FlushMessageBox;
                     return;
                 }
@@ -5744,7 +5744,7 @@ static void Cmd_jumptocalledmove(void)
     else
         gChosenMove = gCurrentMove = gCalledMove;
 
-    gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[GetMoveEffect(gCurrentMove)];
+    gBattlescriptCurrInstr = GetMoveBattleScript(gCurrentMove);
 }
 
 static void Cmd_statusanimation(void)
@@ -6698,7 +6698,7 @@ static void Cmd_trymirrormove(void)
         gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
         gCurrentMove = move;
         gBattlerTarget = GetMoveTargetBattler(gCurrentMove, NO_TARGET_OVERRIDE);
-        gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[GetMoveEffect(gCurrentMove)];
+        gBattlescriptCurrInstr = GetMoveBattleScript(gCurrentMove);
     }
     else if (validMovesCount != 0)
     {
@@ -6706,7 +6706,7 @@ static void Cmd_trymirrormove(void)
         i = Random() % validMovesCount;
         gCurrentMove = validMoves[i];
         gBattlerTarget = GetMoveTargetBattler(gCurrentMove, NO_TARGET_OVERRIDE);
-        gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[GetMoveEffect(gCurrentMove)];
+        gBattlescriptCurrInstr = GetMoveBattleScript(gCurrentMove);
     }
     else // no valid moves found
     {
@@ -8034,7 +8034,7 @@ static void Cmd_metronome(void)
         if (sMovesForbiddenToCopy[i] == METRONOME_FORBIDDEN_END)
         {
             gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
-            gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[GetMoveEffect(gCurrentMove)];
+            gBattlescriptCurrInstr = GetMoveBattleScript(gCurrentMove);
             gBattlerTarget = GetMoveTargetBattler(gCurrentMove, NO_TARGET_OVERRIDE);
             return;
         }
@@ -9321,7 +9321,7 @@ static void Cmd_callterrainattack(void)
     gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
     gCurrentMove = sNaturePowerMoves[gBattleTerrain];
     gBattlerTarget = GetMoveTargetBattler(gCurrentMove, NO_TARGET_OVERRIDE);
-    BattleScriptPush(gBattleScriptsForMoveEffects[GetMoveEffect(gCurrentMove)]);
+    BattleScriptPush(GetMoveBattleScript(gCurrentMove));
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 

@@ -1,6 +1,7 @@
 #ifndef GUARD_MOVE_H
 #define GUARD_MOVE_H
 
+#include "battle_scripts.h"
 #include "constants/contest.h"
 #include "constants/moves.h"
 
@@ -38,6 +39,7 @@ struct MoveInfo
 };
 
 extern const struct MoveInfo gMovesInfo[MOVES_COUNT];
+extern const struct BattleMoveEffect gBattleMoveEffects[];
 
 static inline u32 SanitizeMoveId(u32 moveId)
 {
@@ -156,6 +158,17 @@ static inline u32 GetMoveContestComboStarter(u32 moveId)
 static inline u32 GetMoveContestComboMoves(u32 moveId, u32 comboMove)
 {
     return gMovesInfo[SanitizeMoveId(moveId)].contestComboMoves[comboMove];
+}
+
+static inline const u8 *GetMoveBattleScript(u32 moveId)
+{
+    moveId = SanitizeMoveId(moveId);
+    if (gBattleMoveEffects[gMovesInfo[moveId].effect].battleScript == NULL)
+    {
+        DebugPrintfLevel(MGBA_LOG_WARN, "No effect for moveId=%u", moveId);
+        return BattleScript_EffectPlaceholder;
+    }
+    return gBattleMoveEffects[gMovesInfo[moveId].effect].battleScript;
 }
 
 #endif //GUARD_MOVE_H
