@@ -3639,7 +3639,7 @@ static void PrintMoveDetails(u16 move)
         if (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES)
         {
             PrintMovePowerAndAccuracy(move);
-            PrintTextOnWindow(windowId, gMovesInfo[move].description, 6, 1, 0, 0);
+            PrintTextOnWindow(windowId, GetMoveDescription(move), 6, 1, 0, 0);
         }
         else
         {

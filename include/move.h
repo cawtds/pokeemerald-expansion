@@ -41,7 +41,18 @@ static inline u32 SanitizeMoveId(u32 moveId)
 
 static inline const u8 *GetMoveName(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].name;
+    moveId = SanitizeMoveId(moveId);
+    if (gMovesInfo[moveId].name == NULL)
+        return gMovesInfo[MOVE_NONE].name;
+    return gMovesInfo[moveId].name;
+}
+
+static inline const u8 *GetMoveDescription(u32 moveId)
+{
+    moveId = SanitizeMoveId(moveId);
+    if (gMovesInfo[moveId].description == NULL)
+        return gMovesInfo[MOVE_NONE].description;
+    return gMovesInfo[moveId].description;
 }
 
 #endif //GUARD_MOVE_H
