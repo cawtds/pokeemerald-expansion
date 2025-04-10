@@ -1179,7 +1179,7 @@ static void Cmd_accuracycheck(void)
         {
             gMoveResultFlags |= MOVE_RESULT_MISSED;
             if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE
-             && (gBattleMoves[move].target == MOVE_TARGET_BOTH || gBattleMoves[move].target == MOVE_TARGET_FOES_AND_ALLY))
+             && (GetMoveTarget(move) == MOVE_TARGET_BOTH || GetMoveTarget(move) == MOVE_TARGET_FOES_AND_ALLY))
                 gBattleCommunication[MISS_TYPE] = B_MSG_AVOIDED_ATK;
             else
                 gBattleCommunication[MISS_TYPE] = B_MSG_MISSED;
@@ -1216,7 +1216,7 @@ static void Cmd_ppreduce(void)
 
     if (!gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure)
     {
-        switch (gBattleMoves[gCurrentMove].target)
+        switch (GetMoveTarget(gCurrentMove))
         {
         case MOVE_TARGET_FOES_AND_ALLY:
             ppToDeduct += AbilityBattleEffects(ABILITYEFFECT_COUNT_ON_FIELD, gBattlerAttacker, ABILITY_PRESSURE, 0, 0);
@@ -1765,9 +1765,9 @@ static void Cmd_attackanimation(void)
     }
     else
     {
-        if ((gBattleMoves[gCurrentMove].target & MOVE_TARGET_BOTH
-            || gBattleMoves[gCurrentMove].target & MOVE_TARGET_FOES_AND_ALLY
-            || gBattleMoves[gCurrentMove].target & MOVE_TARGET_DEPENDS)
+        if ((GetMoveTarget(gCurrentMove) & MOVE_TARGET_BOTH
+            || GetMoveTarget(gCurrentMove) & MOVE_TARGET_FOES_AND_ALLY
+            || GetMoveTarget(gCurrentMove) & MOVE_TARGET_DEPENDS)
             && gBattleScripting.animTargetsHit)
         {
             gBattlescriptCurrInstr++;
@@ -4472,7 +4472,7 @@ static void Cmd_moveend(void)
             break;
         case MOVEEND_NEXT_TARGET: // For moves hitting two opposing Pokémon.
             if (!(gHitMarker & HITMARKER_UNABLE_TO_USE_MOVE) && gBattleTypeFlags & BATTLE_TYPE_DOUBLE
-                && !gProtectStructs[gBattlerAttacker].chargingTurn && gBattleMoves[gCurrentMove].target == MOVE_TARGET_BOTH
+                && !gProtectStructs[gBattlerAttacker].chargingTurn && GetMoveTarget(gCurrentMove) == MOVE_TARGET_BOTH
                 && !(gHitMarker & HITMARKER_NO_ATTACKSTRING))
             {
                 u8 battlerId = GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(gBattlerTarget)));

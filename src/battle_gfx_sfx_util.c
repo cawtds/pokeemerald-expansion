@@ -272,7 +272,7 @@ u16 ChooseMoveAndTargetInBattlePalace(void)
     }
     else
     {
-        moveTarget = gBattleMoves[moveInfo->moves[chosenMoveId]].target;
+        moveTarget = GetMoveTarget(moveInfo->moves[chosenMoveId]);
     }
 
     if (moveTarget & MOVE_TARGET_USER)
@@ -296,7 +296,7 @@ u16 ChooseMoveAndTargetInBattlePalace(void)
 
 static u8 GetBattlePalaceMoveGroup(u16 move)
 {
-    switch (gBattleMoves[move].target)
+    switch (GetMoveTarget(move))
     {
     case MOVE_TARGET_SELECTED:
     case MOVE_TARGET_USER_OR_SELECTED:

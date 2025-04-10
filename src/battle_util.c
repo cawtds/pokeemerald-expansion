@@ -149,7 +149,7 @@ void HandleAction_UseMove(void)
     // choose target
     side = BATTLE_OPPOSITE(GetBattlerSide(gBattlerAttacker));
     if (gSideTimers[side].followmeTimer != 0
-        && gBattleMoves[gCurrentMove].target == MOVE_TARGET_SELECTED
+        && GetMoveTarget(gCurrentMove) == MOVE_TARGET_SELECTED
         && GetBattlerSide(gBattlerAttacker) != GetBattlerSide(gSideTimers[side].followmeTarget)
         && gBattleMons[gSideTimers[side].followmeTarget].hp != 0)
     {
@@ -158,7 +158,7 @@ void HandleAction_UseMove(void)
     else if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
              && gSideTimers[side].followmeTimer == 0
              && (GetMovePower(gCurrentMove) != 0
-                 || gBattleMoves[gCurrentMove].target != MOVE_TARGET_USER)
+                 || GetMoveTarget(gCurrentMove) != MOVE_TARGET_USER)
              && gBattleMons[*(gBattleStruct->moveTarget + gBattlerAttacker)].ability != ABILITY_LIGHTNING_ROD
              && GetMoveType(gCurrentMove) == TYPE_ELECTRIC)
     {
@@ -175,7 +175,7 @@ void HandleAction_UseMove(void)
         }
         if (var == 4)
         {
-            if (gBattleMoves[gChosenMove].target & MOVE_TARGET_RANDOM)
+            if (GetMoveTarget(gChosenMove) & MOVE_TARGET_RANDOM)
             {
                 if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
                 {
@@ -220,7 +220,7 @@ void HandleAction_UseMove(void)
         }
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE
-             && gBattleMoves[gChosenMove].target & MOVE_TARGET_RANDOM)
+             && GetMoveTarget(gChosenMove) & MOVE_TARGET_RANDOM)
     {
         if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
         {
@@ -3822,7 +3822,7 @@ u8 GetMoveTargetBattler(u16 move, u8 setTarget)
     if (setTarget != NO_TARGET_OVERRIDE)
         moveTarget = setTarget - 1;
     else
-        moveTarget = gBattleMoves[move].target;
+        moveTarget = GetMoveTarget(move);
 
     switch (moveTarget)
     {
