@@ -4,6 +4,13 @@
 #include "constants/contest.h"
 #include "constants/moves.h"
 
+
+struct BattleMoveEffect
+{
+    const u8 *battleScript;
+    u8 battleTvScore;
+};
+
 struct MoveInfo
 {
     const u8 *name;
