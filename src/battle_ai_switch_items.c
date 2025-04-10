@@ -4,6 +4,7 @@
 #include "battle_controllers.h"
 #include "battle_main.h"
 #include "data.h"
+#include "item.h"
 #include "move.h"
 #include "pokemon.h"
 #include "random.h"
@@ -841,15 +842,11 @@ static bool8 ShouldUseItem(void)
         if (i != 0 && validMons > (gBattleResources->battleHistory->itemsNo - i) + 1)
             continue;
         item = gBattleResources->battleHistory->trainerItems[i];
-        if (item == ITEM_NONE)
+        if (item == ITEM_NONE || item == ITEM_ENIGMA_BERRY)
             continue;
-        if (gItemEffectTable[item - ITEM_POTION] == NULL)
+        itemEffects = ItemId_GetEffect(item);
+        if (itemEffects == NULL)
             continue;
-
-        if (item == ITEM_ENIGMA_BERRY)
-            itemEffects = gSaveBlock1Ptr->enigmaBerry.itemEffect;
-        else
-            itemEffects = gItemEffectTable[item - ITEM_POTION];
 
         *(gBattleStruct->AI_itemType + gActiveBattler / 2) = GetAI_ItemType(item, itemEffects);
 

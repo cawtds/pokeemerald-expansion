@@ -945,7 +945,6 @@ const struct SpindaSpot gSpindaSpotGraphics[] =
     {.x = 34, .y = 26, .image = INCBIN_U16("graphics/pokemon/spinda/spots/spot_3.1bpp")}
 };
 
-#include "data/pokemon/item_effects.h"
 #include "data/natures_info.h"
 #include "data/pokemon/trainer_class_lookups.h"
 #include "data/pokemon/experience_tables.h"
@@ -3908,7 +3907,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     // Skip using the item if it won't do anything
     if (!ITEM_HAS_EFFECT(item))
         return TRUE;
-    if (gItemEffectTable[item - ITEM_POTION] == NULL && item != ITEM_ENIGMA_BERRY)
+    if (ItemId_GetEffect(item) == NULL && item != ITEM_ENIGMA_BERRY)
         return TRUE;
 
     // Get item effect
@@ -3921,7 +3920,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     }
     else
     {
-        itemEffect = gItemEffectTable[item - ITEM_POTION];
+        itemEffect = ItemId_GetEffect(item);
     }
 
     // Do item effect
@@ -4430,7 +4429,7 @@ u8 GetItemEffectParamOffset(u16 itemId, u8 effectByte, u8 effectBit)
 
     offset = ITEM_EFFECT_ARG_START;
 
-    temp = gItemEffectTable[itemId - ITEM_POTION];
+    temp = ItemId_GetEffect(itemId);
 
     if (!temp && itemId != ITEM_ENIGMA_BERRY)
         return 0;
@@ -4555,7 +4554,7 @@ u8 *UseStatIncreaseItem(u16 itemId)
     }
     else
     {
-        itemEffect = gItemEffectTable[itemId - ITEM_POTION];
+        itemEffect = ItemId_GetEffect(itemId);
     }
 
     gPotentialItemEffectBattler = gBattlerInMenuId;

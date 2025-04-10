@@ -21,6 +21,7 @@ static bool8 CheckPyramidBagHasSpace(u16 itemId, u16 count);
 EWRAM_DATA struct BagPocket gBagPockets[POCKETS_COUNT] = {0};
 
 #include "data/text/item_descriptions.h"
+#include "data/pokemon/item_effects.h"
 #include "data/items.h"
 
 static u16 GetBagItemQuantity(u16 *quantity)
@@ -929,6 +930,14 @@ ItemUseFunc ItemId_GetBattleFunc(u16 itemId)
 u8 ItemId_GetSecondaryId(u16 itemId)
 {
     return gItemsInfo[SanitizeItemId(itemId)].secondaryId;
+}
+
+const u8 *ItemId_GetEffect(u32 itemId)
+{
+    if (itemId == ITEM_ENIGMA_BERRY)
+        return gSaveBlock1Ptr->enigmaBerry.itemEffect;
+    else
+        return gItemsInfo[SanitizeItemId(itemId)].effect;
 }
 
 const u32 *GetItemIconPalette(u16 itemId)

@@ -9,11 +9,12 @@ typedef void (*ItemUseFunc)(u8);
 
 struct Item
 {
-    u8 name[ITEM_NAME_LENGTH];
     u16 price;
+    const u8 *description;
+    const u8 *effect;
+    u8 name[ITEM_NAME_LENGTH];
     u8 holdEffect;
     u8 holdEffectParam;
-    const u8 *description;
     u8 importance;
     u8 pocket;
     u8 type;
@@ -77,6 +78,7 @@ ItemUseFunc ItemId_GetBattleFunc(u16 itemId);
 u8 ItemId_GetSecondaryId(u16 itemId);
 const u32 *GetItemIconPic(u16 itemId);
 const u32 *GetItemIconPalette(u16 itemId);
+const u8 *ItemId_GetEffect(u32 itemId);
 
 /* Expands to:
  * enum
