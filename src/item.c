@@ -930,3 +930,19 @@ u8 ItemId_GetSecondaryId(u16 itemId)
 {
     return gItemsInfo[SanitizeItemId(itemId)].secondaryId;
 }
+
+const u32 *GetItemIconPalette(u16 itemId)
+{
+    if (itemId == ITEM_LIST_END)
+        return gItemIconPalette_ReturnToFieldArrow; // Use last icon, the "return to field" arrow
+
+    return gItemsInfo[SanitizeItemId(itemId)].iconPalette;
+}
+
+const u32 *GetItemIconPic(u16 itemId)
+{
+    if (itemId == ITEM_LIST_END)
+        return gItemIcon_ReturnToFieldArrow;
+
+    return gItemsInfo[SanitizeItemId(itemId)].iconPic;
+}

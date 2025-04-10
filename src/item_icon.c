@@ -1,7 +1,7 @@
 #include "global.h"
 #include "decompress.h"
 #include "graphics.h"
-#include "item_icon.h"
+#include "item.h"
 #include "malloc.h"
 #include "sprite.h"
 #include "constants/items.h"
@@ -9,9 +9,6 @@
 // EWRAM vars
 EWRAM_DATA u8 *gItemIconDecompressionBuffer = NULL;
 EWRAM_DATA u8 *gItemIcon4x4Buffer = NULL;
-
-// const rom data
-#include "data/item_icon_table.h"
 
 static const struct OamData sOamData_ItemIcon =
 {
@@ -96,14 +93,14 @@ u8 AddItemIconSprite(u16 tilesTag, u16 paletteTag, u16 itemId)
         struct CompressedSpritePalette spritePalette;
         struct SpriteTemplate *spriteTemplate;
 
-        LZDecompressWram(GetItemIconPicOrPalette(itemId, 0), gItemIconDecompressionBuffer);
+        LZDecompressWram(GetItemIconPic(itemId), gItemIconDecompressionBuffer);
         CopyItemIconPicTo4x4Buffer(gItemIconDecompressionBuffer, gItemIcon4x4Buffer);
         spriteSheet.data = gItemIcon4x4Buffer;
         spriteSheet.size = 0x200;
         spriteSheet.tag = tilesTag;
         LoadSpriteSheet(&spriteSheet);
 
-        spritePalette.data = GetItemIconPicOrPalette(itemId, 1);
+        spritePalette.data = GetItemIconPalette(itemId);
         spritePalette.tag = paletteTag;
         LoadCompressedSpritePalette(&spritePalette);
 
@@ -133,14 +130,14 @@ u8 AddCustomItemIconSprite(const struct SpriteTemplate *customSpriteTemplate, u1
         struct CompressedSpritePalette spritePalette;
         struct SpriteTemplate *spriteTemplate;
 
-        LZDecompressWram(GetItemIconPicOrPalette(itemId, 0), gItemIconDecompressionBuffer);
+        LZDecompressWram(GetItemIconPic(itemId), gItemIconDecompressionBuffer);
         CopyItemIconPicTo4x4Buffer(gItemIconDecompressionBuffer, gItemIcon4x4Buffer);
         spriteSheet.data = gItemIcon4x4Buffer;
         spriteSheet.size = 0x200;
         spriteSheet.tag = tilesTag;
         LoadSpriteSheet(&spriteSheet);
 
-        spritePalette.data = GetItemIconPicOrPalette(itemId, 1);
+        spritePalette.data = GetItemIconPalette(itemId);
         spritePalette.tag = paletteTag;
         LoadCompressedSpritePalette(&spritePalette);
 
@@ -155,14 +152,4 @@ u8 AddCustomItemIconSprite(const struct SpriteTemplate *customSpriteTemplate, u1
 
         return spriteId;
     }
-}
-
-const void *GetItemIconPicOrPalette(u16 itemId, u8 which)
-{
-    if (itemId == ITEM_LIST_END)
-        itemId = ITEMS_COUNT; // Use last icon, the "return to field" arrow
-    else if (itemId >= ITEMS_COUNT)
-        itemId = 0;
-
-    return gItemIconTable[itemId][which];
 }

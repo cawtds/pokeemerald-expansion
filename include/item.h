@@ -21,6 +21,8 @@ struct Item
     u8 battleUsage;
     ItemUseFunc battleUseFunc;
     u8 secondaryId;
+    const u32 *iconPic;
+    const u32 *iconPalette;
 };
 
 struct BagPocket
@@ -73,6 +75,8 @@ ItemUseFunc ItemId_GetFieldFunc(u16 itemId);
 u8 ItemId_GetBattleUsage(u16 itemId);
 ItemUseFunc ItemId_GetBattleFunc(u16 itemId);
 u8 ItemId_GetSecondaryId(u16 itemId);
+const u32 *GetItemIconPic(u16 itemId);
+const u32 *GetItemIconPalette(u16 itemId);
 
 /* Expands to:
  * enum

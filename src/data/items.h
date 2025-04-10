@@ -1,3 +1,5 @@
+#include "graphics.h"
+
 const struct Item gItemsInfo[] =
 {
     [ITEM_NONE] =
@@ -8,9 +10,9 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
-
-// Pokeballs
 
     [ITEM_MASTER_BALL] =
     {
@@ -22,6 +24,8 @@ const struct Item gItemsInfo[] =
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = ITEM_MASTER_BALL - FIRST_BALL,
+        .iconPic = gItemIcon_MasterBall,
+        .iconPalette = gItemIconPalette_MasterBall,
     },
 
     [ITEM_ULTRA_BALL] =
@@ -34,6 +38,8 @@ const struct Item gItemsInfo[] =
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = ITEM_ULTRA_BALL - FIRST_BALL,
+        .iconPic = gItemIcon_UltraBall,
+        .iconPalette = gItemIconPalette_UltraBall,
     },
 
     [ITEM_GREAT_BALL] =
@@ -46,6 +52,8 @@ const struct Item gItemsInfo[] =
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = ITEM_GREAT_BALL - FIRST_BALL,
+        .iconPic = gItemIcon_GreatBall,
+        .iconPalette = gItemIconPalette_GreatBall,
     },
 
     [ITEM_POKE_BALL] =
@@ -58,6 +66,8 @@ const struct Item gItemsInfo[] =
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = ITEM_POKE_BALL - FIRST_BALL,
+        .iconPic = gItemIcon_PokeBall,
+        .iconPalette = gItemIconPalette_PokeBall,
     },
 
     [ITEM_SAFARI_BALL] =
@@ -70,6 +80,8 @@ const struct Item gItemsInfo[] =
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = ITEM_SAFARI_BALL - FIRST_BALL,
+        .iconPic = gItemIcon_SafariBall,
+        .iconPalette = gItemIconPalette_SafariBall,
     },
 
     [ITEM_NET_BALL] =
@@ -82,6 +94,8 @@ const struct Item gItemsInfo[] =
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = ITEM_NET_BALL - FIRST_BALL,
+        .iconPic = gItemIcon_NetBall,
+        .iconPalette = gItemIconPalette_NetBall,
     },
 
     [ITEM_DIVE_BALL] =
@@ -94,6 +108,8 @@ const struct Item gItemsInfo[] =
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = ITEM_DIVE_BALL - FIRST_BALL,
+        .iconPic = gItemIcon_DiveBall,
+        .iconPalette = gItemIconPalette_DiveBall,
     },
 
     [ITEM_NEST_BALL] =
@@ -106,6 +122,8 @@ const struct Item gItemsInfo[] =
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = ITEM_NEST_BALL - FIRST_BALL,
+        .iconPic = gItemIcon_NestBall,
+        .iconPalette = gItemIconPalette_NestBall,
     },
 
     [ITEM_REPEAT_BALL] =
@@ -118,6 +136,8 @@ const struct Item gItemsInfo[] =
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = ITEM_REPEAT_BALL - FIRST_BALL,
+        .iconPic = gItemIcon_RepeatBall,
+        .iconPalette = gItemIconPalette_RepeatBall,
     },
 
     [ITEM_TIMER_BALL] =
@@ -130,6 +150,8 @@ const struct Item gItemsInfo[] =
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = ITEM_TIMER_BALL - FIRST_BALL,
+        .iconPic = gItemIcon_TimerBall,
+        .iconPalette = gItemIconPalette_RepeatBall,
     },
 
     [ITEM_LUXURY_BALL] =
@@ -142,6 +164,8 @@ const struct Item gItemsInfo[] =
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = ITEM_LUXURY_BALL - FIRST_BALL,
+        .iconPic = gItemIcon_LuxuryBall,
+        .iconPalette = gItemIconPalette_LuxuryBall,
     },
 
     [ITEM_PREMIER_BALL] =
@@ -154,9 +178,9 @@ const struct Item gItemsInfo[] =
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = ITEM_PREMIER_BALL - FIRST_BALL,
+        .iconPic = gItemIcon_PremierBall,
+        .iconPalette = gItemIconPalette_LuxuryBall,
     },
-
-// Medicine
 
     [ITEM_POTION] =
     {
@@ -169,6 +193,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_Potion,
+        .iconPalette = gItemIconPalette_Potion,
     },
 
     [ITEM_ANTIDOTE] =
@@ -181,6 +207,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_Antidote,
+        .iconPalette = gItemIconPalette_Antidote,
     },
 
     [ITEM_BURN_HEAL] =
@@ -193,6 +221,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_StatusHeal,
+        .iconPalette = gItemIconPalette_BurnHeal,
     },
 
     [ITEM_ICE_HEAL] =
@@ -205,6 +235,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_StatusHeal,
+        .iconPalette = gItemIconPalette_IceHeal,
     },
 
     [ITEM_AWAKENING] =
@@ -217,6 +249,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_StatusHeal,
+        .iconPalette = gItemIconPalette_Awakening,
     },
 
     [ITEM_PARALYZE_HEAL] =
@@ -229,6 +263,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_StatusHeal,
+        .iconPalette = gItemIconPalette_ParalyzeHeal,
     },
 
     [ITEM_FULL_RESTORE] =
@@ -242,6 +278,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_LargePotion,
+        .iconPalette = gItemIconPalette_FullRestore,
     },
 
     [ITEM_MAX_POTION] =
@@ -255,6 +293,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_LargePotion,
+        .iconPalette = gItemIconPalette_MaxPotion,
     },
 
     [ITEM_HYPER_POTION] =
@@ -268,6 +308,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_Potion,
+        .iconPalette = gItemIconPalette_HyperPotion,
     },
 
     [ITEM_SUPER_POTION] =
@@ -281,6 +323,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_Potion,
+        .iconPalette = gItemIconPalette_SuperPotion,
     },
 
     [ITEM_FULL_HEAL] =
@@ -293,6 +337,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_FullHeal,
+        .iconPalette = gItemIconPalette_FullHeal,
     },
 
     [ITEM_REVIVE] =
@@ -305,6 +351,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_Revive,
+        .iconPalette = gItemIconPalette_Revive,
     },
 
     [ITEM_MAX_REVIVE] =
@@ -317,6 +365,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_MaxRevive,
+        .iconPalette = gItemIconPalette_Revive,
     },
 
     [ITEM_FRESH_WATER] =
@@ -330,6 +380,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_FreshWater,
+        .iconPalette = gItemIconPalette_FreshWater,
     },
 
     [ITEM_SODA_POP] =
@@ -343,6 +395,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_SodaPop,
+        .iconPalette = gItemIconPalette_SodaPop,
     },
 
     [ITEM_LEMONADE] =
@@ -356,6 +410,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_Lemonade,
+        .iconPalette = gItemIconPalette_Lemonade,
     },
 
     [ITEM_MOOMOO_MILK] =
@@ -369,6 +425,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_MoomooMilk,
+        .iconPalette = gItemIconPalette_MoomooMilk,
     },
 
     [ITEM_ENERGY_POWDER] =
@@ -381,6 +439,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_Powder,
+        .iconPalette = gItemIconPalette_EnergyPowder,
     },
 
     [ITEM_ENERGY_ROOT] =
@@ -393,6 +453,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_EnergyRoot,
+        .iconPalette = gItemIconPalette_EnergyRoot,
     },
 
     [ITEM_HEAL_POWDER] =
@@ -405,6 +467,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_Powder,
+        .iconPalette = gItemIconPalette_HealPowder,
     },
 
     [ITEM_REVIVAL_HERB] =
@@ -417,6 +481,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_RevivalHerb,
+        .iconPalette = gItemIconPalette_RevivalHerb,
     },
 
     [ITEM_ETHER] =
@@ -430,6 +496,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_PPRecovery,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_PPRecovery,
+        .iconPic = gItemIcon_Ether,
+        .iconPalette = gItemIconPalette_Ether,
     },
 
     [ITEM_MAX_ETHER] =
@@ -443,6 +511,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_PPRecovery,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_PPRecovery,
+        .iconPic = gItemIcon_Ether,
+        .iconPalette = gItemIconPalette_MaxEther,
     },
 
     [ITEM_ELIXIR] =
@@ -456,6 +526,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_PPRecovery,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_PPRecovery,
+        .iconPic = gItemIcon_Ether,
+        .iconPalette = gItemIconPalette_Elixir,
     },
 
     [ITEM_MAX_ELIXIR] =
@@ -469,6 +541,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_PPRecovery,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_PPRecovery,
+        .iconPic = gItemIcon_Ether,
+        .iconPalette = gItemIconPalette_MaxElixir,
     },
 
     [ITEM_LAVA_COOKIE] =
@@ -481,6 +555,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_LavaCookie,
+        .iconPalette = gItemIconPalette_LavaCookieAndLetter,
     },
 
     [ITEM_BLUE_FLUTE] =
@@ -493,6 +569,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_Flute,
+        .iconPalette = gItemIconPalette_BlueFlute,
     },
 
     [ITEM_YELLOW_FLUTE] =
@@ -505,6 +583,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_Flute,
+        .iconPalette = gItemIconPalette_YellowFlute,
     },
 
     [ITEM_RED_FLUTE] =
@@ -517,6 +597,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_Flute,
+        .iconPalette = gItemIconPalette_RedFlute,
     },
 
     [ITEM_BLACK_FLUTE] =
@@ -528,6 +610,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_BlackWhiteFlute,
+        .iconPic = gItemIcon_Flute,
+        .iconPalette = gItemIconPalette_BlackFlute,
     },
 
     [ITEM_WHITE_FLUTE] =
@@ -539,6 +623,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_BlackWhiteFlute,
+        .iconPic = gItemIcon_Flute,
+        .iconPalette = gItemIconPalette_WhiteFlute,
     },
 
     [ITEM_BERRY_JUICE] =
@@ -553,6 +639,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_BerryJuice,
+        .iconPalette = gItemIconPalette_BerryJuice,
     },
 
     [ITEM_SACRED_ASH] =
@@ -563,9 +651,9 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_SacredAsh,
+        .iconPic = gItemIcon_SacredAsh,
+        .iconPalette = gItemIconPalette_SacredAsh,
     },
-
-// Collectibles
 
     [ITEM_SHOAL_SALT] =
     {
@@ -575,6 +663,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Powder,
+        .iconPalette = gItemIconPalette_ShoalSalt,
     },
 
     [ITEM_SHOAL_SHELL] =
@@ -585,6 +675,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_ShoalShell,
+        .iconPalette = gItemIconPalette_Shell,
     },
 
     [ITEM_RED_SHARD] =
@@ -595,6 +687,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Shard,
+        .iconPalette = gItemIconPalette_RedShard,
     },
 
     [ITEM_BLUE_SHARD] =
@@ -605,6 +699,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Shard,
+        .iconPalette = gItemIconPalette_BlueShard,
     },
 
     [ITEM_YELLOW_SHARD] =
@@ -615,6 +711,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Shard,
+        .iconPalette = gItemIconPalette_YellowShard,
     },
 
     [ITEM_GREEN_SHARD] =
@@ -625,6 +723,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Shard,
+        .iconPalette = gItemIconPalette_GreenShard,
     },
 
     [ITEM_034] =
@@ -635,6 +735,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_035] =
@@ -645,6 +747,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_036] =
@@ -655,6 +759,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_037] =
@@ -665,6 +771,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_038] =
@@ -675,6 +783,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_039] =
@@ -685,6 +795,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_03A] =
@@ -695,6 +807,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_03B] =
@@ -705,6 +819,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_03C] =
@@ -715,6 +831,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_03D] =
@@ -725,6 +843,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_03E] =
@@ -735,9 +855,9 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
-
-// Vitamins
 
     [ITEM_HP_UP] =
     {
@@ -747,6 +867,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .iconPic = gItemIcon_HPUp,
+        .iconPalette = gItemIconPalette_HPUp,
     },
 
     [ITEM_PROTEIN] =
@@ -757,6 +879,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .iconPic = gItemIcon_Vitamin,
+        .iconPalette = gItemIconPalette_Protein,
     },
 
     [ITEM_IRON] =
@@ -767,6 +891,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .iconPic = gItemIcon_Vitamin,
+        .iconPalette = gItemIconPalette_Iron,
     },
 
     [ITEM_CARBOS] =
@@ -777,6 +903,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .iconPic = gItemIcon_Vitamin,
+        .iconPalette = gItemIconPalette_Carbos,
     },
 
     [ITEM_CALCIUM] =
@@ -787,6 +915,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .iconPic = gItemIcon_Vitamin,
+        .iconPalette = gItemIconPalette_Calcium,
     },
 
     [ITEM_RARE_CANDY] =
@@ -797,6 +927,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
+        .iconPic = gItemIcon_RareCandy,
+        .iconPalette = gItemIconPalette_RareCandy,
     },
 
     [ITEM_PP_UP] =
@@ -807,6 +939,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_PPUp,
+        .iconPic = gItemIcon_PPUp,
+        .iconPalette = gItemIconPalette_PPUp,
     },
 
     [ITEM_ZINC] =
@@ -817,6 +951,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .iconPic = gItemIcon_Vitamin,
+        .iconPalette = gItemIconPalette_Zinc,
     },
 
     [ITEM_PP_MAX] =
@@ -827,6 +963,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_PPUp,
+        .iconPic = gItemIcon_PPMax,
+        .iconPalette = gItemIconPalette_PPMax,
     },
 
     [ITEM_048] =
@@ -837,9 +975,9 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
-
-// Battle items
 
     [ITEM_GUARD_SPEC] =
     {
@@ -851,6 +989,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_StatIncrease,
+        .iconPic = gItemIcon_BattleStatItem,
+        .iconPalette = gItemIconPalette_GuardSpec,
     },
 
     [ITEM_DIRE_HIT] =
@@ -863,6 +1003,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_StatIncrease,
+        .iconPic = gItemIcon_BattleStatItem,
+        .iconPalette = gItemIconPalette_DireHit,
     },
 
     [ITEM_X_ATTACK] =
@@ -875,6 +1017,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_StatIncrease,
+        .iconPic = gItemIcon_BattleStatItem,
+        .iconPalette = gItemIconPalette_XAttack,
     },
 
     [ITEM_X_DEFEND] =
@@ -887,6 +1031,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_StatIncrease,
+        .iconPic = gItemIcon_BattleStatItem,
+        .iconPalette = gItemIconPalette_XDefend,
     },
 
     [ITEM_X_SPEED] =
@@ -899,6 +1045,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_StatIncrease,
+        .iconPic = gItemIcon_BattleStatItem,
+        .iconPalette = gItemIconPalette_XSpeed,
     },
 
     [ITEM_X_ACCURACY] =
@@ -911,6 +1059,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_StatIncrease,
+        .iconPic = gItemIcon_BattleStatItem,
+        .iconPalette = gItemIconPalette_XAccuracy,
     },
 
     [ITEM_X_SPECIAL] =
@@ -923,6 +1073,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_StatIncrease,
+        .iconPic = gItemIcon_BattleStatItem,
+        .iconPalette = gItemIconPalette_XSpecial,
     },
 
     [ITEM_POKE_DOLL] =
@@ -935,6 +1087,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_Escape,
+        .iconPic = gItemIcon_PokeDoll,
+        .iconPalette = gItemIconPalette_PokeDoll,
     },
 
     [ITEM_FLUFFY_TAIL] =
@@ -947,6 +1101,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .battleUsage = ITEM_B_USE_OTHER,
         .battleUseFunc = ItemUseInBattle_Escape,
+        .iconPic = gItemIcon_FluffyTail,
+        .iconPalette = gItemIconPalette_FluffyTail,
     },
 
     [ITEM_052] =
@@ -957,9 +1113,9 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
-
-// Field items
 
     [ITEM_SUPER_REPEL] =
     {
@@ -970,6 +1126,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Repel,
+        .iconPic = gItemIcon_Repel,
+        .iconPalette = gItemIconPalette_SuperRepel,
     },
 
     [ITEM_MAX_REPEL] =
@@ -981,6 +1139,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Repel,
+        .iconPic = gItemIcon_Repel,
+        .iconPalette = gItemIconPalette_MaxRepel,
     },
 
     [ITEM_ESCAPE_ROPE] =
@@ -991,6 +1151,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_EscapeRope,
+        .iconPic = gItemIcon_EscapeRope,
+        .iconPalette = gItemIconPalette_EscapeRope,
     },
 
     [ITEM_REPEL] =
@@ -1002,6 +1164,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Repel,
+        .iconPic = gItemIcon_Repel,
+        .iconPalette = gItemIconPalette_Repel,
     },
 
     [ITEM_057] =
@@ -1012,6 +1176,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_058] =
@@ -1022,6 +1188,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_059] =
@@ -1032,6 +1200,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_05A] =
@@ -1042,6 +1212,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_05B] =
@@ -1052,6 +1224,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_05C] =
@@ -1062,9 +1236,9 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
-
-// Evolution stones
 
     [ITEM_SUN_STONE] =
     {
@@ -1074,6 +1248,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+        .iconPic = gItemIcon_SunStone,
+        .iconPalette = gItemIconPalette_SunStone,
     },
 
     [ITEM_MOON_STONE] =
@@ -1084,6 +1260,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+        .iconPic = gItemIcon_MoonStone,
+        .iconPalette = gItemIconPalette_MoonStone,
     },
 
     [ITEM_FIRE_STONE] =
@@ -1094,6 +1272,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+        .iconPic = gItemIcon_FireStone,
+        .iconPalette = gItemIconPalette_FireStone,
     },
 
     [ITEM_THUNDER_STONE] =
@@ -1104,6 +1284,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+        .iconPic = gItemIcon_ThunderStone,
+        .iconPalette = gItemIconPalette_ThunderStone,
     },
 
     [ITEM_WATER_STONE] =
@@ -1114,6 +1296,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+        .iconPic = gItemIcon_WaterStone,
+        .iconPalette = gItemIconPalette_WaterStone,
     },
 
     [ITEM_LEAF_STONE] =
@@ -1124,6 +1308,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+        .iconPic = gItemIcon_LeafStone,
+        .iconPalette = gItemIconPalette_LeafStone,
     },
 
     [ITEM_063] =
@@ -1134,6 +1320,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_064] =
@@ -1144,6 +1332,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_065] =
@@ -1154,6 +1344,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_066] =
@@ -1164,9 +1356,9 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
-
-// Valuable items
 
     [ITEM_TINY_MUSHROOM] =
     {
@@ -1176,6 +1368,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TinyMushroom,
+        .iconPalette = gItemIconPalette_Mushroom,
     },
 
     [ITEM_BIG_MUSHROOM] =
@@ -1186,6 +1380,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_BigMushroom,
+        .iconPalette = gItemIconPalette_Mushroom,
     },
 
     [ITEM_069] =
@@ -1196,6 +1392,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_PEARL] =
@@ -1206,6 +1404,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Pearl,
+        .iconPalette = gItemIconPalette_Pearl,
     },
 
     [ITEM_BIG_PEARL] =
@@ -1216,6 +1416,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_BigPearl,
+        .iconPalette = gItemIconPalette_Pearl,
     },
 
     [ITEM_STARDUST] =
@@ -1226,6 +1428,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Stardust,
+        .iconPalette = gItemIconPalette_Star,
     },
 
     [ITEM_STAR_PIECE] =
@@ -1236,6 +1440,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_StarPiece,
+        .iconPalette = gItemIconPalette_Star,
     },
 
     [ITEM_NUGGET] =
@@ -1246,6 +1452,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Nugget,
+        .iconPalette = gItemIconPalette_Nugget,
     },
 
     [ITEM_HEART_SCALE] =
@@ -1256,6 +1464,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_HeartScale,
+        .iconPalette = gItemIconPalette_HeartScale,
     },
 
     [ITEM_070] =
@@ -1266,6 +1476,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_071] =
@@ -1276,6 +1488,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_072] =
@@ -1286,6 +1500,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_073] =
@@ -1296,6 +1512,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_074] =
@@ -1306,6 +1524,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_075] =
@@ -1316,6 +1536,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_076] =
@@ -1326,6 +1548,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_077] =
@@ -1336,6 +1560,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_078] =
@@ -1346,9 +1572,10 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
-// Mail
     [ITEM_ORANGE_MAIL] =
     {
         .name = _("ORANGE MAIL"),
@@ -1358,6 +1585,8 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_MAIL,
         .fieldUseFunc = ItemUseOutOfBattle_Mail,
         .secondaryId = ITEM_TO_MAIL(ITEM_ORANGE_MAIL),
+        .iconPic = gItemIcon_OrangeMail,
+        .iconPalette = gItemIconPalette_OrangeMail,
     },
 
     [ITEM_HARBOR_MAIL] =
@@ -1369,6 +1598,8 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_MAIL,
         .fieldUseFunc = ItemUseOutOfBattle_Mail,
         .secondaryId = ITEM_TO_MAIL(ITEM_HARBOR_MAIL),
+        .iconPic = gItemIcon_HarborMail,
+        .iconPalette = gItemIconPalette_HarborMail,
     },
 
     [ITEM_GLITTER_MAIL] =
@@ -1380,6 +1611,8 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_MAIL,
         .fieldUseFunc = ItemUseOutOfBattle_Mail,
         .secondaryId = ITEM_TO_MAIL(ITEM_GLITTER_MAIL),
+        .iconPic = gItemIcon_GlitterMail,
+        .iconPalette = gItemIconPalette_GlitterMail,
     },
 
     [ITEM_MECH_MAIL] =
@@ -1391,6 +1624,8 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_MAIL,
         .fieldUseFunc = ItemUseOutOfBattle_Mail,
         .secondaryId = ITEM_TO_MAIL(ITEM_MECH_MAIL),
+        .iconPic = gItemIcon_MechMail,
+        .iconPalette = gItemIconPalette_MechMail,
     },
 
     [ITEM_WOOD_MAIL] =
@@ -1402,6 +1637,8 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_MAIL,
         .fieldUseFunc = ItemUseOutOfBattle_Mail,
         .secondaryId = ITEM_TO_MAIL(ITEM_WOOD_MAIL),
+        .iconPic = gItemIcon_WoodMail,
+        .iconPalette = gItemIconPalette_WoodMail,
     },
 
     [ITEM_WAVE_MAIL] =
@@ -1413,6 +1650,8 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_MAIL,
         .fieldUseFunc = ItemUseOutOfBattle_Mail,
         .secondaryId = ITEM_TO_MAIL(ITEM_WAVE_MAIL),
+        .iconPic = gItemIcon_WaveMail,
+        .iconPalette = gItemIconPalette_WaveMail,
     },
 
     [ITEM_BEAD_MAIL] =
@@ -1424,6 +1663,8 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_MAIL,
         .fieldUseFunc = ItemUseOutOfBattle_Mail,
         .secondaryId = ITEM_TO_MAIL(ITEM_BEAD_MAIL),
+        .iconPic = gItemIcon_BeadMail,
+        .iconPalette = gItemIconPalette_BeadMail,
     },
 
     [ITEM_SHADOW_MAIL] =
@@ -1435,6 +1676,8 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_MAIL,
         .fieldUseFunc = ItemUseOutOfBattle_Mail,
         .secondaryId = ITEM_TO_MAIL(ITEM_SHADOW_MAIL),
+        .iconPic = gItemIcon_ShadowMail,
+        .iconPalette = gItemIconPalette_ShadowMail,
     },
 
     [ITEM_TROPIC_MAIL] =
@@ -1446,6 +1689,8 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_MAIL,
         .fieldUseFunc = ItemUseOutOfBattle_Mail,
         .secondaryId = ITEM_TO_MAIL(ITEM_TROPIC_MAIL),
+        .iconPic = gItemIcon_TropicMail,
+        .iconPalette = gItemIconPalette_TropicMail,
     },
 
     [ITEM_DREAM_MAIL] =
@@ -1457,6 +1702,8 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_MAIL,
         .fieldUseFunc = ItemUseOutOfBattle_Mail,
         .secondaryId = ITEM_TO_MAIL(ITEM_DREAM_MAIL),
+        .iconPic = gItemIcon_DreamMail,
+        .iconPalette = gItemIconPalette_DreamMail,
     },
 
     [ITEM_FAB_MAIL] =
@@ -1468,6 +1715,8 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_MAIL,
         .fieldUseFunc = ItemUseOutOfBattle_Mail,
         .secondaryId = ITEM_TO_MAIL(ITEM_FAB_MAIL),
+        .iconPic = gItemIcon_FabMail,
+        .iconPalette = gItemIconPalette_FabMail,
     },
 
     [ITEM_RETRO_MAIL] =
@@ -1479,9 +1728,9 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_MAIL,
         .fieldUseFunc = ItemUseOutOfBattle_Mail,
         .secondaryId = ITEM_TO_MAIL(ITEM_RETRO_MAIL),
+        .iconPic = gItemIcon_RetroMail,
+        .iconPalette = gItemIconPalette_RetroMail,
     },
-
-// Berries
 
     [ITEM_CHERI_BERRY] =
     {
@@ -1494,6 +1743,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_CheriBerry,
+        .iconPalette = gItemIconPalette_CheriBerry,
     },
 
     [ITEM_CHESTO_BERRY] =
@@ -1507,6 +1758,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_ChestoBerry,
+        .iconPalette = gItemIconPalette_ChestoBerry,
     },
 
     [ITEM_PECHA_BERRY] =
@@ -1520,6 +1773,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_PechaBerry,
+        .iconPalette = gItemIconPalette_PechaBerry,
     },
 
     [ITEM_RAWST_BERRY] =
@@ -1533,6 +1788,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_RawstBerry,
+        .iconPalette = gItemIconPalette_RawstBerry,
     },
 
     [ITEM_ASPEAR_BERRY] =
@@ -1546,6 +1803,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_AspearBerry,
+        .iconPalette = gItemIconPalette_AspearBerry,
     },
 
     [ITEM_LEPPA_BERRY] =
@@ -1560,6 +1819,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_PPRecovery,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_PPRecovery,
+        .iconPic = gItemIcon_LeppaBerry,
+        .iconPalette = gItemIconPalette_LeppaBerry,
     },
 
     [ITEM_ORAN_BERRY] =
@@ -1574,6 +1835,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_OranBerry,
+        .iconPalette = gItemIconPalette_OranBerry,
     },
 
     [ITEM_PERSIM_BERRY] =
@@ -1587,6 +1850,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_PersimBerry,
+        .iconPalette = gItemIconPalette_PersimBerry,
     },
 
     [ITEM_LUM_BERRY] =
@@ -1600,6 +1865,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_LumBerry,
+        .iconPalette = gItemIconPalette_LumBerry,
     },
 
     [ITEM_SITRUS_BERRY] =
@@ -1614,6 +1881,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_Medicine,
+        .iconPic = gItemIcon_SitrusBerry,
+        .iconPalette = gItemIconPalette_SitrusBerry,
     },
 
     [ITEM_FIGY_BERRY] =
@@ -1626,6 +1895,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_FigyBerry,
+        .iconPalette = gItemIconPalette_FigyBerry,
     },
 
     [ITEM_WIKI_BERRY] =
@@ -1638,6 +1909,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_WikiBerry,
+        .iconPalette = gItemIconPalette_WikiBerry,
     },
 
     [ITEM_MAGO_BERRY] =
@@ -1650,6 +1923,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_MagoBerry,
+        .iconPalette = gItemIconPalette_MagoBerry,
     },
 
     [ITEM_AGUAV_BERRY] =
@@ -1662,6 +1937,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_AguavBerry,
+        .iconPalette = gItemIconPalette_AguavBerry,
     },
 
     [ITEM_IAPAPA_BERRY] =
@@ -1674,6 +1951,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_IapapaBerry,
+        .iconPalette = gItemIconPalette_IapapaBerry,
     },
 
     [ITEM_RAZZ_BERRY] =
@@ -1684,6 +1963,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_RazzBerry,
+        .iconPalette = gItemIconPalette_RazzBerry,
     },
 
     [ITEM_BLUK_BERRY] =
@@ -1694,6 +1975,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_BlukBerry,
+        .iconPalette = gItemIconPalette_BlukBerry,
     },
 
     [ITEM_NANAB_BERRY] =
@@ -1704,6 +1987,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_NanabBerry,
+        .iconPalette = gItemIconPalette_NanabBerry,
     },
 
     [ITEM_WEPEAR_BERRY] =
@@ -1714,6 +1999,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_WepearBerry,
+        .iconPalette = gItemIconPalette_WepearBerry,
     },
 
     [ITEM_PINAP_BERRY] =
@@ -1724,6 +2011,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_PinapBerry,
+        .iconPalette = gItemIconPalette_PinapBerry,
     },
 
     [ITEM_POMEG_BERRY] =
@@ -1734,6 +2023,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_ReduceEV,
+        .iconPic = gItemIcon_PomegBerry,
+        .iconPalette = gItemIconPalette_PomegBerry,
     },
 
     [ITEM_KELPSY_BERRY] =
@@ -1744,6 +2035,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_ReduceEV,
+        .iconPic = gItemIcon_KelpsyBerry,
+        .iconPalette = gItemIconPalette_KelpsyBerry,
     },
 
     [ITEM_QUALOT_BERRY] =
@@ -1754,6 +2047,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_ReduceEV,
+        .iconPic = gItemIcon_QualotBerry,
+        .iconPalette = gItemIconPalette_QualotBerry,
     },
 
     [ITEM_HONDEW_BERRY] =
@@ -1764,6 +2059,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_ReduceEV,
+        .iconPic = gItemIcon_HondewBerry,
+        .iconPalette = gItemIconPalette_HondewBerry,
     },
 
     [ITEM_GREPA_BERRY] =
@@ -1774,6 +2071,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_ReduceEV,
+        .iconPic = gItemIcon_GrepaBerry,
+        .iconPalette = gItemIconPalette_GrepaBerry,
     },
 
     [ITEM_TAMATO_BERRY] =
@@ -1784,6 +2083,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_ReduceEV,
+        .iconPic = gItemIcon_TamatoBerry,
+        .iconPalette = gItemIconPalette_TamatoBerry,
     },
 
     [ITEM_CORNN_BERRY] =
@@ -1794,6 +2095,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_CornnBerry,
+        .iconPalette = gItemIconPalette_CornnBerry,
     },
 
     [ITEM_MAGOST_BERRY] =
@@ -1804,6 +2107,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_MagostBerry,
+        .iconPalette = gItemIconPalette_MagostBerry,
     },
 
     [ITEM_RABUTA_BERRY] =
@@ -1814,6 +2119,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_RabutaBerry,
+        .iconPalette = gItemIconPalette_RabutaBerry,
     },
 
     [ITEM_NOMEL_BERRY] =
@@ -1824,6 +2131,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_NomelBerry,
+        .iconPalette = gItemIconPalette_NomelBerry,
     },
 
     [ITEM_SPELON_BERRY] =
@@ -1834,6 +2143,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SpelonBerry,
+        .iconPalette = gItemIconPalette_SpelonBerry,
     },
 
     [ITEM_PAMTRE_BERRY] =
@@ -1844,6 +2155,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_PamtreBerry,
+        .iconPalette = gItemIconPalette_PamtreBerry,
     },
 
     [ITEM_WATMEL_BERRY] =
@@ -1854,6 +2167,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_WatmelBerry,
+        .iconPalette = gItemIconPalette_WatmelBerry,
     },
 
     [ITEM_DURIN_BERRY] =
@@ -1864,6 +2179,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_DurinBerry,
+        .iconPalette = gItemIconPalette_DurinBerry,
     },
 
     [ITEM_BELUE_BERRY] =
@@ -1874,6 +2191,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_BelueBerry,
+        .iconPalette = gItemIconPalette_BelueBerry,
     },
 
     [ITEM_LIECHI_BERRY] =
@@ -1886,6 +2205,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_LiechiBerry,
+        .iconPalette = gItemIconPalette_LiechiBerry,
     },
 
     [ITEM_GANLON_BERRY] =
@@ -1898,6 +2219,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_GanlonBerry,
+        .iconPalette = gItemIconPalette_GanlonBerry,
     },
 
     [ITEM_SALAC_BERRY] =
@@ -1910,6 +2233,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SalacBerry,
+        .iconPalette = gItemIconPalette_SalacBerry,
     },
 
     [ITEM_PETAYA_BERRY] =
@@ -1922,6 +2247,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_PetayaBerry,
+        .iconPalette = gItemIconPalette_PetayaBerry,
     },
 
     [ITEM_APICOT_BERRY] =
@@ -1934,6 +2261,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_ApicotBerry,
+        .iconPalette = gItemIconPalette_ApicotBerry,
     },
 
     [ITEM_LANSAT_BERRY] =
@@ -1946,6 +2275,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_LansatBerry,
+        .iconPalette = gItemIconPalette_LansatBerry,
     },
 
     [ITEM_STARF_BERRY] =
@@ -1958,6 +2289,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_StarfBerry,
+        .iconPalette = gItemIconPalette_StarfBerry,
     },
 
     [ITEM_ENIGMA_BERRY] =
@@ -1970,6 +2303,8 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_EnigmaBerry,
         .battleUsage = ITEM_B_USE_MEDICINE,
         .battleUseFunc = ItemUseInBattle_EnigmaBerry,
+        .iconPic = gItemIcon_EnigmaBerry,
+        .iconPalette = gItemIconPalette_EnigmaBerry,
     },
 
     [ITEM_UNUSED_BERRY_1] =
@@ -1980,6 +2315,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_UNUSED_BERRY_2] =
@@ -1990,6 +2327,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_UNUSED_BERRY_3] =
@@ -2000,9 +2339,9 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
-
-// Hold items
 
     [ITEM_BRIGHT_POWDER] =
     {
@@ -2014,6 +2353,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_BrightPowder,
+        .iconPalette = gItemIconPalette_BrightPowder,
     },
 
     [ITEM_WHITE_HERB] =
@@ -2025,6 +2366,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_InBattleHerb,
+        .iconPalette = gItemIconPalette_WhiteHerb,
     },
 
     [ITEM_MACHO_BRACE] =
@@ -2036,6 +2379,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_MachoBrace,
+        .iconPalette = gItemIconPalette_MachoBrace,
     },
 
     [ITEM_EXP_SHARE] =
@@ -2047,6 +2392,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_ExpShare,
+        .iconPalette = gItemIconPalette_ExpShare,
     },
 
     [ITEM_QUICK_CLAW] =
@@ -2059,6 +2406,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuickClaw,
+        .iconPalette = gItemIconPalette_QuickClaw,
     },
 
     [ITEM_SOOTHE_BELL] =
@@ -2070,6 +2419,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SootheBell,
+        .iconPalette = gItemIconPalette_SootheBell,
     },
 
     [ITEM_MENTAL_HERB] =
@@ -2081,6 +2432,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_InBattleHerb,
+        .iconPalette = gItemIconPalette_MentalHerb,
     },
 
     [ITEM_CHOICE_BAND] =
@@ -2092,6 +2445,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_ChoiceBand,
+        .iconPalette = gItemIconPalette_ChoiceBand,
     },
 
     [ITEM_KINGS_ROCK] =
@@ -2104,6 +2459,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_KingsRock,
+        .iconPalette = gItemIconPalette_KingsRock,
     },
 
     [ITEM_SILVER_POWDER] =
@@ -2116,6 +2473,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SilverPowder,
+        .iconPalette = gItemIconPalette_SilverPowder,
     },
 
     [ITEM_AMULET_COIN] =
@@ -2128,6 +2487,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_AmuletCoin,
+        .iconPalette = gItemIconPalette_AmuletCoin,
     },
 
     [ITEM_CLEANSE_TAG] =
@@ -2139,6 +2500,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_CleanseTag,
+        .iconPalette = gItemIconPalette_CleanseTag,
     },
 
     [ITEM_SOUL_DEW] =
@@ -2150,6 +2513,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SoulDew,
+        .iconPalette = gItemIconPalette_SoulDew,
     },
 
     [ITEM_DEEP_SEA_TOOTH] =
@@ -2161,6 +2526,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_DeepSeaTooth,
+        .iconPalette = gItemIconPalette_DeepSeaTooth,
     },
 
     [ITEM_DEEP_SEA_SCALE] =
@@ -2172,6 +2539,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_DeepSeaScale,
+        .iconPalette = gItemIconPalette_DeepSeaScale,
     },
 
     [ITEM_SMOKE_BALL] =
@@ -2183,6 +2552,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SmokeBall,
+        .iconPalette = gItemIconPalette_SmokeBall,
     },
 
     [ITEM_EVERSTONE] =
@@ -2194,6 +2565,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Everstone,
+        .iconPalette = gItemIconPalette_Everstone,
     },
 
     [ITEM_FOCUS_BAND] =
@@ -2206,6 +2579,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_FocusBand,
+        .iconPalette = gItemIconPalette_FocusBand,
     },
 
     [ITEM_LUCKY_EGG] =
@@ -2217,6 +2592,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_LuckyEgg,
+        .iconPalette = gItemIconPalette_LuckyEgg,
     },
 
     [ITEM_SCOPE_LENS] =
@@ -2228,6 +2605,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_ScopeLens,
+        .iconPalette = gItemIconPalette_ScopeLens,
     },
 
     [ITEM_METAL_COAT] =
@@ -2240,6 +2619,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_MetalCoat,
+        .iconPalette = gItemIconPalette_MetalCoat,
     },
 
     [ITEM_LEFTOVERS] =
@@ -2252,6 +2633,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Leftovers,
+        .iconPalette = gItemIconPalette_Leftovers,
     },
 
     [ITEM_DRAGON_SCALE] =
@@ -2264,6 +2647,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_DragonScale,
+        .iconPalette = gItemIconPalette_DragonScale,
     },
 
     [ITEM_LIGHT_BALL] =
@@ -2275,6 +2660,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_LightBall,
+        .iconPalette = gItemIconPalette_LightBall,
     },
 
     [ITEM_SOFT_SAND] =
@@ -2287,6 +2674,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SoftSand,
+        .iconPalette = gItemIconPalette_SoftSand,
     },
 
     [ITEM_HARD_STONE] =
@@ -2299,6 +2688,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_HardStone,
+        .iconPalette = gItemIconPalette_HardStone,
     },
 
     [ITEM_MIRACLE_SEED] =
@@ -2311,6 +2702,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_MiracleSeed,
+        .iconPalette = gItemIconPalette_MiracleSeed,
     },
 
     [ITEM_BLACK_GLASSES] =
@@ -2323,6 +2716,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_BlackGlasses,
+        .iconPalette = gItemIconPalette_BlackTypeEnhancingItem,
     },
 
     [ITEM_BLACK_BELT] =
@@ -2335,6 +2730,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_BlackBelt,
+        .iconPalette = gItemIconPalette_BlackTypeEnhancingItem,
     },
 
     [ITEM_MAGNET] =
@@ -2347,6 +2744,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Magnet,
+        .iconPalette = gItemIconPalette_Magnet,
     },
 
     [ITEM_MYSTIC_WATER] =
@@ -2359,6 +2758,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_MysticWater,
+        .iconPalette = gItemIconPalette_MysticWater,
     },
 
     [ITEM_SHARP_BEAK] =
@@ -2371,6 +2772,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SharpBeak,
+        .iconPalette = gItemIconPalette_SharpBeak,
     },
 
     [ITEM_POISON_BARB] =
@@ -2383,6 +2786,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_PoisonBarb,
+        .iconPalette = gItemIconPalette_PoisonBarb,
     },
 
     [ITEM_NEVER_MELT_ICE] =
@@ -2395,6 +2800,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_NeverMeltIce,
+        .iconPalette = gItemIconPalette_NeverMeltIce,
     },
 
     [ITEM_SPELL_TAG] =
@@ -2407,6 +2814,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SpellTag,
+        .iconPalette = gItemIconPalette_SpellTag,
     },
 
     [ITEM_TWISTED_SPOON] =
@@ -2419,6 +2828,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TwistedSpoon,
+        .iconPalette = gItemIconPalette_TwistedSpoon,
     },
 
     [ITEM_CHARCOAL] =
@@ -2431,6 +2842,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Charcoal,
+        .iconPalette = gItemIconPalette_Charcoal,
     },
 
     [ITEM_DRAGON_FANG] =
@@ -2443,6 +2856,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_DragonFang,
+        .iconPalette = gItemIconPalette_DragonFang,
     },
 
     [ITEM_SILK_SCARF] =
@@ -2455,6 +2870,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SilkScarf,
+        .iconPalette = gItemIconPalette_SilkScarf,
     },
 
     [ITEM_UP_GRADE] =
@@ -2466,6 +2883,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_UpGrade,
+        .iconPalette = gItemIconPalette_UpGrade,
     },
 
     [ITEM_SHELL_BELL] =
@@ -2478,6 +2897,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_ShellBell,
+        .iconPalette = gItemIconPalette_Shell,
     },
 
     [ITEM_SEA_INCENSE] =
@@ -2490,6 +2911,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SeaIncense,
+        .iconPalette = gItemIconPalette_SeaIncense,
     },
 
     [ITEM_LAX_INCENSE] =
@@ -2502,6 +2925,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_LaxIncense,
+        .iconPalette = gItemIconPalette_LaxIncense,
     },
 
     [ITEM_LUCKY_PUNCH] =
@@ -2513,6 +2938,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_LuckyPunch,
+        .iconPalette = gItemIconPalette_LuckyPunch,
     },
 
     [ITEM_METAL_POWDER] =
@@ -2524,6 +2951,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_MetalPowder,
+        .iconPalette = gItemIconPalette_MetalPowder,
     },
 
     [ITEM_THICK_CLUB] =
@@ -2535,6 +2964,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_ThickClub,
+        .iconPalette = gItemIconPalette_ThickClub,
     },
 
     [ITEM_STICK] =
@@ -2546,6 +2977,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Stick,
+        .iconPalette = gItemIconPalette_Stick,
     },
 
     [ITEM_0E2] =
@@ -2556,6 +2989,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0E3] =
@@ -2566,6 +3001,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0E4] =
@@ -2576,6 +3013,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0E5] =
@@ -2586,6 +3025,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0E6] =
@@ -2596,6 +3037,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0E7] =
@@ -2606,6 +3049,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0E8] =
@@ -2616,6 +3061,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0E9] =
@@ -2626,6 +3073,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0EA] =
@@ -2636,6 +3085,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0EB] =
@@ -2646,6 +3097,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0EC] =
@@ -2656,6 +3109,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0ED] =
@@ -2666,6 +3121,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0EE] =
@@ -2676,6 +3133,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0EF] =
@@ -2686,6 +3145,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0F0] =
@@ -2696,6 +3157,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0F1] =
@@ -2706,6 +3169,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0F2] =
@@ -2716,6 +3181,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0F3] =
@@ -2726,6 +3193,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0F4] =
@@ -2736,6 +3205,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0F5] =
@@ -2746,6 +3217,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0F6] =
@@ -2756,6 +3229,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0F7] =
@@ -2766,6 +3241,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0F8] =
@@ -2776,6 +3253,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0F9] =
@@ -2786,6 +3265,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0FA] =
@@ -2796,6 +3277,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0FB] =
@@ -2806,6 +3289,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0FC] =
@@ -2816,6 +3301,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_0FD] =
@@ -2826,6 +3313,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_RED_SCARF] =
@@ -2836,6 +3325,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Scarf,
+        .iconPalette = gItemIconPalette_RedScarf,
     },
 
     [ITEM_BLUE_SCARF] =
@@ -2846,6 +3337,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Scarf,
+        .iconPalette = gItemIconPalette_BlueScarf,
     },
 
     [ITEM_PINK_SCARF] =
@@ -2856,6 +3349,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Scarf,
+        .iconPalette = gItemIconPalette_PinkScarf,
     },
 
     [ITEM_GREEN_SCARF] =
@@ -2866,6 +3361,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Scarf,
+        .iconPalette = gItemIconPalette_GreenScarf,
     },
 
     [ITEM_YELLOW_SCARF] =
@@ -2876,9 +3373,9 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Scarf,
+        .iconPalette = gItemIconPalette_YellowScarf,
     },
-
-// Key items
 
     [ITEM_MACH_BIKE] =
     {
@@ -2890,6 +3387,8 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_Bike,
         .secondaryId = MACH_BIKE,
+        .iconPic = gItemIcon_MachBike,
+        .iconPalette = gItemIconPalette_MachBike,
     },
 
     [ITEM_COIN_CASE] =
@@ -2901,6 +3400,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CoinCase,
+        .iconPic = gItemIcon_CoinCase,
+        .iconPalette = gItemIconPalette_CoinCase,
     },
 
     [ITEM_ITEMFINDER] =
@@ -2912,6 +3413,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_Itemfinder,
+        .iconPic = gItemIcon_Itemfinder,
+        .iconPalette = gItemIconPalette_Itemfinder,
     },
 
     [ITEM_OLD_ROD] =
@@ -2924,6 +3427,8 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_Rod,
         .secondaryId = OLD_ROD,
+        .iconPic = gItemIcon_OldRod,
+        .iconPalette = gItemIconPalette_OldRod,
     },
 
     [ITEM_GOOD_ROD] =
@@ -2936,6 +3441,8 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_Rod,
         .secondaryId = GOOD_ROD,
+        .iconPic = gItemIcon_GoodRod,
+        .iconPalette = gItemIconPalette_GoodRod,
     },
 
     [ITEM_SUPER_ROD] =
@@ -2948,6 +3455,8 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_Rod,
         .secondaryId = SUPER_ROD,
+        .iconPic = gItemIcon_SuperRod,
+        .iconPalette = gItemIconPalette_SuperRod,
     },
 
     [ITEM_SS_TICKET] =
@@ -2959,6 +3468,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SSTicket,
+        .iconPalette = gItemIconPalette_SSTicket,
     },
 
     [ITEM_CONTEST_PASS] =
@@ -2970,6 +3481,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_ContestPass,
+        .iconPalette = gItemIconPalette_ContestPass,
     },
 
     [ITEM_10B] =
@@ -2980,6 +3493,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_WAILMER_PAIL] =
@@ -2991,6 +3506,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_WailmerPail,
+        .iconPic = gItemIcon_WailmerPail,
+        .iconPalette = gItemIconPalette_WailmerPail,
     },
 
     [ITEM_DEVON_GOODS] =
@@ -3002,6 +3519,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_DevonGoods,
+        .iconPalette = gItemIconPalette_DevonGoods,
     },
 
     [ITEM_SOOT_SACK] =
@@ -3013,6 +3532,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SootSack,
+        .iconPalette = gItemIconPalette_SootSack,
     },
 
     [ITEM_BASEMENT_KEY] =
@@ -3024,6 +3545,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_BasementKey,
+        .iconPalette = gItemIconPalette_OldKey,
     },
 
     [ITEM_ACRO_BIKE] =
@@ -3036,6 +3559,8 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_Bike,
         .secondaryId = ACRO_BIKE,
+        .iconPic = gItemIcon_AcroBike,
+        .iconPalette = gItemIconPalette_AcroBike,
     },
 
     [ITEM_POKEBLOCK_CASE] =
@@ -3047,6 +3572,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_PBLOCK_CASE,
         .fieldUseFunc = ItemUseOutOfBattle_PokeblockCase,
+        .iconPic = gItemIcon_PokeblockCase,
+        .iconPalette = gItemIconPalette_PokeblockCase,
     },
 
     [ITEM_LETTER] =
@@ -3058,6 +3585,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Letter,
+        .iconPalette = gItemIconPalette_LavaCookieAndLetter,
     },
 
     [ITEM_EON_TICKET] =
@@ -3070,6 +3599,8 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 1,
+        .iconPic = gItemIcon_EonTicket,
+        .iconPalette = gItemIconPalette_EonTicket,
     },
 
     [ITEM_RED_ORB] =
@@ -3081,6 +3612,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Orb,
+        .iconPalette = gItemIconPalette_RedOrb,
     },
 
     [ITEM_BLUE_ORB] =
@@ -3092,6 +3625,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Orb,
+        .iconPalette = gItemIconPalette_BlueOrb,
     },
 
     [ITEM_SCANNER] =
@@ -3103,6 +3638,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Scanner,
+        .iconPalette = gItemIconPalette_Scanner,
     },
 
     [ITEM_GO_GOGGLES] =
@@ -3114,6 +3651,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_GoGoggles,
+        .iconPalette = gItemIconPalette_GoGoggles,
     },
 
     [ITEM_METEORITE] =
@@ -3125,6 +3664,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Meteorite,
+        .iconPalette = gItemIconPalette_Meteorite,
     },
 
     [ITEM_ROOM_1_KEY] =
@@ -3136,6 +3677,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Room1Key,
+        .iconPalette = gItemIconPalette_Key,
     },
 
     [ITEM_ROOM_2_KEY] =
@@ -3147,6 +3690,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Room2Key,
+        .iconPalette = gItemIconPalette_Key,
     },
 
     [ITEM_ROOM_4_KEY] =
@@ -3158,6 +3703,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Room4Key,
+        .iconPalette = gItemIconPalette_Key,
     },
 
     [ITEM_ROOM_6_KEY] =
@@ -3169,6 +3716,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Room6Key,
+        .iconPalette = gItemIconPalette_Key,
     },
 
     [ITEM_STORAGE_KEY] =
@@ -3180,6 +3729,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_StorageKey,
+        .iconPalette = gItemIconPalette_OldKey,
     },
 
     [ITEM_ROOT_FOSSIL] =
@@ -3191,6 +3742,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_RootFossil,
+        .iconPalette = gItemIconPalette_HoennFossil,
     },
 
     [ITEM_CLAW_FOSSIL] =
@@ -3202,6 +3755,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_ClawFossil,
+        .iconPalette = gItemIconPalette_HoennFossil,
     },
 
     [ITEM_DEVON_SCOPE] =
@@ -3213,11 +3768,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_DevonScope,
+        .iconPalette = gItemIconPalette_DevonScope,
     },
 
-// TMs/HMs
-
-    [ITEM_TM_FOCUS_PUNCH] =
+    [ITEM_TM01] =
     {
         .name = _("TM01"),
         .price = 3000,
@@ -3225,9 +3780,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_FightingTMHM,
     },
 
-    [ITEM_TM_DRAGON_CLAW] =
+    [ITEM_TM02] =
     {
         .name = _("TM02"),
         .price = 3000,
@@ -3235,9 +3792,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_DragonTMHM,
     },
 
-    [ITEM_TM_WATER_PULSE] =
+    [ITEM_TM03] =
     {
         .name = _("TM03"),
         .price = 3000,
@@ -3245,9 +3804,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_WaterTMHM,
     },
 
-    [ITEM_TM_CALM_MIND] =
+    [ITEM_TM04] =
     {
         .name = _("TM04"),
         .price = 3000,
@@ -3255,9 +3816,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_PsychicTMHM,
     },
 
-    [ITEM_TM_ROAR] =
+    [ITEM_TM05] =
     {
         .name = _("TM05"),
         .price = 1000,
@@ -3265,9 +3828,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
-    [ITEM_TM_TOXIC] =
+    [ITEM_TM06] =
     {
         .name = _("TM06"),
         .price = 3000,
@@ -3275,9 +3840,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_PoisonTMHM,
     },
 
-    [ITEM_TM_HAIL] =
+    [ITEM_TM07] =
     {
         .name = _("TM07"),
         .price = 3000,
@@ -3285,9 +3852,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_IceTMHM,
     },
 
-    [ITEM_TM_BULK_UP] =
+    [ITEM_TM08] =
     {
         .name = _("TM08"),
         .price = 3000,
@@ -3295,9 +3864,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_FightingTMHM,
     },
 
-    [ITEM_TM_BULLET_SEED] =
+    [ITEM_TM09] =
     {
         .name = _("TM09"),
         .price = 3000,
@@ -3305,9 +3876,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_GrassTMHM,
     },
 
-    [ITEM_TM_HIDDEN_POWER] =
+    [ITEM_TM10] =
     {
         .name = _("TM10"),
         .price = 3000,
@@ -3315,9 +3888,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
-    [ITEM_TM_SUNNY_DAY] =
+    [ITEM_TM11] =
     {
         .name = _("TM11"),
         .price = 2000,
@@ -3325,9 +3900,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_FireTMHM,
     },
 
-    [ITEM_TM_TAUNT] =
+    [ITEM_TM12] =
     {
         .name = _("TM12"),
         .price = 3000,
@@ -3335,9 +3912,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_DarkTMHM,
     },
 
-    [ITEM_TM_ICE_BEAM] =
+    [ITEM_TM13] =
     {
         .name = _("TM13"),
         .price = 3000,
@@ -3345,9 +3924,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_IceTMHM,
     },
 
-    [ITEM_TM_BLIZZARD] =
+    [ITEM_TM14] =
     {
         .name = _("TM14"),
         .price = 5500,
@@ -3355,9 +3936,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_IceTMHM,
     },
 
-    [ITEM_TM_HYPER_BEAM] =
+    [ITEM_TM15] =
     {
         .name = _("TM15"),
         .price = 7500,
@@ -3365,9 +3948,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
-    [ITEM_TM_LIGHT_SCREEN] =
+    [ITEM_TM16] =
     {
         .name = _("TM16"),
         .price = 3000,
@@ -3375,9 +3960,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_PsychicTMHM,
     },
 
-    [ITEM_TM_PROTECT] =
+    [ITEM_TM17] =
     {
         .name = _("TM17"),
         .price = 3000,
@@ -3385,9 +3972,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
-    [ITEM_TM_RAIN_DANCE] =
+    [ITEM_TM18] =
     {
         .name = _("TM18"),
         .price = 2000,
@@ -3395,9 +3984,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_WaterTMHM,
     },
 
-    [ITEM_TM_GIGA_DRAIN] =
+    [ITEM_TM19] =
     {
         .name = _("TM19"),
         .price = 3000,
@@ -3405,9 +3996,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_GrassTMHM,
     },
 
-    [ITEM_TM_SAFEGUARD] =
+    [ITEM_TM20] =
     {
         .name = _("TM20"),
         .price = 3000,
@@ -3415,9 +4008,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
-    [ITEM_TM_FRUSTRATION] =
+    [ITEM_TM21] =
     {
         .name = _("TM21"),
         .price = 1000,
@@ -3425,9 +4020,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
-    [ITEM_TM_SOLAR_BEAM] =
+    [ITEM_TM22] =
     {
         .name = _("TM22"),
         .price = 3000,
@@ -3435,9 +4032,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_GrassTMHM,
     },
 
-    [ITEM_TM_IRON_TAIL] =
+    [ITEM_TM23] =
     {
         .name = _("TM23"),
         .price = 3000,
@@ -3445,9 +4044,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_SteelTMHM,
     },
 
-    [ITEM_TM_THUNDERBOLT] =
+    [ITEM_TM24] =
     {
         .name = _("TM24"),
         .price = 3000,
@@ -3455,9 +4056,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_ElectricTMHM,
     },
 
-    [ITEM_TM_THUNDER] =
+    [ITEM_TM25] =
     {
         .name = _("TM25"),
         .price = 5500,
@@ -3465,9 +4068,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_ElectricTMHM,
     },
 
-    [ITEM_TM_EARTHQUAKE] =
+    [ITEM_TM26] =
     {
         .name = _("TM26"),
         .price = 3000,
@@ -3475,9 +4080,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_GroundTMHM,
     },
 
-    [ITEM_TM_RETURN] =
+    [ITEM_TM27] =
     {
         .name = _("TM27"),
         .price = 1000,
@@ -3485,9 +4092,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
-    [ITEM_TM_DIG] =
+    [ITEM_TM28] =
     {
         .name = _("TM28"),
         .price = 2000,
@@ -3495,9 +4104,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_GroundTMHM,
     },
 
-    [ITEM_TM_PSYCHIC] =
+    [ITEM_TM29] =
     {
         .name = _("TM29"),
         .price = 2000,
@@ -3505,9 +4116,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_PsychicTMHM,
     },
 
-    [ITEM_TM_SHADOW_BALL] =
+    [ITEM_TM30] =
     {
         .name = _("TM30"),
         .price = 3000,
@@ -3515,9 +4128,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_GhostTMHM,
     },
 
-    [ITEM_TM_BRICK_BREAK] =
+    [ITEM_TM31] =
     {
         .name = _("TM31"),
         .price = 3000,
@@ -3525,9 +4140,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_FightingTMHM,
     },
 
-    [ITEM_TM_DOUBLE_TEAM] =
+    [ITEM_TM32] =
     {
         .name = _("TM32"),
         .price = 2000,
@@ -3535,9 +4152,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
-    [ITEM_TM_REFLECT] =
+    [ITEM_TM33] =
     {
         .name = _("TM33"),
         .price = 3000,
@@ -3545,9 +4164,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_PsychicTMHM,
     },
 
-    [ITEM_TM_SHOCK_WAVE] =
+    [ITEM_TM34] =
     {
         .name = _("TM34"),
         .price = 3000,
@@ -3555,9 +4176,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_ElectricTMHM,
     },
 
-    [ITEM_TM_FLAMETHROWER] =
+    [ITEM_TM35] =
     {
         .name = _("TM35"),
         .price = 3000,
@@ -3565,9 +4188,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_FireTMHM,
     },
 
-    [ITEM_TM_SLUDGE_BOMB] =
+    [ITEM_TM36] =
     {
         .name = _("TM36"),
         .price = 1000,
@@ -3575,9 +4200,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_PoisonTMHM,
     },
 
-    [ITEM_TM_SANDSTORM] =
+    [ITEM_TM37] =
     {
         .name = _("TM37"),
         .price = 2000,
@@ -3585,9 +4212,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_RockTMHM,
     },
 
-    [ITEM_TM_FIRE_BLAST] =
+    [ITEM_TM38] =
     {
         .name = _("TM38"),
         .price = 5500,
@@ -3595,9 +4224,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_FireTMHM,
     },
 
-    [ITEM_TM_ROCK_TOMB] =
+    [ITEM_TM39] =
     {
         .name = _("TM39"),
         .price = 3000,
@@ -3605,9 +4236,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_RockTMHM,
     },
 
-    [ITEM_TM_AERIAL_ACE] =
+    [ITEM_TM40] =
     {
         .name = _("TM40"),
         .price = 3000,
@@ -3615,9 +4248,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_FlyingTMHM,
     },
 
-    [ITEM_TM_TORMENT] =
+    [ITEM_TM41] =
     {
         .name = _("TM41"),
         .price = 3000,
@@ -3625,9 +4260,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_DarkTMHM,
     },
 
-    [ITEM_TM_FACADE] =
+    [ITEM_TM42] =
     {
         .name = _("TM42"),
         .price = 3000,
@@ -3635,9 +4272,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
-    [ITEM_TM_SECRET_POWER] =
+    [ITEM_TM43] =
     {
         .name = _("TM43"),
         .price = 3000,
@@ -3645,9 +4284,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
-    [ITEM_TM_REST] =
+    [ITEM_TM44] =
     {
         .name = _("TM44"),
         .price = 3000,
@@ -3655,9 +4296,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_PsychicTMHM,
     },
 
-    [ITEM_TM_ATTRACT] =
+    [ITEM_TM45] =
     {
         .name = _("TM45"),
         .price = 3000,
@@ -3665,9 +4308,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
-    [ITEM_TM_THIEF] =
+    [ITEM_TM46] =
     {
         .name = _("TM46"),
         .price = 3000,
@@ -3675,9 +4320,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_DarkTMHM,
     },
 
-    [ITEM_TM_STEEL_WING] =
+    [ITEM_TM47] =
     {
         .name = _("TM47"),
         .price = 3000,
@@ -3685,9 +4332,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_SteelTMHM,
     },
 
-    [ITEM_TM_SKILL_SWAP] =
+    [ITEM_TM48] =
     {
         .name = _("TM48"),
         .price = 3000,
@@ -3695,9 +4344,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_PsychicTMHM,
     },
 
-    [ITEM_TM_SNATCH] =
+    [ITEM_TM49] =
     {
         .name = _("TM49"),
         .price = 3000,
@@ -3705,9 +4356,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_DarkTMHM,
     },
 
-    [ITEM_TM_OVERHEAT] =
+    [ITEM_TM50] =
     {
         .name = _("TM50"),
         .price = 3000,
@@ -3715,9 +4368,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_TM,
+        .iconPalette = gItemIconPalette_FireTMHM,
     },
 
-    [ITEM_HM_CUT] =
+    [ITEM_HM01] =
     {
         .name = _("HM01"),
         .price = 0,
@@ -3726,9 +4381,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_HM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
-    [ITEM_HM_FLY] =
+    [ITEM_HM02] =
     {
         .name = _("HM02"),
         .price = 0,
@@ -3737,9 +4394,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_HM,
+        .iconPalette = gItemIconPalette_FlyingTMHM,
     },
 
-    [ITEM_HM_SURF] =
+    [ITEM_HM03] =
     {
         .name = _("HM03"),
         .price = 0,
@@ -3748,9 +4407,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_HM,
+        .iconPalette = gItemIconPalette_WaterTMHM,
     },
 
-    [ITEM_HM_STRENGTH] =
+    [ITEM_HM04] =
     {
         .name = _("HM04"),
         .price = 0,
@@ -3759,9 +4420,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_HM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
-    [ITEM_HM_FLASH] =
+    [ITEM_HM05] =
     {
         .name = _("HM05"),
         .price = 0,
@@ -3770,9 +4433,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_HM,
+        .iconPalette = gItemIconPalette_NormalTMHM,
     },
 
-    [ITEM_HM_ROCK_SMASH] =
+    [ITEM_HM06] =
     {
         .name = _("HM06"),
         .price = 0,
@@ -3781,9 +4446,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_HM,
+        .iconPalette = gItemIconPalette_FightingTMHM,
     },
 
-    [ITEM_HM_WATERFALL] =
+    [ITEM_HM07] =
     {
         .name = _("HM07"),
         .price = 0,
@@ -3792,9 +4459,11 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_HM,
+        .iconPalette = gItemIconPalette_WaterTMHM,
     },
 
-    [ITEM_HM_DIVE] =
+    [ITEM_HM08] =
     {
         .name = _("HM08"),
         .price = 0,
@@ -3803,6 +4472,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .iconPic = gItemIcon_HM,
+        .iconPalette = gItemIconPalette_WaterTMHM,
     },
 
     [ITEM_15B] =
@@ -3813,6 +4484,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_15C] =
@@ -3823,9 +4496,9 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
-
-// FireRed/LeafGreen key items
 
     [ITEM_OAKS_PARCEL] =
     {
@@ -3836,6 +4509,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_OaksParcel,
+        .iconPalette = gItemIconPalette_OaksParcel,
     },
 
     [ITEM_POKE_FLUTE] =
@@ -3847,6 +4522,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_PokeFlute,
+        .iconPalette = gItemIconPalette_PokeFlute,
     },
 
     [ITEM_SECRET_KEY] =
@@ -3858,6 +4535,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SecretKey,
+        .iconPalette = gItemIconPalette_SecretKey,
     },
 
     [ITEM_BIKE_VOUCHER] =
@@ -3869,6 +4548,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_BikeVoucher,
+        .iconPalette = gItemIconPalette_BikeVoucher,
     },
 
     [ITEM_GOLD_TEETH] =
@@ -3880,6 +4561,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_GoldTeeth,
+        .iconPalette = gItemIconPalette_GoldTeeth,
     },
 
     [ITEM_OLD_AMBER] =
@@ -3891,6 +4574,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_OldAmber,
+        .iconPalette = gItemIconPalette_OldAmber,
     },
 
     [ITEM_CARD_KEY] =
@@ -3902,6 +4587,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_CardKey,
+        .iconPalette = gItemIconPalette_CardKey,
     },
 
     [ITEM_LIFT_KEY] =
@@ -3913,6 +4600,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_LiftKey,
+        .iconPalette = gItemIconPalette_Key,
     },
 
     [ITEM_HELIX_FOSSIL] =
@@ -3924,6 +4613,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_HelixFossil,
+        .iconPalette = gItemIconPalette_KantoFossil,
     },
 
     [ITEM_DOME_FOSSIL] =
@@ -3935,6 +4626,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_DomeFossil,
+        .iconPalette = gItemIconPalette_KantoFossil,
     },
 
     [ITEM_SILPH_SCOPE] =
@@ -3946,6 +4639,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SilphScope,
+        .iconPalette = gItemIconPalette_SilphScope,
     },
 
     [ITEM_BICYCLE] =
@@ -3957,6 +4652,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Bicycle,
+        .iconPalette = gItemIconPalette_Bicycle,
     },
 
     [ITEM_TOWN_MAP] =
@@ -3968,6 +4665,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TownMap,
+        .iconPalette = gItemIconPalette_TownMap,
     },
 
     [ITEM_VS_SEEKER] =
@@ -3979,6 +4678,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_VSSeeker,
+        .iconPalette = gItemIconPalette_VSSeeker,
     },
 
     [ITEM_FAME_CHECKER] =
@@ -3990,6 +4691,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_FameChecker,
+        .iconPalette = gItemIconPalette_FameChecker,
     },
 
     [ITEM_TM_CASE] =
@@ -4001,6 +4704,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TMCase,
+        .iconPalette = gItemIconPalette_TMCase,
     },
 
     [ITEM_BERRY_POUCH] =
@@ -4012,6 +4717,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_BerryPouch,
+        .iconPalette = gItemIconPalette_BerryPouch,
     },
 
     [ITEM_TEACHY_TV] =
@@ -4023,6 +4730,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TeachyTV,
+        .iconPalette = gItemIconPalette_TeachyTV,
     },
 
     [ITEM_TRI_PASS] =
@@ -4034,6 +4743,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_TriPass,
+        .iconPalette = gItemIconPalette_TriPass,
     },
 
     [ITEM_RAINBOW_PASS] =
@@ -4045,6 +4756,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_RainbowPass,
+        .iconPalette = gItemIconPalette_RainbowPass,
     },
 
     [ITEM_TEA] =
@@ -4056,6 +4769,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Tea,
+        .iconPalette = gItemIconPalette_Tea,
     },
 
     [ITEM_MYSTIC_TICKET] =
@@ -4067,6 +4782,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_MysticTicket,
+        .iconPalette = gItemIconPalette_MysticTicket,
     },
 
     [ITEM_AURORA_TICKET] =
@@ -4078,6 +4795,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_AuroraTicket,
+        .iconPalette = gItemIconPalette_AuroraTicket,
     },
 
     [ITEM_POWDER_JAR] =
@@ -4089,6 +4808,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_PowderJar,
+        .iconPic = gItemIcon_PowderJar,
+        .iconPalette = gItemIconPalette_PowderJar,
     },
 
     [ITEM_RUBY] =
@@ -4100,6 +4821,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Gem,
+        .iconPalette = gItemIconPalette_Ruby,
     },
 
     [ITEM_SAPPHIRE] =
@@ -4111,9 +4834,9 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Gem,
+        .iconPalette = gItemIconPalette_Sapphire,
     },
-
-// Emerald-specific key items
 
     [ITEM_MAGMA_EMBLEM] =
     {
@@ -4124,6 +4847,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_MagmaEmblem,
+        .iconPalette = gItemIconPalette_MagmaEmblem,
     },
 
     [ITEM_OLD_SEA_MAP] =
@@ -4135,5 +4860,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_OldSeaMap,
+        .iconPalette = gItemIconPalette_OldSeaMap,
     },
+
 };
