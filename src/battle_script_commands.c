@@ -7970,8 +7970,8 @@ static void Cmd_transformdataexecution(void)
 
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if (gBattleMoves[gBattleMons[gBattlerAttacker].moves[i]].pp < 5)
-                gBattleMons[gBattlerAttacker].pp[i] = gBattleMoves[gBattleMons[gBattlerAttacker].moves[i]].pp;
+            if (GetMovePP(gBattleMons[gBattlerAttacker].moves[i]) < 5)
+                gBattleMons[gBattlerAttacker].pp[i] = GetMovePP(gBattleMons[gBattlerAttacker].moves[i]);
             else
                 gBattleMons[gBattlerAttacker].pp[i] = 5;
         }
@@ -8047,8 +8047,8 @@ static void Cmd_mimicattackcopy(void)
         if (i == MAX_MON_MOVES)
         {
             gBattleMons[gBattlerAttacker].moves[gCurrMovePos] = gLastMoves[gBattlerTarget];
-            if (gBattleMoves[gLastMoves[gBattlerTarget]].pp < 5)
-                gBattleMons[gBattlerAttacker].pp[gCurrMovePos] = gBattleMoves[gLastMoves[gBattlerTarget]].pp;
+            if (GetMovePP(gLastMoves[gBattlerTarget]) < 5)
+                gBattleMons[gBattlerAttacker].pp[gCurrMovePos] = GetMovePP(gLastMoves[gBattlerTarget]);
             else
                 gBattleMons[gBattlerAttacker].pp[gCurrMovePos] = 5;
 
@@ -8373,7 +8373,7 @@ static void Cmd_copymovepermanently(void)
             struct MovePpInfo movePpData;
 
             gBattleMons[gBattlerAttacker].moves[gCurrMovePos] = gLastPrintedMoves[gBattlerTarget];
-            gBattleMons[gBattlerAttacker].pp[gCurrMovePos] = gBattleMoves[gLastPrintedMoves[gBattlerTarget]].pp;
+            gBattleMons[gBattlerAttacker].pp[gCurrMovePos] = GetMovePP(gLastPrintedMoves[gBattlerTarget]);
             gActiveBattler = gBattlerAttacker;
 
             for (i = 0; i < MAX_MON_MOVES; i++)

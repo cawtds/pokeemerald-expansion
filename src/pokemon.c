@@ -2076,8 +2076,9 @@ static u16 GiveMoveToBoxMon(struct BoxPokemon *boxMon, u16 move)
         u16 existingMove = GetBoxMonData(boxMon, MON_DATA_MOVE1 + i, NULL);
         if (existingMove == MOVE_NONE)
         {
+            u32 pp = GetMovePP(move);
             SetBoxMonData(boxMon, MON_DATA_MOVE1 + i, &move);
-            SetBoxMonData(boxMon, MON_DATA_PP1 + i, &gBattleMoves[move].pp);
+            SetBoxMonData(boxMon, MON_DATA_PP1 + i, &pp);
             return move;
         }
         if (existingMove == move)
@@ -2095,7 +2096,7 @@ u16 GiveMoveToBattleMon(struct BattlePokemon *mon, u16 move)
         if (mon->moves[i] == MOVE_NONE)
         {
             mon->moves[i] = move;
-            mon->pp[i] = gBattleMoves[move].pp;
+            mon->pp[i] = GetMovePP(move);
             return move;
         }
     }
@@ -2105,14 +2106,15 @@ u16 GiveMoveToBattleMon(struct BattlePokemon *mon, u16 move)
 
 void SetMonMoveSlot(struct Pokemon *mon, u16 move, u8 slot)
 {
+    u32 pp = GetMovePP(move);
     SetMonData(mon, MON_DATA_MOVE1 + slot, &move);
-    SetMonData(mon, MON_DATA_PP1 + slot, &gBattleMoves[move].pp);
+    SetMonData(mon, MON_DATA_PP1 + slot, &pp);
 }
 
 void SetBattleMonMoveSlot(struct BattlePokemon *mon, u16 move, u8 slot)
 {
     mon->moves[slot] = move;
-    mon->pp[slot] = gBattleMoves[move].pp;
+    mon->pp[slot] = GetMovePP(move);
 }
 
 void GiveMonInitialMoveset(struct Pokemon *mon)
@@ -2191,7 +2193,7 @@ void DeleteFirstMoveAndGiveMoveToMon(struct Pokemon *mon, u16 move)
     ppBonuses = GetMonData(mon, MON_DATA_PP_BONUSES, NULL);
     ppBonuses >>= 2;
     moves[MAX_MON_MOVES - 1] = move;
-    pp[MAX_MON_MOVES - 1] = gBattleMoves[move].pp;
+    pp[MAX_MON_MOVES - 1] = GetMovePP(move);
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
@@ -2218,7 +2220,7 @@ void DeleteFirstMoveAndGiveMoveToBoxMon(struct BoxPokemon *boxMon, u16 move)
     ppBonuses = GetBoxMonData(boxMon, MON_DATA_PP_BONUSES, NULL);
     ppBonuses >>= 2;
     moves[MAX_MON_MOVES - 1] = move;
-    pp[MAX_MON_MOVES - 1] = gBattleMoves[move].pp;
+    pp[MAX_MON_MOVES - 1] = GetMovePP(move);
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
@@ -3692,8 +3694,9 @@ void CreateSecretBaseEnemyParty(struct SecretBase *secretBaseRecord)
 
             for (j = 0; j < MAX_MON_MOVES; j++)
             {
+                u32 pp = GetMovePP(gBattleResources->secretBase->party.moves[i * MAX_MON_MOVES + j]);
                 SetMonData(&gEnemyParty[i], MON_DATA_MOVE1 + j, &gBattleResources->secretBase->party.moves[i * MAX_MON_MOVES + j]);
-                SetMonData(&gEnemyParty[i], MON_DATA_PP1 + j, &gBattleMoves[gBattleResources->secretBase->party.moves[i * MAX_MON_MOVES + j]].pp);
+                SetMonData(&gEnemyParty[i], MON_DATA_PP1 + j, &pp);
             }
         }
     }
@@ -3775,7 +3778,7 @@ const u16 *GetSpeciesEggMoves(u16 species)
 
 u8 CalculatePPWithBonus(u16 move, u8 ppBonuses, u8 moveIndex)
 {
-    u8 basePP = gBattleMoves[move].pp;
+    u8 basePP = GetMovePP(move);
     return basePP + ((basePP * 20 * ((gPPUpGetMask[moveIndex] & ppBonuses) >> (2 * moveIndex))) / 100);
 }
 
