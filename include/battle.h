@@ -69,7 +69,7 @@
 #define MOVE_TARGET_FOES_AND_ALLY       (1 << 5)
 #define MOVE_TARGET_OPPONENTS_FIELD     (1 << 6)
 
-// For the second argument of GetMoveTarget, when no target override is needed
+// For the second argument of GetMoveTargetBattler, when no target override is needed
 #define NO_TARGET_OVERRIDE 0
 
 #define BATTLE_BUFFER_LINK_SIZE 0x1000

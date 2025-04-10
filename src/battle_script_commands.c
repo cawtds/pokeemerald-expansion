@@ -1143,7 +1143,7 @@ static void Cmd_accuracycheck(void)
         if (buff > MAX_STAT_STAGE)
             buff = MAX_STAT_STAGE;
 
-        moveAcc = gBattleMoves[move].accuracy;
+        moveAcc = GetMoveAccuracy(move);
         // check Thunder on sunny weather
         if (WEATHER_HAS_EFFECT && gBattleWeather & B_WEATHER_SUN && GetMoveEffect(move) == EFFECT_THUNDER)
             moveAcc = 50;
@@ -6432,7 +6432,7 @@ static void Cmd_various(void)
         gBattleCommunication[0] = IsRunningFromBattleImpossible();
         break;
     case VARIOUS_GET_MOVE_TARGET:
-        gBattlerTarget = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
+        gBattlerTarget = GetMoveTargetBattler(gCurrentMove, NO_TARGET_OVERRIDE);
         break;
     case VARIOUS_GET_BATTLER_FAINTED:
         if (gHitMarker & HITMARKER_FAINTED(gActiveBattler))
@@ -6763,7 +6763,7 @@ static void Cmd_trymirrormove(void)
     {
         gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
         gCurrentMove = move;
-        gBattlerTarget = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
+        gBattlerTarget = GetMoveTargetBattler(gCurrentMove, NO_TARGET_OVERRIDE);
         gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[GetMoveEffect(gCurrentMove)];
     }
     else if (validMovesCount != 0)
@@ -6771,7 +6771,7 @@ static void Cmd_trymirrormove(void)
         gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
         i = Random() % validMovesCount;
         gCurrentMove = validMoves[i];
-        gBattlerTarget = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
+        gBattlerTarget = GetMoveTargetBattler(gCurrentMove, NO_TARGET_OVERRIDE);
         gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[GetMoveEffect(gCurrentMove)];
     }
     else // no valid moves found
@@ -7684,7 +7684,7 @@ static void Cmd_tryKO(void)
         u16 chance;
         if (!(gStatuses3[gBattlerTarget] & STATUS3_ALWAYS_HITS))
         {
-            chance = gBattleMoves[gCurrentMove].accuracy + (gBattleMons[gBattlerAttacker].level - gBattleMons[gBattlerTarget].level);
+            chance = GetMoveAccuracy(gCurrentMove) + (gBattleMons[gBattlerAttacker].level - gBattleMons[gBattlerTarget].level);
             if (Random() % 100 + 1 < chance && gBattleMons[gBattlerAttacker].level >= gBattleMons[gBattlerTarget].level)
                 chance = TRUE;
             else
@@ -7697,7 +7697,7 @@ static void Cmd_tryKO(void)
         }
         else
         {
-            chance = gBattleMoves[gCurrentMove].accuracy + (gBattleMons[gBattlerAttacker].level - gBattleMons[gBattlerTarget].level);
+            chance = GetMoveAccuracy(gCurrentMove) + (gBattleMons[gBattlerAttacker].level - gBattleMons[gBattlerTarget].level);
             if (Random() % 100 + 1 < chance && gBattleMons[gBattlerAttacker].level >= gBattleMons[gBattlerTarget].level)
                 chance = TRUE;
             else
@@ -8101,7 +8101,7 @@ static void Cmd_metronome(void)
         {
             gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
             gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[GetMoveEffect(gCurrentMove)];
-            gBattlerTarget = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
+            gBattlerTarget = GetMoveTargetBattler(gCurrentMove, NO_TARGET_OVERRIDE);
             return;
         }
     }
@@ -8477,7 +8477,7 @@ static void Cmd_trychoosesleeptalkmove(void)
         gCalledMove = gBattleMons[gBattlerAttacker].moves[movePosition];
         gCurrMovePos = movePosition;
         gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
-        gBattlerTarget = GetMoveTarget(gCalledMove, NO_TARGET_OVERRIDE);
+        gBattlerTarget = GetMoveTargetBattler(gCalledMove, NO_TARGET_OVERRIDE);
         gBattlescriptCurrInstr = cmd->ptr;
     }
 }
@@ -9386,7 +9386,7 @@ static void Cmd_callterrainattack(void)
 
     gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
     gCurrentMove = sNaturePowerMoves[gBattleTerrain];
-    gBattlerTarget = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
+    gBattlerTarget = GetMoveTargetBattler(gCurrentMove, NO_TARGET_OVERRIDE);
     BattleScriptPush(gBattleScriptsForMoveEffects[GetMoveEffect(gCurrentMove)]);
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
@@ -9837,7 +9837,7 @@ static void Cmd_assistattackselect(void)
     {
         gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
         gCalledMove = validMoves[((Random() & 0xFF) * chooseableMovesNo) >> 8];
-        gBattlerTarget = GetMoveTarget(gCalledMove, NO_TARGET_OVERRIDE);
+        gBattlerTarget = GetMoveTargetBattler(gCalledMove, NO_TARGET_OVERRIDE);
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
     else

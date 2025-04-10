@@ -3550,13 +3550,13 @@ static void PrintMovePowerAndAccuracy(u16 moveIndex)
 
         PrintTextOnWindow(PSS_LABEL_WINDOW_MOVES_POWER_ACC, text, 53, 1, 0, 0);
 
-        if (gBattleMoves[moveIndex].accuracy == 0)
+        if (GetMoveAccuracy(moveIndex) == 0)
         {
             text = gText_ThreeDashes;
         }
         else
         {
-            ConvertIntToDecimalStringN(gStringVar1, gBattleMoves[moveIndex].accuracy, STR_CONV_MODE_RIGHT_ALIGN, 3);
+            ConvertIntToDecimalStringN(gStringVar1, GetMoveAccuracy(moveIndex), STR_CONV_MODE_RIGHT_ALIGN, 3);
             text = gStringVar1;
         }
 

@@ -103,7 +103,7 @@ void HandleAction_UseMove(void)
         gProtectStructs[gBattlerAttacker].noValidMoves = FALSE;
         gCurrentMove = gChosenMove = MOVE_STRUGGLE;
         gHitMarker |= HITMARKER_NO_PPDEDUCT;
-        *(gBattleStruct->moveTarget + gBattlerAttacker) = GetMoveTarget(MOVE_STRUGGLE, NO_TARGET_OVERRIDE);
+        *(gBattleStruct->moveTarget + gBattlerAttacker) = GetMoveTargetBattler(MOVE_STRUGGLE, NO_TARGET_OVERRIDE);
     }
     else if (gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS || gBattleMons[gBattlerAttacker].status2 & STATUS2_RECHARGE)
     {
@@ -115,7 +115,7 @@ void HandleAction_UseMove(void)
     {
         gCurrentMove = gChosenMove = gDisableStructs[gBattlerAttacker].encoredMove;
         gCurrMovePos = gChosenMovePos = gDisableStructs[gBattlerAttacker].encoredMovePos;
-        *(gBattleStruct->moveTarget + gBattlerAttacker) = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
+        *(gBattleStruct->moveTarget + gBattlerAttacker) = GetMoveTargetBattler(gCurrentMove, NO_TARGET_OVERRIDE);
     }
     // check if the encored move wasn't overwritten
     else if (gDisableStructs[gBattlerAttacker].encoredMove != MOVE_NONE
@@ -126,12 +126,12 @@ void HandleAction_UseMove(void)
         gDisableStructs[gBattlerAttacker].encoredMove = MOVE_NONE;
         gDisableStructs[gBattlerAttacker].encoredMovePos = 0;
         gDisableStructs[gBattlerAttacker].encoreTimer = 0;
-        *(gBattleStruct->moveTarget + gBattlerAttacker) = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
+        *(gBattleStruct->moveTarget + gBattlerAttacker) = GetMoveTargetBattler(gCurrentMove, NO_TARGET_OVERRIDE);
     }
     else if (gBattleMons[gBattlerAttacker].moves[gCurrMovePos] != gChosenMoveByBattler[gBattlerAttacker])
     {
         gCurrentMove = gChosenMove = gBattleMons[gBattlerAttacker].moves[gCurrMovePos];
-        *(gBattleStruct->moveTarget + gBattlerAttacker) = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
+        *(gBattleStruct->moveTarget + gBattlerAttacker) = GetMoveTargetBattler(gCurrentMove, NO_TARGET_OVERRIDE);
     }
     else
     {
@@ -2223,7 +2223,7 @@ u8 AtkCanceller_UnableToUseMove(void)
                         *bideDmg = gBideDmg[gBattlerAttacker] * 2;
                         gBattlerTarget = gBideTarget[gBattlerAttacker];
                         if (gAbsentBattlerFlags & gBitTable[gBattlerTarget])
-                            gBattlerTarget = GetMoveTarget(MOVE_BIDE, MOVE_TARGET_SELECTED + 1);
+                            gBattlerTarget = GetMoveTargetBattler(MOVE_BIDE, MOVE_TARGET_SELECTED + 1);
                         gBattlescriptCurrInstr = BattleScript_BideAttack;
                     }
                     else
@@ -3813,7 +3813,7 @@ void HandleAction_RunBattleScript(void) // identical to RunBattleScriptCommands
         gBattleScriptingCommandsTable[*gBattlescriptCurrInstr]();
 }
 
-u8 GetMoveTarget(u16 move, u8 setTarget)
+u8 GetMoveTargetBattler(u16 move, u8 setTarget)
 {
     u8 targetBattler = 0;
     u8 moveTarget;
@@ -3980,7 +3980,7 @@ u8 IsMonDisobedient(void)
 
             gCalledMove = gBattleMons[gBattlerAttacker].moves[gCurrMovePos];
             gBattlescriptCurrInstr = BattleScript_IgnoresAndUsesRandomMove;
-            gBattlerTarget = GetMoveTarget(gCalledMove, NO_TARGET_OVERRIDE);
+            gBattlerTarget = GetMoveTargetBattler(gCalledMove, NO_TARGET_OVERRIDE);
             gHitMarker |= HITMARKER_DISOBEDIENT_MOVE;
             return 2;
         }
