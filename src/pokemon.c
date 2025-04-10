@@ -103,7 +103,6 @@ static const struct CombinedMove sCombinedMoves[2] =
 // To reorder the pokedex, see the values in include/constants/pokedex.h.
 
 #define SPECIES_TO_HOENN(name)      [SPECIES_##name - 1] = HOENN_DEX_##name
-#define SPECIES_TO_NATIONAL(name)   [SPECIES_##name - 1] = NATIONAL_DEX_##name
 #define HOENN_TO_NATIONAL(name)     [HOENN_DEX_##name - 1] = NATIONAL_DEX_##name
 
 // Assigns all species to the Hoenn Dex Index (Summary No. for Hoenn Dex)
@@ -947,6 +946,7 @@ const struct SpindaSpot gSpindaSpotGraphics[] =
 };
 
 #include "data/pokemon/item_effects.h"
+#include "data/natures_info.h"
 
 const s8 gNatureStatTable[NUM_NATURES][NUM_NATURE_STATS] =
 {                      // Attack  Defense  Speed  Sp.Atk  Sp.Def

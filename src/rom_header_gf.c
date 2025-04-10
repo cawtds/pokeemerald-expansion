@@ -73,7 +73,18 @@ struct GFRomHeader
     const u8 (* abilityNames)[];
     const u8 * const * abilityDescriptions;
     const struct Item * items;
-    const struct BattleMove * moves;
+    const struct BattleMove
+    {
+        u8 effect;
+        u8 power;
+        u8 type;
+        u8 accuracy;
+        u8 pp;
+        u8 secondaryEffectChance;
+        u8 target;
+        s8 priority;
+        u8 flags;
+    } * moves;
     const struct CompressedSpriteSheet * ballGfx;
     const struct CompressedSpritePalette * ballPalettes;
     u32 gcnLinkFlagsOffset;
