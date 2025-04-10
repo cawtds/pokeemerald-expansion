@@ -55,4 +55,9 @@ static inline const u8 *GetMoveDescription(u32 moveId)
     return gMovesInfo[moveId].description;
 }
 
+static inline bool32 GetMoveIsApprenticeValid(u32 moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].validApprenticeMove;
+}
+
 #endif //GUARD_MOVE_H
