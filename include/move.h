@@ -1,6 +1,7 @@
 #ifndef GUARD_MOVE_H
 #define GUARD_MOVE_H
 
+#include "constants/contest.h"
 #include "constants/moves.h"
 
 struct MoveInfo
@@ -26,7 +27,7 @@ struct MoveInfo
     u8 contestEffect;
     u8 contestCategory:3;
     u8 contestComboStarterId;
-    u8 contestComboMoves[4];
+    u8 contestComboMoves[MAX_COMBO_MOVES];
 };
 
 extern const struct MoveInfo gMovesInfo[MOVES_COUNT];
@@ -58,6 +59,26 @@ static inline const u8 *GetMoveDescription(u32 moveId)
 static inline bool32 GetMoveIsApprenticeValid(u32 moveId)
 {
     return gMovesInfo[SanitizeMoveId(moveId)].validApprenticeMove;
+}
+
+static inline u32 GetMoveContestEffect(u32 moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].contestEffect;
+}
+
+static inline u32 GetMoveContestCategory(u32 moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].contestCategory;
+}
+
+static inline u32 GetMoveContestComboStarter(u32 moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].contestComboStarterId;
+}
+
+static inline u32 GetMoveContestComboMoves(u32 moveId, u32 comboMove)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].contestComboMoves[comboMove];
 }
 
 #endif //GUARD_MOVE_H

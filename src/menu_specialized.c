@@ -814,7 +814,6 @@ static void MoveRelearnerMenuLoadContestMoveDescription(u32 chosenMove)
 {
     s32 x;
     const u8 *str;
-    const struct ContestMove *move;
 
     MoveRelearnerShowHideHearts(chosenMove);
     FillWindowPixelBuffer(RELEARNERWIN_DESC_CONTEST, PIXEL_FILL(1));
@@ -836,11 +835,10 @@ static void MoveRelearnerMenuLoadContestMoveDescription(u32 chosenMove)
         return;
     }
 
-    move = &gContestMoves[chosenMove];
-    str = gContestMoveTypeTextPointers[move->contestCategory];
+    str = gContestMoveTypeTextPointers[GetMoveContestCategory(chosenMove)];
     AddTextPrinterParameterized(RELEARNERWIN_DESC_CONTEST, FONT_NORMAL, str, 4, 25, TEXT_SKIP_DRAW, NULL);
 
-    str = gContestEffectDescriptionPointers[move->effect];
+    str = gContestEffectDescriptionPointers[GetMoveContestEffect(chosenMove)];
     AddTextPrinterParameterized(RELEARNERWIN_DESC_CONTEST, FONT_NARROW, str, 0, 65, TEXT_SKIP_DRAW, NULL);
 
     CopyWindowToVram(RELEARNERWIN_DESC_CONTEST, COPYWIN_GFX);
