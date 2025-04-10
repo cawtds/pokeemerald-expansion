@@ -876,12 +876,6 @@ const u8 *ItemId_GetName(u16 itemId)
     return gItemsInfo[SanitizeItemId(itemId)].name;
 }
 
-// Unused
-u16 ItemId_GetId(u16 itemId)
-{
-    return gItemsInfo[SanitizeItemId(itemId)].itemId;
-}
-
 u16 ItemId_GetPrice(u16 itemId)
 {
     return gItemsInfo[SanitizeItemId(itemId)].price;
