@@ -11,6 +11,7 @@
 #include "graphics.h"
 #include "main.h"
 #include "m4a.h"
+#include "move.h"
 #include "palette.h"
 #include "pokemon.h"
 #include "sound.h"
@@ -25,8 +26,9 @@
 
 #define ANIM_SPRITE_INDEX_COUNT 8
 
-extern const u16 gMovesWithQuietBGM[];
-extern const u8 *const gBattleAnims_Moves[];
+extern const u8 *const gBattleAnims_General[];
+extern const u8 *const gBattleAnims_StatusConditions[];
+extern const u8 *const gBattleAnims_Special[];
 
 static void Cmd_loadspritegfx(void);
 static void Cmd_unloadspritegfx(void);
@@ -167,6 +169,13 @@ static void (* const sScriptCmdTable[])(void) =
     Cmd_stopsound,            // 0x2F
 };
 
+static const u16 sMovesWithQuietBGM[] =
+{
+    MOVE_SING,
+    MOVE_PERISH_SONG,
+    MOVE_GRASS_WHISTLE,
+};
+
 void ClearBattleAnimationVars(void)
 {
     s32 i;
@@ -202,10 +211,10 @@ void DoMoveAnim(u16 move)
 {
     gBattleAnimAttacker = gBattlerAttacker;
     gBattleAnimTarget = gBattlerTarget;
-    LaunchBattleAnimation(gBattleAnims_Moves, move, TRUE);
+    LaunchBattleAnimation(ANIM_TYPE_MOVE, move);
 }
 
-void LaunchBattleAnimation(const u8 *const animsTable[], u16 tableId, bool8 isMoveAnim)
+void LaunchBattleAnimation(u32 animType, u32 animId)
 {
     s32 i;
 
@@ -227,17 +236,31 @@ void LaunchBattleAnimation(const u8 *const animsTable[], u16 tableId, bool8 isMo
             gAnimBattlerSpecies[i] = gContestResources->moveAnim->species;
     }
 
-    if (!isMoveAnim)
+    if (animType != ANIM_TYPE_MOVE)
         sAnimMoveIndex = 0;
     else
-        sAnimMoveIndex = tableId;
+        sAnimMoveIndex = animId;
 
     for (i = 0; i < ANIM_ARGS_COUNT; i++)
         gBattleAnimArgs[i] = 0;
 
     sMonAnimTaskIdArray[0] = TASK_NONE;
     sMonAnimTaskIdArray[1] = TASK_NONE;
-    sBattleAnimScriptPtr = animsTable[tableId];
+    switch (animType)
+    {
+    case ANIM_TYPE_GENERAL:
+        sBattleAnimScriptPtr = gBattleAnims_General[animId];
+        break;
+    case ANIM_TYPE_MOVE:
+        sBattleAnimScriptPtr = GetMoveAnimationScript(animId);
+        break;
+    case ANIM_TYPE_STATUS:
+        sBattleAnimScriptPtr = gBattleAnims_StatusConditions[animId];
+        break;
+    case ANIM_TYPE_SPECIAL:
+        sBattleAnimScriptPtr = gBattleAnims_Special[animId];
+        break;
+    }
     gAnimScriptActive = TRUE;
     sAnimFramesToWait = 0;
     gAnimScriptCallback = RunAnimScriptCommand;
@@ -245,11 +268,11 @@ void LaunchBattleAnimation(const u8 *const animsTable[], u16 tableId, bool8 isMo
     for (i = 0; i < ANIM_SPRITE_INDEX_COUNT; i++)
         sAnimSpriteIndexArray[i] = 0xFFFF;
 
-    if (isMoveAnim)
+    if (animType == ANIM_TYPE_MOVE)
     {
-        for (i = 0; gMovesWithQuietBGM[i] != 0xFFFF; i++)
+        for (i = 0; i < ARRAY_COUNT(sMovesWithQuietBGM); i++)
         {
-            if (tableId == gMovesWithQuietBGM[i])
+            if (animId == sMovesWithQuietBGM[i])
             {
                 m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 128);
                 break;

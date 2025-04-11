@@ -36,6 +36,7 @@ struct MoveInfo
     u8 contestCategory:3;
     u8 contestComboStarterId;
     u8 contestComboMoves[MAX_COMBO_MOVES];
+    const u8 *battleAnimScript;
 };
 
 extern const struct MoveInfo gMovesInfo[MOVES_COUNT];
@@ -158,6 +159,17 @@ static inline u32 GetMoveContestComboStarter(u32 moveId)
 static inline u32 GetMoveContestComboMoves(u32 moveId, u32 comboMove)
 {
     return gMovesInfo[SanitizeMoveId(moveId)].contestComboMoves[comboMove];
+}
+
+static inline const u8 *GetMoveAnimationScript(u32 moveId)
+{
+    moveId = SanitizeMoveId(moveId);
+    if (gMovesInfo[moveId].battleAnimScript == NULL)
+    {
+        DebugPrintfLevel(MGBA_LOG_WARN, "No animation for moveId=%u", moveId);
+        return gMovesInfo[MOVE_NONE].battleAnimScript;
+    }
+    return gMovesInfo[moveId].battleAnimScript;
 }
 
 static inline const u8 *GetMoveBattleScript(u32 moveId)
