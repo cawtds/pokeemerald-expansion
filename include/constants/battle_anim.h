@@ -354,50 +354,60 @@
 #define BG_SOLAR_BEAM_CONTESTS 26
 
 // table ids for general animations (gBattleAnimsGeneral)
-#define B_ANIM_CASTFORM_CHANGE          0
-#define B_ANIM_STATS_CHANGE             1
-#define B_ANIM_SUBSTITUTE_FADE          2
-#define B_ANIM_SUBSTITUTE_APPEAR        3
-#define B_ANIM_POKEBLOCK_THROW          4
-#define B_ANIM_ITEM_KNOCKOFF            5
-#define B_ANIM_TURN_TRAP                6
-#define B_ANIM_HELD_ITEM_EFFECT         7
-#define B_ANIM_SMOKEBALL_ESCAPE         8
-#define B_ANIM_FOCUS_BAND               9
-#define B_ANIM_RAIN_CONTINUES           10
-#define B_ANIM_SUN_CONTINUES            11
-#define B_ANIM_SANDSTORM_CONTINUES      12
-#define B_ANIM_HAIL_CONTINUES           13
-#define B_ANIM_LEECH_SEED_DRAIN         14
-#define B_ANIM_MON_HIT                  15
-#define B_ANIM_ITEM_STEAL               16
-#define B_ANIM_SNATCH_MOVE              17
-#define B_ANIM_FUTURE_SIGHT_HIT         18
-#define B_ANIM_DOOM_DESIRE_HIT          19
-#define B_ANIM_FOCUS_PUNCH_SETUP        20
-#define B_ANIM_INGRAIN_HEAL             21
-#define B_ANIM_WISH_HEAL                22
+enum
+{
+    B_ANIM_CASTFORM_CHANGE,
+    B_ANIM_STATS_CHANGE,
+    B_ANIM_SUBSTITUTE_FADE,
+    B_ANIM_SUBSTITUTE_APPEAR,
+    B_ANIM_POKEBLOCK_THROW,
+    B_ANIM_ITEM_KNOCKOFF,
+    B_ANIM_TURN_TRAP,
+    B_ANIM_HELD_ITEM_EFFECT,
+    B_ANIM_SMOKEBALL_ESCAPE,
+    B_ANIM_FOCUS_BAND,
+    B_ANIM_RAIN_CONTINUES,
+    B_ANIM_SUN_CONTINUES,
+    B_ANIM_SANDSTORM_CONTINUES,
+    B_ANIM_HAIL_CONTINUES,
+    B_ANIM_LEECH_SEED_DRAIN,
+    B_ANIM_MON_HIT,
+    B_ANIM_ITEM_STEAL,
+    B_ANIM_SNATCH_MOVE,
+    B_ANIM_FUTURE_SIGHT_HIT,
+    B_ANIM_DOOM_DESIRE_HIT,
+    B_ANIM_FOCUS_PUNCH_SETUP,
+    B_ANIM_INGRAIN_HEAL,
+    B_ANIM_WISH_HEAL,
+};
+
 
 // special animations table (gBattleAnimsSpecial)
-#define B_ANIM_LVL_UP                   0
-#define B_ANIM_SWITCH_OUT_PLAYER_MON    1
-#define B_ANIM_SWITCH_OUT_OPPONENT_MON  2
-#define B_ANIM_BALL_THROW               3
-#define B_ANIM_BALL_THROW_WITH_TRAINER  4
-#define B_ANIM_SUBSTITUTE_TO_MON        5
-#define B_ANIM_MON_TO_SUBSTITUTE        6
+enum
+{
+    B_ANIM_LVL_UP,
+    B_ANIM_SWITCH_OUT_PLAYER_MON,
+    B_ANIM_SWITCH_OUT_OPPONENT_MON,
+    B_ANIM_BALL_THROW,
+    B_ANIM_BALL_THROW_WITH_TRAINER,
+    B_ANIM_SUBSTITUTE_TO_MON,
+    B_ANIM_MON_TO_SUBSTITUTE,
+};
 
 // status animation table (gBattleAnimsStatus)
-#define B_ANIM_STATUS_PSN               0
-#define B_ANIM_STATUS_CONFUSION         1
-#define B_ANIM_STATUS_BRN               2
-#define B_ANIM_STATUS_INFATUATION       3
-#define B_ANIM_STATUS_SLP               4
-#define B_ANIM_STATUS_PRZ               5
-#define B_ANIM_STATUS_FRZ               6
-#define B_ANIM_STATUS_CURSED            7
-#define B_ANIM_STATUS_NIGHTMARE         8
-#define B_ANIM_STATUS_WRAPPED           9 // does not actually exist
+enum
+{
+    B_ANIM_STATUS_PSN,
+    B_ANIM_STATUS_CONFUSION,
+    B_ANIM_STATUS_BRN,
+    B_ANIM_STATUS_INFATUATION,
+    B_ANIM_STATUS_SLP,
+    B_ANIM_STATUS_PRZ,
+    B_ANIM_STATUS_FRZ,
+    B_ANIM_STATUS_CURSED,
+    B_ANIM_STATUS_NIGHTMARE,
+    B_ANIM_STATUS_WRAPPED, // does not actually exist
+};
 
 // Tasks with return values often assign them to gBattleAnimArgs[7].
 #define ARG_RET_ID 7
