@@ -4,6 +4,7 @@
 #include "battle_anims_scripts.h"
 #include "battle_controllers.h"
 #include "battle_interface.h"
+#include "battle_terrain.h"
 #include "bg.h"
 #include "contest.h"
 #include "decompress.h"
@@ -332,6 +333,11 @@ void LaunchBattleAnimation(u32 animType, u32 animId)
     gBattle_WIN0V = 0;
     gBattle_WIN1H = 0;
     gBattle_WIN1V = 0;
+}
+
+void LaunchSecretPowerAnimation(u32 battleTerrain)
+{
+    sBattleAnimScriptPtr = GetMoveAnimationScript(BattleTerrain_GetSecretPowerMove(battleTerrain));
 }
 
 void DestroyAnimSprite(struct Sprite *sprite)

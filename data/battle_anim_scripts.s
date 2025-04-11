@@ -9226,16 +9226,6 @@ gBattleAnimMove_SkyUppercut::
 
 gBattleAnimMove_SecretPower::
 	createvisualtask AnimTask_GetBattleTerrain, 5
-	jumpargeq 0, BATTLE_TERRAIN_GRASS,      gBattleAnimMove_NeedleArm
-	jumpargeq 0, BATTLE_TERRAIN_LONG_GRASS, gBattleAnimMove_MagicalLeaf
-	jumpargeq 0, BATTLE_TERRAIN_SAND,       gBattleAnimMove_MudShot
-	jumpargeq 0, BATTLE_TERRAIN_UNDERWATER, gBattleAnimMove_Waterfall
-	jumpargeq 0, BATTLE_TERRAIN_WATER,      gBattleAnimMove_Surf
-	jumpargeq 0, BATTLE_TERRAIN_POND,       gBattleAnimMove_BubbleBeam
-	jumpargeq 0, BATTLE_TERRAIN_MOUNTAIN,   gBattleAnimMove_RockThrow
-	jumpargeq 0, BATTLE_TERRAIN_CAVE,       gBattleAnimMove_Bite
-	jumpargeq 0, BATTLE_TERRAIN_BUILDING,   gBattleAnimMove_Strength
-	goto gBattleAnimMove_Slam
 
 gBattleAnimMove_Twister::
 	loadspritegfx ANIM_TAG_LEAF

@@ -909,7 +909,7 @@ static void UpdateMonScrollingBgMask(u8 taskId)
 void AnimTask_GetBattleTerrain(u8 taskId)
 {
     gBattleAnimArgs[0] = gBattleTerrain;
-    // sBattleAnimScriptPtr = gMovesInfo[BattleTerrain_GetSecretPowerMove(gBattleTerrain)].battleAnimScript;
+    LaunchSecretPowerAnimation(gBattleTerrain);
     DestroyAnimVisualTask(taskId);
 }
 
