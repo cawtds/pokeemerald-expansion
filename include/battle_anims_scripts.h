@@ -1,6 +1,7 @@
 #ifndef GUARD_BATTLE_ANIM_SCRIPTS_H
 #define GUARD_BATTLE_ANIM_SCRIPTS_H
 
+// move animations
 extern const u8 gBattleAnimMove_None[];
 extern const u8 gBattleAnimMove_Pound[];
 extern const u8 gBattleAnimMove_KarateChop[];
@@ -356,6 +357,51 @@ extern const u8 gBattleAnimMove_ShockWave[];
 extern const u8 gBattleAnimMove_WaterPulse[];
 extern const u8 gBattleAnimMove_DoomDesire[];
 extern const u8 gBattleAnimMove_PsychoBoost[];
+
+// general animations
+extern const u8 gBattleAnimGeneral_CastformChange[];
+extern const u8 gBattleAnimGeneral_StatsChange[];
+extern const u8 gBattleAnimGeneral_SubstituteFade[];
+extern const u8 gBattleAnimGeneral_SubstituteAppear[];
+extern const u8 gBattleAnimGeneral_PokeblockThrow[];
+extern const u8 gBattleAnimGeneral_ItemKnockoff[];
+extern const u8 gBattleAnimGeneral_TurnTrap[];
+extern const u8 gBattleAnimGeneral_HeldItemEffect[];
+extern const u8 gBattleAnimGeneral_SmokeballEscape[];
+extern const u8 gBattleAnimGeneral_FocusBand[];
+extern const u8 gBattleAnimGeneral_Rain[];
+extern const u8 gBattleAnimGeneral_Sun[];
+extern const u8 gBattleAnimGeneral_Sandstorm[];
+extern const u8 gBattleAnimGeneral_Hail[];
+extern const u8 gBattleAnimGeneral_LeechSeedDrain[];
+extern const u8 gBattleAnimGeneral_MonHit[];
+extern const u8 gBattleAnimGeneral_ItemSteal[];
+extern const u8 gBattleAnimGeneral_SnatchMove[];
+extern const u8 gBattleAnimGeneral_FutureSightHit[];
+extern const u8 gBattleAnimGeneral_DoomDesireHit[];
+extern const u8 gBattleAnimGeneral_FocusPunchSetUp[];
+extern const u8 gBattleAnimGeneral_IngrainHeal[];
+extern const u8 gBattleAnimGeneral_WishHeal[];
+
+// status animations
+extern const u8 gBattleAnimStatus_Poison[];
+extern const u8 gBattleAnimStatus_Confusion[];
+extern const u8 gBattleAnimStatus_Burn[];
+extern const u8 gBattleAnimStatus_Infatuation[];
+extern const u8 gBattleAnimStatus_Sleep[];
+extern const u8 gBattleAnimStatus_Paralysis[];
+extern const u8 gBattleAnimStatus_Freeze[];
+extern const u8 gBattleAnimStatus_Curse[];
+extern const u8 gBattleAnimStatus_Nightmare[];
+
+// special animations
+extern const u8 gBattleAnimSpecial_LevelUp[];
+extern const u8 gBattleAnimSpecial_SwitchOutPlayerMon[];
+extern const u8 gBattleAnimSpecial_SwitchOutOpponentMon[];
+extern const u8 gBattleAnimSpecial_BallThrow[];
+extern const u8 gBattleAnimSpecial_BallThrowWithTrainer[];
+extern const u8 gBattleAnimSpecial_SubstituteToMon[];
+extern const u8 gBattleAnimSpecial_MonToSubstitute[];
 
 
 #endif // GUARD_BATTLE_ANIM_SCRIPTS_H

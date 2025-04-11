@@ -1,6 +1,7 @@
 #include "global.h"
 #include "battle.h"
 #include "battle_anim.h"
+#include "battle_anims_scripts.h"
 #include "battle_controllers.h"
 #include "battle_interface.h"
 #include "bg.h"
@@ -25,10 +26,6 @@
 */
 
 #define ANIM_SPRITE_INDEX_COUNT 8
-
-extern const u8 *const gBattleAnims_General[];
-extern const u8 *const gBattleAnims_StatusConditions[];
-extern const u8 *const gBattleAnims_Special[];
 
 static void Cmd_loadspritegfx(void);
 static void Cmd_unloadspritegfx(void);
@@ -176,6 +173,57 @@ static const u16 sMovesWithQuietBGM[] =
     MOVE_GRASS_WHISTLE,
 };
 
+static const u8 *const sBattleAnimsStatus[] =
+{
+    [B_ANIM_STATUS_PSN]         = gBattleAnimStatus_Poison,
+    [B_ANIM_STATUS_CONFUSION]   = gBattleAnimStatus_Confusion,
+    [B_ANIM_STATUS_BRN]         = gBattleAnimStatus_Burn,
+    [B_ANIM_STATUS_INFATUATION] = gBattleAnimStatus_Infatuation,
+    [B_ANIM_STATUS_SLP]         = gBattleAnimStatus_Sleep,
+    [B_ANIM_STATUS_PRZ]         = gBattleAnimStatus_Paralysis,
+    [B_ANIM_STATUS_FRZ]         = gBattleAnimStatus_Freeze,
+    [B_ANIM_STATUS_CURSED]      = gBattleAnimStatus_Curse,
+    [B_ANIM_STATUS_NIGHTMARE]   = gBattleAnimStatus_Nightmare,
+};
+
+static const u8 *const sBattleAnimsGeneral[] =
+{
+    [B_ANIM_CASTFORM_CHANGE]     = gBattleAnimGeneral_CastformChange,
+    [B_ANIM_STATS_CHANGE]        = gBattleAnimGeneral_StatsChange,
+    [B_ANIM_SUBSTITUTE_FADE]     = gBattleAnimGeneral_SubstituteFade,
+    [B_ANIM_SUBSTITUTE_APPEAR]   = gBattleAnimGeneral_SubstituteAppear,
+    [B_ANIM_POKEBLOCK_THROW]     = gBattleAnimGeneral_PokeblockThrow,
+    [B_ANIM_ITEM_KNOCKOFF]       = gBattleAnimGeneral_ItemKnockoff,
+    [B_ANIM_TURN_TRAP]           = gBattleAnimGeneral_TurnTrap,
+    [B_ANIM_HELD_ITEM_EFFECT]    = gBattleAnimGeneral_HeldItemEffect,
+    [B_ANIM_SMOKEBALL_ESCAPE]    = gBattleAnimGeneral_SmokeballEscape,
+    [B_ANIM_FOCUS_BAND]          = gBattleAnimGeneral_FocusBand,
+    [B_ANIM_RAIN_CONTINUES]      = gBattleAnimGeneral_Rain,
+    [B_ANIM_SUN_CONTINUES]       = gBattleAnimGeneral_Sun,
+    [B_ANIM_SANDSTORM_CONTINUES] = gBattleAnimGeneral_Sandstorm,
+    [B_ANIM_HAIL_CONTINUES]      = gBattleAnimGeneral_Hail,
+    [B_ANIM_LEECH_SEED_DRAIN]    = gBattleAnimGeneral_LeechSeedDrain,
+    [B_ANIM_MON_HIT]             = gBattleAnimGeneral_MonHit,
+    [B_ANIM_ITEM_STEAL]          = gBattleAnimGeneral_ItemSteal,
+    [B_ANIM_SNATCH_MOVE]         = gBattleAnimGeneral_SnatchMove,
+    [B_ANIM_FUTURE_SIGHT_HIT]    = gBattleAnimGeneral_FutureSightHit,
+    [B_ANIM_DOOM_DESIRE_HIT]     = gBattleAnimGeneral_DoomDesireHit,
+    [B_ANIM_FOCUS_PUNCH_SETUP]   = gBattleAnimGeneral_FocusPunchSetUp,
+    [B_ANIM_INGRAIN_HEAL]        = gBattleAnimGeneral_IngrainHeal,
+    [B_ANIM_WISH_HEAL]           = gBattleAnimGeneral_WishHeal,
+};
+
+static const u8 *const sBattleAnimsSpecial[] =
+{
+    [B_ANIM_LVL_UP]                  = gBattleAnimSpecial_LevelUp,
+    [B_ANIM_SWITCH_OUT_PLAYER_MON]   = gBattleAnimSpecial_SwitchOutPlayerMon,
+    [B_ANIM_SWITCH_OUT_OPPONENT_MON] = gBattleAnimSpecial_SwitchOutOpponentMon,
+    [B_ANIM_BALL_THROW]              = gBattleAnimSpecial_BallThrow,
+    [B_ANIM_BALL_THROW_WITH_TRAINER] = gBattleAnimSpecial_BallThrowWithTrainer,
+    [B_ANIM_SUBSTITUTE_TO_MON]       = gBattleAnimSpecial_SubstituteToMon,
+    [B_ANIM_MON_TO_SUBSTITUTE]       = gBattleAnimSpecial_MonToSubstitute,
+};
+
 void ClearBattleAnimationVars(void)
 {
     s32 i;
@@ -249,16 +297,16 @@ void LaunchBattleAnimation(u32 animType, u32 animId)
     switch (animType)
     {
     case ANIM_TYPE_GENERAL:
-        sBattleAnimScriptPtr = gBattleAnims_General[animId];
+        sBattleAnimScriptPtr = sBattleAnimsGeneral[animId];
         break;
     case ANIM_TYPE_MOVE:
         sBattleAnimScriptPtr = GetMoveAnimationScript(animId);
         break;
     case ANIM_TYPE_STATUS:
-        sBattleAnimScriptPtr = gBattleAnims_StatusConditions[animId];
+        sBattleAnimScriptPtr = sBattleAnimsStatus[animId];
         break;
     case ANIM_TYPE_SPECIAL:
-        sBattleAnimScriptPtr = gBattleAnims_Special[animId];
+        sBattleAnimScriptPtr = sBattleAnimsSpecial[animId];
         break;
     }
     gAnimScriptActive = TRUE;

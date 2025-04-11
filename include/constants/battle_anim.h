@@ -353,7 +353,7 @@
 #define BG_SOLAR_BEAM_PLAYER 25
 #define BG_SOLAR_BEAM_CONTESTS 26
 
-// table ids for general animations (gBattleAnims_General)
+// table ids for general animations (gBattleAnimsGeneral)
 #define B_ANIM_CASTFORM_CHANGE          0
 #define B_ANIM_STATS_CHANGE             1
 #define B_ANIM_SUBSTITUTE_FADE          2
@@ -378,7 +378,7 @@
 #define B_ANIM_INGRAIN_HEAL             21
 #define B_ANIM_WISH_HEAL                22
 
-// special animations table (gBattleAnims_Special)
+// special animations table (gBattleAnimsSpecial)
 #define B_ANIM_LVL_UP                   0
 #define B_ANIM_SWITCH_OUT_PLAYER_MON    1
 #define B_ANIM_SWITCH_OUT_OPPONENT_MON  2
@@ -387,7 +387,7 @@
 #define B_ANIM_SUBSTITUTE_TO_MON        5
 #define B_ANIM_MON_TO_SUBSTITUTE        6
 
-// status animation table (gBattleAnims_StatusConditions)
+// status animation table (gBattleAnimsStatus)
 #define B_ANIM_STATUS_PSN               0
 #define B_ANIM_STATUS_CONFUSION         1
 #define B_ANIM_STATUS_BRN               2
