@@ -30,6 +30,7 @@
 #include "trade.h"
 #include "util.h"
 #include "constants/battle_string_ids.h"
+#include "constants/battle_terrain.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
 #include "constants/items.h"

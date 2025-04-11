@@ -4,6 +4,7 @@
 #include "constants/songs.h"
 #include "constants/sound.h"
 #include "constants/moves.h"
+#include "constants/battle_terrain.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/battle_anim_script.inc"
 	.include "constants/constants.inc"
@@ -6864,7 +6865,7 @@ Move_RAZOR_LEAF:
 	end
 
 Move_NATURE_POWER:
-	@ No actual animation, uses the animation of a move from sNaturePowerMoves instead
+	@ No actual animation, uses the animation of a move from gBattleTerrainInfos instead
 
 Move_ANCIENT_POWER:
 	loadspritegfx ANIM_TAG_ROCKS

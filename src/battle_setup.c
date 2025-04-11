@@ -39,6 +39,7 @@
 #include "data.h"
 #include "constants/battle_frontier.h"
 #include "constants/battle_setup.h"
+#include "constants/battle_terrain.h"
 #include "constants/game_stat.h"
 #include "constants/items.h"
 #include "constants/songs.h"
