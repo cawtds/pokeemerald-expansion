@@ -2,52 +2,59 @@
 #define GUARD_CONSTANTS_POKEMON_H
 
 // Pokémon egg groups
-#define EGG_GROUP_NONE                0
-#define EGG_GROUP_MONSTER             1
-#define EGG_GROUP_WATER_1             2
-#define EGG_GROUP_BUG                 3
-#define EGG_GROUP_FLYING              4
-#define EGG_GROUP_FIELD               5
-#define EGG_GROUP_FAIRY               6
-#define EGG_GROUP_GRASS               7
-#define EGG_GROUP_HUMAN_LIKE          8
-#define EGG_GROUP_WATER_3             9
-#define EGG_GROUP_MINERAL             10
-#define EGG_GROUP_AMORPHOUS           11
-#define EGG_GROUP_WATER_2             12
-#define EGG_GROUP_DITTO               13
-#define EGG_GROUP_DRAGON              14
-#define EGG_GROUP_NO_EGGS_DISCOVERED  15
-
 #define EGG_GROUPS_PER_MON            2
 
+enum EggGroup
+{
+    EGG_GROUP_NONE,
+    EGG_GROUP_MONSTER,
+    EGG_GROUP_WATER_1,
+    EGG_GROUP_BUG,
+    EGG_GROUP_FLYING,
+    EGG_GROUP_FIELD,
+    EGG_GROUP_FAIRY,
+    EGG_GROUP_GRASS,
+    EGG_GROUP_HUMAN_LIKE,
+    EGG_GROUP_WATER_3,
+    EGG_GROUP_MINERAL,
+    EGG_GROUP_AMORPHOUS,
+    EGG_GROUP_WATER_2,
+    EGG_GROUP_DITTO,
+    EGG_GROUP_DRAGON,
+    EGG_GROUP_NO_EGGS_DISCOVERED,
+};
+
 // Pokémon natures
-#define NATURE_HARDY    0
-#define NATURE_LONELY   1
-#define NATURE_BRAVE    2
-#define NATURE_ADAMANT  3
-#define NATURE_NAUGHTY  4
-#define NATURE_BOLD     5
-#define NATURE_DOCILE   6
-#define NATURE_RELAXED  7
-#define NATURE_IMPISH   8
-#define NATURE_LAX      9
-#define NATURE_TIMID    10
-#define NATURE_HASTY    11
-#define NATURE_SERIOUS  12
-#define NATURE_JOLLY    13
-#define NATURE_NAIVE    14
-#define NATURE_MODEST   15
-#define NATURE_MILD     16
-#define NATURE_QUIET    17
-#define NATURE_BASHFUL  18
-#define NATURE_RASH     19
-#define NATURE_CALM     20
-#define NATURE_GENTLE   21
-#define NATURE_SASSY    22
-#define NATURE_CAREFUL  23
-#define NATURE_QUIRKY   24
-#define NUM_NATURES     25
+enum Nature
+{
+    NATURE_HARDY,
+    NATURE_LONELY,
+    NATURE_BRAVE,
+    NATURE_ADAMANT,
+    NATURE_NAUGHTY,
+    NATURE_BOLD,
+    NATURE_DOCILE,
+    NATURE_RELAXED,
+    NATURE_IMPISH,
+    NATURE_LAX,
+    NATURE_TIMID,
+    NATURE_HASTY,
+    NATURE_SERIOUS,
+    NATURE_JOLLY,
+    NATURE_NAIVE,
+    NATURE_MODEST,
+    NATURE_MILD,
+    NATURE_QUIET,
+    NATURE_BASHFUL,
+    NATURE_RASH,
+    NATURE_CALM,
+    NATURE_GENTLE,
+    NATURE_SASSY,
+    NATURE_CAREFUL,
+    NATURE_QUIRKY,
+
+    NUM_NATURES
+};
 
 // Pokémon Stats
 #define STAT_HP      0

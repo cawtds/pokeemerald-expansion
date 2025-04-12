@@ -333,7 +333,7 @@ struct SpeciesInfo
  /* 0x11 */ u8 eggCycles;
  /* 0x12 */ u8 friendship;
  /* 0x13 */ u8 growthRate;
- /* 0x14 */ u8 eggGroups[2];
+ /* 0x14 */ u8 eggGroups[EGG_GROUPS_PER_MON];
  /* 0x16 */ u8 abilities[NUM_ABILITY_SLOTS];
  /* 0x18 */ u8 safariZoneFleeRate;
  /* 0x19 */ u8 bodyColor : 7;

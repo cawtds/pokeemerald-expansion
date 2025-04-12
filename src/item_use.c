@@ -174,16 +174,6 @@ static void Task_CloseCantUseKeyItemMessage(u8 taskId)
     UnlockPlayerFieldControls();
 }
 
-u8 CheckIfItemIsTMHMOrEvolutionStone(u16 itemId)
-{
-    if (ItemId_GetFieldFunc(itemId) == ItemUseOutOfBattle_TMHM)
-        return 1;
-    else if (ItemId_GetFieldFunc(itemId) == ItemUseOutOfBattle_EvolutionStone)
-        return 2;
-    else
-        return 0;
-}
-
 // Mail in the bag menu can't have a message but it can be checked (view the mail background, no message)
 static void CB2_CheckMail(void)
 {
