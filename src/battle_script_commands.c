@@ -8157,30 +8157,40 @@ static void Cmd_settypetorandomresistance(void)
     }
     else
     {
-        s32 i, j, rands;
+        u32 i;
+        u32 rand;
         u32 type;
+        u32 defType;
         u32 totalConversionWeights = 0;
+        u8 numResistances[NUMBER_OF_MON_TYPES];
 
         for (type = TYPE_NORMAL; type < NUMBER_OF_MON_TYPES; type++)
         {
-            totalConversionWeights += gTypeInfos[type].conversionWeight;
+            numResistances[type] = 0;
+            for (defType = TYPE_NORMAL; defType < NUMBER_OF_MON_TYPES; defType++)
+            {
+                if (GetTypeEffectiveness(type, defType) <= TYPE_MUL_NOT_EFFECTIVE)
+                {
+                    numResistances[type] += 1;
+                }
+            }
+            totalConversionWeights += numResistances[type];
         }
 
-        for (rands = 0; rands < 1000; rands++)
+        for (i = 0; i < 1000; i++)
         {
             u32 totalWeight = 0;
-            i = Random() % totalConversionWeights;
+            rand = Random() % totalConversionWeights;
             
             for (type = TYPE_NORMAL; type < NUMBER_OF_MON_TYPES; type++)
             {
-                totalWeight += gTypeInfos[type].conversionWeight;
+                totalWeight += numResistances[type];
 
-                if (i < totalWeight)
+                if (rand < totalWeight)
                 {
                     u8 multiplier = GetTypeEffectiveness(gLastHitByType[gBattlerAttacker], type);
                     if (multiplier <= TYPE_MUL_NOT_EFFECTIVE && !IS_BATTLER_OF_TYPE(gBattlerAttacker, type))
                     {
-                        DebugPrintfLevel(MGBA_LOG_ERROR, "1: multiplier = %u, lastHitBy = %u, type = %u", multiplier, gLastHitByType[gBattlerAttacker], type);
                         SET_BATTLER_TYPE(gBattlerAttacker, type);
                         PREPARE_TYPE_BUFFER(gBattleTextBuff1, type);
 
@@ -8196,7 +8206,6 @@ static void Cmd_settypetorandomresistance(void)
             u8 multiplier = GetTypeEffectiveness(gLastHitByType[gBattlerAttacker], type);
             if (multiplier <= TYPE_MUL_NOT_EFFECTIVE && !IS_BATTLER_OF_TYPE(gBattlerAttacker, type))
             {
-                DebugPrintfLevel(MGBA_LOG_ERROR, "2: multiplier = %u, lastHitBy = %u, type = %u", multiplier, gLastHitByType[gBattlerAttacker], type);
                 SET_BATTLER_TYPE(gBattlerAttacker, type);
                 PREPARE_TYPE_BUFFER(gBattleTextBuff1, type)
 

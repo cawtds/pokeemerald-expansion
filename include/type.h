@@ -8,7 +8,6 @@ struct TypeInfo
     const u8 name[TYPE_NAME_LENGTH + 1];
     const u8 moveText[17];
     u16 menuInfoOffset;
-    u8 conversionWeight;
     u8 paletteNum;
     u8 damageCategory;
     const u32 *const paletteTMHM;
