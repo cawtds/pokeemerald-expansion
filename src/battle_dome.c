@@ -29,6 +29,7 @@
 #include "data.h"
 #include "international_string_util.h"
 #include "trainer_pokemon_sprites.h"
+#include "type.h"
 #include "scanline_effect.h"
 #include "script_pokemon_util.h"
 #include "graphics.h"
@@ -2828,31 +2829,30 @@ static int GetTypeEffectivenessPoints(int move, int targetSpecies, int mode)
     }
     else
     {
+        u8 atkType;
+        u8 multiplier;
         // Calculate a "type power" value to determine the benefit of using this type move against the target.
         // This value will then be used to get the number of points to assign to the move.
-        while (TYPE_EFFECT_ATK_TYPE(i) != TYPE_ENDTABLE)
+        
+        for (atkType = TYPE_NORMAL; atkType < NUMBER_OF_MON_TYPES; i++)
         {
-            if (TYPE_EFFECT_ATK_TYPE(i) == TYPE_FORESIGHT)
+            multiplier = GetTypeEffectiveness(atkType, defType1);
+            
+            // BUG: the value of TYPE_x2 does not exist in gTypeEffectiveness, so if defAbility is ABILITY_WONDER_GUARD, the conditional always fails
+            #ifndef BUGFIX
+                #define WONDER_GUARD_EFFECTIVENESS TYPE_x2
+            #else
+                #define WONDER_GUARD_EFFECTIVENESS TYPE_MUL_SUPER_EFFECTIVE
+            #endif
+            if ((defAbility == ABILITY_WONDER_GUARD && multiplier == WONDER_GUARD_EFFECTIVENESS) || defAbility != ABILITY_WONDER_GUARD)
+                typePower = (typePower * multiplier) / 10;
+            
+            if (defType1 != defType2)
             {
-                i += 3;
-                continue;
+                multiplier = GetTypeEffectiveness(atkType, defType2);
+                if ((defAbility == ABILITY_WONDER_GUARD && multiplier == WONDER_GUARD_EFFECTIVENESS) || defAbility != ABILITY_WONDER_GUARD)
+                    typePower = (typePower * multiplier) / 10;
             }
-            if (TYPE_EFFECT_ATK_TYPE(i) == moveType)
-            {
-                // BUG: the value of TYPE_x2 does not exist in gTypeEffectiveness, so if defAbility is ABILITY_WONDER_GUARD, the conditional always fails
-                #ifndef BUGFIX
-                    #define WONDER_GUARD_EFFECTIVENESS TYPE_x2
-                #else
-                    #define WONDER_GUARD_EFFECTIVENESS TYPE_MUL_SUPER_EFFECTIVE
-                #endif
-                if (TYPE_EFFECT_DEF_TYPE(i) == defType1)
-                    if ((defAbility == ABILITY_WONDER_GUARD && TYPE_EFFECT_MULTIPLIER(i) == WONDER_GUARD_EFFECTIVENESS) || defAbility != ABILITY_WONDER_GUARD)
-                        typePower = (typePower * TYPE_EFFECT_MULTIPLIER(i)) / 10;
-                if (TYPE_EFFECT_DEF_TYPE(i) == defType2 && defType1 != defType2)
-                    if ((defAbility == ABILITY_WONDER_GUARD && TYPE_EFFECT_MULTIPLIER(i) == WONDER_GUARD_EFFECTIVENESS) || defAbility != ABILITY_WONDER_GUARD)
-                        typePower = (typePower * TYPE_EFFECT_MULTIPLIER(i)) / 10;
-            }
-            i += 3;
         }
     }
 

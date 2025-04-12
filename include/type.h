@@ -8,10 +8,11 @@ struct TypeInfo
     const u8 name[TYPE_NAME_LENGTH + 1];
     const u8 moveText[17];
     u16 menuInfoOffset;
-    u8 paletteNum:4;
-    u8 damageCategory:2;
+    u8 conversionWeight;
+    u8 paletteNum;
+    u8 damageCategory;
     const u32 *const paletteTMHM;
-    const u8 *effectiveness[NUMBER_OF_MON_TYPES];
+    const u8 *effectiveness;
 };
 
 extern const struct TypeInfo gTypeInfos[NUMBER_OF_MON_TYPES];
@@ -45,7 +46,7 @@ static inline const u16 GetTypeMenuInfoOffset(u32 typeId)
     return gTypeInfos[SanitizeTypeId(typeId)].menuInfoOffset;
 }
 
-static inline const u8 GetTypePaletteNum(u32 typeId)
+static inline u8 GetTypePaletteNum(u32 typeId)
 {
     return gTypeInfos[SanitizeTypeId(typeId)].paletteNum;
 }
@@ -56,6 +57,14 @@ static inline const u32 *GetTypeTMHMPalette(u32 typeId)
     if (gTypeInfos[typeId].paletteTMHM == NULL)
         return gTypeInfos[TYPE_MYSTERY].paletteTMHM;
     return gTypeInfos[typeId].paletteTMHM;
+}
+
+static inline u8 GetTypeEffectiveness(u32 attackingType, u32 defendingType)
+{
+    attackingType = SanitizeTypeId(attackingType);
+    if (gTypeInfos[attackingType].effectiveness == NULL)
+        return gTypeInfos[TYPE_MYSTERY].effectiveness[SanitizeTypeId(defendingType)];
+    return gTypeInfos[attackingType].effectiveness[SanitizeTypeId(defendingType)];
 }
 
 #endif//GUARD_TYPE_H

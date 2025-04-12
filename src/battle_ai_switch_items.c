@@ -8,6 +8,7 @@
 #include "move.h"
 #include "pokemon.h"
 #include "random.h"
+#include "type.h"
 #include "util.h"
 #include "constants/abilities.h"
 #include "constants/item_effects.h"
@@ -608,25 +609,13 @@ void AI_TrySwitchOrUseItem(void)
 static void ModulateByTypeEffectiveness(u8 atkType, u8 defType1, u8 defType2, u8 *var)
 {
     s32 i = 0;
+    
+    // Check type1.
+    *var = (*var * GetTypeEffectiveness(atkType, defType1)) / TYPE_MUL_NORMAL;
+    // Check type2.
+    if (defType1 != defType2)
+        *var = (*var * GetTypeEffectiveness(atkType, defType2)) / TYPE_MUL_NORMAL;
 
-    while (TYPE_EFFECT_ATK_TYPE(i) != TYPE_ENDTABLE)
-    {
-        if (TYPE_EFFECT_ATK_TYPE(i) == TYPE_FORESIGHT)
-        {
-            i += 3;
-            continue;
-        }
-        else if (TYPE_EFFECT_ATK_TYPE(i) == atkType)
-        {
-            // Check type1.
-            if (TYPE_EFFECT_DEF_TYPE(i) == defType1)
-                *var = (*var * TYPE_EFFECT_MULTIPLIER(i)) / TYPE_MUL_NORMAL;
-            // Check type2.
-            if (TYPE_EFFECT_DEF_TYPE(i) == defType2 && defType1 != defType2)
-                *var = (*var * TYPE_EFFECT_MULTIPLIER(i)) / TYPE_MUL_NORMAL;
-        }
-        i += 3;
-    }
 }
 
 u8 GetMostSuitableMonToSwitchInto(void)
