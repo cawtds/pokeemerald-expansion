@@ -45,6 +45,11 @@ static inline const u16 GetTypeMenuInfoOffset(u32 typeId)
     return gTypeInfos[SanitizeTypeId(typeId)].menuInfoOffset;
 }
 
+static inline const u8 GetTypePaletteNum(u32 typeId)
+{
+    return gTypeInfos[SanitizeTypeId(typeId)].paletteNum;
+}
+
 static inline const u32 *GetTypeTMHMPalette(u32 typeId)
 {
     typeId = SanitizeTypeId(typeId);
