@@ -17,6 +17,7 @@
 #include "strings.h"
 #include "task.h"
 #include "text_window.h"
+#include "type.h"
 #include "window.h"
 #include "constants/songs.h"
 
@@ -112,25 +113,6 @@ static const u8 sTextColors[] = { TEXT_DYNAMIC_COLOR_6, TEXT_COLOR_WHITE, TEXT_C
 // Table of move info icon offsets in graphics/interface/menu_info.png
 static const struct MenuInfoIcon sMenuInfoIcons[] =
 {   // { width, height, offset }
-    { 12, 12, 0x00 },  // Unused
-    [TYPE_NORMAL + 1]   = { 32, 12, 0x20 },
-    [TYPE_FIGHTING + 1] = { 32, 12, 0x64 },
-    [TYPE_FLYING + 1]   = { 32, 12, 0x60 },
-    [TYPE_POISON + 1]   = { 32, 12, 0x80 },
-    [TYPE_GROUND + 1]   = { 32, 12, 0x48 },
-    [TYPE_ROCK + 1]     = { 32, 12, 0x44 },
-    [TYPE_BUG + 1]      = { 32, 12, 0x6C },
-    [TYPE_GHOST + 1]    = { 32, 12, 0x68 },
-    [TYPE_STEEL + 1]    = { 32, 12, 0x88 },
-    [TYPE_MYSTERY + 1]  = { 32, 12, 0xA4 },
-    [TYPE_FIRE + 1]     = { 32, 12, 0x24 },
-    [TYPE_WATER + 1]    = { 32, 12, 0x28 },
-    [TYPE_GRASS + 1]    = { 32, 12, 0x2C },
-    [TYPE_ELECTRIC + 1] = { 32, 12, 0x40 },
-    [TYPE_PSYCHIC + 1]  = { 32, 12, 0x84 },
-    [TYPE_ICE + 1]      = { 32, 12, 0x4C },
-    [TYPE_DRAGON + 1]   = { 32, 12, 0xA0 },
-    [TYPE_DARK + 1]     = { 32, 12, 0x8C },
     [MENU_INFO_ICON_TYPE]      = { 42, 12, 0xA8 },
     [MENU_INFO_ICON_POWER]     = { 42, 12, 0xC0 },
     [MENU_INFO_ICON_ACCURACY]  = { 42, 12, 0xC8 },
@@ -2095,9 +2077,25 @@ void ListMenuLoadStdPalAt(u8 palOffset, u8 palId)
     LoadPalette(palette, palOffset, PLTT_SIZE_4BPP);
 }
 
-void BlitMenuInfoIcon(u8 windowId, u8 iconId, u16 x, u16 y)
+void BlitMenuInfoIcon(u8 windowId, u8 iconId, u16 x, u16 y, bool32 isTypeIcon)
 {
-    BlitBitmapRectToWindow(windowId, &gMenuInfoElements_Gfx[sMenuInfoIcons[iconId].offset * 32], 0, 0, 128, 128, x, y, sMenuInfoIcons[iconId].width, sMenuInfoIcons[iconId].height);
+    u16 offset;
+    u8 width;
+    u8 height;
+
+    if (isTypeIcon)
+    {
+        offset = GetTypeMenuInfoOffset(iconId);
+        width = MENU_INFO_TYPE_ICON_WIDTH;
+        height = MENU_INFO_TYPE_ICON_HEIGHT;
+    }
+    else
+    {
+        offset = sMenuInfoIcons[iconId].offset;
+        width = sMenuInfoIcons[iconId].width;
+        height = sMenuInfoIcons[iconId].height;
+    }
+    BlitBitmapRectToWindow(windowId, &gMenuInfoElements_Gfx[offset * 32], 0, 0, 128, 128, x, y, width, height);
 }
 
 void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)

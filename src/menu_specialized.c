@@ -23,6 +23,7 @@
 #include "text.h"
 #include "text_window.h"
 #include "trig.h"
+#include "type.h"
 #include "window.h"
 #include "constants/songs.h"
 #include "gba/io_reg.h"
@@ -775,7 +776,7 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
         CopyWindowToVram(RELEARNERWIN_DESC_BATTLE, COPYWIN_GFX);
         return;
     }
-    str = gTypeNames[GetMoveType(chosenMove)];
+    str = GetTypeName(GetMoveType(chosenMove));
     AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 4, 25, TEXT_SKIP_DRAW, NULL);
 
     x = 4 + GetStringWidth(FONT_NORMAL, gText_MoveRelearnerPP, 0);

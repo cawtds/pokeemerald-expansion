@@ -1102,18 +1102,3 @@ static const u8 *const sUnused_StatStrings[] =
     gText_SpDef4,
     gText_Speed2
 };
-
-/* Expands to:
- * static const u16 sTMHMMoves[] =
- * {
- *     MOVE_FOCUS_PUNCH,
- *     ...
- *     MOVE_CUT,
- *     ...
- * }; */
-#define TMHM_MOVE(id) CAT(MOVE_, id),
-static const u16 sTMHMMoves[] =
-{
-    FOREACH_TMHM(TMHM_MOVE)
-};
-#undef TMHM_MOVE

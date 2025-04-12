@@ -4692,17 +4692,16 @@ void ItemUseCB_PPUp(u8 taskId, TaskFunc task)
 
 u16 ItemIdToBattleMoveId(u16 item)
 {
-    u16 tmNumber = item - ITEM_TM01;
-    return sTMHMMoves[tmNumber];
+    return (ItemId_GetPocket(item) == POCKET_TM_HM) ? ItemId_GetSecondaryId(item) : MOVE_NONE;
 }
 
 bool8 IsMoveHm(u16 move)
 {
-    u8 i;
+    u16 itemId;
 
-    for (i = 0; i < NUM_HIDDEN_MACHINES; i++)
+    for (itemId = ITEM_HM01; itemId < (ITEM_HM01 + NUM_HIDDEN_MACHINES); itemId++)
     {
-        if (sTMHMMoves[i + NUM_TECHNICAL_MACHINES] == move)
+        if (ItemIdToBattleMoveId(itemId) == move)
             return TRUE;
     }
     return FALSE;

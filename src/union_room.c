@@ -41,6 +41,7 @@
 #include "task.h"
 #include "trade.h"
 #include "trainer_card.h"
+#include "type.h"
 #include "union_room.h"
 #include "union_room_battle.h"
 #include "union_room_chat.h"
@@ -3185,12 +3186,12 @@ static void Task_RunUnionRoom(u8 taskId)
                     break;
                 case UR_TRADE_NOTYPE:
                     CopyAndTranslatePlayerName(gStringVar1, &uroom->playerList->players[input]);
-                    StringCopy(gStringVar2, gTypeNames[uroom->playerList->players[input].rfu.data.tradeType]);
+                    StringCopy(gStringVar2, GetTypeName(uroom->playerList->players[input].rfu.data.tradeType));
                     ScheduleFieldMessageWithFollowupState(UR_STATE_TRADING_BOARD_LOAD, sText_DontHaveTypeTrainerWants);
                     break;
                 case UR_TRADE_NOEGG:
                     CopyAndTranslatePlayerName(gStringVar1, &uroom->playerList->players[input]);
-                    StringCopy(gStringVar2, gTypeNames[uroom->playerList->players[input].rfu.data.tradeType]);
+                    StringCopy(gStringVar2, GetTypeName(uroom->playerList->players[input].rfu.data.tradeType));
                     ScheduleFieldMessageWithFollowupState(UR_STATE_TRADING_BOARD_LOAD, sText_DontHaveEggTrainerWants);
                     break;
                 }
@@ -4108,7 +4109,7 @@ static void TradeBoardPrintItemInfo(u8 windowId, u8 y, struct RfuGameData * data
     }
     else
     {
-        BlitMenuInfoIcon(windowId, type + 1, 68, y);
+        BlitMenuInfoIcon(windowId, type, 68, y, TRUE);
         PrintUnionRoomText(windowId, FONT_NORMAL, GetSpeciesName(species), 118, y, colorIdx);
         ConvertIntToDecimalStringN(levelStr, level, STR_CONV_MODE_RIGHT_ALIGN, 3);
         PrintUnionRoomText(windowId, FONT_NORMAL, levelStr, 198, y, colorIdx);

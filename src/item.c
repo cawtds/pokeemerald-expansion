@@ -1,19 +1,22 @@
 #include "global.h"
-#include "item.h"
-#include "berry.h"
-#include "string_util.h"
-#include "text.h"
-#include "event_data.h"
-#include "malloc.h"
-#include "secret_base.h"
-#include "item_menu.h"
-#include "strings.h"
-#include "load_save.h"
-#include "item_use.h"
 #include "battle_pyramid.h"
 #include "battle_pyramid_bag.h"
-#include "constants/items.h"
+#include "berry.h"
+#include "event_data.h"
+#include "graphics.h"
+#include "item.h"
+#include "item_menu.h"
+#include "item_use.h"
+#include "load_save.h"
+#include "malloc.h"
+#include "move.h"
+#include "secret_base.h"
+#include "string_util.h"
+#include "strings.h"
+#include "text.h"
+#include "type.h"
 #include "constants/hold_effects.h"
+#include "constants/items.h"
 
 static bool8 CheckPyramidBagHasItem(u16 itemId, u16 count);
 static bool8 CheckPyramidBagHasSpace(u16 itemId, u16 count);
@@ -927,7 +930,7 @@ ItemUseFunc ItemId_GetBattleFunc(u16 itemId)
     return gItemsInfo[SanitizeItemId(itemId)].battleUseFunc;
 }
 
-u8 ItemId_GetSecondaryId(u16 itemId)
+u16 ItemId_GetSecondaryId(u16 itemId)
 {
     return gItemsInfo[SanitizeItemId(itemId)].secondaryId;
 }
@@ -943,15 +946,25 @@ const u8 *ItemId_GetEffect(u32 itemId)
 const u32 *GetItemIconPalette(u16 itemId)
 {
     if (itemId == ITEM_LIST_END)
-        return gItemIconPalette_ReturnToFieldArrow; // Use last icon, the "return to field" arrow
+        return gItemIconPalette_ReturnToFieldArrow;
+    if (itemId >= ITEMS_COUNT)
+        return gItemsInfo[ITEM_NONE].iconPalette;
+    if (itemId >= ITEM_TM01 && itemId < ITEM_HM01 + NUM_HIDDEN_MACHINES)
+        return GetTypeTMHMPalette(GetMoveType(gItemsInfo[itemId].secondaryId));
 
-    return gItemsInfo[SanitizeItemId(itemId)].iconPalette;
+    return gItemsInfo[itemId].iconPalette;
 }
 
 const u32 *GetItemIconPic(u16 itemId)
 {
     if (itemId == ITEM_LIST_END)
-        return gItemIcon_ReturnToFieldArrow;
+        return gItemIcon_ReturnToFieldArrow; // Use last icon, the "return to field" arrow
+    if (itemId >= ITEMS_COUNT)
+        return gItemsInfo[0].iconPic;
+    if (itemId >= ITEM_TM01 && itemId < ITEM_TM01 + NUM_TECHNICAL_MACHINES)
+        return gItemIcon_TM;
+    if (itemId >= ITEM_HM01 && itemId < ITEM_HM01 + NUM_HIDDEN_MACHINES)
+        return gItemIcon_HM;
 
-    return gItemsInfo[SanitizeItemId(itemId)].iconPic;
+    return gItemsInfo[itemId].iconPic;
 }

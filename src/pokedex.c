@@ -26,6 +26,7 @@
 #include "text_window.h"
 #include "trainer_pokemon_sprites.h"
 #include "trig.h"
+#include "type.h"
 #include "window.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
@@ -1375,23 +1376,23 @@ static const struct SearchOptionText sDexSearchColorOptions[] =
 static const struct SearchOptionText sDexSearchTypeOptions[NUMBER_OF_MON_TYPES + 1] = // + 2 for "None" and terminator, - 1 for Mystery
 {
     {gText_DexEmptyString, gText_DexSearchTypeNone},
-    {gText_DexEmptyString, gTypeNames[TYPE_NORMAL]},
-    {gText_DexEmptyString, gTypeNames[TYPE_FIGHTING]},
-    {gText_DexEmptyString, gTypeNames[TYPE_FLYING]},
-    {gText_DexEmptyString, gTypeNames[TYPE_POISON]},
-    {gText_DexEmptyString, gTypeNames[TYPE_GROUND]},
-    {gText_DexEmptyString, gTypeNames[TYPE_ROCK]},
-    {gText_DexEmptyString, gTypeNames[TYPE_BUG]},
-    {gText_DexEmptyString, gTypeNames[TYPE_GHOST]},
-    {gText_DexEmptyString, gTypeNames[TYPE_STEEL]},
-    {gText_DexEmptyString, gTypeNames[TYPE_FIRE]},
-    {gText_DexEmptyString, gTypeNames[TYPE_WATER]},
-    {gText_DexEmptyString, gTypeNames[TYPE_GRASS]},
-    {gText_DexEmptyString, gTypeNames[TYPE_ELECTRIC]},
-    {gText_DexEmptyString, gTypeNames[TYPE_PSYCHIC]},
-    {gText_DexEmptyString, gTypeNames[TYPE_ICE]},
-    {gText_DexEmptyString, gTypeNames[TYPE_DRAGON]},
-    {gText_DexEmptyString, gTypeNames[TYPE_DARK]},
+    {gText_DexEmptyString, gTypeInfos[TYPE_NORMAL].name},
+    {gText_DexEmptyString, gTypeInfos[TYPE_FIGHTING].name},
+    {gText_DexEmptyString, gTypeInfos[TYPE_FLYING].name},
+    {gText_DexEmptyString, gTypeInfos[TYPE_POISON].name},
+    {gText_DexEmptyString, gTypeInfos[TYPE_GROUND].name},
+    {gText_DexEmptyString, gTypeInfos[TYPE_ROCK].name},
+    {gText_DexEmptyString, gTypeInfos[TYPE_BUG].name},
+    {gText_DexEmptyString, gTypeInfos[TYPE_GHOST].name},
+    {gText_DexEmptyString, gTypeInfos[TYPE_STEEL].name},
+    {gText_DexEmptyString, gTypeInfos[TYPE_FIRE].name},
+    {gText_DexEmptyString, gTypeInfos[TYPE_WATER].name},
+    {gText_DexEmptyString, gTypeInfos[TYPE_GRASS].name},
+    {gText_DexEmptyString, gTypeInfos[TYPE_ELECTRIC].name},
+    {gText_DexEmptyString, gTypeInfos[TYPE_PSYCHIC].name},
+    {gText_DexEmptyString, gTypeInfos[TYPE_ICE].name},
+    {gText_DexEmptyString, gTypeInfos[TYPE_DRAGON].name},
+    {gText_DexEmptyString, gTypeInfos[TYPE_DARK].name},
     {},
 };
 

@@ -927,9 +927,9 @@ static void DecorationItemsMenu_PrintDecorationInUse(u8 windowId, u32 itemIndex,
     if (itemIndex != LIST_CANCEL)
     {
         if (IsDecorationIndexInSecretBase(itemIndex + 1) == TRUE)
-            BlitMenuInfoIcon(windowId, MENU_INFO_ICON_BALL_RED, 92, y + 2);
+            BlitMenuInfoIcon(windowId, MENU_INFO_ICON_BALL_RED, 92, y + 2, FALSE);
         else if (IsDecorationIndexInPlayersRoom(itemIndex + 1) == TRUE)
-            BlitMenuInfoIcon(windowId, MENU_INFO_ICON_BALL_BLUE, 92, y + 2);
+            BlitMenuInfoIcon(windowId, MENU_INFO_ICON_BALL_BLUE, 92, y + 2, FALSE);
     }
 }
 

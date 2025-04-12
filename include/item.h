@@ -21,7 +21,7 @@ struct Item
     ItemUseFunc fieldUseFunc;
     u8 battleUsage;
     ItemUseFunc battleUseFunc;
-    u8 secondaryId;
+    u16 secondaryId;
     const u32 *iconPic;
     const u32 *iconPalette;
 };
@@ -75,7 +75,7 @@ u8 ItemId_GetType(u16 itemId);
 ItemUseFunc ItemId_GetFieldFunc(u16 itemId);
 u8 ItemId_GetBattleUsage(u16 itemId);
 ItemUseFunc ItemId_GetBattleFunc(u16 itemId);
-u8 ItemId_GetSecondaryId(u16 itemId);
+u16 ItemId_GetSecondaryId(u16 itemId);
 const u32 *GetItemIconPic(u16 itemId);
 const u32 *GetItemIconPalette(u16 itemId);
 const u8 *ItemId_GetEffect(u32 itemId);

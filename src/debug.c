@@ -3010,6 +3010,16 @@ static void DebugAction_Give_Pokemon_SelectNature(u8 taskId)
     }
 }
 
+static void Debug_Display_StatInfo(const u8* text, u32 stat, u32 value, u32 digit, u8 windowId)
+{
+    StringCopy(gStringVar1, gStatNamesTable[stat]);
+    StringCopy(gStringVar2, gText_DigitIndicator[digit]);
+    ConvertIntToDecimalStringN(gStringVar3, value, STR_CONV_MODE_LEADING_ZEROS, 2);
+    StringCopyPadded(gStringVar3, gStringVar3, CHAR_SPACE, 15);
+    StringExpandPlaceholders(gStringVar4, text);
+    AddTextPrinterParameterized(windowId, DEBUG_MENU_FONT, gStringVar4, 0, 0, 0, NULL);
+}
+
 static void DebugAction_Give_Pokemon_SelectAbility(u8 taskId)
 {
     u16 abilityId;
@@ -3053,14 +3063,7 @@ static void DebugAction_Give_Pokemon_SelectAbility(u8 taskId)
         sDebugMonData->abilityNum = gTasks[taskId].tInput - i;
         gTasks[taskId].tInput = 0;
         gTasks[taskId].tDigit = 0;
-
-        StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].tDigit]);
-        ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, 2);
-        StringCopyPadded(gStringVar3, gStringVar3, CHAR_SPACE, 15);
-        StringCopy(gStringVar1, gTypeNames[0]);
-        StringExpandPlaceholders(gStringVar4, sDebugText_PokemonTeraType);
-        AddTextPrinterParameterized(gTasks[taskId].tSubWindowId, DEBUG_MENU_FONT, gStringVar4, 0, 0, 0, NULL);
-
+        Debug_Display_StatInfo(sDebugText_IVs, gTasks[taskId].tIterator, gTasks[taskId].tInput, gTasks[taskId].tDigit, gTasks[taskId].tSubWindowId);
         gTasks[taskId].func = DebugAction_Give_Pokemon_SelectIVs;
     }
     else if (JOY_NEW(B_BUTTON))
@@ -3069,16 +3072,6 @@ static void DebugAction_Give_Pokemon_SelectAbility(u8 taskId)
         Free(sDebugMonData);
         DebugAction_DestroyExtraWindow(taskId);
     }
-}
-
-static void Debug_Display_StatInfo(const u8* text, u32 stat, u32 value, u32 digit, u8 windowId)
-{
-    StringCopy(gStringVar1, gStatNamesTable[stat]);
-    StringCopy(gStringVar2, gText_DigitIndicator[digit]);
-    ConvertIntToDecimalStringN(gStringVar3, value, STR_CONV_MODE_LEADING_ZEROS, 2);
-    StringCopyPadded(gStringVar3, gStringVar3, CHAR_SPACE, 15);
-    StringExpandPlaceholders(gStringVar4, text);
-    AddTextPrinterParameterized(windowId, DEBUG_MENU_FONT, gStringVar4, 0, 0, 0, NULL);
 }
 
 static void DebugAction_Give_Pokemon_SelectIVs(u8 taskId)

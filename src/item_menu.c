@@ -2540,10 +2540,10 @@ static void RemoveMoneyWindow(void)
 static void PrepareTMHMMoveWindow(void)
 {
     FillWindowPixelBuffer(WIN_TMHM_INFO_ICONS, PIXEL_FILL(0));
-    BlitMenuInfoIcon(WIN_TMHM_INFO_ICONS, MENU_INFO_ICON_TYPE, 0, 0);
-    BlitMenuInfoIcon(WIN_TMHM_INFO_ICONS, MENU_INFO_ICON_POWER, 0, 12);
-    BlitMenuInfoIcon(WIN_TMHM_INFO_ICONS, MENU_INFO_ICON_ACCURACY, 0, 24);
-    BlitMenuInfoIcon(WIN_TMHM_INFO_ICONS, MENU_INFO_ICON_PP, 0, 36);
+    BlitMenuInfoIcon(WIN_TMHM_INFO_ICONS, MENU_INFO_ICON_TYPE, 0, 0, FALSE);
+    BlitMenuInfoIcon(WIN_TMHM_INFO_ICONS, MENU_INFO_ICON_POWER, 0, 12, FALSE);
+    BlitMenuInfoIcon(WIN_TMHM_INFO_ICONS, MENU_INFO_ICON_ACCURACY, 0, 24, FALSE);
+    BlitMenuInfoIcon(WIN_TMHM_INFO_ICONS, MENU_INFO_ICON_PP, 0, 36, FALSE);
     CopyWindowToVram(WIN_TMHM_INFO_ICONS, COPYWIN_GFX);
 }
 
@@ -2563,7 +2563,7 @@ static void PrintTMHMMoveData(u16 itemId)
     else
     {
         moveId = ItemIdToBattleMoveId(itemId);
-        BlitMenuInfoIcon(WIN_TMHM_INFO, GetMoveType(moveId) + 1, 0, 0);
+        BlitMenuInfoIcon(WIN_TMHM_INFO, GetMoveType(moveId), 0, 0, TRUE);
 
         // Print TMHM power
         if (GetMovePower(moveId) <= 1)
