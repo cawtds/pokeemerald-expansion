@@ -7,6 +7,7 @@
 #include "constants/battle_move_effects.h"
 #include "constants/hold_effects.h"
 #include "constants/pokemon.h"
+#include "constants/types.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/battle_ai_script.inc"
 	.include "constants/constants.inc"

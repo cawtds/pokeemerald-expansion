@@ -43,6 +43,7 @@
 #include "constants/moves.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "constants/types.h"
 
 // This file's functions.
 static void LoadContestPalettes(void);

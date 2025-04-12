@@ -35,6 +35,7 @@
 #include "constants/moves.h"
 #include "constants/songs.h"
 #include "constants/species.h"
+#include "constants/types.h"
 #include "constants/weather.h"
 
 /*

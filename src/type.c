@@ -1,7 +1,7 @@
 #include "global.h"
 #include "graphics.h"
 #include "type.h"
-#include "constants/type.h"
+#include "constants/types.h"
 
 #define TYPE_MUL_NO_EFFECT          0
 #define TYPE_MUL_NOT_EFFECTIVE      5

@@ -1,6 +1,8 @@
 #ifndef GUARD_TYPE_H
 #define GUARD_TYPE_H
 
+#include "constants/types.h"
+
 struct TypeInfo
 {
     const u8 name[TYPE_NAME_LENGTH + 1];

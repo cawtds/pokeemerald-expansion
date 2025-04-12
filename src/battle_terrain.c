@@ -6,6 +6,7 @@
 #include "constants/moves.h"
 #include "constants/pokemon.h"
 #include "constants/rgb.h"
+#include "constants/types.h"
 
 
 #include "data/battle_terrain_infos.h"

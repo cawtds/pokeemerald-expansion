@@ -66,6 +66,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/species.h"
+#include "constants/types.h"
 #include "constants/weather.h"
 #include "save.h"
 

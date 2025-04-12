@@ -49,6 +49,7 @@
 #include "constants/moves.h"
 #include "constants/songs.h"
 #include "constants/trainers.h"
+#include "constants/types.h"
 #include "constants/union_room.h"
 
 #define DAY_EVO_HOUR_BEGIN       12

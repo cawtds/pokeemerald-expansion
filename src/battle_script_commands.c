@@ -54,6 +54,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/trainers.h"
+#include "constants/types.h"
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 
