@@ -453,7 +453,7 @@ void AnimTask_IsBallBlockedByTrainer(u8 taskId)
 
 enum Ball ItemIdToBallId(u16 ballItem)
 {
-    enum Ball ballId = (ItemId_GetPocket(ballItem) == POCKET_POKE_BALLS) ? ItemId_GetSecondaryId(ballItem) : BALL_POKE;
+    enum Ball ballId = (Item_GetPocket(ballItem) == POCKET_POKE_BALLS) ? Item_GetSecondaryId(ballItem) : BALL_POKE;
 
     return ballId < POKEBALL_COUNT ? ballId : BALL_POKE;
 }

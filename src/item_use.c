@@ -102,7 +102,7 @@ static void SetUpItemUseCallback(u8 taskId)
     if (gSpecialVar_ItemId == ITEM_ENIGMA_BERRY)
         type = gTasks[taskId].tEnigmaBerryType - 1;
     else
-        type = ItemId_GetType(gSpecialVar_ItemId) - 1;
+        type = Item_GetType(gSpecialVar_ItemId) - 1;
     if (!InBattlePyramid())
     {
         gBagMenu->newScreenCallback = sItemUseCallbacks[type];
@@ -216,7 +216,7 @@ void ItemUseOutOfBattle_Bike(u8 taskId)
 
 static void ItemUseOnFieldCB_Bike(u8 taskId)
 {
-    if (ItemId_GetSecondaryId(gSpecialVar_ItemId) == MACH_BIKE)
+    if (Item_GetSecondaryId(gSpecialVar_ItemId) == MACH_BIKE)
         GetOnOffBike(PLAYER_AVATAR_FLAG_MACH_BIKE);
     else // ACRO_BIKE
         GetOnOffBike(PLAYER_AVATAR_FLAG_ACRO_BIKE);
@@ -270,7 +270,7 @@ void ItemUseOutOfBattle_Rod(u8 taskId)
 
 static void ItemUseOnFieldCB_Rod(u8 taskId)
 {
-    StartFishing(ItemId_GetSecondaryId(gSpecialVar_ItemId));
+    StartFishing(Item_GetSecondaryId(gSpecialVar_ItemId));
     DestroyTask(taskId);
 }
 
@@ -683,7 +683,7 @@ void ItemUseOutOfBattle_Berry(u8 taskId)
     }
     else
     {
-        ItemId_GetFieldFunc(gSpecialVar_ItemId)(taskId);
+        Item_GetFieldFunc(gSpecialVar_ItemId)(taskId);
     }
 }
 
@@ -819,8 +819,8 @@ static void RemoveUsedItem(void)
     StringExpandPlaceholders(gStringVar4, gText_PlayerUsedVar2);
     if (!InBattlePyramid())
     {
-        UpdatePocketItemList(ItemId_GetPocket(gSpecialVar_ItemId));
-        UpdatePocketListPosition(ItemId_GetPocket(gSpecialVar_ItemId));
+        UpdatePocketItemList(Item_GetPocket(gSpecialVar_ItemId));
+        UpdatePocketListPosition(Item_GetPocket(gSpecialVar_ItemId));
     }
     else
     {
@@ -855,7 +855,7 @@ static void Task_UseRepel(u8 taskId)
 {
     if (!IsSEPlaying())
     {
-        VarSet(VAR_REPEL_STEP_COUNT, ItemId_GetHoldEffectParam(gSpecialVar_ItemId));
+        VarSet(VAR_REPEL_STEP_COUNT, Item_GetHoldEffectParam(gSpecialVar_ItemId));
         RemoveUsedItem();
         if (!InBattlePyramid())
             DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);

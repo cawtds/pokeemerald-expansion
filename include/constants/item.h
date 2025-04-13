@@ -1,7 +1,7 @@
 #ifndef GUARD_ITEM_CONSTANTS_H
 #define GUARD_ITEM_CONSTANTS_H
 
-// These constants are used in gItemInfos
+// These constants are used in gItemInfo
 #define POCKET_NONE        0
 #define POCKET_ITEMS       1
 #define POCKET_POKE_BALLS  2

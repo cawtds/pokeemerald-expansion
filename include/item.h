@@ -9,21 +9,21 @@ typedef void (*ItemUseFunc)(u8);
 
 struct ItemInfo
 {
-    u16 price;
+    ItemUseFunc fieldUseFunc;
+    ItemUseFunc battleUseFunc;
     const u8 *description;
     const u8 *effect;
+    const u32 *iconPic;
+    const u32 *iconPalette;
+    u16 price;
+    u16 secondaryId;
     u8 name[ITEM_NAME_LENGTH];
     u8 holdEffect;
     u8 holdEffectParam;
     u8 importance;
     u8 pocket;
     u8 type;
-    ItemUseFunc fieldUseFunc;
     u8 battleUsage;
-    ItemUseFunc battleUseFunc;
-    u16 secondaryId;
-    const u32 *iconPic;
-    const u32 *iconPalette;
 };
 
 struct BagPocket
@@ -32,7 +32,7 @@ struct BagPocket
     u8 capacity;
 };
 
-extern const struct ItemInfo gItemInfos[];
+extern const struct ItemInfo gItemInfo[];
 extern struct BagPocket gBagPockets[];
 
 void ApplyNewEncryptionKeyToBagItems(u32 newKey);
@@ -64,21 +64,22 @@ void ClearBag(void);
 u16 CountTotalItemQuantityInBag(u16 itemId);
 bool8 AddPyramidBagItem(u16 itemId, u16 count);
 bool8 RemovePyramidBagItem(u16 itemId, u16 count);
-const u8 *ItemId_GetName(u16 itemId);
-u16 ItemId_GetPrice(u16 itemId);
-u8 ItemId_GetHoldEffect(u16 itemId);
-u8 ItemId_GetHoldEffectParam(u16 itemId);
-const u8 *ItemId_GetDescription(u16 itemId);
-u8 ItemId_GetImportance(u16 itemId);
-u8 ItemId_GetPocket(u16 itemId);
-u8 ItemId_GetType(u16 itemId);
-ItemUseFunc ItemId_GetFieldFunc(u16 itemId);
-u8 ItemId_GetBattleUsage(u16 itemId);
-ItemUseFunc ItemId_GetBattleFunc(u16 itemId);
-u16 ItemId_GetSecondaryId(u16 itemId);
-const u32 *GetItemIconPic(u16 itemId);
-const u32 *GetItemIconPalette(u16 itemId);
-const u8 *ItemId_GetEffect(u32 itemId);
+
+const u8 *Item_GetName(enum Item itemId);
+u32 Item_GetPrice(enum Item itemId);
+u32 Item_GetHoldEffect(enum Item itemId);
+u32 Item_GetHoldEffectParam(enum Item itemId);
+const u8 *Item_GetDescription(enum Item itemId);
+u32 Item_GetImportance(enum Item itemId);
+u32 Item_GetPocket(enum Item itemId);
+u32 Item_GetType(enum Item itemId);
+ItemUseFunc Item_GetFieldFunc(enum Item itemId);
+u32 Item_GetBattleUsage(enum Item itemId);
+ItemUseFunc Item_GetBattleFunc(enum Item itemId);
+u32 Item_GetSecondaryId(enum Item itemId);
+const u32 *Item_GetIconPic(u16 itemId);
+const u32 *Item_GetIconPalette(u16 itemId);
+const u8 *Item_GetEffect(u32 itemId);
 
 /* Expands to:
  * enum

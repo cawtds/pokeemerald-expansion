@@ -415,7 +415,7 @@ bool8 TryRunFromBattle(u8 battler)
     if (gBattleMons[battler].item == ITEM_ENIGMA_BERRY)
         holdEffect = gEnigmaBerries[battler].holdEffect;
     else
-        holdEffect = ItemId_GetHoldEffect(gBattleMons[battler].item);
+        holdEffect = Item_GetHoldEffect(gBattleMons[battler].item);
 
     gPotentialItemEffectBattler = battler;
 
@@ -1032,7 +1032,7 @@ u8 TrySetCantSelectMoveBattleScript(void)
     if (gBattleMons[gActiveBattler].item == ITEM_ENIGMA_BERRY)
         holdEffect = gEnigmaBerries[gActiveBattler].holdEffect;
     else
-        holdEffect = ItemId_GetHoldEffect(gBattleMons[gActiveBattler].item);
+        holdEffect = Item_GetHoldEffect(gBattleMons[gActiveBattler].item);
 
     gPotentialItemEffectBattler = gActiveBattler;
 
@@ -1076,7 +1076,7 @@ u8 CheckMoveLimitations(u8 battlerId, u8 unusableMoves, u8 check)
     if (gBattleMons[battlerId].item == ITEM_ENIGMA_BERRY)
         holdEffect = gEnigmaBerries[battlerId].holdEffect;
     else
-        holdEffect = ItemId_GetHoldEffect(gBattleMons[battlerId].item);
+        holdEffect = Item_GetHoldEffect(gBattleMons[battlerId].item);
 
     gPotentialItemEffectBattler = battlerId;
 
@@ -3259,8 +3259,8 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
     }
     else
     {
-        battlerHoldEffect = ItemId_GetHoldEffect(gLastUsedItem);
-        battlerHoldEffectParam = ItemId_GetHoldEffectParam(gLastUsedItem);
+        battlerHoldEffect = Item_GetHoldEffect(gLastUsedItem);
+        battlerHoldEffectParam = Item_GetHoldEffectParam(gLastUsedItem);
     }
 
     atkItem = gBattleMons[gBattlerAttacker].item;
@@ -3271,8 +3271,8 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
     }
     else
     {
-        atkHoldEffect = ItemId_GetHoldEffect(atkItem);
-        atkHoldEffectParam = ItemId_GetHoldEffectParam(atkItem);
+        atkHoldEffect = Item_GetHoldEffect(atkItem);
+        atkHoldEffectParam = Item_GetHoldEffectParam(atkItem);
     }
 
     // def variables are unused
@@ -3284,8 +3284,8 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
     }
     else
     {
-        defHoldEffect = ItemId_GetHoldEffect(defItem);
-        defHoldEffectParam = ItemId_GetHoldEffectParam(defItem);
+        defHoldEffect = Item_GetHoldEffect(defItem);
+        defHoldEffectParam = Item_GetHoldEffectParam(defItem);
     }
 
     switch (caseID)
@@ -3621,8 +3621,8 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
             }
             else
             {
-                battlerHoldEffect = ItemId_GetHoldEffect(gLastUsedItem);
-                battlerHoldEffectParam = ItemId_GetHoldEffectParam(gLastUsedItem);
+                battlerHoldEffect = Item_GetHoldEffect(gLastUsedItem);
+                battlerHoldEffectParam = Item_GetHoldEffectParam(gLastUsedItem);
             }
             switch (battlerHoldEffect)
             {

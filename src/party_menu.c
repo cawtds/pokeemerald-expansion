@@ -982,11 +982,11 @@ static bool8 DisplayPartyPokemonDataForMoveTutorOrEvolutionItem(u8 slot)
         if (gPartyMenu.action != PARTY_ACTION_USE_ITEM)
             return FALSE;
 
-        if (ItemId_GetFieldFunc(item) == ItemUseOutOfBattle_TMHM)// TM/HM
+        if (Item_GetFieldFunc(item) == ItemUseOutOfBattle_TMHM)// TM/HM
         {
             DisplayPartyPokemonDataToTeachMove(slot, ItemIdToBattleMoveId(item), FALSE);
         }
-        else if (ItemId_GetFieldFunc(item) == ItemUseOutOfBattle_EvolutionStone) // Evolution stone
+        else if (Item_GetFieldFunc(item) == ItemUseOutOfBattle_EvolutionStone) // Evolution stone
         {
             if (!GetMonData(currentPokemon, MON_DATA_IS_EGG) && GetEvolutionTargetSpecies(currentPokemon, EVO_MODE_ITEM_CHECK, item) != SPECIES_NONE)
                 return FALSE;
@@ -4307,7 +4307,7 @@ static void Task_SetSacredAshCB(u8 taskId)
 
 static bool8 IsHPRecoveryItem(u16 item)
 {
-    const u8 *effect = ItemId_GetEffect(item);
+    const u8 *effect = Item_GetEffect(item);
 
     if (effect[4] & ITEM4_HEAL_HP)
         return TRUE;
@@ -4621,7 +4621,7 @@ void ItemUseCB_PPRecovery(u8 taskId, TaskFunc task)
     const u8 *effect;
     u16 item = gSpecialVar_ItemId;
 
-    effect = ItemId_GetEffect(item);
+    effect = Item_GetEffect(item);
 
     if (!(effect[4] & ITEM4_HEAL_PP_ONE))
     {
@@ -4693,7 +4693,7 @@ void ItemUseCB_PPUp(u8 taskId, TaskFunc task)
 
 u16 ItemIdToBattleMoveId(u16 item)
 {
-    return (ItemId_GetPocket(item) == POCKET_TM_HM) ? ItemId_GetSecondaryId(item) : MOVE_NONE;
+    return (Item_GetPocket(item) == POCKET_TM_HM) ? Item_GetSecondaryId(item) : MOVE_NONE;
 }
 
 bool8 IsMoveHm(u16 move)
@@ -5261,7 +5261,7 @@ u8 GetItemEffectType(u16 item)
         return ITEM_EFFECT_NONE;
 
     // Read the item's effect properties.
-    itemEffect = ItemId_GetEffect(item);
+    itemEffect = Item_GetEffect(item);
 
     if ((itemEffect[0] & (ITEM0_DIRE_HIT | ITEM0_X_ATTACK)) || itemEffect[1] || itemEffect[2] || (itemEffect[3] & ITEM3_GUARD_SPEC))
         return ITEM_EFFECT_X_ITEM;

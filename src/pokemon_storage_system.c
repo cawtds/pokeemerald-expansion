@@ -6981,7 +6981,7 @@ static void SetDisplayMonData(void *pokemon, u8 mode)
         txtPtr[1] = EOS;
 
         if (sStorage->displayMonItemId != ITEM_NONE)
-            StringCopyPadded(sStorage->displayMonItemName, ItemId_GetName(sStorage->displayMonItemId), CHAR_SPACE, 8);
+            StringCopyPadded(sStorage->displayMonItemName, Item_GetName(sStorage->displayMonItemId), CHAR_SPACE, 8);
         else
             StringFill(sStorage->displayMonItemName, CHAR_SPACE, 8);
     }
@@ -8781,8 +8781,8 @@ static void TryLoadItemIconAtPos(u8 cursorArea, u8 cursorPos)
 
     if (heldItem != ITEM_NONE)
     {
-        const u32 *tiles = GetItemIconPic(heldItem);
-        const u32 *pal = GetItemIconPalette(heldItem);
+        const u32 *tiles = Item_GetIconPic(heldItem);
+        const u32 *pal = Item_GetIconPalette(heldItem);
         u8 id = GetNewItemIconIdx();
 
         SetItemIconPosition(id, cursorArea, cursorPos);
@@ -8833,8 +8833,8 @@ static void TakeItemFromMon(u8 cursorArea, u8 cursorPos)
 
 static void InitItemIconInCursor(u16 itemId)
 {
-    const u32 *tiles = GetItemIconPic(itemId);
-    const u32 *pal = GetItemIconPalette(itemId);
+    const u32 *tiles = Item_GetIconPic(itemId);
+    const u32 *pal = Item_GetIconPalette(itemId);
     u8 id = GetNewItemIconIdx();
     LoadItemIconGfx(id, tiles, pal);
     SetItemIconAffineAnim(id, ITEM_ANIM_LARGE);
@@ -8984,7 +8984,7 @@ static bool8 IsMovingItem(void)
 
 static const u8 *GetMovingItemName(void)
 {
-    return ItemId_GetName(sStorage->movingItemId);
+    return Item_GetName(sStorage->movingItemId);
 }
 
 static u16 GetMovingItemId(void)
@@ -9169,9 +9169,9 @@ static void PrintItemDescription(void)
     const u8 *description;
 
     if (IsMovingItem())
-        description = ItemId_GetDescription(sStorage->movingItemId);
+        description = Item_GetDescription(sStorage->movingItemId);
     else
-        description = ItemId_GetDescription(sStorage->displayMonItemId);
+        description = Item_GetDescription(sStorage->displayMonItemId);
 
     FillWindowPixelBuffer(WIN_ITEM_DESC, PIXEL_FILL(1));
     AddTextPrinterParameterized5(WIN_ITEM_DESC, FONT_NORMAL, description, 4, 0, 0, NULL, 0, 1);

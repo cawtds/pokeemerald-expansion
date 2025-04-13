@@ -834,7 +834,7 @@ static bool8 ShouldUseItem(void)
         item = gBattleResources->battleHistory->trainerItems[i];
         if (item == ITEM_NONE || item == ITEM_ENIGMA_BERRY)
             continue;
-        itemEffects = ItemId_GetEffect(item);
+        itemEffects = Item_GetEffect(item);
         if (itemEffects == NULL)
             continue;
 

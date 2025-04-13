@@ -93,14 +93,14 @@ u8 AddItemIconSprite(u16 tilesTag, u16 paletteTag, u16 itemId)
         struct CompressedSpritePalette spritePalette;
         struct SpriteTemplate *spriteTemplate;
 
-        LZDecompressWram(GetItemIconPic(itemId), gItemIconDecompressionBuffer);
+        LZDecompressWram(Item_GetIconPic(itemId), gItemIconDecompressionBuffer);
         CopyItemIconPicTo4x4Buffer(gItemIconDecompressionBuffer, gItemIcon4x4Buffer);
         spriteSheet.data = gItemIcon4x4Buffer;
         spriteSheet.size = 0x200;
         spriteSheet.tag = tilesTag;
         LoadSpriteSheet(&spriteSheet);
 
-        spritePalette.data = GetItemIconPalette(itemId);
+        spritePalette.data = Item_GetIconPalette(itemId);
         spritePalette.tag = paletteTag;
         LoadCompressedSpritePalette(&spritePalette);
 
@@ -130,14 +130,14 @@ u8 AddCustomItemIconSprite(const struct SpriteTemplate *customSpriteTemplate, u1
         struct CompressedSpritePalette spritePalette;
         struct SpriteTemplate *spriteTemplate;
 
-        LZDecompressWram(GetItemIconPic(itemId), gItemIconDecompressionBuffer);
+        LZDecompressWram(Item_GetIconPic(itemId), gItemIconDecompressionBuffer);
         CopyItemIconPicTo4x4Buffer(gItemIconDecompressionBuffer, gItemIcon4x4Buffer);
         spriteSheet.data = gItemIcon4x4Buffer;
         spriteSheet.size = 0x200;
         spriteSheet.tag = tilesTag;
         LoadSpriteSheet(&spriteSheet);
 
-        spritePalette.data = GetItemIconPalette(itemId);
+        spritePalette.data = Item_GetIconPalette(itemId);
         spritePalette.tag = paletteTag;
         LoadCompressedSpritePalette(&spritePalette);
 

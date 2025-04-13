@@ -83,7 +83,7 @@ void SetBagItemsPointers(void)
 
 u8 *CopyItemName(u16 itemId, u8 *dst)
 {
-    return StringCopy(dst, ItemId_GetName(itemId));
+    return StringCopy(dst, Item_GetName(itemId));
 }
 
 u8 *CopyItemNameHandlePlural(u16 itemId, u8 *dst, u32 quantity)
@@ -91,7 +91,7 @@ u8 *CopyItemNameHandlePlural(u16 itemId, u8 *dst, u32 quantity)
     if (itemId == ITEM_POKE_BALL)
     {
         if (quantity < 2)
-            StringCopy(dst, ItemId_GetName(ITEM_POKE_BALL));
+            StringCopy(dst, Item_GetName(ITEM_POKE_BALL));
         else
             StringCopy(dst, gText_PokeBalls);
     }
@@ -100,7 +100,7 @@ u8 *CopyItemNameHandlePlural(u16 itemId, u8 *dst, u32 quantity)
         if (itemId >= FIRST_BERRY_INDEX && itemId <= LAST_BERRY_INDEX)
             GetBerryCountString(dst, gBerries[itemId - FIRST_BERRY_INDEX].name, quantity);
         else
-            StringCopy(dst, ItemId_GetName(itemId));
+            StringCopy(dst, Item_GetName(itemId));
     }
 }
 
@@ -136,11 +136,11 @@ bool8 CheckBagHasItem(u16 itemId, u16 count)
     u8 i;
     u8 pocket;
 
-    if (ItemId_GetPocket(itemId) == 0)
+    if (Item_GetPocket(itemId) == 0)
         return FALSE;
     if (InBattlePyramid() || FlagGet(FLAG_STORING_ITEMS_IN_PYRAMID_BAG) == TRUE)
         return CheckPyramidBagHasItem(itemId, count);
-    pocket = ItemId_GetPocket(itemId) - 1;
+    pocket = Item_GetPocket(itemId) - 1;
     // Check for item slots that contain the item
     for (i = 0; i < gBagPockets[pocket].capacity; i++)
     {
@@ -183,7 +183,7 @@ bool8 CheckBagHasSpace(u16 itemId, u16 count)
     u16 slotCapacity;
     u16 ownedCount;
 
-    if (ItemId_GetPocket(itemId) == POCKET_NONE)
+    if (Item_GetPocket(itemId) == POCKET_NONE)
         return FALSE;
 
     if (InBattlePyramid() || FlagGet(FLAG_STORING_ITEMS_IN_PYRAMID_BAG) == TRUE)
@@ -191,7 +191,7 @@ bool8 CheckBagHasSpace(u16 itemId, u16 count)
         return CheckPyramidBagHasSpace(itemId, count);
     }
 
-    pocket = ItemId_GetPocket(itemId) - 1;
+    pocket = Item_GetPocket(itemId) - 1;
     if (pocket != BERRIES_POCKET)
         slotCapacity = MAX_BAG_ITEM_CAPACITY;
     else
@@ -244,7 +244,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
 {
     u8 i;
 
-    if (ItemId_GetPocket(itemId) == POCKET_NONE)
+    if (Item_GetPocket(itemId) == POCKET_NONE)
         return FALSE;
 
     // check Battle Pyramid Bag
@@ -258,7 +258,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
         struct ItemSlot *newItems;
         u16 slotCapacity;
         u16 ownedCount;
-        u8 pocket = ItemId_GetPocket(itemId) - 1;
+        u8 pocket = Item_GetPocket(itemId) - 1;
 
         itemPocket = &gBagPockets[pocket];
         newItems = AllocZeroed(itemPocket->capacity * sizeof(struct ItemSlot));
@@ -352,7 +352,7 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
     u8 i;
     u16 totalQuantity = 0;
 
-    if (ItemId_GetPocket(itemId) == POCKET_NONE || itemId == ITEM_NONE)
+    if (Item_GetPocket(itemId) == POCKET_NONE || itemId == ITEM_NONE)
         return FALSE;
 
     // check Battle Pyramid Bag
@@ -367,7 +367,7 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
         u16 ownedCount;
         struct BagPocket *itemPocket;
 
-        pocket = ItemId_GetPocket(itemId) - 1;
+        pocket = Item_GetPocket(itemId) - 1;
         itemPocket = &gBagPockets[pocket];
 
         for (i = 0; i < itemPocket->capacity; i++)
@@ -437,7 +437,7 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
 
 u8 GetPocketByItemId(u16 itemId)
 {
-    return ItemId_GetPocket(itemId);
+    return Item_GetPocket(itemId);
 }
 
 void ClearItemSlots(struct ItemSlot *itemSlots, u8 itemCount)
@@ -677,7 +677,7 @@ u16 CountTotalItemQuantityInBag(u16 itemId)
 {
     u16 i;
     u16 ownedCount = 0;
-    struct BagPocket *bagPocket = &gBagPockets[ItemId_GetPocket(itemId) - 1];
+    struct BagPocket *bagPocket = &gBagPockets[Item_GetPocket(itemId) - 1];
 
     for (i = 0; i < bagPocket->capacity; i++)
     {
@@ -868,7 +868,7 @@ bool8 RemovePyramidBagItem(u16 itemId, u16 count)
     }
 }
 
-static u16 SanitizeItemId(u16 itemId)
+static enum Item SanitizeItemId(enum Item itemId)
 {
     if (itemId >= ITEMS_COUNT)
         return ITEM_NONE;
@@ -876,96 +876,96 @@ static u16 SanitizeItemId(u16 itemId)
         return itemId;
 }
 
-const u8 *ItemId_GetName(u16 itemId)
+const u8 *Item_GetName(enum Item itemId)
 {
-    return gItemInfos[SanitizeItemId(itemId)].name;
+    return gItemInfo[SanitizeItemId(itemId)].name;
 }
 
-u16 ItemId_GetPrice(u16 itemId)
+u32 Item_GetPrice(enum Item itemId)
 {
-    return gItemInfos[SanitizeItemId(itemId)].price;
+    return gItemInfo[SanitizeItemId(itemId)].price;
 }
 
-u8 ItemId_GetHoldEffect(u16 itemId)
+u32 Item_GetHoldEffect(enum Item itemId)
 {
-    return gItemInfos[SanitizeItemId(itemId)].holdEffect;
+    return gItemInfo[SanitizeItemId(itemId)].holdEffect;
 }
 
-u8 ItemId_GetHoldEffectParam(u16 itemId)
+u32 Item_GetHoldEffectParam(enum Item itemId)
 {
-    return gItemInfos[SanitizeItemId(itemId)].holdEffectParam;
+    return gItemInfo[SanitizeItemId(itemId)].holdEffectParam;
 }
 
-const u8 *ItemId_GetDescription(u16 itemId)
+const u8 *Item_GetDescription(enum Item itemId)
 {
-    return gItemInfos[SanitizeItemId(itemId)].description;
+    return gItemInfo[SanitizeItemId(itemId)].description;
 }
 
-u8 ItemId_GetImportance(u16 itemId)
+u32 Item_GetImportance(enum Item itemId)
 {
-    return gItemInfos[SanitizeItemId(itemId)].importance;
+    return gItemInfo[SanitizeItemId(itemId)].importance;
 }
 
-u8 ItemId_GetPocket(u16 itemId)
+u32 Item_GetPocket(enum Item itemId)
 {
-    return gItemInfos[SanitizeItemId(itemId)].pocket;
+    return gItemInfo[SanitizeItemId(itemId)].pocket;
 }
 
-u8 ItemId_GetType(u16 itemId)
+u32 Item_GetType(enum Item itemId)
 {
-    return gItemInfos[SanitizeItemId(itemId)].type;
+    return gItemInfo[SanitizeItemId(itemId)].type;
 }
 
-ItemUseFunc ItemId_GetFieldFunc(u16 itemId)
+ItemUseFunc Item_GetFieldFunc(enum Item itemId)
 {
-    return gItemInfos[SanitizeItemId(itemId)].fieldUseFunc;
+    return gItemInfo[SanitizeItemId(itemId)].fieldUseFunc;
 }
 
-u8 ItemId_GetBattleUsage(u16 itemId)
+u32 Item_GetBattleUsage(enum Item itemId)
 {
-    return gItemInfos[SanitizeItemId(itemId)].battleUsage;
+    return gItemInfo[SanitizeItemId(itemId)].battleUsage;
 }
 
-ItemUseFunc ItemId_GetBattleFunc(u16 itemId)
+ItemUseFunc Item_GetBattleFunc(enum Item itemId)
 {
-    return gItemInfos[SanitizeItemId(itemId)].battleUseFunc;
+    return gItemInfo[SanitizeItemId(itemId)].battleUseFunc;
 }
 
-u16 ItemId_GetSecondaryId(u16 itemId)
+u32 Item_GetSecondaryId(enum Item itemId)
 {
-    return gItemInfos[SanitizeItemId(itemId)].secondaryId;
+    return gItemInfo[SanitizeItemId(itemId)].secondaryId;
 }
 
-const u8 *ItemId_GetEffect(u32 itemId)
+const u8 *Item_GetEffect(u32 itemId)
 {
     if (itemId == ITEM_ENIGMA_BERRY)
         return gSaveBlock1Ptr->enigmaBerry.itemEffect;
     else
-        return gItemInfos[SanitizeItemId(itemId)].effect;
+        return gItemInfo[SanitizeItemId(itemId)].effect;
 }
 
-const u32 *GetItemIconPalette(u16 itemId)
+const u32 *Item_GetIconPalette(u16 itemId)
 {
     if (itemId == ITEM_LIST_END)
         return gItemIconPalette_ReturnToFieldArrow;
     if (itemId >= ITEMS_COUNT)
-        return gItemInfos[ITEM_NONE].iconPalette;
+        return gItemInfo[ITEM_NONE].iconPalette;
     if (itemId >= ITEM_TM01 && itemId < ITEM_HM01 + NUM_HIDDEN_MACHINES)
-        return GetTypeTMHMPalette(GetMoveType(gItemInfos[itemId].secondaryId));
+        return GetTypeTMHMPalette(GetMoveType(gItemInfo[itemId].secondaryId));
 
-    return gItemInfos[itemId].iconPalette;
+    return gItemInfo[itemId].iconPalette;
 }
 
-const u32 *GetItemIconPic(u16 itemId)
+const u32 *Item_GetIconPic(u16 itemId)
 {
     if (itemId == ITEM_LIST_END)
         return gItemIcon_ReturnToFieldArrow; // Use last icon, the "return to field" arrow
     if (itemId >= ITEMS_COUNT)
-        return gItemInfos[ITEM_NONE].iconPic;
+        return gItemInfo[ITEM_NONE].iconPic;
     if (itemId >= ITEM_TM01 && itemId < ITEM_TM01 + NUM_TECHNICAL_MACHINES)
         return gItemIcon_TM;
     if (itemId >= ITEM_HM01 && itemId < ITEM_HM01 + NUM_HIDDEN_MACHINES)
         return gItemIcon_HM;
 
-    return gItemInfos[itemId].iconPic;
+    return gItemInfo[itemId].iconPic;
 }
