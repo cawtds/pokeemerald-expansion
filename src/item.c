@@ -10,6 +10,7 @@
 #include "load_save.h"
 #include "malloc.h"
 #include "move.h"
+#include "pokeball.h"
 #include "secret_base.h"
 #include "string_util.h"
 #include "strings.h"
@@ -877,62 +878,62 @@ static u16 SanitizeItemId(u16 itemId)
 
 const u8 *ItemId_GetName(u16 itemId)
 {
-    return gItemsInfo[SanitizeItemId(itemId)].name;
+    return gItemInfos[SanitizeItemId(itemId)].name;
 }
 
 u16 ItemId_GetPrice(u16 itemId)
 {
-    return gItemsInfo[SanitizeItemId(itemId)].price;
+    return gItemInfos[SanitizeItemId(itemId)].price;
 }
 
 u8 ItemId_GetHoldEffect(u16 itemId)
 {
-    return gItemsInfo[SanitizeItemId(itemId)].holdEffect;
+    return gItemInfos[SanitizeItemId(itemId)].holdEffect;
 }
 
 u8 ItemId_GetHoldEffectParam(u16 itemId)
 {
-    return gItemsInfo[SanitizeItemId(itemId)].holdEffectParam;
+    return gItemInfos[SanitizeItemId(itemId)].holdEffectParam;
 }
 
 const u8 *ItemId_GetDescription(u16 itemId)
 {
-    return gItemsInfo[SanitizeItemId(itemId)].description;
+    return gItemInfos[SanitizeItemId(itemId)].description;
 }
 
 u8 ItemId_GetImportance(u16 itemId)
 {
-    return gItemsInfo[SanitizeItemId(itemId)].importance;
+    return gItemInfos[SanitizeItemId(itemId)].importance;
 }
 
 u8 ItemId_GetPocket(u16 itemId)
 {
-    return gItemsInfo[SanitizeItemId(itemId)].pocket;
+    return gItemInfos[SanitizeItemId(itemId)].pocket;
 }
 
 u8 ItemId_GetType(u16 itemId)
 {
-    return gItemsInfo[SanitizeItemId(itemId)].type;
+    return gItemInfos[SanitizeItemId(itemId)].type;
 }
 
 ItemUseFunc ItemId_GetFieldFunc(u16 itemId)
 {
-    return gItemsInfo[SanitizeItemId(itemId)].fieldUseFunc;
+    return gItemInfos[SanitizeItemId(itemId)].fieldUseFunc;
 }
 
 u8 ItemId_GetBattleUsage(u16 itemId)
 {
-    return gItemsInfo[SanitizeItemId(itemId)].battleUsage;
+    return gItemInfos[SanitizeItemId(itemId)].battleUsage;
 }
 
 ItemUseFunc ItemId_GetBattleFunc(u16 itemId)
 {
-    return gItemsInfo[SanitizeItemId(itemId)].battleUseFunc;
+    return gItemInfos[SanitizeItemId(itemId)].battleUseFunc;
 }
 
 u16 ItemId_GetSecondaryId(u16 itemId)
 {
-    return gItemsInfo[SanitizeItemId(itemId)].secondaryId;
+    return gItemInfos[SanitizeItemId(itemId)].secondaryId;
 }
 
 const u8 *ItemId_GetEffect(u32 itemId)
@@ -940,7 +941,7 @@ const u8 *ItemId_GetEffect(u32 itemId)
     if (itemId == ITEM_ENIGMA_BERRY)
         return gSaveBlock1Ptr->enigmaBerry.itemEffect;
     else
-        return gItemsInfo[SanitizeItemId(itemId)].effect;
+        return gItemInfos[SanitizeItemId(itemId)].effect;
 }
 
 const u32 *GetItemIconPalette(u16 itemId)
@@ -948,11 +949,11 @@ const u32 *GetItemIconPalette(u16 itemId)
     if (itemId == ITEM_LIST_END)
         return gItemIconPalette_ReturnToFieldArrow;
     if (itemId >= ITEMS_COUNT)
-        return gItemsInfo[ITEM_NONE].iconPalette;
+        return gItemInfos[ITEM_NONE].iconPalette;
     if (itemId >= ITEM_TM01 && itemId < ITEM_HM01 + NUM_HIDDEN_MACHINES)
-        return GetTypeTMHMPalette(GetMoveType(gItemsInfo[itemId].secondaryId));
+        return GetTypeTMHMPalette(GetMoveType(gItemInfos[itemId].secondaryId));
 
-    return gItemsInfo[itemId].iconPalette;
+    return gItemInfos[itemId].iconPalette;
 }
 
 const u32 *GetItemIconPic(u16 itemId)
@@ -960,11 +961,11 @@ const u32 *GetItemIconPic(u16 itemId)
     if (itemId == ITEM_LIST_END)
         return gItemIcon_ReturnToFieldArrow; // Use last icon, the "return to field" arrow
     if (itemId >= ITEMS_COUNT)
-        return gItemsInfo[0].iconPic;
+        return gItemInfos[ITEM_NONE].iconPic;
     if (itemId >= ITEM_TM01 && itemId < ITEM_TM01 + NUM_TECHNICAL_MACHINES)
         return gItemIcon_TM;
     if (itemId >= ITEM_HM01 && itemId < ITEM_HM01 + NUM_HIDDEN_MACHINES)
         return gItemIcon_HM;
 
-    return gItemsInfo[itemId].iconPic;
+    return gItemInfos[itemId].iconPic;
 }

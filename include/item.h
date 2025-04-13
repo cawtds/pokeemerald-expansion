@@ -7,7 +7,7 @@
 
 typedef void (*ItemUseFunc)(u8);
 
-struct Item
+struct ItemInfo
 {
     u16 price;
     const u8 *description;
@@ -32,7 +32,7 @@ struct BagPocket
     u8 capacity;
 };
 
-extern const struct Item gItemsInfo[];
+extern const struct ItemInfo gItemInfos[];
 extern struct BagPocket gBagPockets[];
 
 void ApplyNewEncryptionKeyToBagItems(u32 newKey);

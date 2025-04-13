@@ -72,7 +72,7 @@ struct GFRomHeader
     const struct SpeciesInfo * speciesInfo;
     const u8 (* abilityNames)[];
     const u8 * const * abilityDescriptions;
-    const struct Item * items;
+    const struct ItemInfo * items;
     const struct BattleMove
     {
         u8 effect;
@@ -164,7 +164,7 @@ static const struct GFRomHeader sGFRomHeader = {
     .speciesInfo = gSpeciesInfo,
     // .abilityNames = gAbilityNames,
     // .abilityDescriptions = gAbilityDescriptionPointers,
-    .items = gItemsInfo,
+    .items = gItemInfos,
     // .moves = gBattleMoves,
     .ballGfx = gBallSpriteSheets,
     .ballPalettes = gBallSpritePalettes,
