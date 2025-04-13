@@ -361,7 +361,7 @@ static u16 GetRandomAlternateMove(u8 monId)
     numLearnsetMoves = j;
     i = 0;
 
-    // i < 5 here is arbitrary, i isnt used and is only incremented when the selected move isnt in gMovesInfo
+    // i < 5 here is arbitrary, i isnt used and is only incremented when the selected move isnt in gMoveInfo
     // This while loop contains 3 potential infinite loops, though none of them would occur in the base game
     while (i < 5)
     {

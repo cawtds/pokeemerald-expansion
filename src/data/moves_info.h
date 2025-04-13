@@ -2,7 +2,7 @@
 #include "constants/contest.h"
 
 
-const struct MoveInfo gMovesInfo[MOVES_COUNT] =
+const struct MoveInfo gMoveInfo[MOVES_COUNT] =
 {
     [MOVE_NONE] =
     {

@@ -39,7 +39,7 @@ struct MoveInfo
     const u8 *battleAnimScript;
 };
 
-extern const struct MoveInfo gMovesInfo[MOVES_COUNT];
+extern const struct MoveInfo gMoveInfo[MOVES_COUNT];
 extern const struct BattleMoveEffect gBattleMoveEffects[];
 
 static inline u32 SanitizeMoveId(u32 moveId)
@@ -53,134 +53,134 @@ static inline u32 SanitizeMoveId(u32 moveId)
 static inline const u8 *GetMoveName(u32 moveId)
 {
     moveId = SanitizeMoveId(moveId);
-    if (gMovesInfo[moveId].name == NULL)
-        return gMovesInfo[MOVE_NONE].name;
-    return gMovesInfo[moveId].name;
+    if (gMoveInfo[moveId].name == NULL)
+        return gMoveInfo[MOVE_NONE].name;
+    return gMoveInfo[moveId].name;
 }
 
 static inline const u8 *GetMoveDescription(u32 moveId)
 {
     moveId = SanitizeMoveId(moveId);
-    if (gMovesInfo[moveId].description == NULL)
-        return gMovesInfo[MOVE_NONE].description;
-    return gMovesInfo[moveId].description;
+    if (gMoveInfo[moveId].description == NULL)
+        return gMoveInfo[MOVE_NONE].description;
+    return gMoveInfo[moveId].description;
 }
 
 static inline u32 GetMoveEffect(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].effect;
+    return gMoveInfo[SanitizeMoveId(moveId)].effect;
 }
 
 static inline u32 GetMoveType(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].type;
+    return gMoveInfo[SanitizeMoveId(moveId)].type;
 }
 
 static inline u32 GetMovePower(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].power;
+    return gMoveInfo[SanitizeMoveId(moveId)].power;
 }
 
 static inline u32 GetMoveAccuracy(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].accuracy;
+    return gMoveInfo[SanitizeMoveId(moveId)].accuracy;
 }
 
 static inline u32 GetMoveTarget(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].target;
+    return gMoveInfo[SanitizeMoveId(moveId)].target;
 }
 
 static inline u32 GetMovePP(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].pp;
+    return gMoveInfo[SanitizeMoveId(moveId)].pp;
 }
 
 static inline s32 GetMovePriority(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].priority;
+    return gMoveInfo[SanitizeMoveId(moveId)].priority;
 }
 
 static inline u32 GetMoveSecondaryEffectChance(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].secondaryEffectChance;
+    return gMoveInfo[SanitizeMoveId(moveId)].secondaryEffectChance;
 }
 
 static inline bool32 IsContactMove(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].makesContact;
+    return gMoveInfo[SanitizeMoveId(moveId)].makesContact;
 }
 
 static inline bool32 IsMoveAffectedByProtect(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].protectAffected;
+    return gMoveInfo[SanitizeMoveId(moveId)].protectAffected;
 }
 
 static inline bool32 IsMoveAffectedByMagicCoat(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].magicCoatAffected;
+    return gMoveInfo[SanitizeMoveId(moveId)].magicCoatAffected;
 }
 
 static inline bool32 IsMoveAffectedBySnatch(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].snatchAffected;
+    return gMoveInfo[SanitizeMoveId(moveId)].snatchAffected;
 }
 
 static inline bool32 IsMoveAffectedByMirrorMove(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].mirrorMoveAffected;
+    return gMoveInfo[SanitizeMoveId(moveId)].mirrorMoveAffected;
 }
 
 static inline bool32 IsMoveAffectedByKingsRock(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].kingsRockAffected;
+    return gMoveInfo[SanitizeMoveId(moveId)].kingsRockAffected;
 }
 
 static inline bool32 IsValidApprenticeMove(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].validApprenticeMove;
+    return gMoveInfo[SanitizeMoveId(moveId)].validApprenticeMove;
 }
 
 static inline u32 GetMoveContestEffect(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].contestEffect;
+    return gMoveInfo[SanitizeMoveId(moveId)].contestEffect;
 }
 
 static inline u32 GetMoveContestCategory(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].contestCategory;
+    return gMoveInfo[SanitizeMoveId(moveId)].contestCategory;
 }
 
 static inline u32 GetMoveContestComboStarter(u32 moveId)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].contestComboStarterId;
+    return gMoveInfo[SanitizeMoveId(moveId)].contestComboStarterId;
 }
 
 static inline u32 GetMoveContestComboMoves(u32 moveId, u32 comboMove)
 {
-    return gMovesInfo[SanitizeMoveId(moveId)].contestComboMoves[comboMove];
+    return gMoveInfo[SanitizeMoveId(moveId)].contestComboMoves[comboMove];
 }
 
 static inline const u8 *GetMoveAnimationScript(u32 moveId)
 {
     moveId = SanitizeMoveId(moveId);
-    if (gMovesInfo[moveId].battleAnimScript == NULL)
+    if (gMoveInfo[moveId].battleAnimScript == NULL)
     {
         DebugPrintfLevel(MGBA_LOG_WARN, "No animation for moveId=%u", moveId);
-        return gMovesInfo[MOVE_NONE].battleAnimScript;
+        return gMoveInfo[MOVE_NONE].battleAnimScript;
     }
-    return gMovesInfo[moveId].battleAnimScript;
+    return gMoveInfo[moveId].battleAnimScript;
 }
 
 static inline const u8 *GetMoveBattleScript(u32 moveId)
 {
     moveId = SanitizeMoveId(moveId);
-    if (gBattleMoveEffects[gMovesInfo[moveId].effect].battleScript == NULL)
+    if (gBattleMoveEffects[gMoveInfo[moveId].effect].battleScript == NULL)
     {
         DebugPrintfLevel(MGBA_LOG_WARN, "No effect for moveId=%u", moveId);
         return BattleScript_EffectPlaceholder;
     }
-    return gBattleMoveEffects[gMovesInfo[moveId].effect].battleScript;
+    return gBattleMoveEffects[gMoveInfo[moveId].effect].battleScript;
 }
 
 #endif //GUARD_MOVE_H

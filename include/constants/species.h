@@ -3,7 +3,7 @@
 
 enum Species
 {
-    SPECIES_NONE,
+    SPECIES_NONE = 0,
     SPECIES_BULBASAUR,
     SPECIES_IVYSAUR,
     SPECIES_VENUSAUR,
