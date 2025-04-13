@@ -231,9 +231,18 @@ void AnimTask_HorizontalShake(u8 taskId);
 
 // battle_anim_throw.c
 void TryShinyAnimation(u8 battler, struct Pokemon *mon);
-u8 ItemIdToBallId(u16 itemId);
-u8 AnimateBallOpenParticles(u8 x, u8 y, u8 priority, u8 subpriority, u8 ballId);
-u8 LaunchBallFadeMonTask(bool8 unFadeLater, u8 spritePalNum, u32 selectedPalettes, u8 ballId);
+enum Ball ItemIdToBallId(u16 itemId);
+u8 AnimateBallOpenParticles(u8 x, u8 y, u8 priority, u8 subpriority, enum Ball ballId);
+u8 LaunchBallFadeMonTask(bool8 unFadeLater, u8 spritePalNum, u32 selectedPalettes, enum Ball ballId);
+void PokeBallOpenParticleAnimation(u8 taskId);
+void GreatBallOpenParticleAnimation(u8 taskId);
+void SafariBallOpenParticleAnimation(u8 taskId);
+void UltraBallOpenParticleAnimation(u8 taskId);
+void MasterBallOpenParticleAnimation(u8 taskId);
+void DiveBallOpenParticleAnimation(u8 taskId);
+void RepeatBallOpenParticleAnimation(u8 taskId);
+void TimerBallOpenParticleAnimation(u8 taskId);
+void PremierBallOpenParticleAnimation(u8 taskId);
 
 // battle_anim_utility_funcs.c
 void InitStatsChangeAnimation(u8);

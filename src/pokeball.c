@@ -13,7 +13,34 @@
 #include "trig.h"
 #include "util.h"
 #include "data.h"
+#include "constants/rgb.h"
 #include "constants/songs.h"
+
+#define GFX_TAG_POKE_BALL    55000
+#define GFX_TAG_GREAT_BALL   55001
+#define GFX_TAG_SAFARI_BALL  55002
+#define GFX_TAG_ULTRA_BALL   55003
+#define GFX_TAG_MASTER_BALL  55004
+#define GFX_TAG_NET_BALL     55005
+#define GFX_TAG_DIVE_BALL    55006
+#define GFX_TAG_NEST_BALL    55007
+#define GFX_TAG_REPEAT_BALL  55008
+#define GFX_TAG_TIMER_BALL   55009
+#define GFX_TAG_LUXURY_BALL  55010
+#define GFX_TAG_PREMIER_BALL 55011
+
+#define TAG_PARTICLES_POKEBALL    55020
+#define TAG_PARTICLES_GREATBALL   55021
+#define TAG_PARTICLES_SAFARIBALL  55022
+#define TAG_PARTICLES_ULTRABALL   55023
+#define TAG_PARTICLES_MASTERBALL  55024
+#define TAG_PARTICLES_NETBALL     55025
+#define TAG_PARTICLES_DIVEBALL    55026
+#define TAG_PARTICLES_NESTBALL    55027
+#define TAG_PARTICLES_REPEATBALL  55028
+#define TAG_PARTICLES_TIMERBALL   55029
+#define TAG_PARTICLES_LUXURYBALL  55030
+#define TAG_PARTICLES_PREMIERBALL 55031
 
 static void Task_DoPokeballSendOutAnim(u8 taskId);
 static void SpriteCB_PlayerMonSendOut_1(struct Sprite *sprite);
@@ -43,288 +70,9 @@ static void SpriteCB_HitAnimHealthoxEffect(struct Sprite *sprite);
 static u16 GetBattlerPokeballItemId(u8 battlerId);
 
 // rom const data
-
-#define GFX_TAG_POKE_BALL    55000
-#define GFX_TAG_GREAT_BALL   55001
-#define GFX_TAG_SAFARI_BALL  55002
-#define GFX_TAG_ULTRA_BALL   55003
-#define GFX_TAG_MASTER_BALL  55004
-#define GFX_TAG_NET_BALL     55005
-#define GFX_TAG_DIVE_BALL    55006
-#define GFX_TAG_NEST_BALL    55007
-#define GFX_TAG_REPEAT_BALL  55008
-#define GFX_TAG_TIMER_BALL   55009
-#define GFX_TAG_LUXURY_BALL  55010
-#define GFX_TAG_PREMIER_BALL 55011
-
-const struct CompressedSpriteSheet gBallSpriteSheets[POKEBALL_COUNT] =
-{
-    [BALL_POKE]    = {gBallGfx_Poke,    384, GFX_TAG_POKE_BALL},
-    [BALL_GREAT]   = {gBallGfx_Great,   384, GFX_TAG_GREAT_BALL},
-    [BALL_SAFARI]  = {gBallGfx_Safari,  384, GFX_TAG_SAFARI_BALL},
-    [BALL_ULTRA]   = {gBallGfx_Ultra,   384, GFX_TAG_ULTRA_BALL},
-    [BALL_MASTER]  = {gBallGfx_Master,  384, GFX_TAG_MASTER_BALL},
-    [BALL_NET]     = {gBallGfx_Net,     384, GFX_TAG_NET_BALL},
-    [BALL_DIVE]    = {gBallGfx_Dive,    384, GFX_TAG_DIVE_BALL},
-    [BALL_NEST]    = {gBallGfx_Nest,    384, GFX_TAG_NEST_BALL},
-    [BALL_REPEAT]  = {gBallGfx_Repeat,  384, GFX_TAG_REPEAT_BALL},
-    [BALL_TIMER]   = {gBallGfx_Timer,   384, GFX_TAG_TIMER_BALL},
-    [BALL_LUXURY]  = {gBallGfx_Luxury,  384, GFX_TAG_LUXURY_BALL},
-    [BALL_PREMIER] = {gBallGfx_Premier, 384, GFX_TAG_PREMIER_BALL},
-};
-
-const struct CompressedSpritePalette gBallSpritePalettes[POKEBALL_COUNT] =
-{
-    [BALL_POKE]    = {gBallPal_Poke,    GFX_TAG_POKE_BALL},
-    [BALL_GREAT]   = {gBallPal_Great,   GFX_TAG_GREAT_BALL},
-    [BALL_SAFARI]  = {gBallPal_Safari,  GFX_TAG_SAFARI_BALL},
-    [BALL_ULTRA]   = {gBallPal_Ultra,   GFX_TAG_ULTRA_BALL},
-    [BALL_MASTER]  = {gBallPal_Master,  GFX_TAG_MASTER_BALL},
-    [BALL_NET]     = {gBallPal_Net,     GFX_TAG_NET_BALL},
-    [BALL_DIVE]    = {gBallPal_Dive,    GFX_TAG_DIVE_BALL},
-    [BALL_NEST]    = {gBallPal_Nest,    GFX_TAG_NEST_BALL},
-    [BALL_REPEAT]  = {gBallPal_Repeat,  GFX_TAG_REPEAT_BALL},
-    [BALL_TIMER]   = {gBallPal_Timer,   GFX_TAG_TIMER_BALL},
-    [BALL_LUXURY]  = {gBallPal_Luxury,  GFX_TAG_LUXURY_BALL},
-    [BALL_PREMIER] = {gBallPal_Premier, GFX_TAG_PREMIER_BALL},
-};
-
-static const struct OamData sBallOamData =
-{
-    .y = 0,
-    .affineMode = ST_OAM_AFFINE_DOUBLE,
-    .objMode = ST_OAM_OBJ_NORMAL,
-    .mosaic = FALSE,
-    .bpp = ST_OAM_4BPP,
-    .shape = SPRITE_SHAPE(16x16),
-    .x = 0,
-    .matrixNum = 0,
-    .size = SPRITE_SIZE(16x16),
-    .tileNum = 0,
-    .priority = 2,
-    .paletteNum = 0,
-    .affineParam = 0,
-};
-
-static const union AnimCmd sBallAnimSeq3[] =
-{
-    ANIMCMD_FRAME(0, 5),
-    ANIMCMD_JUMP(0),
-};
-
-static const union AnimCmd sBallAnimSeq5[] =
-{
-    ANIMCMD_FRAME(4, 1),
-    ANIMCMD_JUMP(0),
-};
-
-static const union AnimCmd sBallAnimSeq4[] =
-{
-    ANIMCMD_FRAME(8, 5),
-    ANIMCMD_JUMP(0),
-};
-
-static const union AnimCmd sBallAnimSeq6[] =
-{
-    ANIMCMD_FRAME(12, 1),
-    ANIMCMD_JUMP(0),
-};
-
-static const union AnimCmd sBallAnimSeq0[] =
-{
-    ANIMCMD_FRAME(0, 1),
-    ANIMCMD_END,
-};
-
-static const union AnimCmd sBallAnimSeq1[] =
-{
-    ANIMCMD_FRAME(4, 5),
-    ANIMCMD_FRAME(8, 5),
-    ANIMCMD_END,
-};
-
-static const union AnimCmd sBallAnimSeq2[] =
-{
-    ANIMCMD_FRAME(4, 5),
-    ANIMCMD_FRAME(0, 5),
-    ANIMCMD_END,
-};
-
-static const union AnimCmd *const sBallAnimSequences[] =
-{
-    sBallAnimSeq0,
-    sBallAnimSeq1,
-    sBallAnimSeq2,
-
-    // unused?
-    sBallAnimSeq3,
-    sBallAnimSeq4,
-    sBallAnimSeq5,
-    sBallAnimSeq6,
-};
-
-static const union AffineAnimCmd sAffineAnim_BallRotate_0[] =
-{
-    AFFINEANIMCMD_FRAME(0, 0, 0, 1),
-    AFFINEANIMCMD_JUMP(0),
-};
-
-static const union AffineAnimCmd sAffineAnim_BallRotate_Right[] =
-{
-    AFFINEANIMCMD_FRAME(0, 0, -3, 1),
-    AFFINEANIMCMD_JUMP(0),
-};
-
-static const union AffineAnimCmd sAffineAnim_BallRotate_Left[] =
-{
-    AFFINEANIMCMD_FRAME(0, 0, 3, 1),
-    AFFINEANIMCMD_JUMP(0),
-};
-
-static const union AffineAnimCmd sAffineAnim_BallRotate_3[] =
-{
-    AFFINEANIMCMD_FRAME(256, 256, 0, 0),
-    AFFINEANIMCMD_END,
-};
-
-static const union AffineAnimCmd sAffineAnim_BallRotate_4[] =
-{
-    AFFINEANIMCMD_FRAME(0, 0, 25, 1),
-    AFFINEANIMCMD_JUMP(0),
-};
-
-static const union AffineAnimCmd *const sAffineAnim_BallRotate[] =
-{
-    [BALL_AFFINE_ANIM_0] = sAffineAnim_BallRotate_0,
-    [BALL_ROTATE_RIGHT]  = sAffineAnim_BallRotate_Right,
-    [BALL_ROTATE_LEFT]   = sAffineAnim_BallRotate_Left,
-    [BALL_AFFINE_ANIM_3] = sAffineAnim_BallRotate_3,
-    [BALL_AFFINE_ANIM_4] = sAffineAnim_BallRotate_4,
-};
-
-const struct SpriteTemplate gBallSpriteTemplates[POKEBALL_COUNT] =
-{
-    [BALL_POKE] =
-    {
-        .tileTag = GFX_TAG_POKE_BALL,
-        .paletteTag = GFX_TAG_POKE_BALL,
-        .oam = &sBallOamData,
-        .anims = sBallAnimSequences,
-        .images = NULL,
-        .affineAnims = sAffineAnim_BallRotate,
-        .callback = SpriteCB_BallThrow,
-    },
-    [BALL_GREAT] =
-    {
-        .tileTag = GFX_TAG_GREAT_BALL,
-        .paletteTag = GFX_TAG_GREAT_BALL,
-        .oam = &sBallOamData,
-        .anims = sBallAnimSequences,
-        .images = NULL,
-        .affineAnims = sAffineAnim_BallRotate,
-        .callback = SpriteCB_BallThrow,
-    },
-    [BALL_SAFARI] =
-    {
-        .tileTag = GFX_TAG_SAFARI_BALL,
-        .paletteTag = GFX_TAG_SAFARI_BALL,
-        .oam = &sBallOamData,
-        .anims = sBallAnimSequences,
-        .images = NULL,
-        .affineAnims = sAffineAnim_BallRotate,
-        .callback = SpriteCB_BallThrow,
-    },
-    [BALL_ULTRA] =
-    {
-        .tileTag = GFX_TAG_ULTRA_BALL,
-        .paletteTag = GFX_TAG_ULTRA_BALL,
-        .oam = &sBallOamData,
-        .anims = sBallAnimSequences,
-        .images = NULL,
-        .affineAnims = sAffineAnim_BallRotate,
-        .callback = SpriteCB_BallThrow,
-    },
-    [BALL_MASTER] =
-    {
-        .tileTag = GFX_TAG_MASTER_BALL,
-        .paletteTag = GFX_TAG_MASTER_BALL,
-        .oam = &sBallOamData,
-        .anims = sBallAnimSequences,
-        .images = NULL,
-        .affineAnims = sAffineAnim_BallRotate,
-        .callback = SpriteCB_BallThrow,
-    },
-    [BALL_NET] =
-    {
-        .tileTag = GFX_TAG_NET_BALL,
-        .paletteTag = GFX_TAG_NET_BALL,
-        .oam = &sBallOamData,
-        .anims = sBallAnimSequences,
-        .images = NULL,
-        .affineAnims = sAffineAnim_BallRotate,
-        .callback = SpriteCB_BallThrow,
-    },
-    [BALL_DIVE] =
-    {
-        .tileTag = GFX_TAG_DIVE_BALL,
-        .paletteTag = GFX_TAG_DIVE_BALL,
-        .oam = &sBallOamData,
-        .anims = sBallAnimSequences,
-        .images = NULL,
-        .affineAnims = sAffineAnim_BallRotate,
-        .callback = SpriteCB_BallThrow,
-    },
-    [BALL_NEST] =
-    {
-        .tileTag = GFX_TAG_NEST_BALL,
-        .paletteTag = GFX_TAG_NEST_BALL,
-        .oam = &sBallOamData,
-        .anims = sBallAnimSequences,
-        .images = NULL,
-        .affineAnims = sAffineAnim_BallRotate,
-        .callback = SpriteCB_BallThrow,
-    },
-    [BALL_REPEAT] =
-    {
-        .tileTag = GFX_TAG_REPEAT_BALL,
-        .paletteTag = GFX_TAG_REPEAT_BALL,
-        .oam = &sBallOamData,
-        .anims = sBallAnimSequences,
-        .images = NULL,
-        .affineAnims = sAffineAnim_BallRotate,
-        .callback = SpriteCB_BallThrow,
-    },
-    [BALL_TIMER] =
-    {
-        .tileTag = GFX_TAG_TIMER_BALL,
-        .paletteTag = GFX_TAG_TIMER_BALL,
-        .oam = &sBallOamData,
-        .anims = sBallAnimSequences,
-        .images = NULL,
-        .affineAnims = sAffineAnim_BallRotate,
-        .callback = SpriteCB_BallThrow,
-    },
-    [BALL_LUXURY] =
-    {
-        .tileTag = GFX_TAG_LUXURY_BALL,
-        .paletteTag = GFX_TAG_LUXURY_BALL,
-        .oam = &sBallOamData,
-        .anims = sBallAnimSequences,
-        .images = NULL,
-        .affineAnims = sAffineAnim_BallRotate,
-        .callback = SpriteCB_BallThrow,
-    },
-    [BALL_PREMIER] =
-    {
-        .tileTag = GFX_TAG_PREMIER_BALL,
-        .paletteTag = GFX_TAG_PREMIER_BALL,
-        .oam = &sBallOamData,
-        .anims = sBallAnimSequences,
-        .images = NULL,
-        .affineAnims = sAffineAnim_BallRotate,
-        .callback = SpriteCB_BallThrow,
-    },
-};
+#include "data/pokeball_particle_data.h"
+#include "data/pokeball_sprite_data.h"
+#include "data/pokeball_infos.h"
 
 #define tFrames          data[0]
 #define tPan             data[1]
@@ -353,7 +101,8 @@ static void Task_DoPokeballSendOutAnim(u8 taskId)
 {
     u16 throwCaseId;
     u8 battlerId;
-    u16 itemId, ballId;
+    u16 itemId;
+    enum Ball ballId;
     u8 ballSpriteId;
     bool8 notSendOut = FALSE;
 
@@ -373,7 +122,7 @@ static void Task_DoPokeballSendOutAnim(u8 taskId)
 
     ballId = ItemIdToBallId(itemId);
     LoadBallGfx(ballId);
-    ballSpriteId = CreateSprite(&gBallSpriteTemplates[ballId], 32, 80, 29);
+    ballSpriteId = CreateSprite(Ball_GetSpriteTemplate(ballId), 32, 80, 29);
     gSprites[ballSpriteId].data[0] = 0x80;
     gSprites[ballSpriteId].data[1] = 0;
     gSprites[ballSpriteId].data[7] = throwCaseId;
@@ -425,7 +174,7 @@ static void SpriteCB_BallThrow(struct Sprite *sprite)
 {
     if (TranslateAnimHorizontalArc(sprite))
     {
-        u16 ballId;
+        enum Ball ballId;
         u8 taskId = sprite->oam.affineParam;
         u8 opponentBattler = gTasks[taskId].tOpponentBattler;
         u8 noOfShakes = gTasks[taskId].tThrowId;
@@ -750,7 +499,7 @@ static void Task_PlayCryWhenReleasedFromBall(u8 taskId)
 static void SpriteCB_ReleaseMonFromBall(struct Sprite *sprite)
 {
     u8 battlerId = sprite->sBattler;
-    u32 ballId;
+    enum Ball ballId;
 
     StartSpriteAnim(sprite, 1);
     ballId = ItemIdToBallId(GetBattlerPokeballItemId(battlerId));
@@ -1032,9 +781,9 @@ void CreatePokeballSpriteToReleaseMon(u8 monSpriteId, u8 monPalNum, u8 x, u8 y, 
 {
     u8 spriteId;
 
-    LoadCompressedSpriteSheetUsingHeap(&gBallSpriteSheets[BALL_POKE]);
-    LoadCompressedSpritePaletteUsingHeap(&gBallSpritePalettes[BALL_POKE]);
-    spriteId = CreateSprite(&gBallSpriteTemplates[BALL_POKE], x, y, subpriority);
+    LoadCompressedSpriteSheetUsingHeap(Ball_GetSpriteSheet(BALL_POKE));
+    LoadCompressedSpritePaletteUsingHeap(Ball_GetSpritePalette(BALL_POKE));
+    spriteId = CreateSprite(Ball_GetSpriteTemplate(BALL_POKE), x, y, subpriority);
 
     gSprites[spriteId].sMonSpriteId = monSpriteId;
     gSprites[spriteId].sFinalMonX = gSprites[monSpriteId].x;
@@ -1144,9 +893,9 @@ u8 CreateTradePokeballSprite(u8 monSpriteId, u8 monPalNum, u8 x, u8 y, u8 oamPri
 {
     u8 spriteId;
 
-    LoadCompressedSpriteSheetUsingHeap(&gBallSpriteSheets[BALL_POKE]);
-    LoadCompressedSpritePaletteUsingHeap(&gBallSpritePalettes[BALL_POKE]);
-    spriteId = CreateSprite(&gBallSpriteTemplates[BALL_POKE], x, y, subPriority);
+    LoadCompressedSpriteSheetUsingHeap(Ball_GetSpriteSheet(BALL_POKE));
+    LoadCompressedSpritePaletteUsingHeap(Ball_GetSpritePalette(BALL_POKE));
+    spriteId = CreateSprite(Ball_GetSpriteTemplate(BALL_POKE), x, y, subPriority);
     gSprites[spriteId].sMonSpriteId = monSpriteId;
     gSprites[spriteId].sDelay = delay;
     gSprites[spriteId].sMonPalNum = monPalNum;
@@ -1306,14 +1055,14 @@ static void SpriteCB_HitAnimHealthoxEffect(struct Sprite *sprite)
     }
 }
 
-void LoadBallGfx(u8 ballId)
+void LoadBallGfx(enum Ball ballId)
 {
     u16 var;
 
-    if (GetSpriteTileStartByTag(gBallSpriteSheets[ballId].tag) == 0xFFFF)
+    if (GetSpriteTileStartByTag(Ball_GetSpriteSheet(ballId)->tag) == 0xFFFF)
     {
-        LoadCompressedSpriteSheetUsingHeap(&gBallSpriteSheets[ballId]);
-        LoadCompressedSpritePaletteUsingHeap(&gBallSpritePalettes[ballId]);
+        LoadCompressedSpriteSheetUsingHeap(Ball_GetSpriteSheet(ballId));
+        LoadCompressedSpritePaletteUsingHeap(Ball_GetSpritePalette(ballId));
     }
 
     switch (ballId)
@@ -1323,16 +1072,16 @@ void LoadBallGfx(u8 ballId)
     case BALL_PREMIER:
         break;
     default:
-        var = GetSpriteTileStartByTag(gBallSpriteSheets[ballId].tag);
+        var = GetSpriteTileStartByTag(Ball_GetSpriteSheet(ballId)->tag);
         LZDecompressVram(gOpenPokeballGfx, (void *)(OBJ_VRAM0 + 0x100 + var * 32));
         break;
     }
 }
 
-void FreeBallGfx(u8 ballId)
+void FreeBallGfx(enum Ball ballId)
 {
-    FreeSpriteTilesByTag(gBallSpriteSheets[ballId].tag);
-    FreeSpritePaletteByTag(gBallSpritePalettes[ballId].tag);
+    FreeSpriteTilesByTag(Ball_GetSpriteSheet(ballId)->tag);
+    FreeSpritePaletteByTag(Ball_GetSpritePalette(ballId)->tag);
 }
 
 static u16 GetBattlerPokeballItemId(u8 battlerId)
