@@ -969,3 +969,25 @@ const u32 *Item_GetIconPic(u16 itemId)
 
     return gItemInfo[itemId].iconPic;
 }
+
+enum Ball ItemIdToBallId(u16 itemId)
+{
+    enum Ball ballId = (Item_GetPocket(itemId) == POCKET_POKE_BALLS) ? Item_GetSecondaryId(itemId) : BALL_POKE;
+
+    return ballId < POKEBALL_COUNT ? ballId : BALL_POKE;
+}
+
+u16 ItemIdToBattleMoveId(u16 item)
+{
+    return (Item_GetPocket(item) == POCKET_TM_HM) ? Item_GetSecondaryId(item) : MOVE_NONE;
+}
+
+u8 ItemIdToBerryType(u16 item)
+{
+    u16 berry = item - FIRST_BERRY_INDEX;
+
+    if (berry > LAST_BERRY_INDEX - FIRST_BERRY_INDEX)
+        return ITEM_TO_BERRY(FIRST_BERRY_INDEX);
+    else
+        return ITEM_TO_BERRY(item);
+}

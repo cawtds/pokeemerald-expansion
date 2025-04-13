@@ -231,7 +231,6 @@ void AnimTask_HorizontalShake(u8 taskId);
 
 // battle_anim_throw.c
 void TryShinyAnimation(u8 battler, struct Pokemon *mon);
-enum Ball ItemIdToBallId(u16 itemId);
 u8 AnimateBallOpenParticles(u8 x, u8 y, u8 priority, u8 subpriority, enum Ball ballId);
 u8 LaunchBallFadeMonTask(bool8 unFadeLater, u8 spritePalNum, u32 selectedPalettes, enum Ball ballId);
 void PokeBallOpenParticleAnimation(u8 taskId);

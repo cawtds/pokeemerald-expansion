@@ -451,13 +451,6 @@ void AnimTask_IsBallBlockedByTrainer(u8 taskId)
     DestroyAnimVisualTask(taskId);
 }
 
-enum Ball ItemIdToBallId(u16 ballItem)
-{
-    enum Ball ballId = (Item_GetPocket(ballItem) == POCKET_POKE_BALLS) ? Item_GetSecondaryId(ballItem) : BALL_POKE;
-
-    return ballId < POKEBALL_COUNT ? ballId : BALL_POKE;
-}
-
 #define tSpriteId data[0]
 
 #define sDuration data[0]

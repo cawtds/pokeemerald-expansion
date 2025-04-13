@@ -3,6 +3,7 @@
 
 #include "constants/item.h"
 #include "constants/items.h"
+#include "constants/pokeball.h"
 #include "constants/tms_hms.h"
 
 typedef void (*ItemUseFunc)(u8);
@@ -80,6 +81,9 @@ u32 Item_GetSecondaryId(enum Item itemId);
 const u32 *Item_GetIconPic(u16 itemId);
 const u32 *Item_GetIconPalette(u16 itemId);
 const u8 *Item_GetEffect(u32 itemId);
+enum Ball ItemIdToBallId(u16 itemId);
+u16 ItemIdToBattleMoveId(u16 itemId);
+u8 ItemIdToBerryType(u16 itemId);
 
 /* Expands to:
  * enum

@@ -3,6 +3,7 @@
 #include "battle_anim.h"
 #include "decompress.h"
 #include "graphics.h"
+#include "item.h"
 #include "main.h"
 #include "m4a.h"
 #include "pokeball.h"

@@ -1147,16 +1147,6 @@ u8 GetStageByBerryTreeId(u8 id)
     return gSaveBlock1Ptr->berryTrees[id].stage;
 }
 
-u8 ItemIdToBerryType(u16 item)
-{
-    u16 berry = item - FIRST_BERRY_INDEX;
-
-    if (berry > LAST_BERRY_INDEX - FIRST_BERRY_INDEX)
-        return ITEM_TO_BERRY(FIRST_BERRY_INDEX);
-    else
-        return ITEM_TO_BERRY(item);
-}
-
 static u16 BerryTypeToItemId(u16 berry)
 {
     u16 item = berry - 1;

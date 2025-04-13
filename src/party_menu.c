@@ -4691,11 +4691,6 @@ void ItemUseCB_PPUp(u8 taskId, TaskFunc task)
     gTasks[taskId].func = Task_HandleWhichMoveInput;
 }
 
-u16 ItemIdToBattleMoveId(u16 item)
-{
-    return (Item_GetPocket(item) == POCKET_TM_HM) ? Item_GetSecondaryId(item) : MOVE_NONE;
-}
-
 bool8 IsMoveHm(u16 move)
 {
     u16 itemId;
