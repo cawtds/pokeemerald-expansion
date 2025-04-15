@@ -77,7 +77,7 @@ else
 endif
 
 ROM_NAME := $(FILE_NAME).gba
-OBJ_DIR_NAME := $(BUILD_DIR)/emerald
+OBJ_DIR_NAME := $(BUILD_DIR)/agbcc
 MODERN_ROM_NAME := $(FILE_NAME)_modern.gba
 MODERN_OBJ_DIR_NAME := $(BUILD_DIR)/modern
 OBJ_DIR_NAME_TEST := $(BUILD_DIR)/modern-test
@@ -102,9 +102,7 @@ endif
 ifeq ($(TESTELF),$(MAKECMDGOALS))
   TEST := 1
 endif
-ifeq ($(TEST), 0)
-  OBJ_DIR := $(OBJ_DIR_NAME)
-else
+ifeq ($(TEST), 1)
   OBJ_DIR := $(OBJ_DIR_NAME_TEST)
 endif
 ELF := $(ROM:.gba=.elf)

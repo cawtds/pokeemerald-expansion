@@ -118,10 +118,7 @@ struct PokemonSubstruct0
 struct PokemonSubstruct1
 {
     u16 moves[MAX_MON_MOVES];
-    u8 pp1;
-    u8 pp2;
-    u8 pp3;
-    u8 pp4;
+    u8 pp[MAX_MON_MOVES];
 };
 
 struct PokemonSubstruct2

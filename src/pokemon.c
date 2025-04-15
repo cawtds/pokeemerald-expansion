@@ -2946,16 +2946,10 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
         retVal = substruct1->moves[field - MON_DATA_MOVE1];
         break;
     case MON_DATA_PP1:
-        retVal = substruct1->pp1;
-        break;
     case MON_DATA_PP2:
-        retVal = substruct1->pp2;
-        break;
     case MON_DATA_PP3:
-        retVal = substruct1->pp3;
-        break;
     case MON_DATA_PP4:
-        retVal = substruct1->pp4;
+        retVal = substruct1->pp[field - MON_DATA_PP1];
         break;
     case MON_DATA_HP_EV:
         retVal = substruct2->hpEV;
@@ -3328,16 +3322,10 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         SET16(substruct1->moves[field - MON_DATA_MOVE1]);
         break;
     case MON_DATA_PP1:
-        SET8(substruct1->pp1);
-        break;
     case MON_DATA_PP2:
-        SET8(substruct1->pp2);
-        break;
     case MON_DATA_PP3:
-        SET8(substruct1->pp3);
-        break;
     case MON_DATA_PP4:
-        SET8(substruct1->pp4);
+        SET8(substruct1->pp[field - MON_DATA_PP1]);
         break;
     case MON_DATA_HP_EV:
         SET8(substruct2->hpEV);
