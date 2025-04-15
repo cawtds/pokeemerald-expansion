@@ -671,7 +671,6 @@ int main(int argc, char *argv[])
         pollfds[i].fd = runners[i].outfd;
         pollfds[i].events = POLLIN;
     }
-    printf("openfds = %i\n", openfds);
     while (openfds > 0)
     {
         if (tty)
