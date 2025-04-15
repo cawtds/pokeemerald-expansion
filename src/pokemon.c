@@ -2946,10 +2946,16 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
         retVal = substruct1->moves[field - MON_DATA_MOVE1];
         break;
     case MON_DATA_PP1:
+        retVal = substruct1->pp1;
+        break;
     case MON_DATA_PP2:
+        retVal = substruct1->pp2;
+        break;
     case MON_DATA_PP3:
+        retVal = substruct1->pp3;
+        break;
     case MON_DATA_PP4:
-        retVal = substruct1->pp[field - MON_DATA_PP1];
+        retVal = substruct1->pp4;
         break;
     case MON_DATA_HP_EV:
         retVal = substruct2->hpEV;
@@ -3322,10 +3328,16 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         SET16(substruct1->moves[field - MON_DATA_MOVE1]);
         break;
     case MON_DATA_PP1:
+        SET8(substruct1->pp1);
+        break;
     case MON_DATA_PP2:
+        SET8(substruct1->pp2);
+        break;
     case MON_DATA_PP3:
+        SET8(substruct1->pp3);
+        break;
     case MON_DATA_PP4:
-        SET8(substruct1->pp[field - MON_DATA_PP1]);
+        SET8(substruct1->pp4);
         break;
     case MON_DATA_HP_EV:
         SET8(substruct2->hpEV);
@@ -6238,3 +6250,32 @@ u8 *MonSpritesGfxManager_GetSpritePtr(u8 managerId, u8 spriteNum)
         return gfx->spritePointers[spriteNum];
     }
 }
+
+// void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality)
+// {
+//     struct PokemonSubstruct0 *old0, *new0;
+//     struct PokemonSubstruct1 *old1, *new1;
+//     struct PokemonSubstruct2 *old2, *new2;
+//     struct PokemonSubstruct3 *old3, *new3;
+//     struct BoxPokemon old;
+
+//     old = *boxMon;
+//     old0 = &(GetSubstruct(&old, old.personality, 0)->type0);
+//     old1 = &(GetSubstruct(&old, old.personality, 1)->type1);
+//     old2 = &(GetSubstruct(&old, old.personality, 2)->type2);
+//     old3 = &(GetSubstruct(&old, old.personality, 3)->type3);
+
+//     new0 = &(GetSubstruct(boxMon, personality, 0)->type0);
+//     new1 = &(GetSubstruct(boxMon, personality, 1)->type1);
+//     new2 = &(GetSubstruct(boxMon, personality, 2)->type2);
+//     new3 = &(GetSubstruct(boxMon, personality, 3)->type3);
+
+//     DecryptBoxMon(&old);
+//     boxMon->personality = personality;
+//     *new0 = *old0;
+//     *new1 = *old1;
+//     *new2 = *old2;
+//     *new3 = *old3;
+//     boxMon->checksum = CalculateBoxMonChecksum(boxMon);
+//     EncryptBoxMon(boxMon);
+// }

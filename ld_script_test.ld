@@ -2,7 +2,7 @@ ENTRY(Start)
 
 gNumMusicPlayers = 4;
 gMaxLines = 0;
-gInitialMainCB2 = CB2_InitCopyrightScreenAfterBootup;
+gInitialMainCB2 = CB2_TestRunner;
 
 MEMORY
 {
@@ -13,26 +13,59 @@ MEMORY
 
 SECTIONS {
 
-    ewram 0x2000000 (NOLOAD) :
+    .ewram ORIGIN(EWRAM) : AT (__ewram_lma)
+    ALIGN(4)
+    {
+        __ewram_start = .;
+        *(.ewram*)
+        __ewram_end = .;
+    } > EWRAM
+
+    .ewram.sbss (NOLOAD) :
     ALIGN(4)
     {
         src/*.o(.sbss);
+        test/*.o(.sbss);
+        . = ALIGN(4);
     } > EWRAM
 
-    iwram 0x3000000 (NOLOAD) :
+    .iwram ORIGIN(IWRAM) : AT (__iwram_lma)
+    ALIGN(4)
+    {
+        __iwram_start = .;
+        *(.iwram*);
+        . = ALIGN(4);
+        __iwram_end = .;
+    } > IWRAM
+
+    .iwram.bss (NOLOAD) :
     ALIGN(4)
     {
         src/*.o(.bss);
         data/*.o(.bss);
+        test/*.o(.bss);
         *libc.a:*.o(.bss*);
+        *libgcc.a:*.o(.bss*);
         *libnosys.a:*.o(.bss*);
 
         src/m4a.o(.bss.code);
 
         src/*.o(common_data);
         src/*.o(COMMON);
-        *libc.a:*.o(COMMON);
-        *libnosys.a:*.o(COMMON);
+        data/*.o(COMMON);
+        test/*.o(COMMON);
+        *libc.a:sbrkr.o(COMMON);
+    } > IWRAM
+
+    /* .persistent starts at 0x3007F00 */
+    /* WARNING: This is the end of the IRQ stack, if there's too
+     * much data it WILL be overwritten. */
+
+    . = 0x03007F00;
+    .iwram.persistent (NOLOAD) :
+    ALIGN(4)
+    {
+        test/*.o(.persistent);
     } > IWRAM
 
     /* BEGIN ROM DATA */
@@ -41,39 +74,24 @@ SECTIONS {
     .text :
     ALIGN(4)
     {
-        src/rom_header.o(.text*);
+        src/rom_header.o(.text);
         src/rom_header_gf.o(.text.*);
-        src/crt0.o(.text);
-        src/main.o(.text);
-        src/*.o(.text*);
-        asm/*.o(.text*);
+        src/*.o(.text);
     } > ROM =0
 
     script_data :
     ALIGN(4)
     {
-		data/*.o(script_data);
+    data/*.o(script_data);
     } > ROM =0
 
     lib_text :
     ALIGN(4)
     {
-        src/libgcnmultiboot.o(.text);
-        src/m4a_1.o(.text);
-        src/m4a.o(.text);
-        src/agb_flash.o(.text);
-        src/agb_flash_1m.o(.text);
-        src/agb_flash_mx.o(.text);
-        src/siirtc.o(.text);
-        src/librfu_stwi.o(.text);
-        src/librfu_intr.o(.text);
-        src/librfu_rfu.o(.text);
-        src/librfu_sio32id.o(.text);
         *libagbsyscall.a:*.o(.text*);
         *libgcc.a:*.o(.text*);
         *libc.a:*.o(.text*);
         *libnosys.a:*.o(.text*);
-        src/libisagbprn.o(.text);
     } > ROM =0
 
     .rodata :
@@ -92,41 +110,43 @@ SECTIONS {
     lib_rodata :
     SUBALIGN(4)
     {
-        src/m4a.o(.rodata);
-        src/agb_flash.o(.rodata);
-        src/agb_flash_1m.o(.rodata);
-        src/agb_flash_mx.o(.rodata);
-        src/agb_flash_le.o(.rodata);
-        src/siirtc.o(.rodata);
-        src/librfu_rfu.o(.rodata);
-        src/librfu_sio32id.o(.rodata);
         *libgcc.a:*.o(.rodata*);
         *libc.a:*.o(.rodata*);
         *libc.a:*.o(.data*);
         src/libisagbprn.o(.rodata);
-    } =0
-
-    multiboot_data :
-    ALIGN(4)
-    {
-        data/multiboot_ereader.o(.rodata);
-        data/multiboot_berry_glitch_fix.o(.rodata);
-        data/multiboot_pokemon_colosseum.o(.rodata);
     } > ROM =0
 
-    anim_mon_front_pic_data :
-    ALIGN(4)
+    .data.iwram :
+    ALIGN(8)
     {
-        src/anim_mon_front_pics.o(.rodata);
-    } > ROM =0
+        __iwram_lma = .;
+        . = . + (__iwram_end - __iwram_start);
+    } > ROM = 0
 
-    gfx_data :
+    .data.ewram :
     ALIGN(4)
     {
-        src/graphics.o(.rodata);
+        __ewram_lma = .;
+        . = . + (__ewram_end - __ewram_start);
+    } > ROM = 0
+
+    tests :
+    ALIGN(4)
+    {
+        __start_tests = .;
+        test/*.o(.tests);
+        __stop_tests = .;
+        test/*.o(.text);
+        test/*.o(.rodata*);
     } > ROM =0
 
     __rom_end = .;
+
+    dacs 0x9FFC000 :
+    ALIGN(4)
+    {
+        test/*.o(.dacs);
+    } > ROM =0
 
     /* DWARF debug sections.
        Symbols in the DWARF debugging sections are relative to the beginning

@@ -25,6 +25,7 @@
 #include "sound.h"
 #include "string_util.h"
 #include "task.h"
+#include "test_runner.h"
 #include "text.h"
 #include "util.h"
 #include "window.h"
@@ -1670,7 +1671,9 @@ static void OpponentHandleChoosePokemon(void)
         *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = PARTY_SIZE;
     }
 
-
+    #if TESTING
+    TestRunner_Battle_CheckSwitch(gActiveBattler, chosenMonId);
+    #endif // TESTING
     *(gBattleStruct->monToSwitchIntoId + gActiveBattler) = chosenMonId;
     BtlController_EmitChosenMonReturnValue(BUFFER_B, chosenMonId, NULL);
     OpponentBufferExecCompleted();

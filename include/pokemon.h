@@ -118,7 +118,10 @@ struct PokemonSubstruct0
 struct PokemonSubstruct1
 {
     u16 moves[MAX_MON_MOVES];
-    u8 pp[MAX_MON_MOVES];
+    u8 pp1;
+    u8 pp2;
+    u8 pp3;
+    u8 pp4;
 };
 
 struct PokemonSubstruct2
@@ -639,5 +642,6 @@ bool8 HasTwoFramesAnimation(u16 species);
 struct MonSpritesGfxManager *CreateMonSpritesGfxManager(u8 managerId, u8 mode);
 void DestroyMonSpritesGfxManager(u8 managerId);
 u8 *MonSpritesGfxManager_GetSpritePtr(u8 managerId, u8 spriteNum);
+void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality);
 
 #endif // GUARD_POKEMON_H

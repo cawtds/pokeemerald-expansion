@@ -22,9 +22,6 @@
 #define AI_ACTION_WATCH         (1 << 2)
 #define AI_ACTION_DO_NOT_ATTACK (1 << 3)
 
-#define AI_THINKING_STRUCT ((struct AI_ThinkingStruct *)(gBattleResources->ai))
-#define BATTLE_HISTORY ((struct BattleHistory *)(gBattleResources->battleHistory))
-
 // AI states
 enum
 {

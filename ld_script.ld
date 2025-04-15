@@ -2,6 +2,7 @@ ENTRY(Start)
 
 gNumMusicPlayers = 4;
 gMaxLines = 0;
+gInitialMainCB2 = CB2_InitCopyrightScreenAfterBootup;
 
 MEMORY
 {
@@ -18,11 +19,19 @@ __gfx_load_address = 0x8c00000;
 
 SECTIONS {
 
-    ewram 0x2000000 (NOLOAD) :
+    .ewram ORIGIN(EWRAM) :
+    ALIGN(4)
+    {
+        __ewram_start = .;
+        *(.ewram*)
+        __ewram_end = .;
+    } > EWRAM
+
+    .ewram.sbss (NOLOAD) :
     ALIGN(4)
     {
         INCLUDE "sym_ewram.ld"
-        src/*.o(ewram_data);
+        src/*.o(.sbss);
 
         *libc.a:impure.o(.data);
         *libc.a:locale.o(.data);
