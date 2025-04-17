@@ -2429,13 +2429,13 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 HANDLE_NICKNAME_STRING_CASE(gBattleScripting.battler, gBattlerPartyIndexes[gBattleScripting.battler])
                 break;
             case B_TXT_CURRENT_MOVE: // current move name
-                if (gBattleMsgDataPtr->currentMove >= MOVES_COUNT || TRUE)
+                if (gBattleMsgDataPtr->currentMove >= MOVES_COUNT)
                     toCpy = GetTypeMoveText(gBattleStruct->stringMoveType);
                 else
                     toCpy = GetMoveName(gBattleMsgDataPtr->currentMove);
                 break;
             case B_TXT_LAST_MOVE: // originally used move name
-                if (gBattleMsgDataPtr->originallyUsedMove >= MOVES_COUNT || TRUE)
+                if (gBattleMsgDataPtr->originallyUsedMove >= MOVES_COUNT)
                     toCpy = GetTypeMoveText(gBattleStruct->stringMoveType);
                 else
                     toCpy = GetMoveName(gBattleMsgDataPtr->originallyUsedMove);
