@@ -570,6 +570,15 @@ static u32 CopyRecordedPlayerMonData(u8 monId, u8 *dst)
         src = (u8 *)&battleMon;
         for (size = 0; size < sizeof(battleMon); size++)
             dst[size] = src[size];
+        #if TESTING
+        if (gTestRunnerEnabled)
+        {
+            u32 side = GetBattlerSide(gActiveBattler);
+            u32 partyIndex = gBattlerPartyIndexes[gActiveBattler];
+            if (TestRunner_Battle_GetForcedAbility(side, partyIndex))
+                gBattleMons[gActiveBattler].ability = TestRunner_Battle_GetForcedAbility(side, partyIndex);
+        }
+        #endif
         break;
     case REQUEST_SPECIES_BATTLE:
         data16 = GetMonData(&gPlayerParty[monId], MON_DATA_SPECIES);
@@ -1466,6 +1475,12 @@ static void RecordedPlayerHandleChooseMove(void)
 
 static void RecordedPlayerHandleChooseItem(void)
 {
+    u8 byte1 = RecordedBattle_GetBattlerAction(RECORDED_ITEM_ID, gActiveBattler);
+    u8 byte2 = RecordedBattle_GetBattlerAction(RECORDED_ITEM_ID, gActiveBattler);
+    gBattleStruct->chosenItem[gActiveBattler] = (byte1 << 8) | byte2;
+    RecordedBattle_GetBattlerAction(RECORDED_ITEM_TARGET, gActiveBattler);
+    RecordedBattle_GetBattlerAction(RECORDED_ITEM_MOVE, gActiveBattler);
+    BtlController_EmitOneReturnValue(BUFFER_B, gBattleStruct->chosenItem[gActiveBattler]);
     RecordedPlayerBufferExecCompleted();
 }
 
@@ -1483,17 +1498,19 @@ static void RecordedPlayerHandleCmd23(void)
 
 static void RecordedPlayerHandleHealthBarUpdate(void)
 {
+    u32 maxHP, curHP;
     s16 hpVal;
 
     LoadBattleBarGfx(0);
     hpVal = gBattleBufferA[gActiveBattler][2] | (gBattleBufferA[gActiveBattler][3] << 8);
+    maxHP = GetMonData(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_MAX_HP);
+    curHP = GetMonData(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_HP);
 
     if (hpVal != INSTANT_HP_BAR_DROP)
     {
-        u32 maxHP = GetMonData(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_MAX_HP);
-        u32 curHP = GetMonData(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_HP);
 
         SetBattleBarStruct(gActiveBattler, gHealthboxSpriteIds[gActiveBattler], maxHP, curHP, hpVal);
+        TestRunner_Battle_RecordHP(gActiveBattler, curHP, min(maxHP, max(0, curHP - hpVal)));
     }
     else
     {
@@ -1501,6 +1518,7 @@ static void RecordedPlayerHandleHealthBarUpdate(void)
 
         SetBattleBarStruct(gActiveBattler, gHealthboxSpriteIds[gActiveBattler], maxHP, 0, hpVal);
         UpdateHpTextInHealthbox(gHealthboxSpriteIds[gActiveBattler], 0, HP_CURRENT);
+        TestRunner_Battle_RecordHP(gActiveBattler, curHP, 0);
     }
 
     gBattlerControllerFuncs[gActiveBattler] = CompleteOnHealthbarDone;

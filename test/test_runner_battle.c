@@ -34,9 +34,9 @@
 #define DATA gBattleTestRunnerState->data
 
 #define RNG_SEED_DEFAULT 0
-static inline bool32 RngSeedNotDefault(const u32 *seed)
+static inline bool32 RngSeedNotDefault(u32 seed)
 {
-    return seed != 0;
+    return seed != RNG_SEED_DEFAULT;
 }
 #undef Q_4_12
 #define Q_4_12(n) (s32)((n) * 4096)
@@ -1462,7 +1462,7 @@ void Randomly(u32 sourceLine, u32 passes, u32 trials, struct RandomlyContext ctx
     else
     {
         const u32 defaultSeed = RNG_SEED_DEFAULT;
-        INVALID_IF(RngSeedNotDefault(&DATA.recordedBattle.rngSeed), "RNG seed already set");
+        INVALID_IF(RngSeedNotDefault(DATA.recordedBattle.rngSeed), "RNG seed already set");
         STATE->trials = 50;
         STATE->trialRatio = Q_4_12(1) / STATE->trials;
         DATA.recordedBattle.rngSeed = defaultSeed;
@@ -1471,7 +1471,7 @@ void Randomly(u32 sourceLine, u32 passes, u32 trials, struct RandomlyContext ctx
 
 void RNGSeed_(u32 sourceLine, u32 seed)
 {
-    INVALID_IF(RngSeedNotDefault(&DATA.recordedBattle.rngSeed), "RNG seed already set");
+    INVALID_IF(RngSeedNotDefault(DATA.recordedBattle.rngSeed), "RNG seed already set");
     DATA.recordedBattle.rngSeed = seed;
 }
 
@@ -1556,14 +1556,14 @@ static const u16 sNaturePersonalities[NUM_NATURES] =
     20 << 8, 16 << 8, 12 << 8,  8 << 8,  4 << 8,
 };
 
-// static u32 GenerateNature(u32 nature, u32 offset)
-// {
-//     if (offset <= nature)
-//         nature -= offset;
-//     else
-//         nature = nature + NUM_NATURES - offset;
-//     return sNaturePersonalities[nature];
-// }
+static u32 GenerateNature(u32 nature, u32 offset)
+{
+    if (offset <= nature)
+        nature -= offset;
+    else
+        nature = nature + NUM_NATURES - offset;
+    return sNaturePersonalities[nature];
+}
 
 void ClosePokemon(u32 sourceLine)
 {
@@ -1577,7 +1577,7 @@ void ClosePokemon(u32 sourceLine)
             INVALID_IF(GetMonData(DATA.currentMon, MON_DATA_HP) == 0, "Battlers cannot be fainted");
         }
     }
-    // UpdateMonPersonality(&DATA.currentMon->box, GenerateNature(DATA.nature, DATA.gender % NUM_NATURES) | DATA.gender);
+    UpdateMonPersonality(&DATA.currentMon->box, GenerateNature(DATA.nature, DATA.gender % NUM_NATURES) | DATA.gender);
     DATA.currentMon = NULL;
 }
 

@@ -110,6 +110,8 @@ enum RandomTag
         RandomWeightedArray(tag, sum, ARRAY_COUNT(weights), weights); \
     })
 
+#define RandomChance(tag, successes, total) (RandomWeighted(tag, total - successes, successes))
+
 #define RandomPercentage(tag, t) \
     ({ \
         u32 r; \

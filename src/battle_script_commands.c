@@ -41,6 +41,7 @@
 #include "pokenav.h"
 #include "menu_specialized.h"
 #include "data.h"
+#include "test_runner.h"
 #include "type.h"
 #include "constants/abilities.h"
 #include "constants/battle_anim.h"
@@ -1196,7 +1197,7 @@ static void Cmd_critcalc(void)
     if ((gBattleMons[gBattlerTarget].ability != ABILITY_BATTLE_ARMOR && gBattleMons[gBattlerTarget].ability != ABILITY_SHELL_ARMOR)
      && !(gStatuses3[gBattlerAttacker] & STATUS3_CANT_SCORE_A_CRIT)
      && !(gBattleTypeFlags & (BATTLE_TYPE_WALLY_TUTORIAL | BATTLE_TYPE_FIRST_BATTLE))
-     && !(Random() % sCriticalHitChance[critChance]))
+     && RandomChance(RNG_CRITICAL_HIT, 1, sCriticalHitChance[critChance]))
         gCritMultiplier = 2;
     else
         gCritMultiplier = 1;
@@ -4528,6 +4529,15 @@ static void Cmd_switchindataupdate(void)
     gBattleMons[gActiveBattler].types[0] = gSpeciesInfo[gBattleMons[gActiveBattler].species].types[0];
     gBattleMons[gActiveBattler].types[1] = gSpeciesInfo[gBattleMons[gActiveBattler].species].types[1];
     gBattleMons[gActiveBattler].ability = GetAbilityBySpecies(gBattleMons[gActiveBattler].species, gBattleMons[gActiveBattler].abilityNum);
+    #if TESTING
+    if (gTestRunnerEnabled)
+    {
+        u32 side = GetBattlerSide(gActiveBattler);
+        u32 partyIndex = gBattlerPartyIndexes[gActiveBattler];
+        if (TestRunner_Battle_GetForcedAbility(side, partyIndex))
+            gBattleMons[gActiveBattler].ability = TestRunner_Battle_GetForcedAbility(side, partyIndex);
+    }
+    #endif
 
     // check knocked off item
     i = GetBattlerSide(gActiveBattler);

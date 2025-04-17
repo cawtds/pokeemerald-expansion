@@ -445,7 +445,8 @@ const u8 * const gStatusConditionStringsTable[][2] =
 
 void CB2_InitBattle(void)
 {
-    MoveSaveBlocks_ResetHeap();
+    if (!gTestRunnerEnabled)
+        MoveSaveBlocks_ResetHeap();
     AllocateBattleResources();
     AllocateBattleSpritesData();
     AllocateMonSpritesGfx();
@@ -3294,6 +3295,15 @@ static void BattleIntroDrawTrainersOrMonsSprites(void)
             for (i = 0; i < NUM_BATTLE_STATS; i++)
                 gBattleMons[gActiveBattler].statStages[i] = DEFAULT_STAT_STAGE;
             gBattleMons[gActiveBattler].status2 = 0;
+            #if TESTING
+            if (gTestRunnerEnabled)
+            {
+                u32 side = GetBattlerSide(gActiveBattler);
+                u32 partyIndex = gBattlerPartyIndexes[gActiveBattler];
+                if (TestRunner_Battle_GetForcedAbility(side, partyIndex))
+                    gBattleMons[gActiveBattler].ability = TestRunner_Battle_GetForcedAbility(side, partyIndex);
+            }
+            #endif
         }
 
         if (GetBattlerPosition(gActiveBattler) == B_POSITION_PLAYER_LEFT)
@@ -4093,7 +4103,8 @@ static void HandleTurnActionSelectionState(void)
                     if (gBattleTypeFlags & (BATTLE_TYPE_LINK
                                             | BATTLE_TYPE_FRONTIER_NO_PYRAMID
                                             | BATTLE_TYPE_EREADER_TRAINER
-                                            | BATTLE_TYPE_RECORDED_LINK))
+                                            | BATTLE_TYPE_RECORDED_LINK
+                                            && !gTestRunnerEnabled))
                     {
                         RecordedBattle_ClearBattlerAction(gActiveBattler, 1);
                         gSelectionBattleScripts[gActiveBattler] = BattleScript_ActionSelectionItemsCantBeUsed;
@@ -4270,6 +4281,11 @@ static void HandleTurnActionSelectionState(void)
                             gChosenMoveByBattler[gActiveBattler] = gBattleMons[gActiveBattler].moves[*(gBattleStruct->chosenMovePositions + gActiveBattler)];
                             *(gBattleStruct->moveTarget + gActiveBattler) = gBattleBufferB[gActiveBattler][3];
                             gBattleCommunication[gActiveBattler]++;
+                            
+                            if (gTestRunnerEnabled)
+                            {
+                                TestRunner_Battle_CheckChosenMove(gActiveBattler, gChosenMoveByBattler[gActiveBattler], gBattleStruct->moveTarget[gActiveBattler]);
+                            }
                         }
                         break;
                     }
@@ -5015,6 +5031,8 @@ static void HandleEndTurn_FinishBattle(void)
         }
 
         RecordedBattle_SetPlaybackFinished();
+        if (gTestRunnerEnabled)
+            TestRunner_Battle_AfterLastTurn();
         BeginFastPaletteFade(3);
         FadeOutMapMusic(5);
         gBattleMainFunc = FreeResetData_ReturnToOvOrDoEvolutions;

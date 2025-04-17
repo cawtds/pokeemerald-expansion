@@ -10,6 +10,7 @@
 #include "pokemon.h"
 #include "random.h"
 #include "recorded_battle.h"
+#include "test_runner.h"
 #include "util.h"
 #include "constants/abilities.h"
 #include "constants/battle_ai.h"
@@ -321,9 +322,15 @@ void BattleAI_SetupAIData(u8 defaultScoreMoves)
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         if (defaultScoreMoves & 1)
+        {
+            TestRunner_Battle_AISetScore(__FILE__, __LINE__, sBattler_AI, i, 100);
             AI_THINKING_STRUCT->score[i] = 100;
+        }
         else
+        {
+            TestRunner_Battle_AISetScore(__FILE__, __LINE__, sBattler_AI, i, 0);
             AI_THINKING_STRUCT->score[i] = 0;
+        }
 
         defaultScoreMoves >>= 1;
     }
@@ -387,6 +394,9 @@ u8 BattleAI_ChooseMoveOrAction(void)
     else
         ret = ChooseMoveOrAction_Doubles();
 
+    #if TESTING
+    TestRunner_Battle_CheckAiMoveScores(sBattler_AI);
+    #endif // TESTING
     gCurrentMove = savedCurrentMove;
     return ret;
 }
@@ -595,6 +605,7 @@ static void BattleAI_DoAIProcessing(void)
                 else
                 {
                     AI_THINKING_STRUCT->score[AI_THINKING_STRUCT->movesetIndex] = 0;
+                    TestRunner_Battle_AISetScore(__FILE__, __LINE__, sBattler_AI, AI_THINKING_STRUCT->movesetIndex, 0);
                     AI_THINKING_STRUCT->aiAction |= AI_ACTION_DONE;
                 }
                 if (AI_THINKING_STRUCT->aiAction & AI_ACTION_DONE)
@@ -700,10 +711,14 @@ static void Cmd_if_random_not_equal(void)
 
 static void Cmd_score(void)
 {
+    TestRunner_Battle_AIAdjustScore(__FILE__, __LINE__, sBattler_AI, AI_THINKING_STRUCT->movesetIndex, gAIScriptPtr[1]);
     AI_THINKING_STRUCT->score[AI_THINKING_STRUCT->movesetIndex] += gAIScriptPtr[1]; // Add the result to the array of the move consider's score.
 
     if (AI_THINKING_STRUCT->score[AI_THINKING_STRUCT->movesetIndex] < 0) // If the score is negative, flatten it to 0.
+    {
         AI_THINKING_STRUCT->score[AI_THINKING_STRUCT->movesetIndex] = 0;
+        TestRunner_Battle_AISetScore(__FILE__, __LINE__, sBattler_AI, AI_THINKING_STRUCT->movesetIndex, 0);
+    }
 
     gAIScriptPtr += 2; // AI return.
 }
