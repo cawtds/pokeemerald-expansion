@@ -47,7 +47,10 @@
 #include "constants/items.h"
 #include "constants/layouts.h"
 #include "constants/moves.h"
+#include "constants/pokedex.h"
+#include "constants/pokemon.h"
 #include "constants/songs.h"
+#include "constants/species.h"
 #include "constants/trainers.h"
 #include "constants/types.h"
 #include "constants/union_room.h"
@@ -947,6 +950,10 @@ const struct SpindaSpot gSpindaSpotGraphics[] =
     {.x = 34, .y = 26, .image = INCBIN_U16("graphics/pokemon/spinda/spots/spot_3.1bpp")}
 };
 
+#include "data/pokemon/egg_moves.h"
+#include "data/pokemon/level_up_learnsets.h"
+#include "data/pokemon/tutor_learnsets.h"
+#include "data/pokemon/tmhm_learnsets.h"
 #include "data/natures_info.h"
 #include "data/pokemon/trainer_class_lookups.h"
 #include "data/pokemon/experience_tables.h"

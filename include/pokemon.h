@@ -97,14 +97,6 @@ enum {
     MON_DATA_SPATK2,
     MON_DATA_SPDEF2,
 };
-
-enum {
-    PKMN_JUMP_TYPE_NONE,
-    PKMN_JUMP_TYPE_NORMAL,
-    PKMN_JUMP_TYPE_FAST,
-    PKMN_JUMP_TYPE_SLOW,
-};
-
 struct PokemonSubstruct0
 {
     u16 species;
