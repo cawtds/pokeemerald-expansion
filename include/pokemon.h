@@ -348,7 +348,7 @@ struct SpeciesInfo
             u8 pokemonJumpType:2;
             u8 enemyMonElevation; // This determines how much higher above the usual position the enemy Pokémon is during battle. Species that float or fly have nonzero values.
             struct Evolution evolutions[EVOS_PER_MON];
-            const u16 *levelUpLearnset;
+            const struct LevelUpMove *levelUpLearnset;
             const u16 *tmhmLearnset;
             const u16 *tutorLearnset;
             const u16 *eggMoveLearnset;
@@ -437,10 +437,10 @@ struct SpindaSpot
     u16 image[SPINDA_SPOT_HEIGHT];
 };
 
-struct __attribute__((packed)) LevelUpMove
+struct LevelUpMove
 {
-    u16 move:9;
-    u16 level:7;
+    u16 move;
+    u16 level;
 };
 
 #define NUM_UNOWN_FORMS 28
