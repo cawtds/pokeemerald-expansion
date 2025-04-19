@@ -2832,8 +2832,13 @@ static void DebugAction_Give_Pokemon_SelectId(u8 taskId)
 {
     if (JOY_NEW(DPAD_ANY))
     {
+        u32 oldSpecies = gTasks[taskId].tInput;
         PlaySE(SE_SELECT);
         Debug_HandleInput_Numeric(taskId, 1, NUM_SPECIES - 1, DEBUG_NUMBER_DIGITS_ITEMS);
+        if (oldSpecies > SPECIES_OLD_UNOWN_Z && gTasks[taskId].tInput >= SPECIES_OLD_UNOWN_B && gTasks[taskId].tInput <= SPECIES_OLD_UNOWN_Z)
+            gTasks[taskId].tInput = SPECIES_CELEBI;
+        if (oldSpecies < SPECIES_OLD_UNOWN_B && gTasks[taskId].tInput >= SPECIES_OLD_UNOWN_B && gTasks[taskId].tInput <= SPECIES_OLD_UNOWN_Z)
+            gTasks[taskId].tInput = SPECIES_TREECKO;
         Debug_Display_SpeciesInfo(gTasks[taskId].tInput, gTasks[taskId].tDigit, gTasks[taskId].tSubWindowId);
         FreeAndDestroyMonIconSprite(&gSprites[gTasks[taskId].tSpriteId]);
         FreeMonIconPalettes();
@@ -3015,7 +3020,7 @@ static void Debug_Display_StatInfo(const u8* text, u32 stat, u32 value, u32 digi
 {
     StringCopy(gStringVar1, gStatNamesTable[stat]);
     StringCopy(gStringVar2, gText_DigitIndicator[digit]);
-    ConvertIntToDecimalStringN(gStringVar3, value, STR_CONV_MODE_LEADING_ZEROS, 2);
+    ConvertIntToDecimalStringN(gStringVar3, value, STR_CONV_MODE_LEADING_ZEROS, 3);
     StringCopyPadded(gStringVar3, gStringVar3, CHAR_SPACE, 15);
     StringExpandPlaceholders(gStringVar4, text);
     AddTextPrinterParameterized(windowId, DEBUG_MENU_FONT, gStringVar4, 0, 0, 0, NULL);
@@ -3131,7 +3136,6 @@ static void Debug_Display_MoveInfo(u32 moveId, u32 iteration, u32 digit, u8 wind
 {
     // Doesn't expand placeholdes so a 4th dynamic value can be shown.
     u8 *end = StringCopy(gStringVar1, GetMoveName(moveId));
-    // WrapFontIdToFit(gStringVar1, end, DEBUG_MENU_FONT, WindowWidthPx(windowId));
     StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
     StringCopy(gStringVar4, COMPOUND_STRING("Move "));
     ConvertIntToDecimalStringN(gStringVar3, iteration, STR_CONV_MODE_LEADING_ZEROS, 1);
@@ -3260,11 +3264,11 @@ static void CreateMonWithNatureAndShininess(struct Pokemon *mon, u16 species, u8
              | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
              | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
 
-    do
+    for (personality = nature; personality < (u32) -1 - NUM_NATURES; personality += NUM_NATURES)
     {
-        personality = Random32();
+        if (!forceShiny || GET_SHINY_VALUE(otId, personality) < SHINY_ODDS)
+            break;
     }
-    while (nature != GetNatureFromPersonality(personality) || (forceShiny && GET_SHINY_VALUE(otId, personality) >= SHINY_ODDS));
 
     CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
 }
@@ -3444,6 +3448,8 @@ static void DebugAction_PCBag_Fill_PCBoxes_Fast(u8 taskId) //Credit: Sierraffini
         {
             if (species >= NUM_SPECIES)
                 species = SPECIES_BULBASAUR;
+            if (species >= SPECIES_OLD_UNOWN_B && species <= SPECIES_OLD_UNOWN_Z)
+                species = SPECIES_TREECKO;
             if (!GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_HAS_SPECIES))
             {
                 StringCopy(speciesName, GetSpeciesName(species));
@@ -3470,15 +3476,18 @@ static void DebugAction_PCBag_Fill_PCBoxes_Slow(u8 taskId)
 
     for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
     {
-        for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++)
+        for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++, species++)
         {
             if (!GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_HAS_SPECIES))
             {
+                if (species >= NUM_SPECIES)
+                    species = SPECIES_BULBASAUR;
+                if (species >= SPECIES_OLD_UNOWN_B && species <= SPECIES_OLD_UNOWN_Z)
+                    species = SPECIES_TREECKO;
                 if (!spaceAvailable)
                     PlayBGM(MUS_RG_MYSTERY_GIFT);
                 CreateBoxMon(&boxMon, species, 100, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
                 gPokemonStoragePtr->boxes[boxId][boxPosition] = boxMon;
-                species = (species < NUM_SPECIES - 1) ? species + 1 : 1;
                 spaceAvailable = TRUE;
             }
         }
