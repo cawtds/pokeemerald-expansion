@@ -1,6 +1,9 @@
+#include "global.h"
+#include "ability.h"
 #include "constants/abilities.h"
 
-const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
+
+const struct AbilityInfo gAbilityInfo[ABILITY_COUNT] =
 {
     [ABILITY_NONE] =
     {

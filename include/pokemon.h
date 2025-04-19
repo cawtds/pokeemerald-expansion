@@ -203,12 +203,6 @@ struct BattlePokemon
     /*0x54*/ u32 otId;
 };
 
-struct Ability
-{
-    u8 name[ABILITY_NAME_LENGTH + 1];
-    const u8 *description;
-};
-
 enum {
     AFFINE_NONE,
     AFFINE_TURN_UP,
@@ -299,7 +293,6 @@ extern const u8 gPPUpAddValues[];
 extern const u8 gStatStageRatios[MAX_STAT_STAGE + 1][2];
 extern const u16 gUnionRoomFacilityClasses[];
 extern const struct SpriteTemplate gBattlerSpriteTemplates[];
-extern const struct Ability gAbilitiesInfo[];
 extern const struct NatureInfo gNaturesInfo[];
 
 void ZeroBoxMonData(struct BoxPokemon *boxMon);
