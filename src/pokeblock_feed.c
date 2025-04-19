@@ -12,6 +12,7 @@
 #include "menu.h"
 #include "menu_helpers.h"
 #include "m4a.h"
+#include "nature.h"
 #include "palette.h"
 #include "party_menu.h"
 #include "pokeblock.h"
@@ -927,7 +928,7 @@ static void CalculateMonAnimLength(void)
 
     pokeblockFeed = sPokeblockFeed;
     pokeblockFeed->monAnimLength = 1;
-    animId = gNaturesInfo[pokeblockFeed->nature].pokeBlockAnim[0];
+    animId = gNatureInfo[pokeblockFeed->nature].pokeBlockAnim[0];
 
     // Add up the time each stage of the animation will take
     for (i = 0; i < 8; i++, animId++)
@@ -945,7 +946,7 @@ static void UpdateMonAnim(void)
     switch (pokeblockFeed->animRunState)
     {
     case 0:
-        pokeblockFeed->animId = gNaturesInfo[pokeblockFeed->nature].pokeBlockAnim[0];
+        pokeblockFeed->animId = gNatureInfo[pokeblockFeed->nature].pokeBlockAnim[0];
         pokeblockFeed->monSpritePtr = &gSprites[pokeblockFeed->monSpriteId_];
         pokeblockFeed->savedMonSprite = *pokeblockFeed->monSpritePtr;
         pokeblockFeed->animRunState = 10;
@@ -954,7 +955,7 @@ static void UpdateMonAnim(void)
         break;
     case 10:
         InitMonAnimStage();
-        if (gNaturesInfo[pokeblockFeed->nature].pokeBlockAnim[1] != AFFINE_NONE)
+        if (gNatureInfo[pokeblockFeed->nature].pokeBlockAnim[1] != AFFINE_NONE)
         {
             // Initialize affine anim
             pokeblockFeed->monSpritePtr->oam.affineMode = ST_OAM_AFFINE_DOUBLE;
@@ -964,13 +965,13 @@ static void UpdateMonAnim(void)
         }
         pokeblockFeed->animRunState = 50;
     case 50:
-        if (gNaturesInfo[pokeblockFeed->nature].pokeBlockAnim[1] != AFFINE_NONE)
+        if (gNatureInfo[pokeblockFeed->nature].pokeBlockAnim[1] != AFFINE_NONE)
         {
             // Start affine anim
             if (!pokeblockFeed->noMonFlip) // double negation, so mon's sprite is flipped
-                StartSpriteAffineAnim(pokeblockFeed->monSpritePtr, gNaturesInfo[pokeblockFeed->nature].pokeBlockAnim[1] + NUM_MON_AFFINES);
+                StartSpriteAffineAnim(pokeblockFeed->monSpritePtr, gNatureInfo[pokeblockFeed->nature].pokeBlockAnim[1] + NUM_MON_AFFINES);
             else
-                StartSpriteAffineAnim(pokeblockFeed->monSpritePtr, gNaturesInfo[pokeblockFeed->nature].pokeBlockAnim[1]);
+                StartSpriteAffineAnim(pokeblockFeed->monSpritePtr, gNatureInfo[pokeblockFeed->nature].pokeBlockAnim[1]);
         }
         pokeblockFeed->animRunState = 60;
         break;

@@ -8,6 +8,7 @@
 #include "palette.h"
 #include "pokenav.h"
 #include "menu_specialized.h"
+#include "nature.h"
 #include "scanline_effect.h"
 #include "text.h"
 #include "bg.h"
@@ -1393,7 +1394,7 @@ static void UpdateMonInfoText(u16 loadId, bool8 firstPrint)
         partyIndex = GetPartyIdFromSelectionId(sMenu->info.curSelection);
         nature = GetNature(&gPlayerParty[partyIndex]);
         str = StringCopy(sMenu->info.natureText, gText_NatureSlash);
-        str = StringCopy(str, gNaturesInfo[nature].name);
+        str = StringCopy(str, Nature_GetName(nature));
         AddTextPrinterParameterized3(WIN_NATURE, FONT_NORMAL, 2, 1, sNatureTextColors, 0, sMenu->info.natureText);
     }
 

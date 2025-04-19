@@ -13,6 +13,7 @@
 #include "main.h"
 #include "malloc.h"
 #include "move.h"
+#include "nature.h"
 #include "palette.h"
 #include "party_menu.h"
 #include "pokemon.h"
@@ -138,7 +139,7 @@ u16 ChooseMoveAndTargetInBattlePalace(void)
     // Otherwise use move from "Support" group
     for (; i < maxGroupNum; i++)
     {
-        if (gNaturesInfo[GetNatureFromPersonality(gBattleMons[gActiveBattler].personality)].battlePalacePercents[i] > percent)
+        if (gNatureInfo[GetNatureFromPersonality(gBattleMons[gActiveBattler].personality)].battlePalacePercents[i] > percent)
             break;
     }
     selectedGroup = i - minGroupNum;
@@ -337,7 +338,7 @@ static u16 GetBattlePalaceTarget(void)
         if (gBattleMons[opposing1].hp == gBattleMons[opposing2].hp)
             return (BATTLE_OPPOSITE(gActiveBattler & BIT_SIDE) + (Random() & 2)) << 8;
 
-        switch (gNaturesInfo[GetNatureFromPersonality(gBattleMons[gActiveBattler].personality)].battlePalaceSmokescreen)
+        switch (gNatureInfo[GetNatureFromPersonality(gBattleMons[gActiveBattler].personality)].battlePalaceSmokescreen)
         {
         case PALACE_TARGET_STRONGER:
             if (gBattleMons[opposing1].hp > gBattleMons[opposing2].hp)

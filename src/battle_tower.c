@@ -35,6 +35,7 @@
 #include "constants/battle_tower.h"
 #include "constants/frontier_util.h"
 #include "constants/items.h"
+#include "constants/natures.h"
 #include "constants/trainers.h"
 #include "constants/event_objects.h"
 #include "constants/moves.h"

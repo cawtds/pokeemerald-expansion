@@ -245,19 +245,6 @@ enum {
 #define ANIM_CAREFUL (ANIM_SASSY + 1)
 #define ANIM_QUIRKY  (ANIM_CAREFUL + 5)
 
-struct NatureInfo
-{
-    const u8 *name;
-    u8 statUp;
-    u8 statDown;
-    u8 backAnim;
-    u8 pokeBlockAnim[2];
-    u8 battlePalacePercents[4];
-    u8 battlePalaceFlavorText;
-    u8 battlePalaceSmokescreen;
-    const u8 *natureGirlMessage;
-};
-
 #define SPINDA_SPOT_WIDTH 16
 #define SPINDA_SPOT_HEIGHT 16
 
@@ -293,7 +280,7 @@ extern const u8 gPPUpAddValues[];
 extern const u8 gStatStageRatios[MAX_STAT_STAGE + 1][2];
 extern const u16 gUnionRoomFacilityClasses[];
 extern const struct SpriteTemplate gBattlerSpriteTemplates[];
-extern const struct NatureInfo gNaturesInfo[];
+extern const struct NatureInfo gNatureInfo[];
 
 void ZeroBoxMonData(struct BoxPokemon *boxMon);
 void ZeroMonData(struct Pokemon *mon);

@@ -18,6 +18,7 @@
 #include "main.h"
 #include "menu.h"
 #include "move.h"
+#include "nature.h"
 #include "palette.h"
 #include "party_menu.h"
 #include "pokemon_icon.h"
@@ -37,6 +38,7 @@
 #include "constants/battle_dome.h"
 #include "constants/frontier_util.h"
 #include "constants/moves.h"
+#include "constants/natures.h"
 #include "constants/trainers.h"
 #include "constants/abilities.h"
 #include "constants/songs.h"
@@ -4321,7 +4323,7 @@ static void DisplayTrainerInfoOnCard(u8 flags, u8 trainerTourneyId)
     struct TextPrinterTemplate textPrinter;
     int i, j, k;
     int trainerId = 0;
-    u8 nature = 0;
+    enum Nature nature = 0;
     int arrId = 0;
     int windowId = WIN_TRAINER_NAME;
     int x = 0, y = 0;
@@ -4546,11 +4548,11 @@ static void DisplayTrainerInfoOnCard(u8 flags, u8 trainerTourneyId)
                 else
                     nature = gSaveBlock2Ptr->frontier.domePlayerPartyData[i].nature;
 
-                if (gNaturesInfo[nature].statUp == (STAT_ATK + j))
+                if (Nature_GetStatUp(nature) == (STAT_ATK + j))
                 {
                     allocatedArray[j + NUM_STATS + 1] += (allocatedArray[j + 1] * 110) / 100;
                 }
-                else if (gNaturesInfo[nature].statDown == (STAT_ATK + j))
+                else if (Nature_GetStatDown(nature) == (STAT_ATK + j))
                 {
                     allocatedArray[j + NUM_STATS + 1] += (allocatedArray[j + 1] * 90) / 100;
                     allocatedArray[j + NUM_STATS + NUM_NATURE_STATS + 2]++;
@@ -4592,11 +4594,11 @@ static void DisplayTrainerInfoOnCard(u8 flags, u8 trainerTourneyId)
             for (j = 0; j < NUM_NATURE_STATS; j++)
             {
                 nature = gFacilityTrainerMons[DOME_MONS[trainerTourneyId][i]].nature;
-                if (gNaturesInfo[nature].statUp == (STAT_ATK + j))
+                if (gNatureInfo[nature].statUp == (STAT_ATK + j))
                 {
                     allocatedArray[j + NUM_STATS + 1] += (allocatedArray[j + 1] * 110) / 100;
                 }
-                else if (gNaturesInfo[nature].statDown == (STAT_ATK + j))
+                else if (gNatureInfo[nature].statDown == (STAT_ATK + j))
                 {
                     allocatedArray[j + NUM_STATS + 1] += (allocatedArray[j + 1] * 90) / 100;
                     allocatedArray[j + NUM_STATS + NUM_NATURE_STATS + 2]++;

@@ -31,6 +31,7 @@
 #include "pokenav.h"
 #include "pokemon_icon.h"
 #include "menu_specialized.h"
+#include "nature.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
 #include "recorded_battle.h"
@@ -6369,7 +6370,7 @@ static void Cmd_various(void)
         {
             gBattleStruct->palaceFlags |= gBitTable[gActiveBattler];
             gBattleCommunication[0] = TRUE;
-            gBattleCommunication[MULTISTRING_CHOOSER] = gNaturesInfo[GetNatureFromPersonality(gBattleMons[gActiveBattler].personality)].battlePalaceFlavorText;
+            gBattleCommunication[MULTISTRING_CHOOSER] = Nature_GetBattlePalaceFlavorText(GetNatureFromPersonality(gBattleMons[gActiveBattler].personality));
         }
         break;
     case VARIOUS_ARENA_JUDGMENT_WINDOW:

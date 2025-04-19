@@ -27,6 +27,7 @@
 #include "match_call.h"
 #include "menu.h"
 #include "move.h"
+#include "nature.h"
 #include "overworld.h"
 #include "pokeblock.h"
 #include "pokemon.h"
@@ -2786,7 +2787,7 @@ void ShowNatureGirlMessage(void)
         gSpecialVar_0x8004 = 0;
 
     nature = GetNature(&gPlayerParty[gSpecialVar_0x8004]);
-    ShowFieldMessage(gNaturesInfo[nature].natureGirlMessage);
+    ShowFieldMessage(Nature_GetNatureGirlMessage(nature));
 }
 
 void UpdateFrontierGambler(u16 daysSince)

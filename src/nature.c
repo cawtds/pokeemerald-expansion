@@ -1,5 +1,9 @@
+#include "global.h"
+#include "nature.h"
+#include "strings.h"
 #include "constants/battle_palace.h"
 #include "constants/battle_string_ids.h"
+#include "constants/natures.h"
 
 // In Battle Palace, moves are chosen based on the pokemons nature rather than by the player
 // Moves are grouped into "Attack", "Defense", or "Support" (see PALACE_MOVE_GROUP_*)
@@ -10,7 +14,7 @@
 #define PALACE_STYLE(atk, def, atkLow, defLow) {atk, atk + def, atkLow, atkLow + defLow}
 
 
-const struct NatureInfo gNaturesInfo[NUM_NATURES] =
+const struct NatureInfo gNatureInfo[NUM_NATURES] =
 {
     [NATURE_HARDY] =
     {

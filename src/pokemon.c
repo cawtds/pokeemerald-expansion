@@ -20,6 +20,7 @@
 #include "overworld.h"
 #include "m4a.h"
 #include "move.h"
+#include "nature.h"
 #include "party_menu.h"
 #include "pokedex.h"
 #include "pokeblock.h"
@@ -950,7 +951,6 @@ const struct SpindaSpot gSpindaSpotGraphics[] =
     {.x = 34, .y = 26, .image = INCBIN_U16("graphics/pokemon/spinda/spots/spot_3.1bpp")}
 };
 
-#include "data/natures_info.h"
 #include "data/pokemon/trainer_class_lookups.h"
 #include "data/pokemon/experience_tables.h"
 
@@ -4943,12 +4943,12 @@ u16 ModifyStatByNature(u8 nature, u16 stat, u8 statIndex)
     if (statIndex <= STAT_HP || statIndex > NUM_NATURE_STATS)
         return stat;
 
-    if (gNaturesInfo[nature].statUp == statIndex)
+    if (Nature_GetStatUp(nature) == statIndex)
     {
         retVal = stat * 110;
         retVal /= 100;
     } 
-    else if (gNaturesInfo[nature].statDown == statIndex)
+    else if (Nature_GetStatDown(nature) == statIndex)
     {
         retVal = stat * 90;
         retVal /= 100;

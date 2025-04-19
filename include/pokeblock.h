@@ -1,6 +1,8 @@
 #ifndef GUARD_POKEBLOCK_H
 #define GUARD_POKEBLOCK_H
 
+#include "constants/natures.h"
+
 #define TAG_POKEBLOCK       14818
 
 enum
