@@ -17,6 +17,7 @@
 #include "util.h"
 #include "sound.h"
 #include "task.h"
+#include "species.h"
 #include "start_menu.h"
 #include "string_util.h"
 #include "trainer_see.h"

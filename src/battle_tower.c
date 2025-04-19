@@ -22,6 +22,7 @@
 #include "data.h"
 #include "link.h"
 #include "field_message_box.h"
+#include "species.h"
 #include "tv.h"
 #include "battle_factory.h"
 #include "constants/apprentice.h"

@@ -24,6 +24,7 @@
 #include "recorded_battle.h"
 #include "reshow_battle_screen.h"
 #include "sound.h"
+#include "species.h"
 #include "string_util.h"
 #include "task.h"
 #include "test_runner.h"

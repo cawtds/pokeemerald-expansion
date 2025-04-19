@@ -25,6 +25,7 @@
 #include "record_mixing.h"
 #include "strings.h"
 #include "malloc.h"
+#include "species.h"
 #include "save.h"
 #include "load_save.h"
 #include "battle_dome.h"

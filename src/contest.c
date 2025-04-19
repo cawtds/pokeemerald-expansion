@@ -20,6 +20,7 @@
 #include "new_game.h"
 #include "script.h"
 #include "sound.h"
+#include "species.h"
 #include "sprite.h"
 #include "string_util.h"
 #include "task.h"

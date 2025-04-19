@@ -41,6 +41,7 @@
 #include "safari_zone.h"
 #include "scanline_effect.h"
 #include "sound.h"
+#include "species.h"
 #include "sprite.h"
 #include "string_util.h"
 #include "strings.h"

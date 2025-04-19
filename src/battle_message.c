@@ -16,6 +16,7 @@
 #include "move.h"
 #include "palette.h"
 #include "recorded_battle.h"
+#include "species.h"
 #include "string_util.h"
 #include "strings.h"
 #include "text.h"

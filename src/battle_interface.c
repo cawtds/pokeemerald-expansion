@@ -22,6 +22,7 @@
 #include "data.h"
 #include "pokemon_summary_screen.h"
 #include "strings.h"
+#include "species.h"
 #include "constants/battle_anim.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"

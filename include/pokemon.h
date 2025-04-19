@@ -295,78 +295,6 @@ struct BattlePokemon
     /*0x54*/ u32 otId;
 };
 
-struct Evolution
-{
-    u16 method;
-    u16 param;
-    u16 targetSpecies;
-};
-
-struct SpeciesInfo
-{
- /* 0x00 */ u8 baseHP;
- /* 0x01 */ u8 baseAttack;
- /* 0x02 */ u8 baseDefense;
- /* 0x03 */ u8 baseSpeed;
- /* 0x04 */ u8 baseSpAttack;
- /* 0x05 */ u8 baseSpDefense;
- /* 0x06 */ u8 types[2];
- /* 0x08 */ u8 catchRate;
- /* 0x09 */ u8 expYield;
- /* 0x0A */ u16 evYield_HP:2;
- /* 0x0A */ u16 evYield_Attack:2;
- /* 0x0A */ u16 evYield_Defense:2;
- /* 0x0A */ u16 evYield_Speed:2;
- /* 0x0B */ u16 evYield_SpAttack:2;
- /* 0x0B */ u16 evYield_SpDefense:2;
- /* 0x0C */ u16 itemCommon;
- /* 0x0E */ u16 itemRare;
- /* 0x10 */ u8 genderRatio;
- /* 0x11 */ u8 eggCycles;
- /* 0x12 */ u8 friendship;
- /* 0x13 */ u8 growthRate;
- /* 0x14 */ u8 eggGroups[EGG_GROUPS_PER_MON];
- /* 0x16 */ u8 abilities[NUM_ABILITY_SLOTS];
- /* 0x18 */ u8 safariZoneFleeRate;
- /* 0x19 */ u8 bodyColor : 7;
-            u8 noFlip : 1;
-            // new
-            u8 frontAnimId;
-            u8 frontAnimDelay;
-            u8 frontPicSize; // The dimensions of this drawn pixel area.
-            u8 frontPicYOffset; // The number of pixels between the drawn pixel area and the bottom edge.
-            u8 backAnimId;
-            const union AnimCmd *const *frontAnimFrames;
-            u8 backPicSize; // The dimensions of this drawn pixel area.
-            u8 backPicYOffset; // The number of pixels between the drawn pixel area and the bottom edge.
-            const u32 *frontPic;
-            const u32 *backPic;
-            const u32 *palette;
-            const u32 *shinyPalette;
-            const u8 *iconSprite;
-            u8 iconPalIndex:3;        
-            u8 pokemonJumpType:2;
-            u8 enemyMonElevation; // This determines how much higher above the usual position the enemy Pokémon is during battle. Species that float or fly have nonzero values.
-            struct Evolution evolutions[EVOS_PER_MON];
-            const struct LevelUpMove *levelUpLearnset;
-            const u16 *tmhmLearnset;
-            const u16 *tutorLearnset;
-            const u16 *eggMoveLearnset;
-            const u8 *footprint;
-            u8 speciesName[POKEMON_NAME_LENGTH + 1];
-            u16 cryId;
-            u16 natDexNum;
-            // struct PokedexEntry
-            u8 categoryName[12];
-            u16 height; //in decimeters
-            u16 weight; //in hectograms
-            const u8 *description;
-            u16 pokemonScale;
-            u16 pokemonOffset;
-            u16 trainerScale;
-            u16 trainerOffset;
-};
-
 struct Ability
 {
     u8 name[ABILITY_NAME_LENGTH + 1];
@@ -437,12 +365,6 @@ struct SpindaSpot
     u16 image[SPINDA_SPOT_HEIGHT];
 };
 
-struct LevelUpMove
-{
-    u16 move;
-    u16 level;
-};
-
 #define NUM_UNOWN_FORMS 28
 
 #define GET_UNOWN_LETTER(personality) ((   \
@@ -462,7 +384,6 @@ extern struct SpriteTemplate gMultiuseSpriteTemplate;
 
 extern const u8 gFacilityClassToPicIndex[];
 extern const u8 gFacilityClassToTrainerClass[];
-extern const struct SpeciesInfo gSpeciesInfo[];
 extern const u32 gExperienceTables[][MAX_LEVEL + 1];
 extern const u8 gPPUpGetMask[];
 extern const u8 gPPUpClearMask[];
@@ -546,12 +467,6 @@ u8 GetSecretBaseTrainerPicIndex(void);
 u8 GetSecretBaseTrainerClass(void);
 bool8 IsPlayerPartyAndPokemonStorageFull(void);
 bool8 IsPokemonStorageFull(void);
-const u8 *GetSpeciesName(u16 species);
-const u8 *GetSpeciesCategory(u16 species);
-const u8 *GetSpeciesPokedexDescription(u16 species);
-u16 GetSpeciesHeight(u16 species);
-u16 GetSpeciesWeight(u16 species);
-const u16 *GetSpeciesEggMoves(u16 species);
 u8 CalculatePPWithBonus(u16 move, u8 ppBonuses, u8 moveIndex);
 void RemoveMonPPBonus(struct Pokemon *mon, u8 moveIndex);
 void RemoveBattleMonPPBonus(struct BattlePokemon *mon, u8 moveIndex);

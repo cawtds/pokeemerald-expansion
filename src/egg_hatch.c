@@ -10,6 +10,7 @@
 #include "main.h"
 #include "event_data.h"
 #include "sound.h"
+#include "species.h"
 #include "constants/songs.h"
 #include "text.h"
 #include "text_window.h"

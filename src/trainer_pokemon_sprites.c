@@ -7,6 +7,7 @@
 #include "trainer_pokemon_sprites.h"
 #include "data.h"
 #include "pokemon.h"
+#include "species.h"
 #include "constants/trainers.h"
 
 #define PICS_COUNT 8

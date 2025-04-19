@@ -1,0 +1,18 @@
+#include "global.h"
+#include "data.h"
+#include "graphics.h"
+#include "species.h"
+#include "constants/abilities.h"
+#include "constants/cries.h"
+#include "constants/pokedex.h"
+#include "constants/pokemon.h"
+#include "constants/items.h"
+#include "constants/species.h"
+#include "constants/types.h"
+
+
+#include "data/pokemon/egg_moves.h"
+#include "data/pokemon/level_up_learnsets.h"
+#include "data/pokemon/tutor_learnsets.h"
+#include "data/pokemon/tmhm_learnsets.h"
+#include "data/pokemon/species_info.h"

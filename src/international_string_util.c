@@ -3,6 +3,7 @@
 #include "list_menu.h"
 #include "pokedex.h"
 #include "script_menu.h"
+#include "species.h"
 #include "string_util.h"
 #include "strings.h"
 #include "text.h"

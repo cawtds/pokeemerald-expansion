@@ -50,6 +50,7 @@
 #include "script.h"
 #include "script_pokemon_util.h"
 #include "sound.h"
+#include "species.h"
 #include "strings.h"
 #include "string_util.h"
 #include "task.h"

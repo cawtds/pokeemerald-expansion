@@ -14,6 +14,7 @@
 #include "tv.h"
 #include "link.h"
 #include "script.h"
+#include "species.h"
 #include "battle_pike.h"
 #include "battle_pyramid.h"
 #include "constants/abilities.h"

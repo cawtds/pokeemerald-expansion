@@ -31,6 +31,7 @@
 #include "script.h"
 #include "script_menu.h"
 #include "sound.h"
+#include "species.h"
 #include "string_util.h"
 #include "strings.h"
 #include "task.h"

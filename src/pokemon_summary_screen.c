@@ -34,6 +34,7 @@
 #include "region_map.h"
 #include "scanline_effect.h"
 #include "sound.h"
+#include "species.h"
 #include "sprite.h"
 #include "string_util.h"
 #include "strings.h"

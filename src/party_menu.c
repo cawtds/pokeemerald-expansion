@@ -54,6 +54,7 @@
 #include "scanline_effect.h"
 #include "script.h"
 #include "sound.h"
+#include "species.h"
 #include "sprite.h"
 #include "start_menu.h"
 #include "string_util.h"

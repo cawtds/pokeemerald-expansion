@@ -4,6 +4,7 @@
 #include "pokedex.h"
 #include "pokemon.h"
 #include "pokemon_size_record.h"
+#include "species.h"
 #include "string_util.h"
 #include "text.h"
 

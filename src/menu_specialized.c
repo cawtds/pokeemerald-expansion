@@ -18,6 +18,7 @@
 #include "pokemon_storage_system.h"
 #include "scanline_effect.h"
 #include "sound.h"
+#include "species.h"
 #include "strings.h"
 #include "string_util.h"
 #include "text.h"

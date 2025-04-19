@@ -15,6 +15,7 @@
 #include "overworld.h"
 #include "random.h"
 #include "script.h"
+#include "species.h"
 #include "strings.h"
 #include "string_util.h"
 #include "task.h"

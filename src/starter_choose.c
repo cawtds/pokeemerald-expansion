@@ -12,6 +12,7 @@
 #include "pokemon.h"
 #include "scanline_effect.h"
 #include "sound.h"
+#include "species.h"
 #include "sprite.h"
 #include "starter_choose.h"
 #include "strings.h"

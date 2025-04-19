@@ -3,6 +3,7 @@
 #include "mail.h"
 #include "palette.h"
 #include "pokemon_icon.h"
+#include "species.h"
 #include "sprite.h"
 #include "constants/pokemon_icon.h"
 

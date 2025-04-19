@@ -8,6 +8,7 @@
 #include "move.h"
 #include "pokemon.h"
 #include "random.h"
+#include "species.h"
 #include "type.h"
 #include "util.h"
 #include "constants/abilities.h"

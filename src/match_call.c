@@ -20,6 +20,7 @@
 #include "rtc.h"
 #include "script.h"
 #include "script_movement.h"
+#include "species.h"
 #include "sound.h"
 #include "string_util.h"
 #include "strings.h"

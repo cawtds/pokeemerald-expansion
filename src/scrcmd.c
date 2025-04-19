@@ -40,6 +40,7 @@
 #include "script_menu.h"
 #include "script_movement.h"
 #include "script_pokemon_util.h"
+#include "species.h"
 #include "shop.h"
 #include "slot_machine.h"
 #include "sound.h"

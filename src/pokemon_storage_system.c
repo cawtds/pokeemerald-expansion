@@ -29,6 +29,7 @@
 #include "pokemon_storage_system.h"
 #include "script.h"
 #include "sound.h"
+#include "species.h"
 #include "string_util.h"
 #include "strings.h"
 #include "text.h"

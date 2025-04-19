@@ -9,6 +9,7 @@
 #include "malloc.h"
 #include "move.h"
 #include "random.h"
+#include "species.h"
 #include "test/battle.h"
 #include "window.h"
 #include "constants/characters.h"

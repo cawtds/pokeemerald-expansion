@@ -3,6 +3,7 @@
 #include "data.h"
 #include "decompress.h"
 #include "pokemon.h"
+#include "species.h"
 #include "text.h"
 
 EWRAM_DATA ALIGNED(4) u8 gDecompressionBuffer[0x4000] = {0};

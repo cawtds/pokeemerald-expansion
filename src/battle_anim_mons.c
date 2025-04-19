@@ -10,6 +10,7 @@
 #include "malloc.h"
 #include "palette.h"
 #include "pokemon_icon.h"
+#include "species.h"
 #include "sprite.h"
 #include "task.h"
 #include "trig.h"

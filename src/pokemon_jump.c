@@ -19,6 +19,7 @@
 #include "save.h"
 #include "script.h"
 #include "sound.h"
+#include "species.h"
 #include "sprite.h"
 #include "string_util.h"
 #include "strings.h"

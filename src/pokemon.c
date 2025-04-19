@@ -31,6 +31,7 @@
 #include "recorded_battle.h"
 #include "rtc.h"
 #include "sound.h"
+#include "species.h"
 #include "string_util.h"
 #include "strings.h"
 #include "task.h"
@@ -950,14 +951,9 @@ const struct SpindaSpot gSpindaSpotGraphics[] =
     {.x = 34, .y = 26, .image = INCBIN_U16("graphics/pokemon/spinda/spots/spot_3.1bpp")}
 };
 
-#include "data/pokemon/egg_moves.h"
-#include "data/pokemon/level_up_learnsets.h"
-#include "data/pokemon/tutor_learnsets.h"
-#include "data/pokemon/tmhm_learnsets.h"
 #include "data/natures_info.h"
 #include "data/pokemon/trainer_class_lookups.h"
 #include "data/pokemon/experience_tables.h"
-#include "data/pokemon/species_info.h"
 
 
 #define PP_UP_SHIFTS(val)           val,        (val) << 2,        (val) << 4,        (val) << 6
@@ -3709,45 +3705,6 @@ bool8 IsPokemonStorageFull(void)
                 return FALSE;
 
     return TRUE;
-}
-
-const u8 *GetSpeciesName(u16 species)
-{
-    if (gSpeciesInfo[species].speciesName[0] == 0)
-        return gSpeciesInfo[SPECIES_NONE].speciesName;
-    return gSpeciesInfo[species].speciesName;
-}
-
-const u8 *GetSpeciesCategory(u16 species)
-{
-    if (gSpeciesInfo[species].categoryName[0] == 0)
-        return gSpeciesInfo[SPECIES_NONE].categoryName;
-    return gSpeciesInfo[species].categoryName;
-}
-
-const u8 *GetSpeciesPokedexDescription(u16 species)
-{
-    if (gSpeciesInfo[species].description == NULL)
-        return gSpeciesInfo[SPECIES_NONE].description;
-    return gSpeciesInfo[species].description;
-}
-
-u16 GetSpeciesHeight(u16 species)
-{
-    return gSpeciesInfo[species].height;
-}
-
-u16 GetSpeciesWeight(u16 species)
-{
-    return gSpeciesInfo[species].weight;
-}
-
-const u16 *GetSpeciesEggMoves(u16 species)
-{
-    const u16 *learnset = gSpeciesInfo[species].eggMoveLearnset;
-    if (learnset == NULL)
-        return gSpeciesInfo[SPECIES_NONE].eggMoveLearnset;
-    return learnset;
 }
 
 u8 CalculatePPWithBonus(u16 move, u8 ppBonuses, u8 moveIndex)
