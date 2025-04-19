@@ -1,6 +1,7 @@
 #ifndef GUARD_MOVE_H
 #define GUARD_MOVE_H
 
+#include "global.h"
 #include "battle_scripts.h"
 #include "constants/contest.h"
 #include "constants/moves.h"
@@ -42,7 +43,9 @@ struct MoveInfo
 extern const struct MoveInfo gMoveInfo[MOVES_COUNT];
 extern const struct BattleMoveEffect gBattleMoveEffects[];
 
-static inline u32 SanitizeMoveId(u32 moveId)
+bool32 IsHMMove(enum Move move);
+
+static inline enum Move SanitizeMoveId(enum Move moveId)
 {
     if (moveId >= MOVES_COUNT)
         return MOVE_NONE;

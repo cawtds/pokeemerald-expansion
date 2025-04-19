@@ -88,8 +88,6 @@ EWRAM_DATA struct Pokemon gEnemyParty[PARTY_SIZE] = {0};
 EWRAM_DATA struct SpriteTemplate gMultiuseSpriteTemplate = {0};
 EWRAM_DATA static struct MonSpritesGfxManager *sMonSpritesGfxManagers[MON_SPR_GFX_MANAGERS_COUNT] = {NULL};
 
-#include "data/moves_info.h"
-
 // Used in an unreferenced function in RS.
 // Unreferenced here and in FRLG.
 struct CombinedMove
@@ -1207,13 +1205,6 @@ static const s8 sFriendshipEventModifiers[][3] =
     [FRIENDSHIP_EVENT_FAINT_LARGE]     = {-5, -5, -10},
 };
 
-#define HM_MOVES_END 0xFFFF
-
-static const u16 sHMMoves[] =
-{
-    MOVE_CUT, MOVE_FLY, MOVE_SURF, MOVE_STRENGTH, MOVE_FLASH,
-    MOVE_ROCK_SMASH, MOVE_WATERFALL, MOVE_DIVE, HM_MOVES_END
-};
 
 static const struct SpeciesItem sAlteringCaveWildMonHeldItems[] =
 {
@@ -5591,17 +5582,6 @@ u16 GetMonSpritePalTagFromOtIdPersonality(u16 species, u32 otId , u32 personalit
         return species + SPECIES_SHINY_TAG;
     else
         return species;
-}
-
-bool32 IsHMMove2(u16 move)
-{
-    int i = 0;
-    while (sHMMoves[i] != HM_MOVES_END)
-    {
-        if (sHMMoves[i++] == move)
-            return TRUE;
-    }
-    return FALSE;
 }
 
 bool8 IsMonSpriteNotFlipped(u16 species)

@@ -4692,18 +4692,6 @@ void ItemUseCB_PPUp(u8 taskId, TaskFunc task)
     gTasks[taskId].func = Task_HandleWhichMoveInput;
 }
 
-bool8 IsMoveHm(u16 move)
-{
-    u16 itemId;
-
-    for (itemId = ITEM_HM01; itemId < (ITEM_HM01 + NUM_HIDDEN_MACHINES); itemId++)
-    {
-        if (ItemIdToBattleMoveId(itemId) == move)
-            return TRUE;
-    }
-    return FALSE;
-}
-
 bool8 MonKnowsMove(struct Pokemon *mon, u16 move)
 {
     u8 i;

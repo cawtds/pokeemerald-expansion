@@ -1,7 +1,3 @@
-#include "battle_anims_scripts.h"
-#include "constants/contest.h"
-
-
 const struct MoveInfo gMoveInfo[MOVES_COUNT] =
 {
     [MOVE_NONE] =

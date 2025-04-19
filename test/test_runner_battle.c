@@ -13,6 +13,7 @@
 #include "test/battle.h"
 #include "window.h"
 #include "constants/characters.h"
+#include "constants/natures.h"
 #include "constants/trainers.h"
 
 #if defined(__INTELLISENSE__)
