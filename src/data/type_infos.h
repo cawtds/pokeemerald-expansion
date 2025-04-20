@@ -103,7 +103,7 @@ const struct TypeInfo gTypeInfos[NUMBER_OF_MON_TYPES] =
     {
         .name = _("???"),
         .moveText = _("a ??? move"),
-        .damageCategory = DAMAGE_CATEGORY_SPECIAL,
+        .damageCategory = DAMAGE_CATEGORY_NONE,
         .menuInfoOffset = 0xA4,
         .paletteNum = 15,
         .paletteTMHM = gItemIconPalette_NormalTMHM,

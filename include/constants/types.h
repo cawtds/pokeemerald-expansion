@@ -1,7 +1,7 @@
 #ifndef GUARD_CONSTANTS_TYPE_H
 #define GUARD_CONSTANTS_TYPE_H
 
-enum
+enum Type
 {
     TYPE_NORMAL,
     TYPE_FIGHTING,
@@ -27,8 +27,9 @@ enum
     TYPE_NONE = 255,
 };
 
-enum
+enum DamageCategory
 {
+    DAMAGE_CATEGORY_NONE,
     DAMAGE_CATEGORY_PHYSICAL,
     DAMAGE_CATEGORY_SPECIAL,
 };
