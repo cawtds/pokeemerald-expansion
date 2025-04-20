@@ -8,6 +8,7 @@
 #include "constants/battle_anim.h"
 #include "constants/moves.h"
 #include "battle_message.h"
+#include "type.h"
 #include "tv.h"
 #include "constants/battle_move_effects.h"
 #include "constants/types.h"
@@ -1033,7 +1034,7 @@ static void AddMovePoints(u8 caseId, u16 arg1, u8 arg2, u8 arg3)
         break;
     case PTS_REFLECT:
         // If hit Reflect with damaging physical move
-        if (IS_TYPE_PHYSICAL(type) && power != 0 && tvPtr->side[defSide].reflectMonId != 0)
+        if (GetTypeDamageCategory(type) == DAMAGE_CATEGORY_PHYSICAL && power != 0 && tvPtr->side[defSide].reflectMonId != 0)
         {
             u32 id = (tvPtr->side[defSide].reflectMonId - 1) * 4;
             movePoints->points[defSide][id + tvPtr->side[defSide].reflectMoveSlot] += sPointsArray[caseId][0];
@@ -1041,7 +1042,7 @@ static void AddMovePoints(u8 caseId, u16 arg1, u8 arg2, u8 arg3)
         break;
     case PTS_LIGHT_SCREEN:
         // If hit Light Screen with damaging special move
-        if (!IS_TYPE_PHYSICAL(type) && power != 0 && tvPtr->side[defSide].lightScreenMonId != 0)
+        if (GetTypeDamageCategory(type) != DAMAGE_CATEGORY_PHYSICAL && power != 0 && tvPtr->side[defSide].lightScreenMonId != 0)
         {
             u32 id = (tvPtr->side[defSide].lightScreenMonId - 1) * 4;
             movePoints->points[defSide][id + tvPtr->side[defSide].lightScreenMoveSlot] += sPointsArray[caseId][0];

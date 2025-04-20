@@ -11,6 +11,7 @@
 #include "battle_gfx_sfx_util.h"
 #include "battle_util2.h"
 #include "battle_bg.h"
+#include "move.h"
 #include "pokeball.h"
 
 // Helper for accessing command arguments and advancing gBattlescriptCurrInstr.
@@ -475,17 +476,6 @@ STATIC_ASSERT(sizeof(((struct BattleStruct *)0)->palaceFlags) * 8 >= MAX_BATTLER
 #define F_DYNAMIC_TYPE_IGNORE_PHYSICALITY  (1 << 6) // If set, the dynamic type's physicality won't be used for certain move effects.
 #define F_DYNAMIC_TYPE_SET                 (1 << 7) // Set for all dynamic types to distinguish a dynamic type of Normal (0) from no dynamic type.
 
-#define GET_MOVE_TYPE(move, typeArg)                                  \
-{                                                                     \
-    if (gBattleStruct->dynamicMoveType)                               \
-        typeArg = gBattleStruct->dynamicMoveType & DYNAMIC_TYPE_MASK; \
-    else                                                              \
-        typeArg = GetMoveType(move);                                  \
-}
-
-#define IS_TYPE_PHYSICAL(moveType) (moveType < TYPE_MYSTERY)
-#define IS_TYPE_SPECIAL(moveType) (moveType > TYPE_MYSTERY)
-
 #define TARGET_TURN_DAMAGED ((gSpecialStatuses[gBattlerTarget].physicalDmg != 0 || gSpecialStatuses[gBattlerTarget].specialDmg != 0))
 
 #define IS_BATTLER_OF_TYPE(battlerId, type) ((gBattleMons[battlerId].types[0] == type || gBattleMons[battlerId].types[1] == type))
@@ -759,6 +749,14 @@ static inline bool32 IsBattlerAlive(u32 battler)
         return FALSE;
     else
         return TRUE;
+}
+
+static inline u32 GetDynamicMoveType(u32 move)
+{    
+    if (gBattleStruct->dynamicMoveType)
+        return gBattleStruct->dynamicMoveType & DYNAMIC_TYPE_MASK;
+    else
+        return GetMoveType(move);
 }
 
 #endif // GUARD_BATTLE_H

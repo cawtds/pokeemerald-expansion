@@ -2466,7 +2466,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
         else
             move = gCurrentMove;
 
-        GET_MOVE_TYPE(move, moveType);
+        moveType = GetDynamicMoveType(move);
 
         switch (caseID)
         {
