@@ -19,61 +19,48 @@ struct NatureInfo
 
 extern const struct NatureInfo gNatureInfo[NUM_NATURES];
 
-static inline enum Nature SanitizeNatureId(enum Nature nature)
-{
-    if (nature >= NUM_NATURES)
-        return NATURE_HARDY;
-    return nature;
-}
-
 static inline const u8 *Nature_GetName(enum Nature nature)
 {
-    nature = SanitizeNatureId(nature);
-    if (gNatureInfo[nature].name == NULL)
-        return gNatureInfo[NATURE_HARDY].name;
     return gNatureInfo[nature].name;
 }
 
 static inline u8 Nature_GetStatUp(enum Nature nature)
 {
-    return gNatureInfo[SanitizeNatureId(nature)].statUp;
+    return gNatureInfo[nature].statUp;
 }
 
 static inline u8 Nature_GetStatDown(enum Nature nature)
 {
-    return gNatureInfo[SanitizeNatureId(nature)].statDown;
+    return gNatureInfo[nature].statDown;
 }
 
 static inline u8 Nature_GetBackAnim(enum Nature nature)
 {
-    return gNatureInfo[SanitizeNatureId(nature)].backAnim;
+    return gNatureInfo[nature].backAnim;
 }
 
 static inline const u8 *Nature_GetPokeBlockAnim(enum Nature nature)
 {
-    return gNatureInfo[SanitizeNatureId(nature)].pokeBlockAnim;
+    return gNatureInfo[nature].pokeBlockAnim;
 }
 
 static inline const u8 *Nature_GetBattlePalacePercents(enum Nature nature)
 {
-    return gNatureInfo[SanitizeNatureId(nature)].battlePalacePercents;
+    return gNatureInfo[nature].battlePalacePercents;
 }
 
 static inline u8 Nature_GetBattlePalaceFlavorText(enum Nature nature)
 {
-    return gNatureInfo[SanitizeNatureId(nature)].battlePalaceFlavorText;
+    return gNatureInfo[nature].battlePalaceFlavorText;
 }
 
 static inline u8 Nature_GetBattlePalaceSmokescreen(enum Nature nature)
 {
-    return gNatureInfo[SanitizeNatureId(nature)].battlePalaceSmokescreen;
+    return gNatureInfo[nature].battlePalaceSmokescreen;
 }
 
 static inline const u8 *Nature_GetNatureGirlMessage(enum Nature nature)
 {
-    nature = SanitizeNatureId(nature);
-    if (gNatureInfo[nature].natureGirlMessage == NULL)
-        return gNatureInfo[NATURE_HARDY].natureGirlMessage;
     return gNatureInfo[nature].natureGirlMessage;
 }
 

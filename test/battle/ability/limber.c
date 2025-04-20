@@ -1,4 +1,3 @@
-
 #include "global.h"
 #include "move.h"
 #include "test/battle.h"
