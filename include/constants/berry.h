@@ -1,29 +1,91 @@
 #ifndef GUARD_CONSTANTS_BERRY_H
 #define GUARD_CONSTANTS_BERRY_H
 
-#define BERRY_NONE 0
+enum Berry
+{
+    BERRY_NONE,
+    BERRY_CHERI,
+    BERRY_CHESTO,
+    BERRY_PECHA,
+    BERRY_RAWST,
+    BERRY_ASPEAR,
+    BERRY_LEPPA,
+    BERRY_ORAN,
+    BERRY_PERSIM,
+    BERRY_LUM,
+    BERRY_SITRUS,
+    BERRY_FIGY,
+    BERRY_WIKI,
+    BERRY_MAGO,
+    BERRY_AGUAV,
+    BERRY_IAPAPA,
+    BERRY_RAZZ,
+    BERRY_BLUK,
+    BERRY_NANAB,
+    BERRY_WEPEAR,
+    BERRY_PINAP,
+    BERRY_POMEG,
+    BERRY_KELPSY,
+    BERRY_QUALOT,
+    BERRY_HONDEW,
+    BERRY_GREPA,
+    BERRY_TAMATO,
+    BERRY_CORNN,
+    BERRY_MAGOST,
+    BERRY_RABUTA,
+    BERRY_NOMEL,
+    BERRY_SPELON,
+    BERRY_PAMTRE,
+    BERRY_WATMEL,
+    BERRY_DURIN,
+    BERRY_BELUE,
+    BERRY_LIECHI,
+    BERRY_GANLON,
+    BERRY_SALAC,
+    BERRY_PETAYA,
+    BERRY_APICOT,
+    BERRY_LANSAT,
+    BERRY_STARF,
+    BERRY_ENIGMA,
 
-#define BERRY_FIRMNESS_UNKNOWN     0
-#define BERRY_FIRMNESS_VERY_SOFT   1
-#define BERRY_FIRMNESS_SOFT        2
-#define BERRY_FIRMNESS_HARD        3
-#define BERRY_FIRMNESS_VERY_HARD   4
-#define BERRY_FIRMNESS_SUPER_HARD  5
+    BERRY_COUNT,
 
-#define FLAVOR_SPICY   0
-#define FLAVOR_DRY     1
-#define FLAVOR_SWEET   2
-#define FLAVOR_BITTER  3
-#define FLAVOR_SOUR    4
-#define FLAVOR_COUNT   5
+    BERRY_UNUSED_1 = BERRY_COUNT,
+    BERRY_UNUSED_2,
+    BERRY_UNUSED_3,
+};
 
-#define BERRY_STAGE_NO_BERRY    0  // there is no tree planted and the soil is completely flat.
-#define BERRY_STAGE_PLANTED     1
-#define BERRY_STAGE_SPROUTED    2
-#define BERRY_STAGE_TALLER      3
-#define BERRY_STAGE_FLOWERING   4
-#define BERRY_STAGE_BERRIES     5
-#define BERRY_STAGE_SPARKLING   255
+enum BerryFirmness
+{
+    BERRY_FIRMNESS_UNKNOWN,
+    BERRY_FIRMNESS_VERY_SOFT,
+    BERRY_FIRMNESS_SOFT,
+    BERRY_FIRMNESS_HARD,
+    BERRY_FIRMNESS_VERY_HARD,
+    BERRY_FIRMNESS_SUPER_HARD,
+};
+
+enum BerryFlavor
+{
+    FLAVOR_SPICY,
+    FLAVOR_DRY,
+    FLAVOR_SWEET,
+    FLAVOR_BITTER,
+    FLAVOR_SOUR,
+
+    FLAVOR_COUNT
+};
+
+enum BerryStage
+{
+    BERRY_STAGE_NO_BERRY  = 0,  // there is no tree planted and the soil is completely flat.
+    BERRY_STAGE_PLANTED   = 1,
+    BERRY_STAGE_SPROUTED  = 2,
+    BERRY_STAGE_TALLER    = 3,
+    BERRY_STAGE_FLOWERING = 4,
+    BERRY_STAGE_BERRIES   = 5,
+    BERRY_STAGE_SPARKLING = 255,
+};
 
 // Berries can be watered in the following stages:
 // - BERRY_STAGE_PLANTED

@@ -1,6 +1,7 @@
 #ifndef GUARD_ITEM_H
 #define GUARD_ITEM_H
 
+#include "global.h"
 #include "constants/item.h"
 #include "constants/items.h"
 #include "constants/pokeball.h"

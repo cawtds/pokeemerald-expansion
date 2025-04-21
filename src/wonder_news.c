@@ -3,6 +3,7 @@
 #include "random.h"
 #include "event_data.h"
 #include "wonder_news.h"
+#include "constants/berry.h"
 #include "constants/items.h"
 
 // Every 4th reward for sending Wonder News to a link partner is a "big" reward.
@@ -30,11 +31,11 @@ void WonderNews_SetReward(u32 newsType)
     case WONDER_NEWS_RECV_FRIEND:
     case WONDER_NEWS_RECV_WIRELESS:
         // Random berry between ITEM_RAZZ_BERRY and ITEM_NOMEL_BERRY
-        data->berry = (Random() % 15) + ITEM_TO_BERRY(ITEM_RAZZ_BERRY);
+        data->berry = (Random() % 15) + BERRY_RAZZ;
         break;
     case WONDER_NEWS_SENT:
         // Random berry between ITEM_CHERI_BERRY and ITEM_IAPAPA_BERRY
-        data->berry = (Random() % 15) + ITEM_TO_BERRY(ITEM_CHERI_BERRY);
+        data->berry = (Random() % 15) + BERRY_CHERI;
         break;
     }
 }

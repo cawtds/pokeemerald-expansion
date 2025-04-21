@@ -22,6 +22,7 @@
 #include "trainer_see.h"
 #include "trainer_hill.h"
 #include "util.h"
+#include "constants/berry.h"
 #include "constants/event_object_movement.h"
 #include "constants/event_objects.h"
 #include "constants/field_effects.h"
@@ -165,8 +166,6 @@ static void DestroyLevitateMovementTask(u8);
 static bool8 NpcTakeStep(struct Sprite *);
 static bool8 IsElevationMismatchAt(u8, s16, s16);
 static bool8 AreElevationsCompatible(u8, u8);
-
-static const struct SpriteFrameImage sPicTable_PechaBerryTree[];
 
 const u8 gReflectionEffectPaletteMap[16] = {
         [PALSLOT_PLAYER]                 = PALSLOT_PLAYER_REFLECTION,
@@ -467,6 +466,14 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #include "data/object_events/object_event_subsprites.h"
 #include "data/object_events/object_event_graphics_info.h"
 
+const u8 gBerryTreeObjectEventGraphicsIdTable[] = {
+    [BERRY_STAGE_PLANTED   - 1] = OBJ_EVENT_GFX_BERRY_TREE_EARLY_STAGES,
+    [BERRY_STAGE_SPROUTED  - 1] = OBJ_EVENT_GFX_BERRY_TREE_EARLY_STAGES,
+    [BERRY_STAGE_TALLER    - 1] = OBJ_EVENT_GFX_BERRY_TREE_LATE_STAGES,
+    [BERRY_STAGE_FLOWERING - 1] = OBJ_EVENT_GFX_BERRY_TREE_LATE_STAGES,
+    [BERRY_STAGE_BERRIES   - 1] = OBJ_EVENT_GFX_BERRY_TREE_LATE_STAGES
+};
+
 static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Npc1,                  OBJ_EVENT_PAL_TAG_NPC_1},
     {gObjectEventPal_Npc2,                  OBJ_EVENT_PAL_TAG_NPC_2},
@@ -692,7 +699,6 @@ static const u16 *const sObjectPaletteTagSets[] = {
     sObjectPaletteTags3,
 };
 
-#include "data/object_events/berry_tree_graphics_tables.h"
 #include "data/field_effects/field_effect_objects.h"
 
 static const s16 sMovementDelaysMedium[] = {32, 64,  96, 128};
@@ -1888,14 +1894,14 @@ static void SetBerryTreeGraphics(struct ObjectEvent *objectEvent, struct Sprite 
     {
         objectEvent->invisible = FALSE;
         sprite->invisible = FALSE;
-        berryId = GetBerryTypeByBerryTreeId(objectEvent->trainerRange_berryTreeId) - 1;
+        berryId = GetBerryTypeByBerryTreeId(objectEvent->trainerRange_berryTreeId);
         berryStage--;
-        if (berryId > ITEM_TO_BERRY(LAST_BERRY_INDEX))
-            berryId = 0;
+        if (berryId >= BERRY_COUNT)
+            berryId = BERRY_NONE;
 
-        ObjectEventSetGraphicsId(objectEvent, gBerryTreeObjectEventGraphicsIdTablePointers[berryId][berryStage]);
-        sprite->images = gBerryTreePicTablePointers[berryId];
-        sprite->oam.paletteNum = gBerryTreePaletteSlotTablePointers[berryId][berryStage];
+        ObjectEventSetGraphicsId(objectEvent, gBerryTreeObjectEventGraphicsIdTable[berryStage]);
+        sprite->images = Berry_GetTreeImages(berryId);
+        sprite->oam.paletteNum = Berry_GetTreePaletteSlots(berryId)[berryStage];
         StartSpriteAnim(sprite, berryStage);
     }
 }

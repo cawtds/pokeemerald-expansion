@@ -98,7 +98,7 @@ u8 *CopyItemNameHandlePlural(u16 itemId, u8 *dst, u32 quantity)
     else
     {
         if (itemId >= FIRST_BERRY_INDEX && itemId <= LAST_BERRY_INDEX)
-            GetBerryCountString(dst, gBerries[itemId - FIRST_BERRY_INDEX].name, quantity);
+            GetBerryCountString(dst, Berry_GetName(ItemIdToBerryType(itemId)), quantity);
         else
             StringCopy(dst, Item_GetName(itemId));
     }
@@ -984,10 +984,9 @@ u16 ItemIdToBattleMoveId(u16 item)
 
 u8 ItemIdToBerryType(u16 item)
 {
-    u16 berry = item - FIRST_BERRY_INDEX;
-
-    if (berry > LAST_BERRY_INDEX - FIRST_BERRY_INDEX)
-        return ITEM_TO_BERRY(FIRST_BERRY_INDEX);
-    else
-        return ITEM_TO_BERRY(item);
+    u16 berry;
+    if (Item_GetPocket(item) != POCKET_BERRIES)
+        return BERRY_CHERI;
+    berry = Item_GetSecondaryId(item);
+    return berry > BERRY_ENIGMA ? BERRY_CHERI : berry;
 }

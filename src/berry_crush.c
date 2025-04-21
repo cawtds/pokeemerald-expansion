@@ -1042,7 +1042,7 @@ static void GetBerryFromBag(void)
     else
         RemoveBagItem(gSpecialVar_ItemId, 1);
 
-    sGame->players[sGame->localId].berryId = gSpecialVar_ItemId - FIRST_BERRY_INDEX;
+    sGame->players[sGame->localId].berryId = Item_GetSecondaryId(gSpecialVar_ItemId) - 1;
     sGame->nextCmd = CMD_FADE;
     sGame->afterPalFadeCmd = CMD_WAIT_BERRIES;
     SetPaletteFadeArgs(sGame->commandArgs, FALSE, PALETTES_ALL, 0, 16, 0, RGB_BLACK);
@@ -1643,7 +1643,7 @@ static void PrintResultsText(struct BerryCrushGame * game, u8 page, u8 sp14, u8 
             j = game->players[i].berryId;
             if (j >= LAST_BERRY_INDEX - FIRST_BERRY_INDEX + 2)
                 j = 0;
-            StringCopy(gStringVar1, gBerries[j].name);
+            StringCopy(gStringVar1, Berry_GetName(j + 1));
             StringExpandPlaceholders(gStringVar4, sResultsTexts[page]);
             break;
         }
@@ -2389,8 +2389,8 @@ static u32 Cmd_WaitForOthersToPickBerries(struct BerryCrushGame *game, u8 *args)
             game->players[i].berryId = gBlockRecvBuffer[i][0];
             if (game->players[i].berryId > LAST_BERRY_INDEX + 1)
                 game->players[i].berryId = 0;
-            game->targetAPresses += gBerryCrush_BerryData[game->players[i].berryId].difficulty;
-            game->powder += gBerryCrush_BerryData[game->players[i].berryId].powder;
+            game->targetAPresses += Berry_GetCrushDifficulty(game->players[i].berryId + 1);
+            game->powder += Berry_GetCrushPowder(game->players[i].berryId + 1);
         }
         game->cmdTimer = 0;
         ResetBlockReceivedFlags();
