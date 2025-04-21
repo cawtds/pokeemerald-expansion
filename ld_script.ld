@@ -11,12 +11,6 @@ MEMORY
     ROM    (rx) : ORIGIN = 0x8000000, LENGTH = 32M
 }
 
-/* Modify the following load addresses as needed to make more room. Alternately, delete both the
-   declarations below and their references further down to get rid of the gaps.                  */
-
-__anim_mon_load_address = 0x8b00000;
-__gfx_load_address = 0x8c00000;
-
 SECTIONS {
 
     .ewram ORIGIN(EWRAM) :
@@ -1309,13 +1303,13 @@ SECTIONS {
         data/multiboot_pokemon_colosseum.o(.rodata);
     } > ROM =0
 
-    anim_mon_front_pic_data __anim_mon_load_address :
+    anim_mon_front_pic_data :
     ALIGN(4)
     {
         src/anim_mon_front_pics.o(.rodata);
     } > ROM =0
 
-    gfx_data __gfx_load_address :
+    gfx_data :
     ALIGN(4)
     {
         src/graphics.o(.rodata);
