@@ -16,6 +16,7 @@
 #include "event_object_lock.h"
 #include "event_object_movement.h"
 #include "field_message_box.h"
+#include "field_move.h"
 #include "field_player_avatar.h"
 #include "field_screen_effect.h"
 #include "field_specials.h"
@@ -51,6 +52,7 @@
 #include "tv.h"
 #include "window.h"
 #include "constants/event_objects.h"
+#include "constants/field_move.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(void);
@@ -1711,12 +1713,18 @@ bool8 ScrCmd_setmonmove(struct ScriptContext *ctx)
     return FALSE;
 }
 
-bool8 ScrCmd_checkpartymove(struct ScriptContext *ctx)
+bool8 ScrCmd_checkfieldmove(struct ScriptContext *ctx)
 {
-    u8 i;
-    u16 moveId = ScriptReadHalfword(ctx);
+    u32 i;
+    enum FieldMove fieldMove = ScriptReadByte(ctx);
+    bool32 doUnlockCheck = ScriptReadByte(ctx);
+    u16 moveId;
 
     gSpecialVar_Result = PARTY_SIZE;
+    if (doUnlockCheck && !IsFieldMoveUnlocked(fieldMove))
+        return FALSE;
+
+    moveId = FieldMove_GetMoveId(fieldMove);
     for (i = 0; i < PARTY_SIZE; i++)
     {
         u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);

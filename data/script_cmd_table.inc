@@ -139,7 +139,7 @@ gScriptCmdTable::
 	script_cmd_table_entry SCR_OP_GIVEMON                       ScrCmd_givemon                        @ 0x79
 	script_cmd_table_entry SCR_OP_GIVEEGG                       ScrCmd_giveegg                        @ 0x7a
 	script_cmd_table_entry SCR_OP_SETMONMOVE                    ScrCmd_setmonmove                     @ 0x7b
-	script_cmd_table_entry SCR_OP_CHECKPARTYMOVE                ScrCmd_checkpartymove                 @ 0x7c
+	script_cmd_table_entry SCR_OP_CHECKFIELDMOVE                ScrCmd_checkfieldmove                 @ 0x7c
 	script_cmd_table_entry SCR_OP_BUFFERSPECIESNAME             ScrCmd_bufferspeciesname              @ 0x7d
 	script_cmd_table_entry SCR_OP_BUFFERLEADMONSPECIESNAME      ScrCmd_bufferleadmonspeciesname       @ 0x7e
 	script_cmd_table_entry SCR_OP_BUFFERPARTYMONNICK            ScrCmd_bufferpartymonnick             @ 0x7f
