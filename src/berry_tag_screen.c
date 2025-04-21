@@ -402,7 +402,7 @@ static void PrintAllBerryData(void)
 
 static void PrintBerryNumberAndName(void)
 {
-    const struct BerryInfo *berry = GetBerryInfo(sBerryTag->berryId);
+    const struct BerryData *berry = GetBerryData(sBerryTag->berryId);
     ConvertIntToDecimalStringN(gStringVar1, sBerryTag->berryId, STR_CONV_MODE_LEADING_ZEROS, 2);
     StringCopy(gStringVar2, berry->name);
     StringExpandPlaceholders(gStringVar4, gText_NumberVar1Var2);
@@ -411,7 +411,7 @@ static void PrintBerryNumberAndName(void)
 
 static void PrintBerrySize(void)
 {
-    const struct BerryInfo *berry = GetBerryInfo(sBerryTag->berryId);
+    const struct BerryData *berry = GetBerryData(sBerryTag->berryId);
     AddTextPrinterParameterized(WIN_SIZE_FIRM, FONT_NORMAL, gText_SizeSlash, 0, 1, TEXT_SKIP_DRAW, NULL);
     if (berry->size != 0)
     {
@@ -436,7 +436,7 @@ static void PrintBerrySize(void)
 
 static void PrintBerryFirmness(void)
 {
-    const struct BerryInfo *berry = GetBerryInfo(sBerryTag->berryId);
+    const struct BerryData *berry = GetBerryData(sBerryTag->berryId);
     AddTextPrinterParameterized(WIN_SIZE_FIRM, FONT_NORMAL, gText_FirmSlash, 0, 0x11, TEXT_SKIP_DRAW, NULL);
     if (berry->firmness != 0)
         AddTextPrinterParameterized(WIN_SIZE_FIRM, FONT_NORMAL, sBerryFirmnessStrings[berry->firmness - 1], 0x28, 0x11, 0, NULL);
@@ -446,13 +446,13 @@ static void PrintBerryFirmness(void)
 
 static void PrintBerryDescription1(void)
 {
-    const struct BerryInfo *berry = GetBerryInfo(sBerryTag->berryId);
+    const struct BerryData *berry = GetBerryData(sBerryTag->berryId);
     AddTextPrinterParameterized(WIN_DESC, FONT_NORMAL, berry->description1, 0, 1, 0, NULL);
 }
 
 static void PrintBerryDescription2(void)
 {
-    const struct BerryInfo *berry = GetBerryInfo(sBerryTag->berryId);
+    const struct BerryData *berry = GetBerryData(sBerryTag->berryId);
     AddTextPrinterParameterized(WIN_DESC, FONT_NORMAL, berry->description2, 0, 0x11, 0, NULL);
 }
 
@@ -478,7 +478,7 @@ static void CreateFlavorCircleSprites(void)
 
 static void SetFlavorCirclesVisiblity(void)
 {
-    const struct BerryInfo *berry = GetBerryInfo(sBerryTag->berryId);
+    const struct BerryData *berry = GetBerryData(sBerryTag->berryId);
 
     if (berry->spicy)
         gSprites[sBerryTag->flavorCircleIds[FLAVOR_SPICY]].invisible = FALSE;

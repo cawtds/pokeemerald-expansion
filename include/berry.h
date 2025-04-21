@@ -3,21 +3,16 @@
 
 #include "global.h"
 
-struct BerryInfo
+// needs to be identical to struct EngimaBerryData
+struct BerryData
 {
     const u8 name[BERRY_NAME_LENGTH + 1];
-    const u8 *description1;
-    const u8 *description2;
-    const u8 *treePaletteSlots;
-    const struct SpriteFrameImage *treeImages;
-    const u32 *imageTiles;
-    const u32 *imagePalette;
-    u16 size;
-    u16 crushPowder;
-    u8 crushDifficulty; // The number of A presses required to crush it
     u8 firmness;
+    u16 size;
     u8 maxYield;
     u8 minYield;
+    const u8 *description1;
+    const u8 *description2;
     u8 stageDuration;
     u8 spicy;
     u8 dry;
@@ -25,12 +20,24 @@ struct BerryInfo
     u8 bitter;
     u8 sour;
     u8 smoothness;
+    //u8 padding;
+};
+
+struct BerryInfo
+{
+    const struct BerryData berryData;
+    const u8 *treePaletteSlots;
+    const struct SpriteFrameImage *treeImages;
+    const u32 *imageTiles;
+    const u32 *imagePalette;
+    u16 crushPowder;
+    u8 crushDifficulty; // The number of A presses required to crush it
 };
 
 void ClearEnigmaBerries(void);
 void SetEnigmaBerry(u8 *src);
 bool32 IsEnigmaBerryValid(void);
-const struct BerryInfo *GetBerryInfo(u8 berry);
+const struct BerryData *GetBerryData(u8 berry);
 struct BerryTree *GetBerryTreeInfo(u8 id);
 bool32 ObjectEventInteractionWaterBerryTree(void);
 bool8 IsPlayerFacingEmptyBerryTreePatch(void);
@@ -67,7 +74,7 @@ static inline const u32 *Berry_GetImagePalette(enum Berry berry)
 
 static inline const u8 *Berry_GetName(enum Berry berry)
 {
-    return gBerryInfo[berry].name;
+    return gBerryInfo[berry].berryData.name;
 }
 
 static inline const struct SpriteFrameImage *Berry_GetTreeImages(enum Berry berry)

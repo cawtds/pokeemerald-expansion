@@ -5,7 +5,7 @@
 #define BERRY_ITEM_EFFECT_COUNT 18
 
 // with no const fields
-struct BerryInfo2
+struct EnigmaBerryData
 {
     u8 name[BERRY_NAME_LENGTH + 1];
     u8 firmness;
@@ -26,7 +26,7 @@ struct BerryInfo2
 
 struct EnigmaBerry
 {
-    struct BerryInfo2 berry;
+    struct EnigmaBerryData berry;
     u8 itemEffect[BERRY_ITEM_EFFECT_COUNT];
     u8 holdEffect;
     u8 holdEffectParam;
