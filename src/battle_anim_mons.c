@@ -15,6 +15,7 @@
 #include "task.h"
 #include "trig.h"
 #include "util.h"
+#include "constants/battle.h"
 #include "constants/battle_anim.h"
 
 #define IS_DOUBLE_BATTLE() ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
@@ -52,30 +53,44 @@ static const struct UCoords8 sBattlerCoords[][MAX_BATTLERS_COUNT] =
     },
 };
 
-// One entry for each of the four Castform forms.
-const struct MonCoords gCastformFrontSpriteCoords[NUM_CASTFORM_FORMS] =
+const struct CastformFormInfo gCastformFormInfo[NUM_CASTFORM_FORMS] =
 {
-    [CASTFORM_NORMAL] = { .size = MON_COORDS_SIZE(32, 32), .y_offset = 17 },
-    [CASTFORM_FIRE]   = { .size = MON_COORDS_SIZE(48, 48), .y_offset =  9 },
-    [CASTFORM_WATER]  = { .size = MON_COORDS_SIZE(32, 48), .y_offset =  9 },
-    [CASTFORM_ICE]    = { .size = MON_COORDS_SIZE(64, 48), .y_offset =  8 },
-};
+    [CASTFORM_NORMAL] =
+    {
+        .type = TYPE_NORMAL,
+        .battleWeather = 0,
+        .size = MON_COORDS_SIZE(32, 32),
+        .y_offset = 17,
+        .elevation = 13,
+    },
 
-static const u8 sCastformElevations[NUM_CASTFORM_FORMS] =
-{
-    [CASTFORM_NORMAL] = 13,
-    [CASTFORM_FIRE]   = 14,
-    [CASTFORM_WATER]  = 13,
-    [CASTFORM_ICE]    = 13,
-};
+    [CASTFORM_FIRE] =
+    {
+        .type = TYPE_FIRE,
+        .battleWeather = B_WEATHER_SUN,
+        .size = MON_COORDS_SIZE(48, 48),
+        .y_offset = 9,
+        .elevation = 14,
+    },
 
-// Y position of the backsprite for each of the four Castform forms.
-static const u8 sCastformBackSpriteYCoords[NUM_CASTFORM_FORMS] =
-{
-    [CASTFORM_NORMAL] = 0,
-    [CASTFORM_FIRE]   = 0,
-    [CASTFORM_WATER]  = 0,
-    [CASTFORM_ICE]    = 0,
+    [CASTFORM_WATER] =
+    {
+        .type = TYPE_WATER,
+        .battleWeather = B_WEATHER_RAIN,
+        .size = MON_COORDS_SIZE(32, 48),
+        .y_offset = 9,
+        .elevation = 13,
+    },
+
+    [CASTFORM_ICE] =
+    {
+        .type = TYPE_ICE,
+        .battleWeather = B_WEATHER_HAIL,
+        .size = MON_COORDS_SIZE(64, 48),
+        .y_offset = 8,
+        .elevation = 13,
+    },
+
 };
 
 // Placeholders for Pokémon sprites to be created for a move animation effect (e.g. Role Play / Snatch)
@@ -206,7 +221,7 @@ u8 GetBattlerYDelta(u8 battlerId, u16 species)
         }
         else if (species == SPECIES_CASTFORM)
         {
-            ret = sCastformBackSpriteYCoords[gBattleMonForms[battlerId]];
+            ret = 0;
         }
         else if (species > NUM_SPECIES)
         {
@@ -235,7 +250,7 @@ u8 GetBattlerYDelta(u8 battlerId, u16 species)
         }
         else if (species == SPECIES_CASTFORM)
         {
-            ret = gCastformFrontSpriteCoords[gBattleMonForms[battlerId]].y_offset;
+            ret = gCastformFormInfo[gBattleMonForms[battlerId]].y_offset;
         }
         else if (species > NUM_SPECIES)
         {
@@ -257,7 +272,7 @@ u8 GetBattlerElevation(u8 battlerId, u16 species)
         if (!IsContest())
         {
             if (species == SPECIES_CASTFORM)
-                ret = sCastformElevations[gBattleMonForms[battlerId]];
+                ret = gCastformFormInfo[gBattleMonForms[battlerId]].elevation;
             else if (species > NUM_SPECIES)
                 ret = gSpeciesInfo[SPECIES_NONE].enemyMonElevation;
             else
@@ -1922,7 +1937,7 @@ static u16 GetBattlerYDeltaFromSpriteId(u8 spriteId)
                         species = spriteInfo[battlerId].transformSpecies;
 
                     if (species == SPECIES_CASTFORM)
-                        return sCastformBackSpriteYCoords[gBattleMonForms[battlerId]];
+                        return 0;
                     else
                         return gSpeciesInfo[species].backPicYOffset;
                 }
@@ -1935,7 +1950,7 @@ static u16 GetBattlerYDeltaFromSpriteId(u8 spriteId)
                         species = spriteInfo[battlerId].transformSpecies;
 
                     if (species == SPECIES_CASTFORM)
-                        return sCastformElevations[gBattleMonForms[battlerId]];
+                        return gCastformFormInfo[gBattleMonForms[battlerId]].elevation;
                     else
                         return gSpeciesInfo[species].frontPicYOffset;
                 }
@@ -2168,8 +2183,8 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
         }
         else if (species == SPECIES_CASTFORM)
         {
-            size = gCastformFrontSpriteCoords[gBattleMonForms[battlerId]].size;
-            y_offset = gCastformFrontSpriteCoords[gBattleMonForms[battlerId]].y_offset;
+            size = gCastformFormInfo[gBattleMonForms[battlerId]].size;
+            y_offset = gCastformFormInfo[gBattleMonForms[battlerId]].y_offset;
         }
         else if (species <= SPECIES_EGG)
         {
@@ -2245,8 +2260,8 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
             }
             else if (species == SPECIES_CASTFORM)
             {
-                size = gCastformFrontSpriteCoords[gBattleMonForms[battlerId]].size;
-                y_offset = gCastformFrontSpriteCoords[gBattleMonForms[battlerId]].y_offset;
+                size = gCastformFormInfo[gBattleMonForms[battlerId]].size;
+                y_offset = gCastformFormInfo[gBattleMonForms[battlerId]].y_offset;
             }
             else if (species > NUM_SPECIES)
             {

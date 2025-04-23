@@ -323,4 +323,6 @@ extern const union AnimCmd *const gAnims_SmallBubblePair[];
 extern const union AnimCmd *const gAnims_WaterBubble[];
 extern const union AffineAnimCmd *const gAffineAnims_Bite[];
 
+extern const struct CastformFormInfo gCastformFormInfo[];
+
 #endif // GUARD_BATTLE_ANIM_H

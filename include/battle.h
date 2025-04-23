@@ -13,6 +13,7 @@
 #include "battle_bg.h"
 #include "move.h"
 #include "pokeball.h"
+#include "constants/types.h"
 
 // Helper for accessing command arguments and advancing gBattlescriptCurrInstr.
 //
@@ -602,6 +603,15 @@ struct BattleSpriteData
     struct BattleHealthboxInfo *healthBoxesData;
     struct BattleAnimationInfo *animationData;
     struct BattleBarInfo *battleBars;
+};
+
+struct CastformFormInfo
+{
+    enum Type type;
+    u16 battleWeather;
+    u8 size;
+    u8 y_offset;
+    u8 elevation;
 };
 
 #include "sprite.h"

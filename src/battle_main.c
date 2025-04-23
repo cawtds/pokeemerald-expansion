@@ -2612,8 +2612,6 @@ static void SpriteCB_Flicker(struct Sprite *sprite)
 #undef sNumFlickers
 #undef sDelay
 
-extern const struct MonCoords gCastformFrontSpriteCoords[];
-
 void SpriteCB_FaintOpponentMon(struct Sprite *sprite)
 {
     u8 battler = sprite->sBattler;
@@ -2642,7 +2640,7 @@ void SpriteCB_FaintOpponentMon(struct Sprite *sprite)
     }
     else if (species == SPECIES_CASTFORM)
     {
-        yOffset = gCastformFrontSpriteCoords[gBattleMonForms[battler]].y_offset;
+        yOffset = gCastformFormInfo[gBattleMonForms[battler]].y_offset;
     }
     else if (species > NUM_SPECIES)
     {

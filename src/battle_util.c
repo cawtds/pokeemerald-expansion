@@ -2383,37 +2383,31 @@ bool8 HasNoMonsToSwitch(u8 battler, u8 partyIdBattlerOn1, u8 partyIdBattlerOn2)
 
 u8 CastformDataTypeChange(u8 battler)
 {
-    u8 formChange = 0;
+    enum CastformForm i;
     if (gBattleMons[battler].species != SPECIES_CASTFORM || gBattleMons[battler].ability != ABILITY_FORECAST || gBattleMons[battler].hp == 0)
         return 0; // No change
-    if (!WEATHER_HAS_EFFECT && !IS_BATTLER_OF_TYPE(battler, TYPE_NORMAL))
+    if (!WEATHER_HAS_EFFECT && !IS_BATTLER_OF_TYPE(battler, gCastformFormInfo[CASTFORM_NORMAL].type))
     {
-        SET_BATTLER_TYPE(battler, TYPE_NORMAL);
+        SET_BATTLER_TYPE(battler, gCastformFormInfo[CASTFORM_NORMAL].type);
         return CASTFORM_NORMAL + 1;
     }
     if (!WEATHER_HAS_EFFECT)
         return 0; // No change
-    if (!(gBattleWeather & (B_WEATHER_RAIN | B_WEATHER_SUN | B_WEATHER_HAIL)) && !IS_BATTLER_OF_TYPE(battler, TYPE_NORMAL))
+
+    if (!(gBattleWeather & (B_WEATHER_RAIN | B_WEATHER_SUN | B_WEATHER_HAIL)) && !IS_BATTLER_OF_TYPE(battler, gCastformFormInfo[CASTFORM_NORMAL].type))
     {
-        SET_BATTLER_TYPE(battler, TYPE_NORMAL);
-        formChange = CASTFORM_NORMAL + 1;
+        SET_BATTLER_TYPE(battler, gCastformFormInfo[CASTFORM_NORMAL].type);
+        return CASTFORM_NORMAL + 1;
     }
-    if (gBattleWeather & B_WEATHER_SUN && !IS_BATTLER_OF_TYPE(battler, TYPE_FIRE))
+    for (i = CASTFORM_NORMAL + 1; i < NUM_CASTFORM_FORMS; i++)
     {
-        SET_BATTLER_TYPE(battler, TYPE_FIRE);
-        formChange = CASTFORM_FIRE + 1;
+        if (gBattleWeather & gCastformFormInfo[i].battleWeather && !IS_BATTLER_OF_TYPE(battler, gCastformFormInfo[i].type))
+        {
+            SET_BATTLER_TYPE(battler, gCastformFormInfo[i].type);
+            return i + 1;
+        }
     }
-    if (gBattleWeather & B_WEATHER_RAIN && !IS_BATTLER_OF_TYPE(battler, TYPE_WATER))
-    {
-        SET_BATTLER_TYPE(battler, TYPE_WATER);
-        formChange = CASTFORM_WATER + 1;
-    }
-    if (gBattleWeather & B_WEATHER_HAIL && !IS_BATTLER_OF_TYPE(battler, TYPE_ICE))
-    {
-        SET_BATTLER_TYPE(battler, TYPE_ICE);
-        formChange = CASTFORM_ICE + 1;
-    }
-    return formChange;
+    return 0;
 }
 
 u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveArg)
