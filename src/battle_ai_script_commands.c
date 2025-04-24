@@ -367,22 +367,22 @@ void BattleAI_SetupAIData(u8 defaultScoreMoves)
     if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
         AI_THINKING_STRUCT->aiFlags = GetAiScriptsInRecordedBattle();
     else if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
-        AI_THINKING_STRUCT->aiFlags = AI_SCRIPT_SAFARI;
+        AI_THINKING_STRUCT->aiFlags = AI_FLAG_SAFARI;
     else if (gBattleTypeFlags & BATTLE_TYPE_ROAMER)
-        AI_THINKING_STRUCT->aiFlags = AI_SCRIPT_ROAMING;
+        AI_THINKING_STRUCT->aiFlags = AI_FLAG_ROAMING;
     else if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
-        AI_THINKING_STRUCT->aiFlags = AI_SCRIPT_FIRST_BATTLE;
+        AI_THINKING_STRUCT->aiFlags = AI_FLAG_FIRST_BATTLE;
     else if (gBattleTypeFlags & BATTLE_TYPE_FACTORY)
         AI_THINKING_STRUCT->aiFlags = GetAiScriptsInBattleFactory();
     else if (gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TRAINER_HILL | BATTLE_TYPE_SECRET_BASE))
-        AI_THINKING_STRUCT->aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_TRY_TO_FAINT;
+        AI_THINKING_STRUCT->aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT;
     else if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
         AI_THINKING_STRUCT->aiFlags = gTrainers[gTrainerBattleOpponent_A].aiFlags | gTrainers[gTrainerBattleOpponent_B].aiFlags;
     else
        AI_THINKING_STRUCT->aiFlags = gTrainers[gTrainerBattleOpponent_A].aiFlags;
 
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
-        AI_THINKING_STRUCT->aiFlags |= AI_SCRIPT_DOUBLE_BATTLE; // act smart in doubles and don't attack your partner
+        AI_THINKING_STRUCT->aiFlags |= AI_FLAG_DOUBLE_BATTLE; // act smart in doubles and don't attack your partner
 }
 
 u8 BattleAI_ChooseMoveOrAction(void)

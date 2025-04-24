@@ -7,6 +7,7 @@
 #include "constants/moves.h"
 #include "constants/trainers.h"
 #include "constants/battle_ai.h"
+#include "constants/natures.h"
 
 const u16 gMinigameDigits_Pal[] = INCBIN_U16("graphics/link/minigame_digits.gbapal");
 const u32 gMinigameDigits_Gfx[] = INCBIN_U32("graphics/link/minigame_digits.4bpp.lz");
@@ -303,6 +304,7 @@ const union AnimCmd *const gAnims_MonPic[MAX_MON_PIC_FRAMES] =
 #include "data/trainer_graphics/back_pic_anims.h"
 #include "data/trainer_graphics/back_pic_tables.h"
 
-#include "data/trainer_parties.h"
 #include "data/text/trainer_class_names.h"
+const struct Trainer gTrainers[] = {
 #include "data/trainers.h"
+};

@@ -16,16 +16,16 @@
 
 	.align 2
 gBattleAI_ScriptsTable::
-	.4byte AI_CheckBadMove          @ AI_SCRIPT_CHECK_BAD_MOVE
-	.4byte AI_TryToFaint            @ AI_SCRIPT_TRY_TO_FAINT
-	.4byte AI_CheckViability        @ AI_SCRIPT_CHECK_VIABILITY
-	.4byte AI_SetupFirstTurn        @ AI_SCRIPT_SETUP_FIRST_TURN
-	.4byte AI_Risky                 @ AI_SCRIPT_RISKY
-	.4byte AI_PreferPowerExtremes   @ AI_SCRIPT_PREFER_POWER_EXTREMES
-	.4byte AI_PreferBatonPass       @ AI_SCRIPT_PREFER_BATON_PASS
-	.4byte AI_DoubleBattle 	        @ AI_SCRIPT_DOUBLE_BATTLE
-	.4byte AI_HPAware               @ AI_SCRIPT_HP_AWARE
-	.4byte AI_TrySunnyDayStart      @ AI_SCRIPT_TRY_SUNNY_DAY_START
+	.4byte AI_CheckBadMove          @ AI_FLAG_CHECK_BAD_MOVE
+	.4byte AI_TryToFaint            @ AI_FLAG_TRY_TO_FAINT
+	.4byte AI_CheckViability        @ AI_FLAG_CHECK_VIABILITY
+	.4byte AI_SetupFirstTurn        @ AI_FLAG_SETUP_FIRST_TURN
+	.4byte AI_Risky                 @ AI_FLAG_RISKY
+	.4byte AI_PreferPowerExtremes   @ AI_FLAG_PREFER_POWER_EXTREMES
+	.4byte AI_PreferBatonPass       @ AI_FLAG_PREFER_BATON_PASS
+	.4byte AI_DoubleBattle 	        @ AI_FLAG_DOUBLE_BATTLE
+	.4byte AI_HPAware               @ AI_FLAG_HP_AWARE
+	.4byte AI_TrySunnyDayStart      @ AI_FLAG_TRY_SUNNY_DAY_START
 	.4byte AI_Ret
 	.4byte AI_Ret
 	.4byte AI_Ret
@@ -45,9 +45,9 @@ gBattleAI_ScriptsTable::
 	.4byte AI_Ret
 	.4byte AI_Ret
 	.4byte AI_Ret
-	.4byte AI_Roaming               @ AI_SCRIPT_ROAMING
-	.4byte AI_Safari                @ AI_SCRIPT_SAFARI
-	.4byte AI_FirstBattle           @ AI_SCRIPT_FIRST_BATTLE
+	.4byte AI_Roaming               @ AI_FLAG_ROAMING
+	.4byte AI_Safari                @ AI_FLAG_SAFARI
+	.4byte AI_FirstBattle           @ AI_FLAG_FIRST_BATTLE
 
 AI_CheckBadMove:
 	if_target_is_ally AI_Ret

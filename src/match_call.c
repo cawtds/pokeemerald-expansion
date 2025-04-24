@@ -1803,32 +1803,13 @@ static void PopulateSpeciesFromTrainerLocation(int matchCallId, u8 *destStr)
 static void PopulateSpeciesFromTrainerParty(int matchCallId, u8 *destStr)
 {
     u16 trainerId;
-    union TrainerMonPtr party;
     u8 monId;
-    const u8 *speciesName;
 
     trainerId = GetLastBeatenRematchTrainerId(sMatchCallTrainers[matchCallId].trainerId);
-    party = gTrainers[trainerId].party;
     monId = Random() % gTrainers[trainerId].partySize;
 
-    switch (gTrainers[trainerId].partyFlags)
-    {
-    case 0:
-    default:
-        speciesName = GetSpeciesName(party.NoItemDefaultMoves[monId].species);
-        break;
-    case F_TRAINER_PARTY_CUSTOM_MOVESET:
-        speciesName = GetSpeciesName(party.NoItemCustomMoves[monId].species);
-        break;
-    case F_TRAINER_PARTY_HELD_ITEM:
-        speciesName = GetSpeciesName(party.ItemDefaultMoves[monId].species);
-        break;
-    case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM:
-        speciesName = GetSpeciesName(party.ItemCustomMoves[monId].species);
-        break;
-    }
 
-    StringCopy(destStr, speciesName);
+    StringCopy(destStr, GetSpeciesName(gTrainers[trainerId].party[monId].species));
 }
 
 static const u8 *const sBattleFrontierFacilityNames[NUM_FRONTIER_FACILITIES] =
