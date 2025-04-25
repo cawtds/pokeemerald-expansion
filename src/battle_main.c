@@ -59,6 +59,7 @@
 #include "constants/hold_effects.h"
 #include "constants/items.h"
 #include "constants/moves.h"
+#include "constants/natures.h"
 #include "constants/party_menu.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
@@ -1829,6 +1830,19 @@ static void SpriteCB_UnusedBattleInit_Main(struct Sprite *sprite)
     }
 }
 
+static void ModifyPersonalityForNature(u32 *personality, u32 newNature)
+{
+    u32 nature = GetNatureFromPersonality(*personality);
+    s32 diff = abs((s32)nature - (s32)newNature);
+    s32 sign = (nature > newNature) ? 1 : -1;
+    if (diff > NUM_NATURES / 2)
+    {
+        diff = NUM_NATURES - diff;
+        sign *= -1;
+    }
+    *personality -= (diff * sign);
+}
+
 static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 firstTrainer)
 {
     u32 nameHash = 0;
@@ -1881,6 +1895,9 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
             SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
             SetMonData(&party[i], MON_DATA_IVS, &(partyData[i].iv));
+
+            if (partyData[i].nature != RANDOM_NATURE)
+                ModifyPersonalityForNature(&personalityValue, partyData[i].nature);
 
             for (j = 0; j < MAX_MON_MOVES; j++)
             {

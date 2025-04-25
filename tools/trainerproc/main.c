@@ -1687,14 +1687,14 @@ static void fprint_trainers(const char *output_path, FILE *f, struct Parsed *par
     {
         struct Trainer *trainer = &parsed->trainers[i];
         fprintf(f, "#line %d\n", trainer->id_line);
-        if (is_empty_string(trainer->difficulty))
-            trainer->difficulty = literal_string("Normal");
-        else
-            fprintf(f, "#line %d\n", trainer->difficulty_line);
+        // if (is_empty_string(trainer->difficulty))
+        //     trainer->difficulty = literal_string("Normal");
+        // else
+        //     fprintf(f, "#line %d\n", trainer->difficulty_line);
         // fprint_constant(f, "    [DIFFICULTY",trainer->difficulty);
         // fprintf(f, "]");
 
-        fprintf(f, "[");
+        fprintf(f, "    [");
         fprint_string(f, trainer->id);
         fprintf(f, "] =\n");
         fprintf(f, "    {\n");
@@ -1926,7 +1926,7 @@ static void fprint_trainers(const char *output_path, FILE *f, struct Parsed *par
             }
             else
             {
-                fprintf(f, "            .nature = NATURE_HARDY,\n");
+                fprintf(f, "            .nature = RANDOM_NATURE,\n");
             }
 
             // if (pokemon->shiny_line)

@@ -9,7 +9,7 @@
 #line 1 "src/data/trainers.party"
 
 #line 1
-[TRAINER_NONE] =
+    [TRAINER_NONE] =
     {
 #line 3
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
@@ -26,7 +26,7 @@
         },
     },
 #line 9
-[TRAINER_SAWYER_1] =
+    [TRAINER_SAWYER_1] =
     {
 #line 10
         .trainerName = _("SAWYER"),
@@ -52,12 +52,12 @@
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 19
             .lvl = 21,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 22
-[TRAINER_GRUNT_AQUA_HIDEOUT_1] =
+    [TRAINER_GRUNT_AQUA_HIDEOUT_1] =
     {
 #line 23
         .trainerName = _("GRUNT"),
@@ -83,12 +83,12 @@
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 32
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 35
-[TRAINER_GRUNT_AQUA_HIDEOUT_2] =
+    [TRAINER_GRUNT_AQUA_HIDEOUT_2] =
     {
 #line 36
         .trainerName = _("GRUNT"),
@@ -114,7 +114,7 @@
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 45
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 48
@@ -124,12 +124,12 @@
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 49
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 52
-[TRAINER_GRUNT_AQUA_HIDEOUT_3] =
+    [TRAINER_GRUNT_AQUA_HIDEOUT_3] =
     {
 #line 53
         .trainerName = _("GRUNT"),
@@ -155,12 +155,12 @@
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 62
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 65
-[TRAINER_GRUNT_AQUA_HIDEOUT_4] =
+    [TRAINER_GRUNT_AQUA_HIDEOUT_4] =
     {
 #line 66
         .trainerName = _("GRUNT"),
@@ -186,12 +186,12 @@
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 75
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 78
-[TRAINER_GRUNT_SEAFLOOR_CAVERN_1] =
+    [TRAINER_GRUNT_SEAFLOOR_CAVERN_1] =
     {
 #line 79
         .trainerName = _("GRUNT"),
@@ -217,12 +217,12 @@
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 88
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 91
-[TRAINER_GRUNT_SEAFLOOR_CAVERN_2] =
+    [TRAINER_GRUNT_SEAFLOOR_CAVERN_2] =
     {
 #line 92
         .trainerName = _("GRUNT"),
@@ -248,12 +248,12 @@
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 101
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 104
-[TRAINER_GRUNT_SEAFLOOR_CAVERN_3] =
+    [TRAINER_GRUNT_SEAFLOOR_CAVERN_3] =
     {
 #line 105
         .trainerName = _("GRUNT"),
@@ -279,12 +279,12 @@
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 114
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 117
-[TRAINER_GABRIELLE_1] =
+    [TRAINER_GABRIELLE_1] =
     {
 #line 118
         .trainerName = _("GABRIELLE"),
@@ -312,7 +312,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 127
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 130
@@ -322,7 +322,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 131
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 134
@@ -332,7 +332,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 135
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 138
@@ -342,7 +342,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 139
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 142
@@ -352,7 +352,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 143
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 146
@@ -362,12 +362,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 147
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 150
-[TRAINER_GRUNT_PETALBURG_WOODS] =
+    [TRAINER_GRUNT_PETALBURG_WOODS] =
     {
 #line 151
         .trainerName = _("GRUNT"),
@@ -393,12 +393,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 160
             .lvl = 9,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 163
-[TRAINER_MARCEL] =
+    [TRAINER_MARCEL] =
     {
 #line 164
         .trainerName = _("MARCEL"),
@@ -426,7 +426,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 174
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 177
@@ -436,12 +436,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 178
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 181
-[TRAINER_ALBERTO] =
+    [TRAINER_ALBERTO] =
     {
 #line 182
         .trainerName = _("ALBERTO"),
@@ -467,7 +467,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 191
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 194
@@ -477,12 +477,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 195
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 198
-[TRAINER_ED] =
+    [TRAINER_ED] =
     {
 #line 199
         .trainerName = _("ED"),
@@ -508,7 +508,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 208
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 211
@@ -518,12 +518,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 212
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 215
-[TRAINER_GRUNT_SEAFLOOR_CAVERN_4] =
+    [TRAINER_GRUNT_SEAFLOOR_CAVERN_4] =
     {
 #line 216
         .trainerName = _("GRUNT"),
@@ -551,12 +551,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 225
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 228
-[TRAINER_DECLAN] =
+    [TRAINER_DECLAN] =
     {
 #line 229
         .trainerName = _("DECLAN"),
@@ -582,12 +582,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 238
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 241
-[TRAINER_GRUNT_RUSTURF_TUNNEL] =
+    [TRAINER_GRUNT_RUSTURF_TUNNEL] =
     {
 #line 242
         .trainerName = _("GRUNT"),
@@ -613,12 +613,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 251
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 254
-[TRAINER_GRUNT_WEATHER_INST_1] =
+    [TRAINER_GRUNT_WEATHER_INST_1] =
     {
 #line 255
         .trainerName = _("GRUNT"),
@@ -644,7 +644,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 264
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 267
@@ -654,12 +654,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 268
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 271
-[TRAINER_GRUNT_WEATHER_INST_2] =
+    [TRAINER_GRUNT_WEATHER_INST_2] =
     {
 #line 272
         .trainerName = _("GRUNT"),
@@ -685,7 +685,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 281
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 284
@@ -695,12 +695,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 285
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 288
-[TRAINER_GRUNT_WEATHER_INST_3] =
+    [TRAINER_GRUNT_WEATHER_INST_3] =
     {
 #line 289
         .trainerName = _("GRUNT"),
@@ -726,7 +726,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 298
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 301
@@ -736,7 +736,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 302
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 305
@@ -746,12 +746,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 306
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 309
-[TRAINER_GRUNT_MUSEUM_1] =
+    [TRAINER_GRUNT_MUSEUM_1] =
     {
 #line 310
         .trainerName = _("GRUNT"),
@@ -777,12 +777,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 319
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 322
-[TRAINER_GRUNT_MUSEUM_2] =
+    [TRAINER_GRUNT_MUSEUM_2] =
     {
 #line 323
         .trainerName = _("GRUNT"),
@@ -808,7 +808,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 332
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 335
@@ -818,12 +818,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 336
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 339
-[TRAINER_GRUNT_SPACE_CENTER_1] =
+    [TRAINER_GRUNT_SPACE_CENTER_1] =
     {
 #line 340
         .trainerName = _("GRUNT"),
@@ -849,12 +849,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 349
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 352
-[TRAINER_GRUNT_MT_PYRE_1] =
+    [TRAINER_GRUNT_MT_PYRE_1] =
     {
 #line 353
         .trainerName = _("GRUNT"),
@@ -880,12 +880,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 362
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 365
-[TRAINER_GRUNT_MT_PYRE_2] =
+    [TRAINER_GRUNT_MT_PYRE_2] =
     {
 #line 366
         .trainerName = _("GRUNT"),
@@ -911,12 +911,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 375
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 378
-[TRAINER_GRUNT_MT_PYRE_3] =
+    [TRAINER_GRUNT_MT_PYRE_3] =
     {
 #line 379
         .trainerName = _("GRUNT"),
@@ -942,7 +942,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 388
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 391
@@ -952,12 +952,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 392
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 395
-[TRAINER_GRUNT_WEATHER_INST_4] =
+    [TRAINER_GRUNT_WEATHER_INST_4] =
     {
 #line 396
         .trainerName = _("GRUNT"),
@@ -985,12 +985,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 405
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 408
-[TRAINER_GRUNT_AQUA_HIDEOUT_5] =
+    [TRAINER_GRUNT_AQUA_HIDEOUT_5] =
     {
 #line 409
         .trainerName = _("GRUNT"),
@@ -1018,12 +1018,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 418
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 421
-[TRAINER_GRUNT_AQUA_HIDEOUT_6] =
+    [TRAINER_GRUNT_AQUA_HIDEOUT_6] =
     {
 #line 422
         .trainerName = _("GRUNT"),
@@ -1051,12 +1051,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 431
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 434
-[TRAINER_FREDRICK] =
+    [TRAINER_FREDRICK] =
     {
 #line 435
         .trainerName = _("FREDRICK"),
@@ -1082,7 +1082,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 444
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 447
@@ -1092,12 +1092,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 448
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 451
-[TRAINER_MATT] =
+    [TRAINER_MATT] =
     {
 #line 452
         .trainerName = _("MATT"),
@@ -1125,7 +1125,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 462
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 465
@@ -1135,12 +1135,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 466
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 469
-[TRAINER_ZANDER] =
+    [TRAINER_ZANDER] =
     {
 #line 470
         .trainerName = _("ZANDER"),
@@ -1166,12 +1166,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 479
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 482
-[TRAINER_SHELLY_WEATHER_INSTITUTE] =
+    [TRAINER_SHELLY_WEATHER_INSTITUTE] =
     {
 #line 483
         .trainerName = _("SHELLY"),
@@ -1199,7 +1199,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 492
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 495
@@ -1209,12 +1209,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 496
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 499
-[TRAINER_SHELLY_SEAFLOOR_CAVERN] =
+    [TRAINER_SHELLY_SEAFLOOR_CAVERN] =
     {
 #line 500
         .trainerName = _("SHELLY"),
@@ -1242,7 +1242,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 509
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 512
@@ -1252,12 +1252,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 513
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 516
-[TRAINER_ARCHIE] =
+    [TRAINER_ARCHIE] =
     {
 #line 517
         .trainerName = _("ARCHIE"),
@@ -1285,7 +1285,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 527
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 530
@@ -1295,7 +1295,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 531
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 534
@@ -1305,12 +1305,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 535
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 538
-[TRAINER_LEAH] =
+    [TRAINER_LEAH] =
     {
 #line 539
         .trainerName = _("LEAH"),
@@ -1338,12 +1338,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 548
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 551
-[TRAINER_DAISY] =
+    [TRAINER_DAISY] =
     {
 #line 552
         .trainerName = _("DAISY"),
@@ -1371,7 +1371,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 561
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 564
@@ -1381,12 +1381,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 565
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 568
-[TRAINER_ROSE_1] =
+    [TRAINER_ROSE_1] =
     {
 #line 569
         .trainerName = _("ROSE"),
@@ -1414,7 +1414,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 578
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 581
@@ -1424,7 +1424,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 582
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 585
@@ -1434,12 +1434,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 586
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 589
-[TRAINER_FELIX] =
+    [TRAINER_FELIX] =
     {
 #line 590
         .trainerName = _("FELIX"),
@@ -1467,7 +1467,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 600
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 602
                 MOVE_PSYCHIC,
@@ -1481,7 +1481,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 605
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 607
                 MOVE_SKILL_SWAP,
@@ -1491,7 +1491,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 610
-[TRAINER_VIOLET] =
+    [TRAINER_VIOLET] =
     {
 #line 611
         .trainerName = _("VIOLET"),
@@ -1519,7 +1519,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 620
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 623
@@ -1529,12 +1529,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 624
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 627
-[TRAINER_ROSE_2] =
+    [TRAINER_ROSE_2] =
     {
 #line 628
         .trainerName = _("ROSE"),
@@ -1562,7 +1562,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 637
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 640
@@ -1572,12 +1572,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 641
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 644
-[TRAINER_ROSE_3] =
+    [TRAINER_ROSE_3] =
     {
 #line 645
         .trainerName = _("ROSE"),
@@ -1605,7 +1605,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 654
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 657
@@ -1615,7 +1615,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 658
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 661
@@ -1625,12 +1625,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 662
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 665
-[TRAINER_ROSE_4] =
+    [TRAINER_ROSE_4] =
     {
 #line 666
         .trainerName = _("ROSE"),
@@ -1658,7 +1658,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 675
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 678
@@ -1668,7 +1668,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 679
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 682
@@ -1678,12 +1678,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 683
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 686
-[TRAINER_ROSE_5] =
+    [TRAINER_ROSE_5] =
     {
 #line 687
         .trainerName = _("ROSE"),
@@ -1711,7 +1711,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 696
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 699
@@ -1721,7 +1721,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 700
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 703
@@ -1731,12 +1731,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 704
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 707
-[TRAINER_DUSTY_1] =
+    [TRAINER_DUSTY_1] =
     {
 #line 708
         .trainerName = _("DUSTY"),
@@ -1762,7 +1762,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 717
             .lvl = 23,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 719
                 MOVE_DIG,
@@ -1774,7 +1774,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 724
-[TRAINER_CHIP] =
+    [TRAINER_CHIP] =
     {
 #line 725
         .trainerName = _("CHIP"),
@@ -1800,7 +1800,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 734
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 736
                 MOVE_PSYBEAM,
@@ -1817,7 +1817,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 742
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 744
                 MOVE_DIG,
@@ -1834,7 +1834,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 750
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 752
                 MOVE_DIG,
@@ -1846,7 +1846,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 757
-[TRAINER_FOSTER] =
+    [TRAINER_FOSTER] =
     {
 #line 758
         .trainerName = _("FOSTER"),
@@ -1872,7 +1872,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 767
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 769
                 MOVE_DIG,
@@ -1889,7 +1889,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 775
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 777
                 MOVE_DIG,
@@ -1901,7 +1901,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 782
-[TRAINER_DUSTY_2] =
+    [TRAINER_DUSTY_2] =
     {
 #line 783
         .trainerName = _("DUSTY"),
@@ -1927,7 +1927,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
 #line 792
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 794
                 MOVE_DIG,
@@ -1939,7 +1939,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 799
-[TRAINER_DUSTY_3] =
+    [TRAINER_DUSTY_3] =
     {
 #line 800
         .trainerName = _("DUSTY"),
@@ -1965,7 +1965,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
 #line 809
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 811
                 MOVE_DIG,
@@ -1977,7 +1977,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 816
-[TRAINER_DUSTY_4] =
+    [TRAINER_DUSTY_4] =
     {
 #line 817
         .trainerName = _("DUSTY"),
@@ -2003,7 +2003,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
 #line 826
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 828
                 MOVE_DIG,
@@ -2015,7 +2015,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 833
-[TRAINER_DUSTY_5] =
+    [TRAINER_DUSTY_5] =
     {
 #line 834
         .trainerName = _("DUSTY"),
@@ -2041,7 +2041,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(10, 10, 10, 10, 10, 10),
 #line 843
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 845
                 MOVE_DIG,
@@ -2053,7 +2053,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 850
-[TRAINER_GABBY_AND_TY_1] =
+    [TRAINER_GABBY_AND_TY_1] =
     {
 #line 851
         .trainerName = _("GABBY & TY"),
@@ -2079,7 +2079,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 860
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 863
@@ -2089,12 +2089,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 864
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 867
-[TRAINER_GABBY_AND_TY_2] =
+    [TRAINER_GABBY_AND_TY_2] =
     {
 #line 868
         .trainerName = _("GABBY & TY"),
@@ -2120,7 +2120,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 877
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 880
@@ -2130,12 +2130,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 881
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 884
-[TRAINER_GABBY_AND_TY_3] =
+    [TRAINER_GABBY_AND_TY_3] =
     {
 #line 885
         .trainerName = _("GABBY & TY"),
@@ -2161,7 +2161,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 894
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 897
@@ -2171,12 +2171,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 898
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 901
-[TRAINER_GABBY_AND_TY_4] =
+    [TRAINER_GABBY_AND_TY_4] =
     {
 #line 902
         .trainerName = _("GABBY & TY"),
@@ -2202,7 +2202,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 911
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 914
@@ -2212,12 +2212,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 915
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 918
-[TRAINER_GABBY_AND_TY_5] =
+    [TRAINER_GABBY_AND_TY_5] =
     {
 #line 919
         .trainerName = _("GABBY & TY"),
@@ -2243,7 +2243,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 928
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 931
@@ -2253,12 +2253,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 932
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 935
-[TRAINER_GABBY_AND_TY_6] =
+    [TRAINER_GABBY_AND_TY_6] =
     {
 #line 936
         .trainerName = _("GABBY & TY"),
@@ -2284,7 +2284,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 945
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 947
                 MOVE_SONIC_BOOM,
@@ -2301,7 +2301,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 953
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 955
                 MOVE_ASTONISH,
@@ -2313,7 +2313,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 960
-[TRAINER_LOLA_1] =
+    [TRAINER_LOLA_1] =
     {
 #line 961
         .trainerName = _("LOLA"),
@@ -2341,7 +2341,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 970
             .lvl = 12,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 973
@@ -2351,12 +2351,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 974
             .lvl = 12,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 977
-[TRAINER_AUSTINA] =
+    [TRAINER_AUSTINA] =
     {
 #line 978
         .trainerName = _("AUSTINA"),
@@ -2384,12 +2384,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 987
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 990
-[TRAINER_GWEN] =
+    [TRAINER_GWEN] =
     {
 #line 991
         .trainerName = _("GWEN"),
@@ -2417,12 +2417,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 1000
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1003
-[TRAINER_LOLA_2] =
+    [TRAINER_LOLA_2] =
     {
 #line 1004
         .trainerName = _("LOLA"),
@@ -2450,7 +2450,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 1013
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1016
@@ -2460,12 +2460,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 1017
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1020
-[TRAINER_LOLA_3] =
+    [TRAINER_LOLA_3] =
     {
 #line 1021
         .trainerName = _("LOLA"),
@@ -2493,7 +2493,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 1030
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1033
@@ -2503,12 +2503,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 1034
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1037
-[TRAINER_LOLA_4] =
+    [TRAINER_LOLA_4] =
     {
 #line 1038
         .trainerName = _("LOLA"),
@@ -2536,7 +2536,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 1047
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1050
@@ -2546,12 +2546,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 1051
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1054
-[TRAINER_LOLA_5] =
+    [TRAINER_LOLA_5] =
     {
 #line 1055
         .trainerName = _("LOLA"),
@@ -2579,7 +2579,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 1064
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1067
@@ -2589,12 +2589,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 1068
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1071
-[TRAINER_RICKY_1] =
+    [TRAINER_RICKY_1] =
     {
 #line 1072
         .trainerName = _("RICKY"),
@@ -2620,7 +2620,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 1081
             .lvl = 13,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1083
                 MOVE_SAND_ATTACK,
@@ -2632,7 +2632,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 1088
-[TRAINER_SIMON] =
+    [TRAINER_SIMON] =
     {
 #line 1089
         .trainerName = _("SIMON"),
@@ -2658,7 +2658,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 1098
             .lvl = 12,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1101
@@ -2668,12 +2668,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 1102
             .lvl = 12,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1105
-[TRAINER_CHARLIE] =
+    [TRAINER_CHARLIE] =
     {
 #line 1106
         .trainerName = _("CHARLIE"),
@@ -2699,12 +2699,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 1115
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1118
-[TRAINER_RICKY_2] =
+    [TRAINER_RICKY_2] =
     {
 #line 1119
         .trainerName = _("RICKY"),
@@ -2730,7 +2730,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 1128
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1130
                 MOVE_SAND_ATTACK,
@@ -2742,7 +2742,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 1135
-[TRAINER_RICKY_3] =
+    [TRAINER_RICKY_3] =
     {
 #line 1136
         .trainerName = _("RICKY"),
@@ -2768,7 +2768,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 1145
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1147
                 MOVE_SAND_ATTACK,
@@ -2780,7 +2780,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 1152
-[TRAINER_RICKY_4] =
+    [TRAINER_RICKY_4] =
     {
 #line 1153
         .trainerName = _("RICKY"),
@@ -2806,7 +2806,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 1162
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1164
                 MOVE_SAND_ATTACK,
@@ -2818,7 +2818,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 1169
-[TRAINER_RICKY_5] =
+    [TRAINER_RICKY_5] =
     {
 #line 1170
         .trainerName = _("RICKY"),
@@ -2844,7 +2844,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 1179
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1181
                 MOVE_SAND_ATTACK,
@@ -2856,7 +2856,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 1186
-[TRAINER_RANDALL] =
+    [TRAINER_RANDALL] =
     {
 #line 1187
         .trainerName = _("RANDALL"),
@@ -2884,7 +2884,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 1197
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1199
                 MOVE_QUICK_ATTACK,
@@ -2895,7 +2895,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 1203
-[TRAINER_PARKER] =
+    [TRAINER_PARKER] =
     {
 #line 1204
         .trainerName = _("PARKER"),
@@ -2923,7 +2923,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 1214
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1216
                 MOVE_TEETER_DANCE,
@@ -2934,7 +2934,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 1220
-[TRAINER_GEORGE] =
+    [TRAINER_GEORGE] =
     {
 #line 1221
         .trainerName = _("GEORGE"),
@@ -2964,7 +2964,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 1231
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1233
                 MOVE_SLACK_OFF,
@@ -2975,7 +2975,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 1237
-[TRAINER_BERKE] =
+    [TRAINER_BERKE] =
     {
 #line 1238
         .trainerName = _("BERKE"),
@@ -3003,7 +3003,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 1248
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1250
                 MOVE_FOCUS_ENERGY,
@@ -3013,7 +3013,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 1253
-[TRAINER_BRAXTON] =
+    [TRAINER_BRAXTON] =
     {
 #line 1254
         .trainerName = _("BRAXTON"),
@@ -3041,7 +3041,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1264
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1266
                 MOVE_FOCUS_ENERGY,
@@ -3058,7 +3058,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1272
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1274
                 MOVE_BITE,
@@ -3075,7 +3075,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1280
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1282
                 MOVE_ROLLOUT,
@@ -3092,7 +3092,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1288
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1290
                 MOVE_THUNDERBOLT,
@@ -3109,7 +3109,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1296
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1298
                 MOVE_GIGA_DRAIN,
@@ -3121,7 +3121,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 1303
-[TRAINER_VINCENT] =
+    [TRAINER_VINCENT] =
     {
 #line 1304
         .trainerName = _("VINCENT"),
@@ -3149,7 +3149,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1314
             .lvl = 44,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1317
@@ -3159,7 +3159,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1318
             .lvl = 44,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1321
@@ -3169,12 +3169,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1322
             .lvl = 44,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1325
-[TRAINER_LEROY] =
+    [TRAINER_LEROY] =
     {
 #line 1326
         .trainerName = _("LEROY"),
@@ -3202,7 +3202,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1336
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1339
@@ -3212,12 +3212,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1340
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1343
-[TRAINER_WILTON_1] =
+    [TRAINER_WILTON_1] =
     {
 #line 1344
         .trainerName = _("WILTON"),
@@ -3245,7 +3245,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1354
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1357
@@ -3255,7 +3255,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1358
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1361
@@ -3265,12 +3265,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1362
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1365
-[TRAINER_EDGAR] =
+    [TRAINER_EDGAR] =
     {
 #line 1366
         .trainerName = _("EDGAR"),
@@ -3298,7 +3298,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1376
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1379
@@ -3308,12 +3308,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1380
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1383
-[TRAINER_ALBERT] =
+    [TRAINER_ALBERT] =
     {
 #line 1384
         .trainerName = _("ALBERT"),
@@ -3341,7 +3341,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1394
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1397
@@ -3351,12 +3351,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1398
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1401
-[TRAINER_SAMUEL] =
+    [TRAINER_SAMUEL] =
     {
 #line 1402
         .trainerName = _("SAMUEL"),
@@ -3384,7 +3384,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1412
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1415
@@ -3394,7 +3394,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1416
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1419
@@ -3404,12 +3404,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1420
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1423
-[TRAINER_VITO] =
+    [TRAINER_VITO] =
     {
 #line 1424
         .trainerName = _("VITO"),
@@ -3437,7 +3437,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1434
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1437
@@ -3447,7 +3447,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1438
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1441
@@ -3457,7 +3457,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1442
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1445
@@ -3467,12 +3467,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1446
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1449
-[TRAINER_OWEN] =
+    [TRAINER_OWEN] =
     {
 #line 1450
         .trainerName = _("OWEN"),
@@ -3500,7 +3500,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1460
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1463
@@ -3510,7 +3510,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1464
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1467
@@ -3520,12 +3520,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1468
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1471
-[TRAINER_WILTON_2] =
+    [TRAINER_WILTON_2] =
     {
 #line 1472
         .trainerName = _("WILTON"),
@@ -3553,7 +3553,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
 #line 1482
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1485
@@ -3563,7 +3563,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
 #line 1486
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1489
@@ -3573,12 +3573,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
 #line 1490
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1493
-[TRAINER_WILTON_3] =
+    [TRAINER_WILTON_3] =
     {
 #line 1494
         .trainerName = _("WILTON"),
@@ -3606,7 +3606,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
 #line 1504
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1507
@@ -3616,7 +3616,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
 #line 1508
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1511
@@ -3626,12 +3626,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
 #line 1512
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1515
-[TRAINER_WILTON_4] =
+    [TRAINER_WILTON_4] =
     {
 #line 1516
         .trainerName = _("WILTON"),
@@ -3659,7 +3659,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 1526
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1529
@@ -3669,7 +3669,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 1530
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1533
@@ -3679,12 +3679,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 1534
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1537
-[TRAINER_WILTON_5] =
+    [TRAINER_WILTON_5] =
     {
 #line 1538
         .trainerName = _("WILTON"),
@@ -3712,7 +3712,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
 #line 1548
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1551
@@ -3722,7 +3722,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
 #line 1552
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1555
@@ -3732,12 +3732,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
 #line 1556
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1559
-[TRAINER_WARREN] =
+    [TRAINER_WARREN] =
     {
 #line 1560
         .trainerName = _("WARREN"),
@@ -3765,7 +3765,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1570
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1573
@@ -3775,12 +3775,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1574
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1577
-[TRAINER_MARY] =
+    [TRAINER_MARY] =
     {
 #line 1578
         .trainerName = _("MARY"),
@@ -3810,7 +3810,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 1588
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1590
                 MOVE_FAINT_ATTACK,
@@ -3820,7 +3820,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 1593
-[TRAINER_ALEXIA] =
+    [TRAINER_ALEXIA] =
     {
 #line 1594
         .trainerName = _("ALEXIA"),
@@ -3850,7 +3850,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 1604
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1606
                 MOVE_DEFENSE_CURL,
@@ -3861,7 +3861,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 1610
-[TRAINER_JODY] =
+    [TRAINER_JODY] =
     {
 #line 1611
         .trainerName = _("JODY"),
@@ -3891,7 +3891,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 1621
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1623
                 MOVE_SWORDS_DANCE,
@@ -3901,7 +3901,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 1626
-[TRAINER_WENDY] =
+    [TRAINER_WENDY] =
     {
 #line 1627
         .trainerName = _("WENDY"),
@@ -3931,7 +3931,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1637
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1639
                 MOVE_BATON_PASS,
@@ -3948,7 +3948,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1645
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1647
                 MOVE_MEGA_DRAIN,
@@ -3965,7 +3965,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1653
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 1655
                 MOVE_FLY,
@@ -3977,7 +3977,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 1660
-[TRAINER_KEIRA] =
+    [TRAINER_KEIRA] =
     {
 #line 1661
         .trainerName = _("KEIRA"),
@@ -4007,7 +4007,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1671
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1674
@@ -4017,12 +4017,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1675
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1678
-[TRAINER_BROOKE_1] =
+    [TRAINER_BROOKE_1] =
     {
 #line 1679
         .trainerName = _("BROOKE"),
@@ -4052,7 +4052,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1689
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1692
@@ -4062,7 +4062,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1693
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1696
@@ -4072,12 +4072,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1697
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1700
-[TRAINER_JENNIFER] =
+    [TRAINER_JENNIFER] =
     {
 #line 1701
         .trainerName = _("JENNIFER"),
@@ -4107,12 +4107,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 1711
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1714
-[TRAINER_HOPE] =
+    [TRAINER_HOPE] =
     {
 #line 1715
         .trainerName = _("HOPE"),
@@ -4142,12 +4142,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1725
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1728
-[TRAINER_SHANNON] =
+    [TRAINER_SHANNON] =
     {
 #line 1729
         .trainerName = _("SHANNON"),
@@ -4177,12 +4177,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1739
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1742
-[TRAINER_MICHELLE] =
+    [TRAINER_MICHELLE] =
     {
 #line 1743
         .trainerName = _("MICHELLE"),
@@ -4212,7 +4212,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1753
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1756
@@ -4222,7 +4222,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1757
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1760
@@ -4232,12 +4232,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1761
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1764
-[TRAINER_CAROLINE] =
+    [TRAINER_CAROLINE] =
     {
 #line 1765
         .trainerName = _("CAROLINE"),
@@ -4267,7 +4267,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1775
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1778
@@ -4277,12 +4277,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1779
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1782
-[TRAINER_JULIE] =
+    [TRAINER_JULIE] =
     {
 #line 1783
         .trainerName = _("JULIE"),
@@ -4312,7 +4312,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1793
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1796
@@ -4322,7 +4322,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1797
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1800
@@ -4332,12 +4332,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 1801
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1804
-[TRAINER_BROOKE_2] =
+    [TRAINER_BROOKE_2] =
     {
 #line 1805
         .trainerName = _("BROOKE"),
@@ -4367,7 +4367,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
 #line 1815
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1818
@@ -4377,7 +4377,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
 #line 1819
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1822
@@ -4387,12 +4387,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
 #line 1823
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1826
-[TRAINER_BROOKE_3] =
+    [TRAINER_BROOKE_3] =
     {
 #line 1827
         .trainerName = _("BROOKE"),
@@ -4422,7 +4422,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
 #line 1837
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1840
@@ -4432,7 +4432,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
 #line 1841
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1844
@@ -4442,12 +4442,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
 #line 1845
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1848
-[TRAINER_BROOKE_4] =
+    [TRAINER_BROOKE_4] =
     {
 #line 1849
         .trainerName = _("BROOKE"),
@@ -4477,7 +4477,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 1859
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1862
@@ -4487,7 +4487,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 1863
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1866
@@ -4497,12 +4497,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 1867
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1870
-[TRAINER_BROOKE_5] =
+    [TRAINER_BROOKE_5] =
     {
 #line 1871
         .trainerName = _("BROOKE"),
@@ -4532,7 +4532,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
 #line 1881
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1884
@@ -4542,7 +4542,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
 #line 1885
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1888
@@ -4552,12 +4552,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
 #line 1889
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1892
-[TRAINER_PATRICIA] =
+    [TRAINER_PATRICIA] =
     {
 #line 1893
         .trainerName = _("PATRICIA"),
@@ -4585,7 +4585,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 1902
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1905
@@ -4595,12 +4595,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 1906
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1909
-[TRAINER_KINDRA] =
+    [TRAINER_KINDRA] =
     {
 #line 1910
         .trainerName = _("KINDRA"),
@@ -4628,7 +4628,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 1919
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1922
@@ -4638,12 +4638,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 1923
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1926
-[TRAINER_TAMMY] =
+    [TRAINER_TAMMY] =
     {
 #line 1927
         .trainerName = _("TAMMY"),
@@ -4671,7 +4671,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 1936
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1939
@@ -4681,12 +4681,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 1940
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1943
-[TRAINER_VALERIE_1] =
+    [TRAINER_VALERIE_1] =
     {
 #line 1944
         .trainerName = _("VALERIE"),
@@ -4714,12 +4714,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 1953
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1956
-[TRAINER_TASHA] =
+    [TRAINER_TASHA] =
     {
 #line 1957
         .trainerName = _("TASHA"),
@@ -4747,12 +4747,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 1966
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1969
-[TRAINER_VALERIE_2] =
+    [TRAINER_VALERIE_2] =
     {
 #line 1970
         .trainerName = _("VALERIE"),
@@ -4780,7 +4780,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 1979
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1982
@@ -4790,12 +4790,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 1983
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 1986
-[TRAINER_VALERIE_3] =
+    [TRAINER_VALERIE_3] =
     {
 #line 1987
         .trainerName = _("VALERIE"),
@@ -4823,7 +4823,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 1996
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 1999
@@ -4833,12 +4833,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 2000
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2003
-[TRAINER_VALERIE_4] =
+    [TRAINER_VALERIE_4] =
     {
 #line 2004
         .trainerName = _("VALERIE"),
@@ -4866,7 +4866,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 2013
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2016
@@ -4876,12 +4876,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 2017
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2020
-[TRAINER_VALERIE_5] =
+    [TRAINER_VALERIE_5] =
     {
 #line 2021
         .trainerName = _("VALERIE"),
@@ -4909,7 +4909,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 2030
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2033
@@ -4919,7 +4919,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 2034
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2037
@@ -4929,12 +4929,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 2038
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2041
-[TRAINER_CINDY_1] =
+    [TRAINER_CINDY_1] =
     {
 #line 2042
         .trainerName = _("CINDY"),
@@ -4966,12 +4966,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2052
             .lvl = 7,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2055
-[TRAINER_DAPHNE] =
+    [TRAINER_DAPHNE] =
     {
 #line 2056
         .trainerName = _("DAPHNE"),
@@ -5003,7 +5003,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 2066
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 2068
                 MOVE_ATTRACT,
@@ -5022,7 +5022,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 2074
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 2076
                 MOVE_ATTRACT,
@@ -5034,7 +5034,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 2081
-[TRAINER_GRUNT_SPACE_CENTER_2] =
+    [TRAINER_GRUNT_SPACE_CENTER_2] =
     {
 #line 2082
         .trainerName = _("GRUNT"),
@@ -5060,7 +5060,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2091
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2094
@@ -5070,7 +5070,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2095
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2098
@@ -5080,12 +5080,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2099
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2102
-[TRAINER_CINDY_2] =
+    [TRAINER_CINDY_2] =
     {
 #line 2103
         .trainerName = _("CINDY"),
@@ -5117,7 +5117,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2113
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 2115
                 MOVE_TACKLE,
@@ -5127,7 +5127,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 2118
-[TRAINER_BRIANNA] =
+    [TRAINER_BRIANNA] =
     {
 #line 2119
         .trainerName = _("BRIANNA"),
@@ -5159,12 +5159,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 2129
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2132
-[TRAINER_NAOMI] =
+    [TRAINER_NAOMI] =
     {
 #line 2133
         .trainerName = _("NAOMI"),
@@ -5196,12 +5196,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 2143
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2146
-[TRAINER_CINDY_3] =
+    [TRAINER_CINDY_3] =
     {
 #line 2147
         .trainerName = _("CINDY"),
@@ -5233,12 +5233,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 2157
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2160
-[TRAINER_CINDY_4] =
+    [TRAINER_CINDY_4] =
     {
 #line 2161
         .trainerName = _("CINDY"),
@@ -5270,12 +5270,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 2171
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2174
-[TRAINER_CINDY_5] =
+    [TRAINER_CINDY_5] =
     {
 #line 2175
         .trainerName = _("CINDY"),
@@ -5307,12 +5307,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 2185
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2188
-[TRAINER_CINDY_6] =
+    [TRAINER_CINDY_6] =
     {
 #line 2189
         .trainerName = _("CINDY"),
@@ -5344,7 +5344,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 2199
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 2201
                 MOVE_FURY_SWIPES,
@@ -5356,7 +5356,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 2206
-[TRAINER_MELISSA] =
+    [TRAINER_MELISSA] =
     {
 #line 2207
         .trainerName = _("MELISSA"),
@@ -5384,12 +5384,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2216
             .lvl = 21,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2219
-[TRAINER_SHEILA] =
+    [TRAINER_SHEILA] =
     {
 #line 2220
         .trainerName = _("SHEILA"),
@@ -5417,12 +5417,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2229
             .lvl = 21,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2232
-[TRAINER_SHIRLEY] =
+    [TRAINER_SHIRLEY] =
     {
 #line 2233
         .trainerName = _("SHIRLEY"),
@@ -5450,12 +5450,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2242
             .lvl = 21,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2245
-[TRAINER_JESSICA_1] =
+    [TRAINER_JESSICA_1] =
     {
 #line 2246
         .trainerName = _("JESSICA"),
@@ -5483,7 +5483,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2255
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 2257
                 MOVE_BIND,
@@ -5500,7 +5500,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2263
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 2265
                 MOVE_POISON_TAIL,
@@ -5512,7 +5512,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 2270
-[TRAINER_CONNIE] =
+    [TRAINER_CONNIE] =
     {
 #line 2271
         .trainerName = _("CONNIE"),
@@ -5540,12 +5540,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 2280
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2283
-[TRAINER_BRIDGET] =
+    [TRAINER_BRIDGET] =
     {
 #line 2284
         .trainerName = _("BRIDGET"),
@@ -5573,12 +5573,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 2293
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2296
-[TRAINER_OLIVIA] =
+    [TRAINER_OLIVIA] =
     {
 #line 2297
         .trainerName = _("OLIVIA"),
@@ -5606,7 +5606,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 2306
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 2308
                 MOVE_IRON_DEFENSE,
@@ -5623,7 +5623,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 2314
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 2316
                 MOVE_TAUNT,
@@ -5639,7 +5639,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 2321
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 2323
                 MOVE_UPROAR,
@@ -5651,7 +5651,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 2328
-[TRAINER_TIFFANY] =
+    [TRAINER_TIFFANY] =
     {
 #line 2329
         .trainerName = _("TIFFANY"),
@@ -5679,7 +5679,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 2338
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2341
@@ -5689,12 +5689,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 2342
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2345
-[TRAINER_JESSICA_2] =
+    [TRAINER_JESSICA_2] =
     {
 #line 2346
         .trainerName = _("JESSICA"),
@@ -5722,7 +5722,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 2355
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 2357
                 MOVE_BIND,
@@ -5739,7 +5739,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 2363
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 2365
                 MOVE_POISON_TAIL,
@@ -5751,7 +5751,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 2370
-[TRAINER_JESSICA_3] =
+    [TRAINER_JESSICA_3] =
     {
 #line 2371
         .trainerName = _("JESSICA"),
@@ -5779,7 +5779,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 2380
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 2382
                 MOVE_BIND,
@@ -5796,7 +5796,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 2388
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 2390
                 MOVE_POISON_TAIL,
@@ -5808,7 +5808,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 2395
-[TRAINER_JESSICA_4] =
+    [TRAINER_JESSICA_4] =
     {
 #line 2396
         .trainerName = _("JESSICA"),
@@ -5836,7 +5836,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 2405
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 2407
                 MOVE_BIND,
@@ -5853,7 +5853,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 2413
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 2415
                 MOVE_POISON_TAIL,
@@ -5865,7 +5865,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 2420
-[TRAINER_JESSICA_5] =
+    [TRAINER_JESSICA_5] =
     {
 #line 2421
         .trainerName = _("JESSICA"),
@@ -5893,7 +5893,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 2430
             .lvl = 44,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 2432
                 MOVE_BIND,
@@ -5910,7 +5910,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 2438
             .lvl = 44,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 2440
                 MOVE_POISON_TAIL,
@@ -5922,7 +5922,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 2445
-[TRAINER_WINSTON_1] =
+    [TRAINER_WINSTON_1] =
     {
 #line 2446
         .trainerName = _("WINSTON"),
@@ -5952,12 +5952,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2456
             .lvl = 7,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2459
-[TRAINER_MOLLIE] =
+    [TRAINER_MOLLIE] =
     {
 #line 2460
         .trainerName = _("MOLLIE"),
@@ -5985,7 +5985,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2469
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2472
@@ -5995,12 +5995,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 2473
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2476
-[TRAINER_GARRET] =
+    [TRAINER_GARRET] =
     {
 #line 2477
         .trainerName = _("GARRET"),
@@ -6030,12 +6030,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2487
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2490
-[TRAINER_WINSTON_2] =
+    [TRAINER_WINSTON_2] =
     {
 #line 2491
         .trainerName = _("WINSTON"),
@@ -6065,12 +6065,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2501
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2504
-[TRAINER_WINSTON_3] =
+    [TRAINER_WINSTON_3] =
     {
 #line 2505
         .trainerName = _("WINSTON"),
@@ -6100,12 +6100,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2515
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2518
-[TRAINER_WINSTON_4] =
+    [TRAINER_WINSTON_4] =
     {
 #line 2519
         .trainerName = _("WINSTON"),
@@ -6135,12 +6135,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2529
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2532
-[TRAINER_WINSTON_5] =
+    [TRAINER_WINSTON_5] =
     {
 #line 2533
         .trainerName = _("WINSTON"),
@@ -6170,7 +6170,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2543
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 2545
                 MOVE_FURY_SWIPES,
@@ -6182,7 +6182,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 2550
-[TRAINER_STEVE_1] =
+    [TRAINER_STEVE_1] =
     {
 #line 2551
         .trainerName = _("STEVE"),
@@ -6208,12 +6208,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2560
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2563
-[TRAINER_THALIA_1] =
+    [TRAINER_THALIA_1] =
     {
 #line 2564
         .trainerName = _("THALIA"),
@@ -6241,7 +6241,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2573
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2576
@@ -6251,12 +6251,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2577
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2580
-[TRAINER_MARK] =
+    [TRAINER_MARK] =
     {
 #line 2581
         .trainerName = _("MARK"),
@@ -6282,12 +6282,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2590
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2593
-[TRAINER_GRUNT_MT_CHIMNEY_1] =
+    [TRAINER_GRUNT_MT_CHIMNEY_1] =
     {
 #line 2594
         .trainerName = _("GRUNT"),
@@ -6315,12 +6315,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2603
             .lvl = 20,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2606
-[TRAINER_STEVE_2] =
+    [TRAINER_STEVE_2] =
     {
 #line 2607
         .trainerName = _("STEVE"),
@@ -6346,12 +6346,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 2616
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2619
-[TRAINER_STEVE_3] =
+    [TRAINER_STEVE_3] =
     {
 #line 2620
         .trainerName = _("STEVE"),
@@ -6377,7 +6377,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 2629
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2632
@@ -6387,12 +6387,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 2633
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2636
-[TRAINER_STEVE_4] =
+    [TRAINER_STEVE_4] =
     {
 #line 2637
         .trainerName = _("STEVE"),
@@ -6418,7 +6418,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 2646
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2649
@@ -6428,12 +6428,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 2650
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2653
-[TRAINER_STEVE_5] =
+    [TRAINER_STEVE_5] =
     {
 #line 2654
         .trainerName = _("STEVE"),
@@ -6459,7 +6459,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 2663
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2666
@@ -6469,12 +6469,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 2667
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2670
-[TRAINER_LUIS] =
+    [TRAINER_LUIS] =
     {
 #line 2671
         .trainerName = _("LUIS"),
@@ -6500,12 +6500,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2680
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2683
-[TRAINER_DOMINIK] =
+    [TRAINER_DOMINIK] =
     {
 #line 2684
         .trainerName = _("DOMINIK"),
@@ -6531,12 +6531,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2693
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2696
-[TRAINER_DOUGLAS] =
+    [TRAINER_DOUGLAS] =
     {
 #line 2697
         .trainerName = _("DOUGLAS"),
@@ -6562,7 +6562,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 2706
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2709
@@ -6572,12 +6572,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 2710
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2713
-[TRAINER_DARRIN] =
+    [TRAINER_DARRIN] =
     {
 #line 2714
         .trainerName = _("DARRIN"),
@@ -6603,7 +6603,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 2723
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2726
@@ -6613,7 +6613,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 2727
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2730
@@ -6623,12 +6623,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 2731
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2734
-[TRAINER_TONY_1] =
+    [TRAINER_TONY_1] =
     {
 #line 2735
         .trainerName = _("TONY"),
@@ -6654,12 +6654,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2744
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2747
-[TRAINER_JEROME] =
+    [TRAINER_JEROME] =
     {
 #line 2748
         .trainerName = _("JEROME"),
@@ -6685,12 +6685,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2757
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2760
-[TRAINER_MATTHEW] =
+    [TRAINER_MATTHEW] =
     {
 #line 2761
         .trainerName = _("MATTHEW"),
@@ -6716,12 +6716,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2770
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2773
-[TRAINER_DAVID] =
+    [TRAINER_DAVID] =
     {
 #line 2774
         .trainerName = _("DAVID"),
@@ -6747,7 +6747,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2783
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2786
@@ -6757,12 +6757,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2787
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2790
-[TRAINER_SPENCER] =
+    [TRAINER_SPENCER] =
     {
 #line 2791
         .trainerName = _("SPENCER"),
@@ -6788,7 +6788,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2800
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2803
@@ -6798,12 +6798,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2804
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2807
-[TRAINER_ROLAND] =
+    [TRAINER_ROLAND] =
     {
 #line 2808
         .trainerName = _("ROLAND"),
@@ -6829,12 +6829,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2817
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2820
-[TRAINER_NOLEN] =
+    [TRAINER_NOLEN] =
     {
 #line 2821
         .trainerName = _("NOLEN"),
@@ -6860,12 +6860,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2830
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2833
-[TRAINER_STAN] =
+    [TRAINER_STAN] =
     {
 #line 2834
         .trainerName = _("STAN"),
@@ -6891,12 +6891,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2843
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2846
-[TRAINER_BARRY] =
+    [TRAINER_BARRY] =
     {
 #line 2847
         .trainerName = _("BARRY"),
@@ -6922,12 +6922,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2856
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2859
-[TRAINER_DEAN] =
+    [TRAINER_DEAN] =
     {
 #line 2860
         .trainerName = _("DEAN"),
@@ -6953,7 +6953,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2869
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2872
@@ -6963,7 +6963,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2873
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2876
@@ -6973,12 +6973,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2877
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2880
-[TRAINER_RODNEY] =
+    [TRAINER_RODNEY] =
     {
 #line 2881
         .trainerName = _("RODNEY"),
@@ -7004,12 +7004,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2890
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2893
-[TRAINER_RICHARD] =
+    [TRAINER_RICHARD] =
     {
 #line 2894
         .trainerName = _("RICHARD"),
@@ -7035,12 +7035,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2903
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2906
-[TRAINER_HERMAN] =
+    [TRAINER_HERMAN] =
     {
 #line 2907
         .trainerName = _("HERMAN"),
@@ -7066,7 +7066,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2916
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2919
@@ -7076,12 +7076,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2920
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2923
-[TRAINER_SANTIAGO] =
+    [TRAINER_SANTIAGO] =
     {
 #line 2924
         .trainerName = _("SANTIAGO"),
@@ -7107,7 +7107,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2933
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 2936
@@ -7117,12 +7117,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2937
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2940
-[TRAINER_GILBERT] =
+    [TRAINER_GILBERT] =
     {
 #line 2941
         .trainerName = _("GILBERT"),
@@ -7148,12 +7148,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2950
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2953
-[TRAINER_FRANKLIN] =
+    [TRAINER_FRANKLIN] =
     {
 #line 2954
         .trainerName = _("FRANKLIN"),
@@ -7179,12 +7179,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2963
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2966
-[TRAINER_KEVIN] =
+    [TRAINER_KEVIN] =
     {
 #line 2967
         .trainerName = _("KEVIN"),
@@ -7210,12 +7210,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2976
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2979
-[TRAINER_JACK] =
+    [TRAINER_JACK] =
     {
 #line 2980
         .trainerName = _("JACK"),
@@ -7241,12 +7241,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 2989
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 2992
-[TRAINER_DUDLEY] =
+    [TRAINER_DUDLEY] =
     {
 #line 2993
         .trainerName = _("DUDLEY"),
@@ -7272,7 +7272,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3002
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3005
@@ -7282,7 +7282,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3006
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3009
@@ -7292,12 +7292,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3010
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3013
-[TRAINER_CHAD] =
+    [TRAINER_CHAD] =
     {
 #line 3014
         .trainerName = _("CHAD"),
@@ -7323,7 +7323,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3023
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3026
@@ -7333,12 +7333,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3027
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3030
-[TRAINER_TONY_2] =
+    [TRAINER_TONY_2] =
     {
 #line 3031
         .trainerName = _("TONY"),
@@ -7364,12 +7364,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 3040
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3043
-[TRAINER_TONY_3] =
+    [TRAINER_TONY_3] =
     {
 #line 3044
         .trainerName = _("TONY"),
@@ -7395,12 +7395,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 3053
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3056
-[TRAINER_TONY_4] =
+    [TRAINER_TONY_4] =
     {
 #line 3057
         .trainerName = _("TONY"),
@@ -7426,7 +7426,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 3066
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3069
@@ -7436,12 +7436,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 3070
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3073
-[TRAINER_TONY_5] =
+    [TRAINER_TONY_5] =
     {
 #line 3074
         .trainerName = _("TONY"),
@@ -7467,7 +7467,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 3083
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3086
@@ -7477,12 +7477,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 3087
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3090
-[TRAINER_TAKAO] =
+    [TRAINER_TAKAO] =
     {
 #line 3091
         .trainerName = _("TAKAO"),
@@ -7508,12 +7508,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 3100
             .lvl = 13,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3103
-[TRAINER_HITOSHI] =
+    [TRAINER_HITOSHI] =
     {
 #line 3104
         .trainerName = _("HITOSHI"),
@@ -7539,7 +7539,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 3113
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3116
@@ -7549,12 +7549,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 3117
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3120
-[TRAINER_KIYO] =
+    [TRAINER_KIYO] =
     {
 #line 3121
         .trainerName = _("KIYO"),
@@ -7580,12 +7580,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3130
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3133
-[TRAINER_KOICHI] =
+    [TRAINER_KOICHI] =
     {
 #line 3134
         .trainerName = _("KOICHI"),
@@ -7611,7 +7611,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3143
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3146
@@ -7621,12 +7621,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 3147
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3150
-[TRAINER_NOB_1] =
+    [TRAINER_NOB_1] =
     {
 #line 3151
         .trainerName = _("NOB"),
@@ -7652,12 +7652,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3160
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3163
-[TRAINER_NOB_2] =
+    [TRAINER_NOB_2] =
     {
 #line 3164
         .trainerName = _("NOB"),
@@ -7683,12 +7683,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
 #line 3173
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3176
-[TRAINER_NOB_3] =
+    [TRAINER_NOB_3] =
     {
 #line 3177
         .trainerName = _("NOB"),
@@ -7714,7 +7714,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
 #line 3186
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3189
@@ -7724,12 +7724,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
 #line 3190
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3193
-[TRAINER_NOB_4] =
+    [TRAINER_NOB_4] =
     {
 #line 3194
         .trainerName = _("NOB"),
@@ -7755,7 +7755,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 3203
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3206
@@ -7765,7 +7765,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 3207
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3210
@@ -7775,12 +7775,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 3211
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3214
-[TRAINER_NOB_5] =
+    [TRAINER_NOB_5] =
     {
 #line 3215
         .trainerName = _("NOB"),
@@ -7806,7 +7806,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
 #line 3224
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3227
@@ -7816,7 +7816,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
 #line 3228
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3231
@@ -7826,7 +7826,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
 #line 3232
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3235
@@ -7838,12 +7838,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
 #line 3236
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3239
-[TRAINER_YUJI] =
+    [TRAINER_YUJI] =
     {
 #line 3240
         .trainerName = _("YUJI"),
@@ -7869,7 +7869,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3249
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3252
@@ -7879,12 +7879,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3253
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3256
-[TRAINER_DAISUKE] =
+    [TRAINER_DAISUKE] =
     {
 #line 3257
         .trainerName = _("DAISUKE"),
@@ -7910,12 +7910,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3266
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3269
-[TRAINER_ATSUSHI] =
+    [TRAINER_ATSUSHI] =
     {
 #line 3270
         .trainerName = _("ATSUSHI"),
@@ -7941,12 +7941,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3279
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3282
-[TRAINER_KIRK] =
+    [TRAINER_KIRK] =
     {
 #line 3283
         .trainerName = _("KIRK"),
@@ -7972,7 +7972,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3292
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 3294
                 MOVE_QUICK_ATTACK,
@@ -7989,7 +7989,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3300
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 3302
                 MOVE_CHARGE,
@@ -8000,7 +8000,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 3306
-[TRAINER_GRUNT_AQUA_HIDEOUT_7] =
+    [TRAINER_GRUNT_AQUA_HIDEOUT_7] =
     {
 #line 3307
         .trainerName = _("GRUNT"),
@@ -8028,7 +8028,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3316
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3319
@@ -8038,12 +8038,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3320
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3323
-[TRAINER_GRUNT_AQUA_HIDEOUT_8] =
+    [TRAINER_GRUNT_AQUA_HIDEOUT_8] =
     {
 #line 3324
         .trainerName = _("GRUNT"),
@@ -8069,12 +8069,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3333
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3336
-[TRAINER_SHAWN] =
+    [TRAINER_SHAWN] =
     {
 #line 3337
         .trainerName = _("SHAWN"),
@@ -8100,7 +8100,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3346
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3349
@@ -8110,12 +8110,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3350
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3353
-[TRAINER_FERNANDO_1] =
+    [TRAINER_FERNANDO_1] =
     {
 #line 3354
         .trainerName = _("FERNANDO"),
@@ -8141,7 +8141,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3363
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3366
@@ -8151,12 +8151,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3367
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3370
-[TRAINER_DALTON_1] =
+    [TRAINER_DALTON_1] =
     {
 #line 3371
         .trainerName = _("DALTON"),
@@ -8182,7 +8182,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3380
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3383
@@ -8192,12 +8192,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3384
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3387
-[TRAINER_DALTON_2] =
+    [TRAINER_DALTON_2] =
     {
 #line 3388
         .trainerName = _("DALTON"),
@@ -8223,7 +8223,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 3397
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3400
@@ -8233,7 +8233,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 3401
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3404
@@ -8243,12 +8243,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 3405
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3408
-[TRAINER_DALTON_3] =
+    [TRAINER_DALTON_3] =
     {
 #line 3409
         .trainerName = _("DALTON"),
@@ -8274,7 +8274,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 3418
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3421
@@ -8284,7 +8284,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 3422
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3425
@@ -8294,12 +8294,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 3426
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3429
-[TRAINER_DALTON_4] =
+    [TRAINER_DALTON_4] =
     {
 #line 3430
         .trainerName = _("DALTON"),
@@ -8325,7 +8325,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 3439
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3442
@@ -8335,7 +8335,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 3443
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3446
@@ -8345,12 +8345,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 3447
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3450
-[TRAINER_DALTON_5] =
+    [TRAINER_DALTON_5] =
     {
 #line 3451
         .trainerName = _("DALTON"),
@@ -8376,7 +8376,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 3460
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3463
@@ -8386,7 +8386,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 3464
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3467
@@ -8396,12 +8396,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 3468
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3471
-[TRAINER_COLE] =
+    [TRAINER_COLE] =
     {
 #line 3472
         .trainerName = _("COLE"),
@@ -8427,12 +8427,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3481
             .lvl = 23,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3484
-[TRAINER_JEFF] =
+    [TRAINER_JEFF] =
     {
 #line 3485
         .trainerName = _("JEFF"),
@@ -8458,7 +8458,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3494
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3497
@@ -8468,12 +8468,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3498
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3501
-[TRAINER_AXLE] =
+    [TRAINER_AXLE] =
     {
 #line 3502
         .trainerName = _("AXLE"),
@@ -8499,12 +8499,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3511
             .lvl = 23,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3514
-[TRAINER_JACE] =
+    [TRAINER_JACE] =
     {
 #line 3515
         .trainerName = _("JACE"),
@@ -8530,12 +8530,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3524
             .lvl = 23,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3527
-[TRAINER_KEEGAN] =
+    [TRAINER_KEEGAN] =
     {
 #line 3528
         .trainerName = _("KEEGAN"),
@@ -8561,12 +8561,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
 #line 3537
             .lvl = 23,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3540
-[TRAINER_BERNIE_1] =
+    [TRAINER_BERNIE_1] =
     {
 #line 3541
         .trainerName = _("BERNIE"),
@@ -8592,7 +8592,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3550
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3553
@@ -8602,12 +8602,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3554
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3557
-[TRAINER_BERNIE_2] =
+    [TRAINER_BERNIE_2] =
     {
 #line 3558
         .trainerName = _("BERNIE"),
@@ -8633,7 +8633,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 3567
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3570
@@ -8643,12 +8643,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 3571
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3574
-[TRAINER_BERNIE_3] =
+    [TRAINER_BERNIE_3] =
     {
 #line 3575
         .trainerName = _("BERNIE"),
@@ -8674,7 +8674,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 3584
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3587
@@ -8684,12 +8684,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 3588
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3591
-[TRAINER_BERNIE_4] =
+    [TRAINER_BERNIE_4] =
     {
 #line 3592
         .trainerName = _("BERNIE"),
@@ -8715,7 +8715,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 3601
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3604
@@ -8725,12 +8725,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 3605
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3608
-[TRAINER_BERNIE_5] =
+    [TRAINER_BERNIE_5] =
     {
 #line 3609
         .trainerName = _("BERNIE"),
@@ -8756,7 +8756,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 3618
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3621
@@ -8766,12 +8766,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 3622
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3625
-[TRAINER_DREW] =
+    [TRAINER_DREW] =
     {
 #line 3626
         .trainerName = _("DREW"),
@@ -8797,7 +8797,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3635
             .lvl = 23,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 3637
                 MOVE_DIG,
@@ -8809,7 +8809,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 3642
-[TRAINER_BEAU] =
+    [TRAINER_BEAU] =
     {
 #line 3643
         .trainerName = _("BEAU"),
@@ -8835,7 +8835,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3652
             .lvl = 21,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 3654
                 MOVE_RAPID_SPIN,
@@ -8852,7 +8852,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3660
             .lvl = 21,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 3662
                 MOVE_POISON_STING,
@@ -8869,7 +8869,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3668
             .lvl = 21,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 3670
                 MOVE_RAPID_SPIN,
@@ -8881,7 +8881,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 3675
-[TRAINER_LARRY] =
+    [TRAINER_LARRY] =
     {
 #line 3676
         .trainerName = _("LARRY"),
@@ -8907,12 +8907,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3685
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3688
-[TRAINER_SHANE] =
+    [TRAINER_SHANE] =
     {
 #line 3689
         .trainerName = _("SHANE"),
@@ -8938,7 +8938,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3698
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3701
@@ -8948,12 +8948,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3702
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3705
-[TRAINER_JUSTIN] =
+    [TRAINER_JUSTIN] =
     {
 #line 3706
         .trainerName = _("JUSTIN"),
@@ -8979,12 +8979,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3715
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3718
-[TRAINER_ETHAN_1] =
+    [TRAINER_ETHAN_1] =
     {
 #line 3719
         .trainerName = _("ETHAN"),
@@ -9010,7 +9010,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3728
             .lvl = 20,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3731
@@ -9020,12 +9020,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3732
             .lvl = 20,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3735
-[TRAINER_AUTUMN] =
+    [TRAINER_AUTUMN] =
     {
 #line 3736
         .trainerName = _("AUTUMN"),
@@ -9053,12 +9053,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3745
             .lvl = 21,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3748
-[TRAINER_TRAVIS] =
+    [TRAINER_TRAVIS] =
     {
 #line 3749
         .trainerName = _("TRAVIS"),
@@ -9084,12 +9084,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3758
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3761
-[TRAINER_ETHAN_2] =
+    [TRAINER_ETHAN_2] =
     {
 #line 3762
         .trainerName = _("ETHAN"),
@@ -9115,7 +9115,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 3771
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3774
@@ -9125,12 +9125,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 3775
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3778
-[TRAINER_ETHAN_3] =
+    [TRAINER_ETHAN_3] =
     {
 #line 3779
         .trainerName = _("ETHAN"),
@@ -9156,7 +9156,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 3788
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3791
@@ -9166,12 +9166,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 3792
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3795
-[TRAINER_ETHAN_4] =
+    [TRAINER_ETHAN_4] =
     {
 #line 3796
         .trainerName = _("ETHAN"),
@@ -9197,7 +9197,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 3805
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3808
@@ -9207,7 +9207,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 3809
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3812
@@ -9217,12 +9217,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 3813
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3816
-[TRAINER_ETHAN_5] =
+    [TRAINER_ETHAN_5] =
     {
 #line 3817
         .trainerName = _("ETHAN"),
@@ -9248,7 +9248,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 3826
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3829
@@ -9258,7 +9258,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 3830
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3833
@@ -9268,12 +9268,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 3834
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3837
-[TRAINER_BRENT] =
+    [TRAINER_BRENT] =
     {
 #line 3838
         .trainerName = _("BRENT"),
@@ -9299,12 +9299,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3847
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3850
-[TRAINER_DONALD] =
+    [TRAINER_DONALD] =
     {
 #line 3851
         .trainerName = _("DONALD"),
@@ -9330,7 +9330,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3860
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3863
@@ -9340,7 +9340,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3864
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3867
@@ -9350,12 +9350,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3868
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3871
-[TRAINER_TAYLOR] =
+    [TRAINER_TAYLOR] =
     {
 #line 3872
         .trainerName = _("TAYLOR"),
@@ -9381,7 +9381,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3881
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3884
@@ -9391,7 +9391,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3885
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3888
@@ -9401,12 +9401,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 3889
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3892
-[TRAINER_JEFFREY_1] =
+    [TRAINER_JEFFREY_1] =
     {
 #line 3893
         .trainerName = _("JEFFREY"),
@@ -9432,7 +9432,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3902
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3905
@@ -9442,7 +9442,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3906
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3909
@@ -9452,12 +9452,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 3910
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3913
-[TRAINER_DEREK] =
+    [TRAINER_DEREK] =
     {
 #line 3914
         .trainerName = _("DEREK"),
@@ -9483,7 +9483,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 3923
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3926
@@ -9493,12 +9493,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 3927
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3930
-[TRAINER_JEFFREY_2] =
+    [TRAINER_JEFFREY_2] =
     {
 #line 3931
         .trainerName = _("JEFFREY"),
@@ -9524,7 +9524,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 3940
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3943
@@ -9534,7 +9534,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 3944
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3947
@@ -9544,12 +9544,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 3948
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3951
-[TRAINER_JEFFREY_3] =
+    [TRAINER_JEFFREY_3] =
     {
 #line 3952
         .trainerName = _("JEFFREY"),
@@ -9575,7 +9575,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 3961
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3964
@@ -9585,7 +9585,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 3965
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3968
@@ -9595,12 +9595,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 3969
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3972
-[TRAINER_JEFFREY_4] =
+    [TRAINER_JEFFREY_4] =
     {
 #line 3973
         .trainerName = _("JEFFREY"),
@@ -9626,7 +9626,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 3982
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3985
@@ -9636,7 +9636,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 3986
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3989
@@ -9646,7 +9646,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 3990
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 3993
@@ -9656,12 +9656,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 3994
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 3997
-[TRAINER_JEFFREY_5] =
+    [TRAINER_JEFFREY_5] =
     {
 #line 3998
         .trainerName = _("JEFFREY"),
@@ -9687,7 +9687,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 4007
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4010
@@ -9697,7 +9697,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 4011
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4014
@@ -9707,7 +9707,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 4015
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4018
@@ -9719,7 +9719,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 4019
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4022
@@ -9729,12 +9729,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 4023
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4026
-[TRAINER_EDWARD] =
+    [TRAINER_EDWARD] =
     {
 #line 4027
         .trainerName = _("EDWARD"),
@@ -9760,7 +9760,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4036
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4038
                 MOVE_HIDDEN_POWER,
@@ -9769,7 +9769,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 4040
-[TRAINER_PRESTON] =
+    [TRAINER_PRESTON] =
     {
 #line 4041
         .trainerName = _("PRESTON"),
@@ -9795,12 +9795,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 4050
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4053
-[TRAINER_VIRGIL] =
+    [TRAINER_VIRGIL] =
     {
 #line 4054
         .trainerName = _("VIRGIL"),
@@ -9826,12 +9826,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 4063
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4066
-[TRAINER_BLAKE] =
+    [TRAINER_BLAKE] =
     {
 #line 4067
         .trainerName = _("BLAKE"),
@@ -9857,12 +9857,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 4076
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4079
-[TRAINER_WILLIAM] =
+    [TRAINER_WILLIAM] =
     {
 #line 4080
         .trainerName = _("WILLIAM"),
@@ -9888,7 +9888,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4089
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4092
@@ -9898,7 +9898,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4093
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4096
@@ -9908,12 +9908,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4097
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4100
-[TRAINER_JOSHUA] =
+    [TRAINER_JOSHUA] =
     {
 #line 4101
         .trainerName = _("JOSHUA"),
@@ -9939,7 +9939,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4110
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4113
@@ -9949,12 +9949,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4114
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4117
-[TRAINER_CAMERON_1] =
+    [TRAINER_CAMERON_1] =
     {
 #line 4118
         .trainerName = _("CAMERON"),
@@ -9980,12 +9980,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4127
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4130
-[TRAINER_CAMERON_2] =
+    [TRAINER_CAMERON_2] =
     {
 #line 4131
         .trainerName = _("CAMERON"),
@@ -10011,7 +10011,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 4140
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4143
@@ -10021,12 +10021,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 4144
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4147
-[TRAINER_CAMERON_3] =
+    [TRAINER_CAMERON_3] =
     {
 #line 4148
         .trainerName = _("CAMERON"),
@@ -10052,7 +10052,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 4157
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4160
@@ -10062,12 +10062,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 4161
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4164
-[TRAINER_CAMERON_4] =
+    [TRAINER_CAMERON_4] =
     {
 #line 4165
         .trainerName = _("CAMERON"),
@@ -10093,7 +10093,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 4174
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4177
@@ -10103,12 +10103,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 4178
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4181
-[TRAINER_CAMERON_5] =
+    [TRAINER_CAMERON_5] =
     {
 #line 4182
         .trainerName = _("CAMERON"),
@@ -10134,7 +10134,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 4191
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4194
@@ -10144,12 +10144,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 4195
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4198
-[TRAINER_JACLYN] =
+    [TRAINER_JACLYN] =
     {
 #line 4199
         .trainerName = _("JACLYN"),
@@ -10177,7 +10177,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4208
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4210
                 MOVE_HIDDEN_POWER,
@@ -10186,7 +10186,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 4212
-[TRAINER_HANNAH] =
+    [TRAINER_HANNAH] =
     {
 #line 4213
         .trainerName = _("HANNAH"),
@@ -10214,12 +10214,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 4222
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4225
-[TRAINER_SAMANTHA] =
+    [TRAINER_SAMANTHA] =
     {
 #line 4226
         .trainerName = _("SAMANTHA"),
@@ -10247,12 +10247,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 4235
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4238
-[TRAINER_MAURA] =
+    [TRAINER_MAURA] =
     {
 #line 4239
         .trainerName = _("MAURA"),
@@ -10280,12 +10280,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 4248
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4251
-[TRAINER_KAYLA] =
+    [TRAINER_KAYLA] =
     {
 #line 4252
         .trainerName = _("KAYLA"),
@@ -10313,7 +10313,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4261
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4264
@@ -10323,7 +10323,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4265
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4268
@@ -10333,12 +10333,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4269
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4272
-[TRAINER_ALEXIS] =
+    [TRAINER_ALEXIS] =
     {
 #line 4273
         .trainerName = _("ALEXIS"),
@@ -10366,7 +10366,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4282
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4285
@@ -10376,12 +10376,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4286
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4289
-[TRAINER_JACKI_1] =
+    [TRAINER_JACKI_1] =
     {
 #line 4290
         .trainerName = _("JACKI"),
@@ -10409,7 +10409,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4299
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4302
@@ -10419,12 +10419,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4303
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4306
-[TRAINER_JACKI_2] =
+    [TRAINER_JACKI_2] =
     {
 #line 4307
         .trainerName = _("JACKI"),
@@ -10452,7 +10452,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 4316
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4319
@@ -10462,12 +10462,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 4320
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4323
-[TRAINER_JACKI_3] =
+    [TRAINER_JACKI_3] =
     {
 #line 4324
         .trainerName = _("JACKI"),
@@ -10495,7 +10495,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 4333
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4336
@@ -10505,12 +10505,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 4337
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4340
-[TRAINER_JACKI_4] =
+    [TRAINER_JACKI_4] =
     {
 #line 4341
         .trainerName = _("JACKI"),
@@ -10538,7 +10538,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 4350
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4353
@@ -10548,12 +10548,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 4354
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4357
-[TRAINER_JACKI_5] =
+    [TRAINER_JACKI_5] =
     {
 #line 4358
         .trainerName = _("JACKI"),
@@ -10581,7 +10581,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 4367
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4370
@@ -10591,12 +10591,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 4371
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4374
-[TRAINER_WALTER_1] =
+    [TRAINER_WALTER_1] =
     {
 #line 4375
         .trainerName = _("WALTER"),
@@ -10622,12 +10622,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4384
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4387
-[TRAINER_MICAH] =
+    [TRAINER_MICAH] =
     {
 #line 4388
         .trainerName = _("MICAH"),
@@ -10653,7 +10653,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4397
             .lvl = 44,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 4400
@@ -10663,12 +10663,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4401
             .lvl = 44,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4404
-[TRAINER_THOMAS] =
+    [TRAINER_THOMAS] =
     {
 #line 4405
         .trainerName = _("THOMAS"),
@@ -10694,12 +10694,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 4414
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4417
-[TRAINER_WALTER_2] =
+    [TRAINER_WALTER_2] =
     {
 #line 4418
         .trainerName = _("WALTER"),
@@ -10725,12 +10725,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 4427
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 4430
-[TRAINER_WALTER_3] =
+    [TRAINER_WALTER_3] =
     {
 #line 4431
         .trainerName = _("WALTER"),
@@ -10756,7 +10756,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 4440
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4442
                 MOVE_HEADBUTT,
@@ -10773,7 +10773,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 4448
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4450
                 MOVE_QUICK_ATTACK,
@@ -10785,7 +10785,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 4455
-[TRAINER_WALTER_4] =
+    [TRAINER_WALTER_4] =
     {
 #line 4456
         .trainerName = _("WALTER"),
@@ -10811,7 +10811,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 4465
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4467
                 MOVE_HEADBUTT,
@@ -10828,7 +10828,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 4473
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4475
                 MOVE_QUICK_ATTACK,
@@ -10839,7 +10839,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 4479
-[TRAINER_WALTER_5] =
+    [TRAINER_WALTER_5] =
     {
 #line 4480
         .trainerName = _("WALTER"),
@@ -10865,7 +10865,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 4489
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4491
                 MOVE_HEADBUTT,
@@ -10882,7 +10882,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 4497
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4499
                 MOVE_FURY_SWIPES,
@@ -10899,7 +10899,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 4505
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4507
                 MOVE_QUICK_ATTACK,
@@ -10911,7 +10911,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 4512
-[TRAINER_SIDNEY] =
+    [TRAINER_SIDNEY] =
     {
 #line 4513
         .trainerName = _("SIDNEY"),
@@ -10939,7 +10939,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4523
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4525
                 MOVE_ROAR,
@@ -10956,7 +10956,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4531
             .lvl = 48,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4533
                 MOVE_TORMENT,
@@ -10973,7 +10973,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4539
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4541
                 MOVE_LEECH_SEED,
@@ -10990,7 +10990,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4547
             .lvl = 48,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4549
                 MOVE_SURF,
@@ -11009,7 +11009,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 4555
             .lvl = 49,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4557
                 MOVE_AERIAL_ACE,
@@ -11021,7 +11021,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 4562
-[TRAINER_PHOEBE] =
+    [TRAINER_PHOEBE] =
     {
 #line 4563
         .trainerName = _("PHOEBE"),
@@ -11051,7 +11051,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4573
             .lvl = 48,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4575
                 MOVE_SHADOW_PUNCH,
@@ -11068,7 +11068,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4581
             .lvl = 49,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4583
                 MOVE_SHADOW_BALL,
@@ -11085,7 +11085,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4589
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4591
                 MOVE_SHADOW_BALL,
@@ -11102,7 +11102,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4597
             .lvl = 49,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4599
                 MOVE_SHADOW_BALL,
@@ -11121,7 +11121,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 4605
             .lvl = 51,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4607
                 MOVE_SHADOW_BALL,
@@ -11133,7 +11133,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 4612
-[TRAINER_GLACIA] =
+    [TRAINER_GLACIA] =
     {
 #line 4613
         .trainerName = _("GLACIA"),
@@ -11163,7 +11163,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4623
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4625
                 MOVE_ENCORE,
@@ -11180,7 +11180,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4631
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4633
                 MOVE_LIGHT_SCREEN,
@@ -11197,7 +11197,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4639
             .lvl = 52,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4641
                 MOVE_ATTRACT,
@@ -11214,7 +11214,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4647
             .lvl = 52,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4649
                 MOVE_SHADOW_BALL,
@@ -11233,7 +11233,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 4655
             .lvl = 53,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4657
                 MOVE_SURF,
@@ -11245,7 +11245,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 4662
-[TRAINER_DRAKE] =
+    [TRAINER_DRAKE] =
     {
 #line 4663
         .trainerName = _("DRAKE"),
@@ -11273,7 +11273,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4673
             .lvl = 52,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4675
                 MOVE_ROCK_TOMB,
@@ -11290,7 +11290,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4681
             .lvl = 54,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4683
                 MOVE_DOUBLE_EDGE,
@@ -11307,7 +11307,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4689
             .lvl = 53,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4691
                 MOVE_SMOKESCREEN,
@@ -11324,7 +11324,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4697
             .lvl = 53,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4699
                 MOVE_FLAMETHROWER,
@@ -11343,7 +11343,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 4705
             .lvl = 55,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4707
                 MOVE_FLAMETHROWER,
@@ -11355,7 +11355,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 4712
-[TRAINER_ROXANNE_1] =
+    [TRAINER_ROXANNE_1] =
     {
 #line 4713
         .trainerName = _("ROXANNE"),
@@ -11385,7 +11385,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 4723
             .lvl = 12,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4725
                 MOVE_TACKLE,
@@ -11402,7 +11402,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 4731
             .lvl = 12,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4733
                 MOVE_TACKLE,
@@ -11421,7 +11421,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 4739
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4741
                 MOVE_BLOCK,
@@ -11433,7 +11433,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 4746
-[TRAINER_BRAWLY_1] =
+    [TRAINER_BRAWLY_1] =
     {
 #line 4747
         .trainerName = _("BRAWLY"),
@@ -11461,7 +11461,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 4757
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4759
                 MOVE_KARATE_CHOP,
@@ -11478,7 +11478,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 4765
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4767
                 MOVE_FOCUS_PUNCH,
@@ -11497,7 +11497,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 4773
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4775
                 MOVE_ARM_THRUST,
@@ -11509,7 +11509,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 4780
-[TRAINER_WATTSON_1] =
+    [TRAINER_WATTSON_1] =
     {
 #line 4781
         .trainerName = _("WATTSON"),
@@ -11537,7 +11537,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 4791
             .lvl = 20,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4793
                 MOVE_ROLLOUT,
@@ -11554,7 +11554,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 4799
             .lvl = 20,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4801
                 MOVE_SHOCK_WAVE,
@@ -11571,7 +11571,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(26, 26, 26, 26, 26, 26),
 #line 4807
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4809
                 MOVE_SUPERSONIC,
@@ -11590,7 +11590,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4815
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4817
                 MOVE_QUICK_ATTACK,
@@ -11602,7 +11602,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 4822
-[TRAINER_FLANNERY_1] =
+    [TRAINER_FLANNERY_1] =
     {
 #line 4823
         .trainerName = _("FLANNERY"),
@@ -11632,7 +11632,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 4833
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4835
                 MOVE_OVERHEAT,
@@ -11649,7 +11649,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 4841
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4843
                 MOVE_OVERHEAT,
@@ -11666,7 +11666,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4849
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4851
                 MOVE_OVERHEAT,
@@ -11685,7 +11685,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4857
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4859
                 MOVE_OVERHEAT,
@@ -11697,7 +11697,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 4864
-[TRAINER_NORMAN_1] =
+    [TRAINER_NORMAN_1] =
     {
 #line 4865
         .trainerName = _("NORMAN"),
@@ -11725,7 +11725,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 4875
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4877
                 MOVE_TEETER_DANCE,
@@ -11742,7 +11742,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 4883
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4885
                 MOVE_SLASH,
@@ -11759,7 +11759,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 4891
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4893
                 MOVE_SLASH,
@@ -11778,7 +11778,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4899
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4901
                 MOVE_COUNTER,
@@ -11790,7 +11790,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 4906
-[TRAINER_WINONA_1] =
+    [TRAINER_WINONA_1] =
     {
 #line 4907
         .trainerName = _("WINONA"),
@@ -11820,7 +11820,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
 #line 4917
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4919
                 MOVE_PERISH_SONG,
@@ -11837,7 +11837,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
 #line 4925
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4927
                 MOVE_SUNNY_DAY,
@@ -11854,7 +11854,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
 #line 4933
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4935
                 MOVE_WATER_GUN,
@@ -11871,7 +11871,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(26, 26, 26, 26, 26, 26),
 #line 4941
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4943
                 MOVE_SAND_ATTACK,
@@ -11890,7 +11890,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 4949
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4951
                 MOVE_EARTHQUAKE,
@@ -11902,7 +11902,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 4956
-[TRAINER_TATE_AND_LIZA_1] =
+    [TRAINER_TATE_AND_LIZA_1] =
     {
 #line 4957
         .trainerName = _("TATE&LIZA"),
@@ -11930,7 +11930,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4967
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4969
                 MOVE_EARTHQUAKE,
@@ -11947,7 +11947,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4975
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4977
                 MOVE_PSYCHIC,
@@ -11966,7 +11966,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4983
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4985
                 MOVE_LIGHT_SCREEN,
@@ -11985,7 +11985,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 4991
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 4993
                 MOVE_SUNNY_DAY,
@@ -11997,7 +11997,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 4998
-[TRAINER_JUAN_1] =
+    [TRAINER_JUAN_1] =
     {
 #line 4999
         .trainerName = _("JUAN"),
@@ -12025,7 +12025,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 5009
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5011
                 MOVE_WATER_PULSE,
@@ -12042,7 +12042,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 5017
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5019
                 MOVE_RAIN_DANCE,
@@ -12059,7 +12059,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 5025
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5027
                 MOVE_ENCORE,
@@ -12076,7 +12076,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 5033
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5035
                 MOVE_WATER_PULSE,
@@ -12095,7 +12095,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 5041
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5043
                 MOVE_WATER_PULSE,
@@ -12107,7 +12107,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 5048
-[TRAINER_JERRY_1] =
+    [TRAINER_JERRY_1] =
     {
 #line 5049
         .trainerName = _("JERRY"),
@@ -12133,12 +12133,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 5058
             .lvl = 9,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5061
-[TRAINER_TED] =
+    [TRAINER_TED] =
     {
 #line 5062
         .trainerName = _("TED"),
@@ -12164,12 +12164,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 5071
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5074
-[TRAINER_PAUL] =
+    [TRAINER_PAUL] =
     {
 #line 5075
         .trainerName = _("PAUL"),
@@ -12195,7 +12195,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 5084
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5087
@@ -12205,7 +12205,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 5088
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5091
@@ -12215,12 +12215,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 5092
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5095
-[TRAINER_JERRY_2] =
+    [TRAINER_JERRY_2] =
     {
 #line 5096
         .trainerName = _("JERRY"),
@@ -12246,7 +12246,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 5105
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5108
@@ -12256,12 +12256,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 5109
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5112
-[TRAINER_JERRY_3] =
+    [TRAINER_JERRY_3] =
     {
 #line 5113
         .trainerName = _("JERRY"),
@@ -12287,7 +12287,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 5122
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5125
@@ -12297,12 +12297,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 5126
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5129
-[TRAINER_JERRY_4] =
+    [TRAINER_JERRY_4] =
     {
 #line 5130
         .trainerName = _("JERRY"),
@@ -12328,7 +12328,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 5139
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5142
@@ -12338,12 +12338,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 5143
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5146
-[TRAINER_JERRY_5] =
+    [TRAINER_JERRY_5] =
     {
 #line 5147
         .trainerName = _("JERRY"),
@@ -12369,7 +12369,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 5156
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5159
@@ -12379,7 +12379,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 5160
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5163
@@ -12389,12 +12389,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 5164
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5167
-[TRAINER_KAREN_1] =
+    [TRAINER_KAREN_1] =
     {
 #line 5168
         .trainerName = _("KAREN"),
@@ -12422,12 +12422,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 5177
             .lvl = 9,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5180
-[TRAINER_GEORGIA] =
+    [TRAINER_GEORGIA] =
     {
 #line 5181
         .trainerName = _("GEORGIA"),
@@ -12455,7 +12455,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 5190
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5193
@@ -12465,12 +12465,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 5194
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5197
-[TRAINER_KAREN_2] =
+    [TRAINER_KAREN_2] =
     {
 #line 5198
         .trainerName = _("KAREN"),
@@ -12498,7 +12498,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 5207
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5210
@@ -12508,12 +12508,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 5211
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5214
-[TRAINER_KAREN_3] =
+    [TRAINER_KAREN_3] =
     {
 #line 5215
         .trainerName = _("KAREN"),
@@ -12541,7 +12541,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 5224
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5227
@@ -12551,12 +12551,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 5228
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5231
-[TRAINER_KAREN_4] =
+    [TRAINER_KAREN_4] =
     {
 #line 5232
         .trainerName = _("KAREN"),
@@ -12584,7 +12584,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 5241
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5244
@@ -12594,12 +12594,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 5245
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5248
-[TRAINER_KAREN_5] =
+    [TRAINER_KAREN_5] =
     {
 #line 5249
         .trainerName = _("KAREN"),
@@ -12627,7 +12627,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 5258
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5261
@@ -12637,12 +12637,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 5262
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5265
-[TRAINER_KATE_AND_JOY] =
+    [TRAINER_KATE_AND_JOY] =
     {
 #line 5266
         .trainerName = _("KATE & JOY"),
@@ -12668,7 +12668,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5275
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5277
                 MOVE_HYPNOSIS,
@@ -12685,7 +12685,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5283
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5285
                 MOVE_FOCUS_PUNCH,
@@ -12697,7 +12697,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 5290
-[TRAINER_ANNA_AND_MEG_1] =
+    [TRAINER_ANNA_AND_MEG_1] =
     {
 #line 5291
         .trainerName = _("ANNA & MEG"),
@@ -12723,7 +12723,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5300
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5302
                 MOVE_GROWL,
@@ -12740,7 +12740,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5308
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5310
                 MOVE_TACKLE,
@@ -12751,7 +12751,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 5314
-[TRAINER_ANNA_AND_MEG_2] =
+    [TRAINER_ANNA_AND_MEG_2] =
     {
 #line 5315
         .trainerName = _("ANNA & MEG"),
@@ -12777,7 +12777,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 5324
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5326
                 MOVE_GROWL,
@@ -12794,7 +12794,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 5332
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5334
                 MOVE_TACKLE,
@@ -12805,7 +12805,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 5338
-[TRAINER_ANNA_AND_MEG_3] =
+    [TRAINER_ANNA_AND_MEG_3] =
     {
 #line 5339
         .trainerName = _("ANNA & MEG"),
@@ -12831,7 +12831,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 5348
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5350
                 MOVE_GROWL,
@@ -12848,7 +12848,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 5356
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5358
                 MOVE_TACKLE,
@@ -12859,7 +12859,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 5362
-[TRAINER_ANNA_AND_MEG_4] =
+    [TRAINER_ANNA_AND_MEG_4] =
     {
 #line 5363
         .trainerName = _("ANNA & MEG"),
@@ -12885,7 +12885,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 5372
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5374
                 MOVE_GROWL,
@@ -12902,7 +12902,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 5380
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5382
                 MOVE_TACKLE,
@@ -12913,7 +12913,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 5386
-[TRAINER_ANNA_AND_MEG_5] =
+    [TRAINER_ANNA_AND_MEG_5] =
     {
 #line 5387
         .trainerName = _("ANNA & MEG"),
@@ -12939,7 +12939,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 5396
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5398
                 MOVE_GROWL,
@@ -12956,7 +12956,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 5404
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5406
                 MOVE_TACKLE,
@@ -12967,7 +12967,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 5410
-[TRAINER_VICTOR] =
+    [TRAINER_VICTOR] =
     {
 #line 5411
         .trainerName = _("VICTOR"),
@@ -12995,7 +12995,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 5420
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5423
@@ -13007,12 +13007,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 5424
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5427
-[TRAINER_MIGUEL_1] =
+    [TRAINER_MIGUEL_1] =
     {
 #line 5428
         .trainerName = _("MIGUEL"),
@@ -13040,12 +13040,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5437
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5440
-[TRAINER_COLTON] =
+    [TRAINER_COLTON] =
     {
 #line 5441
         .trainerName = _("COLTON"),
@@ -13073,7 +13073,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5450
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5452
                 MOVE_ASSIST,
@@ -13092,7 +13092,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5458
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5460
                 MOVE_ASSIST,
@@ -13111,7 +13111,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5466
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5468
                 MOVE_ASSIST,
@@ -13130,7 +13130,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5474
             .lvl = 12,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5476
                 MOVE_ASSIST,
@@ -13149,7 +13149,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5482
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5484
                 MOVE_ASSIST,
@@ -13168,7 +13168,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5490
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5492
                 MOVE_ASSIST,
@@ -13180,7 +13180,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 5497
-[TRAINER_MIGUEL_2] =
+    [TRAINER_MIGUEL_2] =
     {
 #line 5498
         .trainerName = _("MIGUEL"),
@@ -13208,12 +13208,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5507
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5510
-[TRAINER_MIGUEL_3] =
+    [TRAINER_MIGUEL_3] =
     {
 #line 5511
         .trainerName = _("MIGUEL"),
@@ -13241,12 +13241,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5520
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5523
-[TRAINER_MIGUEL_4] =
+    [TRAINER_MIGUEL_4] =
     {
 #line 5524
         .trainerName = _("MIGUEL"),
@@ -13274,12 +13274,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5533
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5536
-[TRAINER_MIGUEL_5] =
+    [TRAINER_MIGUEL_5] =
     {
 #line 5537
         .trainerName = _("MIGUEL"),
@@ -13307,12 +13307,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5546
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5549
-[TRAINER_VICTORIA] =
+    [TRAINER_VICTORIA] =
     {
 #line 5550
         .trainerName = _("VICTORIA"),
@@ -13342,12 +13342,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 5559
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5562
-[TRAINER_VANESSA] =
+    [TRAINER_VANESSA] =
     {
 #line 5563
         .trainerName = _("VANESSA"),
@@ -13377,12 +13377,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5572
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5575
-[TRAINER_BETHANY] =
+    [TRAINER_BETHANY] =
     {
 #line 5576
         .trainerName = _("BETHANY"),
@@ -13412,7 +13412,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 5585
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5588
@@ -13424,7 +13424,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 5589
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5592
@@ -13436,12 +13436,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 5593
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5596
-[TRAINER_ISABEL_1] =
+    [TRAINER_ISABEL_1] =
     {
 #line 5597
         .trainerName = _("ISABEL"),
@@ -13471,7 +13471,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5606
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5609
@@ -13483,12 +13483,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5610
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5613
-[TRAINER_ISABEL_2] =
+    [TRAINER_ISABEL_2] =
     {
 #line 5614
         .trainerName = _("ISABEL"),
@@ -13518,7 +13518,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 5623
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5626
@@ -13530,12 +13530,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 5627
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5630
-[TRAINER_ISABEL_3] =
+    [TRAINER_ISABEL_3] =
     {
 #line 5631
         .trainerName = _("ISABEL"),
@@ -13565,7 +13565,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 5640
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5643
@@ -13577,12 +13577,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 5644
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5647
-[TRAINER_ISABEL_4] =
+    [TRAINER_ISABEL_4] =
     {
 #line 5648
         .trainerName = _("ISABEL"),
@@ -13612,7 +13612,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 5657
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5660
@@ -13624,12 +13624,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 5661
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5664
-[TRAINER_ISABEL_5] =
+    [TRAINER_ISABEL_5] =
     {
 #line 5665
         .trainerName = _("ISABEL"),
@@ -13659,7 +13659,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 5674
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5677
@@ -13671,12 +13671,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 5678
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5681
-[TRAINER_TIMOTHY_1] =
+    [TRAINER_TIMOTHY_1] =
     {
 #line 5682
         .trainerName = _("TIMOTHY"),
@@ -13702,12 +13702,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 5691
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5694
-[TRAINER_TIMOTHY_2] =
+    [TRAINER_TIMOTHY_2] =
     {
 #line 5695
         .trainerName = _("TIMOTHY"),
@@ -13733,7 +13733,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
 #line 5704
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5706
                 MOVE_ARM_THRUST,
@@ -13745,7 +13745,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 5711
-[TRAINER_TIMOTHY_3] =
+    [TRAINER_TIMOTHY_3] =
     {
 #line 5712
         .trainerName = _("TIMOTHY"),
@@ -13771,7 +13771,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(26, 26, 26, 26, 26, 26),
 #line 5721
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5723
                 MOVE_ARM_THRUST,
@@ -13783,7 +13783,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 5728
-[TRAINER_TIMOTHY_4] =
+    [TRAINER_TIMOTHY_4] =
     {
 #line 5729
         .trainerName = _("TIMOTHY"),
@@ -13809,7 +13809,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(27, 27, 27, 27, 27, 27),
 #line 5738
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5740
                 MOVE_ARM_THRUST,
@@ -13821,7 +13821,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 5745
-[TRAINER_TIMOTHY_5] =
+    [TRAINER_TIMOTHY_5] =
     {
 #line 5746
         .trainerName = _("TIMOTHY"),
@@ -13847,7 +13847,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(29, 29, 29, 29, 29, 29),
 #line 5755
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5757
                 MOVE_ARM_THRUST,
@@ -13859,7 +13859,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 5762
-[TRAINER_VICKY] =
+    [TRAINER_VICKY] =
     {
 #line 5763
         .trainerName = _("VICKY"),
@@ -13887,7 +13887,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 5772
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5774
                 MOVE_HI_JUMP_KICK,
@@ -13899,7 +13899,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 5779
-[TRAINER_SHELBY_1] =
+    [TRAINER_SHELBY_1] =
     {
 #line 5780
         .trainerName = _("SHELBY"),
@@ -13927,7 +13927,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 5789
             .lvl = 21,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5792
@@ -13937,12 +13937,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 5793
             .lvl = 21,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5796
-[TRAINER_SHELBY_2] =
+    [TRAINER_SHELBY_2] =
     {
 #line 5797
         .trainerName = _("SHELBY"),
@@ -13970,7 +13970,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
 #line 5806
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5809
@@ -13980,12 +13980,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
 #line 5810
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5813
-[TRAINER_SHELBY_3] =
+    [TRAINER_SHELBY_3] =
     {
 #line 5814
         .trainerName = _("SHELBY"),
@@ -14013,7 +14013,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(26, 26, 26, 26, 26, 26),
 #line 5823
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5826
@@ -14023,12 +14023,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(26, 26, 26, 26, 26, 26),
 #line 5827
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5830
-[TRAINER_SHELBY_4] =
+    [TRAINER_SHELBY_4] =
     {
 #line 5831
         .trainerName = _("SHELBY"),
@@ -14056,7 +14056,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(27, 27, 27, 27, 27, 27),
 #line 5840
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5843
@@ -14066,12 +14066,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(27, 27, 27, 27, 27, 27),
 #line 5844
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5847
-[TRAINER_SHELBY_5] =
+    [TRAINER_SHELBY_5] =
     {
 #line 5848
         .trainerName = _("SHELBY"),
@@ -14099,7 +14099,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(29, 29, 29, 29, 29, 29),
 #line 5857
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5860
@@ -14109,12 +14109,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(29, 29, 29, 29, 29, 29),
 #line 5861
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5864
-[TRAINER_CALVIN_1] =
+    [TRAINER_CALVIN_1] =
     {
 #line 5865
         .trainerName = _("CALVIN"),
@@ -14140,12 +14140,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5874
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5877
-[TRAINER_BILLY] =
+    [TRAINER_BILLY] =
     {
 #line 5878
         .trainerName = _("BILLY"),
@@ -14171,7 +14171,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5887
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5890
@@ -14181,12 +14181,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5891
             .lvl = 7,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5894
-[TRAINER_JOSH] =
+    [TRAINER_JOSH] =
     {
 #line 5895
         .trainerName = _("JOSH"),
@@ -14212,7 +14212,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 5904
             .lvl = 10,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5906
                 MOVE_TACKLE,
@@ -14221,7 +14221,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 5908
-[TRAINER_TOMMY] =
+    [TRAINER_TOMMY] =
     {
 #line 5909
         .trainerName = _("TOMMY"),
@@ -14247,7 +14247,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
 #line 5918
             .lvl = 8,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 5921
@@ -14257,12 +14257,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
 #line 5922
             .lvl = 8,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5925
-[TRAINER_JOEY] =
+    [TRAINER_JOEY] =
     {
 #line 5926
         .trainerName = _("JOEY"),
@@ -14288,12 +14288,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 5935
             .lvl = 9,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 5938
-[TRAINER_BEN] =
+    [TRAINER_BEN] =
     {
 #line 5939
         .trainerName = _("BEN"),
@@ -14319,7 +14319,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 5948
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5950
                 MOVE_HEADBUTT,
@@ -14336,7 +14336,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 5956
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5958
                 MOVE_AMNESIA,
@@ -14348,7 +14348,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 5963
-[TRAINER_QUINCY] =
+    [TRAINER_QUINCY] =
     {
 #line 5964
         .trainerName = _("QUINCY"),
@@ -14376,7 +14376,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 5974
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5976
                 MOVE_ATTRACT,
@@ -14393,7 +14393,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 5982
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 5984
                 MOVE_SKILL_SWAP,
@@ -14405,7 +14405,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 5989
-[TRAINER_KATELYNN] =
+    [TRAINER_KATELYNN] =
     {
 #line 5990
         .trainerName = _("KATELYNN"),
@@ -14435,7 +14435,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 6000
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 6002
                 MOVE_SKILL_SWAP,
@@ -14452,7 +14452,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 6008
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 6010
                 MOVE_EARTHQUAKE,
@@ -14464,7 +14464,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 6015
-[TRAINER_JAYLEN] =
+    [TRAINER_JAYLEN] =
     {
 #line 6016
         .trainerName = _("JAYLEN"),
@@ -14490,12 +14490,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6025
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6028
-[TRAINER_DILLON] =
+    [TRAINER_DILLON] =
     {
 #line 6029
         .trainerName = _("DILLON"),
@@ -14521,12 +14521,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6038
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6041
-[TRAINER_CALVIN_2] =
+    [TRAINER_CALVIN_2] =
     {
 #line 6042
         .trainerName = _("CALVIN"),
@@ -14552,12 +14552,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 6051
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6054
-[TRAINER_CALVIN_3] =
+    [TRAINER_CALVIN_3] =
     {
 #line 6055
         .trainerName = _("CALVIN"),
@@ -14583,7 +14583,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 6064
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6067
@@ -14593,12 +14593,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 6068
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6071
-[TRAINER_CALVIN_4] =
+    [TRAINER_CALVIN_4] =
     {
 #line 6072
         .trainerName = _("CALVIN"),
@@ -14624,7 +14624,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 6081
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6084
@@ -14634,7 +14634,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 6085
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6088
@@ -14644,12 +14644,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 6089
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6092
-[TRAINER_CALVIN_5] =
+    [TRAINER_CALVIN_5] =
     {
 #line 6093
         .trainerName = _("CALVIN"),
@@ -14675,7 +14675,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 6102
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6105
@@ -14685,7 +14685,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 6106
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6109
@@ -14695,12 +14695,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 6110
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6113
-[TRAINER_EDDIE] =
+    [TRAINER_EDDIE] =
     {
 #line 6114
         .trainerName = _("EDDIE"),
@@ -14726,7 +14726,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6123
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6126
@@ -14736,12 +14736,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6127
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6130
-[TRAINER_ALLEN] =
+    [TRAINER_ALLEN] =
     {
 #line 6131
         .trainerName = _("ALLEN"),
@@ -14767,7 +14767,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6140
             .lvl = 4,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6143
@@ -14777,12 +14777,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6144
             .lvl = 3,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6147
-[TRAINER_TIMMY] =
+    [TRAINER_TIMMY] =
     {
 #line 6148
         .trainerName = _("TIMMY"),
@@ -14808,7 +14808,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6157
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6160
@@ -14818,12 +14818,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6161
             .lvl = 13,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6164
-[TRAINER_WALLACE] =
+    [TRAINER_WALLACE] =
     {
 #line 6165
         .trainerName = _("WALLACE"),
@@ -14851,7 +14851,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 6175
             .lvl = 57,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 6177
                 MOVE_RAIN_DANCE,
@@ -14868,7 +14868,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 6183
             .lvl = 55,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 6185
                 MOVE_TOXIC,
@@ -14885,7 +14885,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 6191
             .lvl = 56,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 6193
                 MOVE_GIGA_DRAIN,
@@ -14902,7 +14902,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 6199
             .lvl = 56,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 6201
                 MOVE_EARTHQUAKE,
@@ -14919,7 +14919,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 6207
             .lvl = 56,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 6209
                 MOVE_DRAGON_DANCE,
@@ -14938,7 +14938,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 6215
             .lvl = 58,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 6217
                 MOVE_RECOVER,
@@ -14950,7 +14950,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 6222
-[TRAINER_ANDREW] =
+    [TRAINER_ANDREW] =
     {
 #line 6223
         .trainerName = _("ANDREW"),
@@ -14976,7 +14976,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6232
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6235
@@ -14986,7 +14986,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6236
             .lvl = 10,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6239
@@ -14996,12 +14996,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6240
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6243
-[TRAINER_IVAN] =
+    [TRAINER_IVAN] =
     {
 #line 6244
         .trainerName = _("IVAN"),
@@ -15027,7 +15027,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6253
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6256
@@ -15037,7 +15037,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6257
             .lvl = 6,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6260
@@ -15047,12 +15047,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6261
             .lvl = 7,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6264
-[TRAINER_CLAUDE] =
+    [TRAINER_CLAUDE] =
     {
 #line 6265
         .trainerName = _("CLAUDE"),
@@ -15078,7 +15078,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6274
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6277
@@ -15088,7 +15088,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6278
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6281
@@ -15098,12 +15098,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6282
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6285
-[TRAINER_ELLIOT_1] =
+    [TRAINER_ELLIOT_1] =
     {
 #line 6286
         .trainerName = _("ELLIOT"),
@@ -15129,7 +15129,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6295
             .lvl = 10,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6298
@@ -15139,7 +15139,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6299
             .lvl = 7,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6302
@@ -15149,12 +15149,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6303
             .lvl = 10,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6306
-[TRAINER_NED] =
+    [TRAINER_NED] =
     {
 #line 6307
         .trainerName = _("NED"),
@@ -15180,12 +15180,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 6316
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6319
-[TRAINER_DALE] =
+    [TRAINER_DALE] =
     {
 #line 6320
         .trainerName = _("DALE"),
@@ -15211,7 +15211,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6329
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6332
@@ -15221,7 +15221,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6333
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6336
@@ -15231,7 +15231,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6337
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6340
@@ -15241,12 +15241,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6341
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6344
-[TRAINER_NOLAN] =
+    [TRAINER_NOLAN] =
     {
 #line 6345
         .trainerName = _("NOLAN"),
@@ -15272,12 +15272,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6354
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6357
-[TRAINER_BARNY] =
+    [TRAINER_BARNY] =
     {
 #line 6358
         .trainerName = _("BARNY"),
@@ -15303,7 +15303,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6367
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6370
@@ -15313,12 +15313,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6371
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6374
-[TRAINER_WADE] =
+    [TRAINER_WADE] =
     {
 #line 6375
         .trainerName = _("WADE"),
@@ -15344,12 +15344,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6384
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6387
-[TRAINER_CARTER] =
+    [TRAINER_CARTER] =
     {
 #line 6388
         .trainerName = _("CARTER"),
@@ -15375,7 +15375,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 6397
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6400
@@ -15385,12 +15385,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 6401
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6404
-[TRAINER_ELLIOT_2] =
+    [TRAINER_ELLIOT_2] =
     {
 #line 6405
         .trainerName = _("ELLIOT"),
@@ -15416,7 +15416,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 6414
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6417
@@ -15426,7 +15426,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 6418
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6421
@@ -15436,12 +15436,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 6422
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6425
-[TRAINER_ELLIOT_3] =
+    [TRAINER_ELLIOT_3] =
     {
 #line 6426
         .trainerName = _("ELLIOT"),
@@ -15467,7 +15467,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 6435
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6438
@@ -15477,7 +15477,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 6439
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6442
@@ -15487,7 +15487,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 6443
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6446
@@ -15497,12 +15497,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 6447
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6450
-[TRAINER_ELLIOT_4] =
+    [TRAINER_ELLIOT_4] =
     {
 #line 6451
         .trainerName = _("ELLIOT"),
@@ -15528,7 +15528,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 6460
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6463
@@ -15538,7 +15538,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 6464
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6467
@@ -15548,7 +15548,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 6468
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6471
@@ -15558,12 +15558,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 6472
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6475
-[TRAINER_ELLIOT_5] =
+    [TRAINER_ELLIOT_5] =
     {
 #line 6476
         .trainerName = _("ELLIOT"),
@@ -15589,7 +15589,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 6485
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6488
@@ -15599,7 +15599,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 6489
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6492
@@ -15609,7 +15609,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 6493
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6496
@@ -15619,12 +15619,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 6497
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6500
-[TRAINER_RONALD] =
+    [TRAINER_RONALD] =
     {
 #line 6501
         .trainerName = _("RONALD"),
@@ -15650,7 +15650,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6510
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6513
@@ -15660,7 +15660,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6514
             .lvl = 21,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6517
@@ -15670,7 +15670,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6518
             .lvl = 23,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6521
@@ -15680,7 +15680,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6522
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6525
@@ -15690,7 +15690,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6526
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6529
@@ -15700,12 +15700,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6530
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6533
-[TRAINER_JACOB] =
+    [TRAINER_JACOB] =
     {
 #line 6534
         .trainerName = _("JACOB"),
@@ -15731,7 +15731,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 6543
             .lvl = 6,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6546
@@ -15741,7 +15741,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 6547
             .lvl = 6,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6550
@@ -15751,12 +15751,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 6551
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6554
-[TRAINER_ANTHONY] =
+    [TRAINER_ANTHONY] =
     {
 #line 6555
         .trainerName = _("ANTHONY"),
@@ -15782,7 +15782,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6564
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6567
@@ -15792,12 +15792,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6568
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6571
-[TRAINER_BENJAMIN_1] =
+    [TRAINER_BENJAMIN_1] =
     {
 #line 6572
         .trainerName = _("BENJAMIN"),
@@ -15823,12 +15823,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6581
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6584
-[TRAINER_BENJAMIN_2] =
+    [TRAINER_BENJAMIN_2] =
     {
 #line 6585
         .trainerName = _("BENJAMIN"),
@@ -15854,12 +15854,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 6594
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6597
-[TRAINER_BENJAMIN_3] =
+    [TRAINER_BENJAMIN_3] =
     {
 #line 6598
         .trainerName = _("BENJAMIN"),
@@ -15885,12 +15885,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 6607
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6610
-[TRAINER_BENJAMIN_4] =
+    [TRAINER_BENJAMIN_4] =
     {
 #line 6611
         .trainerName = _("BENJAMIN"),
@@ -15916,12 +15916,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 6620
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6623
-[TRAINER_BENJAMIN_5] =
+    [TRAINER_BENJAMIN_5] =
     {
 #line 6624
         .trainerName = _("BENJAMIN"),
@@ -15947,12 +15947,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 6633
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6636
-[TRAINER_ABIGAIL_1] =
+    [TRAINER_ABIGAIL_1] =
     {
 #line 6637
         .trainerName = _("ABIGAIL"),
@@ -15980,12 +15980,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6646
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6649
-[TRAINER_JASMINE] =
+    [TRAINER_JASMINE] =
     {
 #line 6650
         .trainerName = _("JASMINE"),
@@ -16013,7 +16013,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
 #line 6659
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6662
@@ -16023,7 +16023,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
 #line 6663
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6666
@@ -16033,12 +16033,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6667
             .lvl = 6,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6670
-[TRAINER_ABIGAIL_2] =
+    [TRAINER_ABIGAIL_2] =
     {
 #line 6671
         .trainerName = _("ABIGAIL"),
@@ -16066,12 +16066,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 6680
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6683
-[TRAINER_ABIGAIL_3] =
+    [TRAINER_ABIGAIL_3] =
     {
 #line 6684
         .trainerName = _("ABIGAIL"),
@@ -16099,12 +16099,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 6693
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6696
-[TRAINER_ABIGAIL_4] =
+    [TRAINER_ABIGAIL_4] =
     {
 #line 6697
         .trainerName = _("ABIGAIL"),
@@ -16132,12 +16132,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 6706
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6709
-[TRAINER_ABIGAIL_5] =
+    [TRAINER_ABIGAIL_5] =
     {
 #line 6710
         .trainerName = _("ABIGAIL"),
@@ -16165,12 +16165,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 6719
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6722
-[TRAINER_DYLAN_1] =
+    [TRAINER_DYLAN_1] =
     {
 #line 6723
         .trainerName = _("DYLAN"),
@@ -16196,12 +16196,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6732
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6735
-[TRAINER_DYLAN_2] =
+    [TRAINER_DYLAN_2] =
     {
 #line 6736
         .trainerName = _("DYLAN"),
@@ -16227,12 +16227,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 6745
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6748
-[TRAINER_DYLAN_3] =
+    [TRAINER_DYLAN_3] =
     {
 #line 6749
         .trainerName = _("DYLAN"),
@@ -16258,12 +16258,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 6758
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6761
-[TRAINER_DYLAN_4] =
+    [TRAINER_DYLAN_4] =
     {
 #line 6762
         .trainerName = _("DYLAN"),
@@ -16289,12 +16289,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 6771
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6774
-[TRAINER_DYLAN_5] =
+    [TRAINER_DYLAN_5] =
     {
 #line 6775
         .trainerName = _("DYLAN"),
@@ -16320,12 +16320,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 6784
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6787
-[TRAINER_MARIA_1] =
+    [TRAINER_MARIA_1] =
     {
 #line 6788
         .trainerName = _("MARIA"),
@@ -16353,12 +16353,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6797
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6800
-[TRAINER_MARIA_2] =
+    [TRAINER_MARIA_2] =
     {
 #line 6801
         .trainerName = _("MARIA"),
@@ -16386,12 +16386,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 6810
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6813
-[TRAINER_MARIA_3] =
+    [TRAINER_MARIA_3] =
     {
 #line 6814
         .trainerName = _("MARIA"),
@@ -16419,12 +16419,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 6823
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6826
-[TRAINER_MARIA_4] =
+    [TRAINER_MARIA_4] =
     {
 #line 6827
         .trainerName = _("MARIA"),
@@ -16452,12 +16452,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 6836
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6839
-[TRAINER_MARIA_5] =
+    [TRAINER_MARIA_5] =
     {
 #line 6840
         .trainerName = _("MARIA"),
@@ -16485,12 +16485,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 6849
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6852
-[TRAINER_CAMDEN] =
+    [TRAINER_CAMDEN] =
     {
 #line 6853
         .trainerName = _("CAMDEN"),
@@ -16516,7 +16516,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6862
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6865
@@ -16526,12 +16526,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6866
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6869
-[TRAINER_DEMETRIUS] =
+    [TRAINER_DEMETRIUS] =
     {
 #line 6870
         .trainerName = _("DEMETRIUS"),
@@ -16557,7 +16557,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6879
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6882
@@ -16567,12 +16567,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6883
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6886
-[TRAINER_ISAIAH_1] =
+    [TRAINER_ISAIAH_1] =
     {
 #line 6887
         .trainerName = _("ISAIAH"),
@@ -16598,12 +16598,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6896
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6899
-[TRAINER_PABLO_1] =
+    [TRAINER_PABLO_1] =
     {
 #line 6900
         .trainerName = _("PABLO"),
@@ -16629,7 +16629,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6909
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6912
@@ -16639,12 +16639,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6913
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6916
-[TRAINER_CHASE] =
+    [TRAINER_CHASE] =
     {
 #line 6917
         .trainerName = _("CHASE"),
@@ -16670,7 +16670,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6926
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 6929
@@ -16680,12 +16680,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
 #line 6930
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6933
-[TRAINER_ISAIAH_2] =
+    [TRAINER_ISAIAH_2] =
     {
 #line 6934
         .trainerName = _("ISAIAH"),
@@ -16711,12 +16711,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 6943
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6946
-[TRAINER_ISAIAH_3] =
+    [TRAINER_ISAIAH_3] =
     {
 #line 6947
         .trainerName = _("ISAIAH"),
@@ -16742,12 +16742,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 6956
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6959
-[TRAINER_ISAIAH_4] =
+    [TRAINER_ISAIAH_4] =
     {
 #line 6960
         .trainerName = _("ISAIAH"),
@@ -16773,12 +16773,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 6969
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6972
-[TRAINER_ISAIAH_5] =
+    [TRAINER_ISAIAH_5] =
     {
 #line 6973
         .trainerName = _("ISAIAH"),
@@ -16804,12 +16804,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 6982
             .lvl = 48,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6985
-[TRAINER_ISOBEL] =
+    [TRAINER_ISOBEL] =
     {
 #line 6986
         .trainerName = _("ISOBEL"),
@@ -16837,12 +16837,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 6995
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 6998
-[TRAINER_DONNY] =
+    [TRAINER_DONNY] =
     {
 #line 6999
         .trainerName = _("DONNY"),
@@ -16870,7 +16870,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7008
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7011
@@ -16880,12 +16880,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(19, 19, 19, 19, 19, 19),
 #line 7012
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7015
-[TRAINER_TALIA] =
+    [TRAINER_TALIA] =
     {
 #line 7016
         .trainerName = _("TALIA"),
@@ -16913,12 +16913,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7025
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7028
-[TRAINER_KATELYN_1] =
+    [TRAINER_KATELYN_1] =
     {
 #line 7029
         .trainerName = _("KATELYN"),
@@ -16946,12 +16946,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7038
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7041
-[TRAINER_ALLISON] =
+    [TRAINER_ALLISON] =
     {
 #line 7042
         .trainerName = _("ALLISON"),
@@ -16979,7 +16979,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7051
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7054
@@ -16989,12 +16989,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(29, 29, 29, 29, 29, 29),
 #line 7055
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7058
-[TRAINER_KATELYN_2] =
+    [TRAINER_KATELYN_2] =
     {
 #line 7059
         .trainerName = _("KATELYN"),
@@ -17022,12 +17022,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 7068
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7071
-[TRAINER_KATELYN_3] =
+    [TRAINER_KATELYN_3] =
     {
 #line 7072
         .trainerName = _("KATELYN"),
@@ -17055,12 +17055,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 7081
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7084
-[TRAINER_KATELYN_4] =
+    [TRAINER_KATELYN_4] =
     {
 #line 7085
         .trainerName = _("KATELYN"),
@@ -17088,12 +17088,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 7094
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7097
-[TRAINER_KATELYN_5] =
+    [TRAINER_KATELYN_5] =
     {
 #line 7098
         .trainerName = _("KATELYN"),
@@ -17121,12 +17121,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 7107
             .lvl = 48,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7110
-[TRAINER_NICOLAS_1] =
+    [TRAINER_NICOLAS_1] =
     {
 #line 7111
         .trainerName = _("NICOLAS"),
@@ -17152,7 +17152,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 7120
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7123
@@ -17162,12 +17162,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 7124
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7127
-[TRAINER_NICOLAS_2] =
+    [TRAINER_NICOLAS_2] =
     {
 #line 7128
         .trainerName = _("NICOLAS"),
@@ -17193,7 +17193,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
 #line 7137
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7140
@@ -17203,12 +17203,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
 #line 7141
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7144
-[TRAINER_NICOLAS_3] =
+    [TRAINER_NICOLAS_3] =
     {
 #line 7145
         .trainerName = _("NICOLAS"),
@@ -17234,7 +17234,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
 #line 7154
             .lvl = 44,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7157
@@ -17244,12 +17244,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
 #line 7158
             .lvl = 44,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7161
-[TRAINER_NICOLAS_4] =
+    [TRAINER_NICOLAS_4] =
     {
 #line 7162
         .trainerName = _("NICOLAS"),
@@ -17275,7 +17275,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 7171
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7174
@@ -17285,7 +17285,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 7175
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7178
@@ -17295,12 +17295,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 7179
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7182
-[TRAINER_NICOLAS_5] =
+    [TRAINER_NICOLAS_5] =
     {
 #line 7183
         .trainerName = _("NICOLAS"),
@@ -17326,7 +17326,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
 #line 7192
             .lvl = 49,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7195
@@ -17336,7 +17336,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
 #line 7196
             .lvl = 49,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7199
@@ -17348,12 +17348,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
 #line 7200
             .lvl = 49,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7203
-[TRAINER_AARON] =
+    [TRAINER_AARON] =
     {
 #line 7204
         .trainerName = _("AARON"),
@@ -17379,7 +17379,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 7213
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7215
                 MOVE_DRAGON_BREATH,
@@ -17391,7 +17391,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 7220
-[TRAINER_PERRY] =
+    [TRAINER_PERRY] =
     {
 #line 7221
         .trainerName = _("PERRY"),
@@ -17417,12 +17417,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7230
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7233
-[TRAINER_HUGH] =
+    [TRAINER_HUGH] =
     {
 #line 7234
         .trainerName = _("HUGH"),
@@ -17448,7 +17448,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7243
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7246
@@ -17458,12 +17458,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7247
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7250
-[TRAINER_PHIL] =
+    [TRAINER_PHIL] =
     {
 #line 7251
         .trainerName = _("PHIL"),
@@ -17489,12 +17489,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7260
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7263
-[TRAINER_JARED] =
+    [TRAINER_JARED] =
     {
 #line 7264
         .trainerName = _("JARED"),
@@ -17520,7 +17520,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 7273
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7276
@@ -17530,7 +17530,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 7277
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7280
@@ -17540,12 +17540,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 7281
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7284
-[TRAINER_HUMBERTO] =
+    [TRAINER_HUMBERTO] =
     {
 #line 7285
         .trainerName = _("HUMBERTO"),
@@ -17571,12 +17571,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 7294
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7297
-[TRAINER_PRESLEY] =
+    [TRAINER_PRESLEY] =
     {
 #line 7298
         .trainerName = _("PRESLEY"),
@@ -17602,7 +17602,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7307
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7310
@@ -17612,12 +17612,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7311
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7314
-[TRAINER_EDWARDO] =
+    [TRAINER_EDWARDO] =
     {
 #line 7315
         .trainerName = _("EDWARDO"),
@@ -17643,7 +17643,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 7324
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7327
@@ -17653,12 +17653,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 7328
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7331
-[TRAINER_COLIN] =
+    [TRAINER_COLIN] =
     {
 #line 7332
         .trainerName = _("COLIN"),
@@ -17684,7 +17684,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7341
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7344
@@ -17694,12 +17694,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7345
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7348
-[TRAINER_ROBERT_1] =
+    [TRAINER_ROBERT_1] =
     {
 #line 7349
         .trainerName = _("ROBERT"),
@@ -17725,12 +17725,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7358
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7361
-[TRAINER_BENNY] =
+    [TRAINER_BENNY] =
     {
 #line 7362
         .trainerName = _("BENNY"),
@@ -17756,7 +17756,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7371
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7374
@@ -17766,7 +17766,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7375
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7378
@@ -17776,12 +17776,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7379
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7382
-[TRAINER_CHESTER] =
+    [TRAINER_CHESTER] =
     {
 #line 7383
         .trainerName = _("CHESTER"),
@@ -17807,7 +17807,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7392
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7395
@@ -17817,12 +17817,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7396
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7399
-[TRAINER_ROBERT_2] =
+    [TRAINER_ROBERT_2] =
     {
 #line 7400
         .trainerName = _("ROBERT"),
@@ -17848,7 +17848,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 7409
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7412
@@ -17858,12 +17858,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 7413
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7416
-[TRAINER_ROBERT_3] =
+    [TRAINER_ROBERT_3] =
     {
 #line 7417
         .trainerName = _("ROBERT"),
@@ -17889,7 +17889,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 7426
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7429
@@ -17899,12 +17899,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 7430
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7433
-[TRAINER_ROBERT_4] =
+    [TRAINER_ROBERT_4] =
     {
 #line 7434
         .trainerName = _("ROBERT"),
@@ -17930,7 +17930,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 7443
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7446
@@ -17940,12 +17940,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 7447
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7450
-[TRAINER_ROBERT_5] =
+    [TRAINER_ROBERT_5] =
     {
 #line 7451
         .trainerName = _("ROBERT"),
@@ -17971,7 +17971,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 7460
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7463
@@ -17981,12 +17981,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 7464
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7467
-[TRAINER_ALEX] =
+    [TRAINER_ALEX] =
     {
 #line 7468
         .trainerName = _("ALEX"),
@@ -18012,7 +18012,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 7477
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7480
@@ -18022,12 +18022,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 7481
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7484
-[TRAINER_BECK] =
+    [TRAINER_BECK] =
     {
 #line 7485
         .trainerName = _("BECK"),
@@ -18053,12 +18053,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7494
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7497
-[TRAINER_YASU] =
+    [TRAINER_YASU] =
     {
 #line 7498
         .trainerName = _("YASU"),
@@ -18084,12 +18084,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7507
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7510
-[TRAINER_TAKASHI] =
+    [TRAINER_TAKASHI] =
     {
 #line 7511
         .trainerName = _("TAKASHI"),
@@ -18115,7 +18115,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7520
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7523
@@ -18125,12 +18125,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7524
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7527
-[TRAINER_DIANNE] =
+    [TRAINER_DIANNE] =
     {
 #line 7528
         .trainerName = _("DIANNE"),
@@ -18158,7 +18158,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7537
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7539
                 MOVE_SKILL_SWAP,
@@ -18173,7 +18173,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7543
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7545
                 MOVE_THUNDERBOLT,
@@ -18183,7 +18183,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 7548
-[TRAINER_JANI] =
+    [TRAINER_JANI] =
     {
 #line 7549
         .trainerName = _("JANI"),
@@ -18209,12 +18209,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7557
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7560
-[TRAINER_LAO_1] =
+    [TRAINER_LAO_1] =
     {
 #line 7561
         .trainerName = _("LAO"),
@@ -18238,7 +18238,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7569
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7571
                 MOVE_POISON_GAS,
@@ -18255,7 +18255,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7577
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7579
                 MOVE_POISON_GAS,
@@ -18272,7 +18272,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7585
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7587
                 MOVE_POISON_GAS,
@@ -18284,7 +18284,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 7592
-[TRAINER_LUNG] =
+    [TRAINER_LUNG] =
     {
 #line 7593
         .trainerName = _("LUNG"),
@@ -18308,7 +18308,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7601
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7604
@@ -18318,12 +18318,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7605
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7608
-[TRAINER_LAO_2] =
+    [TRAINER_LAO_2] =
     {
 #line 7609
         .trainerName = _("LAO"),
@@ -18347,7 +18347,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7617
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7619
                 MOVE_POISON_GAS,
@@ -18364,7 +18364,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7625
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7627
                 MOVE_POISON_GAS,
@@ -18380,7 +18380,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7632
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7634
                 MOVE_POISON_GAS,
@@ -18397,7 +18397,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7640
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7642
                 MOVE_TACKLE,
@@ -18407,7 +18407,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 7645
-[TRAINER_LAO_3] =
+    [TRAINER_LAO_3] =
     {
 #line 7646
         .trainerName = _("LAO"),
@@ -18431,7 +18431,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 7654
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7656
                 MOVE_POISON_GAS,
@@ -18448,7 +18448,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 7662
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7664
                 MOVE_POISON_GAS,
@@ -18465,7 +18465,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 7670
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7672
                 MOVE_POISON_GAS,
@@ -18481,7 +18481,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 7677
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7679
                 MOVE_TACKLE,
@@ -18491,7 +18491,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 7682
-[TRAINER_LAO_4] =
+    [TRAINER_LAO_4] =
     {
 #line 7683
         .trainerName = _("LAO"),
@@ -18515,7 +18515,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 7691
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7693
                 MOVE_POISON_GAS,
@@ -18531,7 +18531,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 7698
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7700
                 MOVE_POISON_GAS,
@@ -18547,7 +18547,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 7705
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7707
                 MOVE_POISON_GAS,
@@ -18563,7 +18563,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 7712
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7714
                 MOVE_TACKLE,
@@ -18573,7 +18573,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 7717
-[TRAINER_LAO_5] =
+    [TRAINER_LAO_5] =
     {
 #line 7718
         .trainerName = _("LAO"),
@@ -18597,7 +18597,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 7726
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7728
                 MOVE_POISON_GAS,
@@ -18613,7 +18613,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 7733
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7735
                 MOVE_POISON_GAS,
@@ -18630,7 +18630,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 7741
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7743
                 MOVE_POISON_GAS,
@@ -18649,7 +18649,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 7749
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7751
                 MOVE_TACKLE,
@@ -18659,7 +18659,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 7754
-[TRAINER_JOCELYN] =
+    [TRAINER_JOCELYN] =
     {
 #line 7755
         .trainerName = _("JOCELYN"),
@@ -18687,12 +18687,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 7764
             .lvl = 13,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7767
-[TRAINER_LAURA] =
+    [TRAINER_LAURA] =
     {
 #line 7768
         .trainerName = _("LAURA"),
@@ -18720,12 +18720,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 7777
             .lvl = 13,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7780
-[TRAINER_CYNDY_1] =
+    [TRAINER_CYNDY_1] =
     {
 #line 7781
         .trainerName = _("CYNDY"),
@@ -18753,7 +18753,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 7790
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7793
@@ -18763,12 +18763,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 7794
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7797
-[TRAINER_CORA] =
+    [TRAINER_CORA] =
     {
 #line 7798
         .trainerName = _("CORA"),
@@ -18796,12 +18796,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 7807
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7810
-[TRAINER_PAULA] =
+    [TRAINER_PAULA] =
     {
 #line 7811
         .trainerName = _("PAULA"),
@@ -18829,12 +18829,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 7820
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7823
-[TRAINER_CYNDY_2] =
+    [TRAINER_CYNDY_2] =
     {
 #line 7824
         .trainerName = _("CYNDY"),
@@ -18862,7 +18862,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
 #line 7833
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7836
@@ -18872,12 +18872,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
 #line 7837
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7840
-[TRAINER_CYNDY_3] =
+    [TRAINER_CYNDY_3] =
     {
 #line 7841
         .trainerName = _("CYNDY"),
@@ -18905,7 +18905,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
 #line 7850
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7853
@@ -18915,12 +18915,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
 #line 7854
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7857
-[TRAINER_CYNDY_4] =
+    [TRAINER_CYNDY_4] =
     {
 #line 7858
         .trainerName = _("CYNDY"),
@@ -18948,7 +18948,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 7867
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7870
@@ -18958,12 +18958,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 7871
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7874
-[TRAINER_CYNDY_5] =
+    [TRAINER_CYNDY_5] =
     {
 #line 7875
         .trainerName = _("CYNDY"),
@@ -18991,7 +18991,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
 #line 7884
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7887
@@ -19001,12 +19001,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
 #line 7888
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7891
-[TRAINER_MADELINE_1] =
+    [TRAINER_MADELINE_1] =
     {
 #line 7892
         .trainerName = _("MADELINE"),
@@ -19034,7 +19034,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7901
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7903
                 MOVE_EMBER,
@@ -19046,7 +19046,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 7908
-[TRAINER_CLARISSA] =
+    [TRAINER_CLARISSA] =
     {
 #line 7909
         .trainerName = _("CLARISSA"),
@@ -19074,7 +19074,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7918
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 7921
@@ -19084,12 +19084,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 7922
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 7925
-[TRAINER_ANGELICA] =
+    [TRAINER_ANGELICA] =
     {
 #line 7926
         .trainerName = _("ANGELICA"),
@@ -19117,7 +19117,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 7935
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7937
                 MOVE_RAIN_DANCE,
@@ -19129,7 +19129,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 7942
-[TRAINER_MADELINE_2] =
+    [TRAINER_MADELINE_2] =
     {
 #line 7943
         .trainerName = _("MADELINE"),
@@ -19157,7 +19157,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 7952
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7954
                 MOVE_EMBER,
@@ -19169,7 +19169,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 7959
-[TRAINER_MADELINE_3] =
+    [TRAINER_MADELINE_3] =
     {
 #line 7960
         .trainerName = _("MADELINE"),
@@ -19197,7 +19197,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 7969
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7971
                 MOVE_EMBER,
@@ -19209,7 +19209,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 7976
-[TRAINER_MADELINE_4] =
+    [TRAINER_MADELINE_4] =
     {
 #line 7977
         .trainerName = _("MADELINE"),
@@ -19237,7 +19237,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 7986
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7988
                 MOVE_LEECH_SEED,
@@ -19254,7 +19254,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 7994
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 7996
                 MOVE_FLAMETHROWER,
@@ -19266,7 +19266,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 8001
-[TRAINER_MADELINE_5] =
+    [TRAINER_MADELINE_5] =
     {
 #line 8002
         .trainerName = _("MADELINE"),
@@ -19294,7 +19294,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 8011
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 8013
                 MOVE_LEECH_SEED,
@@ -19311,7 +19311,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 8019
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 8021
                 MOVE_FLAMETHROWER,
@@ -19323,7 +19323,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 8026
-[TRAINER_BEVERLY] =
+    [TRAINER_BEVERLY] =
     {
 #line 8027
         .trainerName = _("BEVERLY"),
@@ -19351,7 +19351,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8036
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8039
@@ -19361,12 +19361,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8040
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8043
-[TRAINER_IMANI] =
+    [TRAINER_IMANI] =
     {
 #line 8044
         .trainerName = _("IMANI"),
@@ -19394,12 +19394,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8053
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8056
-[TRAINER_KYLA] =
+    [TRAINER_KYLA] =
     {
 #line 8057
         .trainerName = _("KYLA"),
@@ -19427,12 +19427,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8066
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8069
-[TRAINER_DENISE] =
+    [TRAINER_DENISE] =
     {
 #line 8070
         .trainerName = _("DENISE"),
@@ -19460,7 +19460,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8079
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8082
@@ -19470,12 +19470,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8083
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8086
-[TRAINER_BETH] =
+    [TRAINER_BETH] =
     {
 #line 8087
         .trainerName = _("BETH"),
@@ -19503,12 +19503,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8096
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8099
-[TRAINER_TARA] =
+    [TRAINER_TARA] =
     {
 #line 8100
         .trainerName = _("TARA"),
@@ -19536,7 +19536,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8109
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8112
@@ -19546,12 +19546,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8113
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8116
-[TRAINER_MISSY] =
+    [TRAINER_MISSY] =
     {
 #line 8117
         .trainerName = _("MISSY"),
@@ -19579,12 +19579,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8126
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8129
-[TRAINER_ALICE] =
+    [TRAINER_ALICE] =
     {
 #line 8130
         .trainerName = _("ALICE"),
@@ -19612,7 +19612,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8139
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8142
@@ -19622,7 +19622,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8143
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8146
@@ -19632,12 +19632,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8147
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8150
-[TRAINER_JENNY_1] =
+    [TRAINER_JENNY_1] =
     {
 #line 8151
         .trainerName = _("JENNY"),
@@ -19665,12 +19665,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8160
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8163
-[TRAINER_GRACE] =
+    [TRAINER_GRACE] =
     {
 #line 8164
         .trainerName = _("GRACE"),
@@ -19698,12 +19698,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8173
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8176
-[TRAINER_TANYA] =
+    [TRAINER_TANYA] =
     {
 #line 8177
         .trainerName = _("TANYA"),
@@ -19731,12 +19731,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8186
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8189
-[TRAINER_SHARON] =
+    [TRAINER_SHARON] =
     {
 #line 8190
         .trainerName = _("SHARON"),
@@ -19764,12 +19764,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8199
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8202
-[TRAINER_NIKKI] =
+    [TRAINER_NIKKI] =
     {
 #line 8203
         .trainerName = _("NIKKI"),
@@ -19797,7 +19797,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8212
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8215
@@ -19807,12 +19807,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8216
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8219
-[TRAINER_BRENDA] =
+    [TRAINER_BRENDA] =
     {
 #line 8220
         .trainerName = _("BRENDA"),
@@ -19840,12 +19840,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8229
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8232
-[TRAINER_KATIE] =
+    [TRAINER_KATIE] =
     {
 #line 8233
         .trainerName = _("KATIE"),
@@ -19873,7 +19873,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8242
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8245
@@ -19883,12 +19883,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8246
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8249
-[TRAINER_SUSIE] =
+    [TRAINER_SUSIE] =
     {
 #line 8250
         .trainerName = _("SUSIE"),
@@ -19916,12 +19916,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8259
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8262
-[TRAINER_KARA] =
+    [TRAINER_KARA] =
     {
 #line 8263
         .trainerName = _("KARA"),
@@ -19949,12 +19949,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8272
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8275
-[TRAINER_DANA] =
+    [TRAINER_DANA] =
     {
 #line 8276
         .trainerName = _("DANA"),
@@ -19982,12 +19982,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8285
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8288
-[TRAINER_SIENNA] =
+    [TRAINER_SIENNA] =
     {
 #line 8289
         .trainerName = _("SIENNA"),
@@ -20015,7 +20015,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8298
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8301
@@ -20025,12 +20025,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8302
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8305
-[TRAINER_DEBRA] =
+    [TRAINER_DEBRA] =
     {
 #line 8306
         .trainerName = _("DEBRA"),
@@ -20058,12 +20058,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8315
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8318
-[TRAINER_LINDA] =
+    [TRAINER_LINDA] =
     {
 #line 8319
         .trainerName = _("LINDA"),
@@ -20091,7 +20091,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8328
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8331
@@ -20101,12 +20101,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8332
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8335
-[TRAINER_KAYLEE] =
+    [TRAINER_KAYLEE] =
     {
 #line 8336
         .trainerName = _("KAYLEE"),
@@ -20134,7 +20134,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8345
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8348
@@ -20144,12 +20144,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8349
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8352
-[TRAINER_LAUREL] =
+    [TRAINER_LAUREL] =
     {
 #line 8353
         .trainerName = _("LAUREL"),
@@ -20177,7 +20177,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8362
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8365
@@ -20187,12 +20187,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8366
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8369
-[TRAINER_CARLEE] =
+    [TRAINER_CARLEE] =
     {
 #line 8370
         .trainerName = _("CARLEE"),
@@ -20220,12 +20220,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8379
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8382
-[TRAINER_JENNY_2] =
+    [TRAINER_JENNY_2] =
     {
 #line 8383
         .trainerName = _("JENNY"),
@@ -20253,12 +20253,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8392
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8395
-[TRAINER_JENNY_3] =
+    [TRAINER_JENNY_3] =
     {
 #line 8396
         .trainerName = _("JENNY"),
@@ -20286,12 +20286,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8405
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8408
-[TRAINER_JENNY_4] =
+    [TRAINER_JENNY_4] =
     {
 #line 8409
         .trainerName = _("JENNY"),
@@ -20319,7 +20319,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8418
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8421
@@ -20329,12 +20329,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8422
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8425
-[TRAINER_JENNY_5] =
+    [TRAINER_JENNY_5] =
     {
 #line 8426
         .trainerName = _("JENNY"),
@@ -20362,7 +20362,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8435
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8438
@@ -20372,7 +20372,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8439
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8442
@@ -20382,12 +20382,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8443
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8446
-[TRAINER_HEIDI] =
+    [TRAINER_HEIDI] =
     {
 #line 8447
         .trainerName = _("HEIDI"),
@@ -20415,7 +20415,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8456
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 8458
                 MOVE_DIG,
@@ -20432,7 +20432,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8464
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 8466
                 MOVE_RAPID_SPIN,
@@ -20444,7 +20444,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 8471
-[TRAINER_BECKY] =
+    [TRAINER_BECKY] =
     {
 #line 8472
         .trainerName = _("BECKY"),
@@ -20472,7 +20472,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8481
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 8483
                 MOVE_SAND_ATTACK,
@@ -20489,7 +20489,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8489
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 8491
                 MOVE_ROLLOUT,
@@ -20501,7 +20501,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 8496
-[TRAINER_CAROL] =
+    [TRAINER_CAROL] =
     {
 #line 8497
         .trainerName = _("CAROL"),
@@ -20529,7 +20529,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8506
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8509
@@ -20539,12 +20539,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8510
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8513
-[TRAINER_NANCY] =
+    [TRAINER_NANCY] =
     {
 #line 8514
         .trainerName = _("NANCY"),
@@ -20572,7 +20572,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8523
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8526
@@ -20582,12 +20582,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8527
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8530
-[TRAINER_MARTHA] =
+    [TRAINER_MARTHA] =
     {
 #line 8531
         .trainerName = _("MARTHA"),
@@ -20615,7 +20615,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8540
             .lvl = 23,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8543
@@ -20625,12 +20625,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8544
             .lvl = 23,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8547
-[TRAINER_DIANA_1] =
+    [TRAINER_DIANA_1] =
     {
 #line 8548
         .trainerName = _("DIANA"),
@@ -20658,7 +20658,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8557
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8560
@@ -20668,7 +20668,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8561
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8564
@@ -20678,12 +20678,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8565
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8568
-[TRAINER_CEDRIC] =
+    [TRAINER_CEDRIC] =
     {
 #line 8569
         .trainerName = _("CEDRIC"),
@@ -20709,7 +20709,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8578
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 8580
                 MOVE_DESTINY_BOND,
@@ -20721,7 +20721,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 8585
-[TRAINER_IRENE] =
+    [TRAINER_IRENE] =
     {
 #line 8586
         .trainerName = _("IRENE"),
@@ -20749,7 +20749,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8595
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8598
@@ -20759,12 +20759,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8599
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8602
-[TRAINER_DIANA_2] =
+    [TRAINER_DIANA_2] =
     {
 #line 8603
         .trainerName = _("DIANA"),
@@ -20792,7 +20792,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 8612
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8615
@@ -20802,7 +20802,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 8616
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8619
@@ -20812,12 +20812,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 8620
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8623
-[TRAINER_DIANA_3] =
+    [TRAINER_DIANA_3] =
     {
 #line 8624
         .trainerName = _("DIANA"),
@@ -20845,7 +20845,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 8633
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8636
@@ -20855,7 +20855,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 8637
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8640
@@ -20865,12 +20865,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 8641
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8644
-[TRAINER_DIANA_4] =
+    [TRAINER_DIANA_4] =
     {
 #line 8645
         .trainerName = _("DIANA"),
@@ -20898,7 +20898,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 8654
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8657
@@ -20908,7 +20908,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 8658
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8661
@@ -20918,12 +20918,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 8662
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8665
-[TRAINER_DIANA_5] =
+    [TRAINER_DIANA_5] =
     {
 #line 8666
         .trainerName = _("DIANA"),
@@ -20951,7 +20951,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 8675
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8678
@@ -20961,7 +20961,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 8679
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8682
@@ -20971,12 +20971,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 8683
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8686
-[TRAINER_AMY_AND_LIV_1] =
+    [TRAINER_AMY_AND_LIV_1] =
     {
 #line 8687
         .trainerName = _("AMY & LIV"),
@@ -21002,7 +21002,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8696
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8699
@@ -21012,12 +21012,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8700
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8703
-[TRAINER_AMY_AND_LIV_2] =
+    [TRAINER_AMY_AND_LIV_2] =
     {
 #line 8704
         .trainerName = _("AMY & LIV"),
@@ -21043,7 +21043,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 8713
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8716
@@ -21053,12 +21053,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 8717
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8720
-[TRAINER_GINA_AND_MIA_1] =
+    [TRAINER_GINA_AND_MIA_1] =
     {
 #line 8721
         .trainerName = _("GINA & MIA"),
@@ -21084,7 +21084,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8730
             .lvl = 6,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8733
@@ -21094,12 +21094,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8734
             .lvl = 6,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8737
-[TRAINER_MIU_AND_YUKI] =
+    [TRAINER_MIU_AND_YUKI] =
     {
 #line 8738
         .trainerName = _("MIU & YUKI"),
@@ -21125,7 +21125,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8747
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8750
@@ -21135,12 +21135,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8751
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8754
-[TRAINER_AMY_AND_LIV_3] =
+    [TRAINER_AMY_AND_LIV_3] =
     {
 #line 8755
         .trainerName = _("AMY & LIV"),
@@ -21166,7 +21166,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8764
             .lvl = 9,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8767
@@ -21176,12 +21176,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8768
             .lvl = 9,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8771
-[TRAINER_GINA_AND_MIA_2] =
+    [TRAINER_GINA_AND_MIA_2] =
     {
 #line 8772
         .trainerName = _("GINA & MIA"),
@@ -21207,7 +21207,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8781
             .lvl = 10,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 8783
                 MOVE_NIGHT_SHADE,
@@ -21222,7 +21222,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8787
             .lvl = 10,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 8789
                 MOVE_ABSORB,
@@ -21232,7 +21232,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 8792
-[TRAINER_AMY_AND_LIV_4] =
+    [TRAINER_AMY_AND_LIV_4] =
     {
 #line 8793
         .trainerName = _("AMY & LIV"),
@@ -21258,7 +21258,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 8802
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8805
@@ -21268,12 +21268,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 8806
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8809
-[TRAINER_AMY_AND_LIV_5] =
+    [TRAINER_AMY_AND_LIV_5] =
     {
 #line 8810
         .trainerName = _("AMY & LIV"),
@@ -21299,7 +21299,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 8819
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 8821
                 MOVE_SPARK,
@@ -21316,7 +21316,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 8827
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 8829
                 MOVE_SPARK,
@@ -21328,7 +21328,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 8834
-[TRAINER_AMY_AND_LIV_6] =
+    [TRAINER_AMY_AND_LIV_6] =
     {
 #line 8835
         .trainerName = _("AMY & LIV"),
@@ -21354,7 +21354,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 8844
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 8846
                 MOVE_THUNDER,
@@ -21371,7 +21371,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 8852
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 8854
                 MOVE_THUNDER,
@@ -21383,7 +21383,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 8859
-[TRAINER_HUEY] =
+    [TRAINER_HUEY] =
     {
 #line 8860
         .trainerName = _("HUEY"),
@@ -21409,7 +21409,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 8869
             .lvl = 12,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8872
@@ -21419,12 +21419,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 8873
             .lvl = 12,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8876
-[TRAINER_EDMOND] =
+    [TRAINER_EDMOND] =
     {
 #line 8877
         .trainerName = _("EDMOND"),
@@ -21450,12 +21450,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8886
             .lvl = 13,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8889
-[TRAINER_ERNEST_1] =
+    [TRAINER_ERNEST_1] =
     {
 #line 8890
         .trainerName = _("ERNEST"),
@@ -21481,7 +21481,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8899
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8902
@@ -21491,12 +21491,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8903
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8906
-[TRAINER_DWAYNE] =
+    [TRAINER_DWAYNE] =
     {
 #line 8907
         .trainerName = _("DWAYNE"),
@@ -21522,7 +21522,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8916
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8919
@@ -21532,7 +21532,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8920
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8923
@@ -21542,12 +21542,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8924
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8927
-[TRAINER_PHILLIP] =
+    [TRAINER_PHILLIP] =
     {
 #line 8928
         .trainerName = _("PHILLIP"),
@@ -21573,7 +21573,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8937
             .lvl = 44,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8940
@@ -21583,12 +21583,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8941
             .lvl = 44,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8944
-[TRAINER_LEONARD] =
+    [TRAINER_LEONARD] =
     {
 #line 8945
         .trainerName = _("LEONARD"),
@@ -21614,7 +21614,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8954
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8957
@@ -21624,7 +21624,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8958
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8961
@@ -21634,12 +21634,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8962
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8965
-[TRAINER_DUNCAN] =
+    [TRAINER_DUNCAN] =
     {
 #line 8966
         .trainerName = _("DUNCAN"),
@@ -21665,7 +21665,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8975
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8978
@@ -21675,12 +21675,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 8979
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 8982
-[TRAINER_ERNEST_2] =
+    [TRAINER_ERNEST_2] =
     {
 #line 8983
         .trainerName = _("ERNEST"),
@@ -21706,7 +21706,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 8992
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8995
@@ -21716,7 +21716,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 8996
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 8999
@@ -21726,12 +21726,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 9000
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9003
-[TRAINER_ERNEST_3] =
+    [TRAINER_ERNEST_3] =
     {
 #line 9004
         .trainerName = _("ERNEST"),
@@ -21757,7 +21757,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 9013
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9016
@@ -21767,7 +21767,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 9017
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9020
@@ -21777,12 +21777,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 9021
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9024
-[TRAINER_ERNEST_4] =
+    [TRAINER_ERNEST_4] =
     {
 #line 9025
         .trainerName = _("ERNEST"),
@@ -21808,7 +21808,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 9034
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9037
@@ -21818,7 +21818,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 9038
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9041
@@ -21828,12 +21828,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 9042
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9045
-[TRAINER_ERNEST_5] =
+    [TRAINER_ERNEST_5] =
     {
 #line 9046
         .trainerName = _("ERNEST"),
@@ -21859,7 +21859,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 9055
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9058
@@ -21869,7 +21869,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 9059
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9062
@@ -21879,12 +21879,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 9063
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9066
-[TRAINER_ELI] =
+    [TRAINER_ELI] =
     {
 #line 9067
         .trainerName = _("ELI"),
@@ -21910,12 +21910,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9076
             .lvl = 23,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9079
-[TRAINER_ANNIKA] =
+    [TRAINER_ANNIKA] =
     {
 #line 9080
         .trainerName = _("ANNIKA"),
@@ -21945,7 +21945,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9089
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 9091
                 MOVE_FLAIL,
@@ -21964,7 +21964,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9097
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 9099
                 MOVE_FLAIL,
@@ -21976,7 +21976,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 9104
-[TRAINER_JAZMYN] =
+    [TRAINER_JAZMYN] =
     {
 #line 9105
         .trainerName = _("JAZMYN"),
@@ -22006,12 +22006,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9115
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9118
-[TRAINER_JONAS] =
+    [TRAINER_JONAS] =
     {
 #line 9119
         .trainerName = _("JONAS"),
@@ -22037,7 +22037,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9128
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 9130
                 MOVE_TOXIC,
@@ -22049,7 +22049,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 9135
-[TRAINER_KAYLEY] =
+    [TRAINER_KAYLEY] =
     {
 #line 9136
         .trainerName = _("KAYLEY"),
@@ -22077,7 +22077,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9145
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 9147
                 MOVE_SUNNY_DAY,
@@ -22089,7 +22089,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 9152
-[TRAINER_AURON] =
+    [TRAINER_AURON] =
     {
 #line 9153
         .trainerName = _("AURON"),
@@ -22115,7 +22115,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9162
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9165
@@ -22125,12 +22125,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9166
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9169
-[TRAINER_KELVIN] =
+    [TRAINER_KELVIN] =
     {
 #line 9170
         .trainerName = _("KELVIN"),
@@ -22156,7 +22156,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 9179
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9182
@@ -22166,12 +22166,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 9183
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9186
-[TRAINER_MARLEY] =
+    [TRAINER_MARLEY] =
     {
 #line 9187
         .trainerName = _("MARLEY"),
@@ -22201,7 +22201,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 9197
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 9199
                 MOVE_BITE,
@@ -22213,7 +22213,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 9204
-[TRAINER_REYNA] =
+    [TRAINER_REYNA] =
     {
 #line 9205
         .trainerName = _("REYNA"),
@@ -22241,7 +22241,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 9214
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9217
@@ -22251,12 +22251,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 9218
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9221
-[TRAINER_HUDSON] =
+    [TRAINER_HUDSON] =
     {
 #line 9222
         .trainerName = _("HUDSON"),
@@ -22282,12 +22282,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9231
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9234
-[TRAINER_CONOR] =
+    [TRAINER_CONOR] =
     {
 #line 9235
         .trainerName = _("CONOR"),
@@ -22313,7 +22313,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9244
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9247
@@ -22323,12 +22323,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 9248
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9251
-[TRAINER_EDWIN_1] =
+    [TRAINER_EDWIN_1] =
     {
 #line 9252
         .trainerName = _("EDWIN"),
@@ -22354,7 +22354,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9261
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9264
@@ -22364,12 +22364,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9265
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9268
-[TRAINER_HECTOR] =
+    [TRAINER_HECTOR] =
     {
 #line 9269
         .trainerName = _("HECTOR"),
@@ -22395,7 +22395,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9278
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9281
@@ -22405,12 +22405,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9282
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9285
-[TRAINER_TABITHA_MOSSDEEP] =
+    [TRAINER_TABITHA_MOSSDEEP] =
     {
 #line 9286
         .trainerName = _("TABITHA"),
@@ -22436,7 +22436,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9295
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9298
@@ -22446,7 +22446,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9299
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9302
@@ -22456,12 +22456,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9303
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9306
-[TRAINER_EDWIN_2] =
+    [TRAINER_EDWIN_2] =
     {
 #line 9307
         .trainerName = _("EDWIN"),
@@ -22487,7 +22487,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9316
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9319
@@ -22497,12 +22497,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9320
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9323
-[TRAINER_EDWIN_3] =
+    [TRAINER_EDWIN_3] =
     {
 #line 9324
         .trainerName = _("EDWIN"),
@@ -22528,7 +22528,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9333
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9336
@@ -22538,12 +22538,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9337
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9340
-[TRAINER_EDWIN_4] =
+    [TRAINER_EDWIN_4] =
     {
 #line 9341
         .trainerName = _("EDWIN"),
@@ -22569,7 +22569,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9350
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9353
@@ -22579,12 +22579,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9354
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9357
-[TRAINER_EDWIN_5] =
+    [TRAINER_EDWIN_5] =
     {
 #line 9358
         .trainerName = _("EDWIN"),
@@ -22610,7 +22610,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9367
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9370
@@ -22620,12 +22620,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9371
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9374
-[TRAINER_WALLY_VR_1] =
+    [TRAINER_WALLY_VR_1] =
     {
 #line 9375
         .trainerName = _("WALLY"),
@@ -22653,7 +22653,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 9385
             .lvl = 44,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 9387
                 MOVE_AERIAL_ACE,
@@ -22670,7 +22670,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 9393
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 9395
                 MOVE_SING,
@@ -22687,7 +22687,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 9401
             .lvl = 44,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 9403
                 MOVE_MAGICAL_LEAF,
@@ -22704,7 +22704,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 9409
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 9411
                 MOVE_SUPERSONIC,
@@ -22721,7 +22721,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 9417
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 9419
                 MOVE_DOUBLE_TEAM,
@@ -22733,7 +22733,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 9424
-[TRAINER_BRENDAN_ROUTE_103_MUDKIP] =
+    [TRAINER_BRENDAN_ROUTE_103_MUDKIP] =
     {
 #line 9425
         .trainerName = _("BRENDAN"),
@@ -22759,12 +22759,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9434
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9437
-[TRAINER_BRENDAN_ROUTE_110_MUDKIP] =
+    [TRAINER_BRENDAN_ROUTE_110_MUDKIP] =
     {
 #line 9438
         .trainerName = _("BRENDAN"),
@@ -22790,7 +22790,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 9447
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9450
@@ -22800,7 +22800,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 9451
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9454
@@ -22810,12 +22810,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9455
             .lvl = 20,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9458
-[TRAINER_BRENDAN_ROUTE_119_MUDKIP] =
+    [TRAINER_BRENDAN_ROUTE_119_MUDKIP] =
     {
 #line 9459
         .trainerName = _("BRENDAN"),
@@ -22841,7 +22841,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9468
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9471
@@ -22851,7 +22851,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9472
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9475
@@ -22861,12 +22861,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 9476
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9479
-[TRAINER_BRENDAN_ROUTE_103_TREECKO] =
+    [TRAINER_BRENDAN_ROUTE_103_TREECKO] =
     {
 #line 9480
         .trainerName = _("BRENDAN"),
@@ -22892,12 +22892,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9489
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9492
-[TRAINER_BRENDAN_ROUTE_110_TREECKO] =
+    [TRAINER_BRENDAN_ROUTE_110_TREECKO] =
     {
 #line 9493
         .trainerName = _("BRENDAN"),
@@ -22923,7 +22923,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 9502
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9505
@@ -22933,7 +22933,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 9506
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9509
@@ -22943,12 +22943,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9510
             .lvl = 20,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9513
-[TRAINER_BRENDAN_ROUTE_119_TREECKO] =
+    [TRAINER_BRENDAN_ROUTE_119_TREECKO] =
     {
 #line 9514
         .trainerName = _("BRENDAN"),
@@ -22974,7 +22974,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9523
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9526
@@ -22984,7 +22984,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9527
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9530
@@ -22994,12 +22994,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 9531
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9534
-[TRAINER_BRENDAN_ROUTE_103_TORCHIC] =
+    [TRAINER_BRENDAN_ROUTE_103_TORCHIC] =
     {
 #line 9535
         .trainerName = _("BRENDAN"),
@@ -23025,12 +23025,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9544
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9547
-[TRAINER_BRENDAN_ROUTE_110_TORCHIC] =
+    [TRAINER_BRENDAN_ROUTE_110_TORCHIC] =
     {
 #line 9548
         .trainerName = _("BRENDAN"),
@@ -23056,7 +23056,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 9557
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9560
@@ -23066,7 +23066,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 9561
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9564
@@ -23076,12 +23076,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9565
             .lvl = 20,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9568
-[TRAINER_BRENDAN_ROUTE_119_TORCHIC] =
+    [TRAINER_BRENDAN_ROUTE_119_TORCHIC] =
     {
 #line 9569
         .trainerName = _("BRENDAN"),
@@ -23107,7 +23107,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9578
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9581
@@ -23117,7 +23117,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9582
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9585
@@ -23127,12 +23127,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 9586
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9589
-[TRAINER_MAY_ROUTE_103_MUDKIP] =
+    [TRAINER_MAY_ROUTE_103_MUDKIP] =
     {
 #line 9590
         .trainerName = _("MAY"),
@@ -23160,12 +23160,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9599
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9602
-[TRAINER_MAY_ROUTE_110_MUDKIP] =
+    [TRAINER_MAY_ROUTE_110_MUDKIP] =
     {
 #line 9603
         .trainerName = _("MAY"),
@@ -23193,7 +23193,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 9612
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9615
@@ -23203,7 +23203,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 9616
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9619
@@ -23213,12 +23213,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9620
             .lvl = 20,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9623
-[TRAINER_MAY_ROUTE_119_MUDKIP] =
+    [TRAINER_MAY_ROUTE_119_MUDKIP] =
     {
 #line 9624
         .trainerName = _("MAY"),
@@ -23246,7 +23246,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9633
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9636
@@ -23256,7 +23256,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9637
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9640
@@ -23266,12 +23266,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 9641
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9644
-[TRAINER_MAY_ROUTE_103_TREECKO] =
+    [TRAINER_MAY_ROUTE_103_TREECKO] =
     {
 #line 9645
         .trainerName = _("MAY"),
@@ -23299,12 +23299,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9654
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9657
-[TRAINER_MAY_ROUTE_110_TREECKO] =
+    [TRAINER_MAY_ROUTE_110_TREECKO] =
     {
 #line 9658
         .trainerName = _("MAY"),
@@ -23332,7 +23332,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 9667
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9670
@@ -23342,7 +23342,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 9671
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9674
@@ -23352,12 +23352,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9675
             .lvl = 20,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9678
-[TRAINER_MAY_ROUTE_119_TREECKO] =
+    [TRAINER_MAY_ROUTE_119_TREECKO] =
     {
 #line 9679
         .trainerName = _("MAY"),
@@ -23385,7 +23385,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9688
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9691
@@ -23395,7 +23395,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9692
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9695
@@ -23405,12 +23405,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 9696
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9699
-[TRAINER_MAY_ROUTE_103_TORCHIC] =
+    [TRAINER_MAY_ROUTE_103_TORCHIC] =
     {
 #line 9700
         .trainerName = _("MAY"),
@@ -23438,12 +23438,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9709
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9712
-[TRAINER_MAY_ROUTE_110_TORCHIC] =
+    [TRAINER_MAY_ROUTE_110_TORCHIC] =
     {
 #line 9713
         .trainerName = _("MAY"),
@@ -23471,7 +23471,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 9722
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9725
@@ -23481,7 +23481,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 9726
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9729
@@ -23491,12 +23491,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9730
             .lvl = 20,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9733
-[TRAINER_MAY_ROUTE_119_TORCHIC] =
+    [TRAINER_MAY_ROUTE_119_TORCHIC] =
     {
 #line 9734
         .trainerName = _("MAY"),
@@ -23524,7 +23524,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9743
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9746
@@ -23534,7 +23534,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 9747
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9750
@@ -23544,12 +23544,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 9751
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9754
-[TRAINER_ISAAC_1] =
+    [TRAINER_ISAAC_1] =
     {
 #line 9755
         .trainerName = _("ISAAC"),
@@ -23575,7 +23575,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9764
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9767
@@ -23585,7 +23585,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9768
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9771
@@ -23595,7 +23595,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9772
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9775
@@ -23605,7 +23605,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9776
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9779
@@ -23615,7 +23615,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9780
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9783
@@ -23625,12 +23625,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9784
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9787
-[TRAINER_DAVIS] =
+    [TRAINER_DAVIS] =
     {
 #line 9788
         .trainerName = _("DAVIS"),
@@ -23656,12 +23656,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9797
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9800
-[TRAINER_MITCHELL] =
+    [TRAINER_MITCHELL] =
     {
 #line 9801
         .trainerName = _("MITCHELL"),
@@ -23687,7 +23687,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9810
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 9812
                 MOVE_EXPLOSION,
@@ -23704,7 +23704,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9818
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 9820
                 MOVE_EXPLOSION,
@@ -23716,7 +23716,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 9825
-[TRAINER_ISAAC_2] =
+    [TRAINER_ISAAC_2] =
     {
 #line 9826
         .trainerName = _("ISAAC"),
@@ -23742,7 +23742,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 9835
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9838
@@ -23752,7 +23752,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 9839
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9842
@@ -23762,7 +23762,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 9843
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9846
@@ -23772,7 +23772,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 9847
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9850
@@ -23782,7 +23782,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 9851
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9854
@@ -23792,12 +23792,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 9855
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9858
-[TRAINER_ISAAC_3] =
+    [TRAINER_ISAAC_3] =
     {
 #line 9859
         .trainerName = _("ISAAC"),
@@ -23823,7 +23823,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 9868
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9871
@@ -23833,7 +23833,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 9872
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9875
@@ -23843,7 +23843,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 9876
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9879
@@ -23853,7 +23853,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 9880
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9883
@@ -23863,7 +23863,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 9884
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9887
@@ -23873,12 +23873,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 9888
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9891
-[TRAINER_ISAAC_4] =
+    [TRAINER_ISAAC_4] =
     {
 #line 9892
         .trainerName = _("ISAAC"),
@@ -23904,7 +23904,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 9901
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9904
@@ -23914,7 +23914,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 9905
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9908
@@ -23924,7 +23924,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 9909
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9912
@@ -23934,7 +23934,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 9913
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9916
@@ -23944,7 +23944,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 9917
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9920
@@ -23954,12 +23954,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 9921
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9924
-[TRAINER_ISAAC_5] =
+    [TRAINER_ISAAC_5] =
     {
 #line 9925
         .trainerName = _("ISAAC"),
@@ -23985,7 +23985,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 9934
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9937
@@ -23995,7 +23995,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 9938
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9941
@@ -24005,7 +24005,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 9942
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9945
@@ -24015,7 +24015,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 9946
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9949
@@ -24025,7 +24025,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 9950
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9953
@@ -24035,12 +24035,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 9954
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9957
-[TRAINER_LYDIA_1] =
+    [TRAINER_LYDIA_1] =
     {
 #line 9958
         .trainerName = _("LYDIA"),
@@ -24068,7 +24068,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9967
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9970
@@ -24078,7 +24078,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9971
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9974
@@ -24088,7 +24088,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9975
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9978
@@ -24098,7 +24098,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9979
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9982
@@ -24108,7 +24108,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9983
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 9986
@@ -24118,12 +24118,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 9987
             .lvl = 11,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 9990
-[TRAINER_HALLE] =
+    [TRAINER_HALLE] =
     {
 #line 9991
         .trainerName = _("HALLE"),
@@ -24153,7 +24153,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10001
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10004
@@ -24163,12 +24163,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10005
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10008
-[TRAINER_GARRISON] =
+    [TRAINER_GARRISON] =
     {
 #line 10009
         .trainerName = _("GARRISON"),
@@ -24194,12 +24194,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10018
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10021
-[TRAINER_LYDIA_2] =
+    [TRAINER_LYDIA_2] =
     {
 #line 10022
         .trainerName = _("LYDIA"),
@@ -24227,7 +24227,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 10031
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10034
@@ -24237,7 +24237,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 10035
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10038
@@ -24247,7 +24247,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 10039
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10042
@@ -24257,7 +24257,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 10043
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10046
@@ -24267,7 +24267,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 10047
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10050
@@ -24277,12 +24277,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 10051
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10054
-[TRAINER_LYDIA_3] =
+    [TRAINER_LYDIA_3] =
     {
 #line 10055
         .trainerName = _("LYDIA"),
@@ -24310,7 +24310,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 10064
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10067
@@ -24320,7 +24320,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 10068
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10071
@@ -24330,7 +24330,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 10072
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10075
@@ -24340,7 +24340,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 10076
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10079
@@ -24350,7 +24350,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 10080
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10083
@@ -24360,12 +24360,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 10084
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10087
-[TRAINER_LYDIA_4] =
+    [TRAINER_LYDIA_4] =
     {
 #line 10088
         .trainerName = _("LYDIA"),
@@ -24393,7 +24393,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 10097
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10100
@@ -24403,7 +24403,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 10101
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10104
@@ -24413,7 +24413,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 10105
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10108
@@ -24423,7 +24423,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 10109
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10112
@@ -24433,7 +24433,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 10113
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10116
@@ -24443,12 +24443,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 10117
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10120
-[TRAINER_LYDIA_5] =
+    [TRAINER_LYDIA_5] =
     {
 #line 10121
         .trainerName = _("LYDIA"),
@@ -24476,7 +24476,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 10130
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10133
@@ -24486,7 +24486,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 10134
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10137
@@ -24496,7 +24496,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 10138
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10141
@@ -24506,7 +24506,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 10142
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10145
@@ -24516,7 +24516,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 10146
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10149
@@ -24526,12 +24526,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 10150
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10153
-[TRAINER_JACKSON_1] =
+    [TRAINER_JACKSON_1] =
     {
 #line 10154
         .trainerName = _("JACKSON"),
@@ -24559,12 +24559,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10164
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10167
-[TRAINER_LORENZO] =
+    [TRAINER_LORENZO] =
     {
 #line 10168
         .trainerName = _("LORENZO"),
@@ -24592,7 +24592,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10178
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10181
@@ -24602,7 +24602,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10182
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10185
@@ -24612,12 +24612,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10186
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10189
-[TRAINER_SEBASTIAN] =
+    [TRAINER_SEBASTIAN] =
     {
 #line 10190
         .trainerName = _("SEBASTIAN"),
@@ -24645,12 +24645,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10200
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10203
-[TRAINER_JACKSON_2] =
+    [TRAINER_JACKSON_2] =
     {
 #line 10204
         .trainerName = _("JACKSON"),
@@ -24678,12 +24678,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
 #line 10214
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10217
-[TRAINER_JACKSON_3] =
+    [TRAINER_JACKSON_3] =
     {
 #line 10218
         .trainerName = _("JACKSON"),
@@ -24711,12 +24711,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
 #line 10228
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10231
-[TRAINER_JACKSON_4] =
+    [TRAINER_JACKSON_4] =
     {
 #line 10232
         .trainerName = _("JACKSON"),
@@ -24744,12 +24744,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
 #line 10242
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10245
-[TRAINER_JACKSON_5] =
+    [TRAINER_JACKSON_5] =
     {
 #line 10246
         .trainerName = _("JACKSON"),
@@ -24777,7 +24777,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(10, 10, 10, 10, 10, 10),
 #line 10256
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10259
@@ -24787,12 +24787,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(10, 10, 10, 10, 10, 10),
 #line 10260
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10263
-[TRAINER_CATHERINE_1] =
+    [TRAINER_CATHERINE_1] =
     {
 #line 10264
         .trainerName = _("CATHERINE"),
@@ -24822,7 +24822,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10274
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10277
@@ -24832,12 +24832,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10278
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10281
-[TRAINER_JENNA] =
+    [TRAINER_JENNA] =
     {
 #line 10282
         .trainerName = _("JENNA"),
@@ -24867,7 +24867,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10292
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10295
@@ -24877,7 +24877,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10296
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10299
@@ -24887,12 +24887,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10300
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10303
-[TRAINER_SOPHIA] =
+    [TRAINER_SOPHIA] =
     {
 #line 10304
         .trainerName = _("SOPHIA"),
@@ -24922,7 +24922,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10314
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10317
@@ -24932,12 +24932,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10318
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10321
-[TRAINER_CATHERINE_2] =
+    [TRAINER_CATHERINE_2] =
     {
 #line 10322
         .trainerName = _("CATHERINE"),
@@ -24967,7 +24967,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
 #line 10332
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10335
@@ -24977,12 +24977,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
 #line 10336
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10339
-[TRAINER_CATHERINE_3] =
+    [TRAINER_CATHERINE_3] =
     {
 #line 10340
         .trainerName = _("CATHERINE"),
@@ -25012,7 +25012,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
 #line 10350
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10353
@@ -25022,12 +25022,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
 #line 10354
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10357
-[TRAINER_CATHERINE_4] =
+    [TRAINER_CATHERINE_4] =
     {
 #line 10358
         .trainerName = _("CATHERINE"),
@@ -25057,7 +25057,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
 #line 10368
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10371
@@ -25067,12 +25067,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
 #line 10372
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10375
-[TRAINER_CATHERINE_5] =
+    [TRAINER_CATHERINE_5] =
     {
 #line 10376
         .trainerName = _("CATHERINE"),
@@ -25102,7 +25102,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(10, 10, 10, 10, 10, 10),
 #line 10386
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10389
@@ -25112,12 +25112,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(10, 10, 10, 10, 10, 10),
 #line 10390
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10393
-[TRAINER_JULIO] =
+    [TRAINER_JULIO] =
     {
 #line 10394
         .trainerName = _("JULIO"),
@@ -25143,12 +25143,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10403
             .lvl = 21,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10406
-[TRAINER_GRUNT_SEAFLOOR_CAVERN_5] =
+    [TRAINER_GRUNT_SEAFLOOR_CAVERN_5] =
     {
 #line 10407
         .trainerName = _("GRUNT"),
@@ -25174,7 +25174,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10416
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10419
@@ -25184,12 +25184,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10420
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10423
-[TRAINER_GRUNT_UNUSED] =
+    [TRAINER_GRUNT_UNUSED] =
     {
 #line 10424
         .trainerName = _("GRUNT"),
@@ -25217,7 +25217,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10433
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10436
@@ -25227,12 +25227,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10437
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10440
-[TRAINER_GRUNT_MT_PYRE_4] =
+    [TRAINER_GRUNT_MT_PYRE_4] =
     {
 #line 10441
         .trainerName = _("GRUNT"),
@@ -25260,7 +25260,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10450
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10453
@@ -25270,12 +25270,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10454
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10457
-[TRAINER_GRUNT_JAGGED_PASS] =
+    [TRAINER_GRUNT_JAGGED_PASS] =
     {
 #line 10458
         .trainerName = _("GRUNT"),
@@ -25301,7 +25301,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10467
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10470
@@ -25311,12 +25311,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10471
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10474
-[TRAINER_MARC] =
+    [TRAINER_MARC] =
     {
 #line 10475
         .trainerName = _("MARC"),
@@ -25342,7 +25342,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
 #line 10484
             .lvl = 8,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10487
@@ -25352,12 +25352,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 10488
             .lvl = 8,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10491
-[TRAINER_BRENDEN] =
+    [TRAINER_BRENDEN] =
     {
 #line 10492
         .trainerName = _("BRENDEN"),
@@ -25383,12 +25383,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 10501
             .lvl = 13,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10504
-[TRAINER_LILITH] =
+    [TRAINER_LILITH] =
     {
 #line 10505
         .trainerName = _("LILITH"),
@@ -25416,12 +25416,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 10514
             .lvl = 13,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10517
-[TRAINER_CRISTIAN] =
+    [TRAINER_CRISTIAN] =
     {
 #line 10518
         .trainerName = _("CRISTIAN"),
@@ -25447,12 +25447,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 10527
             .lvl = 13,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10530
-[TRAINER_SYLVIA] =
+    [TRAINER_SYLVIA] =
     {
 #line 10531
         .trainerName = _("SYLVIA"),
@@ -25480,12 +25480,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 10540
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10543
-[TRAINER_LEONARDO] =
+    [TRAINER_LEONARDO] =
     {
 #line 10544
         .trainerName = _("LEONARDO"),
@@ -25511,12 +25511,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10553
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10556
-[TRAINER_ATHENA] =
+    [TRAINER_ATHENA] =
     {
 #line 10557
         .trainerName = _("ATHENA"),
@@ -25546,7 +25546,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 10567
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 10569
                 MOVE_THUNDER,
@@ -25562,7 +25562,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 10574
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 10576
                 MOVE_SURF,
@@ -25572,7 +25572,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 10579
-[TRAINER_HARRISON] =
+    [TRAINER_HARRISON] =
     {
 #line 10580
         .trainerName = _("HARRISON"),
@@ -25598,12 +25598,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10589
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10592
-[TRAINER_GRUNT_MT_CHIMNEY_2] =
+    [TRAINER_GRUNT_MT_CHIMNEY_2] =
     {
 #line 10593
         .trainerName = _("GRUNT"),
@@ -25629,12 +25629,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10602
             .lvl = 20,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10605
-[TRAINER_CLARENCE] =
+    [TRAINER_CLARENCE] =
     {
 #line 10606
         .trainerName = _("CLARENCE"),
@@ -25660,12 +25660,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10615
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10618
-[TRAINER_TERRY] =
+    [TRAINER_TERRY] =
     {
 #line 10619
         .trainerName = _("TERRY"),
@@ -25693,12 +25693,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10628
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10631
-[TRAINER_NATE] =
+    [TRAINER_NATE] =
     {
 #line 10632
         .trainerName = _("NATE"),
@@ -25724,12 +25724,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 10641
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10644
-[TRAINER_KATHLEEN] =
+    [TRAINER_KATHLEEN] =
     {
 #line 10645
         .trainerName = _("KATHLEEN"),
@@ -25757,12 +25757,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 10654
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10657
-[TRAINER_CLIFFORD] =
+    [TRAINER_CLIFFORD] =
     {
 #line 10658
         .trainerName = _("CLIFFORD"),
@@ -25788,12 +25788,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10667
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10670
-[TRAINER_NICHOLAS] =
+    [TRAINER_NICHOLAS] =
     {
 #line 10671
         .trainerName = _("NICHOLAS"),
@@ -25819,12 +25819,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10680
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10683
-[TRAINER_GRUNT_SPACE_CENTER_3] =
+    [TRAINER_GRUNT_SPACE_CENTER_3] =
     {
 #line 10684
         .trainerName = _("GRUNT"),
@@ -25852,7 +25852,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10693
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10696
@@ -25862,12 +25862,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10697
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10700
-[TRAINER_GRUNT_SPACE_CENTER_4] =
+    [TRAINER_GRUNT_SPACE_CENTER_4] =
     {
 #line 10701
         .trainerName = _("GRUNT"),
@@ -25893,12 +25893,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10710
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10713
-[TRAINER_GRUNT_SPACE_CENTER_5] =
+    [TRAINER_GRUNT_SPACE_CENTER_5] =
     {
 #line 10714
         .trainerName = _("GRUNT"),
@@ -25924,12 +25924,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10723
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10726
-[TRAINER_GRUNT_SPACE_CENTER_6] =
+    [TRAINER_GRUNT_SPACE_CENTER_6] =
     {
 #line 10727
         .trainerName = _("GRUNT"),
@@ -25955,12 +25955,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10736
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10739
-[TRAINER_GRUNT_SPACE_CENTER_7] =
+    [TRAINER_GRUNT_SPACE_CENTER_7] =
     {
 #line 10740
         .trainerName = _("GRUNT"),
@@ -25986,12 +25986,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10749
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10752
-[TRAINER_MACEY] =
+    [TRAINER_MACEY] =
     {
 #line 10753
         .trainerName = _("MACEY"),
@@ -26019,12 +26019,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10762
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10765
-[TRAINER_BRENDAN_RUSTBORO_TREECKO] =
+    [TRAINER_BRENDAN_RUSTBORO_TREECKO] =
     {
 #line 10766
         .trainerName = _("BRENDAN"),
@@ -26050,7 +26050,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 10775
             .lvl = 13,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10778
@@ -26060,12 +26060,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10779
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10782
-[TRAINER_BRENDAN_RUSTBORO_MUDKIP] =
+    [TRAINER_BRENDAN_RUSTBORO_MUDKIP] =
     {
 #line 10783
         .trainerName = _("BRENDAN"),
@@ -26091,7 +26091,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 10792
             .lvl = 13,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10795
@@ -26101,12 +26101,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10796
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10799
-[TRAINER_PAXTON] =
+    [TRAINER_PAXTON] =
     {
 #line 10800
         .trainerName = _("PAXTON"),
@@ -26132,7 +26132,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10809
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10812
@@ -26142,12 +26142,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10813
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10816
-[TRAINER_ISABELLA] =
+    [TRAINER_ISABELLA] =
     {
 #line 10817
         .trainerName = _("ISABELLA"),
@@ -26175,12 +26175,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10826
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10829
-[TRAINER_GRUNT_WEATHER_INST_5] =
+    [TRAINER_GRUNT_WEATHER_INST_5] =
     {
 #line 10830
         .trainerName = _("GRUNT"),
@@ -26208,7 +26208,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10839
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10842
@@ -26218,12 +26218,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10843
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10846
-[TRAINER_TABITHA_MT_CHIMNEY] =
+    [TRAINER_TABITHA_MT_CHIMNEY] =
     {
 #line 10847
         .trainerName = _("TABITHA"),
@@ -26249,7 +26249,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10856
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10859
@@ -26259,7 +26259,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10860
             .lvl = 20,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10863
@@ -26269,7 +26269,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10864
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10867
@@ -26279,12 +26279,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10868
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10871
-[TRAINER_JONATHAN] =
+    [TRAINER_JONATHAN] =
     {
 #line 10872
         .trainerName = _("JONATHAN"),
@@ -26312,7 +26312,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10882
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10885
@@ -26322,12 +26322,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10886
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10889
-[TRAINER_BRENDAN_RUSTBORO_TORCHIC] =
+    [TRAINER_BRENDAN_RUSTBORO_TORCHIC] =
     {
 #line 10890
         .trainerName = _("BRENDAN"),
@@ -26353,7 +26353,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 10899
             .lvl = 13,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10902
@@ -26363,12 +26363,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10903
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10906
-[TRAINER_MAY_RUSTBORO_MUDKIP] =
+    [TRAINER_MAY_RUSTBORO_MUDKIP] =
     {
 #line 10907
         .trainerName = _("MAY"),
@@ -26396,7 +26396,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 10916
             .lvl = 13,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10919
@@ -26406,12 +26406,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 10920
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10923
-[TRAINER_MAXIE_MAGMA_HIDEOUT] =
+    [TRAINER_MAXIE_MAGMA_HIDEOUT] =
     {
 #line 10924
         .trainerName = _("MAXIE"),
@@ -26439,7 +26439,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 10934
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10937
@@ -26449,7 +26449,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 10938
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10941
@@ -26459,12 +26459,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 10942
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10945
-[TRAINER_MAXIE_MT_CHIMNEY] =
+    [TRAINER_MAXIE_MT_CHIMNEY] =
     {
 #line 10946
         .trainerName = _("MAXIE"),
@@ -26492,7 +26492,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 10956
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10959
@@ -26502,7 +26502,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 10960
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10963
@@ -26512,12 +26512,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 10964
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10967
-[TRAINER_TIANA] =
+    [TRAINER_TIANA] =
     {
 #line 10968
         .trainerName = _("TIANA"),
@@ -26545,7 +26545,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10977
             .lvl = 4,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10980
@@ -26555,12 +26555,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10981
             .lvl = 4,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 10984
-[TRAINER_HALEY_1] =
+    [TRAINER_HALEY_1] =
     {
 #line 10985
         .trainerName = _("HALEY"),
@@ -26588,7 +26588,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10994
             .lvl = 6,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 10997
@@ -26598,12 +26598,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 10998
             .lvl = 6,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11001
-[TRAINER_JANICE] =
+    [TRAINER_JANICE] =
     {
 #line 11002
         .trainerName = _("JANICE"),
@@ -26631,12 +26631,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11011
             .lvl = 9,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11014
-[TRAINER_VIVI] =
+    [TRAINER_VIVI] =
     {
 #line 11015
         .trainerName = _("VIVI"),
@@ -26664,7 +26664,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 11024
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11027
@@ -26674,7 +26674,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 11028
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11031
@@ -26684,12 +26684,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 11032
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11035
-[TRAINER_HALEY_2] =
+    [TRAINER_HALEY_2] =
     {
 #line 11036
         .trainerName = _("HALEY"),
@@ -26717,7 +26717,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 11045
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11048
@@ -26727,12 +26727,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 11049
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11052
-[TRAINER_HALEY_3] =
+    [TRAINER_HALEY_3] =
     {
 #line 11053
         .trainerName = _("HALEY"),
@@ -26760,7 +26760,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 11062
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11065
@@ -26770,12 +26770,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 11066
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11069
-[TRAINER_HALEY_4] =
+    [TRAINER_HALEY_4] =
     {
 #line 11070
         .trainerName = _("HALEY"),
@@ -26803,7 +26803,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 11079
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11082
@@ -26813,12 +26813,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 11083
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11086
-[TRAINER_HALEY_5] =
+    [TRAINER_HALEY_5] =
     {
 #line 11087
         .trainerName = _("HALEY"),
@@ -26846,7 +26846,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 11096
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11099
@@ -26856,7 +26856,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 11100
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11103
@@ -26866,12 +26866,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 11104
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11107
-[TRAINER_SALLY] =
+    [TRAINER_SALLY] =
     {
 #line 11108
         .trainerName = _("SALLY"),
@@ -26899,12 +26899,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11117
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11120
-[TRAINER_ROBIN] =
+    [TRAINER_ROBIN] =
     {
 #line 11121
         .trainerName = _("ROBIN"),
@@ -26932,7 +26932,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11130
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11133
@@ -26942,7 +26942,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11134
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11137
@@ -26952,12 +26952,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11138
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11141
-[TRAINER_ANDREA] =
+    [TRAINER_ANDREA] =
     {
 #line 11142
         .trainerName = _("ANDREA"),
@@ -26985,12 +26985,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 11151
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11154
-[TRAINER_CRISSY] =
+    [TRAINER_CRISSY] =
     {
 #line 11155
         .trainerName = _("CRISSY"),
@@ -27018,7 +27018,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 11164
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11167
@@ -27028,12 +27028,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 11168
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11171
-[TRAINER_RICK] =
+    [TRAINER_RICK] =
     {
 #line 11172
         .trainerName = _("RICK"),
@@ -27059,7 +27059,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11181
             .lvl = 4,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11184
@@ -27069,12 +27069,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11185
             .lvl = 4,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11188
-[TRAINER_LYLE] =
+    [TRAINER_LYLE] =
     {
 #line 11189
         .trainerName = _("LYLE"),
@@ -27100,7 +27100,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11198
             .lvl = 3,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11201
@@ -27110,7 +27110,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11202
             .lvl = 3,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11205
@@ -27120,7 +27120,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11206
             .lvl = 3,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11209
@@ -27130,12 +27130,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11210
             .lvl = 3,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11213
-[TRAINER_JOSE] =
+    [TRAINER_JOSE] =
     {
 #line 11214
         .trainerName = _("JOSE"),
@@ -27161,7 +27161,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 11223
             .lvl = 8,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11226
@@ -27171,12 +27171,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 11227
             .lvl = 8,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11230
-[TRAINER_DOUG] =
+    [TRAINER_DOUG] =
     {
 #line 11231
         .trainerName = _("DOUG"),
@@ -27202,7 +27202,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11240
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11243
@@ -27212,12 +27212,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11244
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11247
-[TRAINER_GREG] =
+    [TRAINER_GREG] =
     {
 #line 11248
         .trainerName = _("GREG"),
@@ -27243,7 +27243,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11257
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11260
@@ -27253,12 +27253,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11261
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11264
-[TRAINER_KENT] =
+    [TRAINER_KENT] =
     {
 #line 11265
         .trainerName = _("KENT"),
@@ -27284,12 +27284,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11274
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11277
-[TRAINER_JAMES_1] =
+    [TRAINER_JAMES_1] =
     {
 #line 11278
         .trainerName = _("JAMES"),
@@ -27315,7 +27315,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11287
             .lvl = 6,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11290
@@ -27325,12 +27325,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11291
             .lvl = 6,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11294
-[TRAINER_JAMES_2] =
+    [TRAINER_JAMES_2] =
     {
 #line 11295
         .trainerName = _("JAMES"),
@@ -27356,12 +27356,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 11304
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11307
-[TRAINER_JAMES_3] =
+    [TRAINER_JAMES_3] =
     {
 #line 11308
         .trainerName = _("JAMES"),
@@ -27387,7 +27387,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 11317
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11320
@@ -27397,12 +27397,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 11321
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11324
-[TRAINER_JAMES_4] =
+    [TRAINER_JAMES_4] =
     {
 #line 11325
         .trainerName = _("JAMES"),
@@ -27428,7 +27428,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 11334
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11337
@@ -27438,7 +27438,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 11338
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11341
@@ -27448,12 +27448,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 11342
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11345
-[TRAINER_JAMES_5] =
+    [TRAINER_JAMES_5] =
     {
 #line 11346
         .trainerName = _("JAMES"),
@@ -27479,7 +27479,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 11355
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11358
@@ -27489,7 +27489,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 11359
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11362
@@ -27499,7 +27499,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 11363
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11366
@@ -27509,12 +27509,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 11367
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11370
-[TRAINER_BRICE] =
+    [TRAINER_BRICE] =
     {
 #line 11371
         .trainerName = _("BRICE"),
@@ -27540,7 +27540,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11380
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11383
@@ -27550,12 +27550,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11384
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11387
-[TRAINER_TRENT_1] =
+    [TRAINER_TRENT_1] =
     {
 #line 11388
         .trainerName = _("TRENT"),
@@ -27581,7 +27581,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11397
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11400
@@ -27591,7 +27591,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11401
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11404
@@ -27601,12 +27601,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11405
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11408
-[TRAINER_LENNY] =
+    [TRAINER_LENNY] =
     {
 #line 11409
         .trainerName = _("LENNY"),
@@ -27632,7 +27632,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11418
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11421
@@ -27642,12 +27642,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11422
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11425
-[TRAINER_LUCAS_1] =
+    [TRAINER_LUCAS_1] =
     {
 #line 11426
         .trainerName = _("LUCAS"),
@@ -27673,7 +27673,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11435
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11438
@@ -27683,12 +27683,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11439
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11442
-[TRAINER_ALAN] =
+    [TRAINER_ALAN] =
     {
 #line 11443
         .trainerName = _("ALAN"),
@@ -27714,7 +27714,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11452
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11455
@@ -27724,7 +27724,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11456
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11459
@@ -27734,12 +27734,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11460
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11463
-[TRAINER_CLARK] =
+    [TRAINER_CLARK] =
     {
 #line 11464
         .trainerName = _("CLARK"),
@@ -27765,12 +27765,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11473
             .lvl = 8,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11476
-[TRAINER_ERIC] =
+    [TRAINER_ERIC] =
     {
 #line 11477
         .trainerName = _("ERIC"),
@@ -27796,7 +27796,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11486
             .lvl = 20,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11489
@@ -27806,12 +27806,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11490
             .lvl = 20,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11493
-[TRAINER_LUCAS_2] =
+    [TRAINER_LUCAS_2] =
     {
 #line 11494
         .trainerName = _("LUCAS"),
@@ -27837,7 +27837,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11503
             .lvl = 9,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 11505
                 MOVE_SPLASH,
@@ -27847,7 +27847,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 11508
-[TRAINER_MIKE_1] =
+    [TRAINER_MIKE_1] =
     {
 #line 11509
         .trainerName = _("MIKE"),
@@ -27873,7 +27873,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11518
             .lvl = 10,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 11520
                 MOVE_GUST,
@@ -27888,7 +27888,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11524
             .lvl = 10,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 11526
                 MOVE_BITE,
@@ -27898,7 +27898,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 11529
-[TRAINER_MIKE_2] =
+    [TRAINER_MIKE_2] =
     {
 #line 11530
         .trainerName = _("MIKE"),
@@ -27924,7 +27924,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11539
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11542
@@ -27934,7 +27934,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11543
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11546
@@ -27944,12 +27944,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11547
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11550
-[TRAINER_TRENT_2] =
+    [TRAINER_TRENT_2] =
     {
 #line 11551
         .trainerName = _("TRENT"),
@@ -27975,7 +27975,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 11560
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11563
@@ -27985,7 +27985,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 11564
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11567
@@ -27995,7 +27995,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 11568
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11571
@@ -28005,12 +28005,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 11572
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11575
-[TRAINER_TRENT_3] =
+    [TRAINER_TRENT_3] =
     {
 #line 11576
         .trainerName = _("TRENT"),
@@ -28036,7 +28036,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 11585
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11588
@@ -28046,7 +28046,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 11589
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11592
@@ -28056,7 +28056,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 11593
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11596
@@ -28066,12 +28066,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 11597
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11600
-[TRAINER_TRENT_4] =
+    [TRAINER_TRENT_4] =
     {
 #line 11601
         .trainerName = _("TRENT"),
@@ -28097,7 +28097,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 11610
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11613
@@ -28107,7 +28107,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 11614
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11617
@@ -28117,7 +28117,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 11618
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11621
@@ -28127,12 +28127,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 11622
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11625
-[TRAINER_TRENT_5] =
+    [TRAINER_TRENT_5] =
     {
 #line 11626
         .trainerName = _("TRENT"),
@@ -28158,7 +28158,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 11635
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11638
@@ -28168,7 +28168,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 11639
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11642
@@ -28178,7 +28178,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 11643
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11646
@@ -28188,12 +28188,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 11647
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11650
-[TRAINER_DEZ_AND_LUKE] =
+    [TRAINER_DEZ_AND_LUKE] =
     {
 #line 11651
         .trainerName = _("DEZ & LUKE"),
@@ -28219,7 +28219,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11660
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11663
@@ -28229,12 +28229,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11664
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11667
-[TRAINER_LEA_AND_JED] =
+    [TRAINER_LEA_AND_JED] =
     {
 #line 11668
         .trainerName = _("LEA & JED"),
@@ -28260,7 +28260,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11677
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11680
@@ -28270,12 +28270,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11681
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11684
-[TRAINER_KIRA_AND_DAN_1] =
+    [TRAINER_KIRA_AND_DAN_1] =
     {
 #line 11685
         .trainerName = _("KIRA & DAN"),
@@ -28301,7 +28301,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11694
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11697
@@ -28311,12 +28311,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11698
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11701
-[TRAINER_KIRA_AND_DAN_2] =
+    [TRAINER_KIRA_AND_DAN_2] =
     {
 #line 11702
         .trainerName = _("KIRA & DAN"),
@@ -28342,7 +28342,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 11711
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11714
@@ -28352,12 +28352,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 11715
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11718
-[TRAINER_KIRA_AND_DAN_3] =
+    [TRAINER_KIRA_AND_DAN_3] =
     {
 #line 11719
         .trainerName = _("KIRA & DAN"),
@@ -28383,7 +28383,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 11728
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11731
@@ -28393,12 +28393,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 11732
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11735
-[TRAINER_KIRA_AND_DAN_4] =
+    [TRAINER_KIRA_AND_DAN_4] =
     {
 #line 11736
         .trainerName = _("KIRA & DAN"),
@@ -28424,7 +28424,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 11745
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11748
@@ -28434,12 +28434,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 11749
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11752
-[TRAINER_KIRA_AND_DAN_5] =
+    [TRAINER_KIRA_AND_DAN_5] =
     {
 #line 11753
         .trainerName = _("KIRA & DAN"),
@@ -28465,7 +28465,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 11762
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11765
@@ -28475,12 +28475,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 11766
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11769
-[TRAINER_JOHANNA] =
+    [TRAINER_JOHANNA] =
     {
 #line 11770
         .trainerName = _("JOHANNA"),
@@ -28508,12 +28508,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11779
             .lvl = 13,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11782
-[TRAINER_GERALD] =
+    [TRAINER_GERALD] =
     {
 #line 11783
         .trainerName = _("GERALD"),
@@ -28541,7 +28541,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 11793
             .lvl = 23,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 11795
                 MOVE_FLAMETHROWER,
@@ -28553,7 +28553,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 11800
-[TRAINER_VIVIAN] =
+    [TRAINER_VIVIAN] =
     {
 #line 11801
         .trainerName = _("VIVIAN"),
@@ -28581,7 +28581,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 11810
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 11812
                 MOVE_BIDE,
@@ -28598,7 +28598,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 11818
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 11820
                 MOVE_THUNDER_PUNCH,
@@ -28610,7 +28610,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 11825
-[TRAINER_DANIELLE] =
+    [TRAINER_DANIELLE] =
     {
 #line 11826
         .trainerName = _("DANIELLE"),
@@ -28638,7 +28638,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 11835
             .lvl = 23,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 11837
                 MOVE_BIDE,
@@ -28650,7 +28650,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 11842
-[TRAINER_HIDEO] =
+    [TRAINER_HIDEO] =
     {
 #line 11843
         .trainerName = _("HIDEO"),
@@ -28676,7 +28676,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11852
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 11854
                 MOVE_TACKLE,
@@ -28693,7 +28693,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11860
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 11862
                 MOVE_TACKLE,
@@ -28705,7 +28705,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 11867
-[TRAINER_KEIGO] =
+    [TRAINER_KEIGO] =
     {
 #line 11868
         .trainerName = _("KEIGO"),
@@ -28731,7 +28731,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11877
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 11879
                 MOVE_POISON_GAS,
@@ -28748,7 +28748,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11885
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 11887
                 MOVE_SAND_ATTACK,
@@ -28760,7 +28760,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 11892
-[TRAINER_RILEY] =
+    [TRAINER_RILEY] =
     {
 #line 11893
         .trainerName = _("RILEY"),
@@ -28786,7 +28786,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11902
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 11904
                 MOVE_LEECH_LIFE,
@@ -28803,7 +28803,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 11910
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 11912
                 MOVE_TACKLE,
@@ -28815,7 +28815,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 11917
-[TRAINER_FLINT] =
+    [TRAINER_FLINT] =
     {
 #line 11918
         .trainerName = _("FLINT"),
@@ -28841,7 +28841,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 11927
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11930
@@ -28851,12 +28851,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 11931
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11934
-[TRAINER_ASHLEY] =
+    [TRAINER_ASHLEY] =
     {
 #line 11935
         .trainerName = _("ASHLEY"),
@@ -28884,7 +28884,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 11944
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11947
@@ -28894,7 +28894,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 11948
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 11951
@@ -28904,12 +28904,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 11952
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11955
-[TRAINER_WALLY_MAUVILLE] =
+    [TRAINER_WALLY_MAUVILLE] =
     {
 #line 11956
         .trainerName = _("WALLY"),
@@ -28935,12 +28935,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 11965
             .lvl = 16,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 11968
-[TRAINER_WALLY_VR_2] =
+    [TRAINER_WALLY_VR_2] =
     {
 #line 11969
         .trainerName = _("WALLY"),
@@ -28968,7 +28968,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 11979
             .lvl = 47,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 11981
                 MOVE_AERIAL_ACE,
@@ -28985,7 +28985,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 11987
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 11989
                 MOVE_SING,
@@ -29002,7 +29002,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 11995
             .lvl = 47,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 11997
                 MOVE_MAGICAL_LEAF,
@@ -29019,7 +29019,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12003
             .lvl = 44,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12005
                 MOVE_SUPERSONIC,
@@ -29036,7 +29036,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 12011
             .lvl = 48,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12013
                 MOVE_DOUBLE_TEAM,
@@ -29048,7 +29048,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12018
-[TRAINER_WALLY_VR_3] =
+    [TRAINER_WALLY_VR_3] =
     {
 #line 12019
         .trainerName = _("WALLY"),
@@ -29076,7 +29076,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12029
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12031
                 MOVE_AERIAL_ACE,
@@ -29093,7 +29093,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12037
             .lvl = 49,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12039
                 MOVE_SING,
@@ -29110,7 +29110,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12045
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12047
                 MOVE_MAGICAL_LEAF,
@@ -29127,7 +29127,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12053
             .lvl = 47,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12055
                 MOVE_SUPERSONIC,
@@ -29144,7 +29144,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 12061
             .lvl = 51,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12063
                 MOVE_DOUBLE_TEAM,
@@ -29156,7 +29156,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12068
-[TRAINER_WALLY_VR_4] =
+    [TRAINER_WALLY_VR_4] =
     {
 #line 12069
         .trainerName = _("WALLY"),
@@ -29184,7 +29184,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12079
             .lvl = 53,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12081
                 MOVE_AERIAL_ACE,
@@ -29201,7 +29201,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12087
             .lvl = 52,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12089
                 MOVE_SING,
@@ -29218,7 +29218,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12095
             .lvl = 53,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12097
                 MOVE_MAGICAL_LEAF,
@@ -29235,7 +29235,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12103
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12105
                 MOVE_SUPERSONIC,
@@ -29252,7 +29252,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 12111
             .lvl = 54,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12113
                 MOVE_DOUBLE_TEAM,
@@ -29264,7 +29264,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12118
-[TRAINER_WALLY_VR_5] =
+    [TRAINER_WALLY_VR_5] =
     {
 #line 12119
         .trainerName = _("WALLY"),
@@ -29292,7 +29292,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12129
             .lvl = 56,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12131
                 MOVE_AERIAL_ACE,
@@ -29309,7 +29309,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12137
             .lvl = 55,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12139
                 MOVE_SING,
@@ -29326,7 +29326,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12145
             .lvl = 56,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12147
                 MOVE_MAGICAL_LEAF,
@@ -29343,7 +29343,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12153
             .lvl = 53,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12155
                 MOVE_SUPERSONIC,
@@ -29360,7 +29360,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
 #line 12161
             .lvl = 57,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12163
                 MOVE_DOUBLE_TEAM,
@@ -29372,7 +29372,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12168
-[TRAINER_BRENDAN_LILYCOVE_MUDKIP] =
+    [TRAINER_BRENDAN_LILYCOVE_MUDKIP] =
     {
 #line 12169
         .trainerName = _("BRENDAN"),
@@ -29398,7 +29398,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12178
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12181
@@ -29408,7 +29408,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12182
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12185
@@ -29418,7 +29418,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12186
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12189
@@ -29428,12 +29428,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 12190
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12193
-[TRAINER_BRENDAN_LILYCOVE_TREECKO] =
+    [TRAINER_BRENDAN_LILYCOVE_TREECKO] =
     {
 #line 12194
         .trainerName = _("BRENDAN"),
@@ -29459,7 +29459,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12203
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12206
@@ -29469,7 +29469,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12207
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12210
@@ -29479,7 +29479,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12211
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12214
@@ -29489,12 +29489,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 12215
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12218
-[TRAINER_BRENDAN_LILYCOVE_TORCHIC] =
+    [TRAINER_BRENDAN_LILYCOVE_TORCHIC] =
     {
 #line 12219
         .trainerName = _("BRENDAN"),
@@ -29520,7 +29520,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12228
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12231
@@ -29530,7 +29530,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12232
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12235
@@ -29540,7 +29540,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12236
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12239
@@ -29550,12 +29550,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 12240
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12243
-[TRAINER_MAY_LILYCOVE_MUDKIP] =
+    [TRAINER_MAY_LILYCOVE_MUDKIP] =
     {
 #line 12244
         .trainerName = _("MAY"),
@@ -29583,7 +29583,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12253
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12256
@@ -29593,7 +29593,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12257
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12260
@@ -29603,7 +29603,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12261
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12264
@@ -29613,12 +29613,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 12265
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12268
-[TRAINER_MAY_LILYCOVE_TREECKO] =
+    [TRAINER_MAY_LILYCOVE_TREECKO] =
     {
 #line 12269
         .trainerName = _("MAY"),
@@ -29646,7 +29646,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12278
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12281
@@ -29656,7 +29656,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12282
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12285
@@ -29666,7 +29666,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12286
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12289
@@ -29676,12 +29676,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 12290
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12293
-[TRAINER_MAY_LILYCOVE_TORCHIC] =
+    [TRAINER_MAY_LILYCOVE_TORCHIC] =
     {
 #line 12294
         .trainerName = _("MAY"),
@@ -29709,7 +29709,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12303
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12306
@@ -29719,7 +29719,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12307
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12310
@@ -29729,7 +29729,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 12311
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12314
@@ -29739,12 +29739,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 12315
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12318
-[TRAINER_JONAH] =
+    [TRAINER_JONAH] =
     {
 #line 12319
         .trainerName = _("JONAH"),
@@ -29770,7 +29770,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12328
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12331
@@ -29780,7 +29780,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12332
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12335
@@ -29790,12 +29790,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12336
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12339
-[TRAINER_HENRY] =
+    [TRAINER_HENRY] =
     {
 #line 12340
         .trainerName = _("HENRY"),
@@ -29821,7 +29821,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12349
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12352
@@ -29831,12 +29831,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12353
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12356
-[TRAINER_ROGER] =
+    [TRAINER_ROGER] =
     {
 #line 12357
         .trainerName = _("ROGER"),
@@ -29862,7 +29862,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12366
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12369
@@ -29872,7 +29872,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12370
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12373
@@ -29882,12 +29882,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12374
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12377
-[TRAINER_ALEXA] =
+    [TRAINER_ALEXA] =
     {
 #line 12378
         .trainerName = _("ALEXA"),
@@ -29917,7 +29917,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 12388
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12391
@@ -29927,12 +29927,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 12392
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12395
-[TRAINER_RUBEN] =
+    [TRAINER_RUBEN] =
     {
 #line 12396
         .trainerName = _("RUBEN"),
@@ -29960,7 +29960,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 12406
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12409
@@ -29970,12 +29970,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 12410
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12413
-[TRAINER_KOJI_1] =
+    [TRAINER_KOJI_1] =
     {
 #line 12414
         .trainerName = _("KOJI"),
@@ -30001,12 +30001,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12423
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12426
-[TRAINER_WAYNE] =
+    [TRAINER_WAYNE] =
     {
 #line 12427
         .trainerName = _("WAYNE"),
@@ -30032,7 +30032,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12436
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12439
@@ -30042,7 +30042,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12440
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12443
@@ -30052,12 +30052,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12444
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12447
-[TRAINER_AIDAN] =
+    [TRAINER_AIDAN] =
     {
 #line 12448
         .trainerName = _("AIDAN"),
@@ -30083,7 +30083,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12457
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12460
@@ -30093,12 +30093,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12461
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12464
-[TRAINER_REED] =
+    [TRAINER_REED] =
     {
 #line 12465
         .trainerName = _("REED"),
@@ -30124,7 +30124,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12474
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12477
@@ -30134,12 +30134,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12478
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12481
-[TRAINER_TISHA] =
+    [TRAINER_TISHA] =
     {
 #line 12482
         .trainerName = _("TISHA"),
@@ -30167,12 +30167,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12491
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12494
-[TRAINER_TORI_AND_TIA] =
+    [TRAINER_TORI_AND_TIA] =
     {
 #line 12495
         .trainerName = _("TORI & TIA"),
@@ -30198,7 +30198,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12504
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12507
@@ -30208,12 +30208,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12508
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12511
-[TRAINER_KIM_AND_IRIS] =
+    [TRAINER_KIM_AND_IRIS] =
     {
 #line 12512
         .trainerName = _("KIM & IRIS"),
@@ -30239,7 +30239,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12521
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12523
                 MOVE_SING,
@@ -30256,7 +30256,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12529
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12531
                 MOVE_FLAMETHROWER,
@@ -30268,7 +30268,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12536
-[TRAINER_TYRA_AND_IVY] =
+    [TRAINER_TYRA_AND_IVY] =
     {
 #line 12537
         .trainerName = _("TYRA & IVY"),
@@ -30294,7 +30294,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12546
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12548
                 MOVE_GROWTH,
@@ -30311,7 +30311,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12554
             .lvl = 20,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12556
                 MOVE_DEFENSE_CURL,
@@ -30323,7 +30323,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12561
-[TRAINER_MEL_AND_PAUL] =
+    [TRAINER_MEL_AND_PAUL] =
     {
 #line 12562
         .trainerName = _("MEL & PAUL"),
@@ -30349,7 +30349,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12571
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12573
                 MOVE_GUST,
@@ -30366,7 +30366,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12579
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12581
                 MOVE_GUST,
@@ -30378,7 +30378,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12586
-[TRAINER_JOHN_AND_JAY_1] =
+    [TRAINER_JOHN_AND_JAY_1] =
     {
 #line 12587
         .trainerName = _("JOHN & JAY"),
@@ -30404,7 +30404,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 12596
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12598
                 MOVE_PSYCHIC,
@@ -30421,7 +30421,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 12604
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12606
                 MOVE_FOCUS_PUNCH,
@@ -30433,7 +30433,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12611
-[TRAINER_JOHN_AND_JAY_2] =
+    [TRAINER_JOHN_AND_JAY_2] =
     {
 #line 12612
         .trainerName = _("JOHN & JAY"),
@@ -30459,7 +30459,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
 #line 12621
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12623
                 MOVE_PSYCHIC,
@@ -30476,7 +30476,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
 #line 12629
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12631
                 MOVE_FOCUS_PUNCH,
@@ -30488,7 +30488,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12636
-[TRAINER_JOHN_AND_JAY_3] =
+    [TRAINER_JOHN_AND_JAY_3] =
     {
 #line 12637
         .trainerName = _("JOHN & JAY"),
@@ -30514,7 +30514,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(26, 26, 26, 26, 26, 26),
 #line 12646
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12648
                 MOVE_PSYCHIC,
@@ -30531,7 +30531,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(26, 26, 26, 26, 26, 26),
 #line 12654
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12656
                 MOVE_FOCUS_PUNCH,
@@ -30543,7 +30543,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12661
-[TRAINER_JOHN_AND_JAY_4] =
+    [TRAINER_JOHN_AND_JAY_4] =
     {
 #line 12662
         .trainerName = _("JOHN & JAY"),
@@ -30569,7 +30569,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(27, 27, 27, 27, 27, 27),
 #line 12671
             .lvl = 49,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12673
                 MOVE_PSYCHIC,
@@ -30586,7 +30586,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(27, 27, 27, 27, 27, 27),
 #line 12679
             .lvl = 49,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12681
                 MOVE_FOCUS_PUNCH,
@@ -30598,7 +30598,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12686
-[TRAINER_JOHN_AND_JAY_5] =
+    [TRAINER_JOHN_AND_JAY_5] =
     {
 #line 12687
         .trainerName = _("JOHN & JAY"),
@@ -30624,7 +30624,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(29, 29, 29, 29, 29, 29),
 #line 12696
             .lvl = 52,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12698
                 MOVE_PSYCHIC,
@@ -30641,7 +30641,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(29, 29, 29, 29, 29, 29),
 #line 12704
             .lvl = 52,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 12706
                 MOVE_FOCUS_PUNCH,
@@ -30653,7 +30653,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12711
-[TRAINER_RELI_AND_IAN] =
+    [TRAINER_RELI_AND_IAN] =
     {
 #line 12712
         .trainerName = _("RELI & IAN"),
@@ -30679,7 +30679,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12721
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12724
@@ -30689,12 +30689,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12725
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12728
-[TRAINER_LILA_AND_ROY_1] =
+    [TRAINER_LILA_AND_ROY_1] =
     {
 #line 12729
         .trainerName = _("LILA & ROY"),
@@ -30720,7 +30720,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12738
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12741
@@ -30730,12 +30730,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12742
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12745
-[TRAINER_LILA_AND_ROY_2] =
+    [TRAINER_LILA_AND_ROY_2] =
     {
 #line 12746
         .trainerName = _("LILA & ROY"),
@@ -30761,7 +30761,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12755
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12758
@@ -30771,12 +30771,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12759
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12762
-[TRAINER_LILA_AND_ROY_3] =
+    [TRAINER_LILA_AND_ROY_3] =
     {
 #line 12763
         .trainerName = _("LILA & ROY"),
@@ -30802,7 +30802,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12772
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12775
@@ -30812,12 +30812,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12776
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12779
-[TRAINER_LILA_AND_ROY_4] =
+    [TRAINER_LILA_AND_ROY_4] =
     {
 #line 12780
         .trainerName = _("LILA & ROY"),
@@ -30843,7 +30843,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12789
             .lvl = 48,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12792
@@ -30853,12 +30853,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12793
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12796
-[TRAINER_LILA_AND_ROY_5] =
+    [TRAINER_LILA_AND_ROY_5] =
     {
 #line 12797
         .trainerName = _("LILA & ROY"),
@@ -30884,7 +30884,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12806
             .lvl = 51,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12809
@@ -30894,12 +30894,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12810
             .lvl = 49,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12813
-[TRAINER_LISA_AND_RAY] =
+    [TRAINER_LISA_AND_RAY] =
     {
 #line 12814
         .trainerName = _("LISA & RAY"),
@@ -30925,7 +30925,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12823
             .lvl = 27,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12826
@@ -30935,12 +30935,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12827
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12830
-[TRAINER_CHRIS] =
+    [TRAINER_CHRIS] =
     {
 #line 12831
         .trainerName = _("CHRIS"),
@@ -30966,7 +30966,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12840
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12843
@@ -30976,7 +30976,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12844
             .lvl = 20,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12847
@@ -30986,7 +30986,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12848
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12851
@@ -30996,12 +30996,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12852
             .lvl = 23,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12855
-[TRAINER_DAWSON] =
+    [TRAINER_DAWSON] =
     {
 #line 12856
         .trainerName = _("DAWSON"),
@@ -31029,7 +31029,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12865
             .lvl = 8,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12868
@@ -31039,12 +31039,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12869
             .lvl = 8,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12872
-[TRAINER_SARAH] =
+    [TRAINER_SARAH] =
     {
 #line 12873
         .trainerName = _("SARAH"),
@@ -31074,7 +31074,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12883
             .lvl = 8,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12886
@@ -31086,12 +31086,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12887
             .lvl = 8,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12890
-[TRAINER_DARIAN] =
+    [TRAINER_DARIAN] =
     {
 #line 12891
         .trainerName = _("DARIAN"),
@@ -31117,12 +31117,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12900
             .lvl = 9,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12903
-[TRAINER_HAILEY] =
+    [TRAINER_HAILEY] =
     {
 #line 12904
         .trainerName = _("HAILEY"),
@@ -31150,12 +31150,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12913
             .lvl = 13,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12916
-[TRAINER_CHANDLER] =
+    [TRAINER_CHANDLER] =
     {
 #line 12917
         .trainerName = _("CHANDLER"),
@@ -31181,7 +31181,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12926
             .lvl = 12,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12929
@@ -31191,12 +31191,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12930
             .lvl = 12,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12933
-[TRAINER_KALEB] =
+    [TRAINER_KALEB] =
     {
 #line 12934
         .trainerName = _("KALEB"),
@@ -31224,7 +31224,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12943
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12946
@@ -31236,12 +31236,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12947
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12950
-[TRAINER_JOSEPH] =
+    [TRAINER_JOSEPH] =
     {
 #line 12951
         .trainerName = _("JOSEPH"),
@@ -31267,7 +31267,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12960
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 12963
@@ -31277,12 +31277,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12964
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12967
-[TRAINER_ALYSSA] =
+    [TRAINER_ALYSSA] =
     {
 #line 12968
         .trainerName = _("ALYSSA"),
@@ -31310,12 +31310,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 12977
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12980
-[TRAINER_MARCOS] =
+    [TRAINER_MARCOS] =
     {
 #line 12981
         .trainerName = _("MARCOS"),
@@ -31341,12 +31341,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 12990
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 12993
-[TRAINER_RHETT] =
+    [TRAINER_RHETT] =
     {
 #line 12994
         .trainerName = _("RHETT"),
@@ -31372,12 +31372,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 13003
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13006
-[TRAINER_TYRON] =
+    [TRAINER_TYRON] =
     {
 #line 13007
         .trainerName = _("TYRON"),
@@ -31403,12 +31403,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13016
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13019
-[TRAINER_CELINA] =
+    [TRAINER_CELINA] =
     {
 #line 13020
         .trainerName = _("CELINA"),
@@ -31436,12 +31436,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13029
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13032
-[TRAINER_BIANCA] =
+    [TRAINER_BIANCA] =
     {
 #line 13033
         .trainerName = _("BIANCA"),
@@ -31469,12 +31469,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13042
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13045
-[TRAINER_HAYDEN] =
+    [TRAINER_HAYDEN] =
     {
 #line 13046
         .trainerName = _("HAYDEN"),
@@ -31500,12 +31500,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13055
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13058
-[TRAINER_SOPHIE] =
+    [TRAINER_SOPHIE] =
     {
 #line 13059
         .trainerName = _("SOPHIE"),
@@ -31533,7 +31533,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13068
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13071
@@ -31543,12 +31543,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13072
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13075
-[TRAINER_COBY] =
+    [TRAINER_COBY] =
     {
 #line 13076
         .trainerName = _("COBY"),
@@ -31574,7 +31574,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13085
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13088
@@ -31584,12 +31584,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13089
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13092
-[TRAINER_LAWRENCE] =
+    [TRAINER_LAWRENCE] =
     {
 #line 13093
         .trainerName = _("LAWRENCE"),
@@ -31615,7 +31615,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13102
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13105
@@ -31625,12 +31625,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13106
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13109
-[TRAINER_WYATT] =
+    [TRAINER_WYATT] =
     {
 #line 13110
         .trainerName = _("WYATT"),
@@ -31656,7 +31656,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13119
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13122
@@ -31666,12 +31666,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13123
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13126
-[TRAINER_ANGELINA] =
+    [TRAINER_ANGELINA] =
     {
 #line 13127
         .trainerName = _("ANGELINA"),
@@ -31699,7 +31699,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13136
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13139
@@ -31709,12 +31709,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13140
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13143
-[TRAINER_KAI] =
+    [TRAINER_KAI] =
     {
 #line 13144
         .trainerName = _("KAI"),
@@ -31740,12 +31740,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13153
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13156
-[TRAINER_CHARLOTTE] =
+    [TRAINER_CHARLOTTE] =
     {
 #line 13157
         .trainerName = _("CHARLOTTE"),
@@ -31773,12 +31773,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13166
             .lvl = 19,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13169
-[TRAINER_DEANDRE] =
+    [TRAINER_DEANDRE] =
     {
 #line 13170
         .trainerName = _("DEANDRE"),
@@ -31804,7 +31804,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13179
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13182
@@ -31814,7 +31814,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13183
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13186
@@ -31824,12 +31824,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13187
             .lvl = 14,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13190
-[TRAINER_GRUNT_MAGMA_HIDEOUT_1] =
+    [TRAINER_GRUNT_MAGMA_HIDEOUT_1] =
     {
 #line 13191
         .trainerName = _("GRUNT"),
@@ -31855,12 +31855,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13200
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13203
-[TRAINER_GRUNT_MAGMA_HIDEOUT_2] =
+    [TRAINER_GRUNT_MAGMA_HIDEOUT_2] =
     {
 #line 13204
         .trainerName = _("GRUNT"),
@@ -31886,12 +31886,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13213
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13216
-[TRAINER_GRUNT_MAGMA_HIDEOUT_3] =
+    [TRAINER_GRUNT_MAGMA_HIDEOUT_3] =
     {
 #line 13217
         .trainerName = _("GRUNT"),
@@ -31917,12 +31917,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13226
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13229
-[TRAINER_GRUNT_MAGMA_HIDEOUT_4] =
+    [TRAINER_GRUNT_MAGMA_HIDEOUT_4] =
     {
 #line 13230
         .trainerName = _("GRUNT"),
@@ -31948,7 +31948,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13239
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13242
@@ -31958,12 +31958,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13243
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13246
-[TRAINER_GRUNT_MAGMA_HIDEOUT_5] =
+    [TRAINER_GRUNT_MAGMA_HIDEOUT_5] =
     {
 #line 13247
         .trainerName = _("GRUNT"),
@@ -31989,7 +31989,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13256
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13259
@@ -31999,12 +31999,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13260
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13263
-[TRAINER_GRUNT_MAGMA_HIDEOUT_6] =
+    [TRAINER_GRUNT_MAGMA_HIDEOUT_6] =
     {
 #line 13264
         .trainerName = _("GRUNT"),
@@ -32030,12 +32030,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13273
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13276
-[TRAINER_GRUNT_MAGMA_HIDEOUT_7] =
+    [TRAINER_GRUNT_MAGMA_HIDEOUT_7] =
     {
 #line 13277
         .trainerName = _("GRUNT"),
@@ -32061,12 +32061,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13286
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13289
-[TRAINER_GRUNT_MAGMA_HIDEOUT_8] =
+    [TRAINER_GRUNT_MAGMA_HIDEOUT_8] =
     {
 #line 13290
         .trainerName = _("GRUNT"),
@@ -32092,12 +32092,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13299
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13302
-[TRAINER_GRUNT_MAGMA_HIDEOUT_9] =
+    [TRAINER_GRUNT_MAGMA_HIDEOUT_9] =
     {
 #line 13303
         .trainerName = _("GRUNT"),
@@ -32123,12 +32123,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13312
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13315
-[TRAINER_GRUNT_MAGMA_HIDEOUT_10] =
+    [TRAINER_GRUNT_MAGMA_HIDEOUT_10] =
     {
 #line 13316
         .trainerName = _("GRUNT"),
@@ -32154,12 +32154,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13325
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13328
-[TRAINER_GRUNT_MAGMA_HIDEOUT_11] =
+    [TRAINER_GRUNT_MAGMA_HIDEOUT_11] =
     {
 #line 13329
         .trainerName = _("GRUNT"),
@@ -32185,12 +32185,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13338
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13341
-[TRAINER_GRUNT_MAGMA_HIDEOUT_12] =
+    [TRAINER_GRUNT_MAGMA_HIDEOUT_12] =
     {
 #line 13342
         .trainerName = _("GRUNT"),
@@ -32216,12 +32216,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13351
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13354
-[TRAINER_GRUNT_MAGMA_HIDEOUT_13] =
+    [TRAINER_GRUNT_MAGMA_HIDEOUT_13] =
     {
 #line 13355
         .trainerName = _("GRUNT"),
@@ -32247,12 +32247,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13364
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13367
-[TRAINER_GRUNT_MAGMA_HIDEOUT_14] =
+    [TRAINER_GRUNT_MAGMA_HIDEOUT_14] =
     {
 #line 13368
         .trainerName = _("GRUNT"),
@@ -32280,12 +32280,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13377
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13380
-[TRAINER_GRUNT_MAGMA_HIDEOUT_15] =
+    [TRAINER_GRUNT_MAGMA_HIDEOUT_15] =
     {
 #line 13381
         .trainerName = _("GRUNT"),
@@ -32313,12 +32313,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13390
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13393
-[TRAINER_GRUNT_MAGMA_HIDEOUT_16] =
+    [TRAINER_GRUNT_MAGMA_HIDEOUT_16] =
     {
 #line 13394
         .trainerName = _("GRUNT"),
@@ -32346,12 +32346,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13403
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13406
-[TRAINER_TABITHA_MAGMA_HIDEOUT] =
+    [TRAINER_TABITHA_MAGMA_HIDEOUT] =
     {
 #line 13407
         .trainerName = _("TABITHA"),
@@ -32377,7 +32377,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
 #line 13416
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13419
@@ -32387,7 +32387,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
 #line 13420
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13423
@@ -32397,7 +32397,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
 #line 13424
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13427
@@ -32407,12 +32407,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
 #line 13428
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13431
-[TRAINER_DARCY] =
+    [TRAINER_DARCY] =
     {
 #line 13432
         .trainerName = _("DARCY"),
@@ -32442,7 +32442,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13442
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13445
@@ -32452,12 +32452,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13446
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13449
-[TRAINER_MAXIE_MOSSDEEP] =
+    [TRAINER_MAXIE_MOSSDEEP] =
     {
 #line 13450
         .trainerName = _("MAXIE"),
@@ -32483,7 +32483,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 13459
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13462
@@ -32493,7 +32493,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 13463
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13466
@@ -32503,12 +32503,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
 #line 13467
             .lvl = 44,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13470
-[TRAINER_PETE] =
+    [TRAINER_PETE] =
     {
 #line 13471
         .trainerName = _("PETE"),
@@ -32534,12 +32534,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13480
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13483
-[TRAINER_ISABELLE] =
+    [TRAINER_ISABELLE] =
     {
 #line 13484
         .trainerName = _("ISABELLE"),
@@ -32567,12 +32567,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13493
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13496
-[TRAINER_ANDRES_1] =
+    [TRAINER_ANDRES_1] =
     {
 #line 13497
         .trainerName = _("ANDRES"),
@@ -32598,7 +32598,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 13506
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13509
@@ -32608,12 +32608,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 13510
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13513
-[TRAINER_JOSUE] =
+    [TRAINER_JOSUE] =
     {
 #line 13514
         .trainerName = _("JOSUE"),
@@ -32639,7 +32639,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 13523
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13526
@@ -32649,12 +32649,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 13527
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13530
-[TRAINER_CAMRON] =
+    [TRAINER_CAMRON] =
     {
 #line 13531
         .trainerName = _("CAMRON"),
@@ -32680,12 +32680,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13540
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13543
-[TRAINER_CORY_1] =
+    [TRAINER_CORY_1] =
     {
 #line 13544
         .trainerName = _("CORY"),
@@ -32711,7 +32711,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13553
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13556
@@ -32721,7 +32721,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13557
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13560
@@ -32731,12 +32731,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13561
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13564
-[TRAINER_CAROLINA] =
+    [TRAINER_CAROLINA] =
     {
 #line 13565
         .trainerName = _("CAROLINA"),
@@ -32766,7 +32766,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 13575
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13578
@@ -32776,7 +32776,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 13579
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13582
@@ -32786,12 +32786,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 13583
             .lvl = 24,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13586
-[TRAINER_ELIJAH] =
+    [TRAINER_ELIJAH] =
     {
 #line 13587
         .trainerName = _("ELIJAH"),
@@ -32817,7 +32817,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13596
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13599
@@ -32827,12 +32827,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13600
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13603
-[TRAINER_CELIA] =
+    [TRAINER_CELIA] =
     {
 #line 13604
         .trainerName = _("CELIA"),
@@ -32860,7 +32860,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13613
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13616
@@ -32870,12 +32870,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13617
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13620
-[TRAINER_BRYAN] =
+    [TRAINER_BRYAN] =
     {
 #line 13621
         .trainerName = _("BRYAN"),
@@ -32901,7 +32901,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13630
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13633
@@ -32911,12 +32911,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13634
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13637
-[TRAINER_BRANDEN] =
+    [TRAINER_BRANDEN] =
     {
 #line 13638
         .trainerName = _("BRANDEN"),
@@ -32942,7 +32942,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13647
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13650
@@ -32952,12 +32952,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13651
             .lvl = 22,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13654
-[TRAINER_BRYANT] =
+    [TRAINER_BRYANT] =
     {
 #line 13655
         .trainerName = _("BRYANT"),
@@ -32983,7 +32983,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13664
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13667
@@ -32993,12 +32993,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13668
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13671
-[TRAINER_SHAYLA] =
+    [TRAINER_SHAYLA] =
     {
 #line 13672
         .trainerName = _("SHAYLA"),
@@ -33026,7 +33026,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13681
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13684
@@ -33036,12 +33036,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13685
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13688
-[TRAINER_KYRA] =
+    [TRAINER_KYRA] =
     {
 #line 13689
         .trainerName = _("KYRA"),
@@ -33069,7 +33069,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13698
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13701
@@ -33079,12 +33079,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13702
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13705
-[TRAINER_JAIDEN] =
+    [TRAINER_JAIDEN] =
     {
 #line 13706
         .trainerName = _("JAIDEN"),
@@ -33110,7 +33110,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13715
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13718
@@ -33120,12 +33120,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13719
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13722
-[TRAINER_ALIX] =
+    [TRAINER_ALIX] =
     {
 #line 13723
         .trainerName = _("ALIX"),
@@ -33153,7 +33153,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13732
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13735
@@ -33163,12 +33163,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13736
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13739
-[TRAINER_HELENE] =
+    [TRAINER_HELENE] =
     {
 #line 13740
         .trainerName = _("HELENE"),
@@ -33196,7 +33196,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13749
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13752
@@ -33206,12 +33206,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13753
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13756
-[TRAINER_MARLENE] =
+    [TRAINER_MARLENE] =
     {
 #line 13757
         .trainerName = _("MARLENE"),
@@ -33239,7 +33239,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13766
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13769
@@ -33249,12 +33249,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13770
             .lvl = 18,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13773
-[TRAINER_DEVAN] =
+    [TRAINER_DEVAN] =
     {
 #line 13774
         .trainerName = _("DEVAN"),
@@ -33280,7 +33280,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13783
             .lvl = 8,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13786
@@ -33290,12 +33290,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13787
             .lvl = 8,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13790
-[TRAINER_JOHNSON] =
+    [TRAINER_JOHNSON] =
     {
 #line 13791
         .trainerName = _("JOHNSON"),
@@ -33321,7 +33321,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13800
             .lvl = 8,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13803
@@ -33331,12 +33331,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13804
             .lvl = 8,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13807
-[TRAINER_MELINA] =
+    [TRAINER_MELINA] =
     {
 #line 13808
         .trainerName = _("MELINA"),
@@ -33364,12 +33364,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13817
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13820
-[TRAINER_BRANDI] =
+    [TRAINER_BRANDI] =
     {
 #line 13821
         .trainerName = _("BRANDI"),
@@ -33397,12 +33397,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13830
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13833
-[TRAINER_AISHA] =
+    [TRAINER_AISHA] =
     {
 #line 13834
         .trainerName = _("AISHA"),
@@ -33430,12 +33430,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13843
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13846
-[TRAINER_MAKAYLA] =
+    [TRAINER_MAKAYLA] =
     {
 #line 13847
         .trainerName = _("MAKAYLA"),
@@ -33465,7 +33465,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13857
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13860
@@ -33475,12 +33475,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13861
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13864
-[TRAINER_FABIAN] =
+    [TRAINER_FABIAN] =
     {
 #line 13865
         .trainerName = _("FABIAN"),
@@ -33506,12 +33506,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13874
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13877
-[TRAINER_DAYTON] =
+    [TRAINER_DAYTON] =
     {
 #line 13878
         .trainerName = _("DAYTON"),
@@ -33537,7 +33537,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13887
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13890
@@ -33547,12 +33547,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13891
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13894
-[TRAINER_RACHEL] =
+    [TRAINER_RACHEL] =
     {
 #line 13895
         .trainerName = _("RACHEL"),
@@ -33580,12 +33580,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13904
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13907
-[TRAINER_LEONEL] =
+    [TRAINER_LEONEL] =
     {
 #line 13908
         .trainerName = _("LEONEL"),
@@ -33613,7 +33613,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 13918
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 13920
                 MOVE_THUNDER,
@@ -33624,7 +33624,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 13924
-[TRAINER_CALLIE] =
+    [TRAINER_CALLIE] =
     {
 #line 13925
         .trainerName = _("CALLIE"),
@@ -33652,7 +33652,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13934
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13937
@@ -33662,12 +33662,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13938
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13941
-[TRAINER_CALE] =
+    [TRAINER_CALE] =
     {
 #line 13942
         .trainerName = _("CALE"),
@@ -33693,7 +33693,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13951
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13954
@@ -33703,12 +33703,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 13955
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13958
-[TRAINER_MYLES] =
+    [TRAINER_MYLES] =
     {
 #line 13959
         .trainerName = _("MYLES"),
@@ -33734,7 +33734,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 13968
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13971
@@ -33744,7 +33744,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 13972
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13975
@@ -33754,7 +33754,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 13976
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13979
@@ -33764,7 +33764,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 13980
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13983
@@ -33774,7 +33774,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 13984
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 13987
@@ -33784,12 +33784,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 13988
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 13991
-[TRAINER_PAT] =
+    [TRAINER_PAT] =
     {
 #line 13992
         .trainerName = _("PAT"),
@@ -33817,7 +33817,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 14001
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 14004
@@ -33827,7 +33827,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 14005
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 14008
@@ -33837,7 +33837,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 14009
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 14012
@@ -33847,7 +33847,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 14013
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 14016
@@ -33857,7 +33857,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 14017
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 14020
@@ -33867,12 +33867,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 14021
             .lvl = 25,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 14024
-[TRAINER_CRISTIN_1] =
+    [TRAINER_CRISTIN_1] =
     {
 #line 14025
         .trainerName = _("CRISTIN"),
@@ -33902,7 +33902,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 14035
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 14038
@@ -33912,12 +33912,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 14039
             .lvl = 29,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 14042
-[TRAINER_MAY_RUSTBORO_TREECKO] =
+    [TRAINER_MAY_RUSTBORO_TREECKO] =
     {
 #line 14043
         .trainerName = _("MAY"),
@@ -33945,7 +33945,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 14052
             .lvl = 13,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 14055
@@ -33955,12 +33955,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 14056
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 14059
-[TRAINER_MAY_RUSTBORO_TORCHIC] =
+    [TRAINER_MAY_RUSTBORO_TORCHIC] =
     {
 #line 14060
         .trainerName = _("MAY"),
@@ -33988,7 +33988,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 14069
             .lvl = 13,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 14072
@@ -33998,12 +33998,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
 #line 14073
             .lvl = 15,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 14076
-[TRAINER_ROXANNE_2] =
+    [TRAINER_ROXANNE_2] =
     {
 #line 14077
         .trainerName = _("ROXANNE"),
@@ -34033,7 +34033,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14087
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14089
                 MOVE_PROTECT,
@@ -34052,7 +34052,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14095
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14097
                 MOVE_SWORDS_DANCE,
@@ -34069,7 +34069,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14103
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14105
                 MOVE_IRON_TAIL,
@@ -34088,7 +34088,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14111
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14113
                 MOVE_DOUBLE_TEAM,
@@ -34100,7 +34100,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14118
-[TRAINER_ROXANNE_3] =
+    [TRAINER_ROXANNE_3] =
     {
 #line 14119
         .trainerName = _("ROXANNE"),
@@ -34130,7 +34130,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14129
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14131
                 MOVE_PROTECT,
@@ -34147,7 +34147,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14137
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14139
                 MOVE_PROTECT,
@@ -34166,7 +34166,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14145
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14147
                 MOVE_SWORDS_DANCE,
@@ -34183,7 +34183,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14153
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14155
                 MOVE_IRON_TAIL,
@@ -34202,7 +34202,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14161
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14163
                 MOVE_DOUBLE_TEAM,
@@ -34214,7 +34214,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14168
-[TRAINER_ROXANNE_4] =
+    [TRAINER_ROXANNE_4] =
     {
 #line 14169
         .trainerName = _("ROXANNE"),
@@ -34244,7 +34244,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14179
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14181
                 MOVE_PROTECT,
@@ -34261,7 +34261,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14187
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14189
                 MOVE_PROTECT,
@@ -34280,7 +34280,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14195
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14197
                 MOVE_SWORDS_DANCE,
@@ -34297,7 +34297,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14203
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14205
                 MOVE_IRON_TAIL,
@@ -34316,7 +34316,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14211
             .lvl = 47,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14213
                 MOVE_DOUBLE_TEAM,
@@ -34328,7 +34328,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14218
-[TRAINER_ROXANNE_5] =
+    [TRAINER_ROXANNE_5] =
     {
 #line 14219
         .trainerName = _("ROXANNE"),
@@ -34358,7 +34358,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14229
             .lvl = 47,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14231
                 MOVE_ROCK_SLIDE,
@@ -34375,7 +34375,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14237
             .lvl = 47,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14239
                 MOVE_FOCUS_PUNCH,
@@ -34392,7 +34392,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14245
             .lvl = 47,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14247
                 MOVE_PROTECT,
@@ -34411,7 +34411,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14253
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14255
                 MOVE_SWORDS_DANCE,
@@ -34428,7 +34428,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14261
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14263
                 MOVE_IRON_TAIL,
@@ -34447,7 +34447,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14269
             .lvl = 52,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14271
                 MOVE_DOUBLE_TEAM,
@@ -34459,7 +34459,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14276
-[TRAINER_BRAWLY_2] =
+    [TRAINER_BRAWLY_2] =
     {
 #line 14277
         .trainerName = _("BRAWLY"),
@@ -34489,7 +34489,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14287
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14289
                 MOVE_KARATE_CHOP,
@@ -34506,7 +34506,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14295
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14297
                 MOVE_PSYCHIC,
@@ -34523,7 +34523,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14303
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14305
                 MOVE_PURSUIT,
@@ -34542,7 +34542,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14311
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14313
                 MOVE_FAKE_OUT,
@@ -34554,7 +34554,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14318
-[TRAINER_BRAWLY_3] =
+    [TRAINER_BRAWLY_3] =
     {
 #line 14319
         .trainerName = _("BRAWLY"),
@@ -34584,7 +34584,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14329
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14331
                 MOVE_KARATE_CHOP,
@@ -34601,7 +34601,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14337
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14339
                 MOVE_PSYCHIC,
@@ -34618,7 +34618,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14345
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14347
                 MOVE_PURSUIT,
@@ -34637,7 +34637,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14353
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14355
                 MOVE_FAKE_OUT,
@@ -34649,7 +34649,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14360
-[TRAINER_BRAWLY_4] =
+    [TRAINER_BRAWLY_4] =
     {
 #line 14361
         .trainerName = _("BRAWLY"),
@@ -34677,7 +34677,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14371
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14373
                 MOVE_SKY_UPPERCUT,
@@ -34696,7 +34696,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14379
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14381
                 MOVE_KARATE_CHOP,
@@ -34713,7 +34713,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14387
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14389
                 MOVE_FOCUS_PUNCH,
@@ -34730,7 +34730,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14395
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14397
                 MOVE_PURSUIT,
@@ -34749,7 +34749,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14403
             .lvl = 47,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14405
                 MOVE_FAKE_OUT,
@@ -34761,7 +34761,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14410
-[TRAINER_BRAWLY_5] =
+    [TRAINER_BRAWLY_5] =
     {
 #line 14411
         .trainerName = _("BRAWLY"),
@@ -34789,7 +34789,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14421
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14423
                 MOVE_MEGA_KICK,
@@ -34806,7 +34806,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14429
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14431
                 MOVE_SKY_UPPERCUT,
@@ -34825,7 +34825,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14437
             .lvl = 48,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14439
                 MOVE_CROSS_CHOP,
@@ -34842,7 +34842,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14445
             .lvl = 48,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14447
                 MOVE_FOCUS_PUNCH,
@@ -34859,7 +34859,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14453
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14455
                 MOVE_PURSUIT,
@@ -34878,7 +34878,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14461
             .lvl = 52,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14463
                 MOVE_FAKE_OUT,
@@ -34890,7 +34890,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14468
-[TRAINER_WATTSON_2] =
+    [TRAINER_WATTSON_2] =
     {
 #line 14469
         .trainerName = _("WATTSON"),
@@ -34918,7 +34918,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14479
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14481
                 MOVE_THUNDER,
@@ -34935,7 +34935,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14487
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14489
                 MOVE_ROLLOUT,
@@ -34954,7 +34954,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14495
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14497
                 MOVE_SUPERSONIC,
@@ -34973,7 +34973,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14503
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14505
                 MOVE_BITE,
@@ -34985,7 +34985,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14510
-[TRAINER_WATTSON_3] =
+    [TRAINER_WATTSON_3] =
     {
 #line 14511
         .trainerName = _("WATTSON"),
@@ -35013,7 +35013,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14521
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14523
                 MOVE_THUNDER,
@@ -35030,7 +35030,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14529
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14531
                 MOVE_THUNDER,
@@ -35047,7 +35047,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14537
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14539
                 MOVE_ROLLOUT,
@@ -35066,7 +35066,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14545
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14547
                 MOVE_SUPERSONIC,
@@ -35085,7 +35085,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14553
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14555
                 MOVE_BITE,
@@ -35097,7 +35097,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14560
-[TRAINER_WATTSON_4] =
+    [TRAINER_WATTSON_4] =
     {
 #line 14561
         .trainerName = _("WATTSON"),
@@ -35125,7 +35125,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14571
             .lvl = 44,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14573
                 MOVE_THUNDER,
@@ -35142,7 +35142,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14579
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14581
                 MOVE_THUNDER,
@@ -35159,7 +35159,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14587
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14589
                 MOVE_ROLLOUT,
@@ -35178,7 +35178,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14595
             .lvl = 48,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14597
                 MOVE_SUPERSONIC,
@@ -35197,7 +35197,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14603
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14605
                 MOVE_BITE,
@@ -35209,7 +35209,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14610
-[TRAINER_WATTSON_5] =
+    [TRAINER_WATTSON_5] =
     {
 #line 14611
         .trainerName = _("WATTSON"),
@@ -35237,7 +35237,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14621
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14623
                 MOVE_SWIFT,
@@ -35254,7 +35254,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14629
             .lvl = 51,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14631
                 MOVE_THUNDER,
@@ -35271,7 +35271,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14637
             .lvl = 51,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14639
                 MOVE_THUNDER,
@@ -35288,7 +35288,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14645
             .lvl = 53,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14647
                 MOVE_ROLLOUT,
@@ -35307,7 +35307,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14653
             .lvl = 53,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14655
                 MOVE_SUPERSONIC,
@@ -35326,7 +35326,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14661
             .lvl = 55,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14663
                 MOVE_BITE,
@@ -35338,7 +35338,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14668
-[TRAINER_FLANNERY_2] =
+    [TRAINER_FLANNERY_2] =
     {
 #line 14669
         .trainerName = _("FLANNERY"),
@@ -35370,7 +35370,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14679
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14681
                 MOVE_OVERHEAT,
@@ -35387,7 +35387,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14687
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14689
                 MOVE_FLAMETHROWER,
@@ -35406,7 +35406,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14695
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14697
                 MOVE_OVERHEAT,
@@ -35425,7 +35425,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14703
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14705
                 MOVE_OVERHEAT,
@@ -35437,7 +35437,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14710
-[TRAINER_FLANNERY_3] =
+    [TRAINER_FLANNERY_3] =
     {
 #line 14711
         .trainerName = _("FLANNERY"),
@@ -35467,7 +35467,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14721
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14723
                 MOVE_HELPING_HAND,
@@ -35486,7 +35486,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14729
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14731
                 MOVE_OVERHEAT,
@@ -35503,7 +35503,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14737
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14739
                 MOVE_FLAMETHROWER,
@@ -35522,7 +35522,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14745
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14747
                 MOVE_OVERHEAT,
@@ -35541,7 +35541,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14753
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14755
                 MOVE_OVERHEAT,
@@ -35553,7 +35553,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14760
-[TRAINER_FLANNERY_4] =
+    [TRAINER_FLANNERY_4] =
     {
 #line 14761
         .trainerName = _("FLANNERY"),
@@ -35583,7 +35583,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14771
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14773
                 MOVE_ROAR,
@@ -35600,7 +35600,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14779
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14781
                 MOVE_HELPING_HAND,
@@ -35619,7 +35619,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14787
             .lvl = 48,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14789
                 MOVE_OVERHEAT,
@@ -35636,7 +35636,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14795
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14797
                 MOVE_FLAMETHROWER,
@@ -35655,7 +35655,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14803
             .lvl = 48,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14805
                 MOVE_OVERHEAT,
@@ -35674,7 +35674,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14811
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14813
                 MOVE_OVERHEAT,
@@ -35686,7 +35686,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14818
-[TRAINER_FLANNERY_5] =
+    [TRAINER_FLANNERY_5] =
     {
 #line 14819
         .trainerName = _("FLANNERY"),
@@ -35716,7 +35716,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14829
             .lvl = 51,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14831
                 MOVE_HELPING_HAND,
@@ -35735,7 +35735,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14837
             .lvl = 53,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14839
                 MOVE_OVERHEAT,
@@ -35752,7 +35752,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14845
             .lvl = 51,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14847
                 MOVE_ROAR,
@@ -35769,7 +35769,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14853
             .lvl = 51,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14855
                 MOVE_FLAMETHROWER,
@@ -35788,7 +35788,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14861
             .lvl = 53,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14863
                 MOVE_OVERHEAT,
@@ -35807,7 +35807,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14869
             .lvl = 55,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14871
                 MOVE_OVERHEAT,
@@ -35819,7 +35819,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14876
-[TRAINER_NORMAN_2] =
+    [TRAINER_NORMAN_2] =
     {
 #line 14877
         .trainerName = _("NORMAN"),
@@ -35847,7 +35847,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14887
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14889
                 MOVE_LIGHT_SCREEN,
@@ -35866,7 +35866,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14895
             .lvl = 42,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14897
                 MOVE_BLIZZARD,
@@ -35883,7 +35883,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14903
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14905
                 MOVE_TEETER_DANCE,
@@ -35902,7 +35902,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14911
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14913
                 MOVE_HYPER_BEAM,
@@ -35914,7 +35914,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14918
-[TRAINER_NORMAN_3] =
+    [TRAINER_NORMAN_3] =
     {
 #line 14919
         .trainerName = _("NORMAN"),
@@ -35944,7 +35944,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14929
             .lvl = 47,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14931
                 MOVE_BLIZZARD,
@@ -35961,7 +35961,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14937
             .lvl = 47,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14939
                 MOVE_LIGHT_SCREEN,
@@ -35978,7 +35978,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14945
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14947
                 MOVE_FAKE_OUT,
@@ -35995,7 +35995,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14953
             .lvl = 48,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14955
                 MOVE_TEETER_DANCE,
@@ -36014,7 +36014,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14961
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14963
                 MOVE_HYPER_BEAM,
@@ -36026,7 +36026,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14968
-[TRAINER_NORMAN_4] =
+    [TRAINER_NORMAN_4] =
     {
 #line 14969
         .trainerName = _("NORMAN"),
@@ -36056,7 +36056,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14979
             .lvl = 52,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14981
                 MOVE_BLIZZARD,
@@ -36073,7 +36073,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14987
             .lvl = 52,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14989
                 MOVE_LIGHT_SCREEN,
@@ -36090,7 +36090,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 14995
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 14997
                 MOVE_FAKE_OUT,
@@ -36107,7 +36107,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15003
             .lvl = 53,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15005
                 MOVE_TEETER_DANCE,
@@ -36126,7 +36126,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15011
             .lvl = 55,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15013
                 MOVE_HYPER_BEAM,
@@ -36138,7 +36138,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15018
-[TRAINER_NORMAN_5] =
+    [TRAINER_NORMAN_5] =
     {
 #line 15019
         .trainerName = _("NORMAN"),
@@ -36168,7 +36168,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15029
             .lvl = 57,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15031
                 MOVE_BLIZZARD,
@@ -36185,7 +36185,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15037
             .lvl = 57,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15039
                 MOVE_PROTECT,
@@ -36202,7 +36202,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15045
             .lvl = 55,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15047
                 MOVE_FAKE_OUT,
@@ -36219,7 +36219,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15053
             .lvl = 57,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15055
                 MOVE_TAKE_DOWN,
@@ -36236,7 +36236,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15061
             .lvl = 58,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15063
                 MOVE_TEETER_DANCE,
@@ -36255,7 +36255,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15069
             .lvl = 60,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15071
                 MOVE_HYPER_BEAM,
@@ -36267,7 +36267,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15076
-[TRAINER_WINONA_2] =
+    [TRAINER_WINONA_2] =
     {
 #line 15077
         .trainerName = _("WINONA"),
@@ -36299,7 +36299,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15087
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15089
                 MOVE_THUNDER_WAVE,
@@ -36316,7 +36316,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15095
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15097
                 MOVE_SUNNY_DAY,
@@ -36333,7 +36333,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15103
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15105
                 MOVE_SURF,
@@ -36350,7 +36350,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15111
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15113
                 MOVE_WHIRLWIND,
@@ -36369,7 +36369,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15119
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15121
                 MOVE_AERIAL_ACE,
@@ -36381,7 +36381,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15126
-[TRAINER_WINONA_3] =
+    [TRAINER_WINONA_3] =
     {
 #line 15127
         .trainerName = _("WINONA"),
@@ -36411,7 +36411,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15137
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15139
                 MOVE_HYPNOSIS,
@@ -36428,7 +36428,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15145
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15147
                 MOVE_SUNNY_DAY,
@@ -36447,7 +36447,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15153
             .lvl = 45,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15155
                 MOVE_THUNDER_WAVE,
@@ -36464,7 +36464,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15161
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15163
                 MOVE_SURF,
@@ -36481,7 +36481,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15169
             .lvl = 48,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15171
                 MOVE_WHIRLWIND,
@@ -36500,7 +36500,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15177
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15179
                 MOVE_AERIAL_ACE,
@@ -36512,7 +36512,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15184
-[TRAINER_WINONA_4] =
+    [TRAINER_WINONA_4] =
     {
 #line 15185
         .trainerName = _("WINONA"),
@@ -36542,7 +36542,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15195
             .lvl = 48,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15197
                 MOVE_HYPNOSIS,
@@ -36559,7 +36559,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15203
             .lvl = 49,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15205
                 MOVE_SUNNY_DAY,
@@ -36578,7 +36578,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15211
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15213
                 MOVE_THUNDER_WAVE,
@@ -36595,7 +36595,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15219
             .lvl = 51,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15221
                 MOVE_SURF,
@@ -36612,7 +36612,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15227
             .lvl = 53,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15229
                 MOVE_WHIRLWIND,
@@ -36631,7 +36631,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15235
             .lvl = 55,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15237
                 MOVE_AERIAL_ACE,
@@ -36643,7 +36643,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15242
-[TRAINER_WINONA_5] =
+    [TRAINER_WINONA_5] =
     {
 #line 15243
         .trainerName = _("WINONA"),
@@ -36673,7 +36673,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15253
             .lvl = 53,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15255
                 MOVE_HYPNOSIS,
@@ -36690,7 +36690,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15261
             .lvl = 54,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15263
                 MOVE_SUNNY_DAY,
@@ -36707,7 +36707,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15269
             .lvl = 55,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15271
                 MOVE_SURF,
@@ -36726,7 +36726,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15277
             .lvl = 55,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15279
                 MOVE_HYPER_BEAM,
@@ -36743,7 +36743,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15285
             .lvl = 58,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15287
                 MOVE_WHIRLWIND,
@@ -36762,7 +36762,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15293
             .lvl = 60,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15295
                 MOVE_SKY_ATTACK,
@@ -36774,7 +36774,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15300
-[TRAINER_TATE_AND_LIZA_2] =
+    [TRAINER_TATE_AND_LIZA_2] =
     {
 #line 15301
         .trainerName = _("TATE&LIZA"),
@@ -36802,7 +36802,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15311
             .lvl = 48,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15313
                 MOVE_YAWN,
@@ -36819,7 +36819,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15319
             .lvl = 49,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15321
                 MOVE_EARTHQUAKE,
@@ -36838,7 +36838,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15327
             .lvl = 49,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15329
                 MOVE_PSYCHIC,
@@ -36857,7 +36857,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15335
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15337
                 MOVE_EARTHQUAKE,
@@ -36876,7 +36876,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15343
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15345
                 MOVE_SUNNY_DAY,
@@ -36888,7 +36888,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15350
-[TRAINER_TATE_AND_LIZA_3] =
+    [TRAINER_TATE_AND_LIZA_3] =
     {
 #line 15351
         .trainerName = _("TATE&LIZA"),
@@ -36916,7 +36916,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15361
             .lvl = 53,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15363
                 MOVE_HYPNOSIS,
@@ -36933,7 +36933,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15369
             .lvl = 53,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15371
                 MOVE_YAWN,
@@ -36950,7 +36950,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15377
             .lvl = 54,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15379
                 MOVE_EARTHQUAKE,
@@ -36969,7 +36969,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15385
             .lvl = 54,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15387
                 MOVE_PSYCHIC,
@@ -36988,7 +36988,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15393
             .lvl = 55,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15395
                 MOVE_EARTHQUAKE,
@@ -37007,7 +37007,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15401
             .lvl = 55,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15403
                 MOVE_SUNNY_DAY,
@@ -37019,7 +37019,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15408
-[TRAINER_TATE_AND_LIZA_4] =
+    [TRAINER_TATE_AND_LIZA_4] =
     {
 #line 15409
         .trainerName = _("TATE&LIZA"),
@@ -37047,7 +37047,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15419
             .lvl = 58,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15421
                 MOVE_HYPNOSIS,
@@ -37064,7 +37064,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15427
             .lvl = 59,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15429
                 MOVE_EARTHQUAKE,
@@ -37081,7 +37081,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15435
             .lvl = 58,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15437
                 MOVE_YAWN,
@@ -37100,7 +37100,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15443
             .lvl = 59,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15445
                 MOVE_PSYCHIC,
@@ -37119,7 +37119,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15451
             .lvl = 60,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15453
                 MOVE_EARTHQUAKE,
@@ -37138,7 +37138,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15459
             .lvl = 60,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15461
                 MOVE_SUNNY_DAY,
@@ -37150,7 +37150,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15466
-[TRAINER_TATE_AND_LIZA_5] =
+    [TRAINER_TATE_AND_LIZA_5] =
     {
 #line 15467
         .trainerName = _("TATE&LIZA"),
@@ -37178,7 +37178,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15477
             .lvl = 63,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15479
                 MOVE_HYPNOSIS,
@@ -37195,7 +37195,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15485
             .lvl = 64,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15487
                 MOVE_EARTHQUAKE,
@@ -37212,7 +37212,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15493
             .lvl = 63,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15495
                 MOVE_YAWN,
@@ -37231,7 +37231,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15501
             .lvl = 64,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15503
                 MOVE_PSYCHIC,
@@ -37250,7 +37250,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15509
             .lvl = 65,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15511
                 MOVE_EARTHQUAKE,
@@ -37269,7 +37269,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15517
             .lvl = 65,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15519
                 MOVE_SUNNY_DAY,
@@ -37281,7 +37281,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15524
-[TRAINER_JUAN_2] =
+    [TRAINER_JUAN_2] =
     {
 #line 15525
         .trainerName = _("JUAN"),
@@ -37309,7 +37309,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15535
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15537
                 MOVE_HYPNOSIS,
@@ -37326,7 +37326,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15543
             .lvl = 46,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15545
                 MOVE_RAIN_DANCE,
@@ -37343,7 +37343,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15551
             .lvl = 48,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15553
                 MOVE_WATER_PULSE,
@@ -37362,7 +37362,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15559
             .lvl = 48,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15561
                 MOVE_REST,
@@ -37381,7 +37381,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15567
             .lvl = 51,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15569
                 MOVE_WATER_PULSE,
@@ -37393,7 +37393,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15574
-[TRAINER_JUAN_3] =
+    [TRAINER_JUAN_3] =
     {
 #line 15575
         .trainerName = _("JUAN"),
@@ -37421,7 +37421,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15585
             .lvl = 50,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15587
                 MOVE_HYPNOSIS,
@@ -37438,7 +37438,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15593
             .lvl = 51,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15595
                 MOVE_RAIN_DANCE,
@@ -37455,7 +37455,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15601
             .lvl = 53,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15603
                 MOVE_WATER_PULSE,
@@ -37474,7 +37474,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15609
             .lvl = 53,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15611
                 MOVE_REST,
@@ -37493,7 +37493,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15617
             .lvl = 56,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15619
                 MOVE_WATER_PULSE,
@@ -37505,7 +37505,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15624
-[TRAINER_JUAN_4] =
+    [TRAINER_JUAN_4] =
     {
 #line 15625
         .trainerName = _("JUAN"),
@@ -37533,7 +37533,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15635
             .lvl = 56,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15637
                 MOVE_HYDRO_PUMP,
@@ -37550,7 +37550,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15643
             .lvl = 58,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15645
                 MOVE_RAIN_DANCE,
@@ -37567,7 +37567,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15651
             .lvl = 56,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15653
                 MOVE_HYPNOSIS,
@@ -37584,7 +37584,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15659
             .lvl = 58,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15661
                 MOVE_WATER_PULSE,
@@ -37603,7 +37603,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15667
             .lvl = 58,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15669
                 MOVE_REST,
@@ -37622,7 +37622,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15675
             .lvl = 61,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15677
                 MOVE_WATER_PULSE,
@@ -37634,7 +37634,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15682
-[TRAINER_JUAN_5] =
+    [TRAINER_JUAN_5] =
     {
 #line 15683
         .trainerName = _("JUAN"),
@@ -37662,7 +37662,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15693
             .lvl = 61,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15695
                 MOVE_HYDRO_PUMP,
@@ -37679,7 +37679,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15701
             .lvl = 63,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15703
                 MOVE_RAIN_DANCE,
@@ -37696,7 +37696,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15709
             .lvl = 61,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15711
                 MOVE_HYPNOSIS,
@@ -37713,7 +37713,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15717
             .lvl = 63,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15719
                 MOVE_WATER_PULSE,
@@ -37732,7 +37732,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15725
             .lvl = 63,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15727
                 MOVE_REST,
@@ -37751,7 +37751,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15733
             .lvl = 66,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15735
                 MOVE_WATER_PULSE,
@@ -37763,7 +37763,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15740
-[TRAINER_ANGELO] =
+    [TRAINER_ANGELO] =
     {
 #line 15741
         .trainerName = _("ANGELO"),
@@ -37789,7 +37789,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 15750
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15752
                 MOVE_SHOCK_WAVE,
@@ -37805,7 +37805,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 15757
             .lvl = 17,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15759
                 MOVE_SHOCK_WAVE,
@@ -37816,7 +37816,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15763
-[TRAINER_DARIUS] =
+    [TRAINER_DARIUS] =
     {
 #line 15764
         .trainerName = _("DARIUS"),
@@ -37842,12 +37842,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
 #line 15773
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 15776
-[TRAINER_STEVEN] =
+    [TRAINER_STEVEN] =
     {
 #line 15777
         .trainerName = _("STEVEN"),
@@ -37875,7 +37875,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15787
             .lvl = 77,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15789
                 MOVE_TOXIC,
@@ -37892,7 +37892,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15795
             .lvl = 75,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15797
                 MOVE_REFLECT,
@@ -37909,7 +37909,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15803
             .lvl = 76,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15805
                 MOVE_THUNDER,
@@ -37926,7 +37926,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15811
             .lvl = 76,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15813
                 MOVE_GIGA_DRAIN,
@@ -37943,7 +37943,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15819
             .lvl = 76,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15821
                 MOVE_WATER_PULSE,
@@ -37962,7 +37962,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 15827
             .lvl = 78,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             .moves = {
 #line 15829
                 MOVE_EARTHQUAKE,
@@ -37974,7 +37974,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15834
-[TRAINER_ANABEL] =
+    [TRAINER_ANABEL] =
     {
 #line 15835
         .trainerName = _("ANABEL"),
@@ -38002,12 +38002,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 15844
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 15847
-[TRAINER_TUCKER] =
+    [TRAINER_TUCKER] =
     {
 #line 15848
         .trainerName = _("TUCKER"),
@@ -38033,12 +38033,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 15857
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 15860
-[TRAINER_SPENSER] =
+    [TRAINER_SPENSER] =
     {
 #line 15861
         .trainerName = _("SPENSER"),
@@ -38064,12 +38064,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 15870
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 15873
-[TRAINER_GRETA] =
+    [TRAINER_GRETA] =
     {
 #line 15874
         .trainerName = _("GRETA"),
@@ -38097,12 +38097,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 15883
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 15886
-[TRAINER_NOLAND] =
+    [TRAINER_NOLAND] =
     {
 #line 15887
         .trainerName = _("NOLAND"),
@@ -38128,12 +38128,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 15896
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 15899
-[TRAINER_LUCY] =
+    [TRAINER_LUCY] =
     {
 #line 15900
         .trainerName = _("LUCY"),
@@ -38161,12 +38161,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 15909
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 15912
-[TRAINER_BRANDON] =
+    [TRAINER_BRANDON] =
     {
 #line 15913
         .trainerName = _("BRANDON"),
@@ -38192,12 +38192,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 15922
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 15925
-[TRAINER_ANDRES_2] =
+    [TRAINER_ANDRES_2] =
     {
 #line 15926
         .trainerName = _("ANDRES"),
@@ -38223,7 +38223,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 15935
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 15938
@@ -38233,12 +38233,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 15939
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 15942
-[TRAINER_ANDRES_3] =
+    [TRAINER_ANDRES_3] =
     {
 #line 15943
         .trainerName = _("ANDRES"),
@@ -38264,7 +38264,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 15952
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 15955
@@ -38274,7 +38274,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 15956
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 15959
@@ -38284,12 +38284,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 15960
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 15963
-[TRAINER_ANDRES_4] =
+    [TRAINER_ANDRES_4] =
     {
 #line 15964
         .trainerName = _("ANDRES"),
@@ -38315,7 +38315,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 15973
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 15976
@@ -38325,7 +38325,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 15977
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 15980
@@ -38335,12 +38335,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 15981
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 15984
-[TRAINER_ANDRES_5] =
+    [TRAINER_ANDRES_5] =
     {
 #line 15985
         .trainerName = _("ANDRES"),
@@ -38366,7 +38366,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 15994
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 15997
@@ -38376,7 +38376,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 15998
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16001
@@ -38386,12 +38386,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16002
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16005
-[TRAINER_CORY_2] =
+    [TRAINER_CORY_2] =
     {
 #line 16006
         .trainerName = _("CORY"),
@@ -38417,7 +38417,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16015
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16018
@@ -38427,7 +38427,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16019
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16022
@@ -38437,12 +38437,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16023
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16026
-[TRAINER_CORY_3] =
+    [TRAINER_CORY_3] =
     {
 #line 16027
         .trainerName = _("CORY"),
@@ -38468,7 +38468,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16036
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16039
@@ -38478,7 +38478,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16040
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16043
@@ -38488,12 +38488,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16044
             .lvl = 32,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16047
-[TRAINER_CORY_4] =
+    [TRAINER_CORY_4] =
     {
 #line 16048
         .trainerName = _("CORY"),
@@ -38519,7 +38519,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16057
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16060
@@ -38529,7 +38529,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16061
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16064
@@ -38539,12 +38539,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16065
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16068
-[TRAINER_CORY_5] =
+    [TRAINER_CORY_5] =
     {
 #line 16069
         .trainerName = _("CORY"),
@@ -38570,7 +38570,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16078
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16081
@@ -38580,7 +38580,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16082
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16085
@@ -38590,12 +38590,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16086
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16089
-[TRAINER_PABLO_2] =
+    [TRAINER_PABLO_2] =
     {
 #line 16090
         .trainerName = _("PABLO"),
@@ -38621,7 +38621,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16099
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16102
@@ -38631,12 +38631,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16103
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16106
-[TRAINER_PABLO_3] =
+    [TRAINER_PABLO_3] =
     {
 #line 16107
         .trainerName = _("PABLO"),
@@ -38662,7 +38662,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16116
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16119
@@ -38672,7 +38672,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16120
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16123
@@ -38682,12 +38682,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16124
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16127
-[TRAINER_PABLO_4] =
+    [TRAINER_PABLO_4] =
     {
 #line 16128
         .trainerName = _("PABLO"),
@@ -38713,7 +38713,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16137
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16140
@@ -38723,7 +38723,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16141
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16144
@@ -38733,12 +38733,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16145
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16148
-[TRAINER_PABLO_5] =
+    [TRAINER_PABLO_5] =
     {
 #line 16149
         .trainerName = _("PABLO"),
@@ -38764,7 +38764,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16158
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16161
@@ -38774,7 +38774,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16162
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16165
@@ -38784,12 +38784,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16166
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16169
-[TRAINER_KOJI_2] =
+    [TRAINER_KOJI_2] =
     {
 #line 16170
         .trainerName = _("KOJI"),
@@ -38815,7 +38815,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16179
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16182
@@ -38825,12 +38825,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16183
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16186
-[TRAINER_KOJI_3] =
+    [TRAINER_KOJI_3] =
     {
 #line 16187
         .trainerName = _("KOJI"),
@@ -38856,7 +38856,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16196
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16199
@@ -38866,7 +38866,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16200
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16203
@@ -38876,12 +38876,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16204
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16207
-[TRAINER_KOJI_4] =
+    [TRAINER_KOJI_4] =
     {
 #line 16208
         .trainerName = _("KOJI"),
@@ -38907,7 +38907,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16217
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16220
@@ -38917,7 +38917,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16221
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16224
@@ -38927,12 +38927,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16225
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16228
-[TRAINER_KOJI_5] =
+    [TRAINER_KOJI_5] =
     {
 #line 16229
         .trainerName = _("KOJI"),
@@ -38958,7 +38958,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16238
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16241
@@ -38968,7 +38968,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16242
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16245
@@ -38978,12 +38978,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16246
             .lvl = 43,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16249
-[TRAINER_CRISTIN_2] =
+    [TRAINER_CRISTIN_2] =
     {
 #line 16250
         .trainerName = _("CRISTIN"),
@@ -39013,7 +39013,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
 #line 16260
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16263
@@ -39023,12 +39023,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
 #line 16264
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16267
-[TRAINER_CRISTIN_3] =
+    [TRAINER_CRISTIN_3] =
     {
 #line 16268
         .trainerName = _("CRISTIN"),
@@ -39058,7 +39058,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
 #line 16278
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16281
@@ -39068,7 +39068,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
 #line 16282
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16285
@@ -39078,12 +39078,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
 #line 16286
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16289
-[TRAINER_CRISTIN_4] =
+    [TRAINER_CRISTIN_4] =
     {
 #line 16290
         .trainerName = _("CRISTIN"),
@@ -39113,7 +39113,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 16300
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16303
@@ -39123,7 +39123,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
 #line 16304
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16307
@@ -39133,12 +39133,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 16308
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16311
-[TRAINER_CRISTIN_5] =
+    [TRAINER_CRISTIN_5] =
     {
 #line 16312
         .trainerName = _("CRISTIN"),
@@ -39168,7 +39168,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
 #line 16322
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16325
@@ -39178,7 +39178,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
 #line 16326
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16329
@@ -39188,12 +39188,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
 #line 16330
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16333
-[TRAINER_FERNANDO_2] =
+    [TRAINER_FERNANDO_2] =
     {
 #line 16334
         .trainerName = _("FERNANDO"),
@@ -39219,7 +39219,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16343
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16346
@@ -39229,7 +39229,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16347
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16350
@@ -39239,12 +39239,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16351
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16354
-[TRAINER_FERNANDO_3] =
+    [TRAINER_FERNANDO_3] =
     {
 #line 16355
         .trainerName = _("FERNANDO"),
@@ -39270,7 +39270,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16364
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16367
@@ -39280,7 +39280,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16368
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16371
@@ -39290,12 +39290,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16372
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16375
-[TRAINER_FERNANDO_4] =
+    [TRAINER_FERNANDO_4] =
     {
 #line 16376
         .trainerName = _("FERNANDO"),
@@ -39321,7 +39321,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16385
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16388
@@ -39331,7 +39331,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16389
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16392
@@ -39341,12 +39341,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16393
             .lvl = 39,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16396
-[TRAINER_FERNANDO_5] =
+    [TRAINER_FERNANDO_5] =
     {
 #line 16397
         .trainerName = _("FERNANDO"),
@@ -39372,7 +39372,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16406
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16409
@@ -39382,7 +39382,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16410
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16413
@@ -39392,12 +39392,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16414
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16417
-[TRAINER_SAWYER_2] =
+    [TRAINER_SAWYER_2] =
     {
 #line 16418
         .trainerName = _("SAWYER"),
@@ -39423,7 +39423,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16427
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16430
@@ -39433,12 +39433,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16431
             .lvl = 26,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16434
-[TRAINER_SAWYER_3] =
+    [TRAINER_SAWYER_3] =
     {
 #line 16435
         .trainerName = _("SAWYER"),
@@ -39464,7 +39464,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16444
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16447
@@ -39474,7 +39474,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16448
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16451
@@ -39484,12 +39484,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16452
             .lvl = 28,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16455
-[TRAINER_SAWYER_4] =
+    [TRAINER_SAWYER_4] =
     {
 #line 16456
         .trainerName = _("SAWYER"),
@@ -39515,7 +39515,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16465
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16468
@@ -39525,7 +39525,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16469
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16472
@@ -39535,12 +39535,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16473
             .lvl = 30,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16476
-[TRAINER_SAWYER_5] =
+    [TRAINER_SAWYER_5] =
     {
 #line 16477
         .trainerName = _("SAWYER"),
@@ -39566,7 +39566,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16486
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16489
@@ -39576,7 +39576,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16490
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16493
@@ -39586,12 +39586,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16494
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16497
-[TRAINER_GABRIELLE_2] =
+    [TRAINER_GABRIELLE_2] =
     {
 #line 16498
         .trainerName = _("GABRIELLE"),
@@ -39619,7 +39619,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16507
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16510
@@ -39629,7 +39629,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16511
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16514
@@ -39639,7 +39639,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16515
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16518
@@ -39649,7 +39649,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16519
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16522
@@ -39659,7 +39659,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16523
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16526
@@ -39669,12 +39669,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16527
             .lvl = 31,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16530
-[TRAINER_GABRIELLE_3] =
+    [TRAINER_GABRIELLE_3] =
     {
 #line 16531
         .trainerName = _("GABRIELLE"),
@@ -39702,7 +39702,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16540
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16543
@@ -39712,7 +39712,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16544
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16547
@@ -39722,7 +39722,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16548
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16551
@@ -39732,7 +39732,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16552
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16555
@@ -39742,7 +39742,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16556
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16559
@@ -39752,12 +39752,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16560
             .lvl = 33,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16563
-[TRAINER_GABRIELLE_4] =
+    [TRAINER_GABRIELLE_4] =
     {
 #line 16564
         .trainerName = _("GABRIELLE"),
@@ -39785,7 +39785,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16573
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16576
@@ -39795,7 +39795,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16577
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16580
@@ -39805,7 +39805,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16581
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16584
@@ -39815,7 +39815,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16585
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16588
@@ -39825,7 +39825,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16589
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16592
@@ -39835,12 +39835,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16593
             .lvl = 35,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16596
-[TRAINER_GABRIELLE_5] =
+    [TRAINER_GABRIELLE_5] =
     {
 #line 16597
         .trainerName = _("GABRIELLE"),
@@ -39868,7 +39868,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16606
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16609
@@ -39878,7 +39878,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16610
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16613
@@ -39888,7 +39888,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16614
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16617
@@ -39898,7 +39898,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16618
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16621
@@ -39908,7 +39908,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16622
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16625
@@ -39918,12 +39918,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16626
             .lvl = 37,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16629
-[TRAINER_THALIA_2] =
+    [TRAINER_THALIA_2] =
     {
 #line 16630
         .trainerName = _("THALIA"),
@@ -39951,7 +39951,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16639
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16642
@@ -39961,12 +39961,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
 #line 16643
             .lvl = 34,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16646
-[TRAINER_THALIA_3] =
+    [TRAINER_THALIA_3] =
     {
 #line 16647
         .trainerName = _("THALIA"),
@@ -39994,7 +39994,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16656
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16659
@@ -40004,7 +40004,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16660
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16663
@@ -40014,12 +40014,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
 #line 16664
             .lvl = 36,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16667
-[TRAINER_THALIA_4] =
+    [TRAINER_THALIA_4] =
     {
 #line 16668
         .trainerName = _("THALIA"),
@@ -40047,7 +40047,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16677
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16680
@@ -40057,7 +40057,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16681
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16684
@@ -40067,12 +40067,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
 #line 16685
             .lvl = 38,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16688
-[TRAINER_THALIA_5] =
+    [TRAINER_THALIA_5] =
     {
 #line 16689
         .trainerName = _("THALIA"),
@@ -40100,7 +40100,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16698
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16701
@@ -40110,7 +40110,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16702
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16705
@@ -40120,12 +40120,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
 #line 16706
             .lvl = 40,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16709
-[TRAINER_MARIELA] =
+    [TRAINER_MARIELA] =
     {
 #line 16710
         .trainerName = _("MARIELA"),
@@ -40151,12 +40151,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 16718
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16721
-[TRAINER_ALVARO] =
+    [TRAINER_ALVARO] =
     {
 #line 16722
         .trainerName = _("ALVARO"),
@@ -40180,7 +40180,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 16730
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
             {
 #line 16733
@@ -40190,12 +40190,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 16734
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16737
-[TRAINER_EVERETT] =
+    [TRAINER_EVERETT] =
     {
 #line 16738
         .trainerName = _("EVERETT"),
@@ -40219,12 +40219,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 16746
             .lvl = 41,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16749
-[TRAINER_RED] =
+    [TRAINER_RED] =
     {
 #line 16750
         .trainerName = _("RED"),
@@ -40248,12 +40248,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 16758
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16761
-[TRAINER_LEAF] =
+    [TRAINER_LEAF] =
     {
 #line 16762
         .trainerName = _("LEAF"),
@@ -40279,12 +40279,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 16770
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16773
-[TRAINER_BRENDAN_PLACEHOLDER] =
+    [TRAINER_BRENDAN_PLACEHOLDER] =
     {
 #line 16774
         .trainerName = _("BRENDAN"),
@@ -40308,12 +40308,12 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 16782
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
 #line 16785
-[TRAINER_MAY_PLACEHOLDER] =
+    [TRAINER_MAY_PLACEHOLDER] =
     {
 #line 16786
         .trainerName = _("MAY"),
@@ -40339,7 +40339,7 @@ F_TRAINER_FEMALE |
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
 #line 16794
             .lvl = 5,
-            .nature = NATURE_HARDY,
+            .nature = RANDOM_NATURE,
             },
         },
     },
