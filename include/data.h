@@ -37,13 +37,18 @@ struct MonCoords
 
 struct TrainerMon
 {  
+    const u8 *ev;
     u32 iv;
     u16 moves[MAX_MON_MOVES];
     u16 species;
     u16 heldItem;
+    u16 ability;
+    u8 ball;
     u8 lvl;
-    u8 nature;
-    u8 gender;
+    u8 friendship;
+    u8 nature:5;
+    u8 gender:2;
+    bool8 isShiny:1;
 };
 
 struct Trainer

@@ -1316,26 +1316,34 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     SetBoxMonData(boxMon, MON_DATA_PERSONALITY, &personality);
 
     // Determine original trainer ID
-    if (otIdType == OT_ID_RANDOM_NO_SHINY)
+    switch (otIdType)
     {
-        u32 shinyValue;
-        do
+        case OT_ID_RANDOM_NO_SHINY:
         {
-            // Choose random OT IDs until one that results in a non-shiny Pokémon
-            value = Random32();
-            shinyValue = GET_SHINY_VALUE(value, personality);
-        } while (shinyValue < SHINY_ODDS);
-    }
-    else if (otIdType == OT_ID_PRESET)
-    {
-        value = fixedOtId;
-    }
-    else // Player is the OT
-    {
-        value = gSaveBlock2Ptr->playerTrainerId[0]
-              | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
-              | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
-              | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
+            do
+            {
+                // Choose random OT IDs until one that results in a non-shiny Pokémon
+                value = Random32();
+            } while (GetShinyValue(value, personality) < SHINY_ODDS);
+            break;
+        }
+        case OT_ID_PRESET:
+            value = fixedOtId;
+            break;
+        case OT_ID_SHINY:
+            for (value = 0; value < -1; value++)
+            {
+                if (GetShinyValue(value, personality) < SHINY_ODDS)
+                    break;
+            }
+            break;
+        case OT_ID_PLAYER_ID:
+        default:
+            value = gSaveBlock2Ptr->playerTrainerId[0]
+                | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
+                | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
+                | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
+            break;
     }
 
     SetBoxMonData(boxMon, MON_DATA_OT_ID, &value);
@@ -5559,7 +5567,7 @@ const u32 *GetMonSpritePalFromSpeciesAndPersonality(u16 species, u32 otId, u32 p
     if (species > NUM_SPECIES)
         return gSpeciesInfo[SPECIES_NONE].palette;
 
-    shinyValue = GET_SHINY_VALUE(otId, personality);
+    shinyValue = GetShinyValue(otId, personality);
     if (shinyValue < SHINY_ODDS)
         return gSpeciesInfo[species].shinyPalette;
     else
@@ -5578,7 +5586,7 @@ u16 GetMonSpritePalTagFromOtIdPersonality(u16 species, u32 otId , u32 personalit
 {
     u32 shinyValue;
 
-    shinyValue = GET_SHINY_VALUE(otId, personality);
+    shinyValue = GetShinyValue(otId, personality);
     if (shinyValue < SHINY_ODDS)
         return species + SPECIES_SHINY_TAG;
     else
@@ -5743,7 +5751,7 @@ bool8 IsMonShiny(struct Pokemon *mon)
 bool8 IsShinyOtIdPersonality(u32 otId, u32 personality)
 {
     bool8 retVal = FALSE;
-    u32 shinyValue = GET_SHINY_VALUE(otId, personality);
+    u32 shinyValue = GetShinyValue(otId, personality);
     if (shinyValue < SHINY_ODDS)
         retVal = TRUE;
     return retVal;

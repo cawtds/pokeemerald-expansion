@@ -1687,12 +1687,6 @@ static void fprint_trainers(const char *output_path, FILE *f, struct Parsed *par
     {
         struct Trainer *trainer = &parsed->trainers[i];
         fprintf(f, "#line %d\n", trainer->id_line);
-        // if (is_empty_string(trainer->difficulty))
-        //     trainer->difficulty = literal_string("Normal");
-        // else
-        //     fprintf(f, "#line %d\n", trainer->difficulty_line);
-        // fprint_constant(f, "    [DIFFICULTY",trainer->difficulty);
-        // fprintf(f, "]");
 
         fprintf(f, "    [");
         fprint_string(f, trainer->id);
@@ -1929,43 +1923,13 @@ static void fprint_trainers(const char *output_path, FILE *f, struct Parsed *par
                 fprintf(f, "            .nature = RANDOM_NATURE,\n");
             }
 
-            // if (pokemon->shiny_line)
-            // {
-            //     fprintf(f, "#line %d\n", pokemon->shiny_line);
-            //     fprintf(f, "            .isShiny = ");
-            //     fprint_bool(f, pokemon->shiny);
-            //     fprintf(f, ",\n");
-            // }
-
-            // if (pokemon->dynamax_level_line)
-            // {
-            //     fprintf(f, "#line %d\n", pokemon->dynamax_level_line);
-            //     fprintf(f, "            .dynamaxLevel = %d,\n", pokemon->dynamax_level);
-            // }
-            // else
-            // {
-            //     fprintf(f, "            .dynamaxLevel = MAX_DYNAMAX_LEVEL,\n");
-            // }
-
-            // if (pokemon->gigantamax_factor_line)
-            // {
-            //     fprintf(f, "#line %d\n", pokemon->gigantamax_factor_line);
-            //     fprintf(f, "            .gigantamaxFactor = ");
-            //     fprint_bool(f, pokemon->gigantamax_factor);
-            //     fprintf(f, ",\n");
-            // }
-
-            // if (pokemon->dynamax_level_line || pokemon->gigantamax_factor_line)
-            // {
-            //     fprintf(f, "            .shouldUseDynamax = TRUE,\n");
-            // }
-            // else if (pokemon->tera_type_line)
-            // {
-            //     fprintf(f, "#line %d\n", pokemon->tera_type_line);
-            //     fprintf(f, "            .teraType = ");
-            //     fprint_constant(f, "TYPE", pokemon->tera_type);
-            //     fprintf(f, ",\n");
-            // }
+            if (pokemon->shiny_line)
+            {
+                fprintf(f, "#line %d\n", pokemon->shiny_line);
+                fprintf(f, "            .isShiny = ");
+                fprint_bool(f, pokemon->shiny);
+                fprintf(f, ",\n");
+            }
 
             if (pokemon->tags_line)
             {

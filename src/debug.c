@@ -3268,7 +3268,7 @@ static void CreateMonWithNatureAndShininess(struct Pokemon *mon, u16 species, u8
 
     for (personality = nature; personality < (u32) -1 - NUM_NATURES; personality += NUM_NATURES)
     {
-        if (!forceShiny || GET_SHINY_VALUE(otId, personality) < SHINY_ODDS)
+        if (!forceShiny || GetShinyValue(otId, personality) < SHINY_ODDS)
             break;
     }
 

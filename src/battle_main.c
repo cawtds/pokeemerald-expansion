@@ -1830,6 +1830,17 @@ static void SpriteCB_UnusedBattleInit_Main(struct Sprite *sprite)
     }
 }
 
+static u32 GeneratePersonalityForGender(u32 gender, u32 species)
+{
+    const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[species];
+    if (gender == MON_GENDERLESS)
+        return 0;
+    else if (gender == MON_MALE)
+        return ((255 - speciesInfo->genderRatio) / 2) + speciesInfo->genderRatio;
+    else
+        return speciesInfo->genderRatio / 2;
+}
+
 static void ModifyPersonalityForNature(u32 *personality, u32 newNature)
 {
     u32 nature = GetNatureFromPersonality(*personality);
@@ -1889,15 +1900,50 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
             for (j = 0; GetSpeciesName(partyData[i].species)[j] != EOS; j++)
                 nameHash += GetSpeciesName(partyData[i].species)[j];
-
             personalityValue += nameHash << 8;
-            CreateMon(&party[i], partyData[i].species, partyData[i].lvl, 0, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+
+            if (partyData[i].gender == TRAINER_MON_MALE)
+                personalityValue = (personalityValue & 0xFFFFFF00) | GeneratePersonalityForGender(MON_MALE, partyData[i].species);
+            else if (partyData[i].gender == TRAINER_MON_FEMALE)
+                personalityValue = (personalityValue & 0xFFFFFF00) | GeneratePersonalityForGender(MON_FEMALE, partyData[i].species);
+            else if (partyData[i].gender == TRAINER_MON_RANDOM_GENDER)
+                personalityValue = (personalityValue & 0xFFFFFF00) | GeneratePersonalityForGender(Random() & 1 ? MON_MALE : MON_FEMALE, partyData[i].species);
+
+            if (partyData[i].nature != RANDOM_NATURE)
+                ModifyPersonalityForNature(&personalityValue, partyData[i].nature);
+
+            CreateMon(&party[i], partyData[i].species, partyData[i].lvl, 0, TRUE, personalityValue, partyData[i].isShiny ? OT_ID_SHINY : OT_ID_RANDOM_NO_SHINY, 0);
 
             SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
             SetMonData(&party[i], MON_DATA_IVS, &(partyData[i].iv));
 
-            if (partyData[i].nature != RANDOM_NATURE)
-                ModifyPersonalityForNature(&personalityValue, partyData[i].nature);
+            if (partyData[i].ev != NULL)
+            {
+                SetMonData(&party[i], MON_DATA_HP_EV, &(partyData[i].ev[0]));
+                SetMonData(&party[i], MON_DATA_ATK_EV, &(partyData[i].ev[1]));
+                SetMonData(&party[i], MON_DATA_DEF_EV, &(partyData[i].ev[2]));
+                SetMonData(&party[i], MON_DATA_SPATK_EV, &(partyData[i].ev[3]));
+                SetMonData(&party[i], MON_DATA_SPDEF_EV, &(partyData[i].ev[4]));
+                SetMonData(&party[i], MON_DATA_SPEED_EV, &(partyData[i].ev[5]));
+            }
+
+            if (partyData[i].ball != ITEM_NONE)
+                SetMonData(&party[i], MON_DATA_POKEBALL, &partyData[i].ball);
+
+            if (partyData[i].ability != ABILITY_NONE)
+            {
+                const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[partyData[i].species];
+                u32 maxAbilityNum = ARRAY_COUNT(speciesInfo->abilities);
+                u16 abilityNum;
+                for (abilityNum = 0; abilityNum < maxAbilityNum; ++abilityNum)
+                {
+                    if (speciesInfo->abilities[abilityNum] == partyData[i].ability)
+                        break;
+                }
+                if (abilityNum >= maxAbilityNum)
+                    abilityNum = 0;
+                SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
+            }
 
             for (j = 0; j < MAX_MON_MOVES; j++)
             {
@@ -1908,6 +1954,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
                 SetMonData(&party[i], MON_DATA_PP1 + j, &pp);
             }
+
+            CalculateMonStats(&party[i]);
         }
 
         gBattleTypeFlags |= gTrainers[trainerNum].doubleBattle;
