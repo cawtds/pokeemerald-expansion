@@ -1574,35 +1574,37 @@ static void PlayerHandleSwitchInAnim(u32 battler)
 
 #define sSpeedX data[0]
 
+u32 LinkPlayerGetTrainerPic(u32 multiplayerId)
+{    
+    u32 gender = gLinkPlayers[multiplayerId].gender;
+    u32 version = gLinkPlayers[multiplayerId].version & 0xFF;
+
+    if (version == VERSION_FIRE_RED || version == VERSION_LEAF_GREEN)
+        return gender + TRAINER_BACK_PIC_RED;
+    
+    if (version == VERSION_RUBY || version == VERSION_SAPPHIRE)
+        return gender + TRAINER_BACK_PIC_RUBY_SAPPHIRE_BRENDAN;
+
+    return gender + TRAINER_BACK_PIC_BRENDAN;
+}
+
+static u32 PlayerGetTrainerPic()
+{
+    u32 version;
+    if (gBattleTypeFlags & BATTLE_TYPE_LINK)
+        return LinkPlayerGetTrainerPic(GetMultiplayerId());
+    else
+        return gSaveBlock2Ptr->playerGender;
+}
+
 // In emerald it's possible to have a tag battle in the battle frontier facilities with AI
 // which use the front sprite for both the player and the partner as opposed to any other battles (including the one with Steven)
 // that use an animated back pic.
 static void PlayerHandleDrawTrainerPic(u32 battler)
 {
+    u32 trainerPicId = PlayerGetTrainerPic();
+    bool32 isFrontPic;
     s16 xPos, yPos;
-    u32 trainerPicId;
-
-    if (gBattleTypeFlags & BATTLE_TYPE_LINK)
-    {
-        if ((gLinkPlayers[GetMultiplayerId()].version & 0xFF) == VERSION_FIRE_RED
-            || (gLinkPlayers[GetMultiplayerId()].version & 0xFF) == VERSION_LEAF_GREEN)
-        {
-            trainerPicId = gLinkPlayers[GetMultiplayerId()].gender + TRAINER_BACK_PIC_RED;
-        }
-        else if ((gLinkPlayers[GetMultiplayerId()].version & 0xFF) == VERSION_RUBY
-                 || (gLinkPlayers[GetMultiplayerId()].version & 0xFF) == VERSION_SAPPHIRE)
-        {
-            trainerPicId = gLinkPlayers[GetMultiplayerId()].gender + TRAINER_BACK_PIC_RUBY_SAPPHIRE_BRENDAN;
-        }
-        else
-        {
-            trainerPicId = gLinkPlayers[GetMultiplayerId()].gender + TRAINER_BACK_PIC_BRENDAN;
-        }
-    }
-    else
-    {
-        trainerPicId = gSaveBlock2Ptr->playerGender;
-    }
 
     if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
     {
@@ -1614,7 +1616,7 @@ static void PlayerHandleDrawTrainerPic(u32 battler)
         if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && gPartnerTrainerId != TRAINER_STEVEN_PARTNER)
         {
             xPos = 90;
-            yPos = (8 - gTrainerFrontPicCoords[trainerPicId].size) * 4 + 80;
+            yPos = 80;
         }
         else
         {
@@ -1632,32 +1634,15 @@ static void PlayerHandleDrawTrainerPic(u32 battler)
     if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && gPartnerTrainerId != TRAINER_STEVEN_PARTNER)
     {
         trainerPicId = PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender);
-        DecompressTrainerFrontPic(trainerPicId, battler);
-        SetMultiuseSpriteTemplateToTrainerFront(trainerPicId, GetBattlerPosition(battler));
-        gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate, xPos, yPos, GetBattlerSpriteSubpriority(battler));
-
-        gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = IndexOfSpritePaletteTag(gTrainerFrontPicPaletteTable[trainerPicId].tag);
-        gSprites[gBattlerSpriteIds[battler]].x2 = DISPLAY_WIDTH;
-        gSprites[gBattlerSpriteIds[battler]].y2 = 48;
-        gSprites[gBattlerSpriteIds[battler]].sSpeedX = -2;
-        gSprites[gBattlerSpriteIds[battler]].callback = SpriteCB_TrainerSlideIn;
-        gSprites[gBattlerSpriteIds[battler]].oam.affineMode = ST_OAM_AFFINE_OFF;
-        gSprites[gBattlerSpriteIds[battler]].hFlip = 1;
+        isFrontPic = TRUE;
     }
     // Use the back pic in any other scenario.
     else
     {
-        DecompressTrainerBackPic(trainerPicId, battler);
-        SetMultiuseSpriteTemplateToTrainerBack(trainerPicId, GetBattlerPosition(battler));
-        gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate, xPos, yPos, GetBattlerSpriteSubpriority(battler));
-
-        gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = battler;
-        gSprites[gBattlerSpriteIds[battler]].x2 = DISPLAY_WIDTH;
-        gSprites[gBattlerSpriteIds[battler]].sSpeedX = -2;
-        gSprites[gBattlerSpriteIds[battler]].callback = SpriteCB_TrainerSlideIn;
+        isFrontPic = FALSE;
     }
 
-    gBattlerControllerFuncs[battler] = CompleteOnBattlerSpriteCallbackDummy;
+    BtlController_HandleDrawTrainerPic(battler, trainerPicId, xPos, yPos, GetBattlerSpriteSubpriority(battler), isFrontPic);
 }
 
 static void PlayerHandleTrainerSlide(u32 battler)

@@ -414,17 +414,7 @@ static void WallyHandleSwitchInAnim(u32 battler)
 
 static void WallyHandleDrawTrainerPic(u32 battler)
 {
-    DecompressTrainerBackPic(TRAINER_BACK_PIC_WALLY, battler);
-    SetMultiuseSpriteTemplateToTrainerBack(TRAINER_BACK_PIC_WALLY, GetBattlerPosition(battler));
-    gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate,
-                                               80,
-                                               80 + 4 * (8 - gTrainerBackPicCoords[TRAINER_BACK_PIC_WALLY].size),
-                                               30);
-    gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = battler;
-    gSprites[gBattlerSpriteIds[battler]].x2 = DISPLAY_WIDTH;
-    gSprites[gBattlerSpriteIds[battler]].sSpeedX = -2;
-    gSprites[gBattlerSpriteIds[battler]].callback = SpriteCB_TrainerSlideIn;
-    gBattlerControllerFuncs[battler] = CompleteOnBattlerSpriteCallbackDummy;
+    BtlController_HandleDrawTrainerPic(battler, TRAINER_BACK_PIC_WALLY, 80, 80 + 4 * (8 - gTrainerBackPicCoords[TRAINER_BACK_PIC_WALLY].size), 30, FALSE);
 }
 
 static void WallyHandleTrainerSlide(u32 battler)

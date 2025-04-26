@@ -416,8 +416,8 @@ static void LinkPartnerHandleSwitchInAnim(u32 battler)
 
 static void LinkPartnerHandleDrawTrainerPic(u32 battler)
 {
+    u32 trainerPicId = LinkPlayerGetTrainerPic(GetBattlerMultiplayerId(battler));
     s16 xPos;
-    u32 trainerPicId;
 
     if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
     {
@@ -431,31 +431,7 @@ static void LinkPartnerHandleDrawTrainerPic(u32 battler)
         xPos = 80;
     }
 
-    if ((gLinkPlayers[GetBattlerMultiplayerId(battler)].version & 0xFF) == VERSION_FIRE_RED
-        || (gLinkPlayers[GetBattlerMultiplayerId(battler)].version & 0xFF) == VERSION_LEAF_GREEN)
-    {
-        trainerPicId = gLinkPlayers[GetBattlerMultiplayerId(battler)].gender + TRAINER_BACK_PIC_RED;
-    }
-    else if ((gLinkPlayers[GetBattlerMultiplayerId(battler)].version & 0xFF) == VERSION_RUBY
-             || (gLinkPlayers[GetBattlerMultiplayerId(battler)].version & 0xFF) == VERSION_SAPPHIRE)
-    {
-        trainerPicId = gLinkPlayers[GetBattlerMultiplayerId(battler)].gender + TRAINER_BACK_PIC_RUBY_SAPPHIRE_BRENDAN;
-    }
-    else
-    {
-        trainerPicId = gLinkPlayers[GetBattlerMultiplayerId(battler)].gender;
-    }
-
-    DecompressTrainerBackPic(trainerPicId, battler);
-    SetMultiuseSpriteTemplateToTrainerBack(trainerPicId, GetBattlerPosition(battler));
-    gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate, xPos, (8 - gTrainerBackPicCoords[trainerPicId].size) * 4 + 80, GetBattlerSpriteSubpriority(battler));
-
-    gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = battler;
-    gSprites[gBattlerSpriteIds[battler]].x2 = DISPLAY_WIDTH;
-    gSprites[gBattlerSpriteIds[battler]].sSpeedX = -2;
-    gSprites[gBattlerSpriteIds[battler]].callback = SpriteCB_TrainerSlideIn;
-
-    gBattlerControllerFuncs[battler] = CompleteOnBattlerSpriteCallbackDummy;
+    BtlController_HandleDrawTrainerPic(battler, trainerPicId, xPos, (8 - gTrainerBackPicCoords[trainerPicId].size) * 4 + 80, GetBattlerSpriteSubpriority(battler), FALSE);
 }
 
 #undef sSpeedX

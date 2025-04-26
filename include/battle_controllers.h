@@ -252,6 +252,7 @@ void BtlController_HandleSetRawMonData(u32 battler);
 void BtlController_HandleLoadMonSprite(u32 battler, void (*controllerCallback)(u32 battler));
 void BtlController_HandleSwitchInAnim(u32 battler, void (*controllerCallback)(u32 battler));
 void BtlController_HandleReturnMonToBall(u32 battler);
+void BtlController_HandleDrawTrainerPic(u32 battler, u32 trainerPicId, s16 xPos, s16 yPos, s32 subpriority, bool32 isFrontPic);
 
 void BtlController_TerminatorNop(u32 battler);
 
@@ -269,6 +270,7 @@ void Task_PlayerController_RestoreBgmAfterCry(u8 taskId);
 void ActionSelectionCreateCursorAt(u8 cursorPos, u8 unused);
 void ActionSelectionDestroyCursorAt(u8 cursorPos);
 void InitMoveSelectionsVarsAndStrings(u32 battler);
+u32 LinkPlayerGetTrainerPic(u32 multiplayerId);
 
 // recorded player controller
 void SetControllerToRecordedPlayer(u32 battler);

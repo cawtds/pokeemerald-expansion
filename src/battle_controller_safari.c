@@ -22,6 +22,7 @@
 #include "window.h"
 #include "constants/battle_anim.h"
 #include "constants/songs.h"
+#include "constants/trainers.h"
 #include "constants/rgb.h"
 
 static void SafariHandleDrawTrainerPic(u32 battler);
@@ -275,18 +276,8 @@ static void UNUSED CompleteOnFinishedStatusAnimation(u32 battler)
 
 static void SafariHandleDrawTrainerPic(u32 battler)
 {
-    DecompressTrainerBackPic(gSaveBlock2Ptr->playerGender, battler);
-    SetMultiuseSpriteTemplateToTrainerBack(gSaveBlock2Ptr->playerGender, GetBattlerPosition(battler));
-    gBattlerSpriteIds[battler] = CreateSprite(
-      &gMultiuseSpriteTemplate,
-      80,
-      (8 - gTrainerBackPicCoords[gSaveBlock2Ptr->playerGender].size) * 4 + 80,
-      30);
-    gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = battler;
-    gSprites[gBattlerSpriteIds[battler]].x2 = DISPLAY_WIDTH;
-    gSprites[gBattlerSpriteIds[battler]].sSpeedX = -2;
-    gSprites[gBattlerSpriteIds[battler]].callback = SpriteCB_TrainerSlideIn;
-    gBattlerControllerFuncs[battler] = CompleteOnBattlerSpriteCallbackDummy;
+    u32 trainerPicId = gSaveBlock2Ptr->playerGender == MALE ? TRAINER_BACK_PIC_BRENDAN : TRAINER_BACK_PIC_MAY;
+    BtlController_HandleDrawTrainerPic(battler, trainerPicId, 80, (8 - gTrainerBackPicCoords[gSaveBlock2Ptr->playerGender].size) * 4 + 80, 30, FALSE);
 }
 
 #undef sSpeedX

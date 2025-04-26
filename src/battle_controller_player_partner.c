@@ -599,50 +599,26 @@ static void PlayerPartnerHandleSwitchInAnim(u32 battler)
 // which use the front sprite for both the player and the partner as opposed to any other battles (including the one with Steven) that use the back pic as well as animate it
 static void PlayerPartnerHandleDrawTrainerPic(u32 battler)
 {
-    s16 xPos, yPos;
     u32 trainerPicId;
+    bool32 isFrontPic;
+    s16 xPos, yPos;
 
     if (gPartnerTrainerId == TRAINER_STEVEN_PARTNER)
     {
         trainerPicId = TRAINER_BACK_PIC_STEVEN;
         xPos = 90;
         yPos = (8 - gTrainerBackPicCoords[trainerPicId].size) * 4 + 80;
+        isFrontPic = FALSE;
     }
     else
     {
         trainerPicId = GetFrontierTrainerFrontSpriteId(gPartnerTrainerId);
         xPos = 32;
         yPos = (8 - gTrainerFrontPicCoords[trainerPicId].size) * 4 + 80;
+        isFrontPic = TRUE;
     }
 
-    // Use back pic only if the partner is Steven
-    if (gPartnerTrainerId == TRAINER_STEVEN_PARTNER)
-    {
-        DecompressTrainerBackPic(trainerPicId, battler);
-        SetMultiuseSpriteTemplateToTrainerBack(trainerPicId, GetBattlerPosition(battler));
-        gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate, xPos, yPos, GetBattlerSpriteSubpriority(battler));
-
-        gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = battler;
-        gSprites[gBattlerSpriteIds[battler]].x2 = DISPLAY_WIDTH;
-        gSprites[gBattlerSpriteIds[battler]].sSpeedX = -2;
-        gSprites[gBattlerSpriteIds[battler]].callback = SpriteCB_TrainerSlideIn;
-    }
-    else // otherwise use front sprite
-    {
-        DecompressTrainerFrontPic(trainerPicId, battler);
-        SetMultiuseSpriteTemplateToTrainerFront(trainerPicId, GetBattlerPosition(battler));
-        gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate, xPos, yPos, GetBattlerSpriteSubpriority(battler));
-
-        gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = IndexOfSpritePaletteTag(gTrainerFrontPicPaletteTable[trainerPicId].tag);
-        gSprites[gBattlerSpriteIds[battler]].x2 = DISPLAY_WIDTH;
-        gSprites[gBattlerSpriteIds[battler]].y2 = 48;
-        gSprites[gBattlerSpriteIds[battler]].sSpeedX = -2;
-        gSprites[gBattlerSpriteIds[battler]].callback = SpriteCB_TrainerSlideIn;
-        gSprites[gBattlerSpriteIds[battler]].oam.affineMode = ST_OAM_AFFINE_OFF;
-        gSprites[gBattlerSpriteIds[battler]].hFlip = 1;
-    }
-
-    gBattlerControllerFuncs[battler] = CompleteOnBattlerSpriteCallbackDummy;
+    BtlController_HandleDrawTrainerPic(battler, trainerPicId, xPos, yPos, GetBattlerSpriteSubpriority(battler), isFrontPic);
 }
 
 #undef sSpeedX

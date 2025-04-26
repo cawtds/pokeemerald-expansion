@@ -508,10 +508,30 @@ static void RecordedOpponentHandleSwitchInAnim(u32 battler)
 
 #define sSpeedX data[0]
 
+static u32 RecordedOpponentGetTrainerPic(u32 battler)
+{
+    if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
+    {
+        if (gBattleTypeFlags & BATTLE_TYPE_BATTLE_TOWER)
+        {
+            if (battler == B_POSITION_OPPONENT_LEFT)
+                return GetFrontierTrainerFrontSpriteId(gTrainerBattleOpponent_A);
+            else
+                return GetFrontierTrainerFrontSpriteId(gTrainerBattleOpponent_B);
+        }
+        return PlayerGenderToFrontTrainerPicId(GetActiveBattlerLinkPlayerGender(battler));
+    }
+
+    if (gTrainerBattleOpponent_A == TRAINER_UNION_ROOM)
+        return GetUnionRoomTrainerPic();
+    
+    return PlayerGenderToFrontTrainerPicId(gLinkPlayers[gRecordedBattleMultiplayerId ^ BIT_SIDE].gender);
+}
+
 static void RecordedOpponentHandleDrawTrainerPic(u32 battler)
 {
     s16 xPos;
-    u32 trainerPicId;
+    u32 trainerPicId = RecordedOpponentGetTrainerPic(battler);
 
     if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
     {
@@ -519,46 +539,13 @@ static void RecordedOpponentHandleDrawTrainerPic(u32 battler)
             xPos = 152;
         else // first mon
             xPos = 200;
-
-        if (gBattleTypeFlags & BATTLE_TYPE_BATTLE_TOWER)
-        {
-            if (battler == B_POSITION_OPPONENT_LEFT)
-                trainerPicId = GetFrontierTrainerFrontSpriteId(gTrainerBattleOpponent_A);
-            else
-                trainerPicId = GetFrontierTrainerFrontSpriteId(gTrainerBattleOpponent_B);
-        }
-        else
-        {
-            trainerPicId = PlayerGenderToFrontTrainerPicId(GetActiveBattlerLinkPlayerGender(battler));
-        }
     }
     else
     {
         xPos = 176;
-        if (gTrainerBattleOpponent_A == TRAINER_UNION_ROOM)
-        {
-            trainerPicId = GetUnionRoomTrainerPic();
-        }
-        else
-        {
-            trainerPicId = PlayerGenderToFrontTrainerPicId(gLinkPlayers[gRecordedBattleMultiplayerId ^ BIT_SIDE].gender);
-        }
     }
 
-    DecompressTrainerFrontPic(trainerPicId, battler);
-    SetMultiuseSpriteTemplateToTrainerBack(trainerPicId, GetBattlerPosition(battler));
-    gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate,
-                                               xPos,
-                                               (8 - gTrainerFrontPicCoords[trainerPicId].size) * 4 + 40,
-                                               GetBattlerSpriteSubpriority(battler));
-
-    gSprites[gBattlerSpriteIds[battler]].x2 = -DISPLAY_WIDTH;
-    gSprites[gBattlerSpriteIds[battler]].sSpeedX = 2;
-    gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = IndexOfSpritePaletteTag(gTrainerFrontPicPaletteTable[trainerPicId].tag);
-    gSprites[gBattlerSpriteIds[battler]].oam.affineParam = trainerPicId;
-    gSprites[gBattlerSpriteIds[battler]].callback = SpriteCB_TrainerSlideIn;
-
-    gBattlerControllerFuncs[battler] = CompleteOnBattlerSpriteCallbackDummy;
+    BtlController_HandleDrawTrainerPic(battler, trainerPicId, xPos, (8 - gTrainerFrontPicCoords[trainerPicId].size) * 4 + 40, GetBattlerSpriteSubpriority(battler), TRUE);
 }
 
 #undef sSpeedX
