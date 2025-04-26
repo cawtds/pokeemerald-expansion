@@ -5,6 +5,7 @@
 #include "battle_controllers.h"
 #include "battle_interface.h"
 #include "battle_message.h"
+#include "battle_tv.h"
 #include "cable_club.h"
 #include "data.h"
 #include "link.h"
@@ -2463,6 +2464,75 @@ void BtlController_HandleBallThrowAnim(u32 battler, enum BallThrowCaseID caseID,
     gDoingBattleAnim = TRUE;
     InitAndLaunchSpecialAnimation(battler, battler, GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), anim);
     gBattlerControllerFuncs[battler] = CompleteOnSpecialAnimDone;
+}
+
+static void Controller_DoMoveAnimation(u32 battler)
+{
+    u16 move = gBattleBufferA[battler][1] | (gBattleBufferA[battler][2] << 8);
+    u8 multihit = gBattleBufferA[battler][11];
+
+    switch (gBattleSpritesDataPtr->healthBoxesData[battler].animationState)
+    {
+    case 0:
+        if (gBattleSpritesDataPtr->battlerData[battler].behindSubstitute
+            && !gBattleSpritesDataPtr->battlerData[battler].flag_x8)
+        {
+            gBattleSpritesDataPtr->battlerData[battler].flag_x8 = 1;
+            InitAndLaunchSpecialAnimation(battler, battler, battler, B_ANIM_SUBSTITUTE_TO_MON);
+        }
+        gBattleSpritesDataPtr->healthBoxesData[battler].animationState = 1;
+        break;
+    case 1:
+        if (!gBattleSpritesDataPtr->healthBoxesData[battler].specialAnimActive)
+        {
+            SetBattlerSpriteAffineMode(ST_OAM_AFFINE_OFF);
+            DoMoveAnim(move);
+            gBattleSpritesDataPtr->healthBoxesData[battler].animationState = 2;
+        }
+        break;
+    case 2:
+        gAnimScriptCallback();
+        if (!gAnimScriptActive)
+        {
+            SetBattlerSpriteAffineMode(ST_OAM_AFFINE_NORMAL);
+            if (gBattleSpritesDataPtr->battlerData[battler].behindSubstitute && multihit < 2)
+            {
+                InitAndLaunchSpecialAnimation(battler, battler, battler, B_ANIM_MON_TO_SUBSTITUTE);
+                gBattleSpritesDataPtr->battlerData[battler].flag_x8 = 0;
+            }
+            gBattleSpritesDataPtr->healthBoxesData[battler].animationState = 3;
+        }
+        break;
+    case 3:
+        if (!gBattleSpritesDataPtr->healthBoxesData[battler].specialAnimActive)
+        {
+            CopyAllBattleSpritesInvisibilities();
+            TrySetBehindSubstituteSpriteBit(battler, gBattleBufferA[battler][1] | (gBattleBufferA[battler][2] << 8));
+            gBattleSpritesDataPtr->healthBoxesData[battler].animationState = 0;
+            BtlController_ExecCompleted(battler);
+        }
+        break;
+    }
+}
+
+void BtlController_HandleMoveAnimation(u32 battler, bool32 updateBattleTV)
+{
+    if (!IsBattleSEPlaying(battler))
+    {
+        u16 move = gBattleBufferA[battler][1] | (gBattleBufferA[battler][2] << 8);
+
+        gAnimMoveTurn = gBattleBufferA[battler][3];
+        gAnimMovePower = gBattleBufferA[battler][4] | (gBattleBufferA[battler][5] << 8);
+        gAnimMoveDmg = gBattleBufferA[battler][6] | (gBattleBufferA[battler][7] << 8) | (gBattleBufferA[battler][8] << 16) | (gBattleBufferA[battler][9] << 24);
+        gAnimFriendship = gBattleBufferA[battler][10];
+        gWeatherMoveAnim = gBattleBufferA[battler][12] | (gBattleBufferA[battler][13] << 8);
+        gAnimDisableStructPtr = (struct DisableStruct *)&gBattleBufferA[battler][16];
+        gTransformedPersonalities[battler] = gAnimDisableStructPtr->transformedMonPersonality;
+        gBattleSpritesDataPtr->healthBoxesData[battler].animationState = 0;
+        gBattlerControllerFuncs[battler] = Controller_DoMoveAnimation;
+        if (updateBattleTV)
+            BattleTv_SetDataBasedOnMove(move, gWeatherMoveAnim, gAnimDisableStructPtr);
+    }
 }
 
 void BtlController_TerminatorNop(u32 battler)

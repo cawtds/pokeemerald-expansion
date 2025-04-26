@@ -545,12 +545,6 @@ static void Task_ClearBitWhenSpecialAnimDone(u8 taskId)
 
 #undef tBattlerId
 
-// Great function to include newly added moves that don't have animation yet.
-bool8 IsMoveWithoutAnimation(u16 moveId, u8 animationTurn)
-{
-    return FALSE;
-}
-
 // Check if SE has finished or 30 calls, whichever comes first
 bool32 IsBattleSEPlaying(u32 battler)
 {
