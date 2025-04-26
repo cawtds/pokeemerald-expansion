@@ -41,7 +41,6 @@ static void OpponentHandleSwitchInAnim(u32 battler);
 static void OpponentHandleDrawTrainerPic(u32 battler);
 static void OpponentHandleTrainerSlide(u32 battler);
 static void OpponentHandleTrainerSlideBack(u32 battler);
-static void OpponentHandlePaletteFade(u32 battler);
 static void OpponentHandleSuccessBallThrowAnim(u32 battler);
 static void OpponentHandleBallThrow(u32 battler);
 static void OpponentHandlePause(u32 battler);
@@ -109,7 +108,7 @@ static void (*const sOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler)
     [CONTROLLER_TRAINERSLIDE]             = OpponentHandleTrainerSlide,
     [CONTROLLER_TRAINERSLIDEBACK]         = OpponentHandleTrainerSlideBack,
     [CONTROLLER_FAINTANIMATION]           = BtlController_HandleFaintAnimation,
-    [CONTROLLER_PALETTEFADE]              = OpponentHandlePaletteFade,
+    [CONTROLLER_PALETTEFADE]              = BtlController_Empty,
     [CONTROLLER_SUCCESSBALLTHROWANIM]     = OpponentHandleSuccessBallThrowAnim,
     [CONTROLLER_BALLTHROWANIM]            = OpponentHandleBallThrow,
     [CONTROLLER_PAUSE]                    = OpponentHandlePause,
@@ -563,11 +562,6 @@ static void OpponentHandleTrainerSlide(u32 battler)
 static void OpponentHandleTrainerSlideBack(u32 battler)
 {
     BtlController_HandleTrainerSlideBack(battler, 35, FALSE);
-}
-
-static void OpponentHandlePaletteFade(u32 battler)
-{
-    OpponentBufferExecCompleted(battler);
 }
 
 static void OpponentHandleSuccessBallThrowAnim(u32 battler)

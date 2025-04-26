@@ -35,7 +35,6 @@
 // this file's functions
 static void WallyHandleDrawTrainerPic(u32 battler);
 static void WallyHandleTrainerSlide(u32 battler);
-static void WallyHandlePaletteFade(u32 battler);
 static void WallyHandleSuccessBallThrowAnim(u32 battler);
 static void WallyHandleBallThrowAnim(u32 battler);
 static void WallyHandlePause(u32 battler);
@@ -102,7 +101,7 @@ static void (*const sWallyBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_TRAINERSLIDE]             = WallyHandleTrainerSlide,
     [CONTROLLER_TRAINERSLIDEBACK]         = BtlController_Empty,
     [CONTROLLER_FAINTANIMATION]           = BtlController_Empty,
-    [CONTROLLER_PALETTEFADE]              = WallyHandlePaletteFade,
+    [CONTROLLER_PALETTEFADE]              = BtlController_Empty,
     [CONTROLLER_SUCCESSBALLTHROWANIM]     = WallyHandleSuccessBallThrowAnim,
     [CONTROLLER_BALLTHROWANIM]            = WallyHandleBallThrowAnim,
     [CONTROLLER_PAUSE]                    = WallyHandlePause,
@@ -404,11 +403,6 @@ static void WallyHandleDrawTrainerPic(u32 battler)
 static void WallyHandleTrainerSlide(u32 battler)
 {
     BtlController_HandleTrainerSlide(battler, TRAINER_BACK_PIC_WALLY);
-}
-
-static void WallyHandlePaletteFade(u32 battler)
-{
-    WallyBufferExecCompleted(battler);
 }
 
 static void WallyHandleSuccessBallThrowAnim(u32 battler)

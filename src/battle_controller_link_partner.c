@@ -33,7 +33,6 @@ static void LinkPartnerHandleLoadMonSprite(u32 battler);
 static void LinkPartnerHandleSwitchInAnim(u32 battler);
 static void LinkPartnerHandleDrawTrainerPic(u32 battler);
 static void LinkPartnerHandleTrainerSlideBack(u32 battler);
-static void LinkPartnerHandlePaletteFade(u32 battler);
 static void LinkPartnerHandleSuccessBallThrowAnim(u32 battler);
 static void LinkPartnerHandleBallThrowAnim(u32 battler);
 static void LinkPartnerHandlePause(u32 battler);
@@ -100,7 +99,7 @@ static void (*const sLinkPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battl
     [CONTROLLER_TRAINERSLIDE]             = BtlController_Empty,
     [CONTROLLER_TRAINERSLIDEBACK]         = LinkPartnerHandleTrainerSlideBack,
     [CONTROLLER_FAINTANIMATION]           = BtlController_HandleFaintAnimation,
-    [CONTROLLER_PALETTEFADE]              = LinkPartnerHandlePaletteFade,
+    [CONTROLLER_PALETTEFADE]              = BtlController_Empty,
     [CONTROLLER_SUCCESSBALLTHROWANIM]     = LinkPartnerHandleSuccessBallThrowAnim,
     [CONTROLLER_BALLTHROWANIM]            = LinkPartnerHandleBallThrowAnim,
     [CONTROLLER_PAUSE]                    = LinkPartnerHandlePause,
@@ -408,11 +407,6 @@ static void LinkPartnerHandleDrawTrainerPic(u32 battler)
 static void LinkPartnerHandleTrainerSlideBack(u32 battler)
 {
     BtlController_HandleTrainerSlideBack(battler, 35, FALSE);
-}
-
-static void LinkPartnerHandlePaletteFade(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
 }
 
 static void LinkPartnerHandleSuccessBallThrowAnim(u32 battler)

@@ -33,7 +33,6 @@ static void PlayerPartnerHandleLoadMonSprite(u32 battler);
 static void PlayerPartnerHandleSwitchInAnim(u32 battler);
 static void PlayerPartnerHandleDrawTrainerPic(u32 battler);
 static void PlayerPartnerHandleTrainerSlideBack(u32 battler);
-static void PlayerPartnerHandlePaletteFade(u32 battler);
 static void PlayerPartnerHandleSuccessBallThrowAnim(u32 battler);
 static void PlayerPartnerHandleBallThrowAnim(u32 battler);
 static void PlayerPartnerHandlePause(u32 battler);
@@ -105,7 +104,7 @@ static void (*const sPlayerPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 bat
     [CONTROLLER_TRAINERSLIDE]             = BtlController_Empty,
     [CONTROLLER_TRAINERSLIDEBACK]         = PlayerPartnerHandleTrainerSlideBack,
     [CONTROLLER_FAINTANIMATION]           = BtlController_HandleFaintAnimation,
-    [CONTROLLER_PALETTEFADE]              = PlayerPartnerHandlePaletteFade,
+    [CONTROLLER_PALETTEFADE]              = BtlController_Empty,
     [CONTROLLER_SUCCESSBALLTHROWANIM]     = PlayerPartnerHandleSuccessBallThrowAnim,
     [CONTROLLER_BALLTHROWANIM]            = PlayerPartnerHandleBallThrowAnim,
     [CONTROLLER_PAUSE]                    = PlayerPartnerHandlePause,
@@ -595,11 +594,6 @@ static void PlayerPartnerHandleDrawTrainerPic(u32 battler)
 static void PlayerPartnerHandleTrainerSlideBack(u32 battler)
 {
     BtlController_HandleTrainerSlideBack(battler, 35, FALSE);
-}
-
-static void PlayerPartnerHandlePaletteFade(u32 battler)
-{
-    PlayerPartnerBufferExecCompleted(battler);
 }
 
 static void PlayerPartnerHandleSuccessBallThrowAnim(u32 battler)
