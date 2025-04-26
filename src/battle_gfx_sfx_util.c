@@ -35,7 +35,7 @@ extern const struct SpriteTemplate gSpriteTemplate_EnemyShadow;
 
 // this file's functions
 static u8 GetBattlePalaceMoveGroup(u16 move);
-static u16 GetBattlePalaceTarget(void);
+static u16 GetBattlePalaceTarget(u32 battler);
 static void SpriteCB_TrainerSlideVertical(struct Sprite *sprite);
 static bool8 ShouldAnimBeDoneRegardlessOfSubstitute(u8 animId);
 static void Task_ClearBitWhenBattleTableAnimDone(u8 taskId);
@@ -107,12 +107,12 @@ void FreeBattleSpritesData(void)
 }
 
 // Pokémon chooses move to use in Battle Palace rather than player
-u16 ChooseMoveAndTargetInBattlePalace(void)
+u16 ChooseMoveAndTargetInBattlePalace(u32 battler)
 {
     s32 i, var1, var2;
     s32 chosenMoveId = -1;
-    struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleBufferA[gActiveBattler][4]);
-    u8 unusableMovesBits = CheckMoveLimitations(gActiveBattler, 0, MOVE_LIMITATIONS_ALL);
+    struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleBufferA[battler][4]);
+    u8 unusableMovesBits = CheckMoveLimitations(battler, 0, MOVE_LIMITATIONS_ALL);
     s32 percent = Random() % 100;
 
     // Heavy variable re-use here makes this hard to read without defines
@@ -128,7 +128,7 @@ u16 ChooseMoveAndTargetInBattlePalace(void)
 
     // If battler is < 50% HP and not asleep, use second set of move group likelihoods
     // otherwise use first set
-    i = (gBattleStruct->palaceFlags & gBitTable[gActiveBattler]) ? 2 : 0;
+    i = (gBattleStruct->palaceFlags & gBitTable[battler]) ? 2 : 0;
     minGroupNum = i;
 
     maxGroupNum = i + 2; // + 2 because there are two percentages per set of likelihoods
@@ -139,7 +139,7 @@ u16 ChooseMoveAndTargetInBattlePalace(void)
     // Otherwise use move from "Support" group
     for (; i < maxGroupNum; i++)
     {
-        if (gNatureInfo[GetNatureFromPersonality(gBattleMons[gActiveBattler].personality)].battlePalacePercents[i] > percent)
+        if (gNatureInfo[GetNatureFromPersonality(gBattleMons[battler].personality)].battlePalacePercents[i] > percent)
             break;
     }
     selectedGroup = i - minGroupNum;
@@ -162,8 +162,8 @@ u16 ChooseMoveAndTargetInBattlePalace(void)
         // Clear the rest of palaceFlags, then set the selected moves in the upper 4 bits.
         gBattleStruct->palaceFlags &= (1 << MAX_BATTLERS_COUNT) - 1;
         gBattleStruct->palaceFlags |= (selectedMoves << MAX_BATTLERS_COUNT);
-        BattleAI_SetupAIData(selectedMoves);
-        chosenMoveId = BattleAI_ChooseMoveOrAction();
+        BattleAI_SetupAIData(battler, selectedMoves);
+        chosenMoveId = BattleAI_ChooseMoveOrAction(battler);
     }
 
     // If no moves matched the selected group, pick a new move from groups the Pokémon has
@@ -251,14 +251,14 @@ u16 ChooseMoveAndTargetInBattlePalace(void)
             // that it will be unable to use it. This could have been checked earlier to avoid the above work.
             if (Random() % 100 >= 50)
             {
-                gProtectStructs[gActiveBattler].palaceUnableToUseMove = TRUE;
+                gProtectStructs[battler].palaceUnableToUseMove = TRUE;
                 return 0;
             }
         }
         else
         {
             // All the battler's moves were flagged as unusable.
-            gProtectStructs[gActiveBattler].palaceUnableToUseMove = TRUE;
+            gProtectStructs[battler].palaceUnableToUseMove = TRUE;
             return 0;
         }
     }
@@ -276,11 +276,11 @@ u16 ChooseMoveAndTargetInBattlePalace(void)
     }
 
     if (moveTarget & MOVE_TARGET_USER)
-        chosenMoveId |= (gActiveBattler << 8);
+        chosenMoveId |= (battler << 8);
     else if (moveTarget == MOVE_TARGET_SELECTED)
-        chosenMoveId |= GetBattlePalaceTarget();
+        chosenMoveId |= GetBattlePalaceTarget(battler);
     else
-        chosenMoveId |= (GetBattlerAtPosition(BATTLE_OPPOSITE(GET_BATTLER_SIDE(gActiveBattler))) << 8);
+        chosenMoveId |= (GetBattlerAtPosition(BATTLE_OPPOSITE(GET_BATTLER_SIDE(battler))) << 8);
 
     return chosenMoveId;
 }
@@ -318,13 +318,13 @@ static u8 GetBattlePalaceMoveGroup(u16 move)
     }
 }
 
-static u16 GetBattlePalaceTarget(void)
+static u16 GetBattlePalaceTarget(u32 battler)
 {
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
     {
         u8 opposing1, opposing2;
 
-        if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+        if (GetBattlerSide(battler) == B_SIDE_PLAYER)
         {
             opposing1 = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
             opposing2 = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
@@ -336,9 +336,9 @@ static u16 GetBattlePalaceTarget(void)
         }
 
         if (gBattleMons[opposing1].hp == gBattleMons[opposing2].hp)
-            return (BATTLE_OPPOSITE(gActiveBattler & BIT_SIDE) + (Random() & 2)) << 8;
+            return (BATTLE_OPPOSITE(battler & BIT_SIDE) + (Random() & 2)) << 8;
 
-        switch (gNatureInfo[GetNatureFromPersonality(gBattleMons[gActiveBattler].personality)].battlePalaceSmokescreen)
+        switch (gNatureInfo[GetNatureFromPersonality(gBattleMons[battler].personality)].battlePalaceSmokescreen)
         {
         case PALACE_TARGET_STRONGER:
             if (gBattleMons[opposing1].hp > gBattleMons[opposing2].hp)
@@ -351,11 +351,11 @@ static u16 GetBattlePalaceTarget(void)
             else
                 return opposing2 << 8;
         case PALACE_TARGET_RANDOM:
-            return (BATTLE_OPPOSITE(gActiveBattler & BIT_SIDE) + (Random() & 2)) << 8;
+            return (BATTLE_OPPOSITE(battler & BIT_SIDE) + (Random() & 2)) << 8;
         }
     }
 
-    return BATTLE_OPPOSITE(gActiveBattler) << 8;
+    return BATTLE_OPPOSITE(battler) << 8;
 }
 
 // Wait for the Pokémon to finish appearing out from the Poké Ball on send out
@@ -419,38 +419,38 @@ static void SpriteCB_TrainerSlideVertical(struct Sprite *sprite)
 
 #undef sSpeedX
 
-void InitAndLaunchChosenStatusAnimation(bool8 isStatus2, u32 status)
+void InitAndLaunchChosenStatusAnimation(u32 battler, bool32 isStatus2, u32 status)
 {
-    gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].statusAnimActive = 1;
+    gBattleSpritesDataPtr->healthBoxesData[battler].statusAnimActive = 1;
     if (!isStatus2)
     {
         if (status == STATUS1_FREEZE)
-            LaunchStatusAnimation(gActiveBattler, B_ANIM_STATUS_FRZ);
+            LaunchStatusAnimation(battler, B_ANIM_STATUS_FRZ);
         else if (status == STATUS1_POISON || status & STATUS1_TOXIC_POISON)
-            LaunchStatusAnimation(gActiveBattler, B_ANIM_STATUS_PSN);
+            LaunchStatusAnimation(battler, B_ANIM_STATUS_PSN);
         else if (status == STATUS1_BURN)
-            LaunchStatusAnimation(gActiveBattler, B_ANIM_STATUS_BRN);
+            LaunchStatusAnimation(battler, B_ANIM_STATUS_BRN);
         else if (status & STATUS1_SLEEP)
-            LaunchStatusAnimation(gActiveBattler, B_ANIM_STATUS_SLP);
+            LaunchStatusAnimation(battler, B_ANIM_STATUS_SLP);
         else if (status == STATUS1_PARALYSIS)
-            LaunchStatusAnimation(gActiveBattler, B_ANIM_STATUS_PRZ);
+            LaunchStatusAnimation(battler, B_ANIM_STATUS_PRZ);
         else // no animation
-            gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].statusAnimActive = 0;
+            gBattleSpritesDataPtr->healthBoxesData[battler].statusAnimActive = 0;
     }
     else
     {
         if (status & STATUS2_INFATUATION)
-            LaunchStatusAnimation(gActiveBattler, B_ANIM_STATUS_INFATUATION);
+            LaunchStatusAnimation(battler, B_ANIM_STATUS_INFATUATION);
         else if (status & STATUS2_CONFUSION)
-            LaunchStatusAnimation(gActiveBattler, B_ANIM_STATUS_CONFUSION);
+            LaunchStatusAnimation(battler, B_ANIM_STATUS_CONFUSION);
         else if (status & STATUS2_CURSED)
-            LaunchStatusAnimation(gActiveBattler, B_ANIM_STATUS_CURSED);
+            LaunchStatusAnimation(battler, B_ANIM_STATUS_CURSED);
         else if (status & STATUS2_NIGHTMARE)
-            LaunchStatusAnimation(gActiveBattler, B_ANIM_STATUS_NIGHTMARE);
+            LaunchStatusAnimation(battler, B_ANIM_STATUS_NIGHTMARE);
         else if (status & STATUS2_WRAPPED)
-            LaunchStatusAnimation(gActiveBattler, B_ANIM_STATUS_WRAPPED); // this animation doesn't actually exist
+            LaunchStatusAnimation(battler, B_ANIM_STATUS_WRAPPED); // this animation doesn't actually exist
         else // no animation
-            gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].statusAnimActive = 0;
+            gBattleSpritesDataPtr->healthBoxesData[battler].statusAnimActive = 0;
     }
 }
 
@@ -552,14 +552,14 @@ bool8 IsMoveWithoutAnimation(u16 moveId, u8 animationTurn)
 }
 
 // Check if SE has finished or 30 calls, whichever comes first
-bool8 IsBattleSEPlaying(u8 battlerId)
+bool32 IsBattleSEPlaying(u32 battler)
 {
     u8 zero = 0;
 
     if (IsSEPlaying())
     {
-        gBattleSpritesDataPtr->healthBoxesData[battlerId].soundTimer++;
-        if (gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].soundTimer < 30)
+        gBattleSpritesDataPtr->healthBoxesData[battler].soundTimer++;
+        if (gBattleSpritesDataPtr->healthBoxesData[battler].soundTimer < 30)
             return TRUE;
 
         m4aMPlayStop(&gMPlayInfo_SE1);
@@ -567,7 +567,7 @@ bool8 IsBattleSEPlaying(u8 battlerId)
     }
     if (zero == 0)
     {
-        gBattleSpritesDataPtr->healthBoxesData[battlerId].soundTimer = 0;
+        gBattleSpritesDataPtr->healthBoxesData[battler].soundTimer = 0;
         return FALSE;
     }
 

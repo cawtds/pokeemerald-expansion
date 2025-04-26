@@ -31,7 +31,7 @@ enum {
     AI_DIRE_HIT,
 };
 
-void AI_TrySwitchOrUseItem(void);
-u8 GetMostSuitableMonToSwitchInto(void);
+void AI_TrySwitchOrUseItem(u32 battler);
+u32 GetMostSuitableMonToSwitchInto(u32 battler);
 
 #endif // GUARD_BATTLE_AI_SWITCH_ITEMS_H

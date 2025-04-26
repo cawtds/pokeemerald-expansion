@@ -120,7 +120,7 @@ void SwitchPartyOrderInGameMulti(u8 battlerId, u8 arg1)
 
 // Called when a Pokémon is unable to attack during a Battle Palace battle.
 // Check if it was because they are frozen/asleep, and if so try to cure the status.
-u32 BattlePalace_TryEscapeStatus(u8 battlerId)
+u32 BattlePalace_TryEscapeStatus(u32 battler)
 {
     u32 effect = 0;
 
@@ -129,13 +129,13 @@ u32 BattlePalace_TryEscapeStatus(u8 battlerId)
         switch (gBattleCommunication[MULTIUSE_STATE])
         {
         case 0:
-            if (gBattleMons[battlerId].status1 & STATUS1_SLEEP)
+            if (gBattleMons[battler].status1 & STATUS1_SLEEP)
             {
-                if (UproarWakeUpCheck(battlerId))
+                if (UproarWakeUpCheck(battler))
                 {
                     // Wake up from Uproar
-                    gBattleMons[battlerId].status1 &= ~(STATUS1_SLEEP);
-                    gBattleMons[battlerId].status2 &= ~(STATUS2_NIGHTMARE);
+                    gBattleMons[battler].status1 &= ~(STATUS1_SLEEP);
+                    gBattleMons[battler].status2 &= ~(STATUS2_NIGHTMARE);
                     BattleScriptPushCursor();
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WOKE_UP_UPROAR;
                     gBattlescriptCurrInstr = BattleScript_MoveUsedWokeUp;
@@ -145,18 +145,18 @@ u32 BattlePalace_TryEscapeStatus(u8 battlerId)
                 {
                     u32 toSub;
 
-                    if (gBattleMons[battlerId].ability == ABILITY_EARLY_BIRD)
+                    if (gBattleMons[battler].ability == ABILITY_EARLY_BIRD)
                         toSub = 2;
                     else
                         toSub = 1;
 
                     // Reduce number of sleep turns
-                    if ((gBattleMons[battlerId].status1 & STATUS1_SLEEP) < toSub)
-                        gBattleMons[battlerId].status1 &= ~(STATUS1_SLEEP);
+                    if ((gBattleMons[battler].status1 & STATUS1_SLEEP) < toSub)
+                        gBattleMons[battler].status1 &= ~(STATUS1_SLEEP);
                     else
-                        gBattleMons[battlerId].status1 -= toSub;
+                        gBattleMons[battler].status1 -= toSub;
 
-                    if (gBattleMons[battlerId].status1 & STATUS1_SLEEP)
+                    if (gBattleMons[battler].status1 & STATUS1_SLEEP)
                     {
                         // Still asleep
                         gBattlescriptCurrInstr = BattleScript_MoveUsedIsAsleep;
@@ -165,7 +165,7 @@ u32 BattlePalace_TryEscapeStatus(u8 battlerId)
                     else
                     {
                         // Wake up
-                        gBattleMons[battlerId].status2 &= ~(STATUS2_NIGHTMARE);
+                        gBattleMons[battler].status2 &= ~(STATUS2_NIGHTMARE);
                         BattleScriptPushCursor();
                         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WOKE_UP;
                         gBattlescriptCurrInstr = BattleScript_MoveUsedWokeUp;
@@ -176,7 +176,7 @@ u32 BattlePalace_TryEscapeStatus(u8 battlerId)
             gBattleCommunication[MULTIUSE_STATE]++;
             break;
         case 1:
-            if (gBattleMons[battlerId].status1 & STATUS1_FREEZE)
+            if (gBattleMons[battler].status1 & STATUS1_FREEZE)
             {
                 if (Random() % 5 != 0)
                 {
@@ -186,7 +186,7 @@ u32 BattlePalace_TryEscapeStatus(u8 battlerId)
                 else
                 {
                     // Unfreeze
-                    gBattleMons[battlerId].status1 &= ~(STATUS1_FREEZE);
+                    gBattleMons[battler].status1 &= ~(STATUS1_FREEZE);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MoveUsedUnfroze;
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DEFROSTED;
@@ -203,9 +203,8 @@ u32 BattlePalace_TryEscapeStatus(u8 battlerId)
 
     if (effect == 2)
     {
-        gActiveBattler = battlerId;
-        BtlController_EmitSetMonData(BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[gActiveBattler].status1);
-        MarkBattlerForControllerExec(gActiveBattler);
+        BtlController_EmitSetMonData(battler, BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
+        MarkBattlerForControllerExec(battler);
     }
 
     return effect;

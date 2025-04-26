@@ -2369,14 +2369,14 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         // Apply Reflect
         if ((sideStatus & SIDE_STATUS_REFLECT) && gCritMultiplier == 1)
         {
-            if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && CountAliveMonsInBattle(BATTLE_ALIVE_DEF_SIDE) == 2)
+            if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && CountAliveMonsInBattle(gBattlerAttacker, BATTLE_ALIVE_DEF_SIDE) == 2)
                 damage = 2 * (damage / 3);
             else
                 damage /= 2;
         }
 
         // Moves hitting both targets do half damage in double battles
-        if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && GetMoveTarget(move) == MOVE_TARGET_BOTH && CountAliveMonsInBattle(BATTLE_ALIVE_DEF_SIDE) == 2)
+        if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && GetMoveTarget(move) == MOVE_TARGET_BOTH && CountAliveMonsInBattle(gBattlerAttacker, BATTLE_ALIVE_DEF_SIDE) == 2)
             damage /= 2;
 
         // Moves always do at least 1 damage.
@@ -2420,14 +2420,14 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         // Apply Lightscreen
         if ((sideStatus & SIDE_STATUS_LIGHTSCREEN) && gCritMultiplier == 1)
         {
-            if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && CountAliveMonsInBattle(BATTLE_ALIVE_DEF_SIDE) == 2)
+            if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && CountAliveMonsInBattle(gBattlerAttacker, BATTLE_ALIVE_DEF_SIDE) == 2)
                 damage = 2 * (damage / 3);
             else
                 damage /= 2;
         }
 
         // Moves hitting both targets do half damage in double battles
-        if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && GetMoveTarget(move) == MOVE_TARGET_BOTH && CountAliveMonsInBattle(BATTLE_ALIVE_DEF_SIDE) == 2)
+        if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && GetMoveTarget(move) == MOVE_TARGET_BOTH && CountAliveMonsInBattle(gBattlerAttacker, BATTLE_ALIVE_DEF_SIDE) == 2)
             damage /= 2;
 
         // Are effects of weather negated with cloud nine or air lock
@@ -2474,7 +2474,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     return damage + 2;
 }
 
-u8 CountAliveMonsInBattle(u8 caseId)
+u8 CountAliveMonsInBattle(u32 battler, u8 caseId)
 {
     s32 i;
     u8 retVal = 0;
@@ -2484,7 +2484,7 @@ u8 CountAliveMonsInBattle(u8 caseId)
     case BATTLE_ALIVE_EXCEPT_ACTIVE:
         for (i = 0; i < MAX_BATTLERS_COUNT; i++)
         {
-            if (i != gActiveBattler && !(gAbsentBattlerFlags & gBitTable[i]))
+            if (i != battler && !(gAbsentBattlerFlags & gBitTable[i]))
                 retVal++;
         }
         break;
@@ -2521,13 +2521,13 @@ static bool8 ShouldGetStatBadgeBoost(u16 badgeFlag, u8 battlerId)
         return FALSE;
 }
 
-u8 GetDefaultMoveTarget(u8 battlerId)
+u8 GetDefaultMoveTarget(u32 battler)
 {
-    u8 opposing = BATTLE_OPPOSITE(GET_BATTLER_SIDE(battlerId));
+    u8 opposing = BATTLE_OPPOSITE(GET_BATTLER_SIDE(battler));
 
     if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
         return GetBattlerAtPosition(opposing);
-    if (CountAliveMonsInBattle(BATTLE_ALIVE_EXCEPT_ACTIVE) > 1)
+    if (CountAliveMonsInBattle(battler, BATTLE_ALIVE_EXCEPT_ACTIVE) > 1)
     {
         u8 position;
 
@@ -3813,6 +3813,7 @@ bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, 
 // Returns TRUE if the item has no effect on the Pokémon, FALSE otherwise
 bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 moveIndex, bool8 usedByAI)
 {
+    u32 battler;
     u32 dataUnsigned;
     s32 dataSigned;
     s32 friendship;
@@ -3848,8 +3849,8 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     gPotentialItemEffectBattler = gBattlerInMenuId;
     if (gMain.inBattle)
     {
-        gActiveBattler = gBattlerInMenuId;
-        i = (GetBattlerSide(gActiveBattler) != B_SIDE_PLAYER);
+        battler = gBattlerInMenuId;
+        i = (GetBattlerSide(battler) != B_SIDE_PLAYER);
         while (i < gBattlersCount)
         {
             if (gBattlerPartyIndexes[i] == partyIndex)
@@ -3862,7 +3863,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     }
     else
     {
-        gActiveBattler = 0;
+        battler = 0;
         battlerId = MAX_BATTLERS_COUNT;
     }
 
@@ -3876,7 +3877,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     if (item == ITEM_ENIGMA_BERRY)
     {
         if (gMain.inBattle)
-            itemEffect = gEnigmaBerries[gActiveBattler].itemEffect;
+            itemEffect = gEnigmaBerries[battler].itemEffect;
         else
             itemEffect = gSaveBlock1Ptr->enigmaBerry.itemEffect;
     }
@@ -3903,19 +3904,19 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
 
             // Dire Hit
             if ((itemEffect[i] & ITEM0_DIRE_HIT)
-             && !(gBattleMons[gActiveBattler].status2 & STATUS2_FOCUS_ENERGY))
+             && !(gBattleMons[battler].status2 & STATUS2_FOCUS_ENERGY))
             {
-                gBattleMons[gActiveBattler].status2 |= STATUS2_FOCUS_ENERGY;
+                gBattleMons[battler].status2 |= STATUS2_FOCUS_ENERGY;
                 retVal = FALSE;
             }
 
             // X Attack
             if ((itemEffect[i] & ITEM0_X_ATTACK)
-             && gBattleMons[gActiveBattler].statStages[STAT_ATK] < MAX_STAT_STAGE)
+             && gBattleMons[battler].statStages[STAT_ATK] < MAX_STAT_STAGE)
             {
-                gBattleMons[gActiveBattler].statStages[STAT_ATK] += itemEffect[i] & ITEM0_X_ATTACK;
-                if (gBattleMons[gActiveBattler].statStages[STAT_ATK] > MAX_STAT_STAGE)
-                    gBattleMons[gActiveBattler].statStages[STAT_ATK] = MAX_STAT_STAGE;
+                gBattleMons[battler].statStages[STAT_ATK] += itemEffect[i] & ITEM0_X_ATTACK;
+                if (gBattleMons[battler].statStages[STAT_ATK] > MAX_STAT_STAGE)
+                    gBattleMons[battler].statStages[STAT_ATK] = MAX_STAT_STAGE;
                 retVal = FALSE;
             }
             break;
@@ -3924,21 +3925,21 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
         case 1:
             // X Defend
             if ((itemEffect[i] & ITEM1_X_DEFEND)
-             && gBattleMons[gActiveBattler].statStages[STAT_DEF] < MAX_STAT_STAGE)
+             && gBattleMons[battler].statStages[STAT_DEF] < MAX_STAT_STAGE)
             {
-                gBattleMons[gActiveBattler].statStages[STAT_DEF] += (itemEffect[i] & ITEM1_X_DEFEND) >> 4;
-                if (gBattleMons[gActiveBattler].statStages[STAT_DEF] > MAX_STAT_STAGE)
-                    gBattleMons[gActiveBattler].statStages[STAT_DEF] = MAX_STAT_STAGE;
+                gBattleMons[battler].statStages[STAT_DEF] += (itemEffect[i] & ITEM1_X_DEFEND) >> 4;
+                if (gBattleMons[battler].statStages[STAT_DEF] > MAX_STAT_STAGE)
+                    gBattleMons[battler].statStages[STAT_DEF] = MAX_STAT_STAGE;
                 retVal = FALSE;
             }
 
             // X Speed
             if ((itemEffect[i] & ITEM1_X_SPEED)
-             && gBattleMons[gActiveBattler].statStages[STAT_SPEED] < MAX_STAT_STAGE)
+             && gBattleMons[battler].statStages[STAT_SPEED] < MAX_STAT_STAGE)
             {
-                gBattleMons[gActiveBattler].statStages[STAT_SPEED] += itemEffect[i] & ITEM1_X_SPEED;
-                if (gBattleMons[gActiveBattler].statStages[STAT_SPEED] > MAX_STAT_STAGE)
-                    gBattleMons[gActiveBattler].statStages[STAT_SPEED] = MAX_STAT_STAGE;
+                gBattleMons[battler].statStages[STAT_SPEED] += itemEffect[i] & ITEM1_X_SPEED;
+                if (gBattleMons[battler].statStages[STAT_SPEED] > MAX_STAT_STAGE)
+                    gBattleMons[battler].statStages[STAT_SPEED] = MAX_STAT_STAGE;
                 retVal = FALSE;
             }
             break;
@@ -3946,21 +3947,21 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
         case 2:
             // X Accuracy
             if ((itemEffect[i] & ITEM2_X_ACCURACY)
-             && gBattleMons[gActiveBattler].statStages[STAT_ACC] < MAX_STAT_STAGE)
+             && gBattleMons[battler].statStages[STAT_ACC] < MAX_STAT_STAGE)
             {
-                gBattleMons[gActiveBattler].statStages[STAT_ACC] += (itemEffect[i] & ITEM2_X_ACCURACY) >> 4;
-                if (gBattleMons[gActiveBattler].statStages[STAT_ACC] > MAX_STAT_STAGE)
-                    gBattleMons[gActiveBattler].statStages[STAT_ACC] = MAX_STAT_STAGE;
+                gBattleMons[battler].statStages[STAT_ACC] += (itemEffect[i] & ITEM2_X_ACCURACY) >> 4;
+                if (gBattleMons[battler].statStages[STAT_ACC] > MAX_STAT_STAGE)
+                    gBattleMons[battler].statStages[STAT_ACC] = MAX_STAT_STAGE;
                 retVal = FALSE;
             }
 
             // X Sp Attack
             if ((itemEffect[i] & ITEM2_X_SPATK)
-             && gBattleMons[gActiveBattler].statStages[STAT_SPATK] < MAX_STAT_STAGE)
+             && gBattleMons[battler].statStages[STAT_SPATK] < MAX_STAT_STAGE)
             {
-                gBattleMons[gActiveBattler].statStages[STAT_SPATK] += itemEffect[i] & ITEM2_X_SPATK;
-                if (gBattleMons[gActiveBattler].statStages[STAT_SPATK] > MAX_STAT_STAGE)
-                    gBattleMons[gActiveBattler].statStages[STAT_SPATK] = MAX_STAT_STAGE;
+                gBattleMons[battler].statStages[STAT_SPATK] += itemEffect[i] & ITEM2_X_SPATK;
+                if (gBattleMons[battler].statStages[STAT_SPATK] > MAX_STAT_STAGE)
+                    gBattleMons[battler].statStages[STAT_SPATK] = MAX_STAT_STAGE;
                 retVal = FALSE;
             }
             break;
@@ -3969,9 +3970,9 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
         case 3:
             // Guard Spec
             if ((itemEffect[i] & ITEM3_GUARD_SPEC)
-             && gSideTimers[GetBattlerSide(gActiveBattler)].mistTimer == 0)
+             && gSideTimers[GetBattlerSide(battler)].mistTimer == 0)
             {
-                gSideTimers[GetBattlerSide(gActiveBattler)].mistTimer = 5;
+                gSideTimers[GetBattlerSide(battler)].mistTimer = 5;
                 retVal = FALSE;
             }
 
@@ -4101,13 +4102,13 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                                 {
                                     gAbsentBattlerFlags &= ~gBitTable[battlerId];
                                     CopyPlayerPartyMonToBattleData(battlerId, GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[battlerId]));
-                                    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER && gBattleResults.numRevivesUsed < 255)
+                                    if (GetBattlerSide(battler) == B_SIDE_PLAYER && gBattleResults.numRevivesUsed < 255)
                                         gBattleResults.numRevivesUsed++;
                                 }
                                 else
                                 {
-                                    gAbsentBattlerFlags &= ~gBitTable[gActiveBattler ^ 2];
-                                    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER && gBattleResults.numRevivesUsed < 255)
+                                    gAbsentBattlerFlags &= ~gBitTable[battler ^ 2];
+                                    if (GetBattlerSide(battler) == B_SIDE_PLAYER && gBattleResults.numRevivesUsed < 255)
                                         gBattleResults.numRevivesUsed++;
                                 }
                             }
@@ -4153,16 +4154,16 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                                 if (gMain.inBattle && battlerId != MAX_BATTLERS_COUNT)
                                 {
                                     gBattleMons[battlerId].hp = dataUnsigned;
-                                    if (!(effectFlags & (ITEM4_REVIVE >> 2)) && GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+                                    if (!(effectFlags & (ITEM4_REVIVE >> 2)) && GetBattlerSide(battler) == B_SIDE_PLAYER)
                                     {
                                         if (gBattleResults.numHealingItemsUsed < 255)
                                             gBattleResults.numHealingItemsUsed++;
 
-                                        temp2 = gActiveBattler;
-                                        gActiveBattler = battlerId;
-                                        BtlController_EmitGetMonData(BUFFER_A, REQUEST_ALL_BATTLE, 0);
-                                        MarkBattlerForControllerExec(gActiveBattler);
-                                        gActiveBattler = temp2;
+                                        temp2 = battler;
+                                        battler = battlerId;
+                                        BtlController_EmitGetMonData(battler, BUFFER_A, REQUEST_ALL_BATTLE, 0);
+                                        MarkBattlerForControllerExec(battler);
+                                        battler = temp2;
                                     }
                                 }
                             }
@@ -4380,7 +4381,7 @@ bool8 HealStatusConditions(struct Pokemon *mon, u32 battlePartyId, u32 healMask,
     }
 }
 
-u8 GetItemEffectParamOffset(u16 itemId, u8 effectByte, u8 effectBit)
+u8 GetItemEffectParamOffset(u32 battler, u16 itemId, u8 effectByte, u8 effectBit)
 {
     const u8 *temp;
     const u8 *itemEffect;
@@ -4398,7 +4399,7 @@ u8 GetItemEffectParamOffset(u16 itemId, u8 effectByte, u8 effectBit)
 
     if (itemId == ITEM_ENIGMA_BERRY)
     {
-        temp = gEnigmaBerries[gActiveBattler].itemEffect;
+        temp = gEnigmaBerries[battler].itemEffect;
     }
 
     itemEffect = temp;
