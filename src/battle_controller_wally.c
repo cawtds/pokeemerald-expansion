@@ -407,20 +407,14 @@ static void WallyHandleTrainerSlide(u32 battler)
 
 static void WallyHandleSuccessBallThrowAnim(u32 battler)
 {
-    gBattleSpritesDataPtr->animationData->ballThrowCaseId = BALL_3_SHAKES_SUCCESS;
-    gDoingBattleAnim = TRUE;
-    InitAndLaunchSpecialAnimation(battler, battler, GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), B_ANIM_BALL_THROW_WITH_TRAINER);
-    gBattlerControllerFuncs[battler] = CompleteOnFinishedAnimation;
+    BtlController_HandleBallThrowAnim(battler, BALL_3_SHAKES_SUCCESS, B_ANIM_BALL_THROW_WITH_TRAINER);
 }
 
 static void WallyHandleBallThrowAnim(u32 battler)
 {
-    u8 ballThrowCaseId = gBattleBufferA[battler][1];
+    enum BallThrowCaseID caseID = gBattleBufferA[battler][1];
 
-    gBattleSpritesDataPtr->animationData->ballThrowCaseId = ballThrowCaseId;
-    gDoingBattleAnim = TRUE;
-    InitAndLaunchSpecialAnimation(battler, battler, GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), B_ANIM_BALL_THROW_WITH_TRAINER);
-    gBattlerControllerFuncs[battler] = CompleteOnFinishedAnimation;
+    BtlController_HandleBallThrowAnim(battler, caseID, B_ANIM_BALL_THROW_WITH_TRAINER);
 }
 
 static void WallyHandlePause(u32 battler)

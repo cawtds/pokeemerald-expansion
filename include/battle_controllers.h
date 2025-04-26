@@ -1,6 +1,8 @@
 #ifndef GUARD_BATTLE_CONTROLLERS_H
 #define GUARD_BATTLE_CONTROLLERS_H
 
+#include "constants/battle_anim.h"
+
 enum {
     REQUEST_ALL_BATTLE,
     REQUEST_SPECIES_BATTLE,
@@ -77,7 +79,7 @@ enum {
     RESET_MOVE_SELECTION,
 };
 
-enum {
+enum BallThrowCaseID {
     BALL_NO_SHAKES,
     BALL_1_SHAKE,
     BALL_2_SHAKES,
@@ -256,6 +258,7 @@ void BtlController_HandleDrawTrainerPic(u32 battler, u32 trainerPicId, s16 xPos,
 void BtlController_HandleTrainerSlide(u32 battler, u32 trainerPicId);
 void BtlController_HandleTrainerSlideBack(u32 battler, s16 data0, bool32 doAnim);
 void BtlController_HandleFaintAnimation(u32 battler);
+void BtlController_HandleBallThrowAnim(u32 battler, enum BallThrowCaseID ballThrowCaseID, enum AnimationSpecial anim);
 
 void BtlController_TerminatorNop(u32 battler);
 

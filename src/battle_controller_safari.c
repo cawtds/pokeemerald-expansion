@@ -284,20 +284,14 @@ static void SafariHandleDrawTrainerPic(u32 battler)
 
 static void SafariHandleSuccessBallThrowAnim(u32 battler)
 {
-    gBattleSpritesDataPtr->animationData->ballThrowCaseId = BALL_3_SHAKES_SUCCESS;
-    gDoingBattleAnim = TRUE;
-    InitAndLaunchSpecialAnimation(battler, battler, GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), B_ANIM_BALL_THROW_WITH_TRAINER);
-    gBattlerControllerFuncs[battler] = CompleteOnSpecialAnimDone;
+    BtlController_HandleBallThrowAnim(battler, BALL_3_SHAKES_SUCCESS, B_ANIM_BALL_THROW_WITH_TRAINER);
 }
 
 static void SafariHandleBallThrowAnim(u32 battler)
 {
-    u8 ballThrowCaseId = gBattleBufferA[battler][1];
+    enum BallThrowCaseID ballThrowCaseId = gBattleBufferA[battler][1];
 
-    gBattleSpritesDataPtr->animationData->ballThrowCaseId = ballThrowCaseId;
-    gDoingBattleAnim = TRUE;
-    InitAndLaunchSpecialAnimation(battler, battler, GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), B_ANIM_BALL_THROW_WITH_TRAINER);
-    gBattlerControllerFuncs[battler] = CompleteOnSpecialAnimDone;
+    BtlController_HandleBallThrowAnim(battler, ballThrowCaseId, B_ANIM_BALL_THROW_WITH_TRAINER);
 }
 
 static void SafariHandlePrintString(u32 battler)

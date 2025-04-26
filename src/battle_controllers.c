@@ -2451,6 +2451,20 @@ void BtlController_HandleFaintAnimation(u32 battler)
 #undef sSpeedX
 #undef sSpeedY
 
+static void CompleteOnSpecialAnimDone(u32 battler)
+{
+    if (!gDoingBattleAnim || !gBattleSpritesDataPtr->healthBoxesData[battler].specialAnimActive)
+        BtlController_ExecCompleted(battler);
+}
+
+void BtlController_HandleBallThrowAnim(u32 battler, enum BallThrowCaseID caseID, enum AnimationSpecial anim)
+{
+    gBattleSpritesDataPtr->animationData->ballThrowCaseId = caseID;
+    gDoingBattleAnim = TRUE;
+    InitAndLaunchSpecialAnimation(battler, battler, GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), anim);
+    gBattlerControllerFuncs[battler] = CompleteOnSpecialAnimDone;
+}
+
 void BtlController_TerminatorNop(u32 battler)
 {
 }

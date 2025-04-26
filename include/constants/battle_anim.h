@@ -383,7 +383,7 @@ enum
 
 
 // special animations table (gBattleAnimsSpecial)
-enum
+enum AnimationSpecial
 {
     B_ANIM_LVL_UP,
     B_ANIM_SWITCH_OUT_PLAYER_MON,

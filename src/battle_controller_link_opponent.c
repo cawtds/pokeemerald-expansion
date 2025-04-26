@@ -34,8 +34,6 @@ static void LinkOpponentHandleSwitchInAnim(u32 battler);
 static void LinkOpponentHandleDrawTrainerPic(u32 battler);
 static void LinkOpponentHandleTrainerSlide(u32 battler);
 static void LinkOpponentHandleTrainerSlideBack(u32 battler);
-static void LinkOpponentHandleSuccessBallThrowAnim(u32 battler);
-static void LinkOpponentHandleBallThrowAnim(u32 battler);
 static void LinkOpponentHandlePause(u32 battler);
 static void LinkOpponentHandleMoveAnimation(u32 battler);
 static void LinkOpponentHandlePrintString(u32 battler);
@@ -103,8 +101,8 @@ static void (*const sLinkOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 batt
     [CONTROLLER_TRAINERSLIDEBACK]         = LinkOpponentHandleTrainerSlideBack,
     [CONTROLLER_FAINTANIMATION]           = BtlController_HandleFaintAnimation,
     [CONTROLLER_PALETTEFADE]              = BtlController_Empty,
-    [CONTROLLER_SUCCESSBALLTHROWANIM]     = LinkOpponentHandleSuccessBallThrowAnim,
-    [CONTROLLER_BALLTHROWANIM]            = LinkOpponentHandleBallThrowAnim,
+    [CONTROLLER_SUCCESSBALLTHROWANIM]     = BtlController_Empty,
+    [CONTROLLER_BALLTHROWANIM]            = BtlController_Empty,
     [CONTROLLER_PAUSE]                    = LinkOpponentHandlePause,
     [CONTROLLER_MOVEANIMATION]            = LinkOpponentHandleMoveAnimation,
     [CONTROLLER_PRINTSTRING]              = LinkOpponentHandlePrintString,
@@ -566,16 +564,6 @@ static void LinkOpponentHandleTrainerSlide(u32 battler)
 static void LinkOpponentHandleTrainerSlideBack(u32 battler)
 {
     BtlController_HandleTrainerSlideBack(battler, 35, FALSE);
-}
-
-static void LinkOpponentHandleSuccessBallThrowAnim(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandleBallThrowAnim(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
 }
 
 static void LinkOpponentHandlePause(u32 battler)
