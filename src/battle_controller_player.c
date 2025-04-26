@@ -904,18 +904,6 @@ void SetBattleEndCallbacks(u32 battler)
     }
 }
 
-static void CompleteOnBattlerSpriteCallbackDummy(u32 battler)
-{
-    if (gSprites[gBattlerSpriteIds[battler]].callback == SpriteCallbackDummy)
-        PlayerBufferExecCompleted(battler);
-}
-
-static void CompleteOnBankSpriteCallbackDummy2(u32 battler)
-{
-    if (gSprites[gBattlerSpriteIds[battler]].callback == SpriteCallbackDummy)
-        PlayerBufferExecCompleted(battler);
-}
-
 static void FreeTrainerSpriteAfterSlide(u32 battler)
 {
     if (gSprites[gBattlerSpriteIds[battler]].callback == SpriteCallbackDummy)
@@ -1594,7 +1582,7 @@ static u32 PlayerGetTrainerPic()
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
         return LinkPlayerGetTrainerPic(GetMultiplayerId());
     else
-        return gSaveBlock2Ptr->playerGender;
+        return gSaveBlock2Ptr->playerGender == MALE ? TRAINER_BACK_PIC_BRENDAN : TRAINER_BACK_PIC_MAY;
 }
 
 // In emerald it's possible to have a tag battle in the battle frontier facilities with AI
@@ -1647,40 +1635,9 @@ static void PlayerHandleDrawTrainerPic(u32 battler)
 
 static void PlayerHandleTrainerSlide(u32 battler)
 {
-    u32 trainerPicId;
+    u32 trainerPicId = PlayerGetTrainerPic();
 
-    if (gBattleTypeFlags & BATTLE_TYPE_LINK)
-    {
-        if ((gLinkPlayers[GetMultiplayerId()].version & 0xFF) == VERSION_FIRE_RED
-            || (gLinkPlayers[GetMultiplayerId()].version & 0xFF) == VERSION_LEAF_GREEN)
-        {
-            trainerPicId = gLinkPlayers[GetMultiplayerId()].gender + TRAINER_BACK_PIC_RED;
-        }
-        else if ((gLinkPlayers[GetMultiplayerId()].version & 0xFF) == VERSION_RUBY
-                 || (gLinkPlayers[GetMultiplayerId()].version & 0xFF) == VERSION_SAPPHIRE)
-        {
-            trainerPicId = gLinkPlayers[GetMultiplayerId()].gender + TRAINER_BACK_PIC_RUBY_SAPPHIRE_BRENDAN;
-        }
-        else
-        {
-            trainerPicId = gLinkPlayers[GetMultiplayerId()].gender + TRAINER_BACK_PIC_BRENDAN;
-        }
-    }
-    else
-    {
-        trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
-    }
-
-    DecompressTrainerBackPic(trainerPicId, battler);
-    SetMultiuseSpriteTemplateToTrainerBack(trainerPicId, GetBattlerPosition(battler));
-    gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate, 80, (8 - gTrainerBackPicCoords[trainerPicId].size) * 4 + 80, 30);
-
-    gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = battler;
-    gSprites[gBattlerSpriteIds[battler]].x2 = -96;
-    gSprites[gBattlerSpriteIds[battler]].sSpeedX = 2;
-    gSprites[gBattlerSpriteIds[battler]].callback = SpriteCB_TrainerSlideIn;
-
-    gBattlerControllerFuncs[battler] = CompleteOnBankSpriteCallbackDummy2;
+    BtlController_HandleTrainerSlide(battler, trainerPicId);
 }
 
 #undef sSpeedX

@@ -33,7 +33,6 @@
 static void RecordedOpponentHandleLoadMonSprite(u32 battler);
 static void RecordedOpponentHandleSwitchInAnim(u32 battler);
 static void RecordedOpponentHandleDrawTrainerPic(u32 battler);
-static void RecordedOpponentHandleTrainerSlide(u32 battler);
 static void RecordedOpponentHandleTrainerSlideBack(u32 battler);
 static void RecordedOpponentHandleFaintAnimation(u32 battler);
 static void RecordedOpponentHandlePaletteFade(u32 battler);
@@ -101,7 +100,7 @@ static void (*const sRecordedOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 
     [CONTROLLER_SWITCHINANIM]             = RecordedOpponentHandleSwitchInAnim,
     [CONTROLLER_RETURNMONTOBALL]          = BtlController_HandleReturnMonToBall,
     [CONTROLLER_DRAWTRAINERPIC]           = RecordedOpponentHandleDrawTrainerPic,
-    [CONTROLLER_TRAINERSLIDE]             = RecordedOpponentHandleTrainerSlide,
+    [CONTROLLER_TRAINERSLIDE]             = BtlController_Empty,
     [CONTROLLER_TRAINERSLIDEBACK]         = RecordedOpponentHandleTrainerSlideBack,
     [CONTROLLER_FAINTANIMATION]           = RecordedOpponentHandleFaintAnimation,
     [CONTROLLER_PALETTEFADE]              = RecordedOpponentHandlePaletteFade,
@@ -171,18 +170,6 @@ static void RecordedOpponentBufferRunCommand(u32 battler)
         else
             RecordedOpponentBufferExecCompleted(battler);
     }
-}
-
-static void CompleteOnBattlerSpriteCallbackDummy(u32 battler)
-{
-    if (gSprites[gBattlerSpriteIds[battler]].callback == SpriteCallbackDummy)
-        RecordedOpponentBufferExecCompleted(battler);
-}
-
-static void UNUSED CompleteOnBankSpriteCallbackDummy2(u32 battler)
-{
-    if (gSprites[gBattlerSpriteIds[battler]].callback == SpriteCallbackDummy)
-        RecordedOpponentBufferExecCompleted(battler);
 }
 
 static void FreeTrainerSpriteAfterSlide(u32 battler)
@@ -549,11 +536,6 @@ static void RecordedOpponentHandleDrawTrainerPic(u32 battler)
 }
 
 #undef sSpeedX
-
-static void RecordedOpponentHandleTrainerSlide(u32 battler)
-{
-    RecordedOpponentBufferExecCompleted(battler);
-}
 
 static void RecordedOpponentHandleTrainerSlideBack(u32 battler)
 {

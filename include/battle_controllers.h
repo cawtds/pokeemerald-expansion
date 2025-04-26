@@ -253,6 +253,7 @@ void BtlController_HandleLoadMonSprite(u32 battler, void (*controllerCallback)(u
 void BtlController_HandleSwitchInAnim(u32 battler, void (*controllerCallback)(u32 battler));
 void BtlController_HandleReturnMonToBall(u32 battler);
 void BtlController_HandleDrawTrainerPic(u32 battler, u32 trainerPicId, s16 xPos, s16 yPos, s32 subpriority, bool32 isFrontPic);
+void BtlController_HandleTrainerSlide(u32 battler, u32 trainerPicId);
 
 void BtlController_TerminatorNop(u32 battler);
 

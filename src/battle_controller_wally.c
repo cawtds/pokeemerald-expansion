@@ -371,12 +371,6 @@ static void DoHitAnimBlinkSpriteEffect(u32 battler)
     }
 }
 
-static void CompleteOnBankSpriteCallbackDummy2(u32 battler)
-{
-    if (gSprites[gBattlerSpriteIds[battler]].callback == SpriteCallbackDummy)
-        WallyBufferExecCompleted(battler);
-}
-
 static void CompleteOnFinishedBattleAnimation(u32 battler)
 {
     if (!gBattleSpritesDataPtr->healthBoxesData[battler].animFromTableActive)
@@ -419,17 +413,7 @@ static void WallyHandleDrawTrainerPic(u32 battler)
 
 static void WallyHandleTrainerSlide(u32 battler)
 {
-    DecompressTrainerBackPic(TRAINER_BACK_PIC_WALLY, battler);
-    SetMultiuseSpriteTemplateToTrainerBack(TRAINER_BACK_PIC_WALLY, GetBattlerPosition(battler));
-    gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate,
-                                               80,
-                                               80 + 4 * (8 - gTrainerBackPicCoords[TRAINER_BACK_PIC_WALLY].size),
-                                               30);
-    gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = battler;
-    gSprites[gBattlerSpriteIds[battler]].x2 = -96;
-    gSprites[gBattlerSpriteIds[battler]].sSpeedX = 2;
-    gSprites[gBattlerSpriteIds[battler]].callback = SpriteCB_TrainerSlideIn;
-    gBattlerControllerFuncs[battler] = CompleteOnBankSpriteCallbackDummy2;
+    BtlController_HandleTrainerSlide(battler, TRAINER_BACK_PIC_WALLY);
 }
 
 #undef sSpeedX

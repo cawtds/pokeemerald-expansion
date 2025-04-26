@@ -173,18 +173,6 @@ static void LinkOpponentBufferRunCommand(u32 battler)
     }
 }
 
-static void CompleteOnBattlerSpriteCallbackDummy(u32 battler)
-{
-    if (gSprites[gBattlerSpriteIds[battler]].callback == SpriteCallbackDummy)
-        LinkOpponentBufferExecCompleted(battler);
-}
-
-static void CompleteOnBankSpriteCallbackDummy2(u32 battler)
-{
-    if (gSprites[gBattlerSpriteIds[battler]].callback == SpriteCallbackDummy)
-        LinkOpponentBufferExecCompleted(battler);
-}
-
 static void FreeTrainerSpriteAfterSlide(u32 battler)
 {
     if (gSprites[gBattlerSpriteIds[battler]].callback == SpriteCallbackDummy)
@@ -595,19 +583,8 @@ static void LinkOpponentHandleTrainerSlide(u32 battler)
     else
         trainerPicId = GetFrontierTrainerFrontSpriteId(gTrainerBattleOpponent_B);
 
-    DecompressTrainerFrontPic(trainerPicId, battler);
-    SetMultiuseSpriteTemplateToTrainerBack(trainerPicId, GetBattlerPosition(battler));
-    gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate, 176, (8 - gTrainerFrontPicCoords[trainerPicId].size) * 4 + 40, 0x1E);
-
-    gSprites[gBattlerSpriteIds[battler]].x2 = 96;
-    gSprites[gBattlerSpriteIds[battler]].x += 32;
-    gSprites[gBattlerSpriteIds[battler]].sSpeedX = -2;
-    gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = IndexOfSpritePaletteTag(gTrainerFrontPicPaletteTable[trainerPicId].tag);
-    gSprites[gBattlerSpriteIds[battler]].oam.affineParam = trainerPicId;
-    gSprites[gBattlerSpriteIds[battler]].callback = SpriteCB_TrainerSlideIn;
-
-    gBattlerControllerFuncs[battler] = CompleteOnBankSpriteCallbackDummy2; // this line is redundant, because LinkOpponentBufferExecCompleted changes the battle battlerId function
-    LinkOpponentBufferExecCompleted(battler);
+    BtlController_HandleTrainerSlide(battler, trainerPicId);
+    LinkOpponentBufferExecCompleted(battler); // possible bug
 }
 
 #undef sSpeedX

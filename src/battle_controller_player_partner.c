@@ -32,7 +32,6 @@
 static void PlayerPartnerHandleLoadMonSprite(u32 battler);
 static void PlayerPartnerHandleSwitchInAnim(u32 battler);
 static void PlayerPartnerHandleDrawTrainerPic(u32 battler);
-static void PlayerPartnerHandleTrainerSlide(u32 battler);
 static void PlayerPartnerHandleTrainerSlideBack(u32 battler);
 static void PlayerPartnerHandleFaintAnimation(u32 battler);
 static void PlayerPartnerHandlePaletteFade(u32 battler);
@@ -104,7 +103,7 @@ static void (*const sPlayerPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 bat
     [CONTROLLER_SWITCHINANIM]             = PlayerPartnerHandleSwitchInAnim,
     [CONTROLLER_RETURNMONTOBALL]          = BtlController_HandleReturnMonToBall,
     [CONTROLLER_DRAWTRAINERPIC]           = PlayerPartnerHandleDrawTrainerPic,
-    [CONTROLLER_TRAINERSLIDE]             = PlayerPartnerHandleTrainerSlide,
+    [CONTROLLER_TRAINERSLIDE]             = BtlController_Empty,
     [CONTROLLER_TRAINERSLIDEBACK]         = PlayerPartnerHandleTrainerSlideBack,
     [CONTROLLER_FAINTANIMATION]           = PlayerPartnerHandleFaintAnimation,
     [CONTROLLER_PALETTEFADE]              = PlayerPartnerHandlePaletteFade,
@@ -622,11 +621,6 @@ static void PlayerPartnerHandleDrawTrainerPic(u32 battler)
 }
 
 #undef sSpeedX
-
-static void PlayerPartnerHandleTrainerSlide(u32 battler)
-{
-    PlayerPartnerBufferExecCompleted(battler);
-}
 
 static void PlayerPartnerHandleTrainerSlideBack(u32 battler)
 {
