@@ -923,15 +923,15 @@ static void Task_StartSendOutAnim(u8 taskId)
     if (!IsDoubleBattle() || (gBattleTypeFlags & BATTLE_TYPE_MULTI))
     {
         gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-        StartSendOutAnim(battler, FALSE, FALSE);
+        StartSendOutAnim(battler, FALSE);
     }
     else
     {
         gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-        StartSendOutAnim(battler, FALSE, FALSE);
+        StartSendOutAnim(battler, FALSE);
         battler = BATTLE_PARTNER(battler);
         gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-        StartSendOutAnim(battler, FALSE, FALSE);
+        StartSendOutAnim(battler, FALSE);
         battler = BATTLE_PARTNER(battler);
     }
     gBattlerControllerFuncs[battler] = Intro_TryShinyAnimShowHealthbox;

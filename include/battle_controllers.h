@@ -260,7 +260,7 @@ void BtlController_HandleFaintAnimation(u32 battler);
 void BtlController_TerminatorNop(u32 battler);
 
 
-void StartSendOutAnim(u32 battler, bool32 dontClearSubstituteBit, bool32 isWallyController); // TODO: remove when Task_StartSendOutAnim is generalized
+void StartSendOutAnim(u32 battler, bool32 dontClearSubstituteBit); // TODO: remove when Task_StartSendOutAnim is generalized
 
 // player controller
 void SetControllerToPlayer(u32 battler);

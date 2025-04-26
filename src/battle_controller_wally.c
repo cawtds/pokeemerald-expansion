@@ -807,7 +807,7 @@ static void Task_StartSendOutAnim(u8 taskId)
         u32 battler = gTasks[taskId].data[0];
 
         gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-        StartSendOutAnim(battler, FALSE, TRUE);
+        StartSendOutAnim(battler, FALSE);
         gBattlerControllerFuncs[battler] = Intro_TryShinyAnimShowHealthbox;
         DestroyTask(taskId);
     }

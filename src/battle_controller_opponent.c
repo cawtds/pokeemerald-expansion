@@ -1049,20 +1049,20 @@ static void Task_StartSendOutAnim(u8 taskId)
     if (!IsDoubleBattle() || (gBattleTypeFlags & BATTLE_TYPE_MULTI))
     {
         gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-        StartSendOutAnim(battler, FALSE, FALSE);
+        StartSendOutAnim(battler, FALSE);
     }
     else if ((gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS))
     {
         gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-        StartSendOutAnim(battler, FALSE, FALSE);
+        StartSendOutAnim(battler, FALSE);
     }
     else
     {
         gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-        StartSendOutAnim(battler, FALSE, FALSE);
+        StartSendOutAnim(battler, FALSE);
         battler ^= BIT_FLANK;
         gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-        StartSendOutAnim(battler, FALSE, FALSE);
+        StartSendOutAnim(battler, FALSE);
         battler ^= BIT_FLANK;
     }
     gBattlerControllerFuncs[battler] = Intro_TryShinyAnimShowHealthbox;

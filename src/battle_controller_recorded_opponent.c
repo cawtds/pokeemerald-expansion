@@ -468,7 +468,7 @@ static void RecordedOpponentHandleLoadMonSprite(u32 battler)
 static void RecordedOpponentHandleSwitchInAnim(u32 battler)
 {
     gBattlerPartyIndexes[battler] = gBattleBufferA[battler][1];
-    StartSendOutAnim(battler, gBattleBufferA[battler][2], FALSE);
+    StartSendOutAnim(battler, gBattleBufferA[battler][2]);
     gBattlerControllerFuncs[battler] = SwitchIn_TryShinyAnim;
 }
 
@@ -902,15 +902,15 @@ static void Task_StartSendOutAnim(u8 taskId)
     if (!IsDoubleBattle() || (gBattleTypeFlags & BATTLE_TYPE_MULTI))
     {
         gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-        StartSendOutAnim(battler, FALSE, FALSE);
+        StartSendOutAnim(battler, FALSE);
     }
     else
     {
         gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-        StartSendOutAnim(battler, FALSE, FALSE);
+        StartSendOutAnim(battler, FALSE);
         battler ^= BIT_FLANK;
         gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-        StartSendOutAnim(battler, FALSE, FALSE);
+        StartSendOutAnim(battler, FALSE);
         battler ^= BIT_FLANK;
     }
     gBattlerControllerFuncs[battler] = Intro_TryShinyAnimShowHealthbox;

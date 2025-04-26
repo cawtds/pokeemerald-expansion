@@ -2171,16 +2171,13 @@ void BtlController_HandleLoadMonSprite(u32 battler, void (*controllerCallback)(u
     gBattlerControllerFuncs[battler] = controllerCallback;
 }
 
-void StartSendOutAnim(u32 battler, bool32 dontClearSubstituteBit, bool32 isWallyController)
+void StartSendOutAnim(u32 battler, bool32 dontClearSubstituteBit)
 {
     struct Pokemon *party = GetBattlerParty(battler);
     u32 battlerSide = GetBattlerSide(battler);
     u16 species;
 
-    if (isWallyController)
-        gBattleSpritesDataPtr->battlerData[battler].transformSpecies = SPECIES_NONE;
-    else
-        ClearTemporarySpeciesSpriteData(battler, dontClearSubstituteBit);
+    ClearTemporarySpeciesSpriteData(battler, dontClearSubstituteBit);
     gBattlerPartyIndexes[battler] = gBattleBufferA[battler][1];
     species = GetMonData(&party[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES);
     gBattleControllerData[battler] = CreateInvisibleSpriteWithCallback(SpriteCB_WaitForBattlerBallReleaseAnim);
@@ -2216,7 +2213,7 @@ void BtlController_HandleSwitchInAnim(u32 battler, void (*controllerCallback)(u3
     gBattlerPartyIndexes[battler] = gBattleBufferA[battler][1];
     if (battlerSide == B_SIDE_PLAYER)
         BattleLoadPlayerMonSpriteGfx(&gPlayerParty[gBattlerPartyIndexes[battler]], battler);
-    StartSendOutAnim(battler, gBattleBufferA[battler][2], FALSE);
+    StartSendOutAnim(battler, gBattleBufferA[battler][2]);
     gBattlerControllerFuncs[battler] = controllerCallback;
 }
 

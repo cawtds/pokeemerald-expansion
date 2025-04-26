@@ -561,7 +561,7 @@ static void PlayerPartnerHandleSwitchInAnim(u32 battler)
     ClearTemporarySpeciesSpriteData(battler, gBattleBufferA[battler][2]);
     gBattlerPartyIndexes[battler] = gBattleBufferA[battler][1];
     BattleLoadPlayerMonSpriteGfx(&gPlayerParty[gBattlerPartyIndexes[battler]], battler);
-    StartSendOutAnim(battler, gBattleBufferA[battler][2], FALSE);
+    StartSendOutAnim(battler, gBattleBufferA[battler][2]);
     gBattlerControllerFuncs[battler] = SwitchIn_TryShinyAnim;
 }
 
@@ -1037,16 +1037,16 @@ static void Task_StartSendOutAnim(u8 taskId)
         if (!IsDoubleBattle() || (gBattleTypeFlags & BATTLE_TYPE_MULTI))
         {
             gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-            StartSendOutAnim(battler, FALSE, FALSE);
+            StartSendOutAnim(battler, FALSE);
         }
         else
         {
             gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-            StartSendOutAnim(battler, FALSE, FALSE);
+            StartSendOutAnim(battler, FALSE);
             battler ^= BIT_FLANK;
             gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
             BattleLoadPlayerMonSpriteGfx(&gPlayerParty[gBattlerPartyIndexes[battler]], battler);
-            StartSendOutAnim(battler, FALSE, FALSE);
+            StartSendOutAnim(battler, FALSE);
             battler ^= BIT_FLANK;
         }
         gBattlerControllerFuncs[battler] = Intro_ShowHealthbox;
