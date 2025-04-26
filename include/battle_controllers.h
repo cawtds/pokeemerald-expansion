@@ -260,6 +260,7 @@ void BtlController_HandleTrainerSlideBack(u32 battler, s16 data0, bool32 doAnim)
 void BtlController_HandleFaintAnimation(u32 battler);
 void BtlController_HandleBallThrowAnim(u32 battler, enum BallThrowCaseID ballThrowCaseID, enum AnimationSpecial anim);
 void BtlController_HandleMoveAnimation(u32 battler, bool32 updateBattleTV);
+void BtlController_HandlePrintString(u32 battler, bool32 updateBattleTV, bool32 updateArenaPoints);
 
 void BtlController_TerminatorNop(u32 battler);
 

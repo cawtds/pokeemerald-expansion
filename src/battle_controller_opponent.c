@@ -567,25 +567,7 @@ static void OpponentHandleMoveAnimation(u32 battler)
 
 static void OpponentHandlePrintString(u32 battler)
 {
-    u16 *stringId;
-
-    gBattle_BG0_X = 0;
-    gBattle_BG0_Y = 0;
-    stringId = (u16 *)(&gBattleBufferA[battler][2]);
-    BufferStringBattle(battler, *stringId);
-
-    if (gTestRunnerEnabled)
-    {
-        TestRunner_Battle_RecordMessage(gDisplayedStringBattle);
-        if (gTestRunnerHeadless)
-        {
-            OpponentBufferExecCompleted(battler);
-            return;
-        }
-    }
-    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
-    gBattlerControllerFuncs[battler] = CompleteOnInactiveTextPrinter;
-    BattleArena_DeductSkillPoints(battler, *stringId);
+    BtlController_HandlePrintString(battler, FALSE, TRUE);
 }
 
 static void OpponentHandlePrintSelectionString(u32 battler)

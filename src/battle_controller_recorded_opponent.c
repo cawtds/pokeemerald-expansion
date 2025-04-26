@@ -341,12 +341,6 @@ static void CompleteOnHealthbarDone(u32 battler)
         RecordedOpponentBufferExecCompleted(battler);
 }
 
-static void CompleteOnInactiveTextPrinter(u32 battler)
-{
-    if (!IsTextPrinterActive(B_WIN_MSG))
-        RecordedOpponentBufferExecCompleted(battler);
-}
-
 static void DoHitAnimBlinkSpriteEffect(u32 battler)
 {
     u8 spriteId = gBattlerSpriteIds[battler];
@@ -517,24 +511,7 @@ static void RecordedOpponentHandleMoveAnimation(u32 battler)
 
 static void RecordedOpponentHandlePrintString(u32 battler)
 {
-    u16 *stringId;
-
-    gBattle_BG0_X = 0;
-    gBattle_BG0_Y = 0;
-    stringId = (u16 *)(&gBattleBufferA[battler][2]);
-    BufferStringBattle(battler, *stringId);
-
-    if (gTestRunnerEnabled)
-    {
-        TestRunner_Battle_RecordMessage(gDisplayedStringBattle);
-        if (gTestRunnerHeadless)
-        {
-            RecordedOpponentBufferExecCompleted(battler);
-            return;
-        }
-    }
-    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
-    gBattlerControllerFuncs[battler] = CompleteOnInactiveTextPrinter;
+    BtlController_HandlePrintString(battler, FALSE, FALSE);
 }
 
 static void RecordedOpponentHandlePrintSelectionString(u32 battler)

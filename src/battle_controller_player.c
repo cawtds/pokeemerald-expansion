@@ -1276,12 +1276,6 @@ static void DestroyExpTaskAndCompleteOnInactiveTextPrinter(u8 taskId)
     DestroyTask(taskId);
 }
 
-static void CompleteOnInactiveTextPrinter2(u32 battler)
-{
-    if (!IsTextPrinterActive(B_WIN_MSG))
-        PlayerBufferExecCompleted(battler);
-}
-
 static void OpenPartyMenuToChooseMon(u32 battler)
 {
     if (!gPaletteFade.active)
@@ -1655,26 +1649,7 @@ static void PlayerHandleMoveAnimation(u32 battler)
 
 static void PlayerHandlePrintString(u32 battler)
 {
-    u16 *stringId;
-
-    gBattle_BG0_X = 0;
-    gBattle_BG0_Y = 0;
-    stringId = (u16 *)(&gBattleBufferA[battler][2]);
-    BufferStringBattle(battler, *stringId);
-
-    if (gTestRunnerEnabled)
-    {
-        TestRunner_Battle_RecordMessage(gDisplayedStringBattle);
-        if (gTestRunnerHeadless)
-        {
-            PlayerBufferExecCompleted(battler);
-            return;
-        }
-    }
-    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
-    gBattlerControllerFuncs[battler] = CompleteOnInactiveTextPrinter2;
-    BattleTv_SetDataBasedOnString(*stringId);
-    BattleArena_DeductSkillPoints(battler, *stringId);
+    BtlController_HandlePrintString(battler, TRUE, TRUE);
 }
 
 static void PlayerHandlePrintSelectionString(u32 battler)

@@ -238,12 +238,6 @@ static void CompleteOnBattlerSpriteCallbackDummy(u32 battler)
         WallyBufferExecCompleted(battler);
 }
 
-static void CompleteOnInactiveTextPrinter(u32 battler)
-{
-    if (!IsTextPrinterActive(B_WIN_MSG))
-        WallyBufferExecCompleted(battler);
-}
-
 static void CompleteOnFinishedAnimation(u32 battler)
 {
     if (!gDoingBattleAnim)
@@ -422,14 +416,7 @@ static void WallyHandleMoveAnimation(u32 battler)
 
 static void WallyHandlePrintString(u32 battler)
 {
-    u16 *stringId;
-
-    gBattle_BG0_X = 0;
-    gBattle_BG0_Y = 0;
-    stringId = (u16 *)(&gBattleBufferA[battler][2]);
-    BufferStringBattle(battler, *stringId);
-    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
-    gBattlerControllerFuncs[battler] = CompleteOnInactiveTextPrinter;
+    BtlController_HandlePrintString(battler, FALSE, FALSE);
 }
 
 static void WallyHandlePrintSelectionString(u32 battler)

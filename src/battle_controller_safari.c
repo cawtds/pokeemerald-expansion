@@ -191,18 +191,6 @@ static void HandleInputChooseAction(u32 battler)
     }
 }
 
-static void CompleteOnBattlerSpriteCallbackDummy(u32 battler)
-{
-    if (gSprites[gBattlerSpriteIds[battler]].callback == SpriteCallbackDummy)
-        SafariBufferExecCompleted(battler);
-}
-
-static void CompleteOnInactiveTextPrinter(u32 battler)
-{
-    if (!IsTextPrinterActive(B_WIN_MSG))
-        SafariBufferExecCompleted(battler);
-}
-
 static void CompleteOnHealthboxSpriteCallbackDummy(u32 battler)
 {
     if (gSprites[gHealthboxSpriteIds[battler]].callback == SpriteCallbackDummy)
@@ -296,14 +284,7 @@ static void SafariHandleBallThrowAnim(u32 battler)
 
 static void SafariHandlePrintString(u32 battler)
 {
-    u16 *stringId;
-
-    gBattle_BG0_X = 0;
-    gBattle_BG0_Y = 0;
-    stringId = (u16 *)(&gBattleBufferA[battler][2]);
-    BufferStringBattle(battler, *stringId);
-    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
-    gBattlerControllerFuncs[battler] = CompleteOnInactiveTextPrinter;
+    BtlController_HandlePrintString(battler, FALSE, FALSE);
 }
 
 static void SafariHandlePrintSelectionString(u32 battler)

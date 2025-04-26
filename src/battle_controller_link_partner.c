@@ -259,12 +259,6 @@ static void CompleteOnHealthbarDone(u32 battler)
     }
 }
 
-static void CompleteOnInactiveTextPrinter(u32 battler)
-{
-    if (!IsTextPrinterActive(B_WIN_MSG))
-        LinkPartnerBufferExecCompleted(battler);
-}
-
 static void DoHitAnimBlinkSpriteEffect(u32 battler)
 {
     u8 spriteId = gBattlerSpriteIds[battler];
@@ -412,15 +406,7 @@ static void LinkPartnerHandleMoveAnimation(u32 battler)
 
 static void LinkPartnerHandlePrintString(u32 battler)
 {
-    u16 *stringId;
-
-    gBattle_BG0_X = 0;
-    gBattle_BG0_Y = 0;
-    stringId = (u16 *)(&gBattleBufferA[battler][2]);
-    BufferStringBattle(battler, *stringId);
-    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
-    gBattlerControllerFuncs[battler] = CompleteOnInactiveTextPrinter;
-    BattleTv_SetDataBasedOnString(*stringId);
+    BtlController_HandlePrintString(battler, TRUE, FALSE);
 }
 
 static void LinkPartnerHandlePrintSelectionString(u32 battler)

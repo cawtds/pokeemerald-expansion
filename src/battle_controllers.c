@@ -2,6 +2,7 @@
 #include "battle.h"
 #include "battle_ai_script_commands.h"
 #include "battle_anim.h"
+#include "battle_arena.h"
 #include "battle_controllers.h"
 #include "battle_interface.h"
 #include "battle_message.h"
@@ -17,6 +18,7 @@
 #include "string_util.h"
 #include "task.h"
 #include "test_runner.h"
+#include "text.h"
 #include "util.h"
 #include "constants/abilities.h"
 #include "constants/songs.h"
@@ -2533,6 +2535,38 @@ void BtlController_HandleMoveAnimation(u32 battler, bool32 updateBattleTV)
         if (updateBattleTV)
             BattleTv_SetDataBasedOnMove(move, gWeatherMoveAnim, gAnimDisableStructPtr);
     }
+}
+
+static void CompleteOnInactiveTextPrinter(u32 battler)
+{
+    if (!IsTextPrinterActive(B_WIN_MSG))
+        BtlController_ExecCompleted(battler);
+}
+
+void BtlController_HandlePrintString(u32 battler, bool32 updateBattleTV, bool32 updateArenaPoints)
+{
+    u16 *stringId;
+
+    gBattle_BG0_X = 0;
+    gBattle_BG0_Y = 0;
+    stringId = (u16 *)(&gBattleBufferA[battler][2]);
+    BufferStringBattle(battler, *stringId);
+
+    if (gTestRunnerEnabled)
+    {
+        TestRunner_Battle_RecordMessage(gDisplayedStringBattle);
+        if (gTestRunnerHeadless)
+        {
+            BtlController_ExecCompleted(battler);
+            return;
+        }
+    }
+    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
+    gBattlerControllerFuncs[battler] = CompleteOnInactiveTextPrinter;
+    if (updateBattleTV)
+        BattleTv_SetDataBasedOnString(*stringId);
+    if (updateArenaPoints)
+        BattleArena_DeductSkillPoints(battler, *stringId);
 }
 
 void BtlController_TerminatorNop(u32 battler)
