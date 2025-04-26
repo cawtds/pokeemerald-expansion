@@ -245,12 +245,16 @@ void BtlController_EmitResetActionMoveSelection(u32 battler, u8 bufferId, u8 cas
 void BtlController_EmitEndLinkBattle(u32 battler, u8 bufferId, u8 battleOutcome);
 
 void BtlController_Empty(u32 battler);
-void BtlController_HandleMonData(u32 battler);
+void BtlController_HandleGetMonData(u32 battler);
+void BtlController_HandleGetRawMonData(u32 battler);
+void BtlController_HandleSetMonData(u32 battler);
+void BtlController_HandleSetRawMonData(u32 battler);
+
+void BtlController_TerminatorNop(u32 battler);
 
 // player controller
 void SetControllerToPlayer(u32 battler);
 void BattleControllerDummy(u32 battler);
-void PlayerHandleGetRawMonData(u32 battler);
 void SetBattleEndCallbacks(u32 battler);
 void SpriteCB_FreePlayerSpriteLoadMonSprite(struct Sprite *sprite);
 void CB2_SetUpReshowBattleScreenAfterMenu(void);
