@@ -1743,14 +1743,11 @@ static void CreateEventMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedI
 }
 
 // If FALSE, should load this game's Deoxys form. If TRUE, should load normal Deoxys form
-bool8 ShouldIgnoreDeoxysForm(u8 caseId, u8 battlerId)
+bool8 ShouldIgnoreDeoxysForm(enum DeoxysFormCaseID caseId, u8 battlerId)
 {
     switch (caseId)
     {
-    case 0:
-    default:
-        return FALSE;
-    case 1: // Player's side in battle
+    case DEOXYS_PLAYER_SIDE: // Player's side in battle
         if (!(gBattleTypeFlags & BATTLE_TYPE_MULTI))
             return FALSE;
         if (!gMain.inBattle)
@@ -1758,9 +1755,7 @@ bool8 ShouldIgnoreDeoxysForm(u8 caseId, u8 battlerId)
         if (gLinkPlayers[GetMultiplayerId()].id == battlerId)
             return FALSE;
         break;
-    case 2:
-        break;
-    case 3: // Summary Screen
+    case DEOXYS_SUMMARY_SCREEN: // Summary Screen
         if (!(gBattleTypeFlags & BATTLE_TYPE_MULTI))
             return FALSE;
         if (!gMain.inBattle)
@@ -1768,9 +1763,7 @@ bool8 ShouldIgnoreDeoxysForm(u8 caseId, u8 battlerId)
         if (battlerId == 1 || battlerId == 4 || battlerId == 5)
             return TRUE;
         return FALSE;
-    case 4:
-        break;
-    case 5: // In move animation, e.g. in Role Play or Snatch
+    case DEOXYS_MOVE_ANIM: // In move animation, e.g. in Role Play or Snatch
         if (gBattleTypeFlags & BATTLE_TYPE_LINK)
         {
             if (!gMain.inBattle)

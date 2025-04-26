@@ -544,4 +544,11 @@ enum MonData
     MON_DATA_SPDEF2,
 };
 
+enum DeoxysFormCaseID
+{
+    DEOXYS_PLAYER_SIDE,
+    DEOXYS_SUMMARY_SCREEN,
+    DEOXYS_MOVE_ANIM
+};
+
 #endif // GUARD_CONSTANTS_POKEMON_H
