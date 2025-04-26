@@ -26,7 +26,6 @@
 
 static EWRAM_DATA u8 sLinkSendTaskId = 0;
 static EWRAM_DATA u8 sLinkReceiveTaskId = 0;
-static EWRAM_DATA u8 sUnused = 0; // Debug? Never read
 EWRAM_DATA struct UnusedControllerStruct gUnusedControllerStruct = {}; // Debug? Unused code that writes to it, never read
 static EWRAM_DATA u8 sBattleBuffersTransferData[0x100] = {};
 COMMON_DATA void (*gBattlerControllerEndFuncs[MAX_BATTLERS_COUNT])(u32 battler) = {0}; // Controller's buffer complete function for each battler
@@ -697,8 +696,6 @@ static void CreateTasksForSendRecvLinkBuffers(void)
     gTasks[sLinkReceiveTaskId].data[13] = 0;
     gTasks[sLinkReceiveTaskId].data[14] = 0;
     gTasks[sLinkReceiveTaskId].data[15] = 0;
-
-    sUnused = 0;
 }
 
 enum
@@ -2401,8 +2398,6 @@ static void FreeMonSpriteAfterFaintAnim(u32 battler)
 {
     if (gSprites[gBattlerSpriteIds[battler]].y + gSprites[gBattlerSpriteIds[battler]].y2 > DISPLAY_HEIGHT)
     {
-        u16 species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES);
-
         FreeOamMatrix(gSprites[gBattlerSpriteIds[battler]].oam.matrixNum);
         DestroySprite(&gSprites[gBattlerSpriteIds[battler]]);
         SetHealthboxSpriteInvisible(gHealthboxSpriteIds[battler]);
@@ -2569,6 +2564,6 @@ void BtlController_HandlePrintString(u32 battler, bool32 updateBattleTV, bool32 
         BattleArena_DeductSkillPoints(battler, *stringId);
 }
 
-void BtlController_TerminatorNop(u32 battler)
+void BtlController_TerminatorNop(u32 UNUSED battler)
 {
 }

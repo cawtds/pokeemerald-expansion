@@ -43,11 +43,6 @@ static void VBlankCB_ContestPainting(void);
 static void _InitContestMonPixels(u8 *spriteGfx, u16 *palette, u16 (*destPixels)[64][64]);
 
 extern const u8 gContestHallPaintingCaption[];
-extern const u8 gContestCoolness[];
-extern const u8 gContestBeauty[];
-extern const u8 gContestCuteness[];
-extern const u8 gContestSmartness[];
-extern const u8 gContestToughness[];
 extern const u8 gContestRankNormal[];
 extern const u8 gContestRankSuper[];
 extern const u8 gContestRankHyper[];
@@ -82,15 +77,6 @@ static const u8 sPictureFrameTilemap_Cute[]      = INCBIN_U8("graphics/picture_f
 static const u8 sPictureFrameTilemap_Smart[]     = INCBIN_U8("graphics/picture_frame/smart_map.bin.rl");
 static const u8 sPictureFrameTilemap_Tough[]     = INCBIN_U8("graphics/picture_frame/tough_map.bin.rl");
 static const u8 sPictureFrameTilemap_HallLobby[] = INCBIN_U8("graphics/picture_frame/lobby_map.bin.rl");
-
-static const u8 *const sContestCategoryNames_Unused[] =
-{
-    [CONTEST_CATEGORY_COOL]   = gContestCoolness,
-    [CONTEST_CATEGORY_BEAUTY] = gContestBeauty,
-    [CONTEST_CATEGORY_CUTE]   = gContestCuteness,
-    [CONTEST_CATEGORY_SMART]  = gContestSmartness,
-    [CONTEST_CATEGORY_TOUGH]  = gContestToughness,
-};
 
 static const u8 *const sContestRankNames[] =
 {

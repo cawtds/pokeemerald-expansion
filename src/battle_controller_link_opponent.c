@@ -80,7 +80,6 @@ static void LinkOpponentCmdEnd(u32 battler);
 static void LinkOpponentBufferRunCommand(u32 battler);
 static void LinkOpponentBufferExecCompleted(u32 battler);
 static void SwitchIn_HandleSoundAndEnd(u32 battler);
-static void SetLinkOpponentMonData(u32 battler, u8 monId);
 static void Task_StartSendOutAnim(u8 taskId);
 static void SpriteCB_FreeOpponentSprite(struct Sprite *sprite);
 static void EndDrawPartyStatusSummary(u32 battler);

@@ -89,7 +89,7 @@ static const struct MysteryGiftClientCmd sClientScript_DynamicError[] = {
     {CLI_RETURN, CLI_MSG_BUFFER_FAILURE}
 };
 
-static const struct MysteryGiftClientCmd sClientScript_DynamicSuccess[] = {
+static const struct MysteryGiftClientCmd UNUSED sClientScript_DynamicSuccess[] = {
     {CLI_RECV, MG_LINKID_DYNAMIC_MSG},
     {CLI_COPY_MSG},
     {CLI_SEND_READY_END},
@@ -112,14 +112,14 @@ static const struct MysteryGiftServerCmd sServerScript_CantSend[] = {
     {SVR_RETURN, SVR_MSG_CANT_SEND_GIFT_1}
 };
 
-static const struct MysteryGiftServerCmd sServerScript_CommError[] = {
+static const struct MysteryGiftServerCmd UNUSED sServerScript_CommError[] = {
     {SVR_LOAD_CLIENT_SCRIPT, PTR_ARG(sClientScript_CommError)},
     {SVR_SEND},
     {SVR_RECV, MG_LINKID_READY_END},
     {SVR_RETURN, SVR_MSG_COMM_ERROR}
 };
 
-static const struct MysteryGiftServerCmd sServerScript_ClientCanceledNews[] = {
+static const struct MysteryGiftServerCmd UNUSED sServerScript_ClientCanceledNews[] = {
     {SVR_LOAD_CLIENT_SCRIPT, PTR_ARG(sClientScript_Canceled)},
     {SVR_SEND},
     {SVR_RECV, MG_LINKID_READY_END},
@@ -183,7 +183,7 @@ static const struct MysteryGiftServerCmd sServerScript_HasCard[] = {
     {SVR_RETURN, SVR_MSG_HAS_CARD}
 };
 
-static const struct MysteryGiftServerCmd sServerScript_NothingSent[] = {
+static const struct MysteryGiftServerCmd UNUSED sServerScript_NothingSent[] = {
     {SVR_LOAD_CLIENT_SCRIPT, PTR_ARG(sClientScript_NothingSent)},
     {SVR_SEND},
     {SVR_RECV, MG_LINKID_READY_END},

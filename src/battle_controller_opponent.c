@@ -152,9 +152,6 @@ static void (*const sOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler)
     [CONTROLLER_TERMINATOR_NOP]           = OpponentCmdEnd
 };
 
-// unknown unused data
-static const u8 sUnused[] = {0xB0, 0xB0, 0xC8, 0x98, 0x28, 0x28, 0x28, 0x20};
-
 static void OpponentDummy(u32 battler)
 {
 }
@@ -372,12 +369,6 @@ static void CompleteOnHealthbarDone(u32 battler)
     if (hpValue != -1)
         UpdateHpTextInHealthbox(gHealthboxSpriteIds[battler], hpValue, HP_CURRENT);
     else
-        OpponentBufferExecCompleted(battler);
-}
-
-static void CompleteOnInactiveTextPrinter(u32 battler)
-{
-    if (!IsTextPrinterActive(B_WIN_MSG))
         OpponentBufferExecCompleted(battler);
 }
 

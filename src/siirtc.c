@@ -66,7 +66,6 @@
 
 extern vu16 GPIOPortDirection;
 
-static u16 sDummy; // unused variable
 static bool8 sLocked;
 
 static int WriteCommand(u8 value);
@@ -76,7 +75,7 @@ static u8 ReadData();
 static void EnableGpioPortRead();
 static void DisableGpioPortRead();
 
-static const char AgbLibRtcVersion[] = "SIIRTC_V001";
+static const char USED AgbLibRtcVersion[] = "SIIRTC_V001";
 
 void SiiRtcUnprotect(void)
 {

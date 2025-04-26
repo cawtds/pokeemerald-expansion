@@ -9,7 +9,7 @@
 //          Do not insert data between a pair of 'sChallenge_Mode' and 'sFloors_Mode'.
 
 // Unused
-static const struct TrainerHillChallenge sChallenge_JPDefault = {
+static const struct TrainerHillChallenge UNUSED sChallenge_JPDefault = {
     .numTrainers = NUM_TRAINER_HILL_TRAINERS_JP,
     .unused1 = 1,
     .numFloors = NUM_TRAINER_HILL_FLOORS_JP,
@@ -17,7 +17,7 @@ static const struct TrainerHillChallenge sChallenge_JPDefault = {
 };
 
 // Unused
-static const struct TrainerHillFloor sFloors_JPDefault[] = {
+static const struct TrainerHillFloor UNUSED sFloors_JPDefault[] = {
     [0] = {
         .trainerNum1 = 0,
         .trainerNum2 = 0,
@@ -360,7 +360,7 @@ static const struct TrainerHillChallenge sChallenge_Normal =
     .checksum = 0x00051E05
 };
 
-static const struct TrainerHillFloor sFloors_Normal[] =
+static const struct TrainerHillFloor UNUSED sFloors_Normal[] =
 {
     [0] =
     {
@@ -1476,7 +1476,7 @@ static const struct TrainerHillChallenge sChallenge_Variety =
     .checksum = 0x00054C15
 };
 
-static const struct TrainerHillFloor sFloors_Variety[] = {
+static const struct TrainerHillFloor UNUSED sFloors_Variety[] = {
     [0] =
         {
             .trainerNum1 = 41,
@@ -2598,7 +2598,7 @@ static const struct TrainerHillChallenge sChallenge_Unique =
     .checksum = 0x000652F3
 };
 
-static const struct TrainerHillFloor sFloors_Unique[] = {
+static const struct TrainerHillFloor UNUSED sFloors_Unique[] = {
     [0] =
         {
             .trainerNum1 = 49,
@@ -3705,7 +3705,7 @@ static const struct TrainerHillChallenge sChallenge_Expert =
     .checksum = 0x00061F3F
 };
 
-static const struct TrainerHillFloor sFloors_Expert[] = {
+static const struct TrainerHillFloor UNUSED sFloors_Expert[] = {
     [0] =
         {
             .trainerNum1 = 57,

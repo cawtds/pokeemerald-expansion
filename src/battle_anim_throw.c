@@ -131,28 +131,6 @@ const struct SpriteTemplate gPokeblockSpriteTemplate =
     .callback = SpriteCB_PokeBlock_Throw,
 };
 
-static const union AnimCmd sAnim_SafariRock[] =
-{
-    ANIMCMD_FRAME(64, 1),
-    ANIMCMD_END,
-};
-
-static const union AnimCmd *const sAnims_SafariRock[] = {
-    sAnim_SafariRock,
-};
-
-// Unused, leftover from FRLG
-static const struct SpriteTemplate sSafariRockSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_ROCKS,
-    .paletteTag = ANIM_TAG_ROCKS,
-    .oam = &gOamData_AffineOff_ObjNormal_32x32,
-    .anims = sAnims_SafariRock,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCB_PokeBlock_Throw,
-};
-
 extern const struct SpriteTemplate gWishStarSpriteTemplate;
 extern const struct SpriteTemplate gMiniTwinklingStarSpriteTemplate;
 

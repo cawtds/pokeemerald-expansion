@@ -232,18 +232,6 @@ static void WallyHandleActions(u32 battler)
     }
 }
 
-static void CompleteOnBattlerSpriteCallbackDummy(u32 battler)
-{
-    if (gSprites[gBattlerSpriteIds[battler]].callback == SpriteCallbackDummy)
-        WallyBufferExecCompleted(battler);
-}
-
-static void CompleteOnFinishedAnimation(u32 battler)
-{
-    if (!gDoingBattleAnim)
-        WallyBufferExecCompleted(battler);
-}
-
 static void OpenBagAfterPaletteFade(u32 battler)
 {
     if (!gPaletteFade.active)

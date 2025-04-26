@@ -231,7 +231,7 @@ static const u16 sAcceptedSerialNos[] = {
     RFU_SERIAL_END
 };
 
-static const char sASCII_RfuCmds[][15] = {
+static const char UNUSED sASCII_RfuCmds[][15] = {
     "RFU WAIT",
     "RFU BOOT",
     "RFU ERROR",
@@ -245,7 +245,7 @@ static const char sASCII_RfuCmds[][15] = {
     "RFU CP POLL"
 };
 
-static const char sASCII_RecoverCmds[][16] = {
+static const char UNUSED sASCII_RecoverCmds[][16] = {
     "              ",
     "RECOVER START ",
     "DISSCONECT    ",
@@ -266,11 +266,11 @@ static const char sASCII_LinkLossRecoveryNow[] = "LINK LOSS RECOVERY NOW";
 ALIGNED(4) static const char sASCII_30Spaces[] = {"                              "};
 static const char sASCII_15Spaces[] = {"               "};
 static const char sASCII_8Spaces[] = {"        "};
-ALIGNED(4) static const char sASCII_Space[] = {" "};
-static const char sASCII_Asterisk[] = {"*"};
+ALIGNED(4) static const char UNUSED sASCII_Space[] = {" "};
+static const char UNUSED sASCII_Asterisk[] = {"*"};
 static const char sASCII_NowSlot[] = "NOWSLOT";
 
-static const char sASCII_ClockCmds[][12] = {
+static const char UNUSED sASCII_ClockCmds[][12] = {
     "           ",
     "CLOCK DRIFT",
     "BUSY SEND  ",
@@ -278,7 +278,7 @@ static const char sASCII_ClockCmds[][12] = {
     "CLOCK SLAVE"
 };
 
-static const char sASCII_ChildParentSearch[][8] = {
+static const char UNUSED sASCII_ChildParentSearch[][8] = {
     "CHILD ",
     "PARENT",
     "SEARCH"

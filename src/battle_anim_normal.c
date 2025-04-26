@@ -12,7 +12,6 @@ static void AnimSimplePaletteBlend_Step(struct Sprite *);
 static void AnimComplexPaletteBlend(struct Sprite *);
 static void AnimComplexPaletteBlend_Step1(struct Sprite *);
 static void AnimComplexPaletteBlend_Step2(struct Sprite *);
-static void AnimCirclingSparkle(struct Sprite *);
 static void AnimShakeMonOrBattleTerrain(struct Sprite *);
 static void AnimShakeMonOrBattleTerrain_Step(struct Sprite *);
 static void AnimShakeMonOrBattleTerrain_UpdateCoordOffsetEnabled(void);
@@ -90,33 +89,6 @@ const struct SpriteTemplate gComplexPaletteBlendSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimComplexPaletteBlend,
-};
-
-static const union AnimCmd sAnim_CirclingSparkle[] =
-{
-    ANIMCMD_FRAME(0, 3),
-    ANIMCMD_FRAME(16, 3),
-    ANIMCMD_FRAME(32, 3),
-    ANIMCMD_FRAME(48, 3),
-    ANIMCMD_FRAME(64, 3),
-    ANIMCMD_JUMP(0),
-};
-
-static const union AnimCmd *const sAnims_CirclingSparkle[] =
-{
-    sAnim_CirclingSparkle,
-};
-
-// Unused
-static const struct SpriteTemplate sCirclingSparkleSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_SPARKLE_4,
-    .paletteTag = ANIM_TAG_SPARKLE_4,
-    .oam = &gOamData_AffineOff_ObjNormal_32x32,
-    .anims = sAnims_CirclingSparkle,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimCirclingSparkle,
 };
 
 const struct SpriteTemplate gShakeMonOrTerrainSpriteTemplate =
@@ -396,21 +368,6 @@ static void AnimComplexPaletteBlend_Step2(struct Sprite *sprite)
         BlendPalettes(selectedPalettes, 0, 0);
         DestroyAnimSprite(sprite);
     }
-}
-
-static void AnimCirclingSparkle(struct Sprite *sprite)
-{
-    sprite->x += gBattleAnimArgs[0];
-    sprite->y += gBattleAnimArgs[1];
-    sprite->data[0] = 0;
-    sprite->data[1] = 10;
-    sprite->data[2] = 8;
-    sprite->data[3] = 40;
-    sprite->data[4] = 112;
-    sprite->data[5] = 0;
-    StoreSpriteCallbackInData6(sprite, DestroySpriteAndMatrix);
-    sprite->callback = TranslateSpriteInGrowingCircle;
-    sprite->callback(sprite);
 }
 
 // Task data for AnimTask_BlendColorCycle, AnimTask_BlendColorCycleExclude, and AnimTask_BlendColorCycleByTag

@@ -112,7 +112,6 @@ static void DestroyExpTaskAndCompleteOnInactiveTextPrinter(u8);
 static void Task_GiveExpWithExpBar(u8);
 static void Task_UpdateLvlInHealthbox(u8);
 static void PrintLinkStandbyMsg(void);
-static u32 CopyPlayerMonData(u32 battler, u8, u8 *);
 static void Task_StartSendOutAnim(u8);
 static void EndDrawPartyStatusSummary(u32 battler);
 
@@ -178,9 +177,6 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
 };
 
 static const u8 sTargetIdentities[MAX_BATTLERS_COUNT] = {B_POSITION_PLAYER_LEFT, B_POSITION_PLAYER_RIGHT, B_POSITION_OPPONENT_RIGHT, B_POSITION_OPPONENT_LEFT};
-
-// unknown unused data
-static const u8 sUnused[] = {0x48, 0x48, 0x20, 0x5a, 0x50, 0x50, 0x50, 0x58};
 
 void BattleControllerDummy(u32 battler)
 {
@@ -1326,12 +1322,6 @@ static void CompleteWhenChoseItem(u32 battler)
     }
 }
 
-static void CompleteOnSpecialAnimDone(u32 battler)
-{
-    if (!gDoingBattleAnim || !gBattleSpritesDataPtr->healthBoxesData[battler].specialAnimActive)
-        PlayerBufferExecCompleted(battler);
-}
-
 static void DoHitAnimBlinkSpriteEffect(u32 battler)
 {
     u8 spriteId = gBattlerSpriteIds[battler];
@@ -1545,7 +1535,6 @@ u32 LinkPlayerGetTrainerPic(u32 multiplayerId)
 
 static u32 PlayerGetTrainerPic()
 {
-    u32 version;
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
         return LinkPlayerGetTrainerPic(GetMultiplayerId());
     else

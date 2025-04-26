@@ -207,12 +207,6 @@ static void SafariSetBattleEndCallbacks(u32 battler)
     }
 }
 
-static void CompleteOnSpecialAnimDone(u32 battler)
-{
-    if (!gDoingBattleAnim || !gBattleSpritesDataPtr->healthBoxesData[battler].specialAnimActive)
-        SafariBufferExecCompleted(battler);
-}
-
 static void SafariOpenPokeblockCase(u32 battler)
 {
     if (!gPaletteFade.active)

@@ -608,9 +608,7 @@ void AI_TrySwitchOrUseItem(u32 battler)
 }
 
 static void ModulateByTypeEffectiveness(u8 atkType, u8 defType1, u8 defType2, u8 *var)
-{
-    s32 i = 0;
-    
+{    
     // Check type1.
     *var = (*var * GetTypeEffectiveness(atkType, defType1)) / TYPE_MUL_NORMAL;
     // Check type2.

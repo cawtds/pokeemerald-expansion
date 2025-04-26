@@ -1196,7 +1196,6 @@ static const struct Story sStorytellerStories[] = {
 };
 
 static const s32 sNumStories = ARRAY_COUNT(sStorytellerStories);
-static const u32 sUnused = 8;
 
 static void StorytellerSetup(void)
 {

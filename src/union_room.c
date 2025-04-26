@@ -205,7 +205,6 @@ static EWRAM_DATA union
     struct WirelessLink_Group *group;
     struct WirelessLink_URoom *uRoom;
 } sWirelessLinkMain = {};
-static EWRAM_DATA u32 sUnused = 0;
 EWRAM_DATA struct RfuGameCompatibilityData gRfuPartnerCompatibilityData = {};
 EWRAM_DATA u16 gUnionRoomOfferedSpecies = 0;
 EWRAM_DATA u8 gUnionRoomRequestedMonType = 0;
@@ -281,7 +280,6 @@ static bool8 ArePlayersDifferent(struct RfuPlayerData *, const struct RfuPlayerD
 static void ItemPrintFunc_PossibleGroupMembers(u8, u32, u8);
 static void ListMenuItemPrintFunc_UnionRoomGroups(u8, u32, u8);
 static void TradeBoardListMenuItemPrintFunc(u8, u32, u8);
-static void ItemPrintFunc_EmptyList(u8, u32, u8);
 
 #include "data/union_room.h"
 
@@ -4090,10 +4088,6 @@ static s32 UnionRoomGetPlayerInteractionResponse(struct RfuPlayerList *list, boo
         }
         return 0;
     }
-}
-
-static void ItemPrintFunc_EmptyList(u8 windowId, u32 itemId, u8 y)
-{
 }
 
 static void TradeBoardPrintItemInfo(u8 windowId, u8 y, struct RfuGameData * data, const u8 * playerName, u8 colorIdx)

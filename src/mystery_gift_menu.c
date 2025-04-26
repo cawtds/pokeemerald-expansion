@@ -355,7 +355,7 @@ static const struct ListMenuTemplate sListMenu_Receive = {
     .cursorKind = CURSOR_BLACK_ARROW
 };
 
-static const u8 *const sUnusedMenuTexts[] = {
+static const UNUSED u8 *const sUnusedMenuTexts[] = {
     gText_VarietyOfEventsImportedWireless,
     gText_WonderCardsInPossession,
     gText_ReadNewsThatArrived,
@@ -363,7 +363,6 @@ static const u8 *const sUnusedMenuTexts[] = {
 };
 
 ALIGNED(2) static const u8 sTextColors_Header[]      = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE,     TEXT_COLOR_DARK_GRAY };
-ALIGNED(2) static const u8 sTextColors_Header_Copy[] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE,     TEXT_COLOR_DARK_GRAY };
 ALIGNED(2) static const u8 sMG_Ereader_TextColor_2[] = { TEXT_COLOR_WHITE,       TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY };
 
 static void VBlankCB_MysteryGiftEReader(void)

@@ -48,18 +48,21 @@ jobs:
         env:
           MODERN: 0
           COMPARE: 0
+          UNUSED_ERROR: 0
         run: make -j${nproc} -O all
 
       - name: Modern
         env:
           MODERN: 1
           COMPARE: 0
+          UNUSED_ERROR: 0
         run: make -j${nproc} -O all
 
       - name: Test
         env:
           MODERN: 1
           TEST: 1
+          UNUSED_ERROR: 0
         run: |
           make -j${nproc} check
 

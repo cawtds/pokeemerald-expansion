@@ -175,7 +175,6 @@ enum {
 #define TIMER_START_LEGENDARIES          43
 
 static EWRAM_DATA u16 sIntroCharacterGender = 0;
-static EWRAM_DATA u16 UNUSED sUnusedVar = 0;
 static EWRAM_DATA u16 sFlygonYOffset = 0;
 
 COMMON_DATA u32 gIntroFrameCounter = 0;
@@ -193,20 +192,10 @@ static const u32 sIntro1Bg_Gfx[]              = INCBIN_U32("graphics/intro/scene
 static const u16 sIntroPokeball_Pal[]         = INCBIN_U16("graphics/intro/scene_3/pokeball.gbapal");
 static const u32 sIntroPokeball_Tilemap[]     = INCBIN_U32("graphics/intro/scene_3/pokeball_map.bin.lz");
 static const u32 sIntroPokeball_Gfx[]         = INCBIN_U32("graphics/intro/scene_3/pokeball.8bpp.lz");
-static const u16 sIntroStreaks_Pal[]          = INCBIN_U16("graphics/intro/scene_3/streaks.gbapal"); // Unused
-static const u32 sIntroStreaks_Gfx[]          = INCBIN_U32("graphics/intro/scene_3/streaks.4bpp.lz"); // Unused
-static const u32 sIntroStreaks_Tilemap[]      = INCBIN_U32("graphics/intro/scene_3/streaks_map.bin.lz"); // Unused
 static const u16 sIntroRayquzaOrb_Pal[]       = INCBIN_U16("graphics/intro/scene_3/rayquaza_orb.gbapal");
-static const u16 sIntroMisc_Pal[]             = INCBIN_U16("graphics/intro/scene_3/misc.gbapal"); // Unused
 static const u32 sIntroMisc_Gfx[]             = INCBIN_U32("graphics/intro/scene_3/misc.4bpp.lz"); // Rayquza orb, and misc unused gfx
 static const u16 sIntroFlygonSilhouette_Pal[] = INCBIN_U16("graphics/intro/scene_1/flygon.gbapal");
-static const u32 sIntroLati_Gfx[]             = INCBIN_U32("graphics/intro/scene_1/lati.4bpp.lz"); // Unused
-static const u8 sUnusedData[] = {
-    0x02, 0x03, 0x04, 0x05, 0x01, 0x01, 0x01, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x02, 0x0D,
-    0x0E, 0x0F, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x02, 0x0D, 0x0E, 0x0F,
-    0x10, 0x11, 0x12, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F, 0x20, 0x21, 0x02, 0x0D, 0x0E, 0x0F, 0x10,
-    0x11, 0x12, 0x22, 0x23, 0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2A, 0x00
-};
+
 static const struct CompressedSpriteSheet sSpriteSheet_Sparkle[] =
 {
     {gIntroSparkle_Gfx, 0x400, TAG_SPARKLE},
@@ -677,22 +666,6 @@ static const struct OamData sOamData_GameFreakLetter =
     .paletteNum = 0,
     .affineParam = 0,
 };
-static const struct OamData sOamData_PresentsLetter =
-{
-    .y = DISPLAY_HEIGHT,
-    .affineMode = ST_OAM_AFFINE_OFF,
-    .objMode = ST_OAM_OBJ_NORMAL,
-    .mosaic = FALSE,
-    .bpp = ST_OAM_4BPP,
-    .shape = SPRITE_SHAPE(8x8),
-    .x = 0,
-    .matrixNum = 0,
-    .size = SPRITE_SIZE(8x8),
-    .tileNum = 0,
-    .priority = 0,
-    .paletteNum = 0,
-    .affineParam = 0,
-};
 static const struct OamData sOamData_GameFreakLogo =
 {
     .y = DISPLAY_HEIGHT,
@@ -744,36 +717,6 @@ static const union AnimCmd sAnim_GameFreakLetter_K[] =
     ANIMCMD_FRAME(104, 8),
     ANIMCMD_END,
 };
-static const union AnimCmd sAnim_PresentsLetter_P[] =
-{
-    ANIMCMD_FRAME(112, 8),
-    ANIMCMD_END,
-};
-static const union AnimCmd sAnim_PresentsLetter_R[] =
-{
-    ANIMCMD_FRAME(113, 8),
-    ANIMCMD_END,
-};
-static const union AnimCmd sAnim_PresentsLetter_E[] =
-{
-    ANIMCMD_FRAME(114, 8),
-    ANIMCMD_END,
-};
-static const union AnimCmd sAnim_PresentsLetter_S[] =
-{
-    ANIMCMD_FRAME(115, 8),
-    ANIMCMD_END,
-};
-static const union AnimCmd sAnim_PresentsLetter_N[] =
-{
-    ANIMCMD_FRAME(116, 8),
-    ANIMCMD_END,
-};
-static const union AnimCmd sAnim_PresentsLetter_T[] =
-{
-    ANIMCMD_FRAME(117, 8),
-    ANIMCMD_END,
-};
 static const union AnimCmd sAnim_GameFreakLogo[] =
 {
     ANIMCMD_FRAME(128, 8),
@@ -807,15 +750,6 @@ static const union AnimCmd *const sAnims_GameFreakLetter[] =
     [GAMEFREAK_R] = sAnim_GameFreakLetter_R,
     [GAMEFREAK_K] = sAnim_GameFreakLetter_K,
 };
-static const union AnimCmd *const sAnims_PresentsLetter[] =
-{
-    [PRESENTS_P] = sAnim_PresentsLetter_P,
-    [PRESENTS_R] = sAnim_PresentsLetter_R,
-    [PRESENTS_E] = sAnim_PresentsLetter_E,
-    [PRESENTS_S] = sAnim_PresentsLetter_S,
-    [PRESENTS_N] = sAnim_PresentsLetter_N,
-    [PRESENTS_T] = sAnim_PresentsLetter_T,
-};
 static const union AnimCmd *const sAnims_GameFreakLogo[] =
 {
     sAnim_GameFreakLogo,
@@ -834,18 +768,7 @@ static const s16 sGameFreakLetterData[NUM_GF_LETTERS][2] =
     {GAMEFREAK_A,  56},
     {GAMEFREAK_K,  72},
 };
-static const s16 sPresentsLetterData[][2] =
-{
-    // Letter,   x offset
-    {PRESENTS_P, -28},
-    {PRESENTS_R, -20},
-    {PRESENTS_E, -12},
-    {PRESENTS_S,  -4},
-    {PRESENTS_E,   4},
-    {PRESENTS_N,  12},
-    {PRESENTS_T,  20},
-    {PRESENTS_S,  28},
-};
+
 static const union AffineAnimCmd sAffineAnim_GameFreak_Small[] =
 {
     AFFINEANIMCMD_FRAME(128, 128, 0, 0),
@@ -897,17 +820,6 @@ static const struct SpriteTemplate sSpriteTemplate_GameFreakLetter =
     .anims = sAnims_GameFreakLetter,
     .images = NULL,
     .affineAnims = sAffineAnims_GameFreak,
-    .callback = SpriteCB_LogoLetter,
-};
-// Unused
-static const struct SpriteTemplate sSpriteTemplate_PresentsLetter =
-{
-    .tileTag = GFXTAG_DROPS_LOGO,
-    .paletteTag = PALTAG_LOGO,
-    .oam = &sOamData_PresentsLetter,
-    .anims = sAnims_PresentsLetter,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCB_LogoLetter,
 };
 static const struct SpriteTemplate sSpriteTemplate_GameFreakLogo =

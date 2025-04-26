@@ -63,13 +63,10 @@ static const u32 sHouseSilhouette_Gfx[]   = INCBIN_U32("graphics/intro/scene_2/h
 static const u16 sBrendanCredits_Pal[]    = INCBIN_U16("graphics/intro/scene_2/brendan_credits.gbapal");
 static const u32 sBrendanCredits_Gfx[]    = INCBIN_U32("graphics/intro/scene_2/brendan_credits.4bpp.lz");
 static const u16 sMayCredits_Pal[]        = INCBIN_U16("graphics/intro/scene_2/may_credits.gbapal");
-static const u16 sUnused[0xF0]            = {0};
 static const u32 sMayCredits_Gfx[]        = INCBIN_U32("graphics/intro/scene_2/may_credits.4bpp.lz");
 static const u32 sBicycle_Gfx[]           = INCBIN_U32("graphics/intro/scene_2/bicycle.4bpp.lz");
 static const u16 sLatios_Pal[]            = INCBIN_U16("graphics/intro/scene_2/latios.gbapal");
-static const u32 sLatios_Gfx[]            = INCBIN_U32("graphics/intro/scene_2/latios.4bpp.lz");
 static const u16 sLatias_Pal[]            = INCBIN_U16("graphics/intro/scene_2/latias.gbapal");
-static const u32 sLatias_Gfx[]            = INCBIN_U32("graphics/intro/scene_2/latias.4bpp.lz");
 
 static void SpriteCB_MovingScenery(struct Sprite *sprite);
 static void SpriteCB_Player(struct Sprite *sprite);
@@ -606,17 +603,6 @@ const struct CompressedSpriteSheet gSpriteSheet_IntroBicycle[] =
     {}
 };
 
-// In RS these were Latios/Latias. In Emerald both are replaced with Flygon and now only 1 is used
-static const struct CompressedSpriteSheet sSpriteSheet_IntroFlygon_Unused[] =
-{
-    {
-        .data = gIntroFlygon_Gfx,
-        .size = 0x1000,
-        .tag = TAG_FLYGON_LATIOS
-    },
-    {}
-};
-
 const struct CompressedSpriteSheet gSpriteSheet_IntroFlygon[] =
 {
     {
@@ -662,28 +648,6 @@ const struct CompressedSpriteSheet gSpriteSheet_CreditsBicycle[] =
         .data = sBicycle_Gfx,
         .size = 0x1000,
         .tag = TAG_BICYCLE
-    },
-    {}
-};
-
-// Unused
-static const struct CompressedSpriteSheet sSpriteSheet_Latios[] =
-{
-    {
-        .data = sLatios_Gfx,
-        .size = 0x1000,
-        .tag = TAG_FLYGON_LATIOS
-    },
-    {}
-};
-
-// Unused
-static const struct CompressedSpriteSheet sSpriteSheet_Latias[] =
-{
-    {
-        .data = sLatias_Gfx,
-        .size = 0x1000,
-        .tag = TAG_FLYGON_LATIAS
     },
     {}
 };

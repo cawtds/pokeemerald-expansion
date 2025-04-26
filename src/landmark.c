@@ -52,7 +52,6 @@ static const u8 LandmarkName_AncientTomb[] = _("ANCIENT TOMB");
 static const u8 LandmarkName_SealedChamber[] = _("SEALED CHAMBER");
 static const u8 LandmarkName_FossilManiacsHouse[] = _("FOSSIL MANIAC'S HOUSE");
 static const u8 LandmarkName_HuntersHouse[] = _("HUNTER'S HOUSE");
-static const u8 LandmarkName_MagmaHideout[] = _("MAGMA HIDEOUT");
 static const u8 LandmarkName_MirageTower[] = _("MIRAGE TOWER");
 static const u8 LandmarkName_AlteringCave[] = _("ALTERING CAVE");
 static const u8 LandmarkName_DesertUnderpass[] = _("DESERT UNDERPASS");

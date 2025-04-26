@@ -2,10 +2,6 @@ gContestHallPaintingCaption::
 	.string "{STR_VAR_1}\n"
 	.string "{STR_VAR_2}'s {STR_VAR_3}$"
 
-@ Unused
-gContestPaintingContest::
-	.string "CONTEST$"
-
 gContestRankNormal::
 	.string "NORMAL RANK$"
 
@@ -20,21 +16,6 @@ gContestRankMaster::
 
 gContestLink::
 	.string "LINK$"
-
-gContestCoolness::
-	.string "COOLNESS$"
-
-gContestBeauty::
-	.string "BEAUTY$"
-
-gContestCuteness::
-	.string "CUTENESS$"
-
-gContestSmartness::
-	.string "SMARTNESS$"
-
-gContestToughness::
-	.string "TOUGHNESS$"
 
 gContestPaintingCool1::
 	.string "Nonstop supercool--\n"

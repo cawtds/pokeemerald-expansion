@@ -39,8 +39,6 @@ static void AnimGhostStatusSprite(struct Sprite *);
 static void AnimGhostStatusSprite_Step(struct Sprite *);
 static void AnimTask_GrudgeFlames_Step(u8 taskId);
 static void AnimGrudgeFlame(struct Sprite *);
-static void AnimMonMoveCircular(struct Sprite *);
-static void AnimMonMoveCircular_Step(struct Sprite *);
 
 static const union AffineAnimCmd sAffineAnim_ConfuseRayBallBounce[] =
 {
@@ -124,18 +122,6 @@ const struct SpriteTemplate gLickSpriteTemplate =
     .callback = AnimLick,
 };
 
-static const union AffineAnimCmd sAffineAnim_Unused[] =
-{
-    AFFINEANIMCMD_FRAME(0x200, 0x200, 0, 0),
-    AFFINEANIMCMD_END,
-};
-
-// Unused
-static const union AffineAnimCmd *const sAffineAnims_Unused[] =
-{
-    sAffineAnim_Unused,
-};
-
 const struct SpriteTemplate gDestinyBondWhiteShadowSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WHITE_SHADOW,
@@ -203,18 +189,6 @@ const struct SpriteTemplate gGrudgeFlameSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimGrudgeFlame,
-};
-
-// Unused
-static const struct SpriteTemplate sMonMoveCircularSpriteTemplate =
-{
-    .tileTag = 0,
-    .paletteTag = 0,
-    .oam = &gDummyOamData,
-    .anims = gDummySpriteAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimMonMoveCircular,
 };
 
 static void AnimConfuseRayBallBounce(struct Sprite *sprite)
@@ -1303,38 +1277,5 @@ static void AnimGrudgeFlame(struct Sprite *sprite)
     {
         gTasks[sprite->data[0]].data[7]--;
         DestroySprite(sprite);
-    }
-}
-
-static void AnimMonMoveCircular(struct Sprite *sprite)
-{
-    sprite->invisible = TRUE;
-    sprite->data[5] = gBattlerSpriteIds[gBattleAnimAttacker];
-    sprite->data[0] = 128;
-    sprite->data[1] = 10;
-    sprite->data[2] = gBattleAnimArgs[0];
-    sprite->data[3] = gBattleAnimArgs[1];
-    sprite->callback = AnimMonMoveCircular_Step;
-
-    gSprites[sprite->data[5]].y += 8;
-}
-
-static void AnimMonMoveCircular_Step(struct Sprite *sprite)
-{
-    if (sprite->data[3])
-    {
-        sprite->data[3]--;
-        gSprites[sprite->data[5]].x2 = Sin(sprite->data[0], sprite->data[1]);
-        gSprites[sprite->data[5]].y2 = Cos(sprite->data[0], sprite->data[1]);
-        sprite->data[0] += sprite->data[2];
-        if (sprite->data[0] > 255)
-            sprite->data[0] -= 256;
-    }
-    else
-    {
-        gSprites[sprite->data[5]].x2 = 0;
-        gSprites[sprite->data[5]].y2 = 0;
-        gSprites[sprite->data[5]].y -= 8;
-        sprite->callback = DestroySpriteAndMatrix;
     }
 }

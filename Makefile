@@ -16,6 +16,8 @@ MODERN      ?= 0
 COMPARE     ?= 0
 # Executes the Test Runner System that checks that all mechanics work as expected
 TEST         ?= 0
+# Count unused warnings as errors. Used by RH-Hideout's repo
+UNUSED_ERROR ?= 1
 
 ifeq (modern,$(MAKECMDGOALS))
   MODERN := 1
@@ -154,6 +156,11 @@ endif
 # Enable debug info if set
 ifeq ($(DINFO),1)
   override CFLAGS += -g
+endif
+ifeq ($(UNUSED_ERROR),1)
+  ifeq ($(MODERN), 1)
+    override CFLAGS += -Werror=unused-variable -Werror=unused-const-variable -Werror=unused-function -Werror=unused-but-set-parameter -Werror=unused-but-set-variable -Werror=unused-value -Werror=unused-local-typedefs
+  endif
 endif
 
 # Variable filled out in other make files

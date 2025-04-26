@@ -510,7 +510,7 @@ static s16 GetSpeciesPokemonJumpType(u16 species)
 
 static void InitPlayerAndJumpTypes(void)
 {
-    int i, index;
+    int i;
 
     for (i = 0; i < MAX_RFU_PLAYERS; i++)
     {

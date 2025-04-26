@@ -71,7 +71,7 @@ extern const u8 *const gBattleScriptsForMoveEffects[];
 
 static bool8 IsTwoTurnsMove(u16 move);
 static void TrySetDestinyBondToHappen(void);
-static u8 AttacksThisTurn(u8 battlerId, u16 move); // Note: returns 1 if it's a charging turn, otherwise 2.
+static u8 AttacksThisTurn(u16 move); // Note: returns 1 if it's a charging turn, otherwise 2.
 static void CheckWonderGuardAndLevitate(void);
 static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8, const u8 *BS_ptr);
 static bool32 IsMonGettingExpSentOut(void);
@@ -673,26 +673,8 @@ static const u8 *const sMoveEffectBS_Ptrs[] =
     [MOVE_EFFECT_RECOIL_33]        = BattleScript_MoveEffectRecoil,
 };
 
-static const struct WindowTemplate sUnusedWinTemplate =
-{
-    .bg = 0,
-    .tilemapLeft = 1,
-    .tilemapTop = 3,
-    .width = 7,
-    .height = 15,
-    .paletteNum = 31,
-    .baseBlock = 0x3F
-};
-
 static const u16 sLevelUpBanner_Pal[] = INCBIN_U16("graphics/battle_interface/level_up_banner.gbapal");
 static const u32 sLevelUpBanner_Gfx[] = INCBIN_U32("graphics/battle_interface/level_up_banner.4bpp.lz");
-
-// unused
-static const u8 sRubyLevelUpStatBoxStats[] =
-{
-    MON_DATA_MAX_HP, MON_DATA_SPATK, MON_DATA_ATK,
-    MON_DATA_SPDEF, MON_DATA_DEF, MON_DATA_SPEED
-};
 
 static const struct OamData sOamData_MonIconOnLvlUpBanner =
 {
@@ -1284,7 +1266,6 @@ static void Cmd_typecalc(void)
 {
     CMD_ARGS();
 
-    s32 i = 0;
     u8 moveType;
 
     if (gCurrentMove == MOVE_STRUGGLE)
@@ -1329,7 +1310,7 @@ static void Cmd_typecalc(void)
         }
     }
 
-    if (gBattleMons[gBattlerTarget].ability == ABILITY_WONDER_GUARD && AttacksThisTurn(gBattlerAttacker, gCurrentMove) == 2
+    if (gBattleMons[gBattlerTarget].ability == ABILITY_WONDER_GUARD && AttacksThisTurn(gCurrentMove) == 2
      && (!(gMoveResultFlags & MOVE_RESULT_SUPER_EFFECTIVE) || ((gMoveResultFlags & (MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE)) == (MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE)))
      && GetMovePower(gCurrentMove))
     {
@@ -1349,7 +1330,6 @@ static void Cmd_typecalc(void)
 static void CheckWonderGuardAndLevitate(void)
 {
     u8 flags = 0;
-    s32 i = 0;
     u8 moveType;
     u8 defType1;
     u8 defType2;
@@ -1407,7 +1387,7 @@ static void CheckWonderGuardAndLevitate(void)
         }
     }
 
-    if (gBattleMons[gBattlerTarget].ability == ABILITY_WONDER_GUARD && AttacksThisTurn(gBattlerAttacker, gCurrentMove) == 2)
+    if (gBattleMons[gBattlerTarget].ability == ABILITY_WONDER_GUARD && AttacksThisTurn(gCurrentMove) == 2)
     {
         if (((flags & 2) || !(flags & 1)) && GetMovePower(gCurrentMove))
         {
@@ -1455,7 +1435,6 @@ static void ModulateDmgByType2(u8 multiplier, u16 move, u8 *flags)
 
 u8 TypeCalc(u16 move, u8 attacker, u8 defender)
 {
-    s32 i = 0;
     u8 flags = 0;
     u8 moveType;
 
@@ -1496,7 +1475,7 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
     }
 
     if (gBattleMons[defender].ability == ABILITY_WONDER_GUARD && !(flags & MOVE_RESULT_MISSED)
-        && AttacksThisTurn(attacker, move) == 2
+        && AttacksThisTurn(move) == 2
         && (!(flags & MOVE_RESULT_SUPER_EFFECTIVE) || ((flags & (MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE)) == (MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE)))
         && GetMovePower(move))
     {
@@ -1507,7 +1486,6 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
 
 u8 AI_TypeCalc(u16 move, u16 targetSpecies, u8 targetAbility)
 {
-    s32 i = 0;
     u8 flags = 0;
     u8 type1 = gSpeciesInfo[targetSpecies].types[0], type2 = gSpeciesInfo[targetSpecies].types[1];
     u8 moveType;
@@ -4389,7 +4367,6 @@ static void Cmd_typecalc2(void)
     CMD_ARGS();
 
     u8 flags = 0;
-    s32 i = 0;
     u8 moveType = GetMoveType(gCurrentMove);
 
     if (gBattleMons[gBattlerTarget].ability == ABILITY_LEVITATE && moveType == TYPE_GROUND)
@@ -4446,7 +4423,7 @@ static void Cmd_typecalc2(void)
 
     if (gBattleMons[gBattlerTarget].ability == ABILITY_WONDER_GUARD
         && !(flags & MOVE_RESULT_NO_EFFECT)
-        && AttacksThisTurn(gBattlerAttacker, gCurrentMove) == 2
+        && AttacksThisTurn(gCurrentMove) == 2
         && (!(flags & MOVE_RESULT_SUPER_EFFECTIVE) || ((flags & (MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE)) == (MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE)))
         && GetMovePower(gCurrentMove))
     {
@@ -6147,13 +6124,6 @@ static void Cmd_makevisible(void)
     u32 battler = GetBattlerForBattleScript(cmd->battler);
     BtlController_EmitSpriteInvisibility(battler, BUFFER_A, FALSE);
     MarkBattlerForControllerExec(battler);
-
-    gBattlescriptCurrInstr = cmd->nextInstr;
-}
-
-static void Cmd_noop(void)
-{
-    CMD_ARGS();
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
@@ -8274,7 +8244,7 @@ static bool8 IsInvalidForSleepTalkOrAssist(u16 move)
         return FALSE;
 }
 
-static u8 AttacksThisTurn(u8 battlerId, u16 move) // Note: returns 1 if it's a charging turn, otherwise 2
+static u8 AttacksThisTurn(u16 move) // Note: returns 1 if it's a charging turn, otherwise 2
 {
     // first argument is unused
     if (GetMoveEffect(move) == EFFECT_SOLAR_BEAM
