@@ -24,7 +24,6 @@
 #include "constants/songs.h"
 #include "constants/rgb.h"
 
-static void SafariHandleGetMonData(u32 battler);
 static void SafariHandleGetRawMonData(u32 battler);
 static void SafariHandleSetMonData(u32 battler);
 static void SafariHandleSetRawMonData(u32 battler);
@@ -88,7 +87,7 @@ static void CompleteWhenChosePokeblock(u32 battler);
 
 static void (*const sSafariBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
 {
-    [CONTROLLER_GETMONDATA]               = SafariHandleGetMonData,
+    [CONTROLLER_GETMONDATA]               = BtlController_Empty,
     [CONTROLLER_GETRAWMONDATA]            = SafariHandleGetRawMonData,
     [CONTROLLER_SETMONDATA]               = SafariHandleSetMonData,
     [CONTROLLER_SETRAWMONDATA]            = SafariHandleSetRawMonData,
@@ -154,6 +153,7 @@ static void UNUSED SpriteCB_Null4(u32 battler)
 void SetControllerToSafari(u32 battler)
 {
     gBattlerControllerFuncs[battler] = SafariBufferRunCommand;
+    gBattlerControllerEndFuncs[battler] = SafariBufferExecCompleted;
 }
 
 static void SafariBufferRunCommand(u32 battler)
@@ -311,11 +311,6 @@ static void UNUSED CompleteOnFinishedStatusAnimation(u32 battler)
 {
     if (!gBattleSpritesDataPtr->healthBoxesData[battler].statusAnimActive)
         SafariBufferExecCompleted(battler);
-}
-
-static void SafariHandleGetMonData(u32 battler)
-{
-    SafariBufferExecCompleted(battler);
 }
 
 static void SafariHandleGetRawMonData(u32 battler)

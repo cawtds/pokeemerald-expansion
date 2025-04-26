@@ -10,7 +10,9 @@
 #include "move.h"
 #include "party_menu.h"
 #include "recorded_battle.h"
+#include "string_util.h"
 #include "task.h"
+#include "test_runner.h"
 #include "util.h"
 #include "constants/abilities.h"
 
@@ -19,6 +21,7 @@ static EWRAM_DATA u8 sLinkReceiveTaskId = 0;
 static EWRAM_DATA u8 sUnused = 0; // Debug? Never read
 EWRAM_DATA struct UnusedControllerStruct gUnusedControllerStruct = {}; // Debug? Unused code that writes to it, never read
 static EWRAM_DATA u8 sBattleBuffersTransferData[0x100] = {};
+COMMON_DATA void (*gBattlerControllerEndFuncs[MAX_BATTLERS_COUNT])(u32 battler) = {0}; // Controller's buffer complete function for each battler
 
 static void CreateTasksForSendRecvLinkBuffers(void);
 static void InitLinkBtlControllers(void);
@@ -590,7 +593,7 @@ static void SetBattlePartyIds(void)
             {
                 if (i < 2)
                 {
-                    if (GET_BATTLER_SIDE2(i) == B_SIDE_PLAYER)
+                    if (GetBattlerSide(i) == B_SIDE_PLAYER)
                     {
                         if (GetMonData(&gPlayerParty[j], MON_DATA_HP) != 0
                          && GetMonData(&gPlayerParty[j], MON_DATA_SPECIES_OR_EGG) != SPECIES_NONE
@@ -615,7 +618,7 @@ static void SetBattlePartyIds(void)
                 }
                 else
                 {
-                    if (GET_BATTLER_SIDE2(i) == B_SIDE_PLAYER)
+                    if (GetBattlerSide(i) == B_SIDE_PLAYER)
                     {
                         if (GetMonData(&gPlayerParty[j], MON_DATA_HP) != 0
                          && GetMonData(&gPlayerParty[j], MON_DATA_SPECIES) != SPECIES_NONE  // Probably a typo by Game Freak. The rest use SPECIES2.
@@ -1513,4 +1516,355 @@ void BtlController_EmitEndLinkBattle(u32 battler, u8 bufferId, u8 battleOutcome)
     sBattleBuffersTransferData[3] = gSaveBlock2Ptr->frontier.disableRecordBattle;
     sBattleBuffersTransferData[5] = sBattleBuffersTransferData[4] = RecordedBattle_BufferNewBattlerData(&sBattleBuffersTransferData[6]);
     PrepareBufferDataTransfer(battler, bufferId, sBattleBuffersTransferData, sBattleBuffersTransferData[4] + 6);
+}
+
+
+void BtlController_ExecCompleted(u32 battler)
+{
+    gBattlerControllerEndFuncs[battler](battler);
+}
+
+void BtlController_Empty(u32 battler)
+{
+    BtlController_ExecCompleted(battler);
+}
+
+static u32 GetBattlerMonData(u32 battler, struct Pokemon *party, u8 monId, u8 *dst)
+{
+    struct BattlePokemon battleMon;
+    struct MovePpInfo moveData;
+    u8 nickname[POKEMON_NAME_BUFFER_SIZE];
+    u8 *src;
+    s16 data16;
+    u32 data32;
+    s32 size = 0;
+
+    switch (gBattleBufferA[battler][1])
+    {
+    case REQUEST_ALL_BATTLE:
+        battleMon.species = GetMonData(&party[monId], MON_DATA_SPECIES);
+        battleMon.item = GetMonData(&party[monId], MON_DATA_HELD_ITEM);
+        for (size = 0; size < MAX_MON_MOVES; size++)
+        {
+            battleMon.moves[size] = GetMonData(&party[monId], MON_DATA_MOVE1 + size);
+            battleMon.pp[size] = GetMonData(&party[monId], MON_DATA_PP1 + size);
+        }
+        battleMon.ppBonuses = GetMonData(&party[monId], MON_DATA_PP_BONUSES);
+        battleMon.friendship = GetMonData(&party[monId], MON_DATA_FRIENDSHIP);
+        battleMon.experience = GetMonData(&party[monId], MON_DATA_EXP);
+        battleMon.hpIV = GetMonData(&party[monId], MON_DATA_HP_IV);
+        battleMon.attackIV = GetMonData(&party[monId], MON_DATA_ATK_IV);
+        battleMon.defenseIV = GetMonData(&party[monId], MON_DATA_DEF_IV);
+        battleMon.speedIV = GetMonData(&party[monId], MON_DATA_SPEED_IV);
+        battleMon.spAttackIV = GetMonData(&party[monId], MON_DATA_SPATK_IV);
+        battleMon.spDefenseIV = GetMonData(&party[monId], MON_DATA_SPDEF_IV);
+        battleMon.personality = GetMonData(&party[monId], MON_DATA_PERSONALITY);
+        battleMon.status1 = GetMonData(&party[monId], MON_DATA_STATUS);
+        battleMon.level = GetMonData(&party[monId], MON_DATA_LEVEL);
+        battleMon.hp = GetMonData(&party[monId], MON_DATA_HP);
+        battleMon.maxHP = GetMonData(&party[monId], MON_DATA_MAX_HP);
+        battleMon.attack = GetMonData(&party[monId], MON_DATA_ATK);
+        battleMon.defense = GetMonData(&party[monId], MON_DATA_DEF);
+        battleMon.speed = GetMonData(&party[monId], MON_DATA_SPEED);
+        battleMon.spAttack = GetMonData(&party[monId], MON_DATA_SPATK);
+        battleMon.spDefense = GetMonData(&party[monId], MON_DATA_SPDEF);
+        battleMon.isEgg = GetMonData(&party[monId], MON_DATA_IS_EGG);
+        battleMon.abilityNum = GetMonData(&party[monId], MON_DATA_ABILITY_NUM);
+        battleMon.otId = GetMonData(&party[monId], MON_DATA_OT_ID);
+        GetMonData(&party[monId], MON_DATA_NICKNAME, nickname);
+        StringCopy_Nickname(battleMon.nickname, nickname);
+        GetMonData(&party[monId], MON_DATA_OT_NAME, battleMon.otName);
+        src = (u8 *)&battleMon;
+        for (size = 0; size < sizeof(battleMon); size++)
+            dst[size] = src[size];
+        #if TESTING
+        if (gTestRunnerEnabled)
+        {
+            u32 side = GetBattlerSide(battler);
+            u32 partyIndex = gBattlerPartyIndexes[battler];
+            if (TestRunner_Battle_GetForcedAbility(side, partyIndex))
+                gBattleMons[battler].ability = TestRunner_Battle_GetForcedAbility(side, partyIndex);
+        }
+        #endif
+        break;
+    case REQUEST_SPECIES_BATTLE:
+        data16 = GetMonData(&party[monId], MON_DATA_SPECIES);
+        dst[0] = data16;
+        dst[1] = data16 >> 8;
+        size = 2;
+        break;
+    case REQUEST_HELDITEM_BATTLE:
+        data16 = GetMonData(&party[monId], MON_DATA_HELD_ITEM);
+        dst[0] = data16;
+        dst[1] = data16 >> 8;
+        size = 2;
+        break;
+    case REQUEST_MOVES_PP_BATTLE:
+        for (size = 0; size < MAX_MON_MOVES; size++)
+        {
+            moveData.moves[size] = GetMonData(&party[monId], MON_DATA_MOVE1 + size);
+            moveData.pp[size] = GetMonData(&party[monId], MON_DATA_PP1 + size);
+        }
+        moveData.ppBonuses = GetMonData(&party[monId], MON_DATA_PP_BONUSES);
+        src = (u8 *)(&moveData);
+        for (size = 0; size < sizeof(moveData); size++)
+            dst[size] = src[size];
+        break;
+    case REQUEST_MOVE1_BATTLE:
+    case REQUEST_MOVE2_BATTLE:
+    case REQUEST_MOVE3_BATTLE:
+    case REQUEST_MOVE4_BATTLE:
+        data16 = GetMonData(&party[monId], MON_DATA_MOVE1 + gBattleBufferA[battler][1] - REQUEST_MOVE1_BATTLE);
+        dst[0] = data16;
+        dst[1] = data16 >> 8;
+        size = 2;
+        break;
+    case REQUEST_PP_DATA_BATTLE:
+        for (size = 0; size < MAX_MON_MOVES; size++)
+            dst[size] = GetMonData(&party[monId], MON_DATA_PP1 + size);
+        dst[size] = GetMonData(&party[monId], MON_DATA_PP_BONUSES);
+        size++;
+        break;
+    case REQUEST_PPMOVE1_BATTLE:
+    case REQUEST_PPMOVE2_BATTLE:
+    case REQUEST_PPMOVE3_BATTLE:
+    case REQUEST_PPMOVE4_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_PP1 + gBattleBufferA[battler][1] - REQUEST_PPMOVE1_BATTLE);
+        size = 1;
+        break;
+    case REQUEST_OTID_BATTLE:
+        data32 = GetMonData(&party[monId], MON_DATA_OT_ID);
+        dst[0] = (data32 & 0x000000FF);
+        dst[1] = (data32 & 0x0000FF00) >> 8;
+        dst[2] = (data32 & 0x00FF0000) >> 16;
+        size = 3;
+        break;
+    case REQUEST_EXP_BATTLE:
+        data32 = GetMonData(&party[monId], MON_DATA_EXP);
+        dst[0] = (data32 & 0x000000FF);
+        dst[1] = (data32 & 0x0000FF00) >> 8;
+        dst[2] = (data32 & 0x00FF0000) >> 16;
+        size = 3;
+        break;
+    case REQUEST_HP_EV_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_HP_EV);
+        size = 1;
+        break;
+    case REQUEST_ATK_EV_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_ATK_EV);
+        size = 1;
+        break;
+    case REQUEST_DEF_EV_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_DEF_EV);
+        size = 1;
+        break;
+    case REQUEST_SPEED_EV_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_SPEED_EV);
+        size = 1;
+        break;
+    case REQUEST_SPATK_EV_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_SPATK_EV);
+        size = 1;
+        break;
+    case REQUEST_SPDEF_EV_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_SPDEF_EV);
+        size = 1;
+        break;
+    case REQUEST_FRIENDSHIP_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_FRIENDSHIP);
+        size = 1;
+        break;
+    case REQUEST_POKERUS_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_POKERUS);
+        size = 1;
+        break;
+    case REQUEST_MET_LOCATION_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_MET_LOCATION);
+        size = 1;
+        break;
+    case REQUEST_MET_LEVEL_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_MET_LEVEL);
+        size = 1;
+        break;
+    case REQUEST_MET_GAME_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_MET_GAME);
+        size = 1;
+        break;
+    case REQUEST_POKEBALL_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_POKEBALL);
+        size = 1;
+        break;
+    case REQUEST_ALL_IVS_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_HP_IV);
+        dst[1] = GetMonData(&party[monId], MON_DATA_ATK_IV);
+        dst[2] = GetMonData(&party[monId], MON_DATA_DEF_IV);
+        dst[3] = GetMonData(&party[monId], MON_DATA_SPEED_IV);
+        dst[4] = GetMonData(&party[monId], MON_DATA_SPATK_IV);
+        dst[5] = GetMonData(&party[monId], MON_DATA_SPDEF_IV);
+        size = 6;
+        break;
+    case REQUEST_HP_IV_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_HP_IV);
+        size = 1;
+        break;
+    case REQUEST_ATK_IV_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_ATK_IV);
+        size = 1;
+        break;
+    case REQUEST_DEF_IV_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_DEF_IV);
+        size = 1;
+        break;
+    case REQUEST_SPEED_IV_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_SPEED_IV);
+        size = 1;
+        break;
+    case REQUEST_SPATK_IV_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_SPATK_IV);
+        size = 1;
+        break;
+    case REQUEST_SPDEF_IV_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_SPDEF_IV);
+        size = 1;
+        break;
+    case REQUEST_PERSONALITY_BATTLE:
+        data32 = GetMonData(&party[monId], MON_DATA_PERSONALITY);
+        dst[0] = (data32 & 0x000000FF);
+        dst[1] = (data32 & 0x0000FF00) >> 8;
+        dst[2] = (data32 & 0x00FF0000) >> 16;
+        dst[3] = (data32 & 0xFF000000) >> 24;
+        size = 4;
+        break;
+    case REQUEST_CHECKSUM_BATTLE:
+        data16 = GetMonData(&party[monId], MON_DATA_CHECKSUM);
+        dst[0] = data16;
+        dst[1] = data16 >> 8;
+        size = 2;
+        break;
+    case REQUEST_STATUS_BATTLE:
+        data32 = GetMonData(&party[monId], MON_DATA_STATUS);
+        dst[0] = (data32 & 0x000000FF);
+        dst[1] = (data32 & 0x0000FF00) >> 8;
+        dst[2] = (data32 & 0x00FF0000) >> 16;
+        dst[3] = (data32 & 0xFF000000) >> 24;
+        size = 4;
+        break;
+    case REQUEST_LEVEL_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_LEVEL);
+        size = 1;
+        break;
+    case REQUEST_HP_BATTLE:
+        data16 = GetMonData(&party[monId], MON_DATA_HP);
+        dst[0] = data16;
+        dst[1] = data16 >> 8;
+        size = 2;
+        break;
+    case REQUEST_MAX_HP_BATTLE:
+        data16 = GetMonData(&party[monId], MON_DATA_MAX_HP);
+        dst[0] = data16;
+        dst[1] = data16 >> 8;
+        size = 2;
+        break;
+    case REQUEST_ATK_BATTLE:
+        data16 = GetMonData(&party[monId], MON_DATA_ATK);
+        dst[0] = data16;
+        dst[1] = data16 >> 8;
+        size = 2;
+        break;
+    case REQUEST_DEF_BATTLE:
+        data16 = GetMonData(&party[monId], MON_DATA_DEF);
+        dst[0] = data16;
+        dst[1] = data16 >> 8;
+        size = 2;
+        break;
+    case REQUEST_SPEED_BATTLE:
+        data16 = GetMonData(&party[monId], MON_DATA_SPEED);
+        dst[0] = data16;
+        dst[1] = data16 >> 8;
+        size = 2;
+        break;
+    case REQUEST_SPATK_BATTLE:
+        data16 = GetMonData(&party[monId], MON_DATA_SPATK);
+        dst[0] = data16;
+        dst[1] = data16 >> 8;
+        size = 2;
+        break;
+    case REQUEST_SPDEF_BATTLE:
+        data16 = GetMonData(&party[monId], MON_DATA_SPDEF);
+        dst[0] = data16;
+        dst[1] = data16 >> 8;
+        size = 2;
+        break;
+    case REQUEST_COOL_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_COOL);
+        size = 1;
+        break;
+    case REQUEST_BEAUTY_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_BEAUTY);
+        size = 1;
+        break;
+    case REQUEST_CUTE_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_CUTE);
+        size = 1;
+        break;
+    case REQUEST_SMART_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_SMART);
+        size = 1;
+        break;
+    case REQUEST_TOUGH_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_TOUGH);
+        size = 1;
+        break;
+    case REQUEST_SHEEN_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_SHEEN);
+        size = 1;
+        break;
+    case REQUEST_COOL_RIBBON_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_COOL_RIBBON);
+        size = 1;
+        break;
+    case REQUEST_BEAUTY_RIBBON_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_BEAUTY_RIBBON);
+        size = 1;
+        break;
+    case REQUEST_CUTE_RIBBON_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_CUTE_RIBBON);
+        size = 1;
+        break;
+    case REQUEST_SMART_RIBBON_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_SMART_RIBBON);
+        size = 1;
+        break;
+    case REQUEST_TOUGH_RIBBON_BATTLE:
+        dst[0] = GetMonData(&party[monId], MON_DATA_TOUGH_RIBBON);
+        size = 1;
+        break;
+    }
+
+    return size;
+}
+
+void BtlController_HandleMonData(u32 battler)
+{
+    u8 monData[sizeof(struct Pokemon) * 2 + 56]; // this allows to get full data of two Pokémon, trying to get more will result in overwriting data
+    u32 size = 0;
+    u8 monToCheck;
+    s32 i;
+
+    if (gBattleBufferA[battler][2] == 0)
+    {
+        size += GetBattlerMonData(battler, GetBattlerParty(battler), gBattlerPartyIndexes[battler], monData);
+    }
+    else
+    {
+        monToCheck = gBattleBufferA[battler][2];
+        for (i = 0; i < PARTY_SIZE; i++)
+        {
+            if (monToCheck & 1)
+                size += GetBattlerMonData(battler, GetBattlerParty(battler), i, monData + size);
+            monToCheck >>= 1;
+        }
+    }
+    BtlController_EmitDataTransfer(battler, BUFFER_B, size, monData);
+    BtlController_ExecCompleted(battler);
 }

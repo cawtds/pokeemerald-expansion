@@ -191,6 +191,7 @@ enum
 };
 
 extern struct UnusedControllerStruct gUnusedControllerStruct;
+extern void (*gBattlerControllerEndFuncs[MAX_BATTLERS_COUNT])(u32 battler);
 
 // general functions
 void HandleLinkBattleSetup(void);
@@ -242,6 +243,9 @@ void BtlController_EmitBattleAnimation(u32 battler, u8 bufferId, u8 animationId,
 void BtlController_EmitLinkStandbyMsg(u32 battler, u8 bufferId, u8 mode, bool32 record);
 void BtlController_EmitResetActionMoveSelection(u32 battler, u8 bufferId, u8 caseId);
 void BtlController_EmitEndLinkBattle(u32 battler, u8 bufferId, u8 battleOutcome);
+
+void BtlController_Empty(u32 battler);
+void BtlController_HandleMonData(u32 battler);
 
 // player controller
 void SetControllerToPlayer(u32 battler);

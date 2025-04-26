@@ -902,7 +902,7 @@ static void Cmd_if_side_affecting(void)
     else
         battlerId = gBattlerTarget;
 
-    side = GET_BATTLER_SIDE(battlerId);
+    side = GetBattlerSide(battlerId);
     status = T1_READ_32(gAIScriptPtr + 2);
 
     if (gSideStatuses[side] & status)
@@ -921,7 +921,7 @@ static void Cmd_if_not_side_affecting(void)
     else
         battlerId = gBattlerTarget;
 
-    side = GET_BATTLER_SIDE(battlerId);
+    side = GetBattlerSide(battlerId);
     status = T1_READ_32(gAIScriptPtr + 2);
 
     if (!(gSideStatuses[side] & status))

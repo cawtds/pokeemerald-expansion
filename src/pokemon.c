@@ -2523,7 +2523,7 @@ static bool8 ShouldGetStatBadgeBoost(u16 badgeFlag, u8 battlerId)
 
 u8 GetDefaultMoveTarget(u32 battler)
 {
-    u8 opposing = BATTLE_OPPOSITE(GET_BATTLER_SIDE(battler));
+    u8 opposing = BATTLE_OPPOSITE(GetBattlerSide(battler));
 
     if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
         return GetBattlerAtPosition(opposing);

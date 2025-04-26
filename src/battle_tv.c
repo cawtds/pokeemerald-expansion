@@ -1247,7 +1247,7 @@ static void TrySetBattleSeminarShow(void)
         if (ShouldCalculateDamage(gCurrentMove, &dmgByMove[i], &powerOverride))
         {
             u8 moveResultFlags;
-            u16 sideStatus = gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)];
+            u16 sideStatus = gSideStatuses[GetBattlerSide(gBattlerTarget)];
             gBattleMoveDamage = CalculateBaseDamage(&gBattleMons[gBattlerAttacker], &gBattleMons[gBattlerTarget], gCurrentMove,
                                                     sideStatus, powerOverride,
                                                     0, gBattlerAttacker, gBattlerTarget);

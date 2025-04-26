@@ -37,6 +37,7 @@
 	.include "battle_anim_throw.o"
 	.include "battle_factory_screen.o"
 	.include "apprentice.o"
+	.include "battle_controllers.o"
 	.align 4
 	.include "list_menu.o"
 	.include "party_menu.o"
