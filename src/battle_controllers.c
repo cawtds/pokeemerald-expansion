@@ -2364,6 +2364,33 @@ void BtlController_HandleTrainerSlide(u32 battler, u32 trainerPicId)
 
 #undef sSpeedX
 
+static void FreeTrainerSpriteAfterSlide(u32 battler)
+{
+    if (gSprites[gBattlerSpriteIds[battler]].callback == SpriteCallbackDummy)
+    {
+        if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
+            FreeTrainerFrontPicPalette(gSprites[gBattlerSpriteIds[battler]].oam.affineParam);
+        FreeSpriteOamMatrix(&gSprites[gBattlerSpriteIds[battler]]);
+        DestroySprite(&gSprites[gBattlerSpriteIds[battler]]);
+        BtlController_ExecCompleted(battler);
+    }
+}
+
+void BtlController_HandleTrainerSlideBack(u32 battler, s16 data0, bool32 doAnim)
+{
+    u32 battlerSide = GetBattlerSide(battler);
+
+    SetSpritePrimaryCoordsFromSecondaryCoords(&gSprites[gBattlerSpriteIds[battler]]);
+    gSprites[gBattlerSpriteIds[battler]].data[0] = data0;
+    gSprites[gBattlerSpriteIds[battler]].data[2] = battlerSide == B_SIDE_PLAYER ? -40 : 280;
+    gSprites[gBattlerSpriteIds[battler]].data[4] = gSprites[gBattlerSpriteIds[battler]].y;
+    gSprites[gBattlerSpriteIds[battler]].callback = StartAnimLinearTranslation;
+    StoreSpriteCallbackInData6(&gSprites[gBattlerSpriteIds[battler]], SpriteCallbackDummy);
+    if (doAnim)
+        StartSpriteAnim(&gSprites[gBattlerSpriteIds[battler]], 1);
+    gBattlerControllerFuncs[battler] = FreeTrainerSpriteAfterSlide;
+}
+
 void BtlController_TerminatorNop(u32 battler)
 {
 }

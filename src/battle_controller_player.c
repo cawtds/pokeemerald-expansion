@@ -904,17 +904,6 @@ void SetBattleEndCallbacks(u32 battler)
     }
 }
 
-static void FreeTrainerSpriteAfterSlide(u32 battler)
-{
-    if (gSprites[gBattlerSpriteIds[battler]].callback == SpriteCallbackDummy)
-    {
-        BattleGfxSfxDummy3(gSaveBlock2Ptr->playerGender);
-        FreeSpriteOamMatrix(&gSprites[gBattlerSpriteIds[battler]]);
-        DestroySprite(&gSprites[gBattlerSpriteIds[battler]]);
-        PlayerBufferExecCompleted(battler);
-    }
-}
-
 static void Intro_DelayAndEnd(u32 battler)
 {
     if (--gBattleSpritesDataPtr->healthBoxesData[battler].introEndDelay == (u8)-1)
@@ -1644,14 +1633,7 @@ static void PlayerHandleTrainerSlide(u32 battler)
 
 static void PlayerHandleTrainerSlideBack(u32 battler)
 {
-    SetSpritePrimaryCoordsFromSecondaryCoords(&gSprites[gBattlerSpriteIds[battler]]);
-    gSprites[gBattlerSpriteIds[battler]].data[0] = 50;
-    gSprites[gBattlerSpriteIds[battler]].data[2] = -40;
-    gSprites[gBattlerSpriteIds[battler]].data[4] = gSprites[gBattlerSpriteIds[battler]].y;
-    gSprites[gBattlerSpriteIds[battler]].callback = StartAnimLinearTranslation;
-    StoreSpriteCallbackInData6(&gSprites[gBattlerSpriteIds[battler]], SpriteCallbackDummy);
-    StartSpriteAnim(&gSprites[gBattlerSpriteIds[battler]], 1);
-    gBattlerControllerFuncs[battler] = FreeTrainerSpriteAfterSlide;
+    BtlController_HandleTrainerSlideBack(battler, 50, TRUE);
 }
 
 #define sSpeedX data[1]

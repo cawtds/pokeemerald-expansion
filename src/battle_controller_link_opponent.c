@@ -173,17 +173,6 @@ static void LinkOpponentBufferRunCommand(u32 battler)
     }
 }
 
-static void FreeTrainerSpriteAfterSlide(u32 battler)
-{
-    if (gSprites[gBattlerSpriteIds[battler]].callback == SpriteCallbackDummy)
-    {
-        FreeTrainerFrontPicPalette(gSprites[gBattlerSpriteIds[battler]].oam.affineParam);
-        FreeSpriteOamMatrix(&gSprites[gBattlerSpriteIds[battler]]);
-        DestroySprite(&gSprites[gBattlerSpriteIds[battler]]);
-        LinkOpponentBufferExecCompleted(battler);
-    }
-}
-
 static void Intro_DelayAndEnd(u32 battler)
 {
     if (--gBattleSpritesDataPtr->healthBoxesData[battler].introEndDelay == (u8)-1)
@@ -591,13 +580,7 @@ static void LinkOpponentHandleTrainerSlide(u32 battler)
 
 static void LinkOpponentHandleTrainerSlideBack(u32 battler)
 {
-    SetSpritePrimaryCoordsFromSecondaryCoords(&gSprites[gBattlerSpriteIds[battler]]);
-    gSprites[gBattlerSpriteIds[battler]].data[0] = 35;
-    gSprites[gBattlerSpriteIds[battler]].data[2] = 280;
-    gSprites[gBattlerSpriteIds[battler]].data[4] = gSprites[gBattlerSpriteIds[battler]].y;
-    gSprites[gBattlerSpriteIds[battler]].callback = StartAnimLinearTranslation;
-    StoreSpriteCallbackInData6(&gSprites[gBattlerSpriteIds[battler]], SpriteCallbackDummy);
-    gBattlerControllerFuncs[battler] = FreeTrainerSpriteAfterSlide;
+    BtlController_HandleTrainerSlideBack(battler, 35, FALSE);
 }
 
 static void LinkOpponentHandleFaintAnimation(u32 battler)
