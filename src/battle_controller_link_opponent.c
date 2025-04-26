@@ -36,30 +36,9 @@ static void LinkOpponentHandleTrainerSlide(u32 battler);
 static void LinkOpponentHandleTrainerSlideBack(u32 battler);
 static void LinkOpponentHandleMoveAnimation(u32 battler);
 static void LinkOpponentHandlePrintString(u32 battler);
-static void LinkOpponentHandlePrintSelectionString(u32 battler);
-static void LinkOpponentHandleChooseAction(u32 battler);
-static void LinkOpponentHandleYesNoBox(u32 battler);
-static void LinkOpponentHandleChooseMove(u32 battler);
-static void LinkOpponentHandleChooseItem(u32 battler);
-static void LinkOpponentHandleChoosePokemon(u32 battler);
-static void LinkOpponentHandleCmd23(u32 battler);
 static void LinkOpponentHandleHealthBarUpdate(u32 battler);
-static void LinkOpponentHandleExpUpdate(u32 battler);
 static void LinkOpponentHandleStatusIconUpdate(u32 battler);
 static void LinkOpponentHandleStatusAnimation(u32 battler);
-static void LinkOpponentHandleStatusXor(u32 battler);
-static void LinkOpponentHandleDataTransfer(u32 battler);
-static void LinkOpponentHandleDMA3Transfer(u32 battler);
-static void LinkOpponentHandlePlayBGM(u32 battler);
-static void LinkOpponentHandleCmd32(u32 battler);
-static void LinkOpponentHandleTwoReturnValues(u32 battler);
-static void LinkOpponentHandleChosenMonReturnValue(u32 battler);
-static void LinkOpponentHandleOneReturnValue(u32 battler);
-static void LinkOpponentHandleOneReturnValue_Duplicate(u32 battler);
-static void LinkOpponentHandleClearUnkVar(u32 battler);
-static void LinkOpponentHandleSetUnkVar(u32 battler);
-static void LinkOpponentHandleClearUnkFlag(u32 battler);
-static void LinkOpponentHandleToggleUnkFlag(u32 battler);
 static void LinkOpponentHandleHitAnimation(u32 battler);
 static void LinkOpponentHandleCantSwitch(u32 battler);
 static void LinkOpponentHandlePlaySE(u32 battler);
@@ -103,30 +82,26 @@ static void (*const sLinkOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 batt
     [CONTROLLER_PAUSE]                    = BtlController_Empty,
     [CONTROLLER_MOVEANIMATION]            = LinkOpponentHandleMoveAnimation,
     [CONTROLLER_PRINTSTRING]              = LinkOpponentHandlePrintString,
-    [CONTROLLER_PRINTSTRINGPLAYERONLY]    = LinkOpponentHandlePrintSelectionString,
-    [CONTROLLER_CHOOSEACTION]             = LinkOpponentHandleChooseAction,
-    [CONTROLLER_YESNOBOX]                 = LinkOpponentHandleYesNoBox,
-    [CONTROLLER_CHOOSEMOVE]               = LinkOpponentHandleChooseMove,
-    [CONTROLLER_OPENBAG]                  = LinkOpponentHandleChooseItem,
-    [CONTROLLER_CHOOSEPOKEMON]            = LinkOpponentHandleChoosePokemon,
-    [CONTROLLER_23]                       = LinkOpponentHandleCmd23,
+    [CONTROLLER_PRINTSTRINGPLAYERONLY]    = BtlController_Empty,
+    [CONTROLLER_CHOOSEACTION]             = BtlController_Empty,
+    [CONTROLLER_YESNOBOX]                 = BtlController_Empty,
+    [CONTROLLER_CHOOSEMOVE]               = BtlController_Empty,
+    [CONTROLLER_OPENBAG]                  = BtlController_Empty,
+    [CONTROLLER_CHOOSEPOKEMON]            = BtlController_Empty,
+    [CONTROLLER_23]                       = BtlController_Empty,
     [CONTROLLER_HEALTHBARUPDATE]          = LinkOpponentHandleHealthBarUpdate,
-    [CONTROLLER_EXPUPDATE]                = LinkOpponentHandleExpUpdate,
+    [CONTROLLER_EXPUPDATE]                = BtlController_Empty,
     [CONTROLLER_STATUSICONUPDATE]         = LinkOpponentHandleStatusIconUpdate,
     [CONTROLLER_STATUSANIMATION]          = LinkOpponentHandleStatusAnimation,
-    [CONTROLLER_STATUSXOR]                = LinkOpponentHandleStatusXor,
-    [CONTROLLER_DATATRANSFER]             = LinkOpponentHandleDataTransfer,
-    [CONTROLLER_DMA3TRANSFER]             = LinkOpponentHandleDMA3Transfer,
-    [CONTROLLER_PLAYBGM]                  = LinkOpponentHandlePlayBGM,
-    [CONTROLLER_32]                       = LinkOpponentHandleCmd32,
-    [CONTROLLER_TWORETURNVALUES]          = LinkOpponentHandleTwoReturnValues,
-    [CONTROLLER_CHOSENMONRETURNVALUE]     = LinkOpponentHandleChosenMonReturnValue,
-    [CONTROLLER_ONERETURNVALUE]           = LinkOpponentHandleOneReturnValue,
-    [CONTROLLER_ONERETURNVALUE_DUPLICATE] = LinkOpponentHandleOneReturnValue_Duplicate,
-    [CONTROLLER_CLEARUNKVAR]              = LinkOpponentHandleClearUnkVar,
-    [CONTROLLER_SETUNKVAR]                = LinkOpponentHandleSetUnkVar,
-    [CONTROLLER_CLEARUNKFLAG]             = LinkOpponentHandleClearUnkFlag,
-    [CONTROLLER_TOGGLEUNKFLAG]            = LinkOpponentHandleToggleUnkFlag,
+    [CONTROLLER_STATUSXOR]                = BtlController_Empty,
+    [CONTROLLER_DATATRANSFER]             = BtlController_Empty,
+    [CONTROLLER_DMA3TRANSFER]             = BtlController_Empty,
+    [CONTROLLER_PLAYBGM]                  = BtlController_Empty,
+    [CONTROLLER_32]                       = BtlController_Empty,
+    [CONTROLLER_TWORETURNVALUES]          = BtlController_Empty,
+    [CONTROLLER_CHOSENMONRETURNVALUE]     = BtlController_Empty,
+    [CONTROLLER_ONERETURNVALUE]           = BtlController_Empty,
+    [CONTROLLER_ONERETURNVALUE_DUPLICATE] = BtlController_Empty,
     [CONTROLLER_HITANIMATION]             = LinkOpponentHandleHitAnimation,
     [CONTROLLER_CANTSWITCH]               = LinkOpponentHandleCantSwitch,
     [CONTROLLER_PLAYSE]                   = LinkOpponentHandlePlaySE,
@@ -567,41 +542,6 @@ static void LinkOpponentHandlePrintString(u32 battler)
     BtlController_HandlePrintString(battler, TRUE, FALSE);
 }
 
-static void LinkOpponentHandlePrintSelectionString(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandleChooseAction(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandleYesNoBox(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandleChooseMove(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandleChooseItem(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandleChoosePokemon(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandleCmd23(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
-}
-
 static void LinkOpponentHandleHealthBarUpdate(u32 battler)
 {
     s16 hpVal;
@@ -626,11 +566,6 @@ static void LinkOpponentHandleHealthBarUpdate(u32 battler)
     gBattlerControllerFuncs[battler] = CompleteOnHealthbarDone;
 }
 
-static void LinkOpponentHandleExpUpdate(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
-}
-
 static void LinkOpponentHandleStatusIconUpdate(u32 battler)
 {
     if (!IsBattleSEPlaying(battler))
@@ -649,75 +584,6 @@ static void LinkOpponentHandleStatusAnimation(u32 battler)
                         gBattleBufferA[battler][2] | (gBattleBufferA[battler][3] << 8) | (gBattleBufferA[battler][4] << 16) | (gBattleBufferA[battler][5] << 24));
         gBattlerControllerFuncs[battler] = CompleteOnFinishedStatusAnimation;
     }
-}
-
-static void LinkOpponentHandleStatusXor(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandleDataTransfer(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandleDMA3Transfer(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandlePlayBGM(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandleCmd32(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandleTwoReturnValues(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandleChosenMonReturnValue(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandleOneReturnValue(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandleOneReturnValue_Duplicate(u32 battler)
-{
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandleClearUnkVar(u32 battler)
-{
-    gUnusedControllerStruct.unk = 0;
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandleSetUnkVar(u32 battler)
-{
-    gUnusedControllerStruct.unk = gBattleBufferA[battler][1];
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandleClearUnkFlag(u32 battler)
-{
-    gUnusedControllerStruct.flag = 0;
-    LinkOpponentBufferExecCompleted(battler);
-}
-
-static void LinkOpponentHandleToggleUnkFlag(u32 battler)
-{
-    gUnusedControllerStruct.flag ^= 1;
-    LinkOpponentBufferExecCompleted(battler);
 }
 
 static void LinkOpponentHandleHitAnimation(u32 battler)

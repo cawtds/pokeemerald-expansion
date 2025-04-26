@@ -72,10 +72,6 @@ static void PlayerHandleTwoReturnValues(u32 battler);
 static void PlayerHandleChosenMonReturnValue(u32 battler);
 static void PlayerHandleOneReturnValue(u32 battler);
 static void PlayerHandleOneReturnValue_Duplicate(u32 battler);
-static void PlayerHandleClearUnkVar(u32 battler);
-static void PlayerHandleSetUnkVar(u32 battler);
-static void PlayerHandleClearUnkFlag(u32 battler);
-static void PlayerHandleToggleUnkFlag(u32 battler);
 static void PlayerHandleHitAnimation(u32 battler);
 static void PlayerHandleCantSwitch(u32 battler);
 static void PlayerHandlePlaySE(u32 battler);
@@ -154,10 +150,6 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_CHOSENMONRETURNVALUE]     = PlayerHandleChosenMonReturnValue,
     [CONTROLLER_ONERETURNVALUE]           = PlayerHandleOneReturnValue,
     [CONTROLLER_ONERETURNVALUE_DUPLICATE] = PlayerHandleOneReturnValue_Duplicate,
-    [CONTROLLER_CLEARUNKVAR]              = PlayerHandleClearUnkVar,
-    [CONTROLLER_SETUNKVAR]                = PlayerHandleSetUnkVar,
-    [CONTROLLER_CLEARUNKFLAG]             = PlayerHandleClearUnkFlag,
-    [CONTROLLER_TOGGLEUNKFLAG]            = PlayerHandleToggleUnkFlag,
     [CONTROLLER_HITANIMATION]             = PlayerHandleHitAnimation,
     [CONTROLLER_CANTSWITCH]               = PlayerHandleCantSwitch,
     [CONTROLLER_PLAYSE]                   = PlayerHandlePlaySE,
@@ -1935,30 +1927,6 @@ static void PlayerHandleOneReturnValue(u32 battler)
 static void PlayerHandleOneReturnValue_Duplicate(u32 battler)
 {
     BtlController_EmitOneReturnValue_Duplicate(battler, BUFFER_B, 0);
-    PlayerBufferExecCompleted(battler);
-}
-
-static void PlayerHandleClearUnkVar(u32 battler)
-{
-    gUnusedControllerStruct.unk = 0;
-    PlayerBufferExecCompleted(battler);
-}
-
-static void PlayerHandleSetUnkVar(u32 battler)
-{
-    gUnusedControllerStruct.unk = gBattleBufferA[battler][1];
-    PlayerBufferExecCompleted(battler);
-}
-
-static void PlayerHandleClearUnkFlag(u32 battler)
-{
-    gUnusedControllerStruct.flag = 0;
-    PlayerBufferExecCompleted(battler);
-}
-
-static void PlayerHandleToggleUnkFlag(u32 battler)
-{
-    gUnusedControllerStruct.flag ^= 1;
     PlayerBufferExecCompleted(battler);
 }
 

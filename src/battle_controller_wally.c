@@ -59,10 +59,6 @@ static void WallyHandleTwoReturnValues(u32 battler);
 static void WallyHandleChosenMonReturnValue(u32 battler);
 static void WallyHandleOneReturnValue(u32 battler);
 static void WallyHandleOneReturnValue_Duplicate(u32 battler);
-static void WallyHandleClearUnkVar(u32 battler);
-static void WallyHandleSetUnkVar(u32 battler);
-static void WallyHandleClearUnkFlag(u32 battler);
-static void WallyHandleToggleUnkFlag(u32 battler);
 static void WallyHandleHitAnimation(u32 battler);
 static void WallyHandleCantSwitch(u32 battler);
 static void WallyHandlePlaySE(u32 battler);
@@ -125,10 +121,6 @@ static void (*const sWallyBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_CHOSENMONRETURNVALUE]     = WallyHandleChosenMonReturnValue,
     [CONTROLLER_ONERETURNVALUE]           = WallyHandleOneReturnValue,
     [CONTROLLER_ONERETURNVALUE_DUPLICATE] = WallyHandleOneReturnValue_Duplicate,
-    [CONTROLLER_CLEARUNKVAR]              = WallyHandleClearUnkVar,
-    [CONTROLLER_SETUNKVAR]                = WallyHandleSetUnkVar,
-    [CONTROLLER_CLEARUNKFLAG]             = WallyHandleClearUnkFlag,
-    [CONTROLLER_TOGGLEUNKFLAG]            = WallyHandleToggleUnkFlag,
     [CONTROLLER_HITANIMATION]             = WallyHandleHitAnimation,
     [CONTROLLER_CANTSWITCH]               = WallyHandleCantSwitch,
     [CONTROLLER_PLAYSE]                   = WallyHandlePlaySE,
@@ -571,26 +563,6 @@ static void WallyHandleOneReturnValue(u32 battler)
 }
 
 static void WallyHandleOneReturnValue_Duplicate(u32 battler)
-{
-    WallyBufferExecCompleted(battler);
-}
-
-static void WallyHandleClearUnkVar(u32 battler)
-{
-    WallyBufferExecCompleted(battler);
-}
-
-static void WallyHandleSetUnkVar(u32 battler)
-{
-    WallyBufferExecCompleted(battler);
-}
-
-static void WallyHandleClearUnkFlag(u32 battler)
-{
-    WallyBufferExecCompleted(battler);
-}
-
-static void WallyHandleToggleUnkFlag(u32 battler)
 {
     WallyBufferExecCompleted(battler);
 }

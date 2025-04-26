@@ -55,10 +55,6 @@ static void PlayerPartnerHandleTwoReturnValues(u32 battler);
 static void PlayerPartnerHandleChosenMonReturnValue(u32 battler);
 static void PlayerPartnerHandleOneReturnValue(u32 battler);
 static void PlayerPartnerHandleOneReturnValue_Duplicate(u32 battler);
-static void PlayerPartnerHandleClearUnkVar(u32 battler);
-static void PlayerPartnerHandleSetUnkVar(u32 battler);
-static void PlayerPartnerHandleClearUnkFlag(u32 battler);
-static void PlayerPartnerHandleToggleUnkFlag(u32 battler);
 static void PlayerPartnerHandleHitAnimation(u32 battler);
 static void PlayerPartnerHandleCantSwitch(u32 battler);
 static void PlayerPartnerHandlePlaySE(u32 battler);
@@ -126,10 +122,6 @@ static void (*const sPlayerPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 bat
     [CONTROLLER_CHOSENMONRETURNVALUE]     = PlayerPartnerHandleChosenMonReturnValue,
     [CONTROLLER_ONERETURNVALUE]           = PlayerPartnerHandleOneReturnValue,
     [CONTROLLER_ONERETURNVALUE_DUPLICATE] = PlayerPartnerHandleOneReturnValue_Duplicate,
-    [CONTROLLER_CLEARUNKVAR]              = PlayerPartnerHandleClearUnkVar,
-    [CONTROLLER_SETUNKVAR]                = PlayerPartnerHandleSetUnkVar,
-    [CONTROLLER_CLEARUNKFLAG]             = PlayerPartnerHandleClearUnkFlag,
-    [CONTROLLER_TOGGLEUNKFLAG]            = PlayerPartnerHandleToggleUnkFlag,
     [CONTROLLER_HITANIMATION]             = PlayerPartnerHandleHitAnimation,
     [CONTROLLER_CANTSWITCH]               = PlayerPartnerHandleCantSwitch,
     [CONTROLLER_PLAYSE]                   = PlayerPartnerHandlePlaySE,
@@ -768,30 +760,6 @@ static void PlayerPartnerHandleOneReturnValue(u32 battler)
 
 static void PlayerPartnerHandleOneReturnValue_Duplicate(u32 battler)
 {
-    PlayerPartnerBufferExecCompleted(battler);
-}
-
-static void PlayerPartnerHandleClearUnkVar(u32 battler)
-{
-    gUnusedControllerStruct.unk = 0;
-    PlayerPartnerBufferExecCompleted(battler);
-}
-
-static void PlayerPartnerHandleSetUnkVar(u32 battler)
-{
-    gUnusedControllerStruct.unk = gBattleBufferA[battler][1];
-    PlayerPartnerBufferExecCompleted(battler);
-}
-
-static void PlayerPartnerHandleClearUnkFlag(u32 battler)
-{
-    gUnusedControllerStruct.flag = 0;
-    PlayerPartnerBufferExecCompleted(battler);
-}
-
-static void PlayerPartnerHandleToggleUnkFlag(u32 battler)
-{
-    gUnusedControllerStruct.flag ^= 1;
     PlayerPartnerBufferExecCompleted(battler);
 }
 

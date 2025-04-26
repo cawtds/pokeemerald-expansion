@@ -63,10 +63,6 @@ static void OpponentHandleTwoReturnValues(u32 battler);
 static void OpponentHandleChosenMonReturnValue(u32 battler);
 static void OpponentHandleOneReturnValue(u32 battler);
 static void OpponentHandleOneReturnValue_Duplicate(u32 battler);
-static void OpponentHandleClearUnkVar(u32 battler);
-static void OpponentHandleSetUnkVar(u32 battler);
-static void OpponentHandleClearUnkFlag(u32 battler);
-static void OpponentHandleToggleUnkFlag(u32 battler);
 static void OpponentHandleHitAnimation(u32 battler);
 static void OpponentHandleCantSwitch(u32 battler);
 static void OpponentHandlePlaySE(u32 battler);
@@ -130,10 +126,6 @@ static void (*const sOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler)
     [CONTROLLER_CHOSENMONRETURNVALUE]     = OpponentHandleChosenMonReturnValue,
     [CONTROLLER_ONERETURNVALUE]           = OpponentHandleOneReturnValue,
     [CONTROLLER_ONERETURNVALUE_DUPLICATE] = OpponentHandleOneReturnValue_Duplicate,
-    [CONTROLLER_CLEARUNKVAR]              = OpponentHandleClearUnkVar,
-    [CONTROLLER_SETUNKVAR]                = OpponentHandleSetUnkVar,
-    [CONTROLLER_CLEARUNKFLAG]             = OpponentHandleClearUnkFlag,
-    [CONTROLLER_TOGGLEUNKFLAG]            = OpponentHandleToggleUnkFlag,
     [CONTROLLER_HITANIMATION]             = OpponentHandleHitAnimation,
     [CONTROLLER_CANTSWITCH]               = OpponentHandleCantSwitch,
     [CONTROLLER_PLAYSE]                   = OpponentHandlePlaySE,
@@ -802,30 +794,6 @@ static void OpponentHandleOneReturnValue(u32 battler)
 
 static void OpponentHandleOneReturnValue_Duplicate(u32 battler)
 {
-    OpponentBufferExecCompleted(battler);
-}
-
-static void OpponentHandleClearUnkVar(u32 battler)
-{
-    gUnusedControllerStruct.unk = 0;
-    OpponentBufferExecCompleted(battler);
-}
-
-static void OpponentHandleSetUnkVar(u32 battler)
-{
-    gUnusedControllerStruct.unk = gBattleBufferA[battler][1];
-    OpponentBufferExecCompleted(battler);
-}
-
-static void OpponentHandleClearUnkFlag(u32 battler)
-{
-    gUnusedControllerStruct.flag = 0;
-    OpponentBufferExecCompleted(battler);
-}
-
-static void OpponentHandleToggleUnkFlag(u32 battler)
-{
-    gUnusedControllerStruct.flag ^= 1;
     OpponentBufferExecCompleted(battler);
 }
 

@@ -55,10 +55,6 @@ static void LinkPartnerHandleTwoReturnValues(u32 battler);
 static void LinkPartnerHandleChosenMonReturnValue(u32 battler);
 static void LinkPartnerHandleOneReturnValue(u32 battler);
 static void LinkPartnerHandleOneReturnValue_Duplicate(u32 battler);
-static void LinkPartnerHandleClearUnkVar(u32 battler);
-static void LinkPartnerHandleSetUnkVar(u32 battler);
-static void LinkPartnerHandleClearUnkFlag(u32 battler);
-static void LinkPartnerHandleToggleUnkFlag(u32 battler);
 static void LinkPartnerHandleHitAnimation(u32 battler);
 static void LinkPartnerHandleCantSwitch(u32 battler);
 static void LinkPartnerHandlePlaySE(u32 battler);
@@ -121,10 +117,6 @@ static void (*const sLinkPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battl
     [CONTROLLER_CHOSENMONRETURNVALUE]     = LinkPartnerHandleChosenMonReturnValue,
     [CONTROLLER_ONERETURNVALUE]           = LinkPartnerHandleOneReturnValue,
     [CONTROLLER_ONERETURNVALUE_DUPLICATE] = LinkPartnerHandleOneReturnValue_Duplicate,
-    [CONTROLLER_CLEARUNKVAR]              = LinkPartnerHandleClearUnkVar,
-    [CONTROLLER_SETUNKVAR]                = LinkPartnerHandleSetUnkVar,
-    [CONTROLLER_CLEARUNKFLAG]             = LinkPartnerHandleClearUnkFlag,
-    [CONTROLLER_TOGGLEUNKFLAG]            = LinkPartnerHandleToggleUnkFlag,
     [CONTROLLER_HITANIMATION]             = LinkPartnerHandleHitAnimation,
     [CONTROLLER_CANTSWITCH]               = LinkPartnerHandleCantSwitch,
     [CONTROLLER_PLAYSE]                   = LinkPartnerHandlePlaySE,
@@ -529,30 +521,6 @@ static void LinkPartnerHandleOneReturnValue(u32 battler)
 
 static void LinkPartnerHandleOneReturnValue_Duplicate(u32 battler)
 {
-    LinkPartnerBufferExecCompleted(battler);
-}
-
-static void LinkPartnerHandleClearUnkVar(u32 battler)
-{
-    gUnusedControllerStruct.unk = 0;
-    LinkPartnerBufferExecCompleted(battler);
-}
-
-static void LinkPartnerHandleSetUnkVar(u32 battler)
-{
-    gUnusedControllerStruct.unk = gBattleBufferA[battler][1];
-    LinkPartnerBufferExecCompleted(battler);
-}
-
-static void LinkPartnerHandleClearUnkFlag(u32 battler)
-{
-    gUnusedControllerStruct.flag = 0;
-    LinkPartnerBufferExecCompleted(battler);
-}
-
-static void LinkPartnerHandleToggleUnkFlag(u32 battler)
-{
-    gUnusedControllerStruct.flag ^= 1;
     LinkPartnerBufferExecCompleted(battler);
 }
 

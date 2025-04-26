@@ -56,10 +56,6 @@ static void RecordedOpponentHandleTwoReturnValues(u32 battler);
 static void RecordedOpponentHandleChosenMonReturnValue(u32 battler);
 static void RecordedOpponentHandleOneReturnValue(u32 battler);
 static void RecordedOpponentHandleOneReturnValue_Duplicate(u32 battler);
-static void RecordedOpponentHandleClearUnkVar(u32 battler);
-static void RecordedOpponentHandleSetUnkVar(u32 battler);
-static void RecordedOpponentHandleClearUnkFlag(u32 battler);
-static void RecordedOpponentHandleToggleUnkFlag(u32 battler);
 static void RecordedOpponentHandleHitAnimation(u32 battler);
 static void RecordedOpponentHandleCantSwitch(u32 battler);
 static void RecordedOpponentHandlePlaySE(u32 battler);
@@ -123,10 +119,6 @@ static void (*const sRecordedOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 
     [CONTROLLER_CHOSENMONRETURNVALUE]     = RecordedOpponentHandleChosenMonReturnValue,
     [CONTROLLER_ONERETURNVALUE]           = RecordedOpponentHandleOneReturnValue,
     [CONTROLLER_ONERETURNVALUE_DUPLICATE] = RecordedOpponentHandleOneReturnValue_Duplicate,
-    [CONTROLLER_CLEARUNKVAR]              = RecordedOpponentHandleClearUnkVar,
-    [CONTROLLER_SETUNKVAR]                = RecordedOpponentHandleSetUnkVar,
-    [CONTROLLER_CLEARUNKFLAG]             = RecordedOpponentHandleClearUnkFlag,
-    [CONTROLLER_TOGGLEUNKFLAG]            = RecordedOpponentHandleToggleUnkFlag,
     [CONTROLLER_HITANIMATION]             = RecordedOpponentHandleHitAnimation,
     [CONTROLLER_CANTSWITCH]               = RecordedOpponentHandleCantSwitch,
     [CONTROLLER_PLAYSE]                   = RecordedOpponentHandlePlaySE,
@@ -663,30 +655,6 @@ static void RecordedOpponentHandleOneReturnValue(u32 battler)
 
 static void RecordedOpponentHandleOneReturnValue_Duplicate(u32 battler)
 {
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
-static void RecordedOpponentHandleClearUnkVar(u32 battler)
-{
-    gUnusedControllerStruct.unk = 0;
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
-static void RecordedOpponentHandleSetUnkVar(u32 battler)
-{
-    gUnusedControllerStruct.unk = gBattleBufferA[battler][1];
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
-static void RecordedOpponentHandleClearUnkFlag(u32 battler)
-{
-    gUnusedControllerStruct.flag = 0;
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
-static void RecordedOpponentHandleToggleUnkFlag(u32 battler)
-{
-    gUnusedControllerStruct.flag ^= 1;
     RecordedOpponentBufferExecCompleted(battler);
 }
 
