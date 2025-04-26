@@ -34,7 +34,6 @@
 
 // this file's functions
 static void WallyHandleSwitchInAnim(u32 battler);
-static void WallyHandleReturnMonToBall(u32 battler);
 static void WallyHandleDrawTrainerPic(u32 battler);
 static void WallyHandleTrainerSlide(u32 battler);
 static void WallyHandleTrainerSlideBack(u32 battler);
@@ -101,7 +100,7 @@ static void (*const sWallyBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_SETRAWMONDATA]            = BtlController_Empty,
     [CONTROLLER_LOADMONSPRITE]            = BtlController_Empty,
     [CONTROLLER_SWITCHINANIM]             = WallyHandleSwitchInAnim,
-    [CONTROLLER_RETURNMONTOBALL]          = WallyHandleReturnMonToBall,
+    [CONTROLLER_RETURNMONTOBALL]          = BtlController_HandleReturnMonToBall,
     [CONTROLLER_DRAWTRAINERPIC]           = WallyHandleDrawTrainerPic,
     [CONTROLLER_TRAINERSLIDE]             = WallyHandleTrainerSlide,
     [CONTROLLER_TRAINERSLIDEBACK]         = WallyHandleTrainerSlideBack,
@@ -372,17 +371,6 @@ static void DoHitAnimBlinkSpriteEffect(u32 battler)
     }
 }
 
-static void DoSwitchOutAnimation(u32 battler)
-{
-    if (!gBattleSpritesDataPtr->healthBoxesData[battler].specialAnimActive)
-    {
-        FreeSpriteOamMatrix(&gSprites[gBattlerSpriteIds[battler]]);
-        DestroySprite(&gSprites[gBattlerSpriteIds[battler]]);
-        SetHealthboxSpriteInvisible(gHealthboxSpriteIds[battler]);
-        WallyBufferExecCompleted(battler);
-    }
-}
-
 static void CompleteOnBankSpriteCallbackDummy2(u32 battler)
 {
     if (gSprites[gBattlerSpriteIds[battler]].callback == SpriteCallbackDummy)
@@ -420,22 +408,6 @@ static void UNUSED CompleteOnFinishedStatusAnimation(u32 battler)
 static void WallyHandleSwitchInAnim(u32 battler)
 {
     WallyBufferExecCompleted(battler);
-}
-
-static void WallyHandleReturnMonToBall(u32 battler)
-{
-    if (gBattleBufferA[battler][1] == 0)
-    {
-        InitAndLaunchSpecialAnimation(battler, battler, battler, B_ANIM_SWITCH_OUT_PLAYER_MON);
-        gBattlerControllerFuncs[battler] = DoSwitchOutAnimation;
-    }
-    else
-    {
-        FreeSpriteOamMatrix(&gSprites[gBattlerSpriteIds[battler]]);
-        DestroySprite(&gSprites[gBattlerSpriteIds[battler]]);
-        SetHealthboxSpriteInvisible(gHealthboxSpriteIds[battler]);
-        WallyBufferExecCompleted(battler);
-    }
 }
 
 #define sSpeedX data[0]

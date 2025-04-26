@@ -31,7 +31,6 @@
 
 static void PlayerPartnerHandleLoadMonSprite(u32 battler);
 static void PlayerPartnerHandleSwitchInAnim(u32 battler);
-static void PlayerPartnerHandleReturnMonToBall(u32 battler);
 static void PlayerPartnerHandleDrawTrainerPic(u32 battler);
 static void PlayerPartnerHandleTrainerSlide(u32 battler);
 static void PlayerPartnerHandleTrainerSlideBack(u32 battler);
@@ -91,7 +90,6 @@ static void Task_PrepareToGiveExpWithExpBar(u8 taskId);
 static void Task_GiveExpWithExpBar(u8 taskId);
 static void Task_UpdateLvlInHealthbox(u8 taskId);
 static void SwitchIn_WaitAndEnd(u32 battler);
-static void DoSwitchOutAnimation(u32 battler);
 static void PlayerPartnerDoMoveAnimation(u32 battler);
 static void Task_StartSendOutAnim(u8 taskId);
 static void EndDrawPartyStatusSummary(u32 battler);
@@ -104,7 +102,7 @@ static void (*const sPlayerPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 bat
     [CONTROLLER_SETRAWMONDATA]            = BtlController_HandleSetRawMonData,
     [CONTROLLER_LOADMONSPRITE]            = PlayerPartnerHandleLoadMonSprite,
     [CONTROLLER_SWITCHINANIM]             = PlayerPartnerHandleSwitchInAnim,
-    [CONTROLLER_RETURNMONTOBALL]          = PlayerPartnerHandleReturnMonToBall,
+    [CONTROLLER_RETURNMONTOBALL]          = BtlController_HandleReturnMonToBall,
     [CONTROLLER_DRAWTRAINERPIC]           = PlayerPartnerHandleDrawTrainerPic,
     [CONTROLLER_TRAINERSLIDE]             = PlayerPartnerHandleTrainerSlide,
     [CONTROLLER_TRAINERSLIDEBACK]         = PlayerPartnerHandleTrainerSlideBack,
@@ -469,17 +467,6 @@ static void FreeMonSpriteAfterFaintAnim(u32 battler)
     }
 }
 
-static void FreeMonSpriteAfterSwitchOutAnim(u32 battler)
-{
-    if (!gBattleSpritesDataPtr->healthBoxesData[battler].specialAnimActive)
-    {
-        FreeSpriteOamMatrix(&gSprites[gBattlerSpriteIds[battler]]);
-        DestroySprite(&gSprites[gBattlerSpriteIds[battler]]);
-        SetHealthboxSpriteInvisible(gHealthboxSpriteIds[battler]);
-        PlayerPartnerBufferExecCompleted(battler);
-    }
-}
-
 static void CompleteOnInactiveTextPrinter2(u32 battler)
 {
     if (!IsTextPrinterActive(B_WIN_MSG))
@@ -603,43 +590,6 @@ static void PlayerPartnerHandleSwitchInAnim(u32 battler)
     BattleLoadPlayerMonSpriteGfx(&gPlayerParty[gBattlerPartyIndexes[battler]], battler);
     StartSendOutAnim(battler, gBattleBufferA[battler][2], FALSE);
     gBattlerControllerFuncs[battler] = SwitchIn_TryShinyAnim;
-}
-
-static void PlayerPartnerHandleReturnMonToBall(u32 battler)
-{
-    if (gBattleBufferA[battler][1] == 0)
-    {
-        gBattleSpritesDataPtr->healthBoxesData[battler].animationState = 0;
-        gBattlerControllerFuncs[battler] = DoSwitchOutAnimation;
-    }
-    else
-    {
-        FreeSpriteOamMatrix(&gSprites[gBattlerSpriteIds[battler]]);
-        DestroySprite(&gSprites[gBattlerSpriteIds[battler]]);
-        SetHealthboxSpriteInvisible(gHealthboxSpriteIds[battler]);
-        PlayerPartnerBufferExecCompleted(battler);
-    }
-}
-
-static void DoSwitchOutAnimation(u32 battler)
-{
-    switch (gBattleSpritesDataPtr->healthBoxesData[battler].animationState)
-    {
-    case 0:
-        if (gBattleSpritesDataPtr->battlerData[battler].behindSubstitute)
-            InitAndLaunchSpecialAnimation(battler, battler, battler, B_ANIM_SUBSTITUTE_TO_MON);
-
-        gBattleSpritesDataPtr->healthBoxesData[battler].animationState = 1;
-        break;
-    case 1:
-        if (!gBattleSpritesDataPtr->healthBoxesData[battler].specialAnimActive)
-        {
-            gBattleSpritesDataPtr->healthBoxesData[battler].animationState = 0;
-            InitAndLaunchSpecialAnimation(battler, battler, battler, B_ANIM_SWITCH_OUT_PLAYER_MON);
-            gBattlerControllerFuncs[battler] = FreeMonSpriteAfterSwitchOutAnim;
-        }
-        break;
-    }
 }
 
 #define sSpeedX data[0]

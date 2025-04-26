@@ -3,6 +3,7 @@
 #include "battle_ai_script_commands.h"
 #include "battle_anim.h"
 #include "battle_controllers.h"
+#include "battle_interface.h"
 #include "battle_message.h"
 #include "cable_club.h"
 #include "link.h"
@@ -2213,6 +2214,59 @@ void BtlController_HandleSwitchInAnim(u32 battler, void (*controllerCallback)(u3
         BattleLoadPlayerMonSpriteGfx(&gPlayerParty[gBattlerPartyIndexes[battler]], battler);
     StartSendOutAnim(battler, gBattleBufferA[battler][2], FALSE);
     gBattlerControllerFuncs[battler] = controllerCallback;
+}
+
+static void FreeMonSprite(u32 battler)
+{
+    FreeSpriteOamMatrix(&gSprites[gBattlerSpriteIds[battler]]);
+    DestroySprite(&gSprites[gBattlerSpriteIds[battler]]);
+    if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
+        HideBattlerShadowSprite(battler);
+    SetHealthboxSpriteInvisible(gHealthboxSpriteIds[battler]);
+}
+
+static void FreeMonSpriteAfterSwitchOutAnim(u32 battler)
+{
+    if (!gBattleSpritesDataPtr->healthBoxesData[battler].specialAnimActive)
+    {
+        FreeMonSprite(battler);
+        BtlController_ExecCompleted(battler);
+    }
+}
+
+static void DoSwitchOutAnimation(u32 battler)
+{
+    switch (gBattleSpritesDataPtr->healthBoxesData[battler].animationState)
+    {
+    case 0:
+        if (gBattleSpritesDataPtr->battlerData[battler].behindSubstitute)
+            InitAndLaunchSpecialAnimation(battler, battler, battler, B_ANIM_SUBSTITUTE_TO_MON);
+
+        gBattleSpritesDataPtr->healthBoxesData[battler].animationState = 1;
+        break;
+    case 1:
+        if (!gBattleSpritesDataPtr->healthBoxesData[battler].specialAnimActive)
+        {
+            gBattleSpritesDataPtr->healthBoxesData[battler].animationState = 0;
+            InitAndLaunchSpecialAnimation(battler, battler, battler, GetBattlerSide(battler) == B_SIDE_PLAYER ? B_ANIM_SWITCH_OUT_PLAYER_MON : B_ANIM_SWITCH_OUT_OPPONENT_MON);
+            gBattlerControllerFuncs[battler] = FreeMonSpriteAfterSwitchOutAnim;
+        }
+        break;
+    }
+}
+
+void BtlController_HandleReturnMonToBall(u32 battler)
+{
+    if (gBattleBufferA[battler][1] == 0)
+    {
+        gBattleSpritesDataPtr->healthBoxesData[battler].animationState = 0;
+        gBattlerControllerFuncs[battler] = DoSwitchOutAnimation;
+    }
+    else
+    {
+        FreeMonSprite(battler);
+        BtlController_ExecCompleted(battler);
+    }
 }
 
 void BtlController_TerminatorNop(u32 battler)
