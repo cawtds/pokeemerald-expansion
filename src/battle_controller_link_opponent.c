@@ -87,7 +87,6 @@ static void LinkOpponentBufferRunCommand(u32 battler);
 static void LinkOpponentBufferExecCompleted(u32 battler);
 static void SwitchIn_HandleSoundAndEnd(u32 battler);
 static void SetLinkOpponentMonData(u32 battler, u8 monId);
-static void StartSendOutAnim(u8 battlerId, bool8 dontClearSubstituteBit);
 static void DoSwitchOutAnimation(u32 battler);
 static void LinkOpponentDoMoveAnimation(u32 battler);
 static void Task_StartSendOutAnim(u8 taskId);
@@ -530,41 +529,7 @@ static void LinkOpponentHandleLoadMonSprite(u32 battler)
 
 static void LinkOpponentHandleSwitchInAnim(u32 battler)
 {
-    gBattlerPartyIndexes[battler] = gBattleBufferA[battler][1];
-    StartSendOutAnim(battler, gBattleBufferA[battler][2]);
-    gBattlerControllerFuncs[battler] = SwitchIn_TryShinyAnim;
-}
-
-static void StartSendOutAnim(u8 battler, bool8 dontClearSubstituteBit)
-{
-    u16 species;
-
-    ClearTemporarySpeciesSpriteData(battler, dontClearSubstituteBit);
-    gBattlerPartyIndexes[battler] = gBattleBufferA[battler][1];
-    species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES);
-    gBattleControllerData[battler] = CreateInvisibleSpriteWithCallback(SpriteCB_WaitForBattlerBallReleaseAnim);
-    BattleLoadOpponentMonSpriteGfx(&gEnemyParty[gBattlerPartyIndexes[battler]], battler);
-    SetMultiuseSpriteTemplateToPokemon(species, GetBattlerPosition(battler));
-
-    gBattlerSpriteIds[battler] = CreateSprite(
-      &gMultiuseSpriteTemplate,
-      GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2),
-      GetBattlerSpriteDefault_Y(battler),
-      GetBattlerSpriteSubpriority(battler));
-
-    gSprites[gBattleControllerData[battler]].data[1] = gBattlerSpriteIds[battler];
-    gSprites[gBattleControllerData[battler]].data[2] = battler;
-
-    gSprites[gBattlerSpriteIds[battler]].data[0] = battler;
-    gSprites[gBattlerSpriteIds[battler]].data[2] = species;
-    gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = battler;
-
-    StartSpriteAnim(&gSprites[gBattlerSpriteIds[battler]], gBattleMonForms[battler]);
-
-    gSprites[gBattlerSpriteIds[battler]].invisible = TRUE;
-    gSprites[gBattlerSpriteIds[battler]].callback = SpriteCallbackDummy;
-
-    gSprites[gBattleControllerData[battler]].data[0] = DoPokeballSendOutAnimation(battler, 0, POKEBALL_OPPONENT_SENDOUT);
+    BtlController_HandleSwitchInAnim(battler, SwitchIn_TryShinyAnim);
 }
 
 static void LinkOpponentHandleReturnMonToBall(u32 battler)
@@ -1106,15 +1071,15 @@ static void Task_StartSendOutAnim(u8 taskId)
     if (!IsDoubleBattle() || (gBattleTypeFlags & BATTLE_TYPE_MULTI))
     {
         gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-        StartSendOutAnim(battler, FALSE);
+        StartSendOutAnim(battler, FALSE, FALSE);
     }
     else
     {
         gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-        StartSendOutAnim(battler, FALSE);
+        StartSendOutAnim(battler, FALSE, FALSE);
         battler = BATTLE_PARTNER(battler);
         gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-        StartSendOutAnim(battler, FALSE);
+        StartSendOutAnim(battler, FALSE, FALSE);
         battler = BATTLE_PARTNER(battler);
     }
     gBattlerControllerFuncs[battler] = Intro_TryShinyAnimShowHealthbox;

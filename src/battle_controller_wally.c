@@ -866,33 +866,6 @@ static void WallyHandleIntroTrainerBallThrow(u32 battler)
     gBattlerControllerFuncs[battler] = BattleControllerDummy;
 }
 
-static void StartSendOutAnim(u8 battler)
-{
-    u16 species;
-
-    gBattleSpritesDataPtr->battlerData[battler].transformSpecies = 0;
-    gBattlerPartyIndexes[battler] = gBattleBufferA[battler][1];
-    species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES);
-    gBattleControllerData[battler] = CreateInvisibleSpriteWithCallback(SpriteCB_WaitForBattlerBallReleaseAnim);
-    SetMultiuseSpriteTemplateToPokemon(species, GetBattlerPosition(battler));
-    gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate,
-                                        GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2),
-                                        GetBattlerSpriteDefault_Y(battler),
-                                        GetBattlerSpriteSubpriority(battler));
-
-    gSprites[gBattleControllerData[battler]].data[1] = gBattlerSpriteIds[battler];
-    gSprites[gBattleControllerData[battler]].data[2] = battler;
-
-    gSprites[gBattlerSpriteIds[battler]].data[0] = battler;
-    gSprites[gBattlerSpriteIds[battler]].data[2] = species;
-    gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = battler;
-
-    StartSpriteAnim(&gSprites[gBattlerSpriteIds[battler]], gBattleMonForms[battler]);
-    gSprites[gBattlerSpriteIds[battler]].invisible = TRUE;
-    gSprites[gBattlerSpriteIds[battler]].callback = SpriteCallbackDummy;
-    gSprites[gBattleControllerData[battler]].data[0] = DoPokeballSendOutAnimation(battler, 0, POKEBALL_PLAYER_SENDOUT);
-}
-
 static void Task_StartSendOutAnim(u8 taskId)
 {
     if (gTasks[taskId].data[1] < 31)
@@ -904,7 +877,7 @@ static void Task_StartSendOutAnim(u8 taskId)
         u32 battler = gTasks[taskId].data[0];
 
         gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-        StartSendOutAnim(battler);
+        StartSendOutAnim(battler, FALSE, TRUE);
         gBattlerControllerFuncs[battler] = Intro_TryShinyAnimShowHealthbox;
         DestroyTask(taskId);
     }

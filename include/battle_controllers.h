@@ -249,9 +249,13 @@ void BtlController_HandleGetMonData(u32 battler);
 void BtlController_HandleGetRawMonData(u32 battler);
 void BtlController_HandleSetMonData(u32 battler);
 void BtlController_HandleSetRawMonData(u32 battler);
-void BtlController_HandleLoadMonSprite(u32 battler, void (*animCallback)(u32 battler));
+void BtlController_HandleLoadMonSprite(u32 battler, void (*controllerCallback)(u32 battler));
+void BtlController_HandleSwitchInAnim(u32 battler, void (*controllerCallback)(u32 battler));
 
 void BtlController_TerminatorNop(u32 battler);
+
+
+void StartSendOutAnim(u32 battler, bool32 dontClearSubstituteBit, bool32 isWallyController); // TODO: remove when Task_StartSendOutAnim is generalized
 
 // player controller
 void SetControllerToPlayer(u32 battler);
