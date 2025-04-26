@@ -685,14 +685,6 @@ void BattleLoadPlayerMonSpriteGfx(struct Pokemon *mon, u8 battlerId)
     }
 }
 
-static void UNUSED BattleGfxSfxDummy1(void)
-{
-}
-
-void BattleGfxSfxDummy2(u16 species)
-{
-}
-
 void DecompressTrainerFrontPic(u16 frontPicId, u8 battlerId)
 {
     u8 position = GetBattlerPosition(battlerId);

@@ -255,6 +255,7 @@ void BtlController_HandleReturnMonToBall(u32 battler);
 void BtlController_HandleDrawTrainerPic(u32 battler, u32 trainerPicId, s16 xPos, s16 yPos, s32 subpriority, bool32 isFrontPic);
 void BtlController_HandleTrainerSlide(u32 battler, u32 trainerPicId);
 void BtlController_HandleTrainerSlideBack(u32 battler, s16 data0, bool32 doAnim);
+void BtlController_HandleFaintAnimation(u32 battler);
 
 void BtlController_TerminatorNop(u32 battler);
 

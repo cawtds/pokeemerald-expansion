@@ -33,7 +33,6 @@ static void PlayerPartnerHandleLoadMonSprite(u32 battler);
 static void PlayerPartnerHandleSwitchInAnim(u32 battler);
 static void PlayerPartnerHandleDrawTrainerPic(u32 battler);
 static void PlayerPartnerHandleTrainerSlideBack(u32 battler);
-static void PlayerPartnerHandleFaintAnimation(u32 battler);
 static void PlayerPartnerHandlePaletteFade(u32 battler);
 static void PlayerPartnerHandleSuccessBallThrowAnim(u32 battler);
 static void PlayerPartnerHandleBallThrowAnim(u32 battler);
@@ -105,7 +104,7 @@ static void (*const sPlayerPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 bat
     [CONTROLLER_DRAWTRAINERPIC]           = PlayerPartnerHandleDrawTrainerPic,
     [CONTROLLER_TRAINERSLIDE]             = BtlController_Empty,
     [CONTROLLER_TRAINERSLIDEBACK]         = PlayerPartnerHandleTrainerSlideBack,
-    [CONTROLLER_FAINTANIMATION]           = PlayerPartnerHandleFaintAnimation,
+    [CONTROLLER_FAINTANIMATION]           = BtlController_HandleFaintAnimation,
     [CONTROLLER_PALETTEFADE]              = PlayerPartnerHandlePaletteFade,
     [CONTROLLER_SUCCESSBALLTHROWANIM]     = PlayerPartnerHandleSuccessBallThrowAnim,
     [CONTROLLER_BALLTHROWANIM]            = PlayerPartnerHandleBallThrowAnim,
@@ -441,20 +440,6 @@ static void DestroyExpTaskAndCompleteOnInactiveTextPrinter(u8 taskId)
     DestroyTask(taskId);
 }
 
-static void FreeMonSpriteAfterFaintAnim(u32 battler)
-{
-    if (gSprites[gBattlerSpriteIds[battler]].y + gSprites[gBattlerSpriteIds[battler]].y2 > DISPLAY_HEIGHT)
-    {
-        u16 species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES);
-
-        BattleGfxSfxDummy2(species);
-        FreeOamMatrix(gSprites[gBattlerSpriteIds[battler]].oam.matrixNum);
-        DestroySprite(&gSprites[gBattlerSpriteIds[battler]]);
-        SetHealthboxSpriteInvisible(gHealthboxSpriteIds[battler]);
-        PlayerPartnerBufferExecCompleted(battler);
-    }
-}
-
 static void CompleteOnInactiveTextPrinter2(u32 battler)
 {
     if (!IsTextPrinterActive(B_WIN_MSG))
@@ -615,35 +600,6 @@ static void PlayerPartnerHandleTrainerSlideBack(u32 battler)
 {
     BtlController_HandleTrainerSlideBack(battler, 35, FALSE);
 }
-
-#define sSpeedX data[1]
-#define sSpeedY data[2]
-
-static void PlayerPartnerHandleFaintAnimation(u32 battler)
-{
-    if (gBattleSpritesDataPtr->healthBoxesData[battler].animationState == 0)
-    {
-        if (gBattleSpritesDataPtr->battlerData[battler].behindSubstitute)
-            InitAndLaunchSpecialAnimation(battler, battler, battler, B_ANIM_SUBSTITUTE_TO_MON);
-        gBattleSpritesDataPtr->healthBoxesData[battler].animationState++;
-    }
-    else
-    {
-        if (!gBattleSpritesDataPtr->healthBoxesData[battler].specialAnimActive)
-        {
-            gBattleSpritesDataPtr->healthBoxesData[battler].animationState = 0;
-            HandleLowHpMusicChange(&gPlayerParty[gBattlerPartyIndexes[battler]], battler);
-            PlaySE12WithPanning(SE_FAINT, SOUND_PAN_ATTACKER);
-            gSprites[gBattlerSpriteIds[battler]].sSpeedX = 0;
-            gSprites[gBattlerSpriteIds[battler]].sSpeedY = 5;
-            gSprites[gBattlerSpriteIds[battler]].callback = SpriteCB_FaintSlideAnim;
-            gBattlerControllerFuncs[battler] = FreeMonSpriteAfterFaintAnim;
-        }
-    }
-}
-
-#undef sSpeedX
-#undef sSpeedY
 
 static void PlayerPartnerHandlePaletteFade(u32 battler)
 {

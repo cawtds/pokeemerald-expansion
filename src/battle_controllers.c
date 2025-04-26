@@ -12,11 +12,14 @@
 #include "move.h"
 #include "party_menu.h"
 #include "recorded_battle.h"
+#include "sound.h"
 #include "string_util.h"
 #include "task.h"
 #include "test_runner.h"
 #include "util.h"
 #include "constants/abilities.h"
+#include "constants/songs.h"
+#include "constants/sound.h"
 
 static EWRAM_DATA u8 sLinkSendTaskId = 0;
 static EWRAM_DATA u8 sLinkReceiveTaskId = 0;
@@ -2390,6 +2393,66 @@ void BtlController_HandleTrainerSlideBack(u32 battler, s16 data0, bool32 doAnim)
         StartSpriteAnim(&gSprites[gBattlerSpriteIds[battler]], 1);
     gBattlerControllerFuncs[battler] = FreeTrainerSpriteAfterSlide;
 }
+
+#define sSpeedX data[1]
+#define sSpeedY data[2]
+
+static void FreeMonSpriteAfterFaintAnim(u32 battler)
+{
+    if (gSprites[gBattlerSpriteIds[battler]].y + gSprites[gBattlerSpriteIds[battler]].y2 > DISPLAY_HEIGHT)
+    {
+        u16 species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES);
+
+        FreeOamMatrix(gSprites[gBattlerSpriteIds[battler]].oam.matrixNum);
+        DestroySprite(&gSprites[gBattlerSpriteIds[battler]]);
+        SetHealthboxSpriteInvisible(gHealthboxSpriteIds[battler]);
+        BtlController_ExecCompleted(battler);
+    }
+}
+
+static void HideHealthboxAfterMonFaint(u32 battler)
+{
+    if (!gSprites[gBattlerSpriteIds[battler]].inUse)
+    {
+        SetHealthboxSpriteInvisible(gHealthboxSpriteIds[battler]);
+        BtlController_ExecCompleted(battler);
+    }
+}
+
+void BtlController_HandleFaintAnimation(u32 battler)
+{
+    if (gBattleSpritesDataPtr->healthBoxesData[battler].animationState == 0)
+    {
+        if (gBattleSpritesDataPtr->battlerData[battler].behindSubstitute)
+            InitAndLaunchSpecialAnimation(battler, battler, battler, B_ANIM_SUBSTITUTE_TO_MON);
+        gBattleSpritesDataPtr->healthBoxesData[battler].animationState++;
+    }
+    else
+    {
+        if (gBattleSpritesDataPtr->healthBoxesData[battler].specialAnimActive)
+            return;
+
+        gBattleSpritesDataPtr->healthBoxesData[battler].animationState = 0;
+        if (GetBattlerSide(battler) == B_SIDE_PLAYER)
+        {
+            HandleLowHpMusicChange(&gPlayerParty[gBattlerPartyIndexes[battler]], battler);
+            PlaySE12WithPanning(SE_FAINT, SOUND_PAN_ATTACKER);
+            gSprites[gBattlerSpriteIds[battler]].sSpeedX = 0;
+            gSprites[gBattlerSpriteIds[battler]].sSpeedY = 5;
+            gSprites[gBattlerSpriteIds[battler]].callback = SpriteCB_FaintSlideAnim;
+            gBattlerControllerFuncs[battler] = FreeMonSpriteAfterFaintAnim;
+        }
+        else
+        {
+            PlaySE12WithPanning(SE_FAINT, SOUND_PAN_TARGET);
+            gSprites[gBattlerSpriteIds[battler]].callback = SpriteCB_FaintOpponentMon;
+            gBattlerControllerFuncs[battler] = HideHealthboxAfterMonFaint;
+        }
+    }
+}
+
+#undef sSpeedX
+#undef sSpeedY
 
 void BtlController_TerminatorNop(u32 battler)
 {

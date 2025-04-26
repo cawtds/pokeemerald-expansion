@@ -34,7 +34,6 @@ static void LinkOpponentHandleSwitchInAnim(u32 battler);
 static void LinkOpponentHandleDrawTrainerPic(u32 battler);
 static void LinkOpponentHandleTrainerSlide(u32 battler);
 static void LinkOpponentHandleTrainerSlideBack(u32 battler);
-static void LinkOpponentHandleFaintAnimation(u32 battler);
 static void LinkOpponentHandlePaletteFade(u32 battler);
 static void LinkOpponentHandleSuccessBallThrowAnim(u32 battler);
 static void LinkOpponentHandleBallThrowAnim(u32 battler);
@@ -103,7 +102,7 @@ static void (*const sLinkOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 batt
     [CONTROLLER_DRAWTRAINERPIC]           = LinkOpponentHandleDrawTrainerPic,
     [CONTROLLER_TRAINERSLIDE]             = LinkOpponentHandleTrainerSlide,
     [CONTROLLER_TRAINERSLIDEBACK]         = LinkOpponentHandleTrainerSlideBack,
-    [CONTROLLER_FAINTANIMATION]           = LinkOpponentHandleFaintAnimation,
+    [CONTROLLER_FAINTANIMATION]           = BtlController_HandleFaintAnimation,
     [CONTROLLER_PALETTEFADE]              = LinkOpponentHandlePaletteFade,
     [CONTROLLER_SUCCESSBALLTHROWANIM]     = LinkOpponentHandleSuccessBallThrowAnim,
     [CONTROLLER_BALLTHROWANIM]            = LinkOpponentHandleBallThrowAnim,
@@ -361,15 +360,6 @@ static void CompleteOnHealthbarDone(u32 battler)
         LinkOpponentBufferExecCompleted(battler);
 }
 
-static void HideHealthboxAfterMonFaint(u32 battler)
-{
-    if (!gSprites[gBattlerSpriteIds[battler]].inUse)
-    {
-        SetHealthboxSpriteInvisible(gHealthboxSpriteIds[battler]);
-        LinkOpponentBufferExecCompleted(battler);
-    }
-}
-
 static void CompleteOnInactiveTextPrinter(u32 battler)
 {
     if (!IsTextPrinterActive(B_WIN_MSG))
@@ -561,8 +551,6 @@ static void LinkOpponentHandleDrawTrainerPic(u32 battler)
     BtlController_HandleDrawTrainerPic(battler, trainerPicId, xPos, (8 - gTrainerFrontPicCoords[trainerPicId].size) * 4 + 40, GetBattlerSpriteSubpriority(battler), TRUE);
 }
 
-#define sSpeedX data[0]
-
 static void LinkOpponentHandleTrainerSlide(u32 battler)
 {
     u32 trainerPicId;
@@ -576,31 +564,9 @@ static void LinkOpponentHandleTrainerSlide(u32 battler)
     LinkOpponentBufferExecCompleted(battler); // possible bug
 }
 
-#undef sSpeedX
-
 static void LinkOpponentHandleTrainerSlideBack(u32 battler)
 {
     BtlController_HandleTrainerSlideBack(battler, 35, FALSE);
-}
-
-static void LinkOpponentHandleFaintAnimation(u32 battler)
-{
-    if (gBattleSpritesDataPtr->healthBoxesData[battler].animationState == 0)
-    {
-        if (gBattleSpritesDataPtr->battlerData[battler].behindSubstitute)
-            InitAndLaunchSpecialAnimation(battler, battler, battler, B_ANIM_SUBSTITUTE_TO_MON);
-        gBattleSpritesDataPtr->healthBoxesData[battler].animationState++;
-    }
-    else
-    {
-        if (!gBattleSpritesDataPtr->healthBoxesData[battler].specialAnimActive)
-        {
-            gBattleSpritesDataPtr->healthBoxesData[battler].animationState = 0;
-            PlaySE12WithPanning(SE_FAINT, SOUND_PAN_TARGET);
-            gSprites[gBattlerSpriteIds[battler]].callback = SpriteCB_FaintOpponentMon;
-            gBattlerControllerFuncs[battler] = HideHealthboxAfterMonFaint;
-        }
-    }
 }
 
 static void LinkOpponentHandlePaletteFade(u32 battler)

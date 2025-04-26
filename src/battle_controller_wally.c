@@ -36,7 +36,6 @@
 static void WallyHandleSwitchInAnim(u32 battler);
 static void WallyHandleDrawTrainerPic(u32 battler);
 static void WallyHandleTrainerSlide(u32 battler);
-static void WallyHandleFaintAnimation(u32 battler);
 static void WallyHandlePaletteFade(u32 battler);
 static void WallyHandleSuccessBallThrowAnim(u32 battler);
 static void WallyHandleBallThrowAnim(u32 battler);
@@ -103,7 +102,7 @@ static void (*const sWallyBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_DRAWTRAINERPIC]           = WallyHandleDrawTrainerPic,
     [CONTROLLER_TRAINERSLIDE]             = WallyHandleTrainerSlide,
     [CONTROLLER_TRAINERSLIDEBACK]         = BtlController_Empty,
-    [CONTROLLER_FAINTANIMATION]           = WallyHandleFaintAnimation,
+    [CONTROLLER_FAINTANIMATION]           = BtlController_Empty,
     [CONTROLLER_PALETTEFADE]              = WallyHandlePaletteFade,
     [CONTROLLER_SUCCESSBALLTHROWANIM]     = WallyHandleSuccessBallThrowAnim,
     [CONTROLLER_BALLTHROWANIM]            = WallyHandleBallThrowAnim,
@@ -403,8 +402,6 @@ static void WallyHandleSwitchInAnim(u32 battler)
     WallyBufferExecCompleted(battler);
 }
 
-#define sSpeedX data[0]
-
 static void WallyHandleDrawTrainerPic(u32 battler)
 {
     BtlController_HandleDrawTrainerPic(battler, TRAINER_BACK_PIC_WALLY, 80, 80 + 4 * (8 - gTrainerBackPicCoords[TRAINER_BACK_PIC_WALLY].size), 30, FALSE);
@@ -413,13 +410,6 @@ static void WallyHandleDrawTrainerPic(u32 battler)
 static void WallyHandleTrainerSlide(u32 battler)
 {
     BtlController_HandleTrainerSlide(battler, TRAINER_BACK_PIC_WALLY);
-}
-
-#undef sSpeedX
-
-static void WallyHandleFaintAnimation(u32 battler)
-{
-    WallyBufferExecCompleted(battler);
 }
 
 static void WallyHandlePaletteFade(u32 battler)

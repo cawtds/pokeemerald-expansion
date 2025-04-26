@@ -34,7 +34,6 @@ static void RecordedOpponentHandleLoadMonSprite(u32 battler);
 static void RecordedOpponentHandleSwitchInAnim(u32 battler);
 static void RecordedOpponentHandleDrawTrainerPic(u32 battler);
 static void RecordedOpponentHandleTrainerSlideBack(u32 battler);
-static void RecordedOpponentHandleFaintAnimation(u32 battler);
 static void RecordedOpponentHandlePaletteFade(u32 battler);
 static void RecordedOpponentHandleSuccessBallThrowAnim(u32 battler);
 static void RecordedOpponentHandleBallThrowAnim(u32 battler);
@@ -102,7 +101,7 @@ static void (*const sRecordedOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 
     [CONTROLLER_DRAWTRAINERPIC]           = RecordedOpponentHandleDrawTrainerPic,
     [CONTROLLER_TRAINERSLIDE]             = BtlController_Empty,
     [CONTROLLER_TRAINERSLIDEBACK]         = RecordedOpponentHandleTrainerSlideBack,
-    [CONTROLLER_FAINTANIMATION]           = RecordedOpponentHandleFaintAnimation,
+    [CONTROLLER_FAINTANIMATION]           = BtlController_HandleFaintAnimation,
     [CONTROLLER_PALETTEFADE]              = RecordedOpponentHandlePaletteFade,
     [CONTROLLER_SUCCESSBALLTHROWANIM]     = RecordedOpponentHandleSuccessBallThrowAnim,
     [CONTROLLER_BALLTHROWANIM]            = RecordedOpponentHandleBallThrowAnim,
@@ -347,15 +346,6 @@ static void CompleteOnHealthbarDone(u32 battler)
         RecordedOpponentBufferExecCompleted(battler);
 }
 
-static void HideHealthboxAfterMonFaint(u32 battler)
-{
-    if (!gSprites[gBattlerSpriteIds[battler]].inUse)
-    {
-        SetHealthboxSpriteInvisible(gHealthboxSpriteIds[battler]);
-        RecordedOpponentBufferExecCompleted(battler);
-    }
-}
-
 static void CompleteOnInactiveTextPrinter(u32 battler)
 {
     if (!IsTextPrinterActive(B_WIN_MSG))
@@ -482,8 +472,6 @@ static void RecordedOpponentHandleSwitchInAnim(u32 battler)
     gBattlerControllerFuncs[battler] = SwitchIn_TryShinyAnim;
 }
 
-#define sSpeedX data[0]
-
 static u32 RecordedOpponentGetTrainerPic(u32 battler)
 {
     if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
@@ -524,31 +512,9 @@ static void RecordedOpponentHandleDrawTrainerPic(u32 battler)
     BtlController_HandleDrawTrainerPic(battler, trainerPicId, xPos, (8 - gTrainerFrontPicCoords[trainerPicId].size) * 4 + 40, GetBattlerSpriteSubpriority(battler), TRUE);
 }
 
-#undef sSpeedX
-
 static void RecordedOpponentHandleTrainerSlideBack(u32 battler)
 {
     BtlController_HandleTrainerSlideBack(battler, 35, FALSE);
-}
-
-static void RecordedOpponentHandleFaintAnimation(u32 battler)
-{
-    if (gBattleSpritesDataPtr->healthBoxesData[battler].animationState == 0)
-    {
-        if (gBattleSpritesDataPtr->battlerData[battler].behindSubstitute)
-            InitAndLaunchSpecialAnimation(battler, battler, battler, B_ANIM_SUBSTITUTE_TO_MON);
-        gBattleSpritesDataPtr->healthBoxesData[battler].animationState++;
-    }
-    else
-    {
-        if (!gBattleSpritesDataPtr->healthBoxesData[battler].specialAnimActive)
-        {
-            gBattleSpritesDataPtr->healthBoxesData[battler].animationState = 0;
-            PlaySE12WithPanning(SE_FAINT, SOUND_PAN_TARGET);
-            gSprites[gBattlerSpriteIds[battler]].callback = SpriteCB_FaintOpponentMon;
-            gBattlerControllerFuncs[battler] = HideHealthboxAfterMonFaint;
-        }
-    }
 }
 
 static void RecordedOpponentHandlePaletteFade(u32 battler)
