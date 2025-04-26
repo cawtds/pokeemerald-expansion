@@ -2138,6 +2138,34 @@ void BtlController_HandleSetRawMonData(u32 battler)
     BtlController_ExecCompleted(battler);
 }
 
+void BtlController_HandleLoadMonSprite(u32 battler, void (*animCallback)(u32 battler))
+{
+    struct Pokemon *party = GetBattlerParty(battler);
+    u16 species = GetMonData(&party[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES);
+
+    if (GetBattlerSide(battler) == B_SIDE_PLAYER)
+        BattleLoadPlayerMonSpriteGfx(&party[gBattlerPartyIndexes[battler]], battler);
+    else
+        BattleLoadOpponentMonSpriteGfx(&party[gBattlerPartyIndexes[battler]], battler);
+    SetMultiuseSpriteTemplateToPokemon(species, GetBattlerPosition(battler));
+
+    gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate,
+                                               GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2),
+                                               GetBattlerSpriteDefault_Y(battler),
+                                               GetBattlerSpriteSubpriority(battler));
+
+    gSprites[gBattlerSpriteIds[battler]].x2 = -DISPLAY_WIDTH;
+    gSprites[gBattlerSpriteIds[battler]].data[0] = battler;
+    gSprites[gBattlerSpriteIds[battler]].data[2] = species;
+    gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = battler;
+    StartSpriteAnim(&gSprites[gBattlerSpriteIds[battler]], gBattleMonForms[battler]);
+
+    if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
+        SetBattlerShadowSpriteCallback(battler, species);
+
+    gBattlerControllerFuncs[battler] = animCallback;
+}
+
 void BtlController_TerminatorNop(u32 battler)
 {
 }

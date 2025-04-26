@@ -418,21 +418,7 @@ static void CompleteOnFinishedBattleAnimation(u32 battler)
 
 static void LinkPartnerHandleLoadMonSprite(u32 battler)
 {
-    u16 species;
-
-    BattleLoadPlayerMonSpriteGfx(&gPlayerParty[gBattlerPartyIndexes[battler]], battler);
-    species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES);
-    SetMultiuseSpriteTemplateToPokemon(species, GetBattlerPosition(battler));
-
-    gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate,
-                                               GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2),
-                                               GetBattlerSpriteDefault_Y(battler),
-                                               GetBattlerSpriteSubpriority(battler));
-    gSprites[gBattlerSpriteIds[battler]].x2 = -DISPLAY_WIDTH;
-    gSprites[gBattlerSpriteIds[battler]].data[0] = battler;
-    gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = battler;
-    StartSpriteAnim(&gSprites[gBattlerSpriteIds[battler]], gBattleMonForms[battler]);
-    gBattlerControllerFuncs[battler] = WaitForMonAnimAfterLoad;
+    BtlController_HandleLoadMonSprite(battler, WaitForMonAnimAfterLoad);
 }
 
 static void LinkPartnerHandleSwitchInAnim(u32 battler)

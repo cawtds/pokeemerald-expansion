@@ -33,8 +33,6 @@
 #include "constants/rgb.h"
 
 // this file's functions
-static void WallyHandleSetRawMonData(u32 battler);
-static void WallyHandleLoadMonSprite(u32 battler);
 static void WallyHandleSwitchInAnim(u32 battler);
 static void WallyHandleReturnMonToBall(u32 battler);
 static void WallyHandleDrawTrainerPic(u32 battler);
@@ -100,8 +98,8 @@ static void (*const sWallyBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_GETMONDATA]               = BtlController_HandleGetMonData,
     [CONTROLLER_GETRAWMONDATA]            = BtlController_HandleGetRawMonData,
     [CONTROLLER_SETMONDATA]               = BtlController_HandleSetMonData,
-    [CONTROLLER_SETRAWMONDATA]            = WallyHandleSetRawMonData,
-    [CONTROLLER_LOADMONSPRITE]            = WallyHandleLoadMonSprite,
+    [CONTROLLER_SETRAWMONDATA]            = BtlController_Empty,
+    [CONTROLLER_LOADMONSPRITE]            = BtlController_Empty,
     [CONTROLLER_SWITCHINANIM]             = WallyHandleSwitchInAnim,
     [CONTROLLER_RETURNMONTOBALL]          = WallyHandleReturnMonToBall,
     [CONTROLLER_DRAWTRAINERPIC]           = WallyHandleDrawTrainerPic,
@@ -417,16 +415,6 @@ static void UNUSED CompleteOnFinishedStatusAnimation(u32 battler)
 {
     if (!gBattleSpritesDataPtr->healthBoxesData[battler].statusAnimActive)
         WallyBufferExecCompleted(battler);
-}
-
-static void WallyHandleSetRawMonData(u32 battler)
-{
-    WallyBufferExecCompleted(battler);
-}
-
-static void WallyHandleLoadMonSprite(u32 battler)
-{
-    WallyBufferExecCompleted(battler);
 }
 
 static void WallyHandleSwitchInAnim(u32 battler)

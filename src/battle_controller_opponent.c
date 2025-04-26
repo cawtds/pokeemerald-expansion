@@ -539,25 +539,7 @@ static void OpponentBufferExecCompleted(u32 battler)
 
 static void OpponentHandleLoadMonSprite(u32 battler)
 {
-    u16 species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES);
-
-    BattleLoadOpponentMonSpriteGfx(&gEnemyParty[gBattlerPartyIndexes[battler]], battler);
-    SetMultiuseSpriteTemplateToPokemon(species, GetBattlerPosition(battler));
-
-    gBattlerSpriteIds[battler] = CreateSprite(&gMultiuseSpriteTemplate,
-                                               GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2),
-                                               GetBattlerSpriteDefault_Y(battler),
-                                               GetBattlerSpriteSubpriority(battler));
-
-    gSprites[gBattlerSpriteIds[battler]].x2 = -DISPLAY_WIDTH;
-    gSprites[gBattlerSpriteIds[battler]].data[0] = battler;
-    gSprites[gBattlerSpriteIds[battler]].data[2] = species;
-    gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = battler;
-    StartSpriteAnim(&gSprites[gBattlerSpriteIds[battler]], gBattleMonForms[battler]);
-
-    SetBattlerShadowSpriteCallback(battler, GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES));
-
-    gBattlerControllerFuncs[battler] = TryShinyAnimAfterMonAnim;
+    BtlController_HandleLoadMonSprite(battler, TryShinyAnimAfterMonAnim);
 }
 
 static void OpponentHandleSwitchInAnim(u32 battler)

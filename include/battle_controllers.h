@@ -249,6 +249,7 @@ void BtlController_HandleGetMonData(u32 battler);
 void BtlController_HandleGetRawMonData(u32 battler);
 void BtlController_HandleSetMonData(u32 battler);
 void BtlController_HandleSetRawMonData(u32 battler);
+void BtlController_HandleLoadMonSprite(u32 battler, void (*animCallback)(u32 battler));
 
 void BtlController_TerminatorNop(u32 battler);
 
