@@ -33,7 +33,6 @@
 #include "constants/rgb.h"
 
 // this file's functions
-static void WallyHandleSwitchInAnim(u32 battler);
 static void WallyHandleDrawTrainerPic(u32 battler);
 static void WallyHandleTrainerSlide(u32 battler);
 static void WallyHandlePaletteFade(u32 battler);
@@ -97,7 +96,7 @@ static void (*const sWallyBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_SETMONDATA]               = BtlController_HandleSetMonData,
     [CONTROLLER_SETRAWMONDATA]            = BtlController_Empty,
     [CONTROLLER_LOADMONSPRITE]            = BtlController_Empty,
-    [CONTROLLER_SWITCHINANIM]             = WallyHandleSwitchInAnim,
+    [CONTROLLER_SWITCHINANIM]             = BtlController_Empty,
     [CONTROLLER_RETURNMONTOBALL]          = BtlController_HandleReturnMonToBall,
     [CONTROLLER_DRAWTRAINERPIC]           = WallyHandleDrawTrainerPic,
     [CONTROLLER_TRAINERSLIDE]             = WallyHandleTrainerSlide,
@@ -395,11 +394,6 @@ static void UNUSED CompleteOnFinishedStatusAnimation(u32 battler)
 {
     if (!gBattleSpritesDataPtr->healthBoxesData[battler].statusAnimActive)
         WallyBufferExecCompleted(battler);
-}
-
-static void WallyHandleSwitchInAnim(u32 battler)
-{
-    WallyBufferExecCompleted(battler);
 }
 
 static void WallyHandleDrawTrainerPic(u32 battler)

@@ -458,11 +458,7 @@ static void RecordedPlayerHandleLoadMonSprite(u32 battler)
 
 static void RecordedPlayerHandleSwitchInAnim(u32 battler)
 {
-    ClearTemporarySpeciesSpriteData(battler, gBattleBufferA[battler][2]);
-    gBattlerPartyIndexes[battler] = gBattleBufferA[battler][1];
-    BattleLoadPlayerMonSpriteGfx(&gPlayerParty[gBattlerPartyIndexes[battler]], battler);
-    StartSendOutAnim(battler, gBattleBufferA[battler][2]);
-    gBattlerControllerFuncs[battler] = SwitchIn_TryShinyAnim;
+    BtlController_HandleSwitchInAnim(battler, SwitchIn_TryShinyAnim);
 }
 
 static void RecordedPlayerHandleDrawTrainerPic(u32 battler)

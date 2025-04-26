@@ -467,9 +467,7 @@ static void RecordedOpponentHandleLoadMonSprite(u32 battler)
 
 static void RecordedOpponentHandleSwitchInAnim(u32 battler)
 {
-    gBattlerPartyIndexes[battler] = gBattleBufferA[battler][1];
-    StartSendOutAnim(battler, gBattleBufferA[battler][2]);
-    gBattlerControllerFuncs[battler] = SwitchIn_TryShinyAnim;
+    BtlController_HandleSwitchInAnim(battler, SwitchIn_TryShinyAnim);
 }
 
 static u32 RecordedOpponentGetTrainerPic(u32 battler)
