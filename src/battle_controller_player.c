@@ -60,7 +60,6 @@ static void PlayerHandleTwoReturnValues(u32 battler);
 static void PlayerHandleChosenMonReturnValue(u32 battler);
 static void PlayerHandleOneReturnValue(u32 battler);
 static void PlayerHandleOneReturnValue_Duplicate(u32 battler);
-static void PlayerHandleFaintingCry(u32 battler);
 static void PlayerHandleIntroSlide(u32 battler);
 static void PlayerHandleIntroTrainerBallThrow(u32 battler);
 static void PlayerHandleDrawPartyStatusSummary(u32 battler);
@@ -136,7 +135,7 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_CANTSWITCH]               = BtlController_Empty,
     [CONTROLLER_PLAYSE]                   = BtlController_HandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = BtlController_HandlePlayFanfareOrBGM,
-    [CONTROLLER_FAINTINGCRY]              = PlayerHandleFaintingCry,
+    [CONTROLLER_FAINTINGCRY]              = BtlController_HandleFaintingCry,
     [CONTROLLER_INTROSLIDE]               = PlayerHandleIntroSlide,
     [CONTROLLER_INTROTRAINERBALLTHROW]    = PlayerHandleIntroTrainerBallThrow,
     [CONTROLLER_DRAWPARTYSTATUSSUMMARY]   = PlayerHandleDrawPartyStatusSummary,
@@ -1546,14 +1545,6 @@ static void PlayerHandleOneReturnValue(u32 battler)
 static void PlayerHandleOneReturnValue_Duplicate(u32 battler)
 {
     BtlController_EmitOneReturnValue_Duplicate(battler, BUFFER_B, 0);
-    PlayerBufferExecCompleted(battler);
-}
-
-static void PlayerHandleFaintingCry(u32 battler)
-{
-    u16 species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES);
-
-    PlayCry_ByMode(species, -25, CRY_MODE_FAINT);
     PlayerBufferExecCompleted(battler);
 }
 

@@ -36,7 +36,6 @@ static void LinkPartnerHandleTrainerSlideBack(u32 battler);
 static void LinkPartnerHandleMoveAnimation(u32 battler);
 static void LinkPartnerHandlePrintString(u32 battler);
 static void LinkPartnerHandleHealthBarUpdate(u32 battler);
-static void LinkPartnerHandleFaintingCry(u32 battler);
 static void LinkPartnerHandleIntroSlide(u32 battler);
 static void LinkPartnerHandleIntroTrainerBallThrow(u32 battler);
 static void LinkPartnerHandleDrawPartyStatusSummary(u32 battler);
@@ -99,7 +98,7 @@ static void (*const sLinkPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battl
     [CONTROLLER_CANTSWITCH]               = BtlController_Empty,
     [CONTROLLER_PLAYSE]                   = BtlController_HandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = BtlController_HandlePlayFanfareOrBGM,
-    [CONTROLLER_FAINTINGCRY]              = LinkPartnerHandleFaintingCry,
+    [CONTROLLER_FAINTINGCRY]              = BtlController_HandleFaintingCry,
     [CONTROLLER_INTROSLIDE]               = LinkPartnerHandleIntroSlide,
     [CONTROLLER_INTROTRAINERBALLTHROW]    = LinkPartnerHandleIntroTrainerBallThrow,
     [CONTROLLER_DRAWPARTYSTATUSSUMMARY]   = LinkPartnerHandleDrawPartyStatusSummary,
@@ -334,14 +333,6 @@ static void LinkPartnerHandlePrintString(u32 battler)
 static void LinkPartnerHandleHealthBarUpdate(u32 battler)
 {
     BtlController_HandleHealthBarUpdate(battler, FALSE);
-}
-
-static void LinkPartnerHandleFaintingCry(u32 battler)
-{
-    u16 species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES);
-
-    PlayCry_ByMode(species, -25, CRY_MODE_FAINT);
-    LinkPartnerBufferExecCompleted(battler);
 }
 
 static void LinkPartnerHandleIntroSlide(u32 battler)

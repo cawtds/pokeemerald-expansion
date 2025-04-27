@@ -2707,6 +2707,16 @@ void BtlController_HandlePlayFanfareOrBGM(u32 battler)
     BtlController_ExecCompleted(battler);
 }
 
+void BtlController_HandleFaintingCry(u32 battler)
+{
+    struct Pokemon *party = GetBattlerParty(battler);
+    s32 pan = (GetBattlerSide(battler) == B_SIDE_PLAYER) ? -25 : 25;
+    u16 species = GetMonData(&party[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES);
+
+    PlayCry_ByMode(species, pan, CRY_MODE_FAINT);
+    BtlController_ExecCompleted(battler);
+}
+
 void BtlController_TerminatorNop(u32 UNUSED battler)
 {
 }

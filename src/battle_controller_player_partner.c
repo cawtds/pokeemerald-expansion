@@ -39,7 +39,6 @@ static void PlayerPartnerHandleChooseAction(u32 battler);
 static void PlayerPartnerHandleChooseMove(u32 battler);
 static void PlayerPartnerHandleChoosePokemon(u32 battler);
 static void PlayerPartnerHandleHealthBarUpdate(u32 battler);
-static void PlayerPartnerHandleFaintingCry(u32 battler);
 static void PlayerPartnerHandleIntroSlide(u32 battler);
 static void PlayerPartnerHandleIntroTrainerBallThrow(u32 battler);
 static void PlayerPartnerHandleDrawPartyStatusSummary(u32 battler);
@@ -101,7 +100,7 @@ static void (*const sPlayerPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 bat
     [CONTROLLER_CANTSWITCH]               = BtlController_Empty,
     [CONTROLLER_PLAYSE]                   = BtlController_HandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = BtlController_HandlePlayFanfareOrBGM,
-    [CONTROLLER_FAINTINGCRY]              = PlayerPartnerHandleFaintingCry,
+    [CONTROLLER_FAINTINGCRY]              = BtlController_HandleFaintingCry,
     [CONTROLLER_INTROSLIDE]               = PlayerPartnerHandleIntroSlide,
     [CONTROLLER_INTROTRAINERBALLTHROW]    = PlayerPartnerHandleIntroTrainerBallThrow,
     [CONTROLLER_DRAWPARTYSTATUSSUMMARY]   = PlayerPartnerHandleDrawPartyStatusSummary,
@@ -399,14 +398,6 @@ static void PlayerPartnerHandleChoosePokemon(u32 battler)
 static void PlayerPartnerHandleHealthBarUpdate(u32 battler)
 {
     BtlController_HandleHealthBarUpdate(battler, FALSE);
-}
-
-static void PlayerPartnerHandleFaintingCry(u32 battler)
-{
-    u16 species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES);
-
-    PlayCry_ByMode(species, -25, CRY_MODE_FAINT);
-    PlayerPartnerBufferExecCompleted(battler);
 }
 
 static void PlayerPartnerHandleIntroSlide(u32 battler)
