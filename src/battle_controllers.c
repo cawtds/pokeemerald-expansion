@@ -2393,6 +2393,50 @@ void BtlController_HandlePrintString(u32 battler, bool32 updateBattleTV, bool32 
         BattleArena_DeductSkillPoints(battler, *stringId);
 }
 
+static void CompleteOnHealthbarDone(u32 battler)
+{
+    s16 hpValue = MoveBattleBar(battler, gHealthboxSpriteIds[battler], HEALTH_BAR, 0);
+
+    SetHealthboxSpriteVisible(gHealthboxSpriteIds[battler]);
+    if (hpValue != -1)
+    {
+        UpdateHpTextInHealthbox(gHealthboxSpriteIds[battler], hpValue, HP_CURRENT);
+    }
+    else
+    {
+        if (GetBattlerSide(battler) == B_SIDE_PLAYER)
+            HandleLowHpMusicChange(&gPlayerParty[gBattlerPartyIndexes[battler]], battler);
+        BtlController_ExecCompleted(battler);
+    }
+}
+
+void BtlController_HandleHealthBarUpdate(u32 battler, bool32 updateHpText)
+{
+    struct Pokemon *party = GetBattlerParty(battler);
+    u32 maxHP, curHP;
+    s16 hpVal;
+
+    LoadBattleBarGfx(0);
+    hpVal = gBattleBufferA[battler][2] | (gBattleBufferA[battler][3] << 8);
+    maxHP = GetMonData(&party[gBattlerPartyIndexes[battler]], MON_DATA_MAX_HP);
+    curHP = GetMonData(&party[gBattlerPartyIndexes[battler]], MON_DATA_HP);
+
+    if (hpVal != INSTANT_HP_BAR_DROP)
+    {
+        SetBattleBarStruct(battler, gHealthboxSpriteIds[battler], maxHP, curHP, hpVal);
+        TestRunner_Battle_RecordHP(battler, curHP, min(maxHP, max(0, curHP - hpVal)));
+    }
+    else
+    {
+        SetBattleBarStruct(battler, gHealthboxSpriteIds[battler], maxHP, 0, hpVal);
+        if (updateHpText)
+            UpdateHpTextInHealthbox(gHealthboxSpriteIds[battler], 0, HP_CURRENT);
+        TestRunner_Battle_RecordHP(battler, curHP, 0);
+    }
+
+    gBattlerControllerFuncs[battler] = CompleteOnHealthbarDone;
+}
+
 void BtlController_TerminatorNop(u32 UNUSED battler)
 {
 }

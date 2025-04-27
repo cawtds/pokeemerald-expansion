@@ -276,23 +276,6 @@ static void WaitForMonAnimAfterLoad(u32 battler)
         RecordedPlayerBufferExecCompleted(battler);
 }
 
-static void CompleteOnHealthbarDone(u32 battler)
-{
-    s16 hpValue = MoveBattleBar(battler, gHealthboxSpriteIds[battler], HEALTH_BAR, 0);
-
-    SetHealthboxSpriteVisible(gHealthboxSpriteIds[battler]);
-
-    if (hpValue != -1)
-    {
-        UpdateHpTextInHealthbox(gHealthboxSpriteIds[battler], hpValue, HP_CURRENT);
-    }
-    else
-    {
-        HandleLowHpMusicChange(&gPlayerParty[gBattlerPartyIndexes[battler]], battler);
-        RecordedPlayerBufferExecCompleted(battler);
-    }
-}
-
 static void DoHitAnimBlinkSpriteEffect(u32 battler)
 {
     u8 spriteId = gBattlerSpriteIds[battler];
@@ -536,27 +519,7 @@ static void RecordedPlayerHandleChoosePokemon(u32 battler)
 
 static void RecordedPlayerHandleHealthBarUpdate(u32 battler)
 {
-    u32 maxHP, curHP;
-    s16 hpVal;
-
-    LoadBattleBarGfx(0);
-    hpVal = gBattleBufferA[battler][2] | (gBattleBufferA[battler][3] << 8);
-    maxHP = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_MAX_HP);
-    curHP = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_HP);
-
-    if (hpVal != INSTANT_HP_BAR_DROP)
-    {
-        SetBattleBarStruct(battler, gHealthboxSpriteIds[battler], maxHP, curHP, hpVal);
-        TestRunner_Battle_RecordHP(battler, curHP, min(maxHP, max(0, curHP - hpVal)));
-    }
-    else
-    {
-        SetBattleBarStruct(battler, gHealthboxSpriteIds[battler], maxHP, 0, hpVal);
-        UpdateHpTextInHealthbox(gHealthboxSpriteIds[battler], 0, HP_CURRENT);
-        TestRunner_Battle_RecordHP(battler, curHP, 0);
-    }
-
-    gBattlerControllerFuncs[battler] = CompleteOnHealthbarDone;
+    BtlController_HandleHealthBarUpdate(battler, TRUE);
 }
 
 static void RecordedPlayerHandleStatusIconUpdate(u32 battler)

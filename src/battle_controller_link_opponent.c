@@ -303,18 +303,6 @@ static void TryShinyAnimAfterMonAnim(u32 battler)
     }
 }
 
-static void CompleteOnHealthbarDone(u32 battler)
-{
-    s16 hpValue = MoveBattleBar(battler, gHealthboxSpriteIds[battler], HEALTH_BAR, 0);
-
-    SetHealthboxSpriteVisible(gHealthboxSpriteIds[battler]);
-
-    if (hpValue != -1)
-        UpdateHpTextInHealthbox(gHealthboxSpriteIds[battler], hpValue, HP_CURRENT);
-    else
-        LinkOpponentBufferExecCompleted(battler);
-}
-
 static void DoHitAnimBlinkSpriteEffect(u32 battler)
 {
     u8 spriteId = gBattlerSpriteIds[battler];
@@ -530,26 +518,7 @@ static void LinkOpponentHandlePrintString(u32 battler)
 
 static void LinkOpponentHandleHealthBarUpdate(u32 battler)
 {
-    s16 hpVal;
-
-    LoadBattleBarGfx(0);
-    hpVal = gBattleBufferA[battler][2] | (gBattleBufferA[battler][3] << 8);
-
-    if (hpVal != INSTANT_HP_BAR_DROP)
-    {
-        u32 maxHP = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_MAX_HP);
-        u32 curHP = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_HP);
-
-        SetBattleBarStruct(battler, gHealthboxSpriteIds[battler], maxHP, curHP, hpVal);
-    }
-    else
-    {
-        u32 maxHP = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_MAX_HP);
-
-        SetBattleBarStruct(battler, gHealthboxSpriteIds[battler], maxHP, 0, hpVal);
-    }
-
-    gBattlerControllerFuncs[battler] = CompleteOnHealthbarDone;
+    BtlController_HandleHealthBarUpdate(battler, FALSE);
 }
 
 static void LinkOpponentHandleStatusIconUpdate(u32 battler)
