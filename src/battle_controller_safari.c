@@ -33,7 +33,6 @@ static void SafariHandleChooseAction(u32 battler);
 static void SafariHandleChooseItem(u32 battler);
 static void SafariHandleStatusIconUpdate(u32 battler);
 static void SafariHandleFaintingCry(u32 battler);
-static void SafariHandleIntroSlide(u32 battler);
 static void SafariHandleIntroTrainerBallThrow(u32 battler);
 static void SafariHandleBattleAnimation(u32 battler);
 static void SafariHandleEndLinkBattle(u32 battler);
@@ -90,7 +89,7 @@ static void (*const sSafariBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_PLAYSE]                   = BtlController_HandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = BtlController_HandlePlayFanfareOrBGM,
     [CONTROLLER_FAINTINGCRY]              = SafariHandleFaintingCry,
-    [CONTROLLER_INTROSLIDE]               = SafariHandleIntroSlide,
+    [CONTROLLER_INTROSLIDE]               = BtlController_HandleIntroSlide,
     [CONTROLLER_INTROTRAINERBALLTHROW]    = SafariHandleIntroTrainerBallThrow,
     [CONTROLLER_DRAWPARTYSTATUSSUMMARY]   = BtlController_Empty,
     [CONTROLLER_HIDEPARTYSTATUSSUMMARY]   = BtlController_Empty,
@@ -315,13 +314,6 @@ static void SafariHandleFaintingCry(u32 battler)
     u16 species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES);
 
     PlayCry_Normal(species, 25);
-    SafariBufferExecCompleted(battler);
-}
-
-static void SafariHandleIntroSlide(u32 battler)
-{
-    HandleIntroSlide(gBattleBufferA[battler][1]);
-    gIntroSlideFlags |= 1;
     SafariBufferExecCompleted(battler);
 }
 

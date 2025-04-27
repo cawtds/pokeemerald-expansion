@@ -45,7 +45,6 @@ static void WallyHandleChooseItem(u32 battler);
 static void WallyHandleHealthBarUpdate(u32 battler);
 static void WallyHandlePlaySE(u32 battler);
 static void WallyHandleFaintingCry(u32 battler);
-static void WallyHandleIntroSlide(u32 battler);
 static void WallyHandleIntroTrainerBallThrow(u32 battler);
 static void WallyHandleDrawPartyStatusSummary(u32 battler);
 static void WallyHandleBattleAnimation(u32 battler);
@@ -105,7 +104,7 @@ static void (*const sWallyBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_PLAYSE]                   = WallyHandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = BtlController_HandlePlayFanfareOrBGM,
     [CONTROLLER_FAINTINGCRY]              = WallyHandleFaintingCry,
-    [CONTROLLER_INTROSLIDE]               = WallyHandleIntroSlide,
+    [CONTROLLER_INTROSLIDE]               = BtlController_HandleIntroSlide,
     [CONTROLLER_INTROTRAINERBALLTHROW]    = WallyHandleIntroTrainerBallThrow,
     [CONTROLLER_DRAWPARTYSTATUSSUMMARY]   = WallyHandleDrawPartyStatusSummary,
     [CONTROLLER_HIDEPARTYSTATUSSUMMARY]   = BtlController_Empty,
@@ -423,13 +422,6 @@ static void WallyHandleFaintingCry(u32 battler)
     // Seems that it doesn't bother using CRY_MODE_FAINT because
     // Wally's Pokémon during the tutorial is never intended to faint.
     PlayCry_Normal(species, 25);
-    WallyBufferExecCompleted(battler);
-}
-
-static void WallyHandleIntroSlide(u32 battler)
-{
-    HandleIntroSlide(gBattleBufferA[battler][1]);
-    gIntroSlideFlags |= 1;
     WallyBufferExecCompleted(battler);
 }
 

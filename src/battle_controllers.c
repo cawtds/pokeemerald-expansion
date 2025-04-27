@@ -2717,6 +2717,13 @@ void BtlController_HandleFaintingCry(u32 battler)
     BtlController_ExecCompleted(battler);
 }
 
+void BtlController_HandleIntroSlide(u32 battler)
+{
+    HandleIntroSlide(gBattleBufferA[battler][1]);
+    gIntroSlideFlags |= 1;
+    BtlController_ExecCompleted(battler);
+}
+
 void BtlController_TerminatorNop(u32 UNUSED battler)
 {
 }

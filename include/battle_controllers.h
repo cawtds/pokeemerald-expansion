@@ -261,6 +261,7 @@ void BtlController_HandleHitAnimation(u32 battler);
 void BtlController_HandlePlaySE(u32 battler);
 void BtlController_HandlePlayFanfareOrBGM(u32 battler);
 void BtlController_HandleFaintingCry(u32 battler);
+void BtlController_HandleIntroSlide(u32 battler);
 
 void BtlController_TerminatorNop(u32 battler);
 

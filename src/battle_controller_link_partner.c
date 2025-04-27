@@ -36,7 +36,6 @@ static void LinkPartnerHandleTrainerSlideBack(u32 battler);
 static void LinkPartnerHandleMoveAnimation(u32 battler);
 static void LinkPartnerHandlePrintString(u32 battler);
 static void LinkPartnerHandleHealthBarUpdate(u32 battler);
-static void LinkPartnerHandleIntroSlide(u32 battler);
 static void LinkPartnerHandleIntroTrainerBallThrow(u32 battler);
 static void LinkPartnerHandleDrawPartyStatusSummary(u32 battler);
 static void LinkPartnerHandleHidePartyStatusSummary(u32 battler);
@@ -99,7 +98,7 @@ static void (*const sLinkPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battl
     [CONTROLLER_PLAYSE]                   = BtlController_HandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = BtlController_HandlePlayFanfareOrBGM,
     [CONTROLLER_FAINTINGCRY]              = BtlController_HandleFaintingCry,
-    [CONTROLLER_INTROSLIDE]               = LinkPartnerHandleIntroSlide,
+    [CONTROLLER_INTROSLIDE]               = BtlController_HandleIntroSlide,
     [CONTROLLER_INTROTRAINERBALLTHROW]    = LinkPartnerHandleIntroTrainerBallThrow,
     [CONTROLLER_DRAWPARTYSTATUSSUMMARY]   = LinkPartnerHandleDrawPartyStatusSummary,
     [CONTROLLER_HIDEPARTYSTATUSSUMMARY]   = LinkPartnerHandleHidePartyStatusSummary,
@@ -333,13 +332,6 @@ static void LinkPartnerHandlePrintString(u32 battler)
 static void LinkPartnerHandleHealthBarUpdate(u32 battler)
 {
     BtlController_HandleHealthBarUpdate(battler, FALSE);
-}
-
-static void LinkPartnerHandleIntroSlide(u32 battler)
-{
-    HandleIntroSlide(gBattleBufferA[battler][1]);
-    gIntroSlideFlags |= 1;
-    LinkPartnerBufferExecCompleted(battler);
 }
 
 static void LinkPartnerHandleIntroTrainerBallThrow(u32 battler)

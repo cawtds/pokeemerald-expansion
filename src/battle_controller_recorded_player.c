@@ -37,7 +37,6 @@ static void RecordedPlayerHandleChooseMove(u32 battler);
 static void RecordedPlayerHandleChooseItem(u32 battler);
 static void RecordedPlayerHandleChoosePokemon(u32 battler);
 static void RecordedPlayerHandleHealthBarUpdate(u32 battler);
-static void RecordedPlayerHandleIntroSlide(u32 battler);
 static void RecordedPlayerHandleIntroTrainerBallThrow(u32 battler);
 static void RecordedPlayerHandleDrawPartyStatusSummary(u32 battler);
 static void RecordedPlayerHandleHidePartyStatusSummary(u32 battler);
@@ -99,7 +98,7 @@ static void (*const sRecordedPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 ba
     [CONTROLLER_PLAYSE]                   = BtlController_HandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = BtlController_HandlePlayFanfareOrBGM,
     [CONTROLLER_FAINTINGCRY]              = BtlController_HandleFaintingCry,
-    [CONTROLLER_INTROSLIDE]               = RecordedPlayerHandleIntroSlide,
+    [CONTROLLER_INTROSLIDE]               = BtlController_HandleIntroSlide,
     [CONTROLLER_INTROTRAINERBALLTHROW]    = RecordedPlayerHandleIntroTrainerBallThrow,
     [CONTROLLER_DRAWPARTYSTATUSSUMMARY]   = RecordedPlayerHandleDrawPartyStatusSummary,
     [CONTROLLER_HIDEPARTYSTATUSSUMMARY]   = RecordedPlayerHandleHidePartyStatusSummary,
@@ -503,13 +502,6 @@ static void RecordedPlayerHandleChoosePokemon(u32 battler)
 static void RecordedPlayerHandleHealthBarUpdate(u32 battler)
 {
     BtlController_HandleHealthBarUpdate(battler, TRUE);
-}
-
-static void RecordedPlayerHandleIntroSlide(u32 battler)
-{
-    HandleIntroSlide(gBattleBufferA[battler][1]);
-    gIntroSlideFlags |= 1;
-    RecordedPlayerBufferExecCompleted(battler);
 }
 
 static void RecordedPlayerHandleIntroTrainerBallThrow(u32 battler)
