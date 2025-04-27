@@ -2645,6 +2645,40 @@ void BtlController_HandleStatusAnimation(u32 battler)
     }
 }
 
+static void DoHitAnimBlinkSpriteEffect(u32 battler)
+{
+    u8 spriteId = gBattlerSpriteIds[battler];
+
+    if (gSprites[spriteId].data[1] == 32)
+    {
+        gSprites[spriteId].data[1] = 0;
+        gSprites[spriteId].invisible = FALSE;
+        gDoingBattleAnim = FALSE;
+        BtlController_ExecCompleted(battler);
+    }
+    else
+    {
+        if ((gSprites[spriteId].data[1] % 4) == 0)
+            gSprites[spriteId].invisible ^= 1;
+        gSprites[spriteId].data[1]++;
+    }
+}
+
+void BtlController_HandleHitAnimation(u32 battler)
+{
+    if (gSprites[gBattlerSpriteIds[battler]].invisible == TRUE)
+    {
+        BtlController_ExecCompleted(battler);
+    }
+    else
+    {
+        gDoingBattleAnim = TRUE;
+        gSprites[gBattlerSpriteIds[battler]].data[1] = 0;
+        DoHitAnimHealthboxEffect(battler);
+        gBattlerControllerFuncs[battler] = DoHitAnimBlinkSpriteEffect;
+    }
+}
+
 void BtlController_TerminatorNop(u32 UNUSED battler)
 {
 }

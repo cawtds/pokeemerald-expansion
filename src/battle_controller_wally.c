@@ -43,7 +43,6 @@ static void WallyHandleChooseAction(u32 battler);
 static void WallyHandleChooseMove(u32 battler);
 static void WallyHandleChooseItem(u32 battler);
 static void WallyHandleHealthBarUpdate(u32 battler);
-static void WallyHandleHitAnimation(u32 battler);
 static void WallyHandlePlaySE(u32 battler);
 static void WallyHandlePlayFanfareOrBGM(u32 battler);
 static void WallyHandleFaintingCry(u32 battler);
@@ -102,7 +101,7 @@ static void (*const sWallyBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_SETUNKVAR]                = BtlController_Empty,
     [CONTROLLER_CLEARUNKFLAG]             = BtlController_Empty,
     [CONTROLLER_TOGGLEUNKFLAG]            = BtlController_Empty,
-    [CONTROLLER_HITANIMATION]             = WallyHandleHitAnimation,
+    [CONTROLLER_HITANIMATION]             = BtlController_HandleHitAnimation,
     [CONTROLLER_CANTSWITCH]               = BtlController_Empty,
     [CONTROLLER_PLAYSE]                   = WallyHandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = WallyHandlePlayFanfareOrBGM,
@@ -284,25 +283,6 @@ static void Intro_WaitForShinyAnimAndHealthbox(u32 battler)
     }
 }
 
-static void DoHitAnimBlinkSpriteEffect(u32 battler)
-{
-    u8 spriteId = gBattlerSpriteIds[battler];
-
-    if (gSprites[spriteId].data[1] == 32)
-    {
-        gSprites[spriteId].data[1] = 0;
-        gSprites[spriteId].invisible = FALSE;
-        gDoingBattleAnim = FALSE;
-        WallyBufferExecCompleted(battler);
-    }
-    else
-    {
-        if ((gSprites[spriteId].data[1] % 4) == 0)
-            gSprites[spriteId].invisible ^= 1;
-        gSprites[spriteId].data[1]++;
-    }
-}
-
 static void CompleteOnFinishedBattleAnimation(u32 battler)
 {
     if (!gBattleSpritesDataPtr->healthBoxesData[battler].animFromTableActive)
@@ -429,21 +409,6 @@ static void WallyHandleChooseItem(u32 battler)
 static void WallyHandleHealthBarUpdate(u32 battler)
 {
     BtlController_HandleHealthBarUpdate(battler, TRUE);
-}
-
-static void WallyHandleHitAnimation(u32 battler)
-{
-    if (gSprites[gBattlerSpriteIds[battler]].invisible == TRUE)
-    {
-        WallyBufferExecCompleted(battler);
-    }
-    else
-    {
-        gDoingBattleAnim = TRUE;
-        gSprites[gBattlerSpriteIds[battler]].data[1] = 0;
-        DoHitAnimHealthboxEffect(battler);
-        gBattlerControllerFuncs[battler] = DoHitAnimBlinkSpriteEffect;
-    }
 }
 
 static void WallyHandlePlaySE(u32 battler)

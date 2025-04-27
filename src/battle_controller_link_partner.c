@@ -36,7 +36,6 @@ static void LinkPartnerHandleTrainerSlideBack(u32 battler);
 static void LinkPartnerHandleMoveAnimation(u32 battler);
 static void LinkPartnerHandlePrintString(u32 battler);
 static void LinkPartnerHandleHealthBarUpdate(u32 battler);
-static void LinkPartnerHandleHitAnimation(u32 battler);
 static void LinkPartnerHandlePlaySE(u32 battler);
 static void LinkPartnerHandlePlayFanfareOrBGM(u32 battler);
 static void LinkPartnerHandleFaintingCry(u32 battler);
@@ -98,7 +97,7 @@ static void (*const sLinkPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battl
     [CONTROLLER_SETUNKVAR]                = BtlController_Empty,
     [CONTROLLER_CLEARUNKFLAG]             = BtlController_Empty,
     [CONTROLLER_TOGGLEUNKFLAG]            = BtlController_Empty,
-    [CONTROLLER_HITANIMATION]             = LinkPartnerHandleHitAnimation,
+    [CONTROLLER_HITANIMATION]             = BtlController_HandleHitAnimation,
     [CONTROLLER_CANTSWITCH]               = BtlController_Empty,
     [CONTROLLER_PLAYSE]                   = LinkPartnerHandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = LinkPartnerHandlePlayFanfareOrBGM,
@@ -207,25 +206,6 @@ static void WaitForMonAnimAfterLoad(u32 battler)
 {
     if (gSprites[gBattlerSpriteIds[battler]].animEnded && gSprites[gBattlerSpriteIds[battler]].x2 == 0)
         LinkPartnerBufferExecCompleted(battler);
-}
-
-static void DoHitAnimBlinkSpriteEffect(u32 battler)
-{
-    u8 spriteId = gBattlerSpriteIds[battler];
-
-    if (gSprites[spriteId].data[1] == 32)
-    {
-        gSprites[spriteId].data[1] = 0;
-        gSprites[spriteId].invisible = FALSE;
-        gDoingBattleAnim = FALSE;
-        LinkPartnerBufferExecCompleted(battler);
-    }
-    else
-    {
-        if ((gSprites[spriteId].data[1] % 4) == 0)
-            gSprites[spriteId].invisible ^= 1;
-        gSprites[spriteId].data[1]++;
-    }
 }
 
 static void SwitchIn_ShowSubstitute(u32 battler)
@@ -356,21 +336,6 @@ static void LinkPartnerHandlePrintString(u32 battler)
 static void LinkPartnerHandleHealthBarUpdate(u32 battler)
 {
     BtlController_HandleHealthBarUpdate(battler, FALSE);
-}
-
-static void LinkPartnerHandleHitAnimation(u32 battler)
-{
-    if (gSprites[gBattlerSpriteIds[battler]].invisible == TRUE)
-    {
-        LinkPartnerBufferExecCompleted(battler);
-    }
-    else
-    {
-        gDoingBattleAnim = TRUE;
-        gSprites[gBattlerSpriteIds[battler]].data[1] = 0;
-        DoHitAnimHealthboxEffect(battler);
-        gBattlerControllerFuncs[battler] = DoHitAnimBlinkSpriteEffect;
-    }
 }
 
 static void LinkPartnerHandlePlaySE(u32 battler)

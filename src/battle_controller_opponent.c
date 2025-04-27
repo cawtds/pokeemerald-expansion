@@ -48,7 +48,6 @@ static void OpponentHandleChooseMove(u32 battler);
 static void OpponentHandleChooseItem(u32 battler);
 static void OpponentHandleChoosePokemon(u32 battler);
 static void OpponentHandleHealthBarUpdate(u32 battler);
-static void OpponentHandleHitAnimation(u32 battler);
 static void OpponentHandlePlaySE(u32 battler);
 static void OpponentHandlePlayFanfareOrBGM(u32 battler);
 static void OpponentHandleFaintingCry(u32 battler);
@@ -110,7 +109,7 @@ static void (*const sOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler)
     [CONTROLLER_SETUNKVAR]                = BtlController_Empty,
     [CONTROLLER_CLEARUNKFLAG]             = BtlController_Empty,
     [CONTROLLER_TOGGLEUNKFLAG]            = BtlController_Empty,
-    [CONTROLLER_HITANIMATION]             = OpponentHandleHitAnimation,
+    [CONTROLLER_HITANIMATION]             = BtlController_HandleHitAnimation,
     [CONTROLLER_CANTSWITCH]               = BtlController_Empty,
     [CONTROLLER_PLAYSE]                   = OpponentHandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = OpponentHandlePlayFanfareOrBGM,
@@ -335,25 +334,6 @@ static void TryShinyAnimAfterMonAnim(u32 battler)
         FreeSpriteTilesByTag(ANIM_TAG_GOLD_STARS);
         FreeSpritePaletteByTag(ANIM_TAG_GOLD_STARS);
         OpponentBufferExecCompleted(battler);
-    }
-}
-
-static void DoHitAnimBlinkSpriteEffect(u32 battler)
-{
-    u8 spriteId = gBattlerSpriteIds[battler];
-
-    if (gSprites[spriteId].data[1] == 32)
-    {
-        gSprites[spriteId].data[1] = 0;
-        gSprites[spriteId].invisible = FALSE;
-        gDoingBattleAnim = FALSE;
-        OpponentBufferExecCompleted(battler);
-    }
-    else
-    {
-        if ((gSprites[spriteId].data[1] % 4) == 0)
-            gSprites[spriteId].invisible ^= 1;
-        gSprites[spriteId].data[1]++;
     }
 }
 
@@ -659,21 +639,6 @@ static void OpponentHandleChoosePokemon(u32 battler)
 static void OpponentHandleHealthBarUpdate(u32 battler)
 {
     BtlController_HandleHealthBarUpdate(battler, FALSE);
-}
-
-static void OpponentHandleHitAnimation(u32 battler)
-{
-    if (gSprites[gBattlerSpriteIds[battler]].invisible == TRUE)
-    {
-        OpponentBufferExecCompleted(battler);
-    }
-    else
-    {
-        gDoingBattleAnim = TRUE;
-        gSprites[gBattlerSpriteIds[battler]].data[1] = 0;
-        DoHitAnimHealthboxEffect(battler);
-        gBattlerControllerFuncs[battler] = DoHitAnimBlinkSpriteEffect;
-    }
 }
 
 static void OpponentHandlePlaySE(u32 battler)
