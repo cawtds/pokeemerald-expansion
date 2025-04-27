@@ -41,16 +41,11 @@ static void LinkPartnerHandleYesNoBox(u32 battler);
 static void LinkPartnerHandleChooseMove(u32 battler);
 static void LinkPartnerHandleChooseItem(u32 battler);
 static void LinkPartnerHandleChoosePokemon(u32 battler);
-static void LinkPartnerHandleCmd23(u32 battler);
 static void LinkPartnerHandleHealthBarUpdate(u32 battler);
 static void LinkPartnerHandleExpUpdate(u32 battler);
 static void LinkPartnerHandleStatusIconUpdate(u32 battler);
 static void LinkPartnerHandleStatusAnimation(u32 battler);
-static void LinkPartnerHandleStatusXor(u32 battler);
 static void LinkPartnerHandleDataTransfer(u32 battler);
-static void LinkPartnerHandleDMA3Transfer(u32 battler);
-static void LinkPartnerHandlePlayBGM(u32 battler);
-static void LinkPartnerHandleCmd32(u32 battler);
 static void LinkPartnerHandleTwoReturnValues(u32 battler);
 static void LinkPartnerHandleChosenMonReturnValue(u32 battler);
 static void LinkPartnerHandleOneReturnValue(u32 battler);
@@ -81,9 +76,7 @@ static void EndDrawPartyStatusSummary(u32 battler);
 static void (*const sLinkPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
 {
     [CONTROLLER_GETMONDATA]               = BtlController_HandleGetMonData,
-    [CONTROLLER_GETRAWMONDATA]            = BtlController_Empty,
     [CONTROLLER_SETMONDATA]               = BtlController_HandleSetMonData,
-    [CONTROLLER_SETRAWMONDATA]            = BtlController_HandleSetRawMonData,
     [CONTROLLER_LOADMONSPRITE]            = LinkPartnerHandleLoadMonSprite,
     [CONTROLLER_SWITCHINANIM]             = LinkPartnerHandleSwitchInAnim,
     [CONTROLLER_RETURNMONTOBALL]          = BtlController_HandleReturnMonToBall,
@@ -91,10 +84,7 @@ static void (*const sLinkPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battl
     [CONTROLLER_TRAINERSLIDE]             = BtlController_Empty,
     [CONTROLLER_TRAINERSLIDEBACK]         = LinkPartnerHandleTrainerSlideBack,
     [CONTROLLER_FAINTANIMATION]           = BtlController_HandleFaintAnimation,
-    [CONTROLLER_PALETTEFADE]              = BtlController_Empty,
-    [CONTROLLER_SUCCESSBALLTHROWANIM]     = BtlController_Empty,
     [CONTROLLER_BALLTHROWANIM]            = BtlController_Empty,
-    [CONTROLLER_PAUSE]                    = BtlController_Empty,
     [CONTROLLER_MOVEANIMATION]            = LinkPartnerHandleMoveAnimation,
     [CONTROLLER_PRINTSTRING]              = LinkPartnerHandlePrintString,
     [CONTROLLER_PRINTSTRINGPLAYERONLY]    = LinkPartnerHandlePrintSelectionString,
@@ -103,16 +93,11 @@ static void (*const sLinkPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battl
     [CONTROLLER_CHOOSEMOVE]               = LinkPartnerHandleChooseMove,
     [CONTROLLER_OPENBAG]                  = LinkPartnerHandleChooseItem,
     [CONTROLLER_CHOOSEPOKEMON]            = LinkPartnerHandleChoosePokemon,
-    [CONTROLLER_23]                       = LinkPartnerHandleCmd23,
     [CONTROLLER_HEALTHBARUPDATE]          = LinkPartnerHandleHealthBarUpdate,
     [CONTROLLER_EXPUPDATE]                = LinkPartnerHandleExpUpdate,
     [CONTROLLER_STATUSICONUPDATE]         = LinkPartnerHandleStatusIconUpdate,
     [CONTROLLER_STATUSANIMATION]          = LinkPartnerHandleStatusAnimation,
-    [CONTROLLER_STATUSXOR]                = LinkPartnerHandleStatusXor,
     [CONTROLLER_DATATRANSFER]             = LinkPartnerHandleDataTransfer,
-    [CONTROLLER_DMA3TRANSFER]             = LinkPartnerHandleDMA3Transfer,
-    [CONTROLLER_PLAYBGM]                  = LinkPartnerHandlePlayBGM,
-    [CONTROLLER_32]                       = LinkPartnerHandleCmd32,
     [CONTROLLER_TWORETURNVALUES]          = LinkPartnerHandleTwoReturnValues,
     [CONTROLLER_CHOSENMONRETURNVALUE]     = LinkPartnerHandleChosenMonReturnValue,
     [CONTROLLER_ONERETURNVALUE]           = LinkPartnerHandleOneReturnValue,
@@ -425,11 +410,6 @@ static void LinkPartnerHandleChoosePokemon(u32 battler)
     LinkPartnerBufferExecCompleted(battler);
 }
 
-static void LinkPartnerHandleCmd23(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
 static void LinkPartnerHandleHealthBarUpdate(u32 battler)
 {
     s16 hpVal;
@@ -479,27 +459,7 @@ static void LinkPartnerHandleStatusAnimation(u32 battler)
     }
 }
 
-static void LinkPartnerHandleStatusXor(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
 static void LinkPartnerHandleDataTransfer(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
-static void LinkPartnerHandleDMA3Transfer(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
-static void LinkPartnerHandlePlayBGM(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
-static void LinkPartnerHandleCmd32(u32 battler)
 {
     LinkPartnerBufferExecCompleted(battler);
 }

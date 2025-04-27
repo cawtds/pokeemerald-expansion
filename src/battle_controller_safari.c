@@ -26,7 +26,6 @@
 #include "constants/rgb.h"
 
 static void SafariHandleDrawTrainerPic(u32 battler);
-static void SafariHandleSuccessBallThrowAnim(u32 battler);
 static void SafariHandleBallThrowAnim(u32 battler);
 static void SafariHandlePrintString(u32 battler);
 static void SafariHandlePrintSelectionString(u32 battler);
@@ -48,9 +47,7 @@ static void CompleteWhenChosePokeblock(u32 battler);
 static void (*const sSafariBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
 {
     [CONTROLLER_GETMONDATA]               = BtlController_Empty,
-    [CONTROLLER_GETRAWMONDATA]            = BtlController_Empty,
     [CONTROLLER_SETMONDATA]               = BtlController_Empty,
-    [CONTROLLER_SETRAWMONDATA]            = BtlController_Empty,
     [CONTROLLER_LOADMONSPRITE]            = BtlController_Empty,
     [CONTROLLER_SWITCHINANIM]             = BtlController_Empty,
     [CONTROLLER_RETURNMONTOBALL]          = BtlController_Empty,
@@ -58,10 +55,7 @@ static void (*const sSafariBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_TRAINERSLIDE]             = BtlController_Empty,
     [CONTROLLER_TRAINERSLIDEBACK]         = BtlController_Empty,
     [CONTROLLER_FAINTANIMATION]           = BtlController_Empty,
-    [CONTROLLER_PALETTEFADE]              = BtlController_Empty,
-    [CONTROLLER_SUCCESSBALLTHROWANIM]     = SafariHandleSuccessBallThrowAnim,
     [CONTROLLER_BALLTHROWANIM]            = SafariHandleBallThrowAnim,
-    [CONTROLLER_PAUSE]                    = BtlController_Empty,
     [CONTROLLER_MOVEANIMATION]            = BtlController_Empty,
     [CONTROLLER_PRINTSTRING]              = SafariHandlePrintString,
     [CONTROLLER_PRINTSTRINGPLAYERONLY]    = SafariHandlePrintSelectionString,
@@ -70,16 +64,11 @@ static void (*const sSafariBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_CHOOSEMOVE]               = BtlController_Empty,
     [CONTROLLER_OPENBAG]                  = SafariHandleChooseItem,
     [CONTROLLER_CHOOSEPOKEMON]            = BtlController_Empty,
-    [CONTROLLER_23]                       = BtlController_Empty,
     [CONTROLLER_HEALTHBARUPDATE]          = BtlController_Empty,
     [CONTROLLER_EXPUPDATE]                = BtlController_Empty,
     [CONTROLLER_STATUSICONUPDATE]         = SafariHandleStatusIconUpdate,
     [CONTROLLER_STATUSANIMATION]          = BtlController_Empty,
-    [CONTROLLER_STATUSXOR]                = BtlController_Empty,
     [CONTROLLER_DATATRANSFER]             = BtlController_Empty,
-    [CONTROLLER_DMA3TRANSFER]             = BtlController_Empty,
-    [CONTROLLER_PLAYBGM]                  = BtlController_Empty,
-    [CONTROLLER_32]                       = BtlController_Empty,
     [CONTROLLER_TWORETURNVALUES]          = BtlController_Empty,
     [CONTROLLER_ONERETURNVALUE]           = BtlController_Empty,
     [CONTROLLER_ONERETURNVALUE_DUPLICATE] = BtlController_Empty,
@@ -244,25 +233,10 @@ static void SafariBufferExecCompleted(u32 battler)
     }
 }
 
-static void UNUSED CompleteOnFinishedStatusAnimation(u32 battler)
-{
-    if (!gBattleSpritesDataPtr->healthBoxesData[battler].statusAnimActive)
-        SafariBufferExecCompleted(battler);
-}
-
-#define sSpeedX data[0]
-
 static void SafariHandleDrawTrainerPic(u32 battler)
 {
     u32 trainerPicId = gSaveBlock2Ptr->playerGender == MALE ? TRAINER_BACK_PIC_BRENDAN : TRAINER_BACK_PIC_MAY;
     BtlController_HandleDrawTrainerPic(battler, trainerPicId, 80, (8 - gTrainerBackPicCoords[gSaveBlock2Ptr->playerGender].size) * 4 + 80, 30, FALSE);
-}
-
-#undef sSpeedX
-
-static void SafariHandleSuccessBallThrowAnim(u32 battler)
-{
-    BtlController_HandleBallThrowAnim(battler, BALL_3_SHAKES_SUCCESS, B_ANIM_BALL_THROW_WITH_TRAINER);
 }
 
 static void SafariHandleBallThrowAnim(u32 battler)

@@ -35,7 +35,6 @@
 // this file's functions
 static void WallyHandleDrawTrainerPic(u32 battler);
 static void WallyHandleTrainerSlide(u32 battler);
-static void WallyHandleSuccessBallThrowAnim(u32 battler);
 static void WallyHandleBallThrowAnim(u32 battler);
 static void WallyHandleMoveAnimation(u32 battler);
 static void WallyHandlePrintString(u32 battler);
@@ -45,16 +44,11 @@ static void WallyHandleYesNoBox(u32 battler);
 static void WallyHandleChooseMove(u32 battler);
 static void WallyHandleChooseItem(u32 battler);
 static void WallyHandleChoosePokemon(u32 battler);
-static void WallyHandleCmd23(u32 battler);
 static void WallyHandleHealthBarUpdate(u32 battler);
 static void WallyHandleExpUpdate(u32 battler);
 static void WallyHandleStatusIconUpdate(u32 battler);
 static void WallyHandleStatusAnimation(u32 battler);
-static void WallyHandleStatusXor(u32 battler);
 static void WallyHandleDataTransfer(u32 battler);
-static void WallyHandleDMA3Transfer(u32 battler);
-static void WallyHandlePlayBGM(u32 battler);
-static void WallyHandleCmd32(u32 battler);
 static void WallyHandleTwoReturnValues(u32 battler);
 static void WallyHandleChosenMonReturnValue(u32 battler);
 static void WallyHandleOneReturnValue(u32 battler);
@@ -85,9 +79,7 @@ static void Task_StartSendOutAnim(u8 taskId);
 static void (*const sWallyBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
 {
     [CONTROLLER_GETMONDATA]               = BtlController_HandleGetMonData,
-    [CONTROLLER_GETRAWMONDATA]            = BtlController_HandleGetRawMonData,
     [CONTROLLER_SETMONDATA]               = BtlController_HandleSetMonData,
-    [CONTROLLER_SETRAWMONDATA]            = BtlController_Empty,
     [CONTROLLER_LOADMONSPRITE]            = BtlController_Empty,
     [CONTROLLER_SWITCHINANIM]             = BtlController_Empty,
     [CONTROLLER_RETURNMONTOBALL]          = BtlController_HandleReturnMonToBall,
@@ -95,10 +87,7 @@ static void (*const sWallyBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_TRAINERSLIDE]             = WallyHandleTrainerSlide,
     [CONTROLLER_TRAINERSLIDEBACK]         = BtlController_Empty,
     [CONTROLLER_FAINTANIMATION]           = BtlController_Empty,
-    [CONTROLLER_PALETTEFADE]              = BtlController_Empty,
-    [CONTROLLER_SUCCESSBALLTHROWANIM]     = WallyHandleSuccessBallThrowAnim,
     [CONTROLLER_BALLTHROWANIM]            = WallyHandleBallThrowAnim,
-    [CONTROLLER_PAUSE]                    = BtlController_Empty,
     [CONTROLLER_MOVEANIMATION]            = WallyHandleMoveAnimation,
     [CONTROLLER_PRINTSTRING]              = WallyHandlePrintString,
     [CONTROLLER_PRINTSTRINGPLAYERONLY]    = WallyHandlePrintSelectionString,
@@ -107,16 +96,11 @@ static void (*const sWallyBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_CHOOSEMOVE]               = WallyHandleChooseMove,
     [CONTROLLER_OPENBAG]                  = WallyHandleChooseItem,
     [CONTROLLER_CHOOSEPOKEMON]            = WallyHandleChoosePokemon,
-    [CONTROLLER_23]                       = WallyHandleCmd23,
     [CONTROLLER_HEALTHBARUPDATE]          = WallyHandleHealthBarUpdate,
     [CONTROLLER_EXPUPDATE]                = WallyHandleExpUpdate,
     [CONTROLLER_STATUSICONUPDATE]         = WallyHandleStatusIconUpdate,
     [CONTROLLER_STATUSANIMATION]          = WallyHandleStatusAnimation,
-    [CONTROLLER_STATUSXOR]                = WallyHandleStatusXor,
     [CONTROLLER_DATATRANSFER]             = WallyHandleDataTransfer,
-    [CONTROLLER_DMA3TRANSFER]             = WallyHandleDMA3Transfer,
-    [CONTROLLER_PLAYBGM]                  = WallyHandlePlayBGM,
-    [CONTROLLER_32]                       = WallyHandleCmd32,
     [CONTROLLER_TWORETURNVALUES]          = WallyHandleTwoReturnValues,
     [CONTROLLER_CHOSENMONRETURNVALUE]     = WallyHandleChosenMonReturnValue,
     [CONTROLLER_ONERETURNVALUE]           = WallyHandleOneReturnValue,
@@ -377,11 +361,6 @@ static void WallyHandleTrainerSlide(u32 battler)
     BtlController_HandleTrainerSlide(battler, TRAINER_BACK_PIC_WALLY);
 }
 
-static void WallyHandleSuccessBallThrowAnim(u32 battler)
-{
-    BtlController_HandleBallThrowAnim(battler, BALL_3_SHAKES_SUCCESS, B_ANIM_BALL_THROW_WITH_TRAINER);
-}
-
 static void WallyHandleBallThrowAnim(u32 battler)
 {
     enum BallThrowCaseID caseID = gBattleBufferA[battler][1];
@@ -477,11 +456,6 @@ static void WallyHandleChoosePokemon(u32 battler)
     WallyBufferExecCompleted(battler);
 }
 
-static void WallyHandleCmd23(u32 battler)
-{
-    WallyBufferExecCompleted(battler);
-}
-
 static void WallyHandleHealthBarUpdate(u32 battler)
 {
     s16 hpVal;
@@ -522,27 +496,7 @@ static void WallyHandleStatusAnimation(u32 battler)
     WallyBufferExecCompleted(battler);
 }
 
-static void WallyHandleStatusXor(u32 battler)
-{
-    WallyBufferExecCompleted(battler);
-}
-
 static void WallyHandleDataTransfer(u32 battler)
-{
-    WallyBufferExecCompleted(battler);
-}
-
-static void WallyHandleDMA3Transfer(u32 battler)
-{
-    WallyBufferExecCompleted(battler);
-}
-
-static void WallyHandlePlayBGM(u32 battler)
-{
-    WallyBufferExecCompleted(battler);
-}
-
-static void WallyHandleCmd32(u32 battler)
 {
     WallyBufferExecCompleted(battler);
 }

@@ -49,16 +49,11 @@ static void OpponentHandleYesNoBox(u32 battler);
 static void OpponentHandleChooseMove(u32 battler);
 static void OpponentHandleChooseItem(u32 battler);
 static void OpponentHandleChoosePokemon(u32 battler);
-static void OpponentHandleCmd23(u32 battler);
 static void OpponentHandleHealthBarUpdate(u32 battler);
 static void OpponentHandleExpUpdate(u32 battler);
 static void OpponentHandleStatusIconUpdate(u32 battler);
 static void OpponentHandleStatusAnimation(u32 battler);
-static void OpponentHandleStatusXor(u32 battler);
 static void OpponentHandleDataTransfer(u32 battler);
-static void OpponentHandleDMA3Transfer(u32 battler);
-static void OpponentHandlePlayBGM(u32 battler);
-static void OpponentHandleCmd32(u32 battler);
 static void OpponentHandleTwoReturnValues(u32 battler);
 static void OpponentHandleChosenMonReturnValue(u32 battler);
 static void OpponentHandleOneReturnValue(u32 battler);
@@ -90,9 +85,7 @@ static void EndDrawPartyStatusSummary(u32 battler);
 static void (*const sOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
 {
     [CONTROLLER_GETMONDATA]               = BtlController_HandleGetMonData,
-    [CONTROLLER_GETRAWMONDATA]            = BtlController_HandleGetRawMonData,
     [CONTROLLER_SETMONDATA]               = BtlController_HandleSetMonData,
-    [CONTROLLER_SETRAWMONDATA]            = BtlController_HandleSetRawMonData,
     [CONTROLLER_LOADMONSPRITE]            = OpponentHandleLoadMonSprite,
     [CONTROLLER_SWITCHINANIM]             = OpponentHandleSwitchInAnim,
     [CONTROLLER_RETURNMONTOBALL]          = BtlController_HandleReturnMonToBall,
@@ -100,10 +93,7 @@ static void (*const sOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler)
     [CONTROLLER_TRAINERSLIDE]             = OpponentHandleTrainerSlide,
     [CONTROLLER_TRAINERSLIDEBACK]         = OpponentHandleTrainerSlideBack,
     [CONTROLLER_FAINTANIMATION]           = BtlController_HandleFaintAnimation,
-    [CONTROLLER_PALETTEFADE]              = BtlController_Empty,
-    [CONTROLLER_SUCCESSBALLTHROWANIM]     = BtlController_Empty,
     [CONTROLLER_BALLTHROWANIM]            = BtlController_Empty,
-    [CONTROLLER_PAUSE]                    = BtlController_Empty,
     [CONTROLLER_MOVEANIMATION]            = OpponentHandleMoveAnimation,
     [CONTROLLER_PRINTSTRING]              = OpponentHandlePrintString,
     [CONTROLLER_PRINTSTRINGPLAYERONLY]    = OpponentHandlePrintSelectionString,
@@ -112,16 +102,11 @@ static void (*const sOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler)
     [CONTROLLER_CHOOSEMOVE]               = OpponentHandleChooseMove,
     [CONTROLLER_OPENBAG]                  = OpponentHandleChooseItem,
     [CONTROLLER_CHOOSEPOKEMON]            = OpponentHandleChoosePokemon,
-    [CONTROLLER_23]                       = OpponentHandleCmd23,
     [CONTROLLER_HEALTHBARUPDATE]          = OpponentHandleHealthBarUpdate,
     [CONTROLLER_EXPUPDATE]                = OpponentHandleExpUpdate,
     [CONTROLLER_STATUSICONUPDATE]         = OpponentHandleStatusIconUpdate,
     [CONTROLLER_STATUSANIMATION]          = OpponentHandleStatusAnimation,
-    [CONTROLLER_STATUSXOR]                = OpponentHandleStatusXor,
     [CONTROLLER_DATATRANSFER]             = OpponentHandleDataTransfer,
-    [CONTROLLER_DMA3TRANSFER]             = OpponentHandleDMA3Transfer,
-    [CONTROLLER_PLAYBGM]                  = OpponentHandlePlayBGM,
-    [CONTROLLER_32]                       = OpponentHandleCmd32,
     [CONTROLLER_TWORETURNVALUES]          = OpponentHandleTwoReturnValues,
     [CONTROLLER_CHOSENMONRETURNVALUE]     = OpponentHandleChosenMonReturnValue,
     [CONTROLLER_ONERETURNVALUE]           = OpponentHandleOneReturnValue,
@@ -698,11 +683,6 @@ static void OpponentHandleChoosePokemon(u32 battler)
     OpponentBufferExecCompleted(battler);
 }
 
-static void OpponentHandleCmd23(u32 battler)
-{
-    OpponentBufferExecCompleted(battler);
-}
-
 static void OpponentHandleHealthBarUpdate(u32 battler)
 {
     s16 hpVal;
@@ -752,27 +732,7 @@ static void OpponentHandleStatusAnimation(u32 battler)
     }
 }
 
-static void OpponentHandleStatusXor(u32 battler)
-{
-    OpponentBufferExecCompleted(battler);
-}
-
 static void OpponentHandleDataTransfer(u32 battler)
-{
-    OpponentBufferExecCompleted(battler);
-}
-
-static void OpponentHandleDMA3Transfer(u32 battler)
-{
-    OpponentBufferExecCompleted(battler);
-}
-
-static void OpponentHandlePlayBGM(u32 battler)
-{
-    OpponentBufferExecCompleted(battler);
-}
-
-static void OpponentHandleCmd32(u32 battler)
 {
     OpponentBufferExecCompleted(battler);
 }

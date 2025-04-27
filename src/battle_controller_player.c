@@ -46,10 +46,7 @@ static void PlayerHandleSwitchInAnim(u32 battler);
 static void PlayerHandleDrawTrainerPic(u32 battler);
 static void PlayerHandleTrainerSlide(u32 battler);
 static void PlayerHandleTrainerSlideBack(u32 battler);
-static void PlayerHandlePaletteFade(u32 battler);
-static void PlayerHandleSuccessBallThrowAnim(u32 battler);
 static void PlayerHandleBallThrowAnim(u32 battler);
-static void PlayerHandlePause(u32 battler);
 static void PlayerHandleMoveAnimation(u32 battler);
 static void PlayerHandlePrintString(u32 battler);
 static void PlayerHandlePrintSelectionString(u32 battler);
@@ -58,16 +55,11 @@ static void PlayerHandleYesNoBox(u32 battler);
 static void PlayerHandleChooseMove(u32 battler);
 static void PlayerHandleChooseItem(u32 battler);
 static void PlayerHandleChoosePokemon(u32 battler);
-static void PlayerHandleCmd23(u32 battler);
 static void PlayerHandleHealthBarUpdate(u32 battler);
 static void PlayerHandleExpUpdate(u32 battler);
 static void PlayerHandleStatusIconUpdate(u32 battler);
 static void PlayerHandleStatusAnimation(u32 battler);
-static void PlayerHandleStatusXor(u32 battler);
 static void PlayerHandleDataTransfer(u32 battler);
-static void PlayerHandleDMA3Transfer(u32 battler);
-static void PlayerHandlePlayBGM(u32 battler);
-static void PlayerHandleCmd32(u32 battler);
 static void PlayerHandleTwoReturnValues(u32 battler);
 static void PlayerHandleChosenMonReturnValue(u32 battler);
 static void PlayerHandleOneReturnValue(u32 battler);
@@ -114,9 +106,7 @@ static void EndDrawPartyStatusSummary(u32 battler);
 static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
 {
     [CONTROLLER_GETMONDATA]               = BtlController_HandleGetMonData,
-    [CONTROLLER_GETRAWMONDATA]            = BtlController_HandleGetRawMonData,
     [CONTROLLER_SETMONDATA]               = BtlController_HandleSetMonData,
-    [CONTROLLER_SETRAWMONDATA]            = BtlController_HandleSetRawMonData,
     [CONTROLLER_LOADMONSPRITE]            = PlayerHandleLoadMonSprite,
     [CONTROLLER_SWITCHINANIM]             = PlayerHandleSwitchInAnim,
     [CONTROLLER_RETURNMONTOBALL]          = BtlController_HandleReturnMonToBall,
@@ -124,10 +114,7 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_TRAINERSLIDE]             = PlayerHandleTrainerSlide,
     [CONTROLLER_TRAINERSLIDEBACK]         = PlayerHandleTrainerSlideBack,
     [CONTROLLER_FAINTANIMATION]           = BtlController_HandleFaintAnimation,
-    [CONTROLLER_PALETTEFADE]              = PlayerHandlePaletteFade,
-    [CONTROLLER_SUCCESSBALLTHROWANIM]     = PlayerHandleSuccessBallThrowAnim,
     [CONTROLLER_BALLTHROWANIM]            = PlayerHandleBallThrowAnim,
-    [CONTROLLER_PAUSE]                    = PlayerHandlePause,
     [CONTROLLER_MOVEANIMATION]            = PlayerHandleMoveAnimation,
     [CONTROLLER_PRINTSTRING]              = PlayerHandlePrintString,
     [CONTROLLER_PRINTSTRINGPLAYERONLY]    = PlayerHandlePrintSelectionString,
@@ -136,16 +123,11 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_CHOOSEMOVE]               = PlayerHandleChooseMove,
     [CONTROLLER_OPENBAG]                  = PlayerHandleChooseItem,
     [CONTROLLER_CHOOSEPOKEMON]            = PlayerHandleChoosePokemon,
-    [CONTROLLER_23]                       = PlayerHandleCmd23,
     [CONTROLLER_HEALTHBARUPDATE]          = PlayerHandleHealthBarUpdate,
     [CONTROLLER_EXPUPDATE]                = PlayerHandleExpUpdate,
     [CONTROLLER_STATUSICONUPDATE]         = PlayerHandleStatusIconUpdate,
     [CONTROLLER_STATUSANIMATION]          = PlayerHandleStatusAnimation,
-    [CONTROLLER_STATUSXOR]                = PlayerHandleStatusXor,
     [CONTROLLER_DATATRANSFER]             = PlayerHandleDataTransfer,
-    [CONTROLLER_DMA3TRANSFER]             = PlayerHandleDMA3Transfer,
-    [CONTROLLER_PLAYBGM]                  = PlayerHandlePlayBGM,
-    [CONTROLLER_32]                       = PlayerHandleCmd32,
     [CONTROLLER_TWORETURNVALUES]          = PlayerHandleTwoReturnValues,
     [CONTROLLER_CHOSENMONRETURNVALUE]     = PlayerHandleChosenMonReturnValue,
     [CONTROLLER_ONERETURNVALUE]           = PlayerHandleOneReturnValue,
@@ -1509,8 +1491,6 @@ static void PlayerHandleSwitchInAnim(u32 battler)
     BtlController_HandleSwitchInAnim(battler, SwitchIn_TryShinyAnimShowHealthbox);
 }
 
-#define sSpeedX data[0]
-
 u32 LinkPlayerGetTrainerPic(u32 multiplayerId)
 {    
     u32 gender = gLinkPlayers[multiplayerId].gender;
@@ -1588,22 +1568,9 @@ static void PlayerHandleTrainerSlide(u32 battler)
     BtlController_HandleTrainerSlide(battler, trainerPicId);
 }
 
-#undef sSpeedX
-
 static void PlayerHandleTrainerSlideBack(u32 battler)
 {
     BtlController_HandleTrainerSlideBack(battler, 50, TRUE);
-}
-
-static void PlayerHandlePaletteFade(u32 battler)
-{
-    BeginNormalPaletteFade(PALETTES_ALL, 2, 0, 16, RGB_BLACK);
-    PlayerBufferExecCompleted(battler);
-}
-
-static void PlayerHandleSuccessBallThrowAnim(u32 battler)
-{
-    BtlController_HandleBallThrowAnim(battler, BALL_3_SHAKES_SUCCESS, B_ANIM_BALL_THROW);
 }
 
 static void PlayerHandleBallThrowAnim(u32 battler)
@@ -1611,16 +1578,6 @@ static void PlayerHandleBallThrowAnim(u32 battler)
     enum BallThrowCaseID caseID = gBattleBufferA[battler][1];
 
     BtlController_HandleBallThrowAnim(battler, caseID, B_ANIM_BALL_THROW);
-}
-
-static void PlayerHandlePause(u32 battler)
-{
-    u8 timer = gBattleBufferA[battler][1];
-
-    while (timer != 0)
-        timer--;
-
-    PlayerBufferExecCompleted(battler);
 }
 
 static void PlayerHandleMoveAnimation(u32 battler)
@@ -1767,13 +1724,6 @@ static void PlayerHandleChoosePokemon(u32 battler)
     }
 }
 
-static void PlayerHandleCmd23(u32 battler)
-{
-    BattleStopLowHpSound();
-    BeginNormalPaletteFade(PALETTES_ALL, 2, 0, 16, RGB_BLACK);
-    PlayerBufferExecCompleted(battler);
-}
-
 static void PlayerHandleHealthBarUpdate(u32 battler)
 {
     s16 hpVal;
@@ -1855,53 +1805,7 @@ static void PlayerHandleStatusAnimation(u32 battler)
     }
 }
 
-static void PlayerHandleStatusXor(u32 battler)
-{
-    u8 val = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_STATUS) ^ gBattleBufferA[battler][1];
-
-    SetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_STATUS, &val);
-    PlayerBufferExecCompleted(battler);
-}
-
 static void PlayerHandleDataTransfer(u32 battler)
-{
-    PlayerBufferExecCompleted(battler);
-}
-
-static void PlayerHandleDMA3Transfer(u32 battler)
-{
-    u32 dstArg = gBattleBufferA[battler][1]
-            | (gBattleBufferA[battler][2] << 8)
-            | (gBattleBufferA[battler][3] << 16)
-            | (gBattleBufferA[battler][4] << 24);
-    u16 sizeArg = gBattleBufferA[battler][5] | (gBattleBufferA[battler][6] << 8);
-
-    const u8 *src = &gBattleBufferA[battler][7];
-    u8 *dst = (u8 *)(dstArg);
-    u32 size = sizeArg;
-
-    while (1)
-    {
-        if (size <= 0x1000)
-        {
-            DmaCopy16(3, src, dst, size);
-            break;
-        }
-        DmaCopy16(3, src, dst, 0x1000);
-        src += 0x1000;
-        dst += 0x1000;
-        size -= 0x1000;
-    }
-    PlayerBufferExecCompleted(battler);
-}
-
-static void PlayerHandlePlayBGM(u32 battler)
-{
-    PlayBGM(gBattleBufferA[battler][1] | (gBattleBufferA[battler][2] << 8));
-    PlayerBufferExecCompleted(battler);
-}
-
-static void PlayerHandleCmd32(u32 battler)
 {
     PlayerBufferExecCompleted(battler);
 }

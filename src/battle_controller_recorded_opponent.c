@@ -42,16 +42,11 @@ static void RecordedOpponentHandleYesNoBox(u32 battler);
 static void RecordedOpponentHandleChooseMove(u32 battler);
 static void RecordedOpponentHandleChooseItem(u32 battler);
 static void RecordedOpponentHandleChoosePokemon(u32 battler);
-static void RecordedOpponentHandleCmd23(u32 battler);
 static void RecordedOpponentHandleHealthBarUpdate(u32 battler);
 static void RecordedOpponentHandleExpUpdate(u32 battler);
 static void RecordedOpponentHandleStatusIconUpdate(u32 battler);
 static void RecordedOpponentHandleStatusAnimation(u32 battler);
-static void RecordedOpponentHandleStatusXor(u32 battler);
 static void RecordedOpponentHandleDataTransfer(u32 battler);
-static void RecordedOpponentHandleDMA3Transfer(u32 battler);
-static void RecordedOpponentHandlePlayBGM(u32 battler);
-static void RecordedOpponentHandleCmd32(u32 battler);
 static void RecordedOpponentHandleTwoReturnValues(u32 battler);
 static void RecordedOpponentHandleChosenMonReturnValue(u32 battler);
 static void RecordedOpponentHandleOneReturnValue(u32 battler);
@@ -83,9 +78,7 @@ static void EndDrawPartyStatusSummary(u32 battler);
 static void (*const sRecordedOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
 {
     [CONTROLLER_GETMONDATA]               = BtlController_HandleGetMonData,
-    [CONTROLLER_GETRAWMONDATA]            = BtlController_Empty,
     [CONTROLLER_SETMONDATA]               = BtlController_HandleSetMonData,
-    [CONTROLLER_SETRAWMONDATA]            = BtlController_HandleSetRawMonData,
     [CONTROLLER_LOADMONSPRITE]            = RecordedOpponentHandleLoadMonSprite,
     [CONTROLLER_SWITCHINANIM]             = RecordedOpponentHandleSwitchInAnim,
     [CONTROLLER_RETURNMONTOBALL]          = BtlController_HandleReturnMonToBall,
@@ -93,10 +86,7 @@ static void (*const sRecordedOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 
     [CONTROLLER_TRAINERSLIDE]             = BtlController_Empty,
     [CONTROLLER_TRAINERSLIDEBACK]         = RecordedOpponentHandleTrainerSlideBack,
     [CONTROLLER_FAINTANIMATION]           = BtlController_HandleFaintAnimation,
-    [CONTROLLER_PALETTEFADE]              = BtlController_Empty,
-    [CONTROLLER_SUCCESSBALLTHROWANIM]     = BtlController_Empty,
     [CONTROLLER_BALLTHROWANIM]            = BtlController_Empty,
-    [CONTROLLER_PAUSE]                    = BtlController_Empty,
     [CONTROLLER_MOVEANIMATION]            = RecordedOpponentHandleMoveAnimation,
     [CONTROLLER_PRINTSTRING]              = RecordedOpponentHandlePrintString,
     [CONTROLLER_PRINTSTRINGPLAYERONLY]    = RecordedOpponentHandlePrintSelectionString,
@@ -105,16 +95,11 @@ static void (*const sRecordedOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 
     [CONTROLLER_CHOOSEMOVE]               = RecordedOpponentHandleChooseMove,
     [CONTROLLER_OPENBAG]                  = RecordedOpponentHandleChooseItem,
     [CONTROLLER_CHOOSEPOKEMON]            = RecordedOpponentHandleChoosePokemon,
-    [CONTROLLER_23]                       = RecordedOpponentHandleCmd23,
     [CONTROLLER_HEALTHBARUPDATE]          = RecordedOpponentHandleHealthBarUpdate,
     [CONTROLLER_EXPUPDATE]                = RecordedOpponentHandleExpUpdate,
     [CONTROLLER_STATUSICONUPDATE]         = RecordedOpponentHandleStatusIconUpdate,
     [CONTROLLER_STATUSANIMATION]          = RecordedOpponentHandleStatusAnimation,
-    [CONTROLLER_STATUSXOR]                = RecordedOpponentHandleStatusXor,
     [CONTROLLER_DATATRANSFER]             = RecordedOpponentHandleDataTransfer,
-    [CONTROLLER_DMA3TRANSFER]             = RecordedOpponentHandleDMA3Transfer,
-    [CONTROLLER_PLAYBGM]                  = RecordedOpponentHandlePlayBGM,
-    [CONTROLLER_32]                       = RecordedOpponentHandleCmd32,
     [CONTROLLER_TWORETURNVALUES]          = RecordedOpponentHandleTwoReturnValues,
     [CONTROLLER_CHOSENMONRETURNVALUE]     = RecordedOpponentHandleChosenMonReturnValue,
     [CONTROLLER_ONERETURNVALUE]           = RecordedOpponentHandleOneReturnValue,
@@ -556,11 +541,6 @@ static void RecordedOpponentHandleChoosePokemon(u32 battler)
     RecordedOpponentBufferExecCompleted(battler);
 }
 
-static void RecordedOpponentHandleCmd23(u32 battler)
-{
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
 static void RecordedOpponentHandleHealthBarUpdate(u32 battler)
 {
     u32 maxHP, curHP;
@@ -613,27 +593,7 @@ static void RecordedOpponentHandleStatusAnimation(u32 battler)
     }
 }
 
-static void RecordedOpponentHandleStatusXor(u32 battler)
-{
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
 static void RecordedOpponentHandleDataTransfer(u32 battler)
-{
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
-static void RecordedOpponentHandleDMA3Transfer(u32 battler)
-{
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
-static void RecordedOpponentHandlePlayBGM(u32 battler)
-{
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
-static void RecordedOpponentHandleCmd32(u32 battler)
 {
     RecordedOpponentBufferExecCompleted(battler);
 }
