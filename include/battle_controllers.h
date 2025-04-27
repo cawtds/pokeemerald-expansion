@@ -241,6 +241,7 @@ void BtlController_HandleMoveAnimation(u32 battler, bool32 updateBattleTV);
 void BtlController_HandlePrintString(u32 battler, bool32 updateBattleTV, bool32 updateArenaPoints);
 void BtlController_HandleHealthBarUpdate(u32 battler, bool32 updateHpText);
 void BtlController_HandleExpUpdate(u32 battler);
+void BtlController_HandleStatusIconUpdate(u32 battler);
 
 void BtlController_TerminatorNop(u32 battler);
 

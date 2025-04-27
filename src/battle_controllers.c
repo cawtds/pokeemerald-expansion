@@ -2616,6 +2616,25 @@ void BtlController_HandleExpUpdate(u32 battler)
 #undef tExpTask_battler
 #undef tExpTask_frames
 
+static void CompleteOnFinishedStatusAnimation(u32 battler)
+{
+    if (!gBattleSpritesDataPtr->healthBoxesData[battler].statusAnimActive)
+        BtlController_ExecCompleted(battler);
+}
+
+void BtlController_HandleStatusIconUpdate(u32 battler)
+{
+    if (!IsBattleSEPlaying(battler))
+    {
+        struct Pokemon *party = GetBattlerParty(battler);
+        UpdateHealthboxAttribute(gHealthboxSpriteIds[battler], &party[gBattlerPartyIndexes[battler]], HEALTHBOX_STATUS_ICON);
+        gBattleSpritesDataPtr->healthBoxesData[battler].statusAnimActive = 0;
+        gBattlerControllerFuncs[battler] = CompleteOnFinishedStatusAnimation;
+        if (gTestRunnerEnabled)
+            TestRunner_Battle_RecordStatus1(battler, GetMonData(&party[gBattlerPartyIndexes[battler]], MON_DATA_STATUS));
+    }
+}
+
 void BtlController_TerminatorNop(u32 UNUSED battler)
 {
 }
