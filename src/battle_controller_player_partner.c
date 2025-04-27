@@ -49,7 +49,6 @@ static void PlayerPartnerHandleEndLinkBattle(u32 battler);
 static void PlayerPartnerBufferRunCommand(u32 battler);
 static void PlayerPartnerBufferExecCompleted(u32 battler);
 static void SwitchIn_WaitAndEnd(u32 battler);
-static void Task_StartSendOutAnim(u8 taskId);
 static void EndDrawPartyStatusSummary(u32 battler);
 
 static void (*const sPlayerPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
@@ -112,10 +111,6 @@ static void (*const sPlayerPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 bat
     [CONTROLLER_ENDLINKBATTLE]            = PlayerPartnerHandleEndLinkBattle,
     [CONTROLLER_TERMINATOR_NOP]           = BtlController_TerminatorNop
 };
-
-static void PlayerPartnerDummy(u32 battler)
-{
-}
 
 void SetControllerToPlayerPartner(u32 battler)
 {
@@ -401,72 +396,13 @@ static void PlayerPartnerHandleHealthBarUpdate(u32 battler)
 
 static void PlayerPartnerHandleIntroTrainerBallThrow(u32 battler)
 {
-    u8 paletteNum;
-    u8 taskId;
-
-    SetSpritePrimaryCoordsFromSecondaryCoords(&gSprites[gBattlerSpriteIds[battler]]);
-
-    gSprites[gBattlerSpriteIds[battler]].data[0] = 50;
-    gSprites[gBattlerSpriteIds[battler]].data[2] = -40;
-    gSprites[gBattlerSpriteIds[battler]].data[4] = gSprites[gBattlerSpriteIds[battler]].y;
-    gSprites[gBattlerSpriteIds[battler]].callback = StartAnimLinearTranslation;
-    gSprites[gBattlerSpriteIds[battler]].data[5] = battler;
-
-    StoreSpriteCallbackInData6(&gSprites[gBattlerSpriteIds[battler]], SpriteCB_FreePlayerSpriteLoadMonSprite);
-    StartSpriteAnim(&gSprites[gBattlerSpriteIds[battler]], 1);
-
-    paletteNum = AllocSpritePalette(0xD6F9);
+    const u32 *trainerPal;
     if (gPartnerTrainerId == TRAINER_STEVEN_PARTNER)
-    {
-        u8 spriteId = TRAINER_BACK_PIC_STEVEN;
-        LoadCompressedPalette(gTrainerBackPicPaletteTable[spriteId].data, OBJ_PLTT_ID(paletteNum), PLTT_SIZE_4BPP);
-    }
+        trainerPal = gTrainerBackPicPaletteTable[TRAINER_BACK_PIC_STEVEN].data;
     else
-    {
-        u8 spriteId = GetFrontierTrainerFrontSpriteId(gPartnerTrainerId);
-        LoadCompressedPalette(gTrainerFrontPicPaletteTable[spriteId].data, OBJ_PLTT_ID(paletteNum), PLTT_SIZE_4BPP);
-    }
+        trainerPal = gTrainerFrontPicPaletteTable[GetFrontierTrainerFrontSpriteId(gPartnerTrainerId)].data;
 
-
-    gSprites[gBattlerSpriteIds[battler]].oam.paletteNum = paletteNum;
-
-    taskId = CreateTask(Task_StartSendOutAnim, 5);
-    gTasks[taskId].data[0] = battler;
-
-    if (gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusSummaryShown)
-        gTasks[gBattlerStatusSummaryTaskId[battler]].func = Task_HidePartyStatusSummary;
-
-    gBattleSpritesDataPtr->animationData->introAnimActive = TRUE;
-    gBattlerControllerFuncs[battler] = PlayerPartnerDummy;
-}
-
-static void Task_StartSendOutAnim(u8 taskId)
-{
-    if (gTasks[taskId].data[1] < 24)
-    {
-        gTasks[taskId].data[1]++;
-    }
-    else
-    {
-        u32 battler = gTasks[taskId].data[0];
-        if (!IsDoubleBattle() || (gBattleTypeFlags & BATTLE_TYPE_MULTI))
-        {
-            gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-            StartSendOutAnim(battler, FALSE);
-        }
-        else
-        {
-            gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-            StartSendOutAnim(battler, FALSE);
-            battler ^= BIT_FLANK;
-            gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-            BattleLoadPlayerMonSpriteGfx(&gPlayerParty[gBattlerPartyIndexes[battler]], battler);
-            StartSendOutAnim(battler, FALSE);
-            battler ^= BIT_FLANK;
-        }
-        gBattlerControllerFuncs[battler] = Intro_ShowHealthbox;
-        DestroyTask(taskId);
-    }
+    BtlController_HandleIntroTrainerBallThrow(battler, 0xD6F9, trainerPal, 24, Intro_ShowHealthbox);
 }
 
 static void PlayerPartnerHandleDrawPartyStatusSummary(u32 battler)

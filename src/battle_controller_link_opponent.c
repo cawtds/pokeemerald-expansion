@@ -48,8 +48,6 @@ static void LinkOpponentHandleEndLinkBattle(u32 battler);
 static void LinkOpponentBufferRunCommand(u32 battler);
 static void LinkOpponentBufferExecCompleted(u32 battler);
 static void SwitchIn_HandleSoundAndEnd(u32 battler);
-static void Task_StartSendOutAnim(u8 taskId);
-static void SpriteCB_FreeOpponentSprite(struct Sprite *sprite);
 static void EndDrawPartyStatusSummary(u32 battler);
 
 static void (*const sLinkOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
@@ -112,10 +110,6 @@ static void (*const sLinkOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 batt
     [CONTROLLER_ENDLINKBATTLE]            = LinkOpponentHandleEndLinkBattle,
     [CONTROLLER_TERMINATOR_NOP]           = BtlController_TerminatorNop
 };
-
-static void LinkOpponentDummy(u32 battler)
-{
-}
 
 void SetControllerToLinkOpponent(u32 battler)
 {
@@ -505,54 +499,7 @@ static void LinkOpponentHandleHealthBarUpdate(u32 battler)
 
 static void LinkOpponentHandleIntroTrainerBallThrow(u32 battler)
 {
-    u8 taskId;
-
-    SetSpritePrimaryCoordsFromSecondaryCoords(&gSprites[gBattlerSpriteIds[battler]]);
-
-    gSprites[gBattlerSpriteIds[battler]].data[0] = 35;
-    gSprites[gBattlerSpriteIds[battler]].data[2] = 280;
-    gSprites[gBattlerSpriteIds[battler]].data[4] = gSprites[gBattlerSpriteIds[battler]].y;
-    gSprites[gBattlerSpriteIds[battler]].callback = StartAnimLinearTranslation;
-
-    StoreSpriteCallbackInData6(&gSprites[gBattlerSpriteIds[battler]], SpriteCB_FreeOpponentSprite);
-
-    taskId = CreateTask(Task_StartSendOutAnim, 5);
-    gTasks[taskId].data[0] = battler;
-
-    if (gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusSummaryShown)
-        gTasks[gBattlerStatusSummaryTaskId[battler]].func = Task_HidePartyStatusSummary;
-
-    gBattleSpritesDataPtr->animationData->introAnimActive = TRUE;
-    gBattlerControllerFuncs[battler] = LinkOpponentDummy;
-}
-
-static void Task_StartSendOutAnim(u8 taskId)
-{
-    u32 battler = gTasks[taskId].data[0];
-
-    if (!IsDoubleBattle() || (gBattleTypeFlags & BATTLE_TYPE_MULTI))
-    {
-        gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-        StartSendOutAnim(battler, FALSE);
-    }
-    else
-    {
-        gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-        StartSendOutAnim(battler, FALSE);
-        battler = BATTLE_PARTNER(battler);
-        gBattleBufferA[battler][1] = gBattlerPartyIndexes[battler];
-        StartSendOutAnim(battler, FALSE);
-        battler = BATTLE_PARTNER(battler);
-    }
-    gBattlerControllerFuncs[battler] = Intro_TryShinyAnimShowHealthbox;
-    DestroyTask(taskId);
-}
-
-static void SpriteCB_FreeOpponentSprite(struct Sprite *sprite)
-{
-    FreeTrainerFrontPicPalette(sprite->oam.affineParam);
-    FreeSpriteOamMatrix(sprite);
-    DestroySprite(sprite);
+    BtlController_HandleIntroTrainerBallThrow(battler, 0, NULL, 0, Intro_TryShinyAnimShowHealthbox);
 }
 
 static void LinkOpponentHandleDrawPartyStatusSummary(u32 battler)
