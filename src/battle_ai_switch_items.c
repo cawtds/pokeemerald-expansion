@@ -434,7 +434,6 @@ static bool8 FindMonWithFlagsAndSuperEffective(u32 battler, u8 flags, u8 moduloP
 static bool8 ShouldSwitch(u32 battler)
 {
     u8 battlerIn1, battlerIn2;
-    u8 *activeBattlerPtr; // Needed to match.
     s32 firstId;
     s32 lastId; // + 1
     struct Pokemon *party;
@@ -460,16 +459,16 @@ static bool8 ShouldSwitch(u32 battler)
     availableToSwitch = 0;
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
     {
-        battlerIn1 = *activeBattlerPtr;
-        if (gAbsentBattlerFlags & gBitTable[GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(*activeBattlerPtr)))])
-            battlerIn2 = *activeBattlerPtr;
+        battlerIn1 = battler;
+        if (gAbsentBattlerFlags & gBitTable[GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(battler)))])
+            battlerIn2 = battler;
         else
-            battlerIn2 = GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(*activeBattlerPtr)));
+            battlerIn2 = GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(battler)));
     }
     else
     {
-        battlerIn1 = *activeBattlerPtr;
-        battlerIn2 = *activeBattlerPtr;
+        battlerIn1 = battler;
+        battlerIn2 = battler;
     }
 
     if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_TOWER_LINK_MULTI))
