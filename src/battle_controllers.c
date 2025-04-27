@@ -2679,6 +2679,19 @@ void BtlController_HandleHitAnimation(u32 battler)
     }
 }
 
+void BtlController_HandlePlaySE(u32 battler)
+{
+    s8 pan;
+
+    if (GetBattlerSide(battler) == B_SIDE_PLAYER)
+        pan = SOUND_PAN_ATTACKER;
+    else
+        pan = SOUND_PAN_TARGET;
+
+    PlaySE12WithPanning(gBattleBufferA[battler][1] | (gBattleBufferA[battler][2] << 8), pan);
+    BtlController_ExecCompleted(battler);
+}
+
 void BtlController_TerminatorNop(u32 UNUSED battler)
 {
 }

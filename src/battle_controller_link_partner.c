@@ -36,7 +36,6 @@ static void LinkPartnerHandleTrainerSlideBack(u32 battler);
 static void LinkPartnerHandleMoveAnimation(u32 battler);
 static void LinkPartnerHandlePrintString(u32 battler);
 static void LinkPartnerHandleHealthBarUpdate(u32 battler);
-static void LinkPartnerHandlePlaySE(u32 battler);
 static void LinkPartnerHandlePlayFanfareOrBGM(u32 battler);
 static void LinkPartnerHandleFaintingCry(u32 battler);
 static void LinkPartnerHandleIntroSlide(u32 battler);
@@ -99,7 +98,7 @@ static void (*const sLinkPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battl
     [CONTROLLER_TOGGLEUNKFLAG]            = BtlController_Empty,
     [CONTROLLER_HITANIMATION]             = BtlController_HandleHitAnimation,
     [CONTROLLER_CANTSWITCH]               = BtlController_Empty,
-    [CONTROLLER_PLAYSE]                   = LinkPartnerHandlePlaySE,
+    [CONTROLLER_PLAYSE]                   = BtlController_HandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = LinkPartnerHandlePlayFanfareOrBGM,
     [CONTROLLER_FAINTINGCRY]              = LinkPartnerHandleFaintingCry,
     [CONTROLLER_INTROSLIDE]               = LinkPartnerHandleIntroSlide,
@@ -336,19 +335,6 @@ static void LinkPartnerHandlePrintString(u32 battler)
 static void LinkPartnerHandleHealthBarUpdate(u32 battler)
 {
     BtlController_HandleHealthBarUpdate(battler, FALSE);
-}
-
-static void LinkPartnerHandlePlaySE(u32 battler)
-{
-    s8 pan;
-
-    if (GetBattlerSide(battler) == B_SIDE_PLAYER)
-        pan = SOUND_PAN_ATTACKER;
-    else
-        pan = SOUND_PAN_TARGET;
-
-    PlaySE12WithPanning(gBattleBufferA[battler][1] | (gBattleBufferA[battler][2] << 8), pan);
-    LinkPartnerBufferExecCompleted(battler);
 }
 
 static void LinkPartnerHandlePlayFanfareOrBGM(u32 battler)

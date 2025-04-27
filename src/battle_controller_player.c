@@ -60,7 +60,6 @@ static void PlayerHandleTwoReturnValues(u32 battler);
 static void PlayerHandleChosenMonReturnValue(u32 battler);
 static void PlayerHandleOneReturnValue(u32 battler);
 static void PlayerHandleOneReturnValue_Duplicate(u32 battler);
-static void PlayerHandlePlaySE(u32 battler);
 static void PlayerHandlePlayFanfareOrBGM(u32 battler);
 static void PlayerHandleFaintingCry(u32 battler);
 static void PlayerHandleIntroSlide(u32 battler);
@@ -136,7 +135,7 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_TOGGLEUNKFLAG]            = BtlController_Empty,
     [CONTROLLER_HITANIMATION]             = BtlController_HandleHitAnimation,
     [CONTROLLER_CANTSWITCH]               = BtlController_Empty,
-    [CONTROLLER_PLAYSE]                   = PlayerHandlePlaySE,
+    [CONTROLLER_PLAYSE]                   = BtlController_HandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = PlayerHandlePlayFanfareOrBGM,
     [CONTROLLER_FAINTINGCRY]              = PlayerHandleFaintingCry,
     [CONTROLLER_INTROSLIDE]               = PlayerHandleIntroSlide,
@@ -1548,19 +1547,6 @@ static void PlayerHandleOneReturnValue(u32 battler)
 static void PlayerHandleOneReturnValue_Duplicate(u32 battler)
 {
     BtlController_EmitOneReturnValue_Duplicate(battler, BUFFER_B, 0);
-    PlayerBufferExecCompleted(battler);
-}
-
-static void PlayerHandlePlaySE(u32 battler)
-{
-    s8 pan;
-
-    if (GetBattlerSide(battler) == B_SIDE_PLAYER)
-        pan = SOUND_PAN_ATTACKER;
-    else
-        pan = SOUND_PAN_TARGET;
-
-    PlaySE12WithPanning(gBattleBufferA[battler][1] | (gBattleBufferA[battler][2] << 8), pan);
     PlayerBufferExecCompleted(battler);
 }
 

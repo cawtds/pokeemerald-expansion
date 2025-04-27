@@ -32,7 +32,6 @@ static void SafariHandlePrintSelectionString(u32 battler);
 static void SafariHandleChooseAction(u32 battler);
 static void SafariHandleChooseItem(u32 battler);
 static void SafariHandleStatusIconUpdate(u32 battler);
-static void SafariHandlePlaySE(u32 battler);
 static void SafariHandlePlayFanfareOrBGM(u32 battler);
 static void SafariHandleFaintingCry(u32 battler);
 static void SafariHandleIntroSlide(u32 battler);
@@ -89,7 +88,7 @@ static void (*const sSafariBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_TOGGLEUNKFLAG]            = BtlController_Empty,
     [CONTROLLER_HITANIMATION]             = BtlController_Empty,
     [CONTROLLER_CANTSWITCH]               = BtlController_Empty,
-    [CONTROLLER_PLAYSE]                   = SafariHandlePlaySE,
+    [CONTROLLER_PLAYSE]                   = BtlController_HandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = SafariHandlePlayFanfareOrBGM,
     [CONTROLLER_FAINTINGCRY]              = SafariHandleFaintingCry,
     [CONTROLLER_INTROSLIDE]               = SafariHandleIntroSlide,
@@ -309,19 +308,6 @@ static void SafariHandleChooseItem(u32 battler)
 static void SafariHandleStatusIconUpdate(u32 battler)
 {
     UpdateHealthboxAttribute(gHealthboxSpriteIds[battler], &gPlayerParty[gBattlerPartyIndexes[battler]], HEALTHBOX_SAFARI_BALLS_TEXT);
-    SafariBufferExecCompleted(battler);
-}
-
-static void SafariHandlePlaySE(u32 battler)
-{
-    s8 pan;
-
-    if (GetBattlerSide(battler) == B_SIDE_PLAYER)
-        pan = SOUND_PAN_ATTACKER;
-    else
-        pan = SOUND_PAN_TARGET;
-
-    PlaySE12WithPanning(gBattleBufferA[battler][1] | (gBattleBufferA[battler][2] << 8), pan);
     SafariBufferExecCompleted(battler);
 }
 

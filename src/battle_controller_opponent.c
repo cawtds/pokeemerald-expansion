@@ -48,7 +48,6 @@ static void OpponentHandleChooseMove(u32 battler);
 static void OpponentHandleChooseItem(u32 battler);
 static void OpponentHandleChoosePokemon(u32 battler);
 static void OpponentHandleHealthBarUpdate(u32 battler);
-static void OpponentHandlePlaySE(u32 battler);
 static void OpponentHandlePlayFanfareOrBGM(u32 battler);
 static void OpponentHandleFaintingCry(u32 battler);
 static void OpponentHandleIntroSlide(u32 battler);
@@ -111,7 +110,7 @@ static void (*const sOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler)
     [CONTROLLER_TOGGLEUNKFLAG]            = BtlController_Empty,
     [CONTROLLER_HITANIMATION]             = BtlController_HandleHitAnimation,
     [CONTROLLER_CANTSWITCH]               = BtlController_Empty,
-    [CONTROLLER_PLAYSE]                   = OpponentHandlePlaySE,
+    [CONTROLLER_PLAYSE]                   = BtlController_HandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = OpponentHandlePlayFanfareOrBGM,
     [CONTROLLER_FAINTINGCRY]              = OpponentHandleFaintingCry,
     [CONTROLLER_INTROSLIDE]               = OpponentHandleIntroSlide,
@@ -639,19 +638,6 @@ static void OpponentHandleChoosePokemon(u32 battler)
 static void OpponentHandleHealthBarUpdate(u32 battler)
 {
     BtlController_HandleHealthBarUpdate(battler, FALSE);
-}
-
-static void OpponentHandlePlaySE(u32 battler)
-{
-    s8 pan;
-
-    if (GetBattlerSide(battler) == B_SIDE_PLAYER)
-        pan = SOUND_PAN_ATTACKER;
-    else
-        pan = SOUND_PAN_TARGET;
-
-    PlaySE12WithPanning(gBattleBufferA[battler][1] | (gBattleBufferA[battler][2] << 8), pan);
-    OpponentBufferExecCompleted(battler);
 }
 
 static void OpponentHandlePlayFanfareOrBGM(u32 battler)
