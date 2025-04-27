@@ -56,7 +56,6 @@ static void PlayerHandleChooseMove(u32 battler);
 static void PlayerHandleChooseItem(u32 battler);
 static void PlayerHandleChoosePokemon(u32 battler);
 static void PlayerHandleHealthBarUpdate(u32 battler);
-static void PlayerHandleStatusAnimation(u32 battler);
 static void PlayerHandleTwoReturnValues(u32 battler);
 static void PlayerHandleChosenMonReturnValue(u32 battler);
 static void PlayerHandleOneReturnValue(u32 battler);
@@ -116,7 +115,7 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_HEALTHBARUPDATE]          = PlayerHandleHealthBarUpdate,
     [CONTROLLER_EXPUPDATE]                = BtlController_HandleExpUpdate,
     [CONTROLLER_STATUSICONUPDATE]         = BtlController_HandleStatusIconUpdate,
-    [CONTROLLER_STATUSANIMATION]          = PlayerHandleStatusAnimation,
+    [CONTROLLER_STATUSANIMATION]          = BtlController_HandleStatusAnimation,
     [CONTROLLER_DATATRANSFER]             = BtlController_Empty,
     [CONTROLLER_TWORETURNVALUES]          = PlayerHandleTwoReturnValues,
     [CONTROLLER_CHOSENMONRETURNVALUE]     = PlayerHandleChosenMonReturnValue,
@@ -1266,12 +1265,6 @@ void CB2_SetUpReshowBattleScreenAfterMenu2(void)
     SetMainCallback2(ReshowBattleScreenAfterMenu);
 }
 
-static void CompleteOnFinishedStatusAnimation(u32 battler)
-{
-    if (!gBattleSpritesDataPtr->healthBoxesData[battler].statusAnimActive)
-        PlayerBufferExecCompleted(battler);
-}
-
 static void CompleteOnFinishedBattleAnimation(u32 battler)
 {
     if (!gBattleSpritesDataPtr->healthBoxesData[battler].animFromTableActive)
@@ -1538,16 +1531,6 @@ static void PlayerHandleChoosePokemon(u32 battler)
 static void PlayerHandleHealthBarUpdate(u32 battler)
 {
     BtlController_HandleHealthBarUpdate(battler, TRUE);
-}
-
-static void PlayerHandleStatusAnimation(u32 battler)
-{
-    if (!IsBattleSEPlaying(battler))
-    {
-        InitAndLaunchChosenStatusAnimation(battler, gBattleBufferA[battler][1],
-                        gBattleBufferA[battler][2] | (gBattleBufferA[battler][3] << 8) | (gBattleBufferA[battler][4] << 16) | (gBattleBufferA[battler][5] << 24));
-        gBattlerControllerFuncs[battler] = CompleteOnFinishedStatusAnimation;
-    }
 }
 
 static void PlayerHandleTwoReturnValues(u32 battler)

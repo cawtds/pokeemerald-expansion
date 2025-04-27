@@ -39,7 +39,6 @@ static void PlayerPartnerHandleChooseAction(u32 battler);
 static void PlayerPartnerHandleChooseMove(u32 battler);
 static void PlayerPartnerHandleChoosePokemon(u32 battler);
 static void PlayerPartnerHandleHealthBarUpdate(u32 battler);
-static void PlayerPartnerHandleStatusAnimation(u32 battler);
 static void PlayerPartnerHandleHitAnimation(u32 battler);
 static void PlayerPartnerHandlePlaySE(u32 battler);
 static void PlayerPartnerHandlePlayFanfareOrBGM(u32 battler);
@@ -81,7 +80,7 @@ static void (*const sPlayerPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 bat
     [CONTROLLER_HEALTHBARUPDATE]          = PlayerPartnerHandleHealthBarUpdate,
     [CONTROLLER_EXPUPDATE]                = BtlController_HandleExpUpdate,
     [CONTROLLER_STATUSICONUPDATE]         = BtlController_HandleStatusIconUpdate,
-    [CONTROLLER_STATUSANIMATION]          = PlayerPartnerHandleStatusAnimation,
+    [CONTROLLER_STATUSANIMATION]          = BtlController_HandleStatusAnimation,
     [CONTROLLER_DATATRANSFER]             = BtlController_Empty,
     [CONTROLLER_TWORETURNVALUES]          = BtlController_Empty,
     [CONTROLLER_CHOSENMONRETURNVALUE]     = BtlController_Empty,
@@ -291,12 +290,6 @@ static void PlayerPartnerBufferExecCompleted(u32 battler)
     }
 }
 
-static void CompleteOnFinishedStatusAnimation(u32 battler)
-{
-    if (!gBattleSpritesDataPtr->healthBoxesData[battler].statusAnimActive)
-        PlayerPartnerBufferExecCompleted(battler);
-}
-
 static void CompleteOnFinishedBattleAnimation(u32 battler)
 {
     if (!gBattleSpritesDataPtr->healthBoxesData[battler].animFromTableActive)
@@ -414,16 +407,6 @@ static void PlayerPartnerHandleChoosePokemon(u32 battler)
 static void PlayerPartnerHandleHealthBarUpdate(u32 battler)
 {
     BtlController_HandleHealthBarUpdate(battler, FALSE);
-}
-
-static void PlayerPartnerHandleStatusAnimation(u32 battler)
-{
-    if (!IsBattleSEPlaying(battler))
-    {
-        InitAndLaunchChosenStatusAnimation(battler, gBattleBufferA[battler][1],
-                        gBattleBufferA[battler][2] | (gBattleBufferA[battler][3] << 8) | (gBattleBufferA[battler][4] << 16) | (gBattleBufferA[battler][5] << 24));
-        gBattlerControllerFuncs[battler] = CompleteOnFinishedStatusAnimation;
-    }
 }
 
 static void PlayerPartnerHandleHitAnimation(u32 battler)

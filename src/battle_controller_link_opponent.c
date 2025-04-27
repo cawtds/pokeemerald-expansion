@@ -37,7 +37,6 @@ static void LinkOpponentHandleTrainerSlideBack(u32 battler);
 static void LinkOpponentHandleMoveAnimation(u32 battler);
 static void LinkOpponentHandlePrintString(u32 battler);
 static void LinkOpponentHandleHealthBarUpdate(u32 battler);
-static void LinkOpponentHandleStatusAnimation(u32 battler);
 static void LinkOpponentHandleHitAnimation(u32 battler);
 static void LinkOpponentHandlePlaySE(u32 battler);
 static void LinkOpponentHandlePlayFanfareOrBGM(u32 battler);
@@ -81,7 +80,7 @@ static void (*const sLinkOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 batt
     [CONTROLLER_HEALTHBARUPDATE]          = LinkOpponentHandleHealthBarUpdate,
     [CONTROLLER_EXPUPDATE]                = BtlController_Empty,
     [CONTROLLER_STATUSICONUPDATE]         = BtlController_HandleStatusIconUpdate,
-    [CONTROLLER_STATUSANIMATION]          = LinkOpponentHandleStatusAnimation,
+    [CONTROLLER_STATUSANIMATION]          = BtlController_HandleStatusAnimation,
     [CONTROLLER_DATATRANSFER]             = BtlController_Empty,
     [CONTROLLER_TWORETURNVALUES]          = BtlController_Empty,
     [CONTROLLER_CHOSENMONRETURNVALUE]     = BtlController_Empty,
@@ -383,12 +382,6 @@ static void SwitchIn_TryShinyAnim(u32 battler)
     }
 }
 
-static void CompleteOnFinishedStatusAnimation(u32 battler)
-{
-    if (!gBattleSpritesDataPtr->healthBoxesData[battler].statusAnimActive)
-        LinkOpponentBufferExecCompleted(battler);
-}
-
 static void CompleteOnFinishedBattleAnimation(u32 battler)
 {
     if (!gBattleSpritesDataPtr->healthBoxesData[battler].animFromTableActive)
@@ -518,16 +511,6 @@ static void LinkOpponentHandlePrintString(u32 battler)
 static void LinkOpponentHandleHealthBarUpdate(u32 battler)
 {
     BtlController_HandleHealthBarUpdate(battler, FALSE);
-}
-
-static void LinkOpponentHandleStatusAnimation(u32 battler)
-{
-    if (!IsBattleSEPlaying(battler))
-    {
-        InitAndLaunchChosenStatusAnimation(battler, gBattleBufferA[battler][1],
-                        gBattleBufferA[battler][2] | (gBattleBufferA[battler][3] << 8) | (gBattleBufferA[battler][4] << 16) | (gBattleBufferA[battler][5] << 24));
-        gBattlerControllerFuncs[battler] = CompleteOnFinishedStatusAnimation;
-    }
 }
 
 static void LinkOpponentHandleHitAnimation(u32 battler)

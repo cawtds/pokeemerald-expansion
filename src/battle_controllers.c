@@ -2635,6 +2635,16 @@ void BtlController_HandleStatusIconUpdate(u32 battler)
     }
 }
 
+void BtlController_HandleStatusAnimation(u32 battler)
+{
+    if (!IsBattleSEPlaying(battler))
+    {
+        InitAndLaunchChosenStatusAnimation(battler, gBattleBufferA[battler][1],
+                        gBattleBufferA[battler][2] | (gBattleBufferA[battler][3] << 8) | (gBattleBufferA[battler][4] << 16) | (gBattleBufferA[battler][5] << 24));
+        gBattlerControllerFuncs[battler] = CompleteOnFinishedStatusAnimation;
+    }
+}
+
 void BtlController_TerminatorNop(u32 UNUSED battler)
 {
 }

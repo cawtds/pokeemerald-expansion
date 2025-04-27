@@ -37,7 +37,6 @@ static void RecordedPlayerHandleChooseMove(u32 battler);
 static void RecordedPlayerHandleChooseItem(u32 battler);
 static void RecordedPlayerHandleChoosePokemon(u32 battler);
 static void RecordedPlayerHandleHealthBarUpdate(u32 battler);
-static void RecordedPlayerHandleStatusAnimation(u32 battler);
 static void RecordedPlayerHandleHitAnimation(u32 battler);
 static void RecordedPlayerHandlePlaySE(u32 battler);
 static void RecordedPlayerHandlePlayFanfareOrBGM(u32 battler);
@@ -79,7 +78,7 @@ static void (*const sRecordedPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 ba
     [CONTROLLER_HEALTHBARUPDATE]          = RecordedPlayerHandleHealthBarUpdate,
     [CONTROLLER_EXPUPDATE]                = BtlController_Empty,
     [CONTROLLER_STATUSICONUPDATE]         = BtlController_HandleStatusIconUpdate,
-    [CONTROLLER_STATUSANIMATION]          = RecordedPlayerHandleStatusAnimation,
+    [CONTROLLER_STATUSANIMATION]          = BtlController_HandleStatusAnimation,
     [CONTROLLER_DATATRANSFER]             = BtlController_Empty,
     [CONTROLLER_TWORETURNVALUES]          = BtlController_Empty,
     [CONTROLLER_CHOSENMONRETURNVALUE]     = BtlController_Empty,
@@ -368,12 +367,6 @@ static void RecordedPlayerBufferExecCompleted(u32 battler)
     }
 }
 
-static void CompleteOnFinishedStatusAnimation(u32 battler)
-{
-    if (!gBattleSpritesDataPtr->healthBoxesData[battler].statusAnimActive)
-        RecordedPlayerBufferExecCompleted(battler);
-}
-
 static void CompleteOnFinishedBattleAnimation(u32 battler)
 {
     if (!gBattleSpritesDataPtr->healthBoxesData[battler].animFromTableActive)
@@ -519,16 +512,6 @@ static void RecordedPlayerHandleChoosePokemon(u32 battler)
 static void RecordedPlayerHandleHealthBarUpdate(u32 battler)
 {
     BtlController_HandleHealthBarUpdate(battler, TRUE);
-}
-
-static void RecordedPlayerHandleStatusAnimation(u32 battler)
-{
-    if (!IsBattleSEPlaying(battler))
-    {
-        InitAndLaunchChosenStatusAnimation(battler, gBattleBufferA[battler][1],
-                        gBattleBufferA[battler][2] | (gBattleBufferA[battler][3] << 8) | (gBattleBufferA[battler][4] << 16) | (gBattleBufferA[battler][5] << 24));
-        gBattlerControllerFuncs[battler] = CompleteOnFinishedStatusAnimation;
-    }
 }
 
 static void RecordedPlayerHandleHitAnimation(u32 battler)
