@@ -60,7 +60,6 @@ static void PlayerHandleTwoReturnValues(u32 battler);
 static void PlayerHandleChosenMonReturnValue(u32 battler);
 static void PlayerHandleOneReturnValue(u32 battler);
 static void PlayerHandleOneReturnValue_Duplicate(u32 battler);
-static void PlayerHandlePlayFanfareOrBGM(u32 battler);
 static void PlayerHandleFaintingCry(u32 battler);
 static void PlayerHandleIntroSlide(u32 battler);
 static void PlayerHandleIntroTrainerBallThrow(u32 battler);
@@ -136,7 +135,7 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_HITANIMATION]             = BtlController_HandleHitAnimation,
     [CONTROLLER_CANTSWITCH]               = BtlController_Empty,
     [CONTROLLER_PLAYSE]                   = BtlController_HandlePlaySE,
-    [CONTROLLER_PLAYFANFAREORBGM]         = PlayerHandlePlayFanfareOrBGM,
+    [CONTROLLER_PLAYFANFAREORBGM]         = BtlController_HandlePlayFanfareOrBGM,
     [CONTROLLER_FAINTINGCRY]              = PlayerHandleFaintingCry,
     [CONTROLLER_INTROSLIDE]               = PlayerHandleIntroSlide,
     [CONTROLLER_INTROTRAINERBALLTHROW]    = PlayerHandleIntroTrainerBallThrow,
@@ -1547,21 +1546,6 @@ static void PlayerHandleOneReturnValue(u32 battler)
 static void PlayerHandleOneReturnValue_Duplicate(u32 battler)
 {
     BtlController_EmitOneReturnValue_Duplicate(battler, BUFFER_B, 0);
-    PlayerBufferExecCompleted(battler);
-}
-
-static void PlayerHandlePlayFanfareOrBGM(u32 battler)
-{
-    if (gBattleBufferA[battler][3])
-    {
-        BattleStopLowHpSound();
-        PlayBGM(gBattleBufferA[battler][1] | (gBattleBufferA[battler][2] << 8));
-    }
-    else
-    {
-        PlayFanfare(gBattleBufferA[battler][1] | (gBattleBufferA[battler][2] << 8));
-    }
-
     PlayerBufferExecCompleted(battler);
 }
 

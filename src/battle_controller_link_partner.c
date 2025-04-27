@@ -36,7 +36,6 @@ static void LinkPartnerHandleTrainerSlideBack(u32 battler);
 static void LinkPartnerHandleMoveAnimation(u32 battler);
 static void LinkPartnerHandlePrintString(u32 battler);
 static void LinkPartnerHandleHealthBarUpdate(u32 battler);
-static void LinkPartnerHandlePlayFanfareOrBGM(u32 battler);
 static void LinkPartnerHandleFaintingCry(u32 battler);
 static void LinkPartnerHandleIntroSlide(u32 battler);
 static void LinkPartnerHandleIntroTrainerBallThrow(u32 battler);
@@ -99,7 +98,7 @@ static void (*const sLinkPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battl
     [CONTROLLER_HITANIMATION]             = BtlController_HandleHitAnimation,
     [CONTROLLER_CANTSWITCH]               = BtlController_Empty,
     [CONTROLLER_PLAYSE]                   = BtlController_HandlePlaySE,
-    [CONTROLLER_PLAYFANFAREORBGM]         = LinkPartnerHandlePlayFanfareOrBGM,
+    [CONTROLLER_PLAYFANFAREORBGM]         = BtlController_HandlePlayFanfareOrBGM,
     [CONTROLLER_FAINTINGCRY]              = LinkPartnerHandleFaintingCry,
     [CONTROLLER_INTROSLIDE]               = LinkPartnerHandleIntroSlide,
     [CONTROLLER_INTROTRAINERBALLTHROW]    = LinkPartnerHandleIntroTrainerBallThrow,
@@ -335,21 +334,6 @@ static void LinkPartnerHandlePrintString(u32 battler)
 static void LinkPartnerHandleHealthBarUpdate(u32 battler)
 {
     BtlController_HandleHealthBarUpdate(battler, FALSE);
-}
-
-static void LinkPartnerHandlePlayFanfareOrBGM(u32 battler)
-{
-    if (gBattleBufferA[battler][3])
-    {
-        BattleStopLowHpSound();
-        PlayBGM(gBattleBufferA[battler][1] | (gBattleBufferA[battler][2] << 8));
-    }
-    else
-    {
-        PlayFanfare(gBattleBufferA[battler][1] | (gBattleBufferA[battler][2] << 8));
-    }
-
-    LinkPartnerBufferExecCompleted(battler);
 }
 
 static void LinkPartnerHandleFaintingCry(u32 battler)

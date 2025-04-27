@@ -44,7 +44,6 @@ static void WallyHandleChooseMove(u32 battler);
 static void WallyHandleChooseItem(u32 battler);
 static void WallyHandleHealthBarUpdate(u32 battler);
 static void WallyHandlePlaySE(u32 battler);
-static void WallyHandlePlayFanfareOrBGM(u32 battler);
 static void WallyHandleFaintingCry(u32 battler);
 static void WallyHandleIntroSlide(u32 battler);
 static void WallyHandleIntroTrainerBallThrow(u32 battler);
@@ -104,7 +103,7 @@ static void (*const sWallyBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_HITANIMATION]             = BtlController_HandleHitAnimation,
     [CONTROLLER_CANTSWITCH]               = BtlController_Empty,
     [CONTROLLER_PLAYSE]                   = WallyHandlePlaySE,
-    [CONTROLLER_PLAYFANFAREORBGM]         = WallyHandlePlayFanfareOrBGM,
+    [CONTROLLER_PLAYFANFAREORBGM]         = BtlController_HandlePlayFanfareOrBGM,
     [CONTROLLER_FAINTINGCRY]              = WallyHandleFaintingCry,
     [CONTROLLER_INTROSLIDE]               = WallyHandleIntroSlide,
     [CONTROLLER_INTROTRAINERBALLTHROW]    = WallyHandleIntroTrainerBallThrow,
@@ -414,21 +413,6 @@ static void WallyHandleHealthBarUpdate(u32 battler)
 static void WallyHandlePlaySE(u32 battler)
 {
     PlaySE(gBattleBufferA[battler][1] | (gBattleBufferA[battler][2] << 8));
-    WallyBufferExecCompleted(battler);
-}
-
-static void WallyHandlePlayFanfareOrBGM(u32 battler)
-{
-    if (gBattleBufferA[battler][3])
-    {
-        BattleStopLowHpSound();
-        PlayBGM(gBattleBufferA[battler][1] | (gBattleBufferA[battler][2] << 8));
-    }
-    else
-    {
-        PlayFanfare(gBattleBufferA[battler][1] | (gBattleBufferA[battler][2] << 8));
-    }
-
     WallyBufferExecCompleted(battler);
 }
 

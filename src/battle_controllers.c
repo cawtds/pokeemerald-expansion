@@ -2692,6 +2692,21 @@ void BtlController_HandlePlaySE(u32 battler)
     BtlController_ExecCompleted(battler);
 }
 
+void BtlController_HandlePlayFanfareOrBGM(u32 battler)
+{
+    if (gBattleBufferA[battler][3])
+    {
+        BattleStopLowHpSound();
+        PlayBGM(gBattleBufferA[battler][1] | (gBattleBufferA[battler][2] << 8));
+    }
+    else
+    {
+        PlayFanfare(gBattleBufferA[battler][1] | (gBattleBufferA[battler][2] << 8));
+    }
+
+    BtlController_ExecCompleted(battler);
+}
+
 void BtlController_TerminatorNop(u32 UNUSED battler)
 {
 }
