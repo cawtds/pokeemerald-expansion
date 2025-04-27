@@ -35,23 +35,10 @@ static void LinkPartnerHandleDrawTrainerPic(u32 battler);
 static void LinkPartnerHandleTrainerSlideBack(u32 battler);
 static void LinkPartnerHandleMoveAnimation(u32 battler);
 static void LinkPartnerHandlePrintString(u32 battler);
-static void LinkPartnerHandlePrintSelectionString(u32 battler);
-static void LinkPartnerHandleChooseAction(u32 battler);
-static void LinkPartnerHandleYesNoBox(u32 battler);
-static void LinkPartnerHandleChooseMove(u32 battler);
-static void LinkPartnerHandleChooseItem(u32 battler);
-static void LinkPartnerHandleChoosePokemon(u32 battler);
 static void LinkPartnerHandleHealthBarUpdate(u32 battler);
-static void LinkPartnerHandleExpUpdate(u32 battler);
 static void LinkPartnerHandleStatusIconUpdate(u32 battler);
 static void LinkPartnerHandleStatusAnimation(u32 battler);
-static void LinkPartnerHandleDataTransfer(u32 battler);
-static void LinkPartnerHandleTwoReturnValues(u32 battler);
-static void LinkPartnerHandleChosenMonReturnValue(u32 battler);
-static void LinkPartnerHandleOneReturnValue(u32 battler);
-static void LinkPartnerHandleOneReturnValue_Duplicate(u32 battler);
 static void LinkPartnerHandleHitAnimation(u32 battler);
-static void LinkPartnerHandleCantSwitch(u32 battler);
 static void LinkPartnerHandlePlaySE(u32 battler);
 static void LinkPartnerHandlePlayFanfareOrBGM(u32 battler);
 static void LinkPartnerHandleFaintingCry(u32 battler);
@@ -59,13 +46,10 @@ static void LinkPartnerHandleIntroSlide(u32 battler);
 static void LinkPartnerHandleIntroTrainerBallThrow(u32 battler);
 static void LinkPartnerHandleDrawPartyStatusSummary(u32 battler);
 static void LinkPartnerHandleHidePartyStatusSummary(u32 battler);
-static void LinkPartnerHandleEndBounceEffect(u32 battler);
 static void LinkPartnerHandleSpriteInvisibility(u32 battler);
 static void LinkPartnerHandleBattleAnimation(u32 battler);
 static void LinkPartnerHandleLinkStandbyMsg(u32 battler);
-static void LinkPartnerHandleResetActionMoveSelection(u32 battler);
 static void LinkPartnerHandleEndLinkBattle(u32 battler);
-static void LinkPartnerCmdEnd(u32 battler);
 
 static void LinkPartnerBufferRunCommand(u32 battler);
 static void LinkPartnerBufferExecCompleted(u32 battler);
@@ -87,23 +71,23 @@ static void (*const sLinkPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battl
     [CONTROLLER_BALLTHROWANIM]            = BtlController_Empty,
     [CONTROLLER_MOVEANIMATION]            = LinkPartnerHandleMoveAnimation,
     [CONTROLLER_PRINTSTRING]              = LinkPartnerHandlePrintString,
-    [CONTROLLER_PRINTSTRINGPLAYERONLY]    = LinkPartnerHandlePrintSelectionString,
-    [CONTROLLER_CHOOSEACTION]             = LinkPartnerHandleChooseAction,
-    [CONTROLLER_YESNOBOX]                 = LinkPartnerHandleYesNoBox,
-    [CONTROLLER_CHOOSEMOVE]               = LinkPartnerHandleChooseMove,
-    [CONTROLLER_OPENBAG]                  = LinkPartnerHandleChooseItem,
-    [CONTROLLER_CHOOSEPOKEMON]            = LinkPartnerHandleChoosePokemon,
+    [CONTROLLER_PRINTSTRINGPLAYERONLY]    = BtlController_Empty,
+    [CONTROLLER_CHOOSEACTION]             = BtlController_Empty,
+    [CONTROLLER_YESNOBOX]                 = BtlController_Empty,
+    [CONTROLLER_CHOOSEMOVE]               = BtlController_Empty,
+    [CONTROLLER_OPENBAG]                  = BtlController_Empty,
+    [CONTROLLER_CHOOSEPOKEMON]            = BtlController_Empty,
     [CONTROLLER_HEALTHBARUPDATE]          = LinkPartnerHandleHealthBarUpdate,
-    [CONTROLLER_EXPUPDATE]                = LinkPartnerHandleExpUpdate,
+    [CONTROLLER_EXPUPDATE]                = BtlController_Empty,
     [CONTROLLER_STATUSICONUPDATE]         = LinkPartnerHandleStatusIconUpdate,
     [CONTROLLER_STATUSANIMATION]          = LinkPartnerHandleStatusAnimation,
-    [CONTROLLER_DATATRANSFER]             = LinkPartnerHandleDataTransfer,
-    [CONTROLLER_TWORETURNVALUES]          = LinkPartnerHandleTwoReturnValues,
-    [CONTROLLER_CHOSENMONRETURNVALUE]     = LinkPartnerHandleChosenMonReturnValue,
-    [CONTROLLER_ONERETURNVALUE]           = LinkPartnerHandleOneReturnValue,
-    [CONTROLLER_ONERETURNVALUE_DUPLICATE] = LinkPartnerHandleOneReturnValue_Duplicate,
+    [CONTROLLER_DATATRANSFER]             = BtlController_Empty,
+    [CONTROLLER_TWORETURNVALUES]          = BtlController_Empty,
+    [CONTROLLER_CHOSENMONRETURNVALUE]     = BtlController_Empty,
+    [CONTROLLER_ONERETURNVALUE]           = BtlController_Empty,
+    [CONTROLLER_ONERETURNVALUE_DUPLICATE] = BtlController_Empty,
     [CONTROLLER_HITANIMATION]             = LinkPartnerHandleHitAnimation,
-    [CONTROLLER_CANTSWITCH]               = LinkPartnerHandleCantSwitch,
+    [CONTROLLER_CANTSWITCH]               = BtlController_Empty,
     [CONTROLLER_PLAYSE]                   = LinkPartnerHandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = LinkPartnerHandlePlayFanfareOrBGM,
     [CONTROLLER_FAINTINGCRY]              = LinkPartnerHandleFaintingCry,
@@ -111,13 +95,13 @@ static void (*const sLinkPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battl
     [CONTROLLER_INTROTRAINERBALLTHROW]    = LinkPartnerHandleIntroTrainerBallThrow,
     [CONTROLLER_DRAWPARTYSTATUSSUMMARY]   = LinkPartnerHandleDrawPartyStatusSummary,
     [CONTROLLER_HIDEPARTYSTATUSSUMMARY]   = LinkPartnerHandleHidePartyStatusSummary,
-    [CONTROLLER_ENDBOUNCE]                = LinkPartnerHandleEndBounceEffect,
+    [CONTROLLER_ENDBOUNCE]                = BtlController_Empty,
     [CONTROLLER_SPRITEINVISIBILITY]       = LinkPartnerHandleSpriteInvisibility,
     [CONTROLLER_BATTLEANIMATION]          = LinkPartnerHandleBattleAnimation,
     [CONTROLLER_LINKSTANDBYMSG]           = LinkPartnerHandleLinkStandbyMsg,
-    [CONTROLLER_RESETACTIONMOVESELECTION] = LinkPartnerHandleResetActionMoveSelection,
+    [CONTROLLER_RESETACTIONMOVESELECTION] = BtlController_Empty,
     [CONTROLLER_ENDLINKBATTLE]            = LinkPartnerHandleEndLinkBattle,
-    [CONTROLLER_TERMINATOR_NOP]           = LinkPartnerCmdEnd
+    [CONTROLLER_TERMINATOR_NOP]           = BtlController_TerminatorNop
 };
 
 static void SpriteCB_Null2(u32 battler)
@@ -380,36 +364,6 @@ static void LinkPartnerHandlePrintString(u32 battler)
     BtlController_HandlePrintString(battler, TRUE, FALSE);
 }
 
-static void LinkPartnerHandlePrintSelectionString(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
-static void LinkPartnerHandleChooseAction(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
-static void LinkPartnerHandleYesNoBox(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
-static void LinkPartnerHandleChooseMove(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
-static void LinkPartnerHandleChooseItem(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
-static void LinkPartnerHandleChoosePokemon(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
 static void LinkPartnerHandleHealthBarUpdate(u32 battler)
 {
     s16 hpVal;
@@ -434,11 +388,6 @@ static void LinkPartnerHandleHealthBarUpdate(u32 battler)
     gBattlerControllerFuncs[battler] = CompleteOnHealthbarDone;
 }
 
-static void LinkPartnerHandleExpUpdate(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
 static void LinkPartnerHandleStatusIconUpdate(u32 battler)
 {
     if (!IsBattleSEPlaying(battler))
@@ -459,31 +408,6 @@ static void LinkPartnerHandleStatusAnimation(u32 battler)
     }
 }
 
-static void LinkPartnerHandleDataTransfer(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
-static void LinkPartnerHandleTwoReturnValues(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
-static void LinkPartnerHandleChosenMonReturnValue(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
-static void LinkPartnerHandleOneReturnValue(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
-static void LinkPartnerHandleOneReturnValue_Duplicate(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
 static void LinkPartnerHandleHitAnimation(u32 battler)
 {
     if (gSprites[gBattlerSpriteIds[battler]].invisible == TRUE)
@@ -497,11 +421,6 @@ static void LinkPartnerHandleHitAnimation(u32 battler)
         DoHitAnimHealthboxEffect(battler);
         gBattlerControllerFuncs[battler] = DoHitAnimBlinkSpriteEffect;
     }
-}
-
-static void LinkPartnerHandleCantSwitch(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
 }
 
 static void LinkPartnerHandlePlaySE(u32 battler)
@@ -660,11 +579,6 @@ static void LinkPartnerHandleHidePartyStatusSummary(u32 battler)
     LinkPartnerBufferExecCompleted(battler);
 }
 
-static void LinkPartnerHandleEndBounceEffect(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
 static void LinkPartnerHandleSpriteInvisibility(u32 battler)
 {
     if (IsBattlerSpritePresent(battler))
@@ -697,11 +611,6 @@ static void LinkPartnerHandleLinkStandbyMsg(u32 battler)
     LinkPartnerBufferExecCompleted(battler);
 }
 
-static void LinkPartnerHandleResetActionMoveSelection(u32 battler)
-{
-    LinkPartnerBufferExecCompleted(battler);
-}
-
 static void LinkPartnerHandleEndLinkBattle(u32 battler)
 {
     RecordedBattle_RecordAllBattlerData(&gBattleBufferA[battler][4]);
@@ -711,8 +620,4 @@ static void LinkPartnerHandleEndLinkBattle(u32 battler)
     BeginFastPaletteFade(3);
     LinkPartnerBufferExecCompleted(battler);
     gBattlerControllerFuncs[battler] = SetBattleEndCallbacks;
-}
-
-static void LinkPartnerCmdEnd(u32 battler)
-{
 }

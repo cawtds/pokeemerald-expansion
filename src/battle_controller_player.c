@@ -59,13 +59,11 @@ static void PlayerHandleHealthBarUpdate(u32 battler);
 static void PlayerHandleExpUpdate(u32 battler);
 static void PlayerHandleStatusIconUpdate(u32 battler);
 static void PlayerHandleStatusAnimation(u32 battler);
-static void PlayerHandleDataTransfer(u32 battler);
 static void PlayerHandleTwoReturnValues(u32 battler);
 static void PlayerHandleChosenMonReturnValue(u32 battler);
 static void PlayerHandleOneReturnValue(u32 battler);
 static void PlayerHandleOneReturnValue_Duplicate(u32 battler);
 static void PlayerHandleHitAnimation(u32 battler);
-static void PlayerHandleCantSwitch(u32 battler);
 static void PlayerHandlePlaySE(u32 battler);
 static void PlayerHandlePlayFanfareOrBGM(u32 battler);
 static void PlayerHandleFaintingCry(u32 battler);
@@ -79,7 +77,6 @@ static void PlayerHandleBattleAnimation(u32 battler);
 static void PlayerHandleLinkStandbyMsg(u32 battler);
 static void PlayerHandleResetActionMoveSelection(u32 battler);
 static void PlayerHandleEndLinkBattle(u32 battler);
-static void PlayerCmdEnd(u32 battler);
 
 static void PlayerBufferRunCommand(u32 battler);
 static void HandleInputChooseTarget(u32 battler);
@@ -127,13 +124,13 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_EXPUPDATE]                = PlayerHandleExpUpdate,
     [CONTROLLER_STATUSICONUPDATE]         = PlayerHandleStatusIconUpdate,
     [CONTROLLER_STATUSANIMATION]          = PlayerHandleStatusAnimation,
-    [CONTROLLER_DATATRANSFER]             = PlayerHandleDataTransfer,
+    [CONTROLLER_DATATRANSFER]             = BtlController_Empty,
     [CONTROLLER_TWORETURNVALUES]          = PlayerHandleTwoReturnValues,
     [CONTROLLER_CHOSENMONRETURNVALUE]     = PlayerHandleChosenMonReturnValue,
     [CONTROLLER_ONERETURNVALUE]           = PlayerHandleOneReturnValue,
     [CONTROLLER_ONERETURNVALUE_DUPLICATE] = PlayerHandleOneReturnValue_Duplicate,
     [CONTROLLER_HITANIMATION]             = PlayerHandleHitAnimation,
-    [CONTROLLER_CANTSWITCH]               = PlayerHandleCantSwitch,
+    [CONTROLLER_CANTSWITCH]               = BtlController_Empty,
     [CONTROLLER_PLAYSE]                   = PlayerHandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = PlayerHandlePlayFanfareOrBGM,
     [CONTROLLER_FAINTINGCRY]              = PlayerHandleFaintingCry,
@@ -147,7 +144,7 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_LINKSTANDBYMSG]           = PlayerHandleLinkStandbyMsg,
     [CONTROLLER_RESETACTIONMOVESELECTION] = PlayerHandleResetActionMoveSelection,
     [CONTROLLER_ENDLINKBATTLE]            = PlayerHandleEndLinkBattle,
-    [CONTROLLER_TERMINATOR_NOP]           = PlayerCmdEnd
+    [CONTROLLER_TERMINATOR_NOP]           = BtlController_TerminatorNop
 };
 
 static const u8 sTargetIdentities[MAX_BATTLERS_COUNT] = {B_POSITION_PLAYER_LEFT, B_POSITION_PLAYER_RIGHT, B_POSITION_OPPONENT_RIGHT, B_POSITION_OPPONENT_LEFT};
@@ -1805,11 +1802,6 @@ static void PlayerHandleStatusAnimation(u32 battler)
     }
 }
 
-static void PlayerHandleDataTransfer(u32 battler)
-{
-    PlayerBufferExecCompleted(battler);
-}
-
 static void PlayerHandleTwoReturnValues(u32 battler)
 {
     BtlController_EmitTwoReturnValues(battler, BUFFER_B, 0, 0);
@@ -1847,11 +1839,6 @@ static void PlayerHandleHitAnimation(u32 battler)
         DoHitAnimHealthboxEffect(battler);
         gBattlerControllerFuncs[battler] = DoHitAnimBlinkSpriteEffect;
     }
-}
-
-static void PlayerHandleCantSwitch(u32 battler)
-{
-    PlayerBufferExecCompleted(battler);
 }
 
 static void PlayerHandlePlaySE(u32 battler)
@@ -2097,8 +2084,4 @@ static void PlayerHandleEndLinkBattle(u32 battler)
     BeginFastPaletteFade(3);
     PlayerBufferExecCompleted(battler);
     gBattlerControllerFuncs[battler] = SetBattleEndCallbacks;
-}
-
-static void PlayerCmdEnd(u32 battler)
-{
 }

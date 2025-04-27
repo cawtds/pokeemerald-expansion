@@ -43,23 +43,14 @@ static void OpponentHandleTrainerSlide(u32 battler);
 static void OpponentHandleTrainerSlideBack(u32 battler);
 static void OpponentHandleMoveAnimation(u32 battler);
 static void OpponentHandlePrintString(u32 battler);
-static void OpponentHandlePrintSelectionString(u32 battler);
 static void OpponentHandleChooseAction(u32 battler);
-static void OpponentHandleYesNoBox(u32 battler);
 static void OpponentHandleChooseMove(u32 battler);
 static void OpponentHandleChooseItem(u32 battler);
 static void OpponentHandleChoosePokemon(u32 battler);
 static void OpponentHandleHealthBarUpdate(u32 battler);
-static void OpponentHandleExpUpdate(u32 battler);
 static void OpponentHandleStatusIconUpdate(u32 battler);
 static void OpponentHandleStatusAnimation(u32 battler);
-static void OpponentHandleDataTransfer(u32 battler);
-static void OpponentHandleTwoReturnValues(u32 battler);
-static void OpponentHandleChosenMonReturnValue(u32 battler);
-static void OpponentHandleOneReturnValue(u32 battler);
-static void OpponentHandleOneReturnValue_Duplicate(u32 battler);
 static void OpponentHandleHitAnimation(u32 battler);
-static void OpponentHandleCantSwitch(u32 battler);
 static void OpponentHandlePlaySE(u32 battler);
 static void OpponentHandlePlayFanfareOrBGM(u32 battler);
 static void OpponentHandleFaintingCry(u32 battler);
@@ -67,13 +58,9 @@ static void OpponentHandleIntroSlide(u32 battler);
 static void OpponentHandleIntroTrainerBallThrow(u32 battler);
 static void OpponentHandleDrawPartyStatusSummary(u32 battler);
 static void OpponentHandleHidePartyStatusSummary(u32 battler);
-static void OpponentHandleEndBounceEffect(u32 battler);
 static void OpponentHandleSpriteInvisibility(u32 battler);
 static void OpponentHandleBattleAnimation(u32 battler);
-static void OpponentHandleLinkStandbyMsg(u32 battler);
-static void OpponentHandleResetActionMoveSelection(u32 battler);
 static void OpponentHandleEndLinkBattle(u32 battler);
-static void OpponentCmdEnd(u32 battler);
 
 static void OpponentBufferRunCommand(u32 battler);
 static void OpponentBufferExecCompleted(u32 battler);
@@ -96,23 +83,23 @@ static void (*const sOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler)
     [CONTROLLER_BALLTHROWANIM]            = BtlController_Empty,
     [CONTROLLER_MOVEANIMATION]            = OpponentHandleMoveAnimation,
     [CONTROLLER_PRINTSTRING]              = OpponentHandlePrintString,
-    [CONTROLLER_PRINTSTRINGPLAYERONLY]    = OpponentHandlePrintSelectionString,
+    [CONTROLLER_PRINTSTRINGPLAYERONLY]    = BtlController_Empty,
     [CONTROLLER_CHOOSEACTION]             = OpponentHandleChooseAction,
-    [CONTROLLER_YESNOBOX]                 = OpponentHandleYesNoBox,
+    [CONTROLLER_YESNOBOX]                 = BtlController_Empty,
     [CONTROLLER_CHOOSEMOVE]               = OpponentHandleChooseMove,
     [CONTROLLER_OPENBAG]                  = OpponentHandleChooseItem,
     [CONTROLLER_CHOOSEPOKEMON]            = OpponentHandleChoosePokemon,
     [CONTROLLER_HEALTHBARUPDATE]          = OpponentHandleHealthBarUpdate,
-    [CONTROLLER_EXPUPDATE]                = OpponentHandleExpUpdate,
+    [CONTROLLER_EXPUPDATE]                = BtlController_Empty,
     [CONTROLLER_STATUSICONUPDATE]         = OpponentHandleStatusIconUpdate,
     [CONTROLLER_STATUSANIMATION]          = OpponentHandleStatusAnimation,
-    [CONTROLLER_DATATRANSFER]             = OpponentHandleDataTransfer,
-    [CONTROLLER_TWORETURNVALUES]          = OpponentHandleTwoReturnValues,
-    [CONTROLLER_CHOSENMONRETURNVALUE]     = OpponentHandleChosenMonReturnValue,
-    [CONTROLLER_ONERETURNVALUE]           = OpponentHandleOneReturnValue,
-    [CONTROLLER_ONERETURNVALUE_DUPLICATE] = OpponentHandleOneReturnValue_Duplicate,
+    [CONTROLLER_DATATRANSFER]             = BtlController_Empty,
+    [CONTROLLER_TWORETURNVALUES]          = BtlController_Empty,
+    [CONTROLLER_CHOSENMONRETURNVALUE]     = BtlController_Empty,
+    [CONTROLLER_ONERETURNVALUE]           = BtlController_Empty,
+    [CONTROLLER_ONERETURNVALUE_DUPLICATE] = BtlController_Empty,
     [CONTROLLER_HITANIMATION]             = OpponentHandleHitAnimation,
-    [CONTROLLER_CANTSWITCH]               = OpponentHandleCantSwitch,
+    [CONTROLLER_CANTSWITCH]               = BtlController_Empty,
     [CONTROLLER_PLAYSE]                   = OpponentHandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = OpponentHandlePlayFanfareOrBGM,
     [CONTROLLER_FAINTINGCRY]              = OpponentHandleFaintingCry,
@@ -120,13 +107,13 @@ static void (*const sOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler)
     [CONTROLLER_INTROTRAINERBALLTHROW]    = OpponentHandleIntroTrainerBallThrow,
     [CONTROLLER_DRAWPARTYSTATUSSUMMARY]   = OpponentHandleDrawPartyStatusSummary,
     [CONTROLLER_HIDEPARTYSTATUSSUMMARY]   = OpponentHandleHidePartyStatusSummary,
-    [CONTROLLER_ENDBOUNCE]                = OpponentHandleEndBounceEffect,
+    [CONTROLLER_ENDBOUNCE]                = BtlController_Empty,
     [CONTROLLER_SPRITEINVISIBILITY]       = OpponentHandleSpriteInvisibility,
     [CONTROLLER_BATTLEANIMATION]          = OpponentHandleBattleAnimation,
-    [CONTROLLER_LINKSTANDBYMSG]           = OpponentHandleLinkStandbyMsg,
-    [CONTROLLER_RESETACTIONMOVESELECTION] = OpponentHandleResetActionMoveSelection,
+    [CONTROLLER_LINKSTANDBYMSG]           = BtlController_Empty,
+    [CONTROLLER_RESETACTIONMOVESELECTION] = BtlController_Empty,
     [CONTROLLER_ENDLINKBATTLE]            = OpponentHandleEndLinkBattle,
-    [CONTROLLER_TERMINATOR_NOP]           = OpponentCmdEnd
+    [CONTROLLER_TERMINATOR_NOP]           = BtlController_TerminatorNop
 };
 
 static void OpponentDummy(u32 battler)
@@ -538,19 +525,9 @@ static void OpponentHandlePrintString(u32 battler)
     BtlController_HandlePrintString(battler, FALSE, TRUE);
 }
 
-static void OpponentHandlePrintSelectionString(u32 battler)
-{
-    OpponentBufferExecCompleted(battler);
-}
-
 static void OpponentHandleChooseAction(u32 battler)
 {
     AI_TrySwitchOrUseItem(battler);
-    OpponentBufferExecCompleted(battler);
-}
-
-static void OpponentHandleYesNoBox(u32 battler)
-{
     OpponentBufferExecCompleted(battler);
 }
 
@@ -707,11 +684,6 @@ static void OpponentHandleHealthBarUpdate(u32 battler)
     gBattlerControllerFuncs[battler] = CompleteOnHealthbarDone;
 }
 
-static void OpponentHandleExpUpdate(u32 battler)
-{
-    OpponentBufferExecCompleted(battler);
-}
-
 static void OpponentHandleStatusIconUpdate(u32 battler)
 {
     if (!IsBattleSEPlaying(battler))
@@ -732,31 +704,6 @@ static void OpponentHandleStatusAnimation(u32 battler)
     }
 }
 
-static void OpponentHandleDataTransfer(u32 battler)
-{
-    OpponentBufferExecCompleted(battler);
-}
-
-static void OpponentHandleTwoReturnValues(u32 battler)
-{
-    OpponentBufferExecCompleted(battler);
-}
-
-static void OpponentHandleChosenMonReturnValue(u32 battler)
-{
-    OpponentBufferExecCompleted(battler);
-}
-
-static void OpponentHandleOneReturnValue(u32 battler)
-{
-    OpponentBufferExecCompleted(battler);
-}
-
-static void OpponentHandleOneReturnValue_Duplicate(u32 battler)
-{
-    OpponentBufferExecCompleted(battler);
-}
-
 static void OpponentHandleHitAnimation(u32 battler)
 {
     if (gSprites[gBattlerSpriteIds[battler]].invisible == TRUE)
@@ -770,11 +717,6 @@ static void OpponentHandleHitAnimation(u32 battler)
         DoHitAnimHealthboxEffect(battler);
         gBattlerControllerFuncs[battler] = DoHitAnimBlinkSpriteEffect;
     }
-}
-
-static void OpponentHandleCantSwitch(u32 battler)
-{
-    OpponentBufferExecCompleted(battler);
 }
 
 static void OpponentHandlePlaySE(u32 battler)
@@ -925,11 +867,6 @@ static void OpponentHandleHidePartyStatusSummary(u32 battler)
     OpponentBufferExecCompleted(battler);
 }
 
-static void OpponentHandleEndBounceEffect(u32 battler)
-{
-    OpponentBufferExecCompleted(battler);
-}
-
 static void OpponentHandleSpriteInvisibility(u32 battler)
 {
     if (IsBattlerSpritePresent(battler))
@@ -954,16 +891,6 @@ static void OpponentHandleBattleAnimation(u32 battler)
     }
 }
 
-static void OpponentHandleLinkStandbyMsg(u32 battler)
-{
-    OpponentBufferExecCompleted(battler);
-}
-
-static void OpponentHandleResetActionMoveSelection(u32 battler)
-{
-    OpponentBufferExecCompleted(battler);
-}
-
 static void OpponentHandleEndLinkBattle(u32 battler)
 {
     if (gBattleTypeFlags & BATTLE_TYPE_LINK && !(gBattleTypeFlags & BATTLE_TYPE_IS_MASTER))
@@ -973,8 +900,4 @@ static void OpponentHandleEndLinkBattle(u32 battler)
         SetMainCallback2(gMain.savedCallback);
     }
     OpponentBufferExecCompleted(battler);
-}
-
-static void OpponentCmdEnd(u32 battler)
-{
 }

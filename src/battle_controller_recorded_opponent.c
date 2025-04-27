@@ -36,23 +36,14 @@ static void RecordedOpponentHandleDrawTrainerPic(u32 battler);
 static void RecordedOpponentHandleTrainerSlideBack(u32 battler);
 static void RecordedOpponentHandleMoveAnimation(u32 battler);
 static void RecordedOpponentHandlePrintString(u32 battler);
-static void RecordedOpponentHandlePrintSelectionString(u32 battler);
 static void RecordedOpponentHandleChooseAction(u32 battler);
-static void RecordedOpponentHandleYesNoBox(u32 battler);
 static void RecordedOpponentHandleChooseMove(u32 battler);
 static void RecordedOpponentHandleChooseItem(u32 battler);
 static void RecordedOpponentHandleChoosePokemon(u32 battler);
 static void RecordedOpponentHandleHealthBarUpdate(u32 battler);
-static void RecordedOpponentHandleExpUpdate(u32 battler);
 static void RecordedOpponentHandleStatusIconUpdate(u32 battler);
 static void RecordedOpponentHandleStatusAnimation(u32 battler);
-static void RecordedOpponentHandleDataTransfer(u32 battler);
-static void RecordedOpponentHandleTwoReturnValues(u32 battler);
-static void RecordedOpponentHandleChosenMonReturnValue(u32 battler);
-static void RecordedOpponentHandleOneReturnValue(u32 battler);
-static void RecordedOpponentHandleOneReturnValue_Duplicate(u32 battler);
 static void RecordedOpponentHandleHitAnimation(u32 battler);
-static void RecordedOpponentHandleCantSwitch(u32 battler);
 static void RecordedOpponentHandlePlaySE(u32 battler);
 static void RecordedOpponentHandlePlayFanfareOrBGM(u32 battler);
 static void RecordedOpponentHandleFaintingCry(u32 battler);
@@ -60,13 +51,9 @@ static void RecordedOpponentHandleIntroSlide(u32 battler);
 static void RecordedOpponentHandleIntroTrainerBallThrow(u32 battler);
 static void RecordedOpponentHandleDrawPartyStatusSummary(u32 battler);
 static void RecordedOpponentHandleHidePartyStatusSummary(u32 battler);
-static void RecordedOpponentHandleEndBounceEffect(u32 battler);
 static void RecordedOpponentHandleSpriteInvisibility(u32 battler);
 static void RecordedOpponentHandleBattleAnimation(u32 battler);
-static void RecordedOpponentHandleLinkStandbyMsg(u32 battler);
-static void RecordedOpponentHandleResetActionMoveSelection(u32 battler);
 static void RecordedOpponentHandleEndLinkBattle(u32 battler);
-static void RecordedOpponentCmdEnd(u32 battler);
 
 static void RecordedOpponentBufferRunCommand(u32 battler);
 static void RecordedOpponentBufferExecCompleted(u32 battler);
@@ -89,23 +76,23 @@ static void (*const sRecordedOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 
     [CONTROLLER_BALLTHROWANIM]            = BtlController_Empty,
     [CONTROLLER_MOVEANIMATION]            = RecordedOpponentHandleMoveAnimation,
     [CONTROLLER_PRINTSTRING]              = RecordedOpponentHandlePrintString,
-    [CONTROLLER_PRINTSTRINGPLAYERONLY]    = RecordedOpponentHandlePrintSelectionString,
+    [CONTROLLER_PRINTSTRINGPLAYERONLY]    = BtlController_Empty,
     [CONTROLLER_CHOOSEACTION]             = RecordedOpponentHandleChooseAction,
-    [CONTROLLER_YESNOBOX]                 = RecordedOpponentHandleYesNoBox,
+    [CONTROLLER_YESNOBOX]                 = BtlController_Empty,
     [CONTROLLER_CHOOSEMOVE]               = RecordedOpponentHandleChooseMove,
     [CONTROLLER_OPENBAG]                  = RecordedOpponentHandleChooseItem,
     [CONTROLLER_CHOOSEPOKEMON]            = RecordedOpponentHandleChoosePokemon,
     [CONTROLLER_HEALTHBARUPDATE]          = RecordedOpponentHandleHealthBarUpdate,
-    [CONTROLLER_EXPUPDATE]                = RecordedOpponentHandleExpUpdate,
+    [CONTROLLER_EXPUPDATE]                = BtlController_Empty,
     [CONTROLLER_STATUSICONUPDATE]         = RecordedOpponentHandleStatusIconUpdate,
     [CONTROLLER_STATUSANIMATION]          = RecordedOpponentHandleStatusAnimation,
-    [CONTROLLER_DATATRANSFER]             = RecordedOpponentHandleDataTransfer,
-    [CONTROLLER_TWORETURNVALUES]          = RecordedOpponentHandleTwoReturnValues,
-    [CONTROLLER_CHOSENMONRETURNVALUE]     = RecordedOpponentHandleChosenMonReturnValue,
-    [CONTROLLER_ONERETURNVALUE]           = RecordedOpponentHandleOneReturnValue,
-    [CONTROLLER_ONERETURNVALUE_DUPLICATE] = RecordedOpponentHandleOneReturnValue_Duplicate,
+    [CONTROLLER_DATATRANSFER]             = BtlController_Empty,
+    [CONTROLLER_TWORETURNVALUES]          = BtlController_Empty,
+    [CONTROLLER_CHOSENMONRETURNVALUE]     = BtlController_Empty,
+    [CONTROLLER_ONERETURNVALUE]           = BtlController_Empty,
+    [CONTROLLER_ONERETURNVALUE_DUPLICATE] = BtlController_Empty,
     [CONTROLLER_HITANIMATION]             = RecordedOpponentHandleHitAnimation,
-    [CONTROLLER_CANTSWITCH]               = RecordedOpponentHandleCantSwitch,
+    [CONTROLLER_CANTSWITCH]               = BtlController_Empty,
     [CONTROLLER_PLAYSE]                   = RecordedOpponentHandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = RecordedOpponentHandlePlayFanfareOrBGM,
     [CONTROLLER_FAINTINGCRY]              = RecordedOpponentHandleFaintingCry,
@@ -113,13 +100,13 @@ static void (*const sRecordedOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 
     [CONTROLLER_INTROTRAINERBALLTHROW]    = RecordedOpponentHandleIntroTrainerBallThrow,
     [CONTROLLER_DRAWPARTYSTATUSSUMMARY]   = RecordedOpponentHandleDrawPartyStatusSummary,
     [CONTROLLER_HIDEPARTYSTATUSSUMMARY]   = RecordedOpponentHandleHidePartyStatusSummary,
-    [CONTROLLER_ENDBOUNCE]                = RecordedOpponentHandleEndBounceEffect,
+    [CONTROLLER_ENDBOUNCE]                = BtlController_Empty,
     [CONTROLLER_SPRITEINVISIBILITY]       = RecordedOpponentHandleSpriteInvisibility,
     [CONTROLLER_BATTLEANIMATION]          = RecordedOpponentHandleBattleAnimation,
-    [CONTROLLER_LINKSTANDBYMSG]           = RecordedOpponentHandleLinkStandbyMsg,
-    [CONTROLLER_RESETACTIONMOVESELECTION] = RecordedOpponentHandleResetActionMoveSelection,
+    [CONTROLLER_LINKSTANDBYMSG]           = BtlController_Empty,
+    [CONTROLLER_RESETACTIONMOVESELECTION] = BtlController_Empty,
     [CONTROLLER_ENDLINKBATTLE]            = RecordedOpponentHandleEndLinkBattle,
-    [CONTROLLER_TERMINATOR_NOP]           = RecordedOpponentCmdEnd
+    [CONTROLLER_TERMINATOR_NOP]           = BtlController_TerminatorNop
 };
 
 static void RecordedOpponentDummy(u32 battler)
@@ -491,19 +478,9 @@ static void RecordedOpponentHandlePrintString(u32 battler)
     BtlController_HandlePrintString(battler, FALSE, FALSE);
 }
 
-static void RecordedOpponentHandlePrintSelectionString(u32 battler)
-{
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
 static void RecordedOpponentHandleChooseAction(u32 battler)
 {
     BtlController_EmitTwoReturnValues(battler, BUFFER_B, RecordedBattle_GetBattlerAction(RECORDED_ACTION_TYPE, battler), 0);
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
-static void RecordedOpponentHandleYesNoBox(u32 battler)
-{
     RecordedOpponentBufferExecCompleted(battler);
 }
 
@@ -566,11 +543,6 @@ static void RecordedOpponentHandleHealthBarUpdate(u32 battler)
     gBattlerControllerFuncs[battler] = CompleteOnHealthbarDone;
 }
 
-static void RecordedOpponentHandleExpUpdate(u32 battler)
-{
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
 static void RecordedOpponentHandleStatusIconUpdate(u32 battler)
 {
     if (!IsBattleSEPlaying(battler))
@@ -593,31 +565,6 @@ static void RecordedOpponentHandleStatusAnimation(u32 battler)
     }
 }
 
-static void RecordedOpponentHandleDataTransfer(u32 battler)
-{
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
-static void RecordedOpponentHandleTwoReturnValues(u32 battler)
-{
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
-static void RecordedOpponentHandleChosenMonReturnValue(u32 battler)
-{
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
-static void RecordedOpponentHandleOneReturnValue(u32 battler)
-{
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
-static void RecordedOpponentHandleOneReturnValue_Duplicate(u32 battler)
-{
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
 static void RecordedOpponentHandleHitAnimation(u32 battler)
 {
     if (gSprites[gBattlerSpriteIds[battler]].invisible == TRUE)
@@ -631,11 +578,6 @@ static void RecordedOpponentHandleHitAnimation(u32 battler)
         DoHitAnimHealthboxEffect(battler);
         gBattlerControllerFuncs[battler] = DoHitAnimBlinkSpriteEffect;
     }
-}
-
-static void RecordedOpponentHandleCantSwitch(u32 battler)
-{
-    RecordedOpponentBufferExecCompleted(battler);
 }
 
 static void RecordedOpponentHandlePlaySE(u32 battler)
@@ -782,11 +724,6 @@ static void RecordedOpponentHandleHidePartyStatusSummary(u32 battler)
     RecordedOpponentBufferExecCompleted(battler);
 }
 
-static void RecordedOpponentHandleEndBounceEffect(u32 battler)
-{
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
 static void RecordedOpponentHandleSpriteInvisibility(u32 battler)
 {
     if (IsBattlerSpritePresent(battler))
@@ -811,16 +748,6 @@ static void RecordedOpponentHandleBattleAnimation(u32 battler)
     }
 }
 
-static void RecordedOpponentHandleLinkStandbyMsg(u32 battler)
-{
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
-static void RecordedOpponentHandleResetActionMoveSelection(u32 battler)
-{
-    RecordedOpponentBufferExecCompleted(battler);
-}
-
 static void RecordedOpponentHandleEndLinkBattle(u32 battler)
 {
     if (gBattleBufferA[battler][1] == B_OUTCOME_DREW)
@@ -832,8 +759,4 @@ static void RecordedOpponentHandleEndLinkBattle(u32 battler)
     BeginFastPaletteFade(3);
     RecordedOpponentBufferExecCompleted(battler);
     gBattlerControllerFuncs[battler] = SetBattleEndCallbacks;
-}
-
-static void RecordedOpponentCmdEnd(u32 battler)
-{
 }

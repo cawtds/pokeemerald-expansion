@@ -32,23 +32,14 @@ static void RecordedPlayerHandleDrawTrainerPic(u32 battler);
 static void RecordedPlayerHandleTrainerSlideBack(u32 battler);
 static void RecordedPlayerHandleMoveAnimation(u32 battler);
 static void RecordedPlayerHandlePrintString(u32 battler);
-static void RecordedPlayerHandlePrintSelectionString(u32 battler);
 static void RecordedPlayerHandleChooseAction(u32 battler);
-static void RecordedPlayerHandleYesNoBox(u32 battler);
 static void RecordedPlayerHandleChooseMove(u32 battler);
 static void RecordedPlayerHandleChooseItem(u32 battler);
 static void RecordedPlayerHandleChoosePokemon(u32 battler);
 static void RecordedPlayerHandleHealthBarUpdate(u32 battler);
-static void RecordedPlayerHandleExpUpdate(u32 battler);
 static void RecordedPlayerHandleStatusIconUpdate(u32 battler);
 static void RecordedPlayerHandleStatusAnimation(u32 battler);
-static void RecordedPlayerHandleDataTransfer(u32 battler);
-static void RecordedPlayerHandleTwoReturnValues(u32 battler);
-static void RecordedPlayerHandleChosenMonReturnValue(u32 battler);
-static void RecordedPlayerHandleOneReturnValue(u32 battler);
-static void RecordedPlayerHandleOneReturnValue_Duplicate(u32 battler);
 static void RecordedPlayerHandleHitAnimation(u32 battler);
-static void RecordedPlayerHandleCantSwitch(u32 battler);
 static void RecordedPlayerHandlePlaySE(u32 battler);
 static void RecordedPlayerHandlePlayFanfareOrBGM(u32 battler);
 static void RecordedPlayerHandleFaintingCry(u32 battler);
@@ -56,13 +47,9 @@ static void RecordedPlayerHandleIntroSlide(u32 battler);
 static void RecordedPlayerHandleIntroTrainerBallThrow(u32 battler);
 static void RecordedPlayerHandleDrawPartyStatusSummary(u32 battler);
 static void RecordedPlayerHandleHidePartyStatusSummary(u32 battler);
-static void RecordedPlayerHandleEndBounceEffect(u32 battler);
 static void RecordedPlayerHandleSpriteInvisibility(u32 battler);
 static void RecordedPlayerHandleBattleAnimation(u32 battler);
-static void RecordedPlayerHandleLinkStandbyMsg(u32 battler);
-static void RecordedPlayerHandleResetActionMoveSelection(u32 battler);
 static void RecordedPlayerHandleEndLinkBattle(u32 battler);
-static void RecordedPlayerCmdEnd(u32 battler);
 
 static void RecordedPlayerBufferRunCommand(u32 battler);
 static void RecordedPlayerBufferExecCompleted(u32 battler);
@@ -84,23 +71,23 @@ static void (*const sRecordedPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 ba
     [CONTROLLER_BALLTHROWANIM]            = BtlController_Empty,
     [CONTROLLER_MOVEANIMATION]            = RecordedPlayerHandleMoveAnimation,
     [CONTROLLER_PRINTSTRING]              = RecordedPlayerHandlePrintString,
-    [CONTROLLER_PRINTSTRINGPLAYERONLY]    = RecordedPlayerHandlePrintSelectionString,
+    [CONTROLLER_PRINTSTRINGPLAYERONLY]    = BtlController_Empty,
     [CONTROLLER_CHOOSEACTION]             = RecordedPlayerHandleChooseAction,
-    [CONTROLLER_YESNOBOX]                 = RecordedPlayerHandleYesNoBox,
+    [CONTROLLER_YESNOBOX]                 = BtlController_Empty,
     [CONTROLLER_CHOOSEMOVE]               = RecordedPlayerHandleChooseMove,
     [CONTROLLER_OPENBAG]                  = RecordedPlayerHandleChooseItem,
     [CONTROLLER_CHOOSEPOKEMON]            = RecordedPlayerHandleChoosePokemon,
     [CONTROLLER_HEALTHBARUPDATE]          = RecordedPlayerHandleHealthBarUpdate,
-    [CONTROLLER_EXPUPDATE]                = RecordedPlayerHandleExpUpdate,
+    [CONTROLLER_EXPUPDATE]                = BtlController_Empty,
     [CONTROLLER_STATUSICONUPDATE]         = RecordedPlayerHandleStatusIconUpdate,
     [CONTROLLER_STATUSANIMATION]          = RecordedPlayerHandleStatusAnimation,
-    [CONTROLLER_DATATRANSFER]             = RecordedPlayerHandleDataTransfer,
-    [CONTROLLER_TWORETURNVALUES]          = RecordedPlayerHandleTwoReturnValues,
-    [CONTROLLER_CHOSENMONRETURNVALUE]     = RecordedPlayerHandleChosenMonReturnValue,
-    [CONTROLLER_ONERETURNVALUE]           = RecordedPlayerHandleOneReturnValue,
-    [CONTROLLER_ONERETURNVALUE_DUPLICATE] = RecordedPlayerHandleOneReturnValue_Duplicate,
+    [CONTROLLER_DATATRANSFER]             = BtlController_Empty,
+    [CONTROLLER_TWORETURNVALUES]          = BtlController_Empty,
+    [CONTROLLER_CHOSENMONRETURNVALUE]     = BtlController_Empty,
+    [CONTROLLER_ONERETURNVALUE]           = BtlController_Empty,
+    [CONTROLLER_ONERETURNVALUE_DUPLICATE] = BtlController_Empty,
     [CONTROLLER_HITANIMATION]             = RecordedPlayerHandleHitAnimation,
-    [CONTROLLER_CANTSWITCH]               = RecordedPlayerHandleCantSwitch,
+    [CONTROLLER_CANTSWITCH]               = BtlController_Empty,
     [CONTROLLER_PLAYSE]                   = RecordedPlayerHandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = RecordedPlayerHandlePlayFanfareOrBGM,
     [CONTROLLER_FAINTINGCRY]              = RecordedPlayerHandleFaintingCry,
@@ -108,13 +95,13 @@ static void (*const sRecordedPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 ba
     [CONTROLLER_INTROTRAINERBALLTHROW]    = RecordedPlayerHandleIntroTrainerBallThrow,
     [CONTROLLER_DRAWPARTYSTATUSSUMMARY]   = RecordedPlayerHandleDrawPartyStatusSummary,
     [CONTROLLER_HIDEPARTYSTATUSSUMMARY]   = RecordedPlayerHandleHidePartyStatusSummary,
-    [CONTROLLER_ENDBOUNCE]                = RecordedPlayerHandleEndBounceEffect,
+    [CONTROLLER_ENDBOUNCE]                = BtlController_Empty,
     [CONTROLLER_SPRITEINVISIBILITY]       = RecordedPlayerHandleSpriteInvisibility,
     [CONTROLLER_BATTLEANIMATION]          = RecordedPlayerHandleBattleAnimation,
-    [CONTROLLER_LINKSTANDBYMSG]           = RecordedPlayerHandleLinkStandbyMsg,
-    [CONTROLLER_RESETACTIONMOVESELECTION] = RecordedPlayerHandleResetActionMoveSelection,
+    [CONTROLLER_LINKSTANDBYMSG]           = BtlController_Empty,
+    [CONTROLLER_RESETACTIONMOVESELECTION] = BtlController_Empty,
     [CONTROLLER_ENDLINKBATTLE]            = RecordedPlayerHandleEndLinkBattle,
-    [CONTROLLER_TERMINATOR_NOP]           = RecordedPlayerCmdEnd
+    [CONTROLLER_TERMINATOR_NOP]           = BtlController_TerminatorNop
 };
 
 static void RecordedPlayerDummy(u32 battler)
@@ -491,11 +478,6 @@ static void RecordedPlayerHandlePrintString(u32 battler)
     BtlController_HandlePrintString(battler, FALSE, FALSE);
 }
 
-static void RecordedPlayerHandlePrintSelectionString(u32 battler)
-{
-    RecordedPlayerBufferExecCompleted(battler);
-}
-
 static void ChooseActionInBattlePalace(u32 battler)
 {
     if (gBattleCommunication[4] >= gBattlersCount / 2)
@@ -516,11 +498,6 @@ static void RecordedPlayerHandleChooseAction(u32 battler)
         BtlController_EmitTwoReturnValues(battler, BUFFER_B, RecordedBattle_GetBattlerAction(RECORDED_ACTION_TYPE, battler), 0);
         RecordedPlayerBufferExecCompleted(battler);
     }
-}
-
-static void RecordedPlayerHandleYesNoBox(u32 battler)
-{
-    RecordedPlayerBufferExecCompleted(battler);
 }
 
 static void RecordedPlayerHandleChooseMove(u32 battler)
@@ -582,11 +559,6 @@ static void RecordedPlayerHandleHealthBarUpdate(u32 battler)
     gBattlerControllerFuncs[battler] = CompleteOnHealthbarDone;
 }
 
-static void RecordedPlayerHandleExpUpdate(u32 battler)
-{
-    RecordedPlayerBufferExecCompleted(battler);
-}
-
 static void RecordedPlayerHandleStatusIconUpdate(u32 battler)
 {
     if (!IsBattleSEPlaying(battler))
@@ -609,31 +581,6 @@ static void RecordedPlayerHandleStatusAnimation(u32 battler)
     }
 }
 
-static void RecordedPlayerHandleDataTransfer(u32 battler)
-{
-    RecordedPlayerBufferExecCompleted(battler);
-}
-
-static void RecordedPlayerHandleTwoReturnValues(u32 battler)
-{
-    RecordedPlayerBufferExecCompleted(battler);
-}
-
-static void RecordedPlayerHandleChosenMonReturnValue(u32 battler)
-{
-    RecordedPlayerBufferExecCompleted(battler);
-}
-
-static void RecordedPlayerHandleOneReturnValue(u32 battler)
-{
-    RecordedPlayerBufferExecCompleted(battler);
-}
-
-static void RecordedPlayerHandleOneReturnValue_Duplicate(u32 battler)
-{
-    RecordedPlayerBufferExecCompleted(battler);
-}
-
 static void RecordedPlayerHandleHitAnimation(u32 battler)
 {
     if (gSprites[gBattlerSpriteIds[battler]].invisible == TRUE)
@@ -647,11 +594,6 @@ static void RecordedPlayerHandleHitAnimation(u32 battler)
         DoHitAnimHealthboxEffect(battler);
         gBattlerControllerFuncs[battler] = DoHitAnimBlinkSpriteEffect;
     }
-}
-
-static void RecordedPlayerHandleCantSwitch(u32 battler)
-{
-    RecordedPlayerBufferExecCompleted(battler);
 }
 
 static void RecordedPlayerHandlePlaySE(u32 battler)
@@ -798,11 +740,6 @@ static void RecordedPlayerHandleHidePartyStatusSummary(u32 battler)
     RecordedPlayerBufferExecCompleted(battler);
 }
 
-static void RecordedPlayerHandleEndBounceEffect(u32 battler)
-{
-    RecordedPlayerBufferExecCompleted(battler);
-}
-
 static void RecordedPlayerHandleSpriteInvisibility(u32 battler)
 {
     if (IsBattlerSpritePresent(battler))
@@ -827,16 +764,6 @@ static void RecordedPlayerHandleBattleAnimation(u32 battler)
     }
 }
 
-static void RecordedPlayerHandleLinkStandbyMsg(u32 battler)
-{
-    RecordedPlayerBufferExecCompleted(battler);
-}
-
-static void RecordedPlayerHandleResetActionMoveSelection(u32 battler)
-{
-    RecordedPlayerBufferExecCompleted(battler);
-}
-
 static void RecordedPlayerHandleEndLinkBattle(u32 battler)
 {
     gBattleOutcome = gBattleBufferA[battler][1];
@@ -844,8 +771,4 @@ static void RecordedPlayerHandleEndLinkBattle(u32 battler)
     BeginFastPaletteFade(3);
     RecordedPlayerBufferExecCompleted(battler);
     gBattlerControllerFuncs[battler] = SetBattleEndCallbacks;
-}
-
-static void RecordedPlayerCmdEnd(u32 battler)
-{
 }
