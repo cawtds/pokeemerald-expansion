@@ -2851,6 +2851,49 @@ void BtlController_HandleIntroTrainerBallThrow(u32 battler, u32 trainerPalTag, c
 #undef tBattler
 #undef tStartTimer
 
+static void EndDrawPartyStatusSummary(u32 battler)
+{
+    if (gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusDelayTimer++ > 92)
+    {
+        gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusDelayTimer = 0;
+        BtlController_ExecCompleted(battler);
+    }
+}
+
+void BtlController_HandleDrawPartyStatusSummary(u32 battler)
+{
+    if (gBattleBufferA[battler][1] != 0 && GetBattlerSide(battler) == B_SIDE_PLAYER)
+    {
+        BtlController_ExecCompleted(battler);
+    }
+    else
+    {
+        gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusSummaryShown = 1;
+
+        if (GetBattlerSide(battler) == B_SIDE_OPPONENT && gBattleBufferA[battler][2] != 0)
+        {
+            if (gBattleSpritesDataPtr->healthBoxesData[battler].opponentDrawPartyStatusSummaryDelay < 2)
+            {
+                gBattleSpritesDataPtr->healthBoxesData[battler].opponentDrawPartyStatusSummaryDelay++;
+                return;
+            }
+            else
+            {
+                gBattleSpritesDataPtr->healthBoxesData[battler].opponentDrawPartyStatusSummaryDelay = 0;
+            }
+        }
+
+        gBattlerStatusSummaryTaskId[battler] = CreatePartyStatusSummarySprites(battler, (struct HpAndStatus *)&gBattleBufferA[battler][4], gBattleBufferA[battler][1], gBattleBufferA[battler][2]);
+        gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusDelayTimer = 0;
+
+        // If intro, skip the delay after drawing
+        if (gBattleBufferA[battler][2] != 0)
+            gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusDelayTimer = 93;
+
+        gBattlerControllerFuncs[battler] = EndDrawPartyStatusSummary;
+    }
+}
+
 void BtlController_TerminatorNop(u32 UNUSED battler)
 {
 }

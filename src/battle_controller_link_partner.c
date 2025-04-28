@@ -37,7 +37,6 @@ static void LinkPartnerHandleMoveAnimation(u32 battler);
 static void LinkPartnerHandlePrintString(u32 battler);
 static void LinkPartnerHandleHealthBarUpdate(u32 battler);
 static void LinkPartnerHandleIntroTrainerBallThrow(u32 battler);
-static void LinkPartnerHandleDrawPartyStatusSummary(u32 battler);
 static void LinkPartnerHandleHidePartyStatusSummary(u32 battler);
 static void LinkPartnerHandleSpriteInvisibility(u32 battler);
 static void LinkPartnerHandleBattleAnimation(u32 battler);
@@ -47,7 +46,6 @@ static void LinkPartnerHandleEndLinkBattle(u32 battler);
 static void LinkPartnerBufferRunCommand(u32 battler);
 static void LinkPartnerBufferExecCompleted(u32 battler);
 static void SwitchIn_WaitAndEnd(u32 battler);
-static void EndDrawPartyStatusSummary(u32 battler);
 
 static void (*const sLinkPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
 {
@@ -99,7 +97,7 @@ static void (*const sLinkPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battl
     [CONTROLLER_FAINTINGCRY]              = BtlController_HandleFaintingCry,
     [CONTROLLER_INTROSLIDE]               = BtlController_HandleIntroSlide,
     [CONTROLLER_INTROTRAINERBALLTHROW]    = LinkPartnerHandleIntroTrainerBallThrow,
-    [CONTROLLER_DRAWPARTYSTATUSSUMMARY]   = LinkPartnerHandleDrawPartyStatusSummary,
+    [CONTROLLER_DRAWPARTYSTATUSSUMMARY]   = BtlController_HandleDrawPartyStatusSummary,
     [CONTROLLER_HIDEPARTYSTATUSSUMMARY]   = LinkPartnerHandleHidePartyStatusSummary,
     [CONTROLLER_ENDBOUNCE]                = BtlController_Empty,
     [CONTROLLER_SPRITEINVISIBILITY]       = LinkPartnerHandleSpriteInvisibility,
@@ -333,34 +331,6 @@ static void LinkPartnerHandleIntroTrainerBallThrow(u32 battler)
 {
     u32 trainerPicId = LinkPlayerGetTrainerPic(GetBattlerMultiplayerId(battler));
     BtlController_HandleIntroTrainerBallThrow(battler, 0xD6F9, gTrainerBackPicPaletteTable[trainerPicId].data, 24, Intro_ShowHealthbox);
-}
-
-static void LinkPartnerHandleDrawPartyStatusSummary(u32 battler)
-{
-    if (gBattleBufferA[battler][1] != 0 && GetBattlerSide(battler) == B_SIDE_PLAYER)
-    {
-        LinkPartnerBufferExecCompleted(battler);
-    }
-    else
-    {
-        gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusSummaryShown = 1;
-        gBattlerStatusSummaryTaskId[battler] = CreatePartyStatusSummarySprites(battler, (struct HpAndStatus *)&gBattleBufferA[battler][4], gBattleBufferA[battler][1], gBattleBufferA[battler][2]);
-        gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusDelayTimer = 0;
-
-        if (gBattleBufferA[battler][2] != 0)
-            gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusDelayTimer = 93;
-
-        gBattlerControllerFuncs[battler] = EndDrawPartyStatusSummary;
-    }
-}
-
-static void EndDrawPartyStatusSummary(u32 battler)
-{
-    if (gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusDelayTimer++ > 92)
-    {
-        gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusDelayTimer = 0;
-        LinkPartnerBufferExecCompleted(battler);
-    }
 }
 
 static void LinkPartnerHandleHidePartyStatusSummary(u32 battler)

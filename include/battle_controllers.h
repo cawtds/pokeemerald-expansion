@@ -240,6 +240,7 @@ void BtlController_EmitLinkStandbyMsg(u32 battler, u8 bufferId, u8 mode, bool32 
 void BtlController_EmitResetActionMoveSelection(u32 battler, u8 bufferId, u8 caseId);
 void BtlController_EmitEndLinkBattle(u32 battler, u8 bufferId, u8 battleOutcome);
 
+// handlers
 void BtlController_Empty(u32 battler);
 void BtlController_HandleGetMonData(u32 battler);
 void BtlController_HandleSetMonData(u32 battler);
@@ -263,6 +264,7 @@ void BtlController_HandlePlayFanfareOrBGM(u32 battler);
 void BtlController_HandleFaintingCry(u32 battler);
 void BtlController_HandleIntroSlide(u32 battler);
 void BtlController_HandleIntroTrainerBallThrow(u32 battler, u32 trainerPalTag, const u32 *trainerPal, u32 waitTime, void (*controllerCallback)(u32 battler));
+void BtlController_HandleDrawPartyStatusSummary(u32 battler);
 
 void BtlController_TerminatorNop(u32 battler);
 
