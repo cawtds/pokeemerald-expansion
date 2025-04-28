@@ -38,7 +38,6 @@ static void LinkOpponentHandleMoveAnimation(u32 battler);
 static void LinkOpponentHandlePrintString(u32 battler);
 static void LinkOpponentHandleHealthBarUpdate(u32 battler);
 static void LinkOpponentHandleIntroTrainerBallThrow(u32 battler);
-static void LinkOpponentHandleSpriteInvisibility(u32 battler);
 static void LinkOpponentHandleBattleAnimation(u32 battler);
 static void LinkOpponentHandleLinkStandbyMsg(u32 battler);
 static void LinkOpponentHandleEndLinkBattle(u32 battler);
@@ -100,7 +99,7 @@ static void (*const sLinkOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 batt
     [CONTROLLER_DRAWPARTYSTATUSSUMMARY]   = BtlController_HandleDrawPartyStatusSummary,
     [CONTROLLER_HIDEPARTYSTATUSSUMMARY]   = BtlController_HandleHidePartyStatusSummary,
     [CONTROLLER_ENDBOUNCE]                = BtlController_Empty,
-    [CONTROLLER_SPRITEINVISIBILITY]       = LinkOpponentHandleSpriteInvisibility,
+    [CONTROLLER_SPRITEINVISIBILITY]       = BtlController_HandleSpriteInvisibility,
     [CONTROLLER_BATTLEANIMATION]          = LinkOpponentHandleBattleAnimation,
     [CONTROLLER_LINKSTANDBYMSG]           = LinkOpponentHandleLinkStandbyMsg,
     [CONTROLLER_RESETACTIONMOVESELECTION] = BtlController_Empty,
@@ -497,16 +496,6 @@ static void LinkOpponentHandleHealthBarUpdate(u32 battler)
 static void LinkOpponentHandleIntroTrainerBallThrow(u32 battler)
 {
     BtlController_HandleIntroTrainerBallThrow(battler, 0, NULL, 0, Intro_TryShinyAnimShowHealthbox);
-}
-
-static void LinkOpponentHandleSpriteInvisibility(u32 battler)
-{
-    if (IsBattlerSpritePresent(battler))
-    {
-        gSprites[gBattlerSpriteIds[battler]].invisible = gBattleBufferA[battler][1];
-        CopyBattleSpriteInvisibility(battler);
-    }
-    LinkOpponentBufferExecCompleted(battler);
 }
 
 static void LinkOpponentHandleBattleAnimation(u32 battler)

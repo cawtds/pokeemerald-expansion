@@ -42,7 +42,6 @@ static void RecordedOpponentHandleChooseItem(u32 battler);
 static void RecordedOpponentHandleChoosePokemon(u32 battler);
 static void RecordedOpponentHandleHealthBarUpdate(u32 battler);
 static void RecordedOpponentHandleIntroTrainerBallThrow(u32 battler);
-static void RecordedOpponentHandleSpriteInvisibility(u32 battler);
 static void RecordedOpponentHandleBattleAnimation(u32 battler);
 static void RecordedOpponentHandleEndLinkBattle(u32 battler);
 
@@ -103,7 +102,7 @@ static void (*const sRecordedOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(u32 
     [CONTROLLER_DRAWPARTYSTATUSSUMMARY]   = BtlController_HandleDrawPartyStatusSummary,
     [CONTROLLER_HIDEPARTYSTATUSSUMMARY]   = BtlController_HandleHidePartyStatusSummary,
     [CONTROLLER_ENDBOUNCE]                = BtlController_Empty,
-    [CONTROLLER_SPRITEINVISIBILITY]       = RecordedOpponentHandleSpriteInvisibility,
+    [CONTROLLER_SPRITEINVISIBILITY]       = BtlController_HandleSpriteInvisibility,
     [CONTROLLER_BATTLEANIMATION]          = RecordedOpponentHandleBattleAnimation,
     [CONTROLLER_LINKSTANDBYMSG]           = BtlController_Empty,
     [CONTROLLER_RESETACTIONMOVESELECTION] = BtlController_Empty,
@@ -487,16 +486,6 @@ static void RecordedOpponentHandleHealthBarUpdate(u32 battler)
 static void RecordedOpponentHandleIntroTrainerBallThrow(u32 battler)
 {
     BtlController_HandleIntroTrainerBallThrow(battler, 0, NULL, 0, Intro_TryShinyAnimShowHealthbox);
-}
-
-static void RecordedOpponentHandleSpriteInvisibility(u32 battler)
-{
-    if (IsBattlerSpritePresent(battler))
-    {
-        gSprites[gBattlerSpriteIds[battler]].invisible = gBattleBufferA[battler][1];
-        CopyBattleSpriteInvisibility(battler);
-    }
-    RecordedOpponentBufferExecCompleted(battler);
 }
 
 static void RecordedOpponentHandleBattleAnimation(u32 battler)
