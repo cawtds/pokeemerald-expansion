@@ -2976,13 +2976,6 @@ extern const u8 gText_NoRibbonWinners[];
 extern const u8 gText_NumberIndex[];
 extern const u8 gText_RibbonsF700[];
 
-// use_pokeblock
-extern const u8 gText_Coolness[];
-extern const u8 gText_Toughness[];
-extern const u8 gText_Smartness[];
-extern const u8 gText_Cuteness[];
-extern const u8 gText_Beauty3[];
-
 // Berry Blender
 extern const u8 gText_SavingDontTurnOff2[];
 extern const u8 gText_BlenderMaxSpeedRecord[];

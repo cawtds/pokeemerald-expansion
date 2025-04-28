@@ -113,6 +113,15 @@ struct UsePokeblockMenu
     struct UsePokeblockSession info;
 };
 
+struct ConditionInfo
+{
+    const u8 *name;
+    s16 upDownX;
+    s16 upDownY;
+    u8 monData;
+    u8 flavor;
+};
+
 static void SetUsePokeblockCallback(void (*func)(void));
 static void LoadUsePokeblockMenu(void);
 static void CB2_UsePokeblockMenu(void);
@@ -177,24 +186,52 @@ static const u32 sMonFrame_Gfx[] = INCBIN_U32("graphics/pokeblock/use_screen/mon
 static const u32 sMonFrame_Tilemap[] = INCBIN_U32("graphics/pokeblock/use_screen/mon_frame.bin.lz");
 static const u32 sGraphData_Tilemap[] = INCBIN_U32("graphics/pokeblock/use_screen/graph_data.bin.lz");
 
-// The condition/flavors aren't listed in their normal order in this file, they're listed as shown on the graph going counter-clockwise
-// Normally they would go Cool/Spicy, Beauty/Dry, Cute/Sweet, Smart/Bitter, Tough/Sour (also graph order, but clockwise)
-static const u32 sConditionToMonData[CONDITION_COUNT] =
+static const struct ConditionInfo sConditionInfo[CONDITION_COUNT] =
 {
-    [CONDITION_COOL]   = MON_DATA_COOL,
-    [CONDITION_TOUGH]  = MON_DATA_TOUGH,
-    [CONDITION_SMART]  = MON_DATA_SMART,
-    [CONDITION_CUTE]   = MON_DATA_CUTE,
-    [CONDITION_BEAUTY] = MON_DATA_BEAUTY
-};
+    [CONDITION_COOL]   =
+    {
+        .monData = MON_DATA_COOL,
+        .flavor = FLAVOR_SPICY,
+        .name = COMPOUND_STRING("Coolness "),
+        .upDownX = 156,
+        .upDownY = 36,
+    },
 
-static const u8 sConditionToFlavor[CONDITION_COUNT] =
-{
-    [CONDITION_COOL]   = FLAVOR_SPICY,
-    [CONDITION_TOUGH]  = FLAVOR_SOUR,
-    [CONDITION_SMART]  = FLAVOR_BITTER,
-    [CONDITION_CUTE]   = FLAVOR_SWEET,
-    [CONDITION_BEAUTY] = FLAVOR_DRY
+    [CONDITION_TOUGH]  =
+    {
+        .monData = MON_DATA_TOUGH,
+        .flavor = FLAVOR_SOUR,
+        .name = COMPOUND_STRING("Toughness "),
+        .upDownX = 117,
+        .upDownY = 59,
+    },
+
+    [CONDITION_SMART]  =
+    {
+        .monData = MON_DATA_SMART,
+        .flavor = FLAVOR_BITTER,
+        .name = COMPOUND_STRING("Smartness "),
+        .upDownX = 117,
+        .upDownY = 118,
+    },
+
+    [CONDITION_CUTE]   =
+    {
+        .monData = MON_DATA_CUTE,
+        .flavor = FLAVOR_SWEET,
+        .name = COMPOUND_STRING("Cuteness "),
+        .upDownX = 197,
+        .upDownY = 118,
+    },
+
+    [CONDITION_BEAUTY] =
+    {
+        .monData = MON_DATA_BEAUTY,
+        .flavor = FLAVOR_DRY,
+        .name = COMPOUND_STRING("Beauty "),
+        .upDownX = 197,
+        .upDownY = 59,
+    },
 };
 
 static const u8 sNatureTextColors[] =
@@ -287,15 +324,6 @@ static const struct WindowTemplate sUsePokeblockYesNoWinTemplate =
     .baseBlock = 0x83
 };
 
-static const u8 *const sConditionNames[CONDITION_COUNT] =
-{
-    [CONDITION_COOL]   = gText_Coolness,
-    [CONDITION_TOUGH]  = gText_Toughness,
-    [CONDITION_SMART]  = gText_Smartness,
-    [CONDITION_CUTE]   = gText_Cuteness,
-    [CONDITION_BEAUTY] = gText_Beauty3
-};
-
 static const struct SpriteSheet sSpriteSheet_UpDown =
 {
     gUsePokeblockUpDown_Gfx, 0x200, TAG_UP_DOWN
@@ -304,15 +332,6 @@ static const struct SpriteSheet sSpriteSheet_UpDown =
 static const struct SpritePalette sSpritePalette_UpDown =
 {
     gUsePokeblockUpDown_Pal, TAG_UP_DOWN
-};
-
-static const s16 sUpDownCoordsOnGraph[CONDITION_COUNT][2] =
-{
-    [CONDITION_COOL]   = {156,  36},
-    [CONDITION_TOUGH]  = {117,  59},
-    [CONDITION_SMART]  = {117, 118},
-    [CONDITION_CUTE]   = {197, 118},
-    [CONDITION_BEAUTY] = {197,  59}
 };
 
 static const struct OamData sOam_UpDown =
@@ -977,7 +996,7 @@ static void BufferEnhancedText(u8 *dest, u8 condition, s16 enhancement)
     case -32768 ... -1: // if < 0
         if (enhancement)
             dest[(u16)enhancement] += 0; // something you can't imagine
-        StringCopy(dest, sConditionNames[condition]);
+        StringCopy(dest, sConditionInfo[condition].name);
         StringAppend(dest, gText_WasEnhanced);
         break;
     case 0:
@@ -991,7 +1010,7 @@ static void GetMonConditions(struct Pokemon *mon, u8 *data)
     u16 i;
 
     for (i = 0; i < CONDITION_COUNT; i++)
-        data[i] = GetMonData(mon, sConditionToMonData[i]);
+        data[i] = GetMonData(mon, sConditionInfo[i].monData);
 }
 
 static void AddPokeblockToConditions(struct Pokeblock *pokeblock, struct Pokemon *mon)
@@ -1005,14 +1024,14 @@ static void AddPokeblockToConditions(struct Pokeblock *pokeblock, struct Pokemon
         CalculatePokeblockEffectiveness(pokeblock, mon);
         for (i = 0; i < CONDITION_COUNT; i++)
         {
-            data = GetMonData(mon, sConditionToMonData[i]);
+            data = GetMonData(mon, sConditionInfo[i].monData);
             stat = data +  sInfo->pokeblockStatBoosts[i];
             if (stat < 0)
                 stat = 0;
             if (stat > MAX_CONDITION)
                 stat = MAX_CONDITION;
             data = stat;
-            SetMonData(mon, sConditionToMonData[i], &data);
+            SetMonData(mon, sConditionInfo[i].monData, &data);
         }
 
         stat = (u8)(GetMonData(mon, MON_DATA_SHEEN)) + pokeblock->feel;
@@ -1062,7 +1081,7 @@ static void CalculatePokeblockEffectiveness(struct Pokeblock *pokeblock, struct 
         if (amount % 10 >= 5) // round to the nearest
             boost++;
 
-        flavor = GetMonFlavorRelation(mon, sConditionToFlavor[i]);
+        flavor = GetMonFlavorRelation(mon, sConditionInfo[i].flavor);
         if (flavor == direction)
             sInfo->pokeblockStatBoosts[i] += boost * flavor;
     }
@@ -1126,7 +1145,7 @@ static void LoadAndCreateUpDownSprites(void)
     {
         if (sInfo->enhancements[i] != 0)
         {
-            u16 spriteId = CreateSprite(&sSpriteTemplate_UpDown, sUpDownCoordsOnGraph[i][0], sUpDownCoordsOnGraph[i][1], 0);
+            u16 spriteId = CreateSprite(&sSpriteTemplate_UpDown, sConditionInfo[i].upDownX, sConditionInfo[i].upDownY, 0);
             if (spriteId != MAX_SPRITES)
             {
                 if (sInfo->enhancements[i] != 0) // Always true here
