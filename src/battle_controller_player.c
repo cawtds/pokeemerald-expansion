@@ -1250,12 +1250,6 @@ void CB2_SetUpReshowBattleScreenAfterMenu2(void)
     SetMainCallback2(ReshowBattleScreenAfterMenu);
 }
 
-static void CompleteOnFinishedBattleAnimation(u32 battler)
-{
-    if (!gBattleSpritesDataPtr->healthBoxesData[battler].animFromTableActive)
-        PlayerBufferExecCompleted(battler);
-}
-
 static void PrintLinkStandbyMsg(void)
 {
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
@@ -1556,18 +1550,7 @@ static void PlayerHandleEndBounceEffect(u32 battler)
 
 static void PlayerHandleBattleAnimation(u32 battler)
 {
-    if (!IsBattleSEPlaying(battler))
-    {
-        u8 animationId = gBattleBufferA[battler][1];
-        u16 argument = gBattleBufferA[battler][2] | (gBattleBufferA[battler][3] << 8);
-
-        if (TryHandleLaunchBattleTableAnimation(battler, battler, battler, animationId, argument))
-            PlayerBufferExecCompleted(battler);
-        else
-            gBattlerControllerFuncs[battler] = CompleteOnFinishedBattleAnimation;
-
-        BattleTv_SetDataBasedOnAnimation(animationId);
-    }
+    BtlController_HandleBattleAnimation(battler, FALSE, TRUE);
 }
 
 static void PlayerHandleLinkStandbyMsg(u32 battler)

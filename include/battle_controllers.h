@@ -267,6 +267,7 @@ void BtlController_HandleIntroTrainerBallThrow(u32 battler, u32 trainerPalTag, c
 void BtlController_HandleDrawPartyStatusSummary(u32 battler);
 void BtlController_HandleHidePartyStatusSummary(u32 battler);
 void BtlController_HandleSpriteInvisibility(u32 battler);
+void BtlController_HandleBattleAnimation(u32 battler, bool32 ignoreSE, bool32 updateBattleTV);
 
 void BtlController_TerminatorNop(u32 battler);
 

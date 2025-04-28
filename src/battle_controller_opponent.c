@@ -379,12 +379,6 @@ static void SwitchIn_TryShinyAnim(u32 battler)
     }
 }
 
-static void CompleteOnFinishedBattleAnimation(u32 battler)
-{
-    if (!gBattleSpritesDataPtr->healthBoxesData[battler].animFromTableActive)
-        OpponentBufferExecCompleted(battler);
-}
-
 static void OpponentBufferExecCompleted(u32 battler)
 {
     gBattlerControllerFuncs[battler] = OpponentBufferRunCommand;
@@ -634,16 +628,7 @@ static void OpponentHandleIntroTrainerBallThrow(u32 battler)
 
 static void OpponentHandleBattleAnimation(u32 battler)
 {
-    if (!IsBattleSEPlaying(battler))
-    {
-        u8 animationId = gBattleBufferA[battler][1];
-        u16 argument = gBattleBufferA[battler][2] | (gBattleBufferA[battler][3] << 8);
-
-        if (TryHandleLaunchBattleTableAnimation(battler, battler, battler, animationId, argument))
-            OpponentBufferExecCompleted(battler);
-        else
-            gBattlerControllerFuncs[battler] = CompleteOnFinishedBattleAnimation;
-    }
+    BtlController_HandleBattleAnimation(battler, FALSE, FALSE);
 }
 
 static void OpponentHandleEndLinkBattle(u32 battler)

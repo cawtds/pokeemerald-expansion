@@ -2911,6 +2911,29 @@ void BtlController_HandleSpriteInvisibility(u32 battler)
     BtlController_ExecCompleted(battler);
 }
 
+static void CompleteOnFinishedBattleAnimation(u32 battler)
+{
+    if (!gBattleSpritesDataPtr->healthBoxesData[battler].animFromTableActive)
+        BtlController_ExecCompleted(battler);
+}
+
+void BtlController_HandleBattleAnimation(u32 battler, bool32 ignoreSE, bool32 updateBattleTV)
+{
+    if (ignoreSE || !IsBattleSEPlaying(battler))
+    {
+        u32 animationId = gBattleBufferA[battler][1];
+        u32 argument = gBattleBufferA[battler][2] | (gBattleBufferA[battler][3] << 8);
+
+        if (TryHandleLaunchBattleTableAnimation(battler, battler, battler, animationId, argument))
+            BtlController_ExecCompleted(battler);
+        else
+            gBattlerControllerFuncs[battler] = CompleteOnFinishedBattleAnimation;
+
+        if (updateBattleTV)
+            BattleTv_SetDataBasedOnAnimation(animationId);
+    }
+}
+
 void BtlController_TerminatorNop(u32 UNUSED battler)
 {
 }

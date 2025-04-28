@@ -280,12 +280,6 @@ static void Intro_WaitForShinyAnimAndHealthbox(u32 battler)
     }
 }
 
-static void CompleteOnFinishedBattleAnimation(u32 battler)
-{
-    if (!gBattleSpritesDataPtr->healthBoxesData[battler].animFromTableActive)
-        WallyBufferExecCompleted(battler);
-}
-
 static void WallyBufferExecCompleted(u32 battler)
 {
     gBattlerControllerFuncs[battler] = WallyBufferRunCommand;
@@ -445,13 +439,7 @@ static void WallyHandleDrawPartyStatusSummary(u32 battler)
 
 static void WallyHandleBattleAnimation(u32 battler)
 {
-    u8 animationId = gBattleBufferA[battler][1];
-    u16 argument = gBattleBufferA[battler][2] | (gBattleBufferA[battler][3] << 8);
-
-    if (TryHandleLaunchBattleTableAnimation(battler, battler, battler, animationId, argument))
-        WallyBufferExecCompleted(battler);
-    else
-        gBattlerControllerFuncs[battler] = CompleteOnFinishedBattleAnimation;
+    BtlController_HandleBattleAnimation(battler, TRUE, FALSE);
 }
 
 static void WallyHandleEndLinkBattle(u32 battler)

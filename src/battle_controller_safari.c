@@ -223,12 +223,6 @@ static void CompleteWhenChosePokeblock(u32 battler)
     }
 }
 
-static void CompleteOnFinishedBattleAnimation(u32 battler)
-{
-    if (!gBattleSpritesDataPtr->healthBoxesData[battler].animFromTableActive)
-        SafariBufferExecCompleted(battler);
-}
-
 static void SafariBufferExecCompleted(u32 battler)
 {
     gBattlerControllerFuncs[battler] = SafariBufferRunCommand;
@@ -327,13 +321,7 @@ static void SafariHandleIntroTrainerBallThrow(u32 battler)
 
 static void SafariHandleBattleAnimation(u32 battler)
 {
-    u8 animationId = gBattleBufferA[battler][1];
-    u16 argument = gBattleBufferA[battler][2] | (gBattleBufferA[battler][3] << 8);
-
-    if (TryHandleLaunchBattleTableAnimation(battler, battler, battler, animationId, argument))
-        SafariBufferExecCompleted(battler);
-    else
-        gBattlerControllerFuncs[battler] = CompleteOnFinishedBattleAnimation;
+    BtlController_HandleBattleAnimation(battler, TRUE, FALSE);
 }
 
 static void SafariHandleEndLinkBattle(u32 battler)

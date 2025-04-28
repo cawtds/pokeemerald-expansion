@@ -348,12 +348,6 @@ static void RecordedPlayerBufferExecCompleted(u32 battler)
     }
 }
 
-static void CompleteOnFinishedBattleAnimation(u32 battler)
-{
-    if (!gBattleSpritesDataPtr->healthBoxesData[battler].animFromTableActive)
-        RecordedPlayerBufferExecCompleted(battler);
-}
-
 static void RecordedPlayerHandleLoadMonSprite(u32 battler)
 {
     BtlController_HandleLoadMonSprite(battler, WaitForMonAnimAfterLoad);
@@ -508,16 +502,7 @@ static void RecordedPlayerHandleIntroTrainerBallThrow(u32 battler)
 
 static void RecordedPlayerHandleBattleAnimation(u32 battler)
 {
-    if (!IsBattleSEPlaying(battler))
-    {
-        u8 animationId = gBattleBufferA[battler][1];
-        u16 argument = gBattleBufferA[battler][2] | (gBattleBufferA[battler][3] << 8);
-
-        if (TryHandleLaunchBattleTableAnimation(battler, battler, battler, animationId, argument))
-            RecordedPlayerBufferExecCompleted(battler);
-        else
-            gBattlerControllerFuncs[battler] = CompleteOnFinishedBattleAnimation;
-    }
+    BtlController_HandleBattleAnimation(battler, FALSE, FALSE);
 }
 
 static void RecordedPlayerHandleEndLinkBattle(u32 battler)

@@ -271,12 +271,6 @@ static void PlayerPartnerBufferExecCompleted(u32 battler)
     }
 }
 
-static void CompleteOnFinishedBattleAnimation(u32 battler)
-{
-    if (!gBattleSpritesDataPtr->healthBoxesData[battler].animFromTableActive)
-        PlayerPartnerBufferExecCompleted(battler);
-}
-
 static void PlayerPartnerHandleLoadMonSprite(u32 battler)
 {
     BtlController_HandleLoadMonSprite(battler, WaitForMonAnimAfterLoad);
@@ -403,16 +397,7 @@ static void PlayerPartnerHandleIntroTrainerBallThrow(u32 battler)
 
 static void PlayerPartnerHandleBattleAnimation(u32 battler)
 {
-    if (!IsBattleSEPlaying(battler))
-    {
-        u8 animationId = gBattleBufferA[battler][1];
-        u16 argument = gBattleBufferA[battler][2] | (gBattleBufferA[battler][3] << 8);
-
-        if (TryHandleLaunchBattleTableAnimation(battler, battler, battler, animationId, argument))
-            PlayerPartnerBufferExecCompleted(battler);
-        else
-            gBattlerControllerFuncs[battler] = CompleteOnFinishedBattleAnimation;
-    }
+    BtlController_HandleBattleAnimation(battler, FALSE, FALSE);
 }
 
 static void PlayerPartnerHandleEndLinkBattle(u32 battler)
