@@ -38,7 +38,6 @@ static void RecordedPlayerHandleChooseItem(u32 battler);
 static void RecordedPlayerHandleChoosePokemon(u32 battler);
 static void RecordedPlayerHandleHealthBarUpdate(u32 battler);
 static void RecordedPlayerHandleIntroTrainerBallThrow(u32 battler);
-static void RecordedPlayerHandleHidePartyStatusSummary(u32 battler);
 static void RecordedPlayerHandleSpriteInvisibility(u32 battler);
 static void RecordedPlayerHandleBattleAnimation(u32 battler);
 static void RecordedPlayerHandleEndLinkBattle(u32 battler);
@@ -98,7 +97,7 @@ static void (*const sRecordedPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 ba
     [CONTROLLER_INTROSLIDE]               = BtlController_HandleIntroSlide,
     [CONTROLLER_INTROTRAINERBALLTHROW]    = RecordedPlayerHandleIntroTrainerBallThrow,
     [CONTROLLER_DRAWPARTYSTATUSSUMMARY]   = BtlController_HandleDrawPartyStatusSummary,
-    [CONTROLLER_HIDEPARTYSTATUSSUMMARY]   = RecordedPlayerHandleHidePartyStatusSummary,
+    [CONTROLLER_HIDEPARTYSTATUSSUMMARY]   = BtlController_HandleHidePartyStatusSummary,
     [CONTROLLER_ENDBOUNCE]                = BtlController_Empty,
     [CONTROLLER_SPRITEINVISIBILITY]       = RecordedPlayerHandleSpriteInvisibility,
     [CONTROLLER_BATTLEANIMATION]          = RecordedPlayerHandleBattleAnimation,
@@ -506,13 +505,6 @@ static void RecordedPlayerHandleIntroTrainerBallThrow(u32 battler)
         trainerPicId = gSaveBlock2Ptr->playerGender;
 
     BtlController_HandleIntroTrainerBallThrow(battler, 0xD6F9, gTrainerBackPicPaletteTable[trainerPicId].data, 24, Intro_TryShinyAnimShowHealthbox);
-}
-
-static void RecordedPlayerHandleHidePartyStatusSummary(u32 battler)
-{
-    if (gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusSummaryShown)
-        gTasks[gBattlerStatusSummaryTaskId[battler]].func = Task_HidePartyStatusSummary;
-    RecordedPlayerBufferExecCompleted(battler);
 }
 
 static void RecordedPlayerHandleSpriteInvisibility(u32 battler)

@@ -2894,6 +2894,13 @@ void BtlController_HandleDrawPartyStatusSummary(u32 battler)
     }
 }
 
+void BtlController_HandleHidePartyStatusSummary(u32 battler)
+{
+    if (gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusSummaryShown)
+        gTasks[gBattlerStatusSummaryTaskId[battler]].func = Task_HidePartyStatusSummary;
+    BtlController_ExecCompleted(battler);
+}
+
 void BtlController_TerminatorNop(u32 UNUSED battler)
 {
 }

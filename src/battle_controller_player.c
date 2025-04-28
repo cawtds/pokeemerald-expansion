@@ -61,7 +61,6 @@ static void PlayerHandleChosenMonReturnValue(u32 battler);
 static void PlayerHandleOneReturnValue(u32 battler);
 static void PlayerHandleOneReturnValue_Duplicate(u32 battler);
 static void PlayerHandleIntroTrainerBallThrow(u32 battler);
-static void PlayerHandleHidePartyStatusSummary(u32 battler);
 static void PlayerHandleEndBounceEffect(u32 battler);
 static void PlayerHandleSpriteInvisibility(u32 battler);
 static void PlayerHandleBattleAnimation(u32 battler);
@@ -135,7 +134,7 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
     [CONTROLLER_INTROSLIDE]               = BtlController_HandleIntroSlide,
     [CONTROLLER_INTROTRAINERBALLTHROW]    = PlayerHandleIntroTrainerBallThrow,
     [CONTROLLER_DRAWPARTYSTATUSSUMMARY]   = BtlController_HandleDrawPartyStatusSummary,
-    [CONTROLLER_HIDEPARTYSTATUSSUMMARY]   = PlayerHandleHidePartyStatusSummary,
+    [CONTROLLER_HIDEPARTYSTATUSSUMMARY]   = BtlController_HandleHidePartyStatusSummary,
     [CONTROLLER_ENDBOUNCE]                = PlayerHandleEndBounceEffect,
     [CONTROLLER_SPRITEINVISIBILITY]       = PlayerHandleSpriteInvisibility,
     [CONTROLLER_BATTLEANIMATION]          = PlayerHandleBattleAnimation,
@@ -1547,13 +1546,6 @@ static void PlayerHandleOneReturnValue_Duplicate(u32 battler)
 static void PlayerHandleIntroTrainerBallThrow(u32 battler)
 {
     BtlController_HandleIntroTrainerBallThrow(battler, 0xD6F8, gTrainerBackPicPaletteTable[gSaveBlock2Ptr->playerGender].data, 31, Intro_TryShinyAnimShowHealthbox);
-}
-
-static void PlayerHandleHidePartyStatusSummary(u32 battler)
-{
-    if (gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusSummaryShown)
-        gTasks[gBattlerStatusSummaryTaskId[battler]].func = Task_HidePartyStatusSummary;
-    PlayerBufferExecCompleted(battler);
 }
 
 static void PlayerHandleEndBounceEffect(u32 battler)

@@ -40,7 +40,6 @@ static void PlayerPartnerHandleChooseMove(u32 battler);
 static void PlayerPartnerHandleChoosePokemon(u32 battler);
 static void PlayerPartnerHandleHealthBarUpdate(u32 battler);
 static void PlayerPartnerHandleIntroTrainerBallThrow(u32 battler);
-static void PlayerPartnerHandleHidePartyStatusSummary(u32 battler);
 static void PlayerPartnerHandleSpriteInvisibility(u32 battler);
 static void PlayerPartnerHandleBattleAnimation(u32 battler);
 static void PlayerPartnerHandleEndLinkBattle(u32 battler);
@@ -100,7 +99,7 @@ static void (*const sPlayerPartnerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 bat
     [CONTROLLER_INTROSLIDE]               = BtlController_HandleIntroSlide,
     [CONTROLLER_INTROTRAINERBALLTHROW]    = PlayerPartnerHandleIntroTrainerBallThrow,
     [CONTROLLER_DRAWPARTYSTATUSSUMMARY]   = BtlController_HandleDrawPartyStatusSummary,
-    [CONTROLLER_HIDEPARTYSTATUSSUMMARY]   = PlayerPartnerHandleHidePartyStatusSummary,
+    [CONTROLLER_HIDEPARTYSTATUSSUMMARY]   = BtlController_HandleHidePartyStatusSummary,
     [CONTROLLER_ENDBOUNCE]                = BtlController_Empty,
     [CONTROLLER_SPRITEINVISIBILITY]       = PlayerPartnerHandleSpriteInvisibility,
     [CONTROLLER_BATTLEANIMATION]          = PlayerPartnerHandleBattleAnimation,
@@ -401,13 +400,6 @@ static void PlayerPartnerHandleIntroTrainerBallThrow(u32 battler)
         trainerPal = gTrainerFrontPicPaletteTable[GetFrontierTrainerFrontSpriteId(gPartnerTrainerId)].data;
 
     BtlController_HandleIntroTrainerBallThrow(battler, 0xD6F9, trainerPal, 24, Intro_ShowHealthbox);
-}
-
-static void PlayerPartnerHandleHidePartyStatusSummary(u32 battler)
-{
-    if (gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusSummaryShown)
-        gTasks[gBattlerStatusSummaryTaskId[battler]].func = Task_HidePartyStatusSummary;
-    PlayerPartnerBufferExecCompleted(battler);
 }
 
 static void PlayerPartnerHandleSpriteInvisibility(u32 battler)
