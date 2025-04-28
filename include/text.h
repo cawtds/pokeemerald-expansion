@@ -7,7 +7,8 @@
 // loaded at once but not copied to vram yet.
 #define TEXT_SKIP_DRAW 0xFF
 
-enum {
+enum Font
+{
     FONT_SMALL,
     FONT_NORMAL,
     FONT_SHORT,
@@ -18,6 +19,7 @@ enum {
     FONT_NARROW,
     FONT_SMALL_NARROW, // Very similar to FONT_SMALL, some glyphs are narrower
     FONT_BOLD, // JP glyph set only
+    FONT_COUNT
 };
 
 // Return values for font functions
@@ -97,6 +99,10 @@ struct TextPrinter
 struct FontInfo
 {
     u16 (*fontFunction)(struct TextPrinter *x);
+    u32 (*widthFunction)(u16 glyphId, bool32 isJapanese);
+    void (*decompressFunction)(u16 glyphId, bool32 isJapanese);
+    u8 cursorWidth;
+    u8 cursorHeight;
     u8 maxLetterWidth;
     u8 maxLetterHeight;
     u8 letterSpacing;
@@ -107,7 +113,7 @@ struct FontInfo
     u8 shadowColor:4;
 };
 
-extern const struct FontInfo *gFonts;
+extern const struct FontInfo gFontInfo[];
 
 struct GlyphWidthFunc
 {
@@ -160,9 +166,17 @@ u8 DrawKeypadIcon(u8 windowId, u8 keypadIconId, u16 x, u16 y);
 u8 GetKeypadIconTileOffset(u8 keypadIconId);
 u8 GetKeypadIconWidth(u8 keypadIconId);
 u8 GetKeypadIconHeight(u8 keypadIconId);
-void SetDefaultFontsPointer(void);
 u8 GetFontAttribute(u8 fontId, u8 attributeId);
-u8 GetMenuCursorDimensionByFont(u8 fontId, u8 whichDimension);
+
+static inline u32 Font_GetCursorWidth(enum Font fontId)
+{
+    return gFontInfo[fontId].cursorWidth;
+}
+
+static inline u32 Font_GetCursorHeight(enum Font fontId)
+{
+    return gFontInfo[fontId].cursorHeight;
+}
 
 // braille.c
 u16 FontFunc_Braille(struct TextPrinter *textPrinter);

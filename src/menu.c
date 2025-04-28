@@ -912,7 +912,7 @@ u8 InitMenuNormal(u8 windowId, u8 fontId, u8 left, u8 top, u8 cursorHeight, u8 n
 
 static u8 UNUSED InitMenuDefaultCursorHeight(u8 windowId, u8 fontId, u8 left, u8 top, u8 numChoices, u8 initialCursorPos)
 {
-    u8 cursorHeight = GetMenuCursorDimensionByFont(fontId, 1);
+    u8 cursorHeight = Font_GetCursorHeight(fontId);
     return InitMenuNormal(windowId, fontId, left, top, cursorHeight, numChoices, initialCursorPos);
 }
 
@@ -920,8 +920,8 @@ void RedrawMenuCursor(u8 oldPos, u8 newPos)
 {
     u8 width, height;
 
-    width = GetMenuCursorDimensionByFont(sMenu.fontId, 0);
-    height = GetMenuCursorDimensionByFont(sMenu.fontId, 1);
+    width = Font_GetCursorWidth(sMenu.fontId);
+    height = Font_GetCursorHeight(sMenu.fontId);
     FillWindowPixelRect(sMenu.windowId, PIXEL_FILL(1), sMenu.left, sMenu.optionHeight * oldPos + sMenu.top, width, height);
     AddTextPrinterParameterized(sMenu.windowId, sMenu.fontId, gText_SelectorArrow3, sMenu.left, sMenu.optionHeight * newPos + sMenu.top, 0, 0);
 }
@@ -1285,7 +1285,7 @@ static u8 InitMenuGrid(u8 windowId, u8 fontId, u8 left, u8 top, u8 optionWidth, 
 
 static u8 UNUSED InitMenuGridDefaultCursorHeight(u8 windowId, u8 fontId, u8 left, u8 top, u8 width, u8 columns, u8 rows, u8 cursorPos)
 {
-    u8 cursorHeight = GetMenuCursorDimensionByFont(fontId, 1);
+    u8 cursorHeight = Font_GetCursorHeight(fontId);
     u8 numChoices = columns * rows;
     return InitMenuGrid(windowId, fontId, left, top, width, cursorHeight, columns, rows, numChoices, cursorPos);
 }
@@ -1293,8 +1293,8 @@ static u8 UNUSED InitMenuGridDefaultCursorHeight(u8 windowId, u8 fontId, u8 left
 // Erase cursor at old position, draw cursor at new position.
 static void MoveMenuGridCursor(u8 oldCursorPos, u8 newCursorPos)
 {
-    u8 cursorWidth = GetMenuCursorDimensionByFont(sMenu.fontId, 0);
-    u8 cursorHeight = GetMenuCursorDimensionByFont(sMenu.fontId, 1);
+    u8 cursorWidth = Font_GetCursorWidth(sMenu.fontId);
+    u8 cursorHeight = Font_GetCursorHeight(sMenu.fontId);
 
     u8 xPos = (oldCursorPos % sMenu.columns) * sMenu.optionWidth + sMenu.left;
     u8 yPos = (oldCursorPos / sMenu.columns) * sMenu.optionHeight + sMenu.top;
