@@ -1185,16 +1185,14 @@ static void CreateBerrySprite(u16 itemId, u8 playerId)
 
 static void ConvertItemToBlenderBerry(struct BlenderBerry* berry, u16 itemId)
 {
-    const struct BerryData *berryInfo = GetBerryData(Item_GetSecondaryId(itemId));
+    enum BerryFlavor flavorID;
+    enum BerryID berryID = Item_GetSecondaryId(itemId);
 
     berry->itemId = itemId;
-    StringCopy(berry->name, berryInfo->name);
-    berry->flavors[FLAVOR_SPICY] = berryInfo->spicy;
-    berry->flavors[FLAVOR_DRY] = berryInfo->dry;
-    berry->flavors[FLAVOR_SWEET] = berryInfo->sweet;
-    berry->flavors[FLAVOR_BITTER] = berryInfo->bitter;
-    berry->flavors[FLAVOR_SOUR] = berryInfo->sour;
-    berry->flavors[FLAVOR_COUNT] = berryInfo->smoothness;
+    StringCopy(berry->name, Berry_GetDynamicName(berryID));
+    for (flavorID = 0; flavorID < FLAVOR_COUNT; flavorID++)
+        berry->flavors[flavorID] = Berry_GetFlavor(berryID, flavorID);
+    berry->flavors[FLAVOR_COUNT] = Berry_GetSmoothness(berryID);
 }
 
 static void InitLocalPlayers(u8 opponentsNum)

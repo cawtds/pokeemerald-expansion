@@ -1,7 +1,7 @@
 #ifndef GUARD_CONSTANTS_BERRY_H
 #define GUARD_CONSTANTS_BERRY_H
 
-enum Berry
+enum BerryID
 {
     BERRY_NONE,
     BERRY_CHERI,

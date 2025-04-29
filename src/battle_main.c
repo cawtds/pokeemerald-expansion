@@ -601,10 +601,10 @@ static void SetPlayerBerryDataInBattleStruct(void)
     }
     else
     {
-        const struct BerryData *berryData = GetBerryData(ItemIdToBerryType(ITEM_ENIGMA_BERRY));
+        const u8 *berryName = Berry_GetDynamicName(ItemIdToBerryType(ITEM_ENIGMA_BERRY));
 
         for (i = 0; i < BERRY_NAME_LENGTH; i++)
-            battleBerry->name[i] = berryData->name[i];
+            battleBerry->name[i] = berryName[i];
         battleBerry->name[i] = EOS;
 
         for (i = 0; i < BERRY_ITEM_EFFECT_COUNT; i++)
@@ -644,12 +644,12 @@ static void SetAllPlayersBerryData(void)
         }
         else
         {
-            const struct BerryData *berryData = GetBerryData(ItemIdToBerryType(ITEM_ENIGMA_BERRY));
+            const u8 *berryName = Berry_GetDynamicName(ItemIdToBerryType(ITEM_ENIGMA_BERRY));
 
             for (i = 0; i < BERRY_NAME_LENGTH; i++)
             {
-                gEnigmaBerries[0].name[i] = berryData->name[i];
-                gEnigmaBerries[2].name[i] = berryData->name[i];
+                gEnigmaBerries[0].name[i] = berryName[i];
+                gEnigmaBerries[2].name[i] = berryName[i];
             }
             gEnigmaBerries[0].name[i] = EOS;
             gEnigmaBerries[2].name[i] = EOS;

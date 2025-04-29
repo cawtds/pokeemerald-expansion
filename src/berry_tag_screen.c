@@ -402,22 +402,21 @@ static void PrintAllBerryData(void)
 
 static void PrintBerryNumberAndName(void)
 {
-    const struct BerryData *berry = GetBerryData(sBerryTag->berryId);
     ConvertIntToDecimalStringN(gStringVar1, sBerryTag->berryId, STR_CONV_MODE_LEADING_ZEROS, 2);
-    StringCopy(gStringVar2, berry->name);
+    StringCopy(gStringVar2, Berry_GetDynamicName(sBerryTag->berryId));
     StringExpandPlaceholders(gStringVar4, gText_NumberVar1Var2);
     PrintTextInBerryTagScreen(WIN_BERRY_NAME, gStringVar4, 0, 1, 0, 0);
 }
 
 static void PrintBerrySize(void)
 {
-    const struct BerryData *berry = GetBerryData(sBerryTag->berryId);
+    u32 berrySize = Berry_GetSize(sBerryTag->berryId);
     AddTextPrinterParameterized(WIN_SIZE_FIRM, FONT_NORMAL, gText_SizeSlash, 0, 1, TEXT_SKIP_DRAW, NULL);
-    if (berry->size != 0)
+    if (berrySize != 0)
     {
         u32 inches, fraction;
 
-        inches = 1000 * berry->size / 254;
+        inches = 1000 * berrySize / 254;
         if (inches % 10 > 4)
             inches += 10;
         fraction = (inches % 100) / 10;
@@ -436,24 +435,22 @@ static void PrintBerrySize(void)
 
 static void PrintBerryFirmness(void)
 {
-    const struct BerryData *berry = GetBerryData(sBerryTag->berryId);
+    u32 berryFirmness = Berry_GetFirmness(sBerryTag->berryId);
     AddTextPrinterParameterized(WIN_SIZE_FIRM, FONT_NORMAL, gText_FirmSlash, 0, 0x11, TEXT_SKIP_DRAW, NULL);
-    if (berry->firmness != 0)
-        AddTextPrinterParameterized(WIN_SIZE_FIRM, FONT_NORMAL, sBerryFirmnessStrings[berry->firmness - 1], 0x28, 0x11, 0, NULL);
+    if (berryFirmness != 0)
+        AddTextPrinterParameterized(WIN_SIZE_FIRM, FONT_NORMAL, sBerryFirmnessStrings[berryFirmness - 1], 0x28, 0x11, 0, NULL);
     else
         AddTextPrinterParameterized(WIN_SIZE_FIRM, FONT_NORMAL, gText_ThreeMarks, 0x28, 0x11, 0, NULL);
 }
 
 static void PrintBerryDescription1(void)
 {
-    const struct BerryData *berry = GetBerryData(sBerryTag->berryId);
-    AddTextPrinterParameterized(WIN_DESC, FONT_NORMAL, berry->description1, 0, 1, 0, NULL);
+    AddTextPrinterParameterized(WIN_DESC, FONT_NORMAL, Berry_GetDescription1(sBerryTag->berryId), 0, 1, 0, NULL);
 }
 
 static void PrintBerryDescription2(void)
 {
-    const struct BerryData *berry = GetBerryData(sBerryTag->berryId);
-    AddTextPrinterParameterized(WIN_DESC, FONT_NORMAL, berry->description2, 0, 0x11, 0, NULL);
+    AddTextPrinterParameterized(WIN_DESC, FONT_NORMAL, Berry_GetDescription2(sBerryTag->berryId), 0, 0x11, 0, NULL);
 }
 
 static void CreateBerrySprite(void)
@@ -478,32 +475,14 @@ static void CreateFlavorCircleSprites(void)
 
 static void SetFlavorCirclesVisiblity(void)
 {
-    const struct BerryData *berry = GetBerryData(sBerryTag->berryId);
-
-    if (berry->spicy)
-        gSprites[sBerryTag->flavorCircleIds[FLAVOR_SPICY]].invisible = FALSE;
-    else
-        gSprites[sBerryTag->flavorCircleIds[FLAVOR_SPICY]].invisible = TRUE;
-
-    if (berry->dry)
-        gSprites[sBerryTag->flavorCircleIds[FLAVOR_DRY]].invisible = FALSE;
-    else
-        gSprites[sBerryTag->flavorCircleIds[FLAVOR_DRY]].invisible = TRUE;
-
-    if (berry->sweet)
-        gSprites[sBerryTag->flavorCircleIds[FLAVOR_SWEET]].invisible = FALSE;
-    else
-        gSprites[sBerryTag->flavorCircleIds[FLAVOR_SWEET]].invisible = TRUE;
-
-    if (berry->bitter)
-        gSprites[sBerryTag->flavorCircleIds[FLAVOR_BITTER]].invisible = FALSE;
-    else
-        gSprites[sBerryTag->flavorCircleIds[FLAVOR_BITTER]].invisible = TRUE;
-
-    if (berry->sour)
-        gSprites[sBerryTag->flavorCircleIds[FLAVOR_SOUR]].invisible = FALSE;
-    else
-        gSprites[sBerryTag->flavorCircleIds[FLAVOR_SOUR]].invisible = TRUE;
+    enum BerryFlavor flavorID;
+    for (flavorID = 0; flavorID < FLAVOR_COUNT; flavorID++)
+    {
+        if (Berry_GetFlavor(sBerryTag->berryId, flavorID))
+            gSprites[sBerryTag->flavorCircleIds[flavorID]].invisible = FALSE;
+        else
+            gSprites[sBerryTag->flavorCircleIds[flavorID]].invisible = TRUE;
+    }
 }
 
 static void DestroyFlavorCircleSprites(void)

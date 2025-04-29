@@ -73,20 +73,6 @@ bool32 IsEnigmaBerryValid(void)
     return TRUE;
 }
 
-const struct BerryData *GetBerryData(u8 berry)
-{
-    if (berry == BERRY_ENIGMA && IsEnigmaBerryValid())
-    {
-        return (struct BerryData *)(&gSaveBlock1Ptr->enigmaBerry.berry);
-    }
-    else
-    {
-        if (berry == BERRY_NONE || berry >= BERRY_COUNT)
-            berry = BERRY_CHERI;
-        return &gBerryInfo[berry].berryData;
-    }
-}
-
 struct BerryTree *GetBerryTreeInfo(u8 id)
 {
     return &gSaveBlock1Ptr->berryTrees[id];
@@ -257,13 +243,13 @@ static u16 BerryTypeToItemId(u16 berry)
 
 void GetBerryNameByBerryType(u8 berry, u8 *string)
 {
-    memcpy(string, GetBerryData(berry)->name, BERRY_NAME_LENGTH);
+    memcpy(string, Berry_GetDynamicName(berry), BERRY_NAME_LENGTH);
     string[BERRY_NAME_LENGTH] = EOS;
 }
 
 void GetBerryCountStringByBerryType(u8 berry, u8 *dest, u32 berryCount)
 {
-    GetBerryCountString(dest, GetBerryData(berry)->name, berryCount);
+    GetBerryCountString(dest, Berry_GetDynamicName(berry), berryCount);
 }
 
 void AllowBerryTreeGrowth(u8 id)
@@ -328,11 +314,7 @@ static u8 CalcBerryYieldInternal(u16 max, u16 min, u8 water)
 
 static u8 CalcBerryYield(struct BerryTree *tree)
 {
-    const struct BerryData *berry = GetBerryData(tree->berry);
-    u8 min = berry->minYield;
-    u8 max = berry->maxYield;
-
-    return CalcBerryYieldInternal(max, min, BerryTreeGetNumStagesWatered(tree));
+    return CalcBerryYieldInternal(Berry_GetMaxYield(tree->berry), Berry_GetMinYield(tree->berry), BerryTreeGetNumStagesWatered(tree));
 }
 
 static u8 GetBerryCountByBerryTreeId(u8 id)
@@ -342,7 +324,7 @@ static u8 GetBerryCountByBerryTreeId(u8 id)
 
 static u16 GetStageDurationByBerryType(u8 berry)
 {
-    return GetBerryData(berry)->stageDuration * 60;
+    return Berry_GetStageDuration(berry) * 60;
 }
 
 void ObjectEventInteractionGetBerryTreeData(void)
