@@ -56,6 +56,18 @@ struct MailGraphics
     u16 textShadow;
 };
 
+struct MailInfo
+{
+    const u16 *palette;
+    const u8 *tiles;
+    const u8 *tileMap;
+    u32 unused;
+    u16 textColor;
+    u16 textShadow;
+    const struct MailLayout wideLayout;
+    const struct MailLayout tallLayout;
+};
+
 struct MailRead
 {
     /*0x0000*/ u8 message[8][64];
@@ -133,210 +145,6 @@ static const u16 sBgColors[GENDER_COUNT][2] = {
     [FEMALE] = { RGB(28, 15, 17), RGB(20, 6, 14) }
 };
 
-static const struct MailGraphics sMailGraphics[] = {
-    [ORANGE_MAIL] = {
-        .palette = gMailPalette_Orange,
-        .tiles = gMailTiles_Orange,
-        .tileMap = gMailTilemap_Orange,
-        .unused = 0x2C0,
-        .textColor = RGB(10, 10, 10),
-        .textShadow = RGB(25, 25, 25),
-    },
-    [HARBOR_MAIL] = {
-        .palette = gMailPalette_Harbor,
-        .tiles = gMailTiles_Harbor,
-        .tileMap = gMailTilemap_Harbor,
-        .unused = 0x2E0,
-        .textColor = RGB_WHITE,
-        .textShadow = RGB(17, 17, 17),
-    },
-    [GLITTER_MAIL] = {
-        .palette = gMailPalette_Glitter,
-        .tiles = gMailTiles_Glitter,
-        .tileMap = gMailTilemap_Glitter,
-        .unused = 0x400,
-        .textColor = RGB(10, 10, 10),
-        .textShadow = RGB(25, 25, 25),
-    },
-    [MECH_MAIL] = {
-        .palette = gMailPalette_Mech,
-        .tiles = gMailTiles_Mech,
-        .tileMap = gMailTilemap_Mech,
-        .unused = 0x1E0,
-        .textColor = RGB_WHITE,
-        .textShadow = RGB(17, 17, 17),
-    },
-    [WOOD_MAIL] = {
-        .palette = gMailPalette_Wood,
-        .tiles = gMailTiles_Wood,
-        .tileMap = gMailTilemap_Wood,
-        .unused = 0x2E0,
-        .textColor = RGB_WHITE,
-        .textShadow = RGB(17, 17, 17),
-    },
-    [WAVE_MAIL] = {
-        .palette = gMailPalette_Wave,
-        .tiles = gMailTiles_Wave,
-        .tileMap = gMailTilemap_Wave,
-        .unused = 0x300,
-        .textColor = RGB(10, 10, 10),
-        .textShadow = RGB(25, 25, 25),
-    },
-    [BEAD_MAIL] = {
-        .palette = gMailPalette_Bead,
-        .tiles = gMailTiles_Bead,
-        .tileMap = gMailTilemap_Bead,
-        .unused = 0x140,
-        .textColor = RGB_WHITE,
-        .textShadow = RGB(17, 17, 17),
-    },
-    [SHADOW_MAIL] = {
-        .palette = gMailPalette_Shadow,
-        .tiles = gMailTiles_Shadow,
-        .tileMap = gMailTilemap_Shadow,
-        .unused = 0x300,
-        .textColor = RGB_WHITE,
-        .textShadow = RGB(17, 17, 17),
-    },
-    [TROPIC_MAIL] = {
-        .palette = gMailPalette_Tropic,
-        .tiles = gMailTiles_Tropic,
-        .tileMap = gMailTilemap_Tropic,
-        .unused = 0x220,
-        .textColor = RGB(10, 10, 10),
-        .textShadow = RGB(25, 25, 25),
-    },
-    [DREAM_MAIL] = {
-        .palette = gMailPalette_Dream,
-        .tiles = gMailTiles_Dream,
-        .tileMap = gMailTilemap_Dream,
-        .unused = 0x340,
-        .textColor = RGB(10, 10, 10),
-        .textShadow = RGB(25, 25, 25),
-    },
-    [FAB_MAIL] = {
-        .palette = gMailPalette_Fab,
-        .tiles = gMailTiles_Fab,
-        .tileMap = gMailTilemap_Fab,
-        .unused = 0x2a0,
-        .textColor = RGB(10, 10, 10),
-        .textShadow = RGB(25, 25, 25),
-    },
-    [RETRO_MAIL] = {
-        .palette = gMailPalette_Retro,
-        .tiles = gMailTiles_Retro,
-        .tileMap = gMailTilemap_Retro,
-        .unused = 0x520,
-        .textColor = RGB(10, 10, 10),
-        .textShadow = RGB(25, 25, 25),
-    }
-};
-
-static const struct MailLineLayout sLineLayouts_Wide[] = {
-    { .numEasyChatWords = 3, .xOffset = 0, .height = 16 },
-    { .numEasyChatWords = 3, .xOffset = 0, .height = 16 },
-    { .numEasyChatWords = 3, .xOffset = 0, .height = 16 }
-};
-
-static const struct MailLayout sMailLayouts_Wide[] = {
-    [ORANGE_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Wide),
-        .signatureYPos = 0,
-        .signatureWidth = 0,
-        .wordsYPos = 2,
-        .wordsXPos = 4,
-        .lines = sLineLayouts_Wide,
-    },
-    [HARBOR_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Wide),
-        .signatureYPos = 0,
-        .signatureWidth = 0,
-        .wordsYPos = 2,
-        .wordsXPos = 4,
-        .lines = sLineLayouts_Wide,
-    },
-    [GLITTER_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Wide),
-        .signatureYPos = 0,
-        .signatureWidth = 0,
-        .wordsYPos = 2,
-        .wordsXPos = 4,
-        .lines = sLineLayouts_Wide,
-    },
-    [MECH_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Wide),
-        .signatureYPos = 0,
-        .signatureWidth = 0,
-        .wordsYPos = 2,
-        .wordsXPos = 4,
-        .lines = sLineLayouts_Wide,
-    },
-    [WOOD_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Wide),
-        .signatureYPos = 0,
-        .signatureWidth = 0,
-        .wordsYPos = 2,
-        .wordsXPos = 4,
-        .lines = sLineLayouts_Wide,
-    },
-    [WAVE_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Wide),
-        .signatureYPos = 0,
-        .signatureWidth = 0,
-        .wordsYPos = 2,
-        .wordsXPos = 4,
-        .lines = sLineLayouts_Wide,
-    },
-    [BEAD_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Wide),
-        .signatureYPos = 0,
-        .signatureWidth = 0,
-        .wordsYPos = 2,
-        .wordsXPos = 4,
-        .lines = sLineLayouts_Wide,
-    },
-    [SHADOW_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Wide),
-        .signatureYPos = 0,
-        .signatureWidth = 0,
-        .wordsYPos = 2,
-        .wordsXPos = 4,
-        .lines = sLineLayouts_Wide,
-    },
-    [TROPIC_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Wide),
-        .signatureYPos = 0,
-        .signatureWidth = 0,
-        .wordsYPos = 2,
-        .wordsXPos = 4,
-        .lines = sLineLayouts_Wide,
-    },
-    [DREAM_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Wide),
-        .signatureYPos = 0,
-        .signatureWidth = 0,
-        .wordsYPos = 2,
-        .wordsXPos = 4,
-        .lines = sLineLayouts_Wide,
-    },
-    [FAB_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Wide),
-        .signatureYPos = 8,
-        .signatureWidth = 0,
-        .wordsYPos = 2,
-        .wordsXPos = 4,
-        .lines = sLineLayouts_Wide,
-    },
-    [RETRO_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Wide),
-        .signatureYPos = 0,
-        .signatureWidth = 0,
-        .wordsYPos = 2,
-        .wordsXPos = 0,
-        .lines = sLineLayouts_Wide,
-    },
-};
-
 static const struct MailLineLayout sLineLayouts_Tall[] = {
     { .numEasyChatWords = 2, .xOffset = 0, .height = 16 },
     { .numEasyChatWords = 2, .xOffset = 0, .height = 16 },
@@ -345,103 +153,350 @@ static const struct MailLineLayout sLineLayouts_Tall[] = {
     { .numEasyChatWords = 1, .xOffset = 0, .height = 16 }
 };
 
-static const struct MailLayout sMailLayouts_Tall[] = {
-    [ORANGE_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Tall),
-        .signatureYPos = 7,
-        .signatureWidth = 88,
-        .wordsYPos = 11,
-        .wordsXPos = 30,
-        .lines = sLineLayouts_Tall,
+static const struct MailLineLayout sLineLayouts_Wide[] = {
+    { .numEasyChatWords = 3, .xOffset = 0, .height = 16 },
+    { .numEasyChatWords = 3, .xOffset = 0, .height = 16 },
+    { .numEasyChatWords = 3, .xOffset = 0, .height = 16 }
+};
+
+static const struct MailInfo sMailInfo[] =
+{
+    [ORANGE_MAIL] =
+    {
+        .palette = gMailPalette_Orange,
+        .tiles = gMailTiles_Orange,
+        .tileMap = gMailTilemap_Orange,
+        .unused = 0x2C0,
+        .textColor = RGB(10, 10, 10),
+        .textShadow = RGB(25, 25, 25),
+        .tallLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Tall),
+            .signatureYPos = 7,
+            .signatureWidth = 88,
+            .wordsYPos = 11,
+            .wordsXPos = 30,
+            .lines = sLineLayouts_Tall,
+        },
+        .wideLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Wide),
+            .signatureYPos = 0,
+            .signatureWidth = 0,
+            .wordsYPos = 2,
+            .wordsXPos = 4,
+            .lines = sLineLayouts_Wide,
+        },
     },
-    [HARBOR_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Tall),
-        .signatureYPos = 10,
-        .signatureWidth = 96,
-        .wordsYPos = 9,
-        .wordsXPos = 30,
-        .lines = sLineLayouts_Tall,
+
+    [HARBOR_MAIL] =
+    {
+        .palette = gMailPalette_Harbor,
+        .tiles = gMailTiles_Harbor,
+        .tileMap = gMailTilemap_Harbor,
+        .unused = 0x2E0,
+        .textColor = RGB_WHITE,
+        .textShadow = RGB(17, 17, 17),
+        .tallLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Tall),
+            .signatureYPos = 10,
+            .signatureWidth = 96,
+            .wordsYPos = 9,
+            .wordsXPos = 30,
+            .lines = sLineLayouts_Tall,
+        },
+        .wideLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Wide),
+            .signatureYPos = 0,
+            .signatureWidth = 0,
+            .wordsYPos = 2,
+            .wordsXPos = 4,
+            .lines = sLineLayouts_Wide,
+        },
     },
-    [GLITTER_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Tall),
-        .signatureYPos = 12,
-        .signatureWidth = 104,
-        .wordsYPos = 5,
-        .wordsXPos = 30,
-        .lines = sLineLayouts_Tall,
+
+    [GLITTER_MAIL] =
+    {
+        .palette = gMailPalette_Glitter,
+        .tiles = gMailTiles_Glitter,
+        .tileMap = gMailTilemap_Glitter,
+        .unused = 0x400,
+        .textColor = RGB(10, 10, 10),
+        .textShadow = RGB(25, 25, 25),
+        .tallLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Tall),
+            .signatureYPos = 12,
+            .signatureWidth = 104,
+            .wordsYPos = 5,
+            .wordsXPos = 30,
+            .lines = sLineLayouts_Tall,
+        },
+        .wideLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Wide),
+            .signatureYPos = 0,
+            .signatureWidth = 0,
+            .wordsYPos = 2,
+            .wordsXPos = 4,
+            .lines = sLineLayouts_Wide,
+        },
     },
-    [MECH_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Tall),
-        .signatureYPos = 5,
-        .signatureWidth = 96,
-        .wordsYPos = 8,
-        .wordsXPos = 30,
-        .lines = sLineLayouts_Tall,
+
+    [MECH_MAIL] =
+    {
+        .palette = gMailPalette_Mech,
+        .tiles = gMailTiles_Mech,
+        .tileMap = gMailTilemap_Mech,
+        .unused = 0x1E0,
+        .textColor = RGB_WHITE,
+        .textShadow = RGB(17, 17, 17),
+        .tallLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Tall),
+            .signatureYPos = 5,
+            .signatureWidth = 96,
+            .wordsYPos = 8,
+            .wordsXPos = 30,
+            .lines = sLineLayouts_Tall,
+        },
+        .wideLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Wide),
+            .signatureYPos = 0,
+            .signatureWidth = 0,
+            .wordsYPos = 2,
+            .wordsXPos = 4,
+            .lines = sLineLayouts_Wide,
+        },
     },
-    [WOOD_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Tall),
-        .signatureYPos = 10,
-        .signatureWidth = 96,
-        .wordsYPos = 9,
-        .wordsXPos = 30,
-        .lines = sLineLayouts_Tall,
+
+    [WOOD_MAIL] =
+    {
+        .palette = gMailPalette_Wood,
+        .tiles = gMailTiles_Wood,
+        .tileMap = gMailTilemap_Wood,
+        .unused = 0x2E0,
+        .textColor = RGB_WHITE,
+        .textShadow = RGB(17, 17, 17),
+        .tallLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Tall),
+            .signatureYPos = 10,
+            .signatureWidth = 96,
+            .wordsYPos = 9,
+            .wordsXPos = 30,
+            .lines = sLineLayouts_Tall,
+        },
+        .wideLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Wide),
+            .signatureYPos = 0,
+            .signatureWidth = 0,
+            .wordsYPos = 2,
+            .wordsXPos = 4,
+            .lines = sLineLayouts_Wide,
+        },
     },
-    [WAVE_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Tall),
-        .signatureYPos = 9,
-        .signatureWidth = 112,
-        .wordsYPos = 5,
-        .wordsXPos = 30,
-        .lines = sLineLayouts_Tall,
+
+    [WAVE_MAIL] =
+    {
+        .palette = gMailPalette_Wave,
+        .tiles = gMailTiles_Wave,
+        .tileMap = gMailTilemap_Wave,
+        .unused = 0x300,
+        .textColor = RGB(10, 10, 10),
+        .textShadow = RGB(25, 25, 25),
+        .tallLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Tall),
+            .signatureYPos = 9,
+            .signatureWidth = 112,
+            .wordsYPos = 5,
+            .wordsXPos = 30,
+            .lines = sLineLayouts_Tall,
+        },
+        .wideLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Wide),
+            .signatureYPos = 0,
+            .signatureWidth = 0,
+            .wordsYPos = 2,
+            .wordsXPos = 4,
+            .lines = sLineLayouts_Wide,
+        },
     },
-    [BEAD_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Tall),
-        .signatureYPos = 12,
-        .signatureWidth = 104,
-        .wordsYPos = 9,
-        .wordsXPos = 30,
-        .lines = sLineLayouts_Tall,
+
+    [BEAD_MAIL] =
+    {
+        .palette = gMailPalette_Bead,
+        .tiles = gMailTiles_Bead,
+        .tileMap = gMailTilemap_Bead,
+        .unused = 0x140,
+        .textColor = RGB_WHITE,
+        .textShadow = RGB(17, 17, 17),
+        .tallLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Tall),
+            .signatureYPos = 12,
+            .signatureWidth = 104,
+            .wordsYPos = 9,
+            .wordsXPos = 30,
+            .lines = sLineLayouts_Tall,
+        },
+        .wideLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Wide),
+            .signatureYPos = 0,
+            .signatureWidth = 0,
+            .wordsYPos = 2,
+            .wordsXPos = 4,
+            .lines = sLineLayouts_Wide,
+        },
     },
-    [SHADOW_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Tall),
-        .signatureYPos = 13,
-        .signatureWidth = 104,
-        .wordsYPos = 13,
-        .wordsXPos = 30,
-        .lines = sLineLayouts_Tall,
+
+    [SHADOW_MAIL] =
+    {
+        .palette = gMailPalette_Shadow,
+        .tiles = gMailTiles_Shadow,
+        .tileMap = gMailTilemap_Shadow,
+        .unused = 0x300,
+        .textColor = RGB_WHITE,
+        .textShadow = RGB(17, 17, 17),
+        .tallLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Tall),
+            .signatureYPos = 13,
+            .signatureWidth = 104,
+            .wordsYPos = 13,
+            .wordsXPos = 30,
+            .lines = sLineLayouts_Tall,
+        },
+        .wideLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Wide),
+            .signatureYPos = 0,
+            .signatureWidth = 0,
+            .wordsYPos = 2,
+            .wordsXPos = 4,
+            .lines = sLineLayouts_Wide,
+        },
     },
-    [TROPIC_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Tall),
-        .signatureYPos = 9,
-        .signatureWidth = 96,
-        .wordsYPos = 9,
-        .wordsXPos = 30,
-        .lines = sLineLayouts_Tall,
+
+    [TROPIC_MAIL] =
+    {
+        .palette = gMailPalette_Tropic,
+        .tiles = gMailTiles_Tropic,
+        .tileMap = gMailTilemap_Tropic,
+        .unused = 0x220,
+        .textColor = RGB(10, 10, 10),
+        .textShadow = RGB(25, 25, 25),
+        .tallLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Tall),
+            .signatureYPos = 9,
+            .signatureWidth = 96,
+            .wordsYPos = 9,
+            .wordsXPos = 30,
+            .lines = sLineLayouts_Tall,
+        },
+        .wideLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Wide),
+            .signatureYPos = 0,
+            .signatureWidth = 0,
+            .wordsYPos = 2,
+            .wordsXPos = 4,
+            .lines = sLineLayouts_Wide,
+        },
     },
-    [DREAM_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Tall),
-        .signatureYPos = 9,
-        .signatureWidth = 96,
-        .wordsYPos = 9,
-        .wordsXPos = 30,
-        .lines = sLineLayouts_Tall,
+
+    [DREAM_MAIL] =
+    {
+        .palette = gMailPalette_Dream,
+        .tiles = gMailTiles_Dream,
+        .tileMap = gMailTilemap_Dream,
+        .unused = 0x340,
+        .textColor = RGB(10, 10, 10),
+        .textShadow = RGB(25, 25, 25),
+        .tallLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Tall),
+            .signatureYPos = 9,
+            .signatureWidth = 96,
+            .wordsYPos = 9,
+            .wordsXPos = 30,
+            .lines = sLineLayouts_Tall,
+        },
+        .wideLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Wide),
+            .signatureYPos = 0,
+            .signatureWidth = 0,
+            .wordsYPos = 2,
+            .wordsXPos = 4,
+            .lines = sLineLayouts_Wide,
+        },
     },
-    [FAB_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Tall),
-        .signatureYPos = 17,
-        .signatureWidth = 104,
-        .wordsYPos = 15,
-        .wordsXPos = 30,
-        .lines = sLineLayouts_Tall,
+
+    [FAB_MAIL] =
+    {
+        .palette = gMailPalette_Fab,
+        .tiles = gMailTiles_Fab,
+        .tileMap = gMailTilemap_Fab,
+        .unused = 0x2a0,
+        .textColor = RGB(10, 10, 10),
+        .textShadow = RGB(25, 25, 25),
+        .tallLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Tall),
+            .signatureYPos = 17,
+            .signatureWidth = 104,
+            .wordsYPos = 15,
+            .wordsXPos = 30,
+            .lines = sLineLayouts_Tall,
+        },
+        .wideLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Wide),
+            .signatureYPos = 8,
+            .signatureWidth = 0,
+            .wordsYPos = 2,
+            .wordsXPos = 4,
+            .lines = sLineLayouts_Wide,
+        },
     },
-    [RETRO_MAIL] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Tall),
-        .signatureYPos = 9,
-        .signatureWidth = 96,
-        .wordsYPos = 5,
-        .wordsXPos = 30,
-        .lines = sLineLayouts_Tall,
+
+    [RETRO_MAIL] =
+    {
+        .palette = gMailPalette_Retro,
+        .tiles = gMailTiles_Retro,
+        .tileMap = gMailTilemap_Retro,
+        .unused = 0x520,
+        .textColor = RGB(10, 10, 10),
+        .textShadow = RGB(25, 25, 25),
+        .tallLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Tall),
+            .signatureYPos = 9,
+            .signatureWidth = 96,
+            .wordsYPos = 5,
+            .wordsXPos = 30,
+            .lines = sLineLayouts_Tall,
+        },
+        .wideLayout =
+        {
+            .numLines = ARRAY_COUNT(sLineLayouts_Wide),
+            .signatureYPos = 0,
+            .signatureWidth = 0,
+            .wordsYPos = 2,
+            .wordsXPos = 0,
+            .lines = sLineLayouts_Wide,
+        },
     },
+
 };
 
 void ReadMail(struct Mail *mail, void (*exitCallback)(void), bool8 hasText)
@@ -468,10 +523,10 @@ void ReadMail(struct Mail *mail, void (*exitCallback)(void), bool8 hasText)
     case FALSE:
     default:
         // Never reached. JP only?
-        sMailRead->layout = &sMailLayouts_Wide[sMailRead->mailType];
+        sMailRead->layout = &sMailInfo[sMailRead->mailType].wideLayout;
         break;
     case TRUE:
-        sMailRead->layout = &sMailLayouts_Tall[sMailRead->mailType];
+        sMailRead->layout = &sMailInfo[sMailRead->mailType].tallLayout;
         break;
     }
     species = MailSpeciesToSpecies(mail->species, buffer);
@@ -548,7 +603,7 @@ static bool8 MailReadBuildGraphics(void)
             DeactivateAllTextPrinters();
             break;
         case 8:
-            DecompressAndCopyTileDataToVram(1, sMailGraphics[sMailRead->mailType].tiles, 0, 0, 0);
+            DecompressAndCopyTileDataToVram(1, sMailInfo[sMailRead->mailType].tiles, 0, 0, 0);
             break;
         case 9:
             if (FreeTempTileDataBuffersIfPossible())
@@ -557,7 +612,7 @@ static bool8 MailReadBuildGraphics(void)
         case 10:
             FillBgTilemapBufferRect_Palette0(0, 0, 0, 0, DISPLAY_TILE_WIDTH, DISPLAY_TILE_HEIGHT);
             FillBgTilemapBufferRect_Palette0(2, 1, 0, 0, DISPLAY_TILE_WIDTH, DISPLAY_TILE_HEIGHT);
-            CopyToBgTilemapBuffer(1, sMailGraphics[sMailRead->mailType].tileMap, 0, 0);
+            CopyToBgTilemapBuffer(1, sMailInfo[sMailRead->mailType].tileMap, 0, 0);
             break;
         case 11:
             CopyBgTilemapBufferToVram(0);
@@ -566,12 +621,12 @@ static bool8 MailReadBuildGraphics(void)
             break;
         case 12:
             LoadPalette(GetOverworldTextboxPalettePtr(), BG_PLTT_ID(15), PLTT_SIZE_4BPP);
-            gPlttBufferUnfaded[BG_PLTT_ID(15) + 10] = sMailGraphics[sMailRead->mailType].textColor;
-            gPlttBufferFaded[BG_PLTT_ID(15) + 10] = sMailGraphics[sMailRead->mailType].textColor;
-            gPlttBufferUnfaded[BG_PLTT_ID(15) + 11] = sMailGraphics[sMailRead->mailType].textShadow;
-            gPlttBufferFaded[BG_PLTT_ID(15) + 11] = sMailGraphics[sMailRead->mailType].textShadow;
+            gPlttBufferUnfaded[BG_PLTT_ID(15) + 10] = sMailInfo[sMailRead->mailType].textColor;
+            gPlttBufferFaded[BG_PLTT_ID(15) + 10] = sMailInfo[sMailRead->mailType].textColor;
+            gPlttBufferUnfaded[BG_PLTT_ID(15) + 11] = sMailInfo[sMailRead->mailType].textShadow;
+            gPlttBufferFaded[BG_PLTT_ID(15) + 11] = sMailInfo[sMailRead->mailType].textShadow;
 
-            LoadPalette(sMailGraphics[sMailRead->mailType].palette, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
+            LoadPalette(sMailInfo[sMailRead->mailType].palette, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
             gPlttBufferUnfaded[BG_PLTT_ID(0) + 10] = sBgColors[gSaveBlock2Ptr->playerGender][0];
             gPlttBufferFaded[BG_PLTT_ID(0) + 10] = sBgColors[gSaveBlock2Ptr->playerGender][0];
             gPlttBufferUnfaded[BG_PLTT_ID(0) + 11] = sBgColors[gSaveBlock2Ptr->playerGender][1];
