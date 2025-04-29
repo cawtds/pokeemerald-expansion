@@ -2649,7 +2649,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                     }
                     else if (gBattleMons[gBattlerAttacker].item != ITEM_NONE
                         || gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY
-                        || IS_ITEM_MAIL(gBattleMons[gBattlerTarget].item)
+                        || ItemIsMail(gBattleMons[gBattlerTarget].item)
                         || gBattleMons[gBattlerTarget].item == ITEM_NONE)
                     {
                         gBattlescriptCurrInstr++;
@@ -9327,8 +9327,8 @@ static void Cmd_tryswapitems(void)
         else if ((gBattleMons[gBattlerAttacker].item == ITEM_NONE && gBattleMons[gBattlerTarget].item == ITEM_NONE)
                  || gBattleMons[gBattlerAttacker].item == ITEM_ENIGMA_BERRY
                  || gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY
-                 || IS_ITEM_MAIL(gBattleMons[gBattlerAttacker].item)
-                 || IS_ITEM_MAIL(gBattleMons[gBattlerTarget].item))
+                 || ItemIsMail(gBattleMons[gBattlerAttacker].item)
+                 || ItemIsMail(gBattleMons[gBattlerTarget].item))
         {
             gBattlescriptCurrInstr = cmd->ptr;
         }

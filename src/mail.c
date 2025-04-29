@@ -1,6 +1,6 @@
 #include "global.h"
 #include "mail.h"
-#include "constants/items.h"
+#include "item.h"
 #include "main.h"
 #include "overworld.h"
 #include "task.h"
@@ -19,6 +19,7 @@
 #include "malloc.h"
 #include "easy_chat.h"
 #include "graphics.h"
+#include "constants/items.h"
 #include "constants/rgb.h"
 
 // Bead and Dream mail feature an icon of the Pokémon holding it.
@@ -133,7 +134,7 @@ static const u16 sBgColors[GENDER_COUNT][2] = {
 };
 
 static const struct MailGraphics sMailGraphics[] = {
-    [ITEM_TO_MAIL(ITEM_ORANGE_MAIL)] = {
+    [ORANGE_MAIL] = {
         .palette = gMailPalette_Orange,
         .tiles = gMailTiles_Orange,
         .tileMap = gMailTilemap_Orange,
@@ -141,7 +142,7 @@ static const struct MailGraphics sMailGraphics[] = {
         .textColor = RGB(10, 10, 10),
         .textShadow = RGB(25, 25, 25),
     },
-    [ITEM_TO_MAIL(ITEM_HARBOR_MAIL)] = {
+    [HARBOR_MAIL] = {
         .palette = gMailPalette_Harbor,
         .tiles = gMailTiles_Harbor,
         .tileMap = gMailTilemap_Harbor,
@@ -149,7 +150,7 @@ static const struct MailGraphics sMailGraphics[] = {
         .textColor = RGB_WHITE,
         .textShadow = RGB(17, 17, 17),
     },
-    [ITEM_TO_MAIL(ITEM_GLITTER_MAIL)] = {
+    [GLITTER_MAIL] = {
         .palette = gMailPalette_Glitter,
         .tiles = gMailTiles_Glitter,
         .tileMap = gMailTilemap_Glitter,
@@ -157,7 +158,7 @@ static const struct MailGraphics sMailGraphics[] = {
         .textColor = RGB(10, 10, 10),
         .textShadow = RGB(25, 25, 25),
     },
-    [ITEM_TO_MAIL(ITEM_MECH_MAIL)] = {
+    [MECH_MAIL] = {
         .palette = gMailPalette_Mech,
         .tiles = gMailTiles_Mech,
         .tileMap = gMailTilemap_Mech,
@@ -165,7 +166,7 @@ static const struct MailGraphics sMailGraphics[] = {
         .textColor = RGB_WHITE,
         .textShadow = RGB(17, 17, 17),
     },
-    [ITEM_TO_MAIL(ITEM_WOOD_MAIL)] = {
+    [WOOD_MAIL] = {
         .palette = gMailPalette_Wood,
         .tiles = gMailTiles_Wood,
         .tileMap = gMailTilemap_Wood,
@@ -173,7 +174,7 @@ static const struct MailGraphics sMailGraphics[] = {
         .textColor = RGB_WHITE,
         .textShadow = RGB(17, 17, 17),
     },
-    [ITEM_TO_MAIL(ITEM_WAVE_MAIL)] = {
+    [WAVE_MAIL] = {
         .palette = gMailPalette_Wave,
         .tiles = gMailTiles_Wave,
         .tileMap = gMailTilemap_Wave,
@@ -181,7 +182,7 @@ static const struct MailGraphics sMailGraphics[] = {
         .textColor = RGB(10, 10, 10),
         .textShadow = RGB(25, 25, 25),
     },
-    [ITEM_TO_MAIL(ITEM_BEAD_MAIL)] = {
+    [BEAD_MAIL] = {
         .palette = gMailPalette_Bead,
         .tiles = gMailTiles_Bead,
         .tileMap = gMailTilemap_Bead,
@@ -189,7 +190,7 @@ static const struct MailGraphics sMailGraphics[] = {
         .textColor = RGB_WHITE,
         .textShadow = RGB(17, 17, 17),
     },
-    [ITEM_TO_MAIL(ITEM_SHADOW_MAIL)] = {
+    [SHADOW_MAIL] = {
         .palette = gMailPalette_Shadow,
         .tiles = gMailTiles_Shadow,
         .tileMap = gMailTilemap_Shadow,
@@ -197,7 +198,7 @@ static const struct MailGraphics sMailGraphics[] = {
         .textColor = RGB_WHITE,
         .textShadow = RGB(17, 17, 17),
     },
-    [ITEM_TO_MAIL(ITEM_TROPIC_MAIL)] = {
+    [TROPIC_MAIL] = {
         .palette = gMailPalette_Tropic,
         .tiles = gMailTiles_Tropic,
         .tileMap = gMailTilemap_Tropic,
@@ -205,7 +206,7 @@ static const struct MailGraphics sMailGraphics[] = {
         .textColor = RGB(10, 10, 10),
         .textShadow = RGB(25, 25, 25),
     },
-    [ITEM_TO_MAIL(ITEM_DREAM_MAIL)] = {
+    [DREAM_MAIL] = {
         .palette = gMailPalette_Dream,
         .tiles = gMailTiles_Dream,
         .tileMap = gMailTilemap_Dream,
@@ -213,7 +214,7 @@ static const struct MailGraphics sMailGraphics[] = {
         .textColor = RGB(10, 10, 10),
         .textShadow = RGB(25, 25, 25),
     },
-    [ITEM_TO_MAIL(ITEM_FAB_MAIL)] = {
+    [FAB_MAIL] = {
         .palette = gMailPalette_Fab,
         .tiles = gMailTiles_Fab,
         .tileMap = gMailTilemap_Fab,
@@ -221,7 +222,7 @@ static const struct MailGraphics sMailGraphics[] = {
         .textColor = RGB(10, 10, 10),
         .textShadow = RGB(25, 25, 25),
     },
-    [ITEM_TO_MAIL(ITEM_RETRO_MAIL)] = {
+    [RETRO_MAIL] = {
         .palette = gMailPalette_Retro,
         .tiles = gMailTiles_Retro,
         .tileMap = gMailTilemap_Retro,
@@ -238,7 +239,7 @@ static const struct MailLineLayout sLineLayouts_Wide[] = {
 };
 
 static const struct MailLayout sMailLayouts_Wide[] = {
-    [ITEM_TO_MAIL(ITEM_ORANGE_MAIL)] = {
+    [ORANGE_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Wide),
         .signatureYPos = 0,
         .signatureWidth = 0,
@@ -246,7 +247,7 @@ static const struct MailLayout sMailLayouts_Wide[] = {
         .wordsXPos = 4,
         .lines = sLineLayouts_Wide,
     },
-    [ITEM_TO_MAIL(ITEM_HARBOR_MAIL)] = {
+    [HARBOR_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Wide),
         .signatureYPos = 0,
         .signatureWidth = 0,
@@ -254,7 +255,7 @@ static const struct MailLayout sMailLayouts_Wide[] = {
         .wordsXPos = 4,
         .lines = sLineLayouts_Wide,
     },
-    [ITEM_TO_MAIL(ITEM_GLITTER_MAIL)] = {
+    [GLITTER_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Wide),
         .signatureYPos = 0,
         .signatureWidth = 0,
@@ -262,7 +263,7 @@ static const struct MailLayout sMailLayouts_Wide[] = {
         .wordsXPos = 4,
         .lines = sLineLayouts_Wide,
     },
-    [ITEM_TO_MAIL(ITEM_MECH_MAIL)] = {
+    [MECH_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Wide),
         .signatureYPos = 0,
         .signatureWidth = 0,
@@ -270,7 +271,7 @@ static const struct MailLayout sMailLayouts_Wide[] = {
         .wordsXPos = 4,
         .lines = sLineLayouts_Wide,
     },
-    [ITEM_TO_MAIL(ITEM_WOOD_MAIL)] = {
+    [WOOD_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Wide),
         .signatureYPos = 0,
         .signatureWidth = 0,
@@ -278,7 +279,7 @@ static const struct MailLayout sMailLayouts_Wide[] = {
         .wordsXPos = 4,
         .lines = sLineLayouts_Wide,
     },
-    [ITEM_TO_MAIL(ITEM_WAVE_MAIL)] = {
+    [WAVE_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Wide),
         .signatureYPos = 0,
         .signatureWidth = 0,
@@ -286,7 +287,7 @@ static const struct MailLayout sMailLayouts_Wide[] = {
         .wordsXPos = 4,
         .lines = sLineLayouts_Wide,
     },
-    [ITEM_TO_MAIL(ITEM_BEAD_MAIL)] = {
+    [BEAD_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Wide),
         .signatureYPos = 0,
         .signatureWidth = 0,
@@ -294,7 +295,7 @@ static const struct MailLayout sMailLayouts_Wide[] = {
         .wordsXPos = 4,
         .lines = sLineLayouts_Wide,
     },
-    [ITEM_TO_MAIL(ITEM_SHADOW_MAIL)] = {
+    [SHADOW_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Wide),
         .signatureYPos = 0,
         .signatureWidth = 0,
@@ -302,7 +303,7 @@ static const struct MailLayout sMailLayouts_Wide[] = {
         .wordsXPos = 4,
         .lines = sLineLayouts_Wide,
     },
-    [ITEM_TO_MAIL(ITEM_TROPIC_MAIL)] = {
+    [TROPIC_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Wide),
         .signatureYPos = 0,
         .signatureWidth = 0,
@@ -310,7 +311,7 @@ static const struct MailLayout sMailLayouts_Wide[] = {
         .wordsXPos = 4,
         .lines = sLineLayouts_Wide,
     },
-    [ITEM_TO_MAIL(ITEM_DREAM_MAIL)] = {
+    [DREAM_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Wide),
         .signatureYPos = 0,
         .signatureWidth = 0,
@@ -318,7 +319,7 @@ static const struct MailLayout sMailLayouts_Wide[] = {
         .wordsXPos = 4,
         .lines = sLineLayouts_Wide,
     },
-    [ITEM_TO_MAIL(ITEM_FAB_MAIL)] = {
+    [FAB_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Wide),
         .signatureYPos = 8,
         .signatureWidth = 0,
@@ -326,7 +327,7 @@ static const struct MailLayout sMailLayouts_Wide[] = {
         .wordsXPos = 4,
         .lines = sLineLayouts_Wide,
     },
-    [ITEM_TO_MAIL(ITEM_RETRO_MAIL)] = {
+    [RETRO_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Wide),
         .signatureYPos = 0,
         .signatureWidth = 0,
@@ -345,7 +346,7 @@ static const struct MailLineLayout sLineLayouts_Tall[] = {
 };
 
 static const struct MailLayout sMailLayouts_Tall[] = {
-    [ITEM_TO_MAIL(ITEM_ORANGE_MAIL)] = {
+    [ORANGE_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Tall),
         .signatureYPos = 7,
         .signatureWidth = 88,
@@ -353,7 +354,7 @@ static const struct MailLayout sMailLayouts_Tall[] = {
         .wordsXPos = 30,
         .lines = sLineLayouts_Tall,
     },
-    [ITEM_TO_MAIL(ITEM_HARBOR_MAIL)] = {
+    [HARBOR_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Tall),
         .signatureYPos = 10,
         .signatureWidth = 96,
@@ -361,7 +362,7 @@ static const struct MailLayout sMailLayouts_Tall[] = {
         .wordsXPos = 30,
         .lines = sLineLayouts_Tall,
     },
-    [ITEM_TO_MAIL(ITEM_GLITTER_MAIL)] = {
+    [GLITTER_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Tall),
         .signatureYPos = 12,
         .signatureWidth = 104,
@@ -369,7 +370,7 @@ static const struct MailLayout sMailLayouts_Tall[] = {
         .wordsXPos = 30,
         .lines = sLineLayouts_Tall,
     },
-    [ITEM_TO_MAIL(ITEM_MECH_MAIL)] = {
+    [MECH_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Tall),
         .signatureYPos = 5,
         .signatureWidth = 96,
@@ -377,7 +378,7 @@ static const struct MailLayout sMailLayouts_Tall[] = {
         .wordsXPos = 30,
         .lines = sLineLayouts_Tall,
     },
-    [ITEM_TO_MAIL(ITEM_WOOD_MAIL)] = {
+    [WOOD_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Tall),
         .signatureYPos = 10,
         .signatureWidth = 96,
@@ -385,7 +386,7 @@ static const struct MailLayout sMailLayouts_Tall[] = {
         .wordsXPos = 30,
         .lines = sLineLayouts_Tall,
     },
-    [ITEM_TO_MAIL(ITEM_WAVE_MAIL)] = {
+    [WAVE_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Tall),
         .signatureYPos = 9,
         .signatureWidth = 112,
@@ -393,7 +394,7 @@ static const struct MailLayout sMailLayouts_Tall[] = {
         .wordsXPos = 30,
         .lines = sLineLayouts_Tall,
     },
-    [ITEM_TO_MAIL(ITEM_BEAD_MAIL)] = {
+    [BEAD_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Tall),
         .signatureYPos = 12,
         .signatureWidth = 104,
@@ -401,7 +402,7 @@ static const struct MailLayout sMailLayouts_Tall[] = {
         .wordsXPos = 30,
         .lines = sLineLayouts_Tall,
     },
-    [ITEM_TO_MAIL(ITEM_SHADOW_MAIL)] = {
+    [SHADOW_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Tall),
         .signatureYPos = 13,
         .signatureWidth = 104,
@@ -409,7 +410,7 @@ static const struct MailLayout sMailLayouts_Tall[] = {
         .wordsXPos = 30,
         .lines = sLineLayouts_Tall,
     },
-    [ITEM_TO_MAIL(ITEM_TROPIC_MAIL)] = {
+    [TROPIC_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Tall),
         .signatureYPos = 9,
         .signatureWidth = 96,
@@ -417,7 +418,7 @@ static const struct MailLayout sMailLayouts_Tall[] = {
         .wordsXPos = 30,
         .lines = sLineLayouts_Tall,
     },
-    [ITEM_TO_MAIL(ITEM_DREAM_MAIL)] = {
+    [DREAM_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Tall),
         .signatureYPos = 9,
         .signatureWidth = 96,
@@ -425,7 +426,7 @@ static const struct MailLayout sMailLayouts_Tall[] = {
         .wordsXPos = 30,
         .lines = sLineLayouts_Tall,
     },
-    [ITEM_TO_MAIL(ITEM_FAB_MAIL)] = {
+    [FAB_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Tall),
         .signatureYPos = 17,
         .signatureWidth = 104,
@@ -433,7 +434,7 @@ static const struct MailLayout sMailLayouts_Tall[] = {
         .wordsXPos = 30,
         .lines = sLineLayouts_Tall,
     },
-    [ITEM_TO_MAIL(ITEM_RETRO_MAIL)] = {
+    [RETRO_MAIL] = {
         .numLines = ARRAY_COUNT(sLineLayouts_Tall),
         .signatureYPos = 9,
         .signatureWidth = 96,
@@ -453,13 +454,13 @@ void ReadMail(struct Mail *mail, void (*exitCallback)(void), bool8 hasText)
     sMailRead->international = TRUE;
     sMailRead->parserSingle = CopyEasyChatWord;
     sMailRead->parserMultiple = ConvertEasyChatWordsToString;
-    if (IS_ITEM_MAIL(mail->itemId))
+    if (ItemIsMail(mail->itemId))
     {
-        sMailRead->mailType = ITEM_TO_MAIL(mail->itemId);
+        sMailRead->mailType = ItemIdToMailID(mail->itemId);
     }
     else
     {
-        sMailRead->mailType = ITEM_TO_MAIL(FIRST_MAIL_INDEX);
+        sMailRead->mailType = ItemIdToMailID(FIRST_MAIL_INDEX);
         hasText = FALSE;
     }
     switch (sMailRead->international)
@@ -481,10 +482,10 @@ void ReadMail(struct Mail *mail, void (*exitCallback)(void), bool8 hasText)
         default:
             sMailRead->iconType = ICON_TYPE_NONE;
             break;
-        case ITEM_TO_MAIL(ITEM_BEAD_MAIL):
+        case BEAD_MAIL:
             sMailRead->iconType = ICON_TYPE_BEAD;
             break;
-        case ITEM_TO_MAIL(ITEM_DREAM_MAIL):
+        case DREAM_MAIL:
             sMailRead->iconType = ICON_TYPE_DREAM;
             break;
         }

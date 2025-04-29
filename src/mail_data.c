@@ -1,10 +1,11 @@
 #include "global.h"
+#include "international_string_util.h"
+#include "item.h"
 #include "mail.h"
-#include "constants/items.h"
 #include "pokemon.h"
 #include "pokemon_icon.h"
 #include "text.h"
-#include "international_string_util.h"
+#include "constants/items.h"
 
 #define UNOWN_OFFSET 30000
 
@@ -180,26 +181,4 @@ u8 TakeMailFromMonAndSave(struct Pokemon *mon)
 
     // No space to save mail
     return MAIL_NONE;
-}
-
-bool8 ItemIsMail(u16 itemId)
-{
-    switch (itemId)
-    {
-    case ITEM_ORANGE_MAIL:
-    case ITEM_HARBOR_MAIL:
-    case ITEM_GLITTER_MAIL:
-    case ITEM_MECH_MAIL:
-    case ITEM_WOOD_MAIL:
-    case ITEM_WAVE_MAIL:
-    case ITEM_BEAD_MAIL:
-    case ITEM_SHADOW_MAIL:
-    case ITEM_TROPIC_MAIL:
-    case ITEM_DREAM_MAIL:
-    case ITEM_FAB_MAIL:
-    case ITEM_RETRO_MAIL:
-        return TRUE;
-    default:
-        return FALSE;
-    }
 }

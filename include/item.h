@@ -85,6 +85,8 @@ const u8 *Item_GetEffect(u32 itemId);
 enum Ball ItemIdToBallId(u16 itemId);
 u16 ItemIdToBattleMoveId(u16 itemId);
 u8 ItemIdToBerryType(u16 itemId);
+bool32 ItemIsMail(u16 itemId);
+enum MailID ItemIdToMailID(enum Item itemID);
 
 /* Expands to:
  * enum

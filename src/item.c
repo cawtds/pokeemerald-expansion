@@ -8,6 +8,7 @@
 #include "item_menu.h"
 #include "item_use.h"
 #include "load_save.h"
+#include "mail.h"
 #include "malloc.h"
 #include "move.h"
 #include "pokeball.h"
@@ -989,4 +990,20 @@ u8 ItemIdToBerryType(u16 item)
         return BERRY_CHERI;
     berry = Item_GetSecondaryId(item);
     return berry > BERRY_ENIGMA ? BERRY_CHERI : berry;
+}
+
+bool32 ItemIsMail(u16 itemId)
+{
+    if (itemId < FIRST_MAIL_INDEX)
+        return FALSE;
+    if (itemId - FIRST_MAIL_INDEX >= NUM_MAILS)
+        return FALSE;
+    return TRUE;
+}
+
+enum MailID ItemIdToMailID(enum Item itemID)
+{
+    if (ItemIsMail(itemID))
+        return Item_GetSecondaryId(itemID);
+    return ORANGE_MAIL;
 }
