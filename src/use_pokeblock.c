@@ -186,9 +186,9 @@ static const u32 sMonFrame_Gfx[] = INCBIN_U32("graphics/pokeblock/use_screen/mon
 static const u32 sMonFrame_Tilemap[] = INCBIN_U32("graphics/pokeblock/use_screen/mon_frame.bin.lz");
 static const u32 sGraphData_Tilemap[] = INCBIN_U32("graphics/pokeblock/use_screen/graph_data.bin.lz");
 
-static const struct ConditionInfo sConditionInfo[CONDITION_COUNT] =
+static const struct ConditionInfo sConditionInfo[] =
 {
-    [CONDITION_COOL]   =
+    [CONDITION_COOL] =
     {
         .monData = MON_DATA_COOL,
         .flavor = FLAVOR_SPICY,
@@ -197,7 +197,7 @@ static const struct ConditionInfo sConditionInfo[CONDITION_COUNT] =
         .upDownY = 36,
     },
 
-    [CONDITION_TOUGH]  =
+    [CONDITION_TOUGH] =
     {
         .monData = MON_DATA_TOUGH,
         .flavor = FLAVOR_SOUR,
@@ -206,7 +206,7 @@ static const struct ConditionInfo sConditionInfo[CONDITION_COUNT] =
         .upDownY = 59,
     },
 
-    [CONDITION_SMART]  =
+    [CONDITION_SMART] =
     {
         .monData = MON_DATA_SMART,
         .flavor = FLAVOR_BITTER,
@@ -215,7 +215,7 @@ static const struct ConditionInfo sConditionInfo[CONDITION_COUNT] =
         .upDownY = 118,
     },
 
-    [CONDITION_CUTE]   =
+    [CONDITION_CUTE] =
     {
         .monData = MON_DATA_CUTE,
         .flavor = FLAVOR_SWEET,
