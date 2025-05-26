@@ -3169,7 +3169,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
-            {EVO_FRIENDSHIP, 0, SPECIES_CROBAT},
+            {EVO_LEVEL, 34, SPECIES_CROBAT},
         },
     },
 
@@ -4581,7 +4581,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .evolutions =
         {
             {EVO_ITEM, ITEM_WATER_STONE, SPECIES_POLIWRATH},
-            {EVO_TRADE_ITEM, ITEM_KINGS_ROCK, SPECIES_POLITOED},
+            {EVO_ITEM, ITEM_KINGS_ROCK, SPECIES_POLITOED},
         },
     },
 
@@ -4792,7 +4792,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
-            {EVO_TRADE, 0, SPECIES_ALAKAZAM},
+            {EVO_LEVEL, 39, SPECIES_ALAKAZAM},
         },
     },
 
@@ -5006,7 +5006,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
-            {EVO_TRADE, 0, SPECIES_MACHAMP},
+            {EVO_LEVEL, 37, SPECIES_MACHAMP},
         },
     },
 
@@ -5585,7 +5585,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
-            {EVO_TRADE, 0, SPECIES_GOLEM},
+            {EVO_LEVEL, 35, SPECIES_GOLEM},
         },
     },
 
@@ -5865,7 +5865,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .evolutions =
         {
             {EVO_LEVEL, 37, SPECIES_SLOWBRO},
-            {EVO_TRADE_ITEM, ITEM_KINGS_ROCK, SPECIES_SLOWKING},
+            {EVO_ITEM, ITEM_KINGS_ROCK, SPECIES_SLOWKING},
         },
     },
 
@@ -6892,7 +6892,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
-            {EVO_TRADE, 0, SPECIES_GENGAR},
+            {EVO_LEVEL, 38, SPECIES_GENGAR},
         },
     },
 
@@ -7031,7 +7031,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
-            {EVO_TRADE_ITEM, ITEM_METAL_COAT, SPECIES_STEELIX},
+            {EVO_ITEM, ITEM_METAL_COAT, SPECIES_STEELIX},
         },
     },
 
@@ -8327,7 +8327,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
-            {EVO_FRIENDSHIP, 0, SPECIES_BLISSEY},
+            {EVO_LEVEL, 35, SPECIES_BLISSEY},
         },
     },
 
@@ -8618,7 +8618,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
-            {EVO_TRADE_ITEM, ITEM_DRAGON_SCALE, SPECIES_KINGDRA},
+            {EVO_ITEM, ITEM_DRAGON_SCALE, SPECIES_KINGDRA},
         },
     },
 
@@ -9056,7 +9056,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
-            {EVO_TRADE_ITEM, ITEM_METAL_COAT, SPECIES_SCIZOR},
+            {EVO_ITEM, ITEM_METAL_COAT, SPECIES_SCIZOR},
         },
     },
 
@@ -9751,8 +9751,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
             {EVO_ITEM, ITEM_THUNDER_STONE, SPECIES_JOLTEON},
             {EVO_ITEM, ITEM_WATER_STONE, SPECIES_VAPOREON},
             {EVO_ITEM, ITEM_FIRE_STONE, SPECIES_FLAREON},
-            {EVO_FRIENDSHIP_DAY, 0, SPECIES_ESPEON},
-            {EVO_FRIENDSHIP_NIGHT, 0, SPECIES_UMBREON},
+            {EVO_ITEM, ITEM_SUN_STONE, SPECIES_ESPEON},
+            {EVO_ITEM, ITEM_MOON_STONE, SPECIES_UMBREON},
         },
     },
 
@@ -10022,7 +10022,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         .evolutions =
         {
-            {EVO_TRADE_ITEM, ITEM_UP_GRADE, SPECIES_PORYGON2},
+            {EVO_ITEM, ITEM_UP_GRADE, SPECIES_PORYGON2},
         },
     },
 
@@ -12557,7 +12557,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
-            {EVO_FRIENDSHIP, 0, SPECIES_PIKACHU},
+            {EVO_LEVEL, 14, SPECIES_PIKACHU},
         },
     },
 
@@ -12630,7 +12630,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         .evolutions =
         {
-            {EVO_FRIENDSHIP, 0, SPECIES_CLEFAIRY},
+            {EVO_LEVEL, 15, SPECIES_CLEFAIRY},
         },
     },
 
@@ -12704,7 +12704,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
-            {EVO_FRIENDSHIP, 0, SPECIES_JIGGLYPUFF},
+            {EVO_LEVEL, 14, SPECIES_JIGGLYPUFF},
         },
     },
 
@@ -12776,7 +12776,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
-            {EVO_FRIENDSHIP, 0, SPECIES_TOGETIC},
+            {EVO_LEVEL, 14, SPECIES_TOGETIC},
         },
     },
 
@@ -24220,7 +24220,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_SLOW,
         .evolutions =
         {
-            {EVO_FRIENDSHIP, 0, SPECIES_MARILL},
+            {EVO_LEVEL, 14, SPECIES_MARILL},
         },
     },
 
@@ -25885,8 +25885,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         .evolutions =
         {
-            {EVO_TRADE_ITEM, ITEM_DEEP_SEA_TOOTH, SPECIES_HUNTAIL},
-            {EVO_TRADE_ITEM, ITEM_DEEP_SEA_SCALE, SPECIES_GOREBYSS},
+            {EVO_ITEM, ITEM_DEEP_SEA_TOOTH, SPECIES_HUNTAIL},
+            {EVO_ITEM, ITEM_DEEP_SEA_SCALE, SPECIES_GOREBYSS},
         },
     },
 

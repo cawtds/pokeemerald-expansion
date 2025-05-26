@@ -477,7 +477,4 @@ enum Item
 #define ITEM_B_USE_MEDICINE 1
 #define ITEM_B_USE_OTHER    2
 
-// Check if the item is one that can be used on a Pokémon.
-#define ITEM_HAS_EFFECT(item) ((item) >= ITEM_POTION && (item) <= MAX_BERRY_INDEX)
-
 #endif  // GUARD_CONSTANTS_ITEMS_H

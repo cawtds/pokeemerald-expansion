@@ -5217,11 +5217,10 @@ u8 GetItemEffectType(u16 item)
     const u8 *itemEffect;
     u32 statusCure;
 
-    if (!ITEM_HAS_EFFECT(item))
-        return ITEM_EFFECT_NONE;
-
     // Read the item's effect properties.
     itemEffect = Item_GetEffect(item);
+    if (itemEffect == NULL && item != ITEM_ENIGMA_BERRY)
+        return ITEM_EFFECT_NONE;
 
     if ((itemEffect[0] & (ITEM0_DIRE_HIT | ITEM0_X_ATTACK)) || itemEffect[1] || itemEffect[2] || (itemEffect[3] & ITEM3_GUARD_SPEC))
         return ITEM_EFFECT_X_ITEM;

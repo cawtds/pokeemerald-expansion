@@ -274,27 +274,7 @@ const u8 gItemEffect_XSpecial[8] = {
     STAT_BOOST_FRIENDSHIP_CHANGE,
 };
 
-const u8 gItemEffect_SunStone[6] = {
-    [4] = ITEM4_EVO_STONE,
-};
-
-const u8 gItemEffect_MoonStone[6] = {
-    [4] = ITEM4_EVO_STONE,
-};
-
-const u8 gItemEffect_FireStone[6] = {
-    [4] = ITEM4_EVO_STONE,
-};
-
-const u8 gItemEffect_ThunderStone[6] = {
-    [4] = ITEM4_EVO_STONE,
-};
-
-const u8 gItemEffect_WaterStone[6] = {
-    [4] = ITEM4_EVO_STONE,
-};
-
-const u8 gItemEffect_LeafStone[6] = {
+const u8 gItemEffect_EvoStone[6] = {
     [4] = ITEM4_EVO_STONE,
 };
 
