@@ -28,7 +28,7 @@ static bool8 ShouldSwitchIfPerishSong(u32 battler)
         && gDisableStructs[battler].perishSongTimer == 0)
     {
         gBattleStruct->AI_monToSwitchIntoId[battler] = PARTY_SIZE;
-        BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_SWITCH, 0);
+        BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_SWITCH, 0);
         return TRUE;
     }
     else
@@ -112,7 +112,7 @@ static bool8 ShouldSwitchIfWonderGuard(u32 battler)
             {
                 // We found a mon.
                 *(gBattleStruct->AI_monToSwitchIntoId + battler) = i;
-                BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_SWITCH, 0);
+                BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_SWITCH, 0);
                 return TRUE;
             }
         }
@@ -212,7 +212,7 @@ static bool8 FindMonThatAbsorbsOpponentsMove(u32 battler)
         {
             // we found a mon.
             *(gBattleStruct->AI_monToSwitchIntoId + battler) = i;
-            BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_SWITCH, 0);
+            BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_SWITCH, 0);
             return TRUE;
         }
     }
@@ -234,14 +234,14 @@ static bool8 ShouldSwitchIfNaturalCure(u32 battler)
      && Random() & 1)
     {
         *(gBattleStruct->AI_monToSwitchIntoId + battler) = PARTY_SIZE;
-        BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_SWITCH, 0);
+        BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_SWITCH, 0);
         return TRUE;
     }
     else if (GetMovePower(gLastLandedMoves[battler]) == 0
           && Random() & 1)
     {
         gBattleStruct->AI_monToSwitchIntoId[battler] = PARTY_SIZE;
-        BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_SWITCH, 0);
+        BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_SWITCH, 0);
         return TRUE;
     }
 
@@ -253,7 +253,7 @@ static bool8 ShouldSwitchIfNaturalCure(u32 battler)
     if (Random() & 1)
     {
         gBattleStruct->AI_monToSwitchIntoId[battler] = PARTY_SIZE;
-        BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_SWITCH, 0);
+        BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_SWITCH, 0);
         return TRUE;
     }
 
@@ -421,7 +421,7 @@ static bool8 FindMonWithFlagsAndSuperEffective(u32 battler, u8 flags, u8 moduloP
                 if (moveFlags & MOVE_RESULT_SUPER_EFFECTIVE && Random() % moduloPercent == 0)
                 {
                     gBattleStruct->AI_monToSwitchIntoId[battler] = i;
-                    BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_SWITCH, 0);
+                    BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_SWITCH, 0);
                     return TRUE;
                 }
             }
@@ -603,7 +603,7 @@ void AI_TrySwitchOrUseItem(u32 battler)
         }
     }
 
-    BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_USE_MOVE, BATTLE_OPPOSITE(battler) << 8);
+    BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_USE_MOVE, BATTLE_OPPOSITE(battler) << 8);
 }
 
 static void ModulateByTypeEffectiveness(u8 atkType, u8 defType1, u8 defType2, u8 *var)
@@ -919,7 +919,7 @@ static bool8 ShouldUseItem(u32 battler)
 
         if (shouldUse)
         {
-            BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_USE_ITEM, 0);
+            BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_USE_ITEM, 0);
             *(gBattleStruct->chosenItem + (battler / 2) * 2) = item;
             gBattleResources->battleHistory->trainerItems[i] = ITEM_NONE;
             return shouldUse;

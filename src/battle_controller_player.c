@@ -165,7 +165,7 @@ static void PlayerBufferExecCompleted(u32 battler)
     {
         u8 playerId = GetMultiplayerId();
 
-        PrepareBufferDataTransferLink(battler, 2, 4, &playerId);
+        PrepareBufferDataTransferLink(battler, B_COMM_CONTROLLER_IS_DONE, 4, &playerId);
         gBattleBufferA[battler][0] = CONTROLLER_TERMINATOR_NOP;
     }
     else
@@ -210,16 +210,16 @@ static void HandleInputChooseAction(u32 battler)
         switch (gActionSelectionCursor[battler])
         {
         case 0: // Top left
-            BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_USE_MOVE, 0);
+            BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_USE_MOVE, 0);
             break;
         case 1: // Top right
-            BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_USE_ITEM, 0);
+            BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_USE_ITEM, 0);
             break;
         case 2: // Bottom left
-            BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_SWITCH, 0);
+            BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_SWITCH, 0);
             break;
         case 3: // Bottom right
-            BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_RUN, 0);
+            BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_RUN, 0);
             break;
         }
         PlayerBufferExecCompleted(battler);
@@ -280,7 +280,7 @@ static void HandleInputChooseAction(u32 battler)
                     return;
             }
             PlaySE(SE_SELECT);
-            BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_CANCEL_PARTNER, 0);
+            BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_CANCEL_PARTNER, 0);
             PlayerBufferExecCompleted(battler);
         }
     }
@@ -326,7 +326,7 @@ static void HandleInputChooseTarget(u32 battler)
     {
         PlaySE(SE_SELECT);
         gSprites[gBattlerSpriteIds[gMultiUsePlayerCursor]].callback = SpriteCB_HideAsMoveTarget;
-        BtlController_EmitTwoReturnValues(battler, BUFFER_B, 10, gMoveSelectionCursor[battler] | (gMultiUsePlayerCursor << 8));
+        BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, 10, gMoveSelectionCursor[battler] | (gMultiUsePlayerCursor << 8));
         EndBounceEffect(gMultiUsePlayerCursor, BOUNCE_HEALTHBOX);
         PlayerBufferExecCompleted(battler);
     }
@@ -484,7 +484,7 @@ static void HandleInputChooseMove(u32 battler)
 
         if (!canSelectTarget)
         {
-            BtlController_EmitTwoReturnValues(battler, BUFFER_B, 10, gMoveSelectionCursor[battler] | (gMultiUsePlayerCursor << 8));
+            BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, 10, gMoveSelectionCursor[battler] | (gMultiUsePlayerCursor << 8));
             PlayerBufferExecCompleted(battler);
         }
         else
@@ -504,7 +504,7 @@ static void HandleInputChooseMove(u32 battler)
     else if (JOY_NEW(B_BUTTON) || gPlayerDpadHoldFrames > 59)
     {
         PlaySE(SE_SELECT);
-        BtlController_EmitTwoReturnValues(battler, BUFFER_B, 10, 0xFFFF);
+        BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, 10, 0xFFFF);
         PlayerBufferExecCompleted(battler);
     }
     else if (JOY_NEW(DPAD_LEFT))
@@ -1080,9 +1080,9 @@ static void WaitForMonSelection(u32 battler)
     if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
     {
         if (gPartyMenuUseExitCallback == TRUE)
-            BtlController_EmitChosenMonReturnValue(battler, BUFFER_B, gSelectedMonPartyId, gBattlePartyCurrentOrder);
+            BtlController_EmitChosenMonReturnValue(battler, B_COMM_TO_ENGINE, gSelectedMonPartyId, gBattlePartyCurrentOrder);
         else
-            BtlController_EmitChosenMonReturnValue(battler, BUFFER_B, PARTY_SIZE, NULL);
+            BtlController_EmitChosenMonReturnValue(battler, B_COMM_TO_ENGINE, PARTY_SIZE, NULL);
 
         if ((gBattleBufferA[battler][1] & 0xF) == 1)
             PrintLinkStandbyMsg();
@@ -1106,7 +1106,7 @@ static void CompleteWhenChoseItem(u32 battler)
 {
     if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
     {
-        BtlController_EmitOneReturnValue(battler, BUFFER_B, gSpecialVar_ItemId);
+        BtlController_EmitOneReturnValue(battler, B_COMM_TO_ENGINE, gSpecialVar_ItemId);
         PlayerBufferExecCompleted(battler);
     }
 }
@@ -1133,9 +1133,9 @@ static void PlayerHandleYesNoInput(u32 battler)
         PlaySE(SE_SELECT);
 
         if (gMultiUsePlayerCursor != 0)
-            BtlController_EmitTwoReturnValues(battler, BUFFER_B, 0xE, 0);
+            BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, 0xE, 0);
         else
-            BtlController_EmitTwoReturnValues(battler, BUFFER_B, 0xD, 0);
+            BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, 0xD, 0);
 
         PlayerBufferExecCompleted(battler);
     }
@@ -1442,7 +1442,7 @@ static void PlayerChooseMoveInBattlePalace(u32 battler)
     if (--*(gBattleStruct->arenaMindPoints + battler) == 0)
     {
         gBattlePalaceMoveSelectionRngValue = gRngValue;
-        BtlController_EmitTwoReturnValues(battler, BUFFER_B, 10, ChooseMoveAndTargetInBattlePalace(battler));
+        BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, 10, ChooseMoveAndTargetInBattlePalace(battler));
         PlayerBufferExecCompleted(battler);
     }
 }
@@ -1492,7 +1492,7 @@ static void PlayerHandleChoosePokemon(u32 battler)
 
     if (gBattleTypeFlags & BATTLE_TYPE_ARENA && (gBattleBufferA[battler][1] & 0xF) != PARTY_ACTION_CANT_SWITCH)
     {
-        BtlController_EmitChosenMonReturnValue(battler, BUFFER_B, gBattlerPartyIndexes[battler] + 1, gBattlePartyCurrentOrder);
+        BtlController_EmitChosenMonReturnValue(battler, B_COMM_TO_ENGINE, gBattlerPartyIndexes[battler] + 1, gBattlePartyCurrentOrder);
         PlayerBufferExecCompleted(battler);
     }
     else
@@ -1515,25 +1515,25 @@ static void PlayerHandleHealthBarUpdate(u32 battler)
 
 static void PlayerHandleTwoReturnValues(u32 battler)
 {
-    BtlController_EmitTwoReturnValues(battler, BUFFER_B, 0, 0);
+    BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, 0, 0);
     PlayerBufferExecCompleted(battler);
 }
 
 static void PlayerHandleChosenMonReturnValue(u32 battler)
 {
-    BtlController_EmitChosenMonReturnValue(battler, BUFFER_B, 0, NULL);
+    BtlController_EmitChosenMonReturnValue(battler, B_COMM_TO_ENGINE, 0, NULL);
     PlayerBufferExecCompleted(battler);
 }
 
 static void PlayerHandleOneReturnValue(u32 battler)
 {
-    BtlController_EmitOneReturnValue(battler, BUFFER_B, 0);
+    BtlController_EmitOneReturnValue(battler, B_COMM_TO_ENGINE, 0);
     PlayerBufferExecCompleted(battler);
 }
 
 static void PlayerHandleOneReturnValue_Duplicate(u32 battler)
 {
-    BtlController_EmitOneReturnValue_Duplicate(battler, BUFFER_B, 0);
+    BtlController_EmitOneReturnValue_Duplicate(battler, B_COMM_TO_ENGINE, 0);
     PlayerBufferExecCompleted(battler);
 }
 

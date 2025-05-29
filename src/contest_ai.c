@@ -327,8 +327,8 @@ u8 ContestAI_GetActionToUse(void)
     {
         // Randomly choose a move index. If it's the move
         // with the highest (or tied highest) score, return
-        u8 moveIdx = MOD(Random(), MAX_MON_MOVES);
-        u8 score = eContestAI.moveScores[moveIdx];
+        u8 moveIndex = MOD(Random(), MAX_MON_MOVES);
+        u8 score = eContestAI.moveScores[moveIndex];
         int i;
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
@@ -336,7 +336,7 @@ u8 ContestAI_GetActionToUse(void)
                 break;
         }
         if (i == MAX_MON_MOVES)
-            return moveIdx;
+            return moveIndex;
     }
 }
 

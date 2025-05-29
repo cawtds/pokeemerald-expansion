@@ -851,7 +851,7 @@ static void AnimFallingFeather_Step(struct Sprite *sprite)
     }
 }
 
-static void AnimWhirlwindLine(struct Sprite * sprite)
+static void AnimWhirlwindLine(struct Sprite *sprite)
 {
     u16 offset;
     u8 mult;

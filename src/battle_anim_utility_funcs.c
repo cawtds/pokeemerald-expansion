@@ -111,7 +111,7 @@ void AnimTask_BlendBattleAnimPalExclude(u8 taskId)
 void AnimTask_SetCamouflageBlend(u8 taskId)
 {
     u32 selectedPalettes = UnpackSelectedBattlePalettes(gBattleAnimArgs[0]);
-    gBattleAnimArgs[4] = BattleTerrain_GetCamouflageBlend(gBattleTerrain);
+    gBattleAnimArgs[4] = BattleTerrain_GetCamouflageBlend(gBattleEnvironment);
     StartBlendAnimSpriteColor(taskId, selectedPalettes);
 }
 
@@ -906,10 +906,10 @@ static void UpdateMonScrollingBgMask(u8 taskId)
     }
 }
 
-void AnimTask_GetBattleTerrain(u8 taskId)
+void AnimTask_GetBattleEnvironment(u8 taskId)
 {
-    gBattleAnimArgs[0] = gBattleTerrain;
-    LaunchSecretPowerAnimation(gBattleTerrain);
+    gBattleAnimArgs[0] = gBattleEnvironment;
+    LaunchSecretPowerAnimation(gBattleEnvironment);
     DestroyAnimVisualTask(taskId);
 }
 

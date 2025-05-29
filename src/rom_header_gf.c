@@ -21,16 +21,16 @@ struct GFRomHeader
     u32 version;
     u32 language;
     u8 gameName[32];
-    const struct CompressedSpriteSheet * monFrontPics;
-    const struct CompressedSpriteSheet * monBackPics;
-    const struct CompressedSpritePalette * monNormalPalettes;
-    const struct CompressedSpritePalette * monShinyPalettes;
-    const u8 * const * monIcons;
-    const u8 * monIconPaletteIds;
-    const struct SpritePalette * monIconPalettes;
-    const u8 (* monSpeciesNames)[];
-    const u8 (* moveNames)[];
-    const struct Decoration * decorations;
+    const struct CompressedSpriteSheet *monFrontPics;
+    const struct CompressedSpriteSheet *monBackPics;
+    const struct CompressedSpritePalette *monNormalPalettes;
+    const struct CompressedSpritePalette *monShinyPalettes;
+    const u8 *const *monIcons;
+    const u8 *monIconPaletteIds;
+    const struct SpritePalette *monIconPalettes;
+    const u8 (*monSpeciesNames)[];
+    const u8 (*moveNames)[];
+    const struct Decoration *decorations;
     u32 flagsOffset;
     u32 varsOffset;
     u32 pokedexOffset;
@@ -70,10 +70,10 @@ struct GFRomHeader
     u32 externalEventFlagsOffset;
     u32 externalEventDataOffset;
     u32 unk18;
-    const struct SpeciesInfo * speciesInfo;
-    const u8 (* abilityNames)[];
-    const u8 * const * abilityDescriptions;
-    const struct ItemInfo * items;
+    const struct SpeciesInfo *speciesInfo;
+    const u8 (*abilityNames)[];
+    const u8 *const *abilityDescriptions;
+    const struct ItemInfo *items;
     const struct BattleMove
     {
         u8 effect;
@@ -85,9 +85,9 @@ struct GFRomHeader
         u8 target;
         s8 priority;
         u8 flags;
-    } * moves;
-    const struct CompressedSpriteSheet * ballGfx;
-    const struct CompressedSpritePalette * ballPalettes;
+    } *moves;
+    const struct CompressedSpriteSheet *ballGfx;
+    const struct CompressedSpritePalette *ballPalettes;
     u32 gcnLinkFlagsOffset;
     u32 gameClearFlag;
     u32 ribbonFlag;
@@ -101,7 +101,7 @@ struct GFRomHeader
     u32 giftRibbonsOffset;
     u32 enigmaBerryOffset;
     u32 enigmaBerrySize;
-    const u8 * moveDescriptions;
+    const u8 *moveDescriptions;
     u32 unk20;
 };
 

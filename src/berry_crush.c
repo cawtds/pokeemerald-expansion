@@ -914,7 +914,7 @@ static const u8 *const sResultsTexts[] =
     [RESULTS_PAGE_POWER + NUM_RESULTS_PAGES]       = gText_PressingPowerRankings,
 };
 
-static u32 (*const sBerryCrushCommands[])(struct BerryCrushGame * game, u8 * data) =
+static u32 (*const sBerryCrushCommands[])(struct BerryCrushGame *game, u8 *data) =
 {
     [CMD_NONE]             = NULL,
     [CMD_FADE]             = Cmd_BeginNormalPaletteFade,
@@ -1042,7 +1042,7 @@ static void GetBerryFromBag(void)
     else
         RemoveBagItem(gSpecialVar_ItemId, 1);
 
-    sGame->players[sGame->localId].berryId = Item_GetSecondaryId(gSpecialVar_ItemId) - 1;
+    sGame->players[sGame->localId].berryId = GetItemSecondaryId(gSpecialVar_ItemId) - 1;
     sGame->nextCmd = CMD_FADE;
     sGame->afterPalFadeCmd = CMD_WAIT_BERRIES;
     SetPaletteFadeArgs(sGame->commandArgs, FALSE, PALETTES_ALL, 0, 16, 0, RGB_BLACK);
@@ -1590,14 +1590,14 @@ static void PrintTextCentered(u8 windowId, u8 left, u8 colorId, const u8 *string
     AddTextPrinterParameterized3(windowId, FONT_SHORT, left, 0, sTextColorTable[colorId], 0, string);
 }
 
-static void PrintResultsText(struct BerryCrushGame * game, u8 page, u8 sp14, u8 baseY)
+static void PrintResultsText(struct BerryCrushGame *game, u8 page, u8 sp14, u8 baseY)
 {
     u8 i, j;
     u8 playerId = 0;
     u8 ranking = 0;
     s32 x;
     u8 stat;
-    struct BerryCrushGame_Results * results = &game->results;
+    struct BerryCrushGame_Results *results = &game->results;
     u32 xOffset;
     s32 y;
 
@@ -1942,7 +1942,7 @@ static void DrawPlayerNameWindows(struct BerryCrushGame *game)
 static void CopyPlayerNameWindowGfxToBg(struct BerryCrushGame *game)
 {
     u8 i = 0;
-    u8 * windowGfx;
+    u8 *windowGfx;
 
     LZ77UnCompWram(gBerryCrush_TextWindows_Tilemap, gDecompressionBuffer);
 
