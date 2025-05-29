@@ -2389,13 +2389,13 @@ void UseItem(u32 sourceLine, struct BattlePokemon *battler, struct ItemContext c
 {
     s32 i;
     s32 battlerId = battler - gBattleMons;
-    bool32 requirePartyIndex = Item_GetType(ctx.itemId) == ITEM_USE_PARTY_MENU;
+    bool32 requirePartyIndex = GetItemType(ctx.itemId) == ITEM_USE_PARTY_MENU;
     // Check general bad use.
     INVALID_IF(DATA.turnState == TURN_CLOSED, "USE_ITEM outside TURN");
     INVALID_IF(DATA.actionBattlers & (1 << battlerId), "Multiple battler actions");
     INVALID_IF(ctx.itemId >= ITEMS_COUNT, "Illegal item: %d", ctx.itemId);
     // Check party menu items.
-    INVALID_IF(requirePartyIndex && !ctx.explicitPartyIndex, "%S requires explicit party index", Item_GetName(ctx.itemId));
+    INVALID_IF(requirePartyIndex && !ctx.explicitPartyIndex, "%S requires explicit party index", GetItemName(ctx.itemId));
     INVALID_IF(requirePartyIndex && ctx.partyIndex >= ((battlerId & BIT_SIDE) == B_SIDE_PLAYER ? DATA.playerPartySize : DATA.opponentPartySize), \
                 "USE_ITEM to invalid party index");
     // Check move slot items.

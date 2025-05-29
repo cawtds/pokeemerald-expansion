@@ -235,7 +235,7 @@ static u16 BerryTypeToItemId(u16 berry)
     u32 itemId;
     for (itemId = FIRST_BERRY_INDEX; itemId <= LAST_BERRY_INDEX; itemId++)
     {
-        if (Item_GetSecondaryId(itemId) == berry)
+        if (GetItemSecondaryId(itemId) == berry)
             return itemId;
     }
     return FIRST_BERRY_INDEX;

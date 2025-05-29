@@ -84,7 +84,7 @@ void SetBagItemsPointers(void)
 
 u8 *CopyItemName(u16 itemId, u8 *dst)
 {
-    return StringCopy(dst, Item_GetName(itemId));
+    return StringCopy(dst, GetItemName(itemId));
 }
 
 u8 *CopyItemNameHandlePlural(u16 itemId, u8 *dst, u32 quantity)
@@ -92,7 +92,7 @@ u8 *CopyItemNameHandlePlural(u16 itemId, u8 *dst, u32 quantity)
     if (itemId == ITEM_POKE_BALL)
     {
         if (quantity < 2)
-            StringCopy(dst, Item_GetName(ITEM_POKE_BALL));
+            StringCopy(dst, GetItemName(ITEM_POKE_BALL));
         else
             StringCopy(dst, gText_PokeBalls);
     }
@@ -101,7 +101,7 @@ u8 *CopyItemNameHandlePlural(u16 itemId, u8 *dst, u32 quantity)
         if (itemId >= FIRST_BERRY_INDEX && itemId <= LAST_BERRY_INDEX)
             GetBerryCountString(dst, Berry_GetName(ItemIdToBerryType(itemId)), quantity);
         else
-            StringCopy(dst, Item_GetName(itemId));
+            StringCopy(dst, GetItemName(itemId));
     }
 }
 
@@ -137,11 +137,11 @@ bool8 CheckBagHasItem(u16 itemId, u16 count)
     u8 i;
     u8 pocket;
 
-    if (Item_GetPocket(itemId) == 0)
+    if (GetItemPocket(itemId) == 0)
         return FALSE;
     if (InBattlePyramid() || FlagGet(FLAG_STORING_ITEMS_IN_PYRAMID_BAG) == TRUE)
         return CheckPyramidBagHasItem(itemId, count);
-    pocket = Item_GetPocket(itemId) - 1;
+    pocket = GetItemPocket(itemId) - 1;
     // Check for item slots that contain the item
     for (i = 0; i < gBagPockets[pocket].capacity; i++)
     {
@@ -184,7 +184,7 @@ bool8 CheckBagHasSpace(u16 itemId, u16 count)
     u16 slotCapacity;
     u16 ownedCount;
 
-    if (Item_GetPocket(itemId) == POCKET_NONE)
+    if (GetItemPocket(itemId) == POCKET_NONE)
         return FALSE;
 
     if (InBattlePyramid() || FlagGet(FLAG_STORING_ITEMS_IN_PYRAMID_BAG) == TRUE)
@@ -192,7 +192,7 @@ bool8 CheckBagHasSpace(u16 itemId, u16 count)
         return CheckPyramidBagHasSpace(itemId, count);
     }
 
-    pocket = Item_GetPocket(itemId) - 1;
+    pocket = GetItemPocket(itemId) - 1;
     if (pocket != BERRIES_POCKET)
         slotCapacity = MAX_BAG_ITEM_CAPACITY;
     else
@@ -245,7 +245,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
 {
     u8 i;
 
-    if (Item_GetPocket(itemId) == POCKET_NONE)
+    if (GetItemPocket(itemId) == POCKET_NONE)
         return FALSE;
 
     // check Battle Pyramid Bag
@@ -259,7 +259,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
         struct ItemSlot *newItems;
         u16 slotCapacity;
         u16 ownedCount;
-        u8 pocket = Item_GetPocket(itemId) - 1;
+        u8 pocket = GetItemPocket(itemId) - 1;
 
         itemPocket = &gBagPockets[pocket];
         newItems = AllocZeroed(itemPocket->capacity * sizeof(struct ItemSlot));
@@ -353,7 +353,7 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
     u8 i;
     u16 totalQuantity = 0;
 
-    if (Item_GetPocket(itemId) == POCKET_NONE || itemId == ITEM_NONE)
+    if (GetItemPocket(itemId) == POCKET_NONE || itemId == ITEM_NONE)
         return FALSE;
 
     // check Battle Pyramid Bag
@@ -368,7 +368,7 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
         u16 ownedCount;
         struct BagPocket *itemPocket;
 
-        pocket = Item_GetPocket(itemId) - 1;
+        pocket = GetItemPocket(itemId) - 1;
         itemPocket = &gBagPockets[pocket];
 
         for (i = 0; i < itemPocket->capacity; i++)
@@ -438,7 +438,7 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
 
 u8 GetPocketByItemId(u16 itemId)
 {
-    return Item_GetPocket(itemId);
+    return GetItemPocket(itemId);
 }
 
 void ClearItemSlots(struct ItemSlot *itemSlots, u8 itemCount)
@@ -638,7 +638,7 @@ void SortBerriesOrTMHMs(struct BagPocket *bagPocket)
     }
 }
 
-void MoveItemSlotInList(struct ItemSlot* itemSlots_, u32 from, u32 to_)
+void MoveItemSlotInList(struct ItemSlot *itemSlots_, u32 from, u32 to_)
 {
     // dumb assignments needed to match
     struct ItemSlot *itemSlots = itemSlots_;
@@ -678,7 +678,7 @@ u16 CountTotalItemQuantityInBag(u16 itemId)
 {
     u16 i;
     u16 ownedCount = 0;
-    struct BagPocket *bagPocket = &gBagPockets[Item_GetPocket(itemId) - 1];
+    struct BagPocket *bagPocket = &gBagPockets[GetItemPocket(itemId) - 1];
 
     for (i = 0; i < bagPocket->capacity; i++)
     {
@@ -877,67 +877,67 @@ static enum Item SanitizeItemId(enum Item itemId)
         return itemId;
 }
 
-const u8 *Item_GetName(enum Item itemId)
+const u8 *GetItemName(enum Item itemId)
 {
     return gItemInfo[SanitizeItemId(itemId)].name;
 }
 
-u32 Item_GetPrice(enum Item itemId)
+u32 GetItemPrice(enum Item itemId)
 {
     return gItemInfo[SanitizeItemId(itemId)].price;
 }
 
-u32 Item_GetHoldEffect(enum Item itemId)
+u32 GetItemHoldEffect(enum Item itemId)
 {
     return gItemInfo[SanitizeItemId(itemId)].holdEffect;
 }
 
-u32 Item_GetHoldEffectParam(enum Item itemId)
+u32 GetItemHoldEffectParam(enum Item itemId)
 {
     return gItemInfo[SanitizeItemId(itemId)].holdEffectParam;
 }
 
-const u8 *Item_GetDescription(enum Item itemId)
+const u8 *GetItemDescription(enum Item itemId)
 {
     return gItemInfo[SanitizeItemId(itemId)].description;
 }
 
-u32 Item_GetImportance(enum Item itemId)
+u32 GetItemImportance(enum Item itemId)
 {
     return gItemInfo[SanitizeItemId(itemId)].importance;
 }
 
-u32 Item_GetPocket(enum Item itemId)
+u32 GetItemPocket(enum Item itemId)
 {
     return gItemInfo[SanitizeItemId(itemId)].pocket;
 }
 
-u32 Item_GetType(enum Item itemId)
+u32 GetItemType(enum Item itemId)
 {
     return gItemInfo[SanitizeItemId(itemId)].type;
 }
 
-ItemUseFunc Item_GetFieldFunc(enum Item itemId)
+ItemUseFunc GetItemFieldFunc(enum Item itemId)
 {
     return gItemInfo[SanitizeItemId(itemId)].fieldUseFunc;
 }
 
-u32 Item_GetBattleUsage(enum Item itemId)
+u32 GetItemBattleUsage(enum Item itemId)
 {
     return gItemInfo[SanitizeItemId(itemId)].battleUsage;
 }
 
-ItemUseFunc Item_GetBattleFunc(enum Item itemId)
+ItemUseFunc GetItemBattleFunc(enum Item itemId)
 {
     return gItemInfo[SanitizeItemId(itemId)].battleUseFunc;
 }
 
-u32 Item_GetSecondaryId(enum Item itemId)
+u32 GetItemSecondaryId(enum Item itemId)
 {
     return gItemInfo[SanitizeItemId(itemId)].secondaryId;
 }
 
-const u8 *Item_GetEffect(u32 itemId)
+const u8 *Item_GetEffect(enum Item itemId)
 {
     if (itemId == ITEM_ENIGMA_BERRY)
         return gSaveBlock1Ptr->enigmaBerry.itemEffect;
@@ -945,7 +945,7 @@ const u8 *Item_GetEffect(u32 itemId)
         return gItemInfo[SanitizeItemId(itemId)].effect;
 }
 
-const u32 *Item_GetIconPalette(u16 itemId)
+const u32 *Item_GetIconPalette(enum Item itemId)
 {
     if (itemId == ITEM_LIST_END)
         return gItemIconPalette_ReturnToFieldArrow;
@@ -957,7 +957,7 @@ const u32 *Item_GetIconPalette(u16 itemId)
     return gItemInfo[itemId].iconPalette;
 }
 
-const u32 *Item_GetIconPic(u16 itemId)
+const u32 *Item_GetIconPic(enum Item itemId)
 {
     if (itemId == ITEM_LIST_END)
         return gItemIcon_ReturnToFieldArrow; // Use last icon, the "return to field" arrow
@@ -971,28 +971,28 @@ const u32 *Item_GetIconPic(u16 itemId)
     return gItemInfo[itemId].iconPic;
 }
 
-enum Ball ItemIdToBallId(u16 itemId)
+enum Ball ItemIdToBallId(enum Item itemId)
 {
-    enum Ball ballId = (Item_GetPocket(itemId) == POCKET_POKE_BALLS) ? Item_GetSecondaryId(itemId) : BALL_POKE;
+    enum Ball ballId = (GetItemPocket(itemId) == POCKET_POKE_BALLS) ? GetItemSecondaryId(itemId) : BALL_POKE;
 
     return ballId < POKEBALL_COUNT ? ballId : BALL_POKE;
 }
 
-u16 ItemIdToBattleMoveId(u16 item)
+u16 ItemIdToBattleMoveId(enum Item item)
 {
-    return (Item_GetPocket(item) == POCKET_TM_HM) ? Item_GetSecondaryId(item) : MOVE_NONE;
+    return (GetItemPocket(item) == POCKET_TM_HM) ? GetItemSecondaryId(item) : MOVE_NONE;
 }
 
-u8 ItemIdToBerryType(u16 item)
+u8 ItemIdToBerryType(enum Item item)
 {
     u16 berry;
-    if (Item_GetPocket(item) != POCKET_BERRIES)
+    if (GetItemPocket(item) != POCKET_BERRIES)
         return BERRY_CHERI;
-    berry = Item_GetSecondaryId(item);
+    berry = GetItemSecondaryId(item);
     return berry > BERRY_ENIGMA ? BERRY_CHERI : berry;
 }
 
-bool32 ItemIsMail(u16 itemId)
+bool32 ItemIsMail(enum Item itemId)
 {
     if (itemId < FIRST_MAIL_INDEX)
         return FALSE;
@@ -1004,6 +1004,6 @@ bool32 ItemIsMail(u16 itemId)
 enum MailID ItemIdToMailID(enum Item itemID)
 {
     if (ItemIsMail(itemID))
-        return Item_GetSecondaryId(itemID);
+        return GetItemSecondaryId(itemID);
     return ORANGE_MAIL;
 }

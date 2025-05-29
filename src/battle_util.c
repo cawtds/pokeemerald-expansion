@@ -416,7 +416,7 @@ bool8 TryRunFromBattle(u8 battler)
     if (gBattleMons[battler].item == ITEM_ENIGMA_BERRY)
         holdEffect = gEnigmaBerries[battler].holdEffect;
     else
-        holdEffect = Item_GetHoldEffect(gBattleMons[battler].item);
+        holdEffect = GetItemHoldEffect(gBattleMons[battler].item);
 
     gPotentialItemEffectBattler = battler;
 
@@ -761,7 +761,7 @@ void PressurePPLose(u8 target, u8 attacker, u16 move)
 
     if (MOVE_IS_PERMANENT(attacker, moveIndex))
     {
-        BtlController_EmitSetMonData(attacker, BUFFER_A, REQUEST_PPMOVE1_BATTLE + moveIndex, 0, 1, &gBattleMons[attacker].pp[moveIndex]);
+        BtlController_EmitSetMonData(attacker, B_COMM_TO_CONTROLLER, REQUEST_PPMOVE1_BATTLE + moveIndex, 0, 1, &gBattleMons[attacker].pp[moveIndex]);
         MarkBattlerForControllerExec(attacker);
     }
 }
@@ -792,7 +792,7 @@ void PressurePPLoseOnUsingImprison(u8 attacker)
 
     if (imprisonPos != MAX_MON_MOVES && MOVE_IS_PERMANENT(attacker, imprisonPos))
     {
-        BtlController_EmitSetMonData(attacker, BUFFER_A, REQUEST_PPMOVE1_BATTLE + imprisonPos, 0, 1, &gBattleMons[attacker].pp[imprisonPos]);
+        BtlController_EmitSetMonData(attacker, B_COMM_TO_CONTROLLER, REQUEST_PPMOVE1_BATTLE + imprisonPos, 0, 1, &gBattleMons[attacker].pp[imprisonPos]);
         MarkBattlerForControllerExec(attacker);
     }
 }
@@ -822,11 +822,12 @@ void PressurePPLoseOnUsingPerishSong(u8 attacker)
 
     if (perishSongPos != MAX_MON_MOVES && MOVE_IS_PERMANENT(attacker, perishSongPos))
     {
-        BtlController_EmitSetMonData(attacker, BUFFER_A, REQUEST_PPMOVE1_BATTLE + perishSongPos, 0, 1, &gBattleMons[attacker].pp[perishSongPos]);
+        BtlController_EmitSetMonData(attacker, B_COMM_TO_CONTROLLER, REQUEST_PPMOVE1_BATTLE + perishSongPos, 0, 1, &gBattleMons[attacker].pp[perishSongPos]);
         MarkBattlerForControllerExec(attacker);
     }
 }
 
+// See comments for MarkBattlerForControllerExec.
 static void UNUSED MarkAllBattlersForControllerExec(void)
 {
     int i;
@@ -834,31 +835,43 @@ static void UNUSED MarkAllBattlersForControllerExec(void)
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
     {
         for (i = 0; i < gBattlersCount; i++)
-            gBattleControllerExecFlags |= gBitTable[i] << (32 - MAX_BATTLERS_COUNT);
+            MARK_BATTLE_CONTROLLER_MESSAGE_OUTBOUND_OVER_LINK(i);
     }
     else
     {
         for (i = 0; i < gBattlersCount; i++)
-            gBattleControllerExecFlags |= gBitTable[i];
+            MARK_BATTLE_CONTROLLER_ACTIVE_ON_LOCAL(i);
     }
 }
 
-void MarkBattlerForControllerExec(u8 battlerId)
+// Called when the battle engine dispatches a message to a battle controller.
+//
+// During a singleplayer battle, we just immediately mark the controller as
+// active. During a multiplayer link, we do things a little differently. We
+// set a bit indicating that we're sending a message over the link. That
+// message will be received by all other players... *and* by us, the player
+// sending it, at which point we'll invoke MarkBattlerReceivedLinkData,
+// below, to clear the "we're sending a message" bit and set the "controller
+// is now active" bit.
+void MarkBattlerForControllerExec(u8 battler)
 {
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
-        gBattleControllerExecFlags |= gBitTable[battlerId] << (32 - MAX_BATTLERS_COUNT);
+        MARK_BATTLE_CONTROLLER_MESSAGE_OUTBOUND_OVER_LINK(battler);
     else
-        gBattleControllerExecFlags |= gBitTable[battlerId];
+        MARK_BATTLE_CONTROLLER_ACTIVE_ON_LOCAL(battler);
 }
 
-void MarkBattlerReceivedLinkData(u8 battlerId)
+// Called when a message dispatched from the battle engine to a battle
+// controller is received over link communications. All players assume
+// that if they've received the message, everyone else has as well.
+void MarkBattlerReceivedLinkData(u8 battler)
 {
     s32 i;
 
     for (i = 0; i < GetLinkPlayerCount(); i++)
-        gBattleControllerExecFlags |= gBitTable[battlerId] << (i << 2);
+        MARK_BATTLE_CONTROLLER_ACTIVE_FOR_PLAYER(battler, i);
 
-    gBattleControllerExecFlags &= ~((1 << 28) << battlerId);
+    MARK_BATTLE_CONTROLLER_MESSAGE_SYNCHRONIZED_OVER_LINK(battler);
 }
 
 void CancelMultiTurnMoves(u8 battler)
@@ -892,7 +905,7 @@ bool8 WasUnableToUseMove(u8 battler)
 
 void PrepareStringBattle(u16 stringId, u8 battler)
 {
-    BtlController_EmitPrintString(battler, BUFFER_A, stringId);
+    BtlController_EmitPrintString(battler, B_COMM_TO_CONTROLLER, stringId);
     MarkBattlerForControllerExec(battler);
 }
 
@@ -1030,7 +1043,7 @@ u8 TrySetCantSelectMoveBattleScript(u32 battler)
     if (gBattleMons[battler].item == ITEM_ENIGMA_BERRY)
         holdEffect = gEnigmaBerries[battler].holdEffect;
     else
-        holdEffect = Item_GetHoldEffect(gBattleMons[battler].item);
+        holdEffect = GetItemHoldEffect(gBattleMons[battler].item);
 
     gPotentialItemEffectBattler = battler;
 
@@ -1065,44 +1078,44 @@ u8 TrySetCantSelectMoveBattleScript(u32 battler)
     return limitations;
 }
 
-u8 CheckMoveLimitations(u8 battlerId, u8 unusableMoves, u8 check)
+u8 CheckMoveLimitations(u8 battler, u8 unusableMoves, u8 check)
 {
     u8 holdEffect;
-    u16 *choicedMove = &gBattleStruct->choicedMove[battlerId];
+    u16 *choicedMove = &gBattleStruct->choicedMove[battler];
     s32 i;
 
-    if (gBattleMons[battlerId].item == ITEM_ENIGMA_BERRY)
-        holdEffect = gEnigmaBerries[battlerId].holdEffect;
+    if (gBattleMons[battler].item == ITEM_ENIGMA_BERRY)
+        holdEffect = gEnigmaBerries[battler].holdEffect;
     else
-        holdEffect = Item_GetHoldEffect(gBattleMons[battlerId].item);
+        holdEffect = GetItemHoldEffect(gBattleMons[battler].item);
 
-    gPotentialItemEffectBattler = battlerId;
+    gPotentialItemEffectBattler = battler;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         // No move
-        if (gBattleMons[battlerId].moves[i] == MOVE_NONE && check & MOVE_LIMITATION_ZEROMOVE)
+        if (gBattleMons[battler].moves[i] == MOVE_NONE && check & MOVE_LIMITATION_ZEROMOVE)
             unusableMoves |= gBitTable[i];
         // No PP
-        if (gBattleMons[battlerId].pp[i] == 0 && check & MOVE_LIMITATION_PP)
+        if (gBattleMons[battler].pp[i] == 0 && check & MOVE_LIMITATION_PP)
             unusableMoves |= gBitTable[i];
         // Disable
-        if (gBattleMons[battlerId].moves[i] == gDisableStructs[battlerId].disabledMove && check & MOVE_LIMITATION_DISABLED)
+        if (gBattleMons[battler].moves[i] == gDisableStructs[battler].disabledMove && check & MOVE_LIMITATION_DISABLED)
             unusableMoves |= gBitTable[i];
         // Torment
-        if (gBattleMons[battlerId].moves[i] == gLastMoves[battlerId] && check & MOVE_LIMITATION_TORMENTED && gBattleMons[battlerId].status2 & STATUS2_TORMENT)
+        if (gBattleMons[battler].moves[i] == gLastMoves[battler] && check & MOVE_LIMITATION_TORMENTED && gBattleMons[battler].status2 & STATUS2_TORMENT)
             unusableMoves |= gBitTable[i];
         // Taunt
-        if (gDisableStructs[battlerId].tauntTimer && check & MOVE_LIMITATION_TAUNT && GetMovePower(gBattleMons[battlerId].moves[i]) == 0)
+        if (gDisableStructs[battler].tauntTimer && check & MOVE_LIMITATION_TAUNT && GetMovePower(gBattleMons[battler].moves[i]) == 0)
             unusableMoves |= gBitTable[i];
         // Imprison
-        if (GetImprisonedMovesCount(battlerId, gBattleMons[battlerId].moves[i]) && check & MOVE_LIMITATION_IMPRISON)
+        if (GetImprisonedMovesCount(battler, gBattleMons[battler].moves[i]) && check & MOVE_LIMITATION_IMPRISON)
             unusableMoves |= gBitTable[i];
         // Encore
-        if (gDisableStructs[battlerId].encoreTimer && gDisableStructs[battlerId].encoredMove != gBattleMons[battlerId].moves[i])
+        if (gDisableStructs[battler].encoreTimer && gDisableStructs[battler].encoredMove != gBattleMons[battler].moves[i])
             unusableMoves |= gBitTable[i];
         // Choice Band
-        if (holdEffect == HOLD_EFFECT_CHOICE_BAND && *choicedMove != MOVE_NONE && *choicedMove != MOVE_UNAVAILABLE && *choicedMove != gBattleMons[battlerId].moves[i])
+        if (holdEffect == HOLD_EFFECT_CHOICE_BAND && *choicedMove != MOVE_NONE && *choicedMove != MOVE_UNAVAILABLE && *choicedMove != gBattleMons[battler].moves[i])
             unusableMoves |= gBitTable[i];
     }
     return unusableMoves;
@@ -1125,11 +1138,11 @@ bool32 AreAllMovesUnusable(u32 battler)
     return (unusable == ALL_MOVES_MASK);
 }
 
-u8 GetImprisonedMovesCount(u8 battlerId, u16 move)
+u8 GetImprisonedMovesCount(u8 battler, u16 move)
 {
     s32 i;
     u8 imprisonedMoves = 0;
-    u8 battlerSide = GetBattlerSide(battlerId);
+    u8 battlerSide = GetBattlerSide(battler);
 
     for (i = 0; i < gBattlersCount; i++)
     {
@@ -1622,7 +1635,7 @@ u8 DoBattlerEndTurnEffects(void)
                             gBattleCommunication[MULTISTRING_CHOOSER] = 1;
                             BattleScriptExecute(BattleScript_MonWokeUpInUproar);
                             battler = gBattlerAttacker;
-                            BtlController_EmitSetMonData(battler, BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
+                            BtlController_EmitSetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
                             MarkBattlerForControllerExec(battler);
                             break;
                         }
@@ -1747,7 +1760,7 @@ u8 DoBattlerEndTurnEffects(void)
                     {
                         CancelMultiTurnMoves(battler);
                         gBattleMons[battler].status1 |= STATUS1_SLEEP_TURN((Random() & 3) + 2); // 2-5 turns of sleep
-                        BtlController_EmitSetMonData(battler, BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
+                        BtlController_EmitSetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
                         MarkBattlerForControllerExec(battler);
                         gEffectBattler = battler;
                         BattleScriptExecute(BattleScript_YawnMakesAsleep);
@@ -2257,7 +2270,7 @@ u8 AtkCanceller_UnableToUseMove(void)
 
     if (effect == 2)
     {
-        BtlController_EmitSetMonData(gBattlerAttacker, BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[gBattlerAttacker].status1);
+        BtlController_EmitSetMonData(gBattlerAttacker, B_COMM_TO_CONTROLLER, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[gBattlerAttacker].status1);
         MarkBattlerForControllerExec(gBattlerAttacker);
     }
     return effect;
@@ -2615,7 +2628,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;  // fix nightmare glitch
                         gBattleScripting.battler = battler;
                         BattleScriptPushCursorAndCallback(BattleScript_ShedSkinActivates);
-                        BtlController_EmitSetMonData(battler, BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
+                        BtlController_EmitSetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
                         MarkBattlerForControllerExec(battler);
                         effect++;
                     }
@@ -2926,7 +2939,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_AbilityCuredStatus;
                     gBattleScripting.battler = battler;
-                    BtlController_EmitSetMonData(battler, BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
+                    BtlController_EmitSetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
                     MarkBattlerForControllerExec(battler);
                     return effect;
                 }
@@ -3241,8 +3254,8 @@ u32 ItemBattleEffects(enum ItemEffectCaseID caseID, u32 battler, bool32 moveTurn
     }
     else
     {
-        battlerHoldEffect = Item_GetHoldEffect(gLastUsedItem);
-        battlerHoldEffectParam = Item_GetHoldEffectParam(gLastUsedItem);
+        battlerHoldEffect = GetItemHoldEffect(gLastUsedItem);
+        battlerHoldEffectParam = GetItemHoldEffectParam(gLastUsedItem);
     }
 
     atkItem = gBattleMons[gBattlerAttacker].item;
@@ -3253,8 +3266,8 @@ u32 ItemBattleEffects(enum ItemEffectCaseID caseID, u32 battler, bool32 moveTurn
     }
     else
     {
-        atkHoldEffect = Item_GetHoldEffect(atkItem);
-        atkHoldEffectParam = Item_GetHoldEffectParam(atkItem);
+        atkHoldEffect = GetItemHoldEffect(atkItem);
+        atkHoldEffectParam = GetItemHoldEffectParam(atkItem);
     }
 
     // def variables are unused
@@ -3266,8 +3279,8 @@ u32 ItemBattleEffects(enum ItemEffectCaseID caseID, u32 battler, bool32 moveTurn
     }
     else
     {
-        defHoldEffect = Item_GetHoldEffect(defItem);
-        defHoldEffectParam = Item_GetHoldEffectParam(defItem);
+        defHoldEffect = GetItemHoldEffect(defItem);
+        defHoldEffectParam = GetItemHoldEffectParam(defItem);
     }
 
     switch (caseID)
@@ -3344,7 +3357,7 @@ u32 ItemBattleEffects(enum ItemEffectCaseID caseID, u32 battler, bool32 moveTurn
                         PREPARE_MOVE_BUFFER(gBattleTextBuff1, move);
 
                         BattleScriptExecute(BattleScript_BerryPPHealEnd2);
-                        BtlController_EmitSetMonData(battler, BUFFER_A, i + REQUEST_PPMOVE1_BATTLE, 0, 1, &changedPP);
+                        BtlController_EmitSetMonData(battler, B_COMM_TO_CONTROLLER, i + REQUEST_PPMOVE1_BATTLE, 0, 1, &changedPP);
                         MarkBattlerForControllerExec(battler);
                         effect = ITEM_PP_CHANGE;
                     }
@@ -3579,7 +3592,7 @@ u32 ItemBattleEffects(enum ItemEffectCaseID caseID, u32 battler, bool32 moveTurn
                 switch (effect)
                 {
                 case ITEM_STATUS_CHANGE:
-                    BtlController_EmitSetMonData(battler, BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
+                    BtlController_EmitSetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
                     MarkBattlerForControllerExec(battler);
                     break;
                 case ITEM_PP_CHANGE:
@@ -3603,8 +3616,8 @@ u32 ItemBattleEffects(enum ItemEffectCaseID caseID, u32 battler, bool32 moveTurn
             }
             else
             {
-                battlerHoldEffect = Item_GetHoldEffect(gLastUsedItem);
-                battlerHoldEffectParam = Item_GetHoldEffectParam(gLastUsedItem);
+                battlerHoldEffect = GetItemHoldEffect(gLastUsedItem);
+                battlerHoldEffectParam = GetItemHoldEffectParam(gLastUsedItem);
             }
             switch (battlerHoldEffect)
             {
@@ -3729,7 +3742,7 @@ u32 ItemBattleEffects(enum ItemEffectCaseID caseID, u32 battler, bool32 moveTurn
             {
                 gBattleScripting.battler = battler;
                 gPotentialItemEffectBattler = battler;
-                BtlController_EmitSetMonData(battler, BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
+                BtlController_EmitSetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
                 MarkBattlerForControllerExec(battler);
                 break;
             }
@@ -3781,11 +3794,11 @@ u32 ItemBattleEffects(enum ItemEffectCaseID caseID, u32 battler, bool32 moveTurn
     return effect;
 }
 
-void ClearFuryCutterDestinyBondGrudge(u8 battlerId)
+void ClearFuryCutterDestinyBondGrudge(u8 battler)
 {
-    gDisableStructs[battlerId].furyCutterCounter = 0;
-    gBattleMons[battlerId].status2 &= ~STATUS2_DESTINY_BOND;
-    gStatuses3[battlerId] &= ~STATUS3_GRUDGE;
+    gDisableStructs[battler].furyCutterCounter = 0;
+    gBattleMons[battler].status2 &= ~STATUS2_DESTINY_BOND;
+    gStatuses3[battler] &= ~STATUS3_GRUDGE;
 }
 
 void HandleAction_RunBattleScript(void) // identical to RunBattleScriptCommands
@@ -3879,14 +3892,14 @@ u8 GetMoveTargetBattler(u16 move, u8 setTarget)
     return targetBattler;
 }
 
-static bool32 IsBattlerModernFatefulEncounter(u8 battlerId)
+static bool32 IsBattlerModernFatefulEncounter(u8 battler)
 {
-    if (GetBattlerSide(battlerId) == B_SIDE_OPPONENT)
+    if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
         return TRUE;
-    if (GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES, NULL) != SPECIES_DEOXYS
-        && GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES, NULL) != SPECIES_MEW)
+    if (GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES, NULL) != SPECIES_DEOXYS
+        && GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES, NULL) != SPECIES_MEW)
             return TRUE;
-    return GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_MODERN_FATEFUL_ENCOUNTER, NULL);
+    return GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_MODERN_FATEFUL_ENCOUNTER, NULL);
 }
 
 u8 IsMonDisobedient(void)

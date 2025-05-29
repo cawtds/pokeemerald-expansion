@@ -77,7 +77,7 @@ static union PokemonSubstruct *GetSubstruct(struct BoxPokemon *boxMon, u32 perso
 static void EncryptBoxMon(struct BoxPokemon *boxMon);
 static void DecryptBoxMon(struct BoxPokemon *boxMon);
 static void Task_PlayMapChosenOrBattleBGM(u8 taskId);
-static bool8 ShouldGetStatBadgeBoost(u16 flagId, u8 battlerId);
+static bool8 ShouldGetStatBadgeBoost(u16 flagId, u8 battler);
 static u16 GiveMoveToBoxMon(struct BoxPokemon *boxMon, u16 move);
 static bool8 ShouldSkipFriendshipChange(void);
 
@@ -1728,7 +1728,7 @@ static void CreateEventMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedI
 }
 
 // If FALSE, should load this game's Deoxys form. If TRUE, should load normal Deoxys form
-bool8 ShouldIgnoreDeoxysForm(enum DeoxysFormCaseID caseId, u8 battlerId)
+bool8 ShouldIgnoreDeoxysForm(enum DeoxysFormCaseID caseId, u8 battler)
 {
     switch (caseId)
     {
@@ -1737,7 +1737,7 @@ bool8 ShouldIgnoreDeoxysForm(enum DeoxysFormCaseID caseId, u8 battlerId)
             return FALSE;
         if (!gMain.inBattle)
             return FALSE;
-        if (gLinkPlayers[GetMultiplayerId()].id == battlerId)
+        if (gLinkPlayers[GetMultiplayerId()].id == battler)
             return FALSE;
         break;
     case DEOXYS_SUMMARY_SCREEN: // Summary Screen
@@ -1745,7 +1745,7 @@ bool8 ShouldIgnoreDeoxysForm(enum DeoxysFormCaseID caseId, u8 battlerId)
             return FALSE;
         if (!gMain.inBattle)
             return FALSE;
-        if (battlerId == 1 || battlerId == 4 || battlerId == 5)
+        if (battler == 1 || battler == 4 || battler == 5)
             return TRUE;
         return FALSE;
     case DEOXYS_MOVE_ANIM: // In move animation, e.g. in Role Play or Snatch
@@ -1755,12 +1755,12 @@ bool8 ShouldIgnoreDeoxysForm(enum DeoxysFormCaseID caseId, u8 battlerId)
                 return FALSE;
             if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
             {
-                if (gLinkPlayers[GetMultiplayerId()].id == battlerId)
+                if (gLinkPlayers[GetMultiplayerId()].id == battler)
                     return FALSE;
             }
             else
             {
-                if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+                if (GetBattlerSide(battler) == B_SIDE_PLAYER)
                     return FALSE;
             }
         }
@@ -1768,7 +1768,7 @@ bool8 ShouldIgnoreDeoxysForm(enum DeoxysFormCaseID caseId, u8 battlerId)
         {
             if (!gMain.inBattle)
                 return FALSE;
-            if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+            if (GetBattlerSide(battler) == B_SIDE_PLAYER)
                 return FALSE;
         }
         break;
@@ -2219,15 +2219,15 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     }
     else
     {
-        attackerHoldEffect = Item_GetHoldEffect(attacker->item);
-        attackerHoldEffectParam = Item_GetHoldEffectParam(attacker->item);
+        attackerHoldEffect = GetItemHoldEffect(attacker->item);
+        attackerHoldEffectParam = GetItemHoldEffectParam(attacker->item);
     }
 
     // Get defender hold item info
     if (defender->item == ITEM_ENIGMA_BERRY)
         defenderHoldEffect = gEnigmaBerries[battlerIdDef].holdEffect;
     else
-        defenderHoldEffect = Item_GetHoldEffect(defender->item);
+        defenderHoldEffect = GetItemHoldEffect(defender->item);
 
     if (attacker->ability == ABILITY_HUGE_POWER || attacker->ability == ABILITY_PURE_POWER)
         attack *= 2;
@@ -2478,11 +2478,11 @@ u8 CountAliveMonsInBattle(u32 battler, u8 caseId)
     return retVal;
 }
 
-static bool8 ShouldGetStatBadgeBoost(u16 badgeFlag, u8 battlerId)
+static bool8 ShouldGetStatBadgeBoost(u16 badgeFlag, u8 battler)
 {
     if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_RECORDED_LINK | BATTLE_TYPE_FRONTIER))
         return FALSE;
-    else if (GetBattlerSide(battlerId) != B_SIDE_PLAYER)
+    else if (GetBattlerSide(battler) != B_SIDE_PLAYER)
         return FALSE;
     else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A == TRAINER_SECRET_BASE)
         return FALSE;
@@ -3490,7 +3490,7 @@ u8 CopyMonToPC(struct Pokemon *mon)
     {
         for (boxPos = 0; boxPos < IN_BOX_COUNT; boxPos++)
         {
-            struct BoxPokemon* checkingMon = GetBoxedMonPtr(boxNo, boxPos);
+            struct BoxPokemon *checkingMon = GetBoxedMonPtr(boxNo, boxPos);
             if (GetBoxMonData(checkingMon, MON_DATA_SPECIES, NULL) == SPECIES_NONE)
             {
                 MonRestorePP(mon);
@@ -3682,59 +3682,59 @@ void RemoveBattleMonPPBonus(struct BattlePokemon *mon, u8 moveIndex)
     mon->ppBonuses &= gPPUpClearMask[moveIndex];
 }
 
-void CopyPlayerPartyMonToBattleData(u8 battlerId, u8 partyIndex)
+void CopyPlayerPartyMonToBattleData(u8 battler, u8 partyIndex)
 {
     u16 *hpSwitchout;
     s32 i;
     u8 nickname[POKEMON_NAME_BUFFER_SIZE];
 
-    gBattleMons[battlerId].species = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPECIES, NULL);
-    gBattleMons[battlerId].item = GetMonData(&gPlayerParty[partyIndex], MON_DATA_HELD_ITEM, NULL);
+    gBattleMons[battler].species = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPECIES, NULL);
+    gBattleMons[battler].item = GetMonData(&gPlayerParty[partyIndex], MON_DATA_HELD_ITEM, NULL);
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        gBattleMons[battlerId].moves[i] = GetMonData(&gPlayerParty[partyIndex], MON_DATA_MOVE1 + i, NULL);
-        gBattleMons[battlerId].pp[i] = GetMonData(&gPlayerParty[partyIndex], MON_DATA_PP1 + i, NULL);
+        gBattleMons[battler].moves[i] = GetMonData(&gPlayerParty[partyIndex], MON_DATA_MOVE1 + i, NULL);
+        gBattleMons[battler].pp[i] = GetMonData(&gPlayerParty[partyIndex], MON_DATA_PP1 + i, NULL);
     }
 
-    gBattleMons[battlerId].ppBonuses = GetMonData(&gPlayerParty[partyIndex], MON_DATA_PP_BONUSES, NULL);
-    gBattleMons[battlerId].friendship = GetMonData(&gPlayerParty[partyIndex], MON_DATA_FRIENDSHIP, NULL);
-    gBattleMons[battlerId].experience = GetMonData(&gPlayerParty[partyIndex], MON_DATA_EXP, NULL);
-    gBattleMons[battlerId].hpIV = GetMonData(&gPlayerParty[partyIndex], MON_DATA_HP_IV, NULL);
-    gBattleMons[battlerId].attackIV = GetMonData(&gPlayerParty[partyIndex], MON_DATA_ATK_IV, NULL);
-    gBattleMons[battlerId].defenseIV = GetMonData(&gPlayerParty[partyIndex], MON_DATA_DEF_IV, NULL);
-    gBattleMons[battlerId].speedIV = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPEED_IV, NULL);
-    gBattleMons[battlerId].spAttackIV = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPATK_IV, NULL);
-    gBattleMons[battlerId].spDefenseIV = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPDEF_IV, NULL);
-    gBattleMons[battlerId].personality = GetMonData(&gPlayerParty[partyIndex], MON_DATA_PERSONALITY, NULL);
-    gBattleMons[battlerId].status1 = GetMonData(&gPlayerParty[partyIndex], MON_DATA_STATUS, NULL);
-    gBattleMons[battlerId].level = GetMonData(&gPlayerParty[partyIndex], MON_DATA_LEVEL, NULL);
-    gBattleMons[battlerId].hp = GetMonData(&gPlayerParty[partyIndex], MON_DATA_HP, NULL);
-    gBattleMons[battlerId].maxHP = GetMonData(&gPlayerParty[partyIndex], MON_DATA_MAX_HP, NULL);
-    gBattleMons[battlerId].attack = GetMonData(&gPlayerParty[partyIndex], MON_DATA_ATK, NULL);
-    gBattleMons[battlerId].defense = GetMonData(&gPlayerParty[partyIndex], MON_DATA_DEF, NULL);
-    gBattleMons[battlerId].speed = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPEED, NULL);
-    gBattleMons[battlerId].spAttack = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPATK, NULL);
-    gBattleMons[battlerId].spDefense = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPDEF, NULL);
-    gBattleMons[battlerId].isEgg = GetMonData(&gPlayerParty[partyIndex], MON_DATA_IS_EGG, NULL);
-    gBattleMons[battlerId].abilityNum = GetMonData(&gPlayerParty[partyIndex], MON_DATA_ABILITY_NUM, NULL);
-    gBattleMons[battlerId].otId = GetMonData(&gPlayerParty[partyIndex], MON_DATA_OT_ID, NULL);
-    gBattleMons[battlerId].types[0] = gSpeciesInfo[gBattleMons[battlerId].species].types[0];
-    gBattleMons[battlerId].types[1] = gSpeciesInfo[gBattleMons[battlerId].species].types[1];
-    gBattleMons[battlerId].ability = GetAbilityBySpecies(gBattleMons[battlerId].species, gBattleMons[battlerId].abilityNum);
+    gBattleMons[battler].ppBonuses = GetMonData(&gPlayerParty[partyIndex], MON_DATA_PP_BONUSES, NULL);
+    gBattleMons[battler].friendship = GetMonData(&gPlayerParty[partyIndex], MON_DATA_FRIENDSHIP, NULL);
+    gBattleMons[battler].experience = GetMonData(&gPlayerParty[partyIndex], MON_DATA_EXP, NULL);
+    gBattleMons[battler].hpIV = GetMonData(&gPlayerParty[partyIndex], MON_DATA_HP_IV, NULL);
+    gBattleMons[battler].attackIV = GetMonData(&gPlayerParty[partyIndex], MON_DATA_ATK_IV, NULL);
+    gBattleMons[battler].defenseIV = GetMonData(&gPlayerParty[partyIndex], MON_DATA_DEF_IV, NULL);
+    gBattleMons[battler].speedIV = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPEED_IV, NULL);
+    gBattleMons[battler].spAttackIV = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPATK_IV, NULL);
+    gBattleMons[battler].spDefenseIV = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPDEF_IV, NULL);
+    gBattleMons[battler].personality = GetMonData(&gPlayerParty[partyIndex], MON_DATA_PERSONALITY, NULL);
+    gBattleMons[battler].status1 = GetMonData(&gPlayerParty[partyIndex], MON_DATA_STATUS, NULL);
+    gBattleMons[battler].level = GetMonData(&gPlayerParty[partyIndex], MON_DATA_LEVEL, NULL);
+    gBattleMons[battler].hp = GetMonData(&gPlayerParty[partyIndex], MON_DATA_HP, NULL);
+    gBattleMons[battler].maxHP = GetMonData(&gPlayerParty[partyIndex], MON_DATA_MAX_HP, NULL);
+    gBattleMons[battler].attack = GetMonData(&gPlayerParty[partyIndex], MON_DATA_ATK, NULL);
+    gBattleMons[battler].defense = GetMonData(&gPlayerParty[partyIndex], MON_DATA_DEF, NULL);
+    gBattleMons[battler].speed = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPEED, NULL);
+    gBattleMons[battler].spAttack = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPATK, NULL);
+    gBattleMons[battler].spDefense = GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPDEF, NULL);
+    gBattleMons[battler].isEgg = GetMonData(&gPlayerParty[partyIndex], MON_DATA_IS_EGG, NULL);
+    gBattleMons[battler].abilityNum = GetMonData(&gPlayerParty[partyIndex], MON_DATA_ABILITY_NUM, NULL);
+    gBattleMons[battler].otId = GetMonData(&gPlayerParty[partyIndex], MON_DATA_OT_ID, NULL);
+    gBattleMons[battler].types[0] = gSpeciesInfo[gBattleMons[battler].species].types[0];
+    gBattleMons[battler].types[1] = gSpeciesInfo[gBattleMons[battler].species].types[1];
+    gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum);
     GetMonData(&gPlayerParty[partyIndex], MON_DATA_NICKNAME, nickname);
-    StringCopy_Nickname(gBattleMons[battlerId].nickname, nickname);
-    GetMonData(&gPlayerParty[partyIndex], MON_DATA_OT_NAME, gBattleMons[battlerId].otName);
+    StringCopy_Nickname(gBattleMons[battler].nickname, nickname);
+    GetMonData(&gPlayerParty[partyIndex], MON_DATA_OT_NAME, gBattleMons[battler].otName);
 
-    hpSwitchout = &gBattleStruct->hpOnSwitchout[GetBattlerSide(battlerId)];
-    *hpSwitchout = gBattleMons[battlerId].hp;
+    hpSwitchout = &gBattleStruct->hpOnSwitchout[GetBattlerSide(battler)];
+    *hpSwitchout = gBattleMons[battler].hp;
 
     for (i = 0; i < NUM_BATTLE_STATS; i++)
-        gBattleMons[battlerId].statStages[i] = DEFAULT_STAT_STAGE;
+        gBattleMons[battler].statStages[i] = DEFAULT_STAT_STAGE;
 
-    gBattleMons[battlerId].status2 = 0;
-    UpdateSentPokesToOpponentValue(battlerId);
-    ClearTemporarySpeciesSpriteData(battlerId, FALSE);
+    gBattleMons[battler].status2 = 0;
+    UpdateSentPokesToOpponentValue(battler);
+    ClearTemporarySpeciesSpriteData(battler, FALSE);
 }
 
 bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, u8 moveIndex)
@@ -3771,7 +3771,7 @@ bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, 
 // Returns TRUE if the item has no effect on the Pokémon, FALSE otherwise
 bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 moveIndex, bool8 usedByAI)
 {
-    u32 battler;
+    u32 activeBattler;
     u32 dataUnsigned;
     s32 dataSigned;
     s32 friendship;
@@ -3782,7 +3782,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     u32 temp1, temp2;
     s8 friendshipChange = 0;
     u8 holdEffect;
-    u8 battlerId = MAX_BATTLERS_COUNT;
+    u8 battler = MAX_BATTLERS_COUNT;
     u32 friendshipOnly = FALSE;
     u16 heldItem;
     u8 effectFlags;
@@ -3800,20 +3800,20 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     }
     else
     {
-        holdEffect = Item_GetHoldEffect(heldItem);
+        holdEffect = GetItemHoldEffect(heldItem);
     }
 
     // Get battler id (if relevant)
     gPotentialItemEffectBattler = gBattlerInMenuId;
     if (gMain.inBattle)
     {
-        battler = gBattlerInMenuId;
-        i = (GetBattlerSide(battler) != B_SIDE_PLAYER);
+        activeBattler = gBattlerInMenuId;
+        i = (GetBattlerSide(activeBattler) != B_SIDE_PLAYER);
         while (i < gBattlersCount)
         {
             if (gBattlerPartyIndexes[i] == partyIndex)
             {
-                battlerId = i;
+                battler = i;
                 break;
             }
             i += 2;
@@ -3821,8 +3821,8 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     }
     else
     {
-        battler = 0;
-        battlerId = MAX_BATTLERS_COUNT;
+        activeBattler = 0;
+        battler = MAX_BATTLERS_COUNT;
     }
 
     // Skip using the item if it won't do anything
@@ -3835,7 +3835,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     if (item == ITEM_ENIGMA_BERRY)
     {
         if (gMain.inBattle)
-            itemEffect = gEnigmaBerries[battler].itemEffect;
+            itemEffect = gEnigmaBerries[activeBattler].itemEffect;
         else
             itemEffect = gSaveBlock1Ptr->enigmaBerry.itemEffect;
     }
@@ -3854,27 +3854,27 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
         case 0:
             // Cure infatuation
             if ((itemEffect[i] & ITEM0_INFATUATION)
-             && gMain.inBattle && battlerId != MAX_BATTLERS_COUNT && (gBattleMons[battlerId].status2 & STATUS2_INFATUATION))
+             && gMain.inBattle && battler != MAX_BATTLERS_COUNT && (gBattleMons[battler].status2 & STATUS2_INFATUATION))
             {
-                gBattleMons[battlerId].status2 &= ~STATUS2_INFATUATION;
+                gBattleMons[battler].status2 &= ~STATUS2_INFATUATION;
                 retVal = FALSE;
             }
 
             // Dire Hit
             if ((itemEffect[i] & ITEM0_DIRE_HIT)
-             && !(gBattleMons[battler].status2 & STATUS2_FOCUS_ENERGY))
+             && !(gBattleMons[activeBattler].status2 & STATUS2_FOCUS_ENERGY))
             {
-                gBattleMons[battler].status2 |= STATUS2_FOCUS_ENERGY;
+                gBattleMons[activeBattler].status2 |= STATUS2_FOCUS_ENERGY;
                 retVal = FALSE;
             }
 
             // X Attack
             if ((itemEffect[i] & ITEM0_X_ATTACK)
-             && gBattleMons[battler].statStages[STAT_ATK] < MAX_STAT_STAGE)
+             && gBattleMons[activeBattler].statStages[STAT_ATK] < MAX_STAT_STAGE)
             {
-                gBattleMons[battler].statStages[STAT_ATK] += itemEffect[i] & ITEM0_X_ATTACK;
-                if (gBattleMons[battler].statStages[STAT_ATK] > MAX_STAT_STAGE)
-                    gBattleMons[battler].statStages[STAT_ATK] = MAX_STAT_STAGE;
+                gBattleMons[activeBattler].statStages[STAT_ATK] += itemEffect[i] & ITEM0_X_ATTACK;
+                if (gBattleMons[activeBattler].statStages[STAT_ATK] > MAX_STAT_STAGE)
+                    gBattleMons[activeBattler].statStages[STAT_ATK] = MAX_STAT_STAGE;
                 retVal = FALSE;
             }
             break;
@@ -3883,21 +3883,21 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
         case 1:
             // X Defend
             if ((itemEffect[i] & ITEM1_X_DEFEND)
-             && gBattleMons[battler].statStages[STAT_DEF] < MAX_STAT_STAGE)
+             && gBattleMons[activeBattler].statStages[STAT_DEF] < MAX_STAT_STAGE)
             {
-                gBattleMons[battler].statStages[STAT_DEF] += (itemEffect[i] & ITEM1_X_DEFEND) >> 4;
-                if (gBattleMons[battler].statStages[STAT_DEF] > MAX_STAT_STAGE)
-                    gBattleMons[battler].statStages[STAT_DEF] = MAX_STAT_STAGE;
+                gBattleMons[activeBattler].statStages[STAT_DEF] += (itemEffect[i] & ITEM1_X_DEFEND) >> 4;
+                if (gBattleMons[activeBattler].statStages[STAT_DEF] > MAX_STAT_STAGE)
+                    gBattleMons[activeBattler].statStages[STAT_DEF] = MAX_STAT_STAGE;
                 retVal = FALSE;
             }
 
             // X Speed
             if ((itemEffect[i] & ITEM1_X_SPEED)
-             && gBattleMons[battler].statStages[STAT_SPEED] < MAX_STAT_STAGE)
+             && gBattleMons[activeBattler].statStages[STAT_SPEED] < MAX_STAT_STAGE)
             {
-                gBattleMons[battler].statStages[STAT_SPEED] += itemEffect[i] & ITEM1_X_SPEED;
-                if (gBattleMons[battler].statStages[STAT_SPEED] > MAX_STAT_STAGE)
-                    gBattleMons[battler].statStages[STAT_SPEED] = MAX_STAT_STAGE;
+                gBattleMons[activeBattler].statStages[STAT_SPEED] += itemEffect[i] & ITEM1_X_SPEED;
+                if (gBattleMons[activeBattler].statStages[STAT_SPEED] > MAX_STAT_STAGE)
+                    gBattleMons[activeBattler].statStages[STAT_SPEED] = MAX_STAT_STAGE;
                 retVal = FALSE;
             }
             break;
@@ -3905,21 +3905,21 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
         case 2:
             // X Accuracy
             if ((itemEffect[i] & ITEM2_X_ACCURACY)
-             && gBattleMons[battler].statStages[STAT_ACC] < MAX_STAT_STAGE)
+             && gBattleMons[activeBattler].statStages[STAT_ACC] < MAX_STAT_STAGE)
             {
-                gBattleMons[battler].statStages[STAT_ACC] += (itemEffect[i] & ITEM2_X_ACCURACY) >> 4;
-                if (gBattleMons[battler].statStages[STAT_ACC] > MAX_STAT_STAGE)
-                    gBattleMons[battler].statStages[STAT_ACC] = MAX_STAT_STAGE;
+                gBattleMons[activeBattler].statStages[STAT_ACC] += (itemEffect[i] & ITEM2_X_ACCURACY) >> 4;
+                if (gBattleMons[activeBattler].statStages[STAT_ACC] > MAX_STAT_STAGE)
+                    gBattleMons[activeBattler].statStages[STAT_ACC] = MAX_STAT_STAGE;
                 retVal = FALSE;
             }
 
             // X Sp Attack
             if ((itemEffect[i] & ITEM2_X_SPATK)
-             && gBattleMons[battler].statStages[STAT_SPATK] < MAX_STAT_STAGE)
+             && gBattleMons[activeBattler].statStages[STAT_SPATK] < MAX_STAT_STAGE)
             {
-                gBattleMons[battler].statStages[STAT_SPATK] += itemEffect[i] & ITEM2_X_SPATK;
-                if (gBattleMons[battler].statStages[STAT_SPATK] > MAX_STAT_STAGE)
-                    gBattleMons[battler].statStages[STAT_SPATK] = MAX_STAT_STAGE;
+                gBattleMons[activeBattler].statStages[STAT_SPATK] += itemEffect[i] & ITEM2_X_SPATK;
+                if (gBattleMons[activeBattler].statStages[STAT_SPATK] > MAX_STAT_STAGE)
+                    gBattleMons[activeBattler].statStages[STAT_SPATK] = MAX_STAT_STAGE;
                 retVal = FALSE;
             }
             break;
@@ -3928,9 +3928,9 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
         case 3:
             // Guard Spec
             if ((itemEffect[i] & ITEM3_GUARD_SPEC)
-             && gSideTimers[GetBattlerSide(battler)].mistTimer == 0)
+             && gSideTimers[GetBattlerSide(activeBattler)].mistTimer == 0)
             {
-                gSideTimers[GetBattlerSide(battler)].mistTimer = 5;
+                gSideTimers[GetBattlerSide(activeBattler)].mistTimer = 5;
                 retVal = FALSE;
             }
 
@@ -3946,24 +3946,24 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
 
             // Cure status
             if ((itemEffect[i] & ITEM3_SLEEP)
-             && HealStatusConditions(mon, partyIndex, STATUS1_SLEEP, battlerId) == 0)
+             && HealStatusConditions(mon, partyIndex, STATUS1_SLEEP, battler) == 0)
             {
-                if (battlerId != MAX_BATTLERS_COUNT)
-                    gBattleMons[battlerId].status2 &= ~STATUS2_NIGHTMARE;
+                if (battler != MAX_BATTLERS_COUNT)
+                    gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
                 retVal = FALSE;
             }
-            if ((itemEffect[i] & ITEM3_POISON) && HealStatusConditions(mon, partyIndex, STATUS1_PSN_ANY | STATUS1_TOXIC_COUNTER, battlerId) == 0)
+            if ((itemEffect[i] & ITEM3_POISON) && HealStatusConditions(mon, partyIndex, STATUS1_PSN_ANY | STATUS1_TOXIC_COUNTER, battler) == 0)
                 retVal = FALSE;
-            if ((itemEffect[i] & ITEM3_BURN) && HealStatusConditions(mon, partyIndex, STATUS1_BURN, battlerId) == 0)
+            if ((itemEffect[i] & ITEM3_BURN) && HealStatusConditions(mon, partyIndex, STATUS1_BURN, battler) == 0)
                 retVal = FALSE;
-            if ((itemEffect[i] & ITEM3_FREEZE) && HealStatusConditions(mon, partyIndex, STATUS1_FREEZE, battlerId) == 0)
+            if ((itemEffect[i] & ITEM3_FREEZE) && HealStatusConditions(mon, partyIndex, STATUS1_FREEZE, battler) == 0)
                 retVal = FALSE;
-            if ((itemEffect[i] & ITEM3_PARALYSIS) && HealStatusConditions(mon, partyIndex, STATUS1_PARALYSIS, battlerId) == 0)
+            if ((itemEffect[i] & ITEM3_PARALYSIS) && HealStatusConditions(mon, partyIndex, STATUS1_PARALYSIS, battler) == 0)
                 retVal = FALSE;
             if ((itemEffect[i] & ITEM3_CONFUSION)  // heal confusion
-             && gMain.inBattle && battlerId != MAX_BATTLERS_COUNT && (gBattleMons[battlerId].status2 & STATUS2_CONFUSION))
+             && gMain.inBattle && battler != MAX_BATTLERS_COUNT && (gBattleMons[battler].status2 & STATUS2_CONFUSION))
             {
-                gBattleMons[battlerId].status2 &= ~STATUS2_CONFUSION;
+                gBattleMons[battler].status2 &= ~STATUS2_CONFUSION;
                 retVal = FALSE;
             }
             break;
@@ -4056,17 +4056,17 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                             }
                             if (gMain.inBattle)
                             {
-                                if (battlerId != MAX_BATTLERS_COUNT)
+                                if (battler != MAX_BATTLERS_COUNT)
                                 {
-                                    gAbsentBattlerFlags &= ~gBitTable[battlerId];
-                                    CopyPlayerPartyMonToBattleData(battlerId, GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[battlerId]));
-                                    if (GetBattlerSide(battler) == B_SIDE_PLAYER && gBattleResults.numRevivesUsed < 255)
+                                    gAbsentBattlerFlags &= ~gBitTable[battler];
+                                    CopyPlayerPartyMonToBattleData(battler, GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[battler]));
+                                    if (GetBattlerSide(activeBattler) == B_SIDE_PLAYER && gBattleResults.numRevivesUsed < 255)
                                         gBattleResults.numRevivesUsed++;
                                 }
                                 else
                                 {
-                                    gAbsentBattlerFlags &= ~gBitTable[battler ^ 2];
-                                    if (GetBattlerSide(battler) == B_SIDE_PLAYER && gBattleResults.numRevivesUsed < 255)
+                                    gAbsentBattlerFlags &= ~gBitTable[activeBattler ^ 2];
+                                    if (GetBattlerSide(activeBattler) == B_SIDE_PLAYER && gBattleResults.numRevivesUsed < 255)
                                         gBattleResults.numRevivesUsed++;
                                 }
                             }
@@ -4109,19 +4109,19 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                                 SetMonData(mon, MON_DATA_HP, &dataUnsigned);
 
                                 // Update battler (if applicable)
-                                if (gMain.inBattle && battlerId != MAX_BATTLERS_COUNT)
+                                if (gMain.inBattle && battler != MAX_BATTLERS_COUNT)
                                 {
-                                    gBattleMons[battlerId].hp = dataUnsigned;
-                                    if (!(effectFlags & (ITEM4_REVIVE >> 2)) && GetBattlerSide(battler) == B_SIDE_PLAYER)
+                                    gBattleMons[battler].hp = dataUnsigned;
+                                    if (!(effectFlags & (ITEM4_REVIVE >> 2)) && GetBattlerSide(activeBattler) == B_SIDE_PLAYER)
                                     {
                                         if (gBattleResults.numHealingItemsUsed < 255)
                                             gBattleResults.numHealingItemsUsed++;
 
-                                        temp2 = battler;
-                                        battler = battlerId;
-                                        BtlController_EmitGetMonData(battler, BUFFER_A, REQUEST_ALL_BATTLE, 0);
-                                        MarkBattlerForControllerExec(battler);
-                                        battler = temp2;
+                                        temp2 = activeBattler;
+                                        activeBattler = battler;
+                                        BtlController_EmitGetMonData(activeBattler, B_COMM_TO_CONTROLLER, REQUEST_ALL_BATTLE, 0);
+                                        MarkBattlerForControllerExec(activeBattler);
+                                        activeBattler = temp2;
                                     }
                                 }
                             }
@@ -4140,23 +4140,23 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                             // Heal PP for all moves
                             for (temp2 = 0; (signed)(temp2) < (signed)(MAX_MON_MOVES); temp2++)
                             {
-                                u16 moveId;
+                                u16 move;
                                 dataUnsigned = GetMonData(mon, MON_DATA_PP1 + temp2, NULL);
-                                moveId = GetMonData(mon, MON_DATA_MOVE1 + temp2, NULL);
-                                if (dataUnsigned != CalculatePPWithBonus(moveId, GetMonData(mon, MON_DATA_PP_BONUSES, NULL), temp2))
+                                move = GetMonData(mon, MON_DATA_MOVE1 + temp2, NULL);
+                                if (dataUnsigned != CalculatePPWithBonus(move, GetMonData(mon, MON_DATA_PP_BONUSES, NULL), temp2))
                                 {
                                     dataUnsigned += itemEffect[itemEffectParam];
-                                    moveId = GetMonData(mon, MON_DATA_MOVE1 + temp2, NULL); // Redundant
-                                    if (dataUnsigned > CalculatePPWithBonus(moveId, GetMonData(mon, MON_DATA_PP_BONUSES, NULL), temp2))
+                                    move = GetMonData(mon, MON_DATA_MOVE1 + temp2, NULL); // Redundant
+                                    if (dataUnsigned > CalculatePPWithBonus(move, GetMonData(mon, MON_DATA_PP_BONUSES, NULL), temp2))
                                     {
-                                        moveId = GetMonData(mon, MON_DATA_MOVE1 + temp2, NULL); // Redundant
-                                        dataUnsigned = CalculatePPWithBonus(moveId, GetMonData(mon, MON_DATA_PP_BONUSES, NULL), temp2);
+                                        move = GetMonData(mon, MON_DATA_MOVE1 + temp2, NULL); // Redundant
+                                        dataUnsigned = CalculatePPWithBonus(move, GetMonData(mon, MON_DATA_PP_BONUSES, NULL), temp2);
                                     }
                                     SetMonData(mon, MON_DATA_PP1 + temp2, &dataUnsigned);
 
                                     // Heal battler PP too (if applicable)
-                                    if (gMain.inBattle && battlerId != MAX_BATTLERS_COUNT && MOVE_IS_PERMANENT(battlerId, temp2))
-                                        gBattleMons[battlerId].pp[temp2] = dataUnsigned;
+                                    if (gMain.inBattle && battler != MAX_BATTLERS_COUNT && MOVE_IS_PERMANENT(battler, temp2))
+                                        gBattleMons[battler].pp[temp2] = dataUnsigned;
 
                                     retVal = FALSE;
                                 }
@@ -4166,23 +4166,23 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                         else
                         {
                             // Heal PP for one move
-                            u16 moveId;
+                            u16 move;
                             dataUnsigned = GetMonData(mon, MON_DATA_PP1 + moveIndex, NULL);
-                            moveId = GetMonData(mon, MON_DATA_MOVE1 + moveIndex, NULL);
-                            if (dataUnsigned != CalculatePPWithBonus(moveId, GetMonData(mon, MON_DATA_PP_BONUSES, NULL), moveIndex))
+                            move = GetMonData(mon, MON_DATA_MOVE1 + moveIndex, NULL);
+                            if (dataUnsigned != CalculatePPWithBonus(move, GetMonData(mon, MON_DATA_PP_BONUSES, NULL), moveIndex))
                             {
                                 dataUnsigned += itemEffect[itemEffectParam++];
-                                moveId = GetMonData(mon, MON_DATA_MOVE1 + moveIndex, NULL); // Redundant
-                                if (dataUnsigned > CalculatePPWithBonus(moveId, GetMonData(mon, MON_DATA_PP_BONUSES, NULL), moveIndex))
+                                move = GetMonData(mon, MON_DATA_MOVE1 + moveIndex, NULL); // Redundant
+                                if (dataUnsigned > CalculatePPWithBonus(move, GetMonData(mon, MON_DATA_PP_BONUSES, NULL), moveIndex))
                                 {
-                                    moveId = GetMonData(mon, MON_DATA_MOVE1 + moveIndex, NULL); // Redundant
-                                    dataUnsigned = CalculatePPWithBonus(moveId, GetMonData(mon, MON_DATA_PP_BONUSES, NULL), moveIndex);
+                                    move = GetMonData(mon, MON_DATA_MOVE1 + moveIndex, NULL); // Redundant
+                                    dataUnsigned = CalculatePPWithBonus(move, GetMonData(mon, MON_DATA_PP_BONUSES, NULL), moveIndex);
                                 }
                                 SetMonData(mon, MON_DATA_PP1 + moveIndex, &dataUnsigned);
 
                                 // Heal battler PP too (if applicable)
-                                if (gMain.inBattle && battlerId != MAX_BATTLERS_COUNT && MOVE_IS_PERMANENT(battlerId, moveIndex))
-                                    gBattleMons[battlerId].pp[moveIndex] = dataUnsigned;
+                                if (gMain.inBattle && battler != MAX_BATTLERS_COUNT && MOVE_IS_PERMANENT(battler, moveIndex))
+                                    gBattleMons[battler].pp[moveIndex] = dataUnsigned;
 
                                 retVal = FALSE;
                             }
@@ -4321,7 +4321,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     return retVal;
 }
 
-bool8 HealStatusConditions(struct Pokemon *mon, u32 battlePartyId, u32 healMask, u8 battlerId)
+bool8 HealStatusConditions(struct Pokemon *mon, u32 battlePartyId, u32 healMask, u8 battler)
 {
     u32 status = GetMonData(mon, MON_DATA_STATUS, 0);
 
@@ -4329,8 +4329,8 @@ bool8 HealStatusConditions(struct Pokemon *mon, u32 battlePartyId, u32 healMask,
     {
         status &= ~healMask;
         SetMonData(mon, MON_DATA_STATUS, &status);
-        if (gMain.inBattle && battlerId != MAX_BATTLERS_COUNT)
-            gBattleMons[battlerId].status1 &= ~healMask;
+        if (gMain.inBattle && battler != MAX_BATTLERS_COUNT)
+            gBattleMons[battler].status1 &= ~healMask;
         return FALSE;
     }
     else
@@ -4534,7 +4534,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem)
     if (heldItem == ITEM_ENIGMA_BERRY)
         holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
     else
-        holdEffect = Item_GetHoldEffect(heldItem);
+        holdEffect = GetItemHoldEffect(heldItem);
 
     // Prevent evolution with Everstone, unless we're just viewing the party menu with an evolution item
     if (holdEffect == HOLD_EFFECT_PREVENT_EVOLVE && mode != EVO_MODE_ITEM_CHECK)
@@ -4941,7 +4941,7 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
     }
     else
     {
-        holdEffect = Item_GetHoldEffect(heldItem);
+        holdEffect = GetItemHoldEffect(heldItem);
     }
 
     if (species && species != SPECIES_EGG)
@@ -5051,7 +5051,7 @@ void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
         }
         else
         {
-            holdEffect = Item_GetHoldEffect(heldItem);
+            holdEffect = GetItemHoldEffect(heldItem);
         }
 
         if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
@@ -5871,22 +5871,22 @@ void BattleAnimateBackSprite(struct Sprite *sprite, u16 species)
 static u8 UNUSED GetOwnOpposingLinkMultiBattlerId(bool8 rightSide)
 {
     s32 i;
-    s32 battlerId = 0;
+    s32 battler = 0;
     u8 multiplayerId = GetMultiplayerId();
     switch (gLinkPlayers[multiplayerId].id)
     {
     case 0:
     case 2:
-        battlerId = rightSide ? 1 : 3;
+        battler = rightSide ? 1 : 3;
         break;
     case 1:
     case 3:
-        battlerId = rightSide ? 2 : 0;
+        battler = rightSide ? 2 : 0;
         break;
     }
     for (i = 0; i < MAX_LINK_PLAYERS; i++)
     {
-        if (gLinkPlayers[i].id == (s16)battlerId)
+        if (gLinkPlayers[i].id == (s16)battler)
             break;
     }
     return i;
@@ -5895,21 +5895,21 @@ static u8 UNUSED GetOwnOpposingLinkMultiBattlerId(bool8 rightSide)
 u8 GetOpposingLinkMultiBattlerId(bool8 rightSide, u8 multiplayerId)
 {
     s32 i;
-    s32 battlerId = 0;
+    s32 battler = 0;
     switch (gLinkPlayers[multiplayerId].id)
     {
     case 0:
     case 2:
-        battlerId = rightSide ? 1 : 3;
+        battler = rightSide ? 1 : 3;
         break;
     case 1:
     case 3:
-        battlerId = rightSide ? 2 : 0;
+        battler = rightSide ? 2 : 0;
         break;
     }
     for (i = 0; i < MAX_LINK_PLAYERS; i++)
     {
-        if (gLinkPlayers[i].id == (s16)battlerId)
+        if (gLinkPlayers[i].id == (s16)battler)
             break;
     }
     return i;
@@ -5989,7 +5989,7 @@ static bool8 ShouldSkipFriendshipChange(void)
 #define ALLOC_FAIL_STRUCT (1 << 1)
 #define GFX_MANAGER_ACTIVE 0xA3 // Arbitrary value
 
-static void InitMonSpritesGfx_Battle(struct MonSpritesGfxManager* gfx)
+static void InitMonSpritesGfx_Battle(struct MonSpritesGfxManager *gfx)
 {
     u16 i, j;
     for (i = 0; i < gfx->numSprites; i++)
@@ -6002,7 +6002,7 @@ static void InitMonSpritesGfx_Battle(struct MonSpritesGfxManager* gfx)
     }
 }
 
-static void InitMonSpritesGfx_FullParty(struct MonSpritesGfxManager* gfx)
+static void InitMonSpritesGfx_FullParty(struct MonSpritesGfxManager *gfx)
 {
     u16 i, j;
     for (i = 0; i < gfx->numSprites; i++)

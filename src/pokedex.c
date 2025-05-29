@@ -4570,7 +4570,7 @@ static void UNUSED PrintDecimalNum(u8 windowId, u16 num, u8 left, u8 top)
 static void DrawFootprint(u8 windowId, u16 dexNum)
 {
     u8 footprint4bpp[TILE_SIZE_4BPP * NUM_FOOTPRINT_TILES];
-    const u8 * footprintGfx = gSpeciesInfo[NationalPokedexNumToSpecies(dexNum)].footprint;
+    const u8 *footprintGfx = gSpeciesInfo[NationalPokedexNumToSpecies(dexNum)].footprint;
     u16 tileIdx = 0;
     u16 i, j;
 

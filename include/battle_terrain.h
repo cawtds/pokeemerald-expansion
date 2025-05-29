@@ -16,12 +16,12 @@ struct BattleTerrainInfo
     const struct BattleBackground battleBackground;
 };
 
-extern const struct BattleTerrainInfo gBattleTerrainInfos[NUM_BATTLE_TERRAINS];
+extern const struct BattleTerrainInfo gBattleTerrainInfos[NUM_BATTLE_ENVIRONMENTS];
 
 static inline u32 SanitizeBattleTerrain(u32 battleTerrain)
 {
-    if (battleTerrain >= NUM_BATTLE_TERRAINS)
-        return BATTLE_TERRAIN_GRASS;
+    if (battleTerrain >= NUM_BATTLE_ENVIRONMENTS)
+        return BATTLE_ENVIRONMENT_GRASS;
     return battleTerrain;
 }
 

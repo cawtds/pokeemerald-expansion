@@ -1174,7 +1174,7 @@ static void SetBerrySpriteData(struct Sprite *sprite, s16 x, s16 y, s16 bounceSp
 
 static void CreateBerrySprite(u16 itemId, u8 playerId)
 {
-    u8 spriteId = CreateSpinningBerrySprite(Item_GetSecondaryId(itemId), 0, 80, playerId & 1);
+    u8 spriteId = CreateSpinningBerrySprite(GetItemSecondaryId(itemId), 0, 80, playerId & 1);
     SetBerrySpriteData(&gSprites[spriteId],
                         sBerrySpriteData[playerId][0],
                         sBerrySpriteData[playerId][1],
@@ -1183,10 +1183,10 @@ static void CreateBerrySprite(u16 itemId, u8 playerId)
                         sBerrySpriteData[playerId][4]);
 }
 
-static void ConvertItemToBlenderBerry(struct BlenderBerry* berry, u16 itemId)
+static void ConvertItemToBlenderBerry(struct BlenderBerry *berry, u16 itemId)
 {
     enum BerryFlavor flavorID;
-    enum BerryID berryID = Item_GetSecondaryId(itemId);
+    enum BerryID berryID = GetItemSecondaryId(itemId);
 
     berry->itemId = itemId;
     StringCopy(berry->name, Berry_GetDynamicName(berryID));
@@ -1513,7 +1513,7 @@ static u8 GetArrowProximity(u16 arrowPos, u8 playerId)
     return PROXIMITY_MISS;
 }
 
-static void SetOpponentsBerryData(u16 playerBerryItemId, u8 playersNum, struct BlenderBerry* playerBerry)
+static void SetOpponentsBerryData(u16 playerBerryItemId, u8 playersNum, struct BlenderBerry *playerBerry)
 {
     u16 opponentSetId = 0;
     u16 opponentBerryId;
@@ -1531,14 +1531,14 @@ static void SetOpponentsBerryData(u16 playerBerryItemId, u8 playersNum, struct B
     }
     else
     {
-        opponentSetId = Item_GetSecondaryId(playerBerryItemId) - 1;
+        opponentSetId = GetItemSecondaryId(playerBerryItemId) - 1;
         if (opponentSetId >= NUM_NPC_BERRIES)
             opponentSetId = (opponentSetId % NUM_NPC_BERRIES) + NUM_NPC_BERRIES;
     }
     for (i = 0; i < playersNum - 1; i++)
     {
         opponentBerryId = sOpponentBerrySets[opponentSetId][i];
-        berryMasterDiff = Item_GetSecondaryId(playerBerryItemId) - BERRY_SPELON;
+        berryMasterDiff = GetItemSecondaryId(playerBerryItemId) - BERRY_SPELON;
         if (!FlagGet(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER) && gSpecialVar_0x8004 == 1)
         {
             opponentSetId %= ARRAY_COUNT(sBerryMasterBerries);
@@ -2217,7 +2217,7 @@ static void Blender_DummiedOutFunc(s16 bgX, s16 bgY)
 
 }
 
-static bool8 AreBlenderBerriesSame(struct BlenderBerry* berries, u8 a, u8 b)
+static bool8 AreBlenderBerriesSame(struct BlenderBerry *berries, u8 a, u8 b)
 {
     // First check to itemId is pointless (and wrong anyway?), always false when this is called
     // Only used to determine if two enigma berries are equivalent
@@ -2234,7 +2234,7 @@ static bool8 AreBlenderBerriesSame(struct BlenderBerry* berries, u8 a, u8 b)
         return FALSE;
 }
 
-static u32 CalculatePokeblockColor(struct BlenderBerry* berries, s16 *_flavors, u8 numPlayers, u8 negativeFlavors)
+static u32 CalculatePokeblockColor(struct BlenderBerry *berries, s16 *_flavors, u8 numPlayers, u8 negativeFlavors)
 {
     s16 flavors[FLAVOR_COUNT + 1];
     s32 i, j;
@@ -2465,7 +2465,7 @@ static void CalculatePokeblock(struct BlenderBerry *berries, struct Pokeblock *p
         flavors[i] = sPokeblockFlavors[i];
 }
 
-static void UNUSED Debug_CalculatePokeblock(struct BlenderBerry* berries, struct Pokeblock* pokeblock, u8 numPlayers, u8 *flavors, u16 maxRPM)
+static void UNUSED Debug_CalculatePokeblock(struct BlenderBerry *berries, struct Pokeblock *pokeblock, u8 numPlayers, u8 *flavors, u16 maxRPM)
 {
     CalculatePokeblock(berries, pokeblock, numPlayers, flavors, maxRPM);
 }

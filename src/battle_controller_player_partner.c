@@ -262,7 +262,7 @@ static void PlayerPartnerBufferExecCompleted(u32 battler)
     {
         u8 playerId = GetMultiplayerId();
 
-        PrepareBufferDataTransferLink(battler, 2, 4, &playerId);
+        PrepareBufferDataTransferLink(battler, B_COMM_CONTROLLER_IS_DONE, 4, &playerId);
         gBattleBufferA[battler][0] = CONTROLLER_TERMINATOR_NOP;
     }
     else
@@ -350,7 +350,7 @@ static void PlayerPartnerHandleChooseMove(u32 battler)
             gBattlerTarget = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
     }
 
-    BtlController_EmitTwoReturnValues(battler, BUFFER_B, 10, chosenMoveId | (gBattlerTarget << 8));
+    BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, 10, chosenMoveId | (gBattlerTarget << 8));
     PlayerPartnerBufferExecCompleted(battler);
 }
 
@@ -375,7 +375,7 @@ static void PlayerPartnerHandleChoosePokemon(u32 battler)
     }
 
     gBattleStruct->monToSwitchIntoId[battler] = chosenMonId;
-    BtlController_EmitChosenMonReturnValue(battler, BUFFER_B, chosenMonId, NULL);
+    BtlController_EmitChosenMonReturnValue(battler, B_COMM_TO_ENGINE, chosenMonId, NULL);
     PlayerPartnerBufferExecCompleted(battler);
 }
 
