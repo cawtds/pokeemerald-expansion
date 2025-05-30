@@ -4719,27 +4719,27 @@ Items: Potion / Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Geodude
+Anorith
 Level: 12
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Tackle
-- Defense Curl
+- Pin Missile
+- Aerial Ace
 - Rock Throw
 - Rock Tomb
 
-Geodude
+Lileep
 Level: 12
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Tackle
-- Defense Curl
-- Rock Throw
+- Mega Drain
+- Ingrain
+- Protect
 - Rock Tomb
 
 Nosepass @ Oran Berry
 Level: 15
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Block
-- Harden
+- Ancient Power
 - Tackle
 - Rock Tomb
 

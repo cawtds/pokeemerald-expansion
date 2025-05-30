@@ -11379,7 +11379,7 @@ F_TRAINER_FEMALE |
         {
             {
 #line 4722
-            .species = SPECIES_GEODUDE,
+            .species = SPECIES_ANORITH,
             .gender = TRAINER_MON_RANDOM_GENDER,
 #line 4724
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
@@ -11388,16 +11388,18 @@ F_TRAINER_FEMALE |
             .nature = RANDOM_NATURE,
             .moves = {
 #line 4725
-                MOVE_TACKLE,
-                MOVE_DEFENSE_CURL,
+                MOVE_PIN_MISSILE,
+                MOVE_AERIAL_ACE,
                 MOVE_ROCK_THROW,
                 MOVE_ROCK_TOMB,
             },
             },
             {
 #line 4730
-            .species = SPECIES_GEODUDE,
+            .species = SPECIES_LILEEP,
             .gender = TRAINER_MON_RANDOM_GENDER,
+#line 4730
+            .heldItem = ITEM_LEFTOVERS,
 #line 4732
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
 #line 4731
@@ -11405,9 +11407,9 @@ F_TRAINER_FEMALE |
             .nature = RANDOM_NATURE,
             .moves = {
 #line 4733
-                MOVE_TACKLE,
-                MOVE_DEFENSE_CURL,
-                MOVE_ROCK_THROW,
+                MOVE_MEGA_DRAIN,
+                MOVE_INGRAIN,
+                MOVE_PROTECT,
                 MOVE_ROCK_TOMB,
             },
             },
@@ -11425,7 +11427,7 @@ F_TRAINER_FEMALE |
             .moves = {
 #line 4741
                 MOVE_BLOCK,
-                MOVE_HARDEN,
+                MOVE_ANCIENT_POWER,
                 MOVE_TACKLE,
                 MOVE_ROCK_TOMB,
             },
