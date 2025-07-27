@@ -15,6 +15,7 @@ void GetRoamerLocation(u32 roamerIndex, u8 *mapGroup, u8 *mapNum);
 bool8 TryAddRoamer(u16 species, u8 level);
 void MoveAllRoamersToOtherLocationSets(void);
 void MoveAllRoamers(void);
+u16 GetRoamerLocationMapSectionId(u32 roamerIndex);
 
 extern u8 gEncounteredRoamerIndex;
 

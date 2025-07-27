@@ -112,7 +112,6 @@ static void PrintNameChoiceOptions(u8, u8);
 static void GetDefaultName(u8, u8);
 
 extern const u8 gText_Controls[];
-extern const u8 gText_Next[];
 extern const u8 gText_NextBack[];
 extern const struct OamData gOamData_AffineOff_ObjBlend_32x32;
 extern const struct OamData gOamData_AffineOff_ObjNormal_32x32;

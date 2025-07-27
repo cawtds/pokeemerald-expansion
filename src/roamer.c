@@ -1,5 +1,6 @@
 #include "global.h"
 #include "event_data.h"
+#include "overworld.h"
 #include "pokemon.h"
 #include "random.h"
 #include "roamer.h"
@@ -290,4 +291,11 @@ void GetRoamerLocation(u32 roamerIndex, u8 *mapGroup, u8 *mapNum)
 {
     *mapGroup = sRoamerLocation[roamerIndex][MAP_GRP];
     *mapNum = sRoamerLocation[roamerIndex][MAP_NUM];
+}
+
+u16 GetRoamerLocationMapSectionId(u32 roamerIndex)
+{
+    if (!ROAMER(roamerIndex)->active)
+        return MAPSEC_NONE;
+    return Overworld_GetMapHeaderByGroupAndId(sRoamerLocation[roamerIndex][MAP_GRP], sRoamerLocation[roamerIndex][MAP_NUM])->regionMapSectionId;
 }
