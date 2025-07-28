@@ -434,7 +434,7 @@ static const struct ListMenuTemplate sListMenuTemplate_KantoDexModeSelect = {
     .moveCursorFunc = MoveCursorFunc_DexModeSelect,
     .itemPrintFunc = ItemPrintFunc_DexModeSelect,
     .totalItems = NELEMS(sListMenuItems_KantoDexModeSelect),
-    .maxShowed = 9,
+    .maxShowed = 8,
     .windowId = 0,
     .header_X = 0,
     .item_X = 12,
@@ -445,9 +445,9 @@ static const struct ListMenuTemplate sListMenuTemplate_KantoDexModeSelect = {
     .cursorShadowPal = 3,
     .lettersSpacing = 1,
     .itemVerticalPadding = 0,
-    .scrollMultiple = 0,
+    .scrollMultiple = LIST_NO_MULTIPLE_SCROLL,
     .fontId = FONT_NORMAL,
-    .cursorKind = 0,
+    .cursorKind = CURSOR_BLACK_ARROW,
 };
 
 static const struct ListMenuItem sListMenuItems_NatDexModeSelect[] = {
@@ -478,7 +478,7 @@ static const struct ListMenuTemplate sListMenuTemplate_NatDexModeSelect = {
     .moveCursorFunc = MoveCursorFunc_DexModeSelect,
     .itemPrintFunc = ItemPrintFunc_DexModeSelect,
     .totalItems = NELEMS(sListMenuItems_NatDexModeSelect),
-    .maxShowed = 9,
+    .maxShowed = 8,
     .windowId = 0,
     .header_X = 0,
     .item_X = 12,
@@ -489,9 +489,9 @@ static const struct ListMenuTemplate sListMenuTemplate_NatDexModeSelect = {
     .cursorShadowPal = 3,
     .lettersSpacing = 1,
     .itemVerticalPadding = 0,
-    .scrollMultiple = 0,
+    .scrollMultiple = LIST_NO_MULTIPLE_SCROLL,
     .fontId = FONT_NORMAL,
-    .cursorKind = 0,
+    .cursorKind = CURSOR_BLACK_ARROW,
 };
 
 static const struct ScrollArrowsTemplate sScrollArrowsTemplate_KantoDex = {
@@ -607,7 +607,7 @@ static const struct ListMenuTemplate sListMenuTemplate_OrderedListMenu = {
     .moveCursorFunc = ListMenuDefaultCursorMoveFunc,
     .itemPrintFunc = ItemPrintFunc_OrderedListMenu,
     .totalItems = 0,
-    .maxShowed = 9,
+    .maxShowed = 8,
     .windowId = 0,
     .header_X = 0,
     .item_X = 58,
@@ -618,9 +618,9 @@ static const struct ListMenuTemplate sListMenuTemplate_OrderedListMenu = {
     .cursorShadowPal = 3,
     .lettersSpacing = 1,
     .itemVerticalPadding = 0,
-    .scrollMultiple = 1,
+    .scrollMultiple = LIST_MULTIPLE_SCROLL_DPAD,
     .fontId = FONT_NORMAL,
-    .cursorKind = 0,
+    .cursorKind = CURSOR_BLACK_ARROW,
 };
 
 static const struct ListMenuWindowRect sListMenuRects_OrderedList[] = {
