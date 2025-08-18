@@ -1536,7 +1536,7 @@ void RepeatBallOpenParticleAnimation(u8 taskId)
     priority = gTasks[taskId].data[3];
     subpriority = gTasks[taskId].data[4];
 
-    for (i = 0; i < POKEBALL_COUNT; i++)
+    for (i = 0; i < 12; i++)
     {
         spriteId = CreateSprite(Ball_GetParticleTemplate(ballId), x, y, subpriority);
         if (spriteId != MAX_SPRITES)
