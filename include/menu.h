@@ -20,6 +20,7 @@
 #define MENU_CURSOR_DELTA_LEFT  -1
 #define MENU_CURSOR_DELTA_RIGHT  1
 
+#define MENU_INFO_ICON_CAUGHT    0
 #define MENU_INFO_ICON_TYPE      (NUMBER_OF_MON_TYPES + 1)
 #define MENU_INFO_ICON_POWER     (NUMBER_OF_MON_TYPES + 2)
 #define MENU_INFO_ICON_ACCURACY  (NUMBER_OF_MON_TYPES + 3)
@@ -139,5 +140,7 @@ void RemoveSecondaryPopUpWindow(void);
 void HBlankCB_DoublePopupWindow(void);
 void StartBlendTask(u8 eva_start, u8 evb_start, u8 eva_end, u8 evb_end, u8 ev_step, u8 priority);
 bool8 IsBlendTaskActive(void);
+void LoadMonIconPalAtOffset(u8 palOffset, u16 speciesId);
+void DrawMonIconAtPos(u8 windowId, u16 speciesId, u32 personality, u16 x, u16 y);
 
 #endif // GUARD_MENU_H
