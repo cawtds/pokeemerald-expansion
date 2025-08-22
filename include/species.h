@@ -71,7 +71,6 @@ struct SpeciesInfo
             u8 speciesName[POKEMON_NAME_LENGTH + 1];
             u16 cryId;
             u16 natDexNum;
-            // struct PokedexEntry
             u8 categoryName[12];
             u16 height; //in decimeters
             u16 weight; //in hectograms
