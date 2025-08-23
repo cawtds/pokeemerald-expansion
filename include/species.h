@@ -83,53 +83,11 @@ struct SpeciesInfo
 
 extern const struct SpeciesInfo gSpeciesInfo[];
 
-static inline u32 SanitizeSpeciesId(u32 speciesId)
-{
-    if (speciesId >= NUM_SPECIES_AND_FORMS)
-        return SPECIES_NONE;
-    return speciesId;
-}
-
-static inline const u8 *GetSpeciesName(u32 species)
-{
-    species = SanitizeSpeciesId(species);
-    if (gSpeciesInfo[species].speciesName[0] == 0)
-        return gSpeciesInfo[SPECIES_NONE].speciesName;
-    return gSpeciesInfo[species].speciesName;
-}
-
-static inline const u8 *GetSpeciesCategory(u32 species)
-{
-    species = SanitizeSpeciesId(species);
-    if (gSpeciesInfo[species].categoryName[0] == 0)
-        return gSpeciesInfo[SPECIES_NONE].categoryName;
-    return gSpeciesInfo[species].categoryName;
-}
-
-static inline const u8 *GetSpeciesPokedexDescription(u32 species)
-{
-    species = SanitizeSpeciesId(species);
-    if (gSpeciesInfo[species].description == NULL)
-        return gSpeciesInfo[SPECIES_NONE].description;
-    return gSpeciesInfo[species].description;
-}
-
-static inline u32 GetSpeciesHeight(u32 species)
-{
-    return gSpeciesInfo[SanitizeSpeciesId(species)].height;
-}
-
-static inline u32 GetSpeciesWeight(u32 species)
-{
-    return gSpeciesInfo[SanitizeSpeciesId(species)].weight;
-}
-
-static inline const u16 *GetSpeciesEggMoves(u32 species)
-{
-    species = SanitizeSpeciesId(species);
-    if (gSpeciesInfo[species].eggMoveLearnset == NULL)
-        return gSpeciesInfo[SPECIES_NONE].eggMoveLearnset;
-    return gSpeciesInfo[species].eggMoveLearnset;
-}
+const u8 *GetSpeciesName(u32 species);
+const u8 *GetSpeciesCategory(u32 species);
+const u8 *GetSpeciesPokedexDescription(u32 species);
+u32 GetSpeciesHeight(u32 species);
+u32 GetSpeciesWeight(u32 species);
+const u16 *GetSpeciesEggMoves(u32 species);
 
 #endif //GUARD_SPECIES_H
