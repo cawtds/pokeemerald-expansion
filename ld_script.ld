@@ -309,7 +309,6 @@ SECTIONS {
         src/item_icon.o(.text);
         src/party_menu.o(.text);
         src/battle_tent.o(.text);
-        src/braille.o(.text);
         src/multiboot.o(.text);
         src/berry_fix_graphics.o(.text);
         src/battle_controller_player_partner.o(.text);
@@ -667,7 +666,6 @@ SECTIONS {
         src/item_icon.o(.rodata);
         src/party_menu.o(.rodata);
         src/battle_tent.o(.rodata);
-        src/braille.o(.rodata);
         src/multiboot.o(.rodata);
         src/berry_fix_graphics.o(.rodata);
         src/battle_controller_player_partner.o(.rodata);
