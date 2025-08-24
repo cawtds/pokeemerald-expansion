@@ -849,7 +849,7 @@ static void PrintSelectorArrow(u8 listMenuTaskId, u8 colorId)
 static void PrintSelectorArrowAtPos(u8 y, u8 colorId)
 {
     if (colorId == COLORID_NONE) // If 'no color', erase arrow
-        FillWindowPixelRect(WIN_LIST, PIXEL_FILL(0), 0, y, Font_GetCursorWidth(FONT_NORMAL), Font_GetCursorHeight(FONT_NORMAL));
+        FillWindowPixelRect(WIN_LIST, PIXEL_FILL(0), 0, y, GetFontCursorWidth(FONT_NORMAL), GetFontCursorHeight(FONT_NORMAL));
     else
         PyramidBagPrint(WIN_LIST, gText_SelectorArrow2, 0, y, 0, 0, 0, colorId);
 }

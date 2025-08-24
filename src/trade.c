@@ -1961,7 +1961,7 @@ static u8 GetMonNicknameWidth(u8 *str, u8 whichParty, u8 partyIdx)
         GetMonData(&gEnemyParty[partyIdx], MON_DATA_NICKNAME, nickname);
 
     StringCopy_Nickname(str, nickname);
-    return GetStringWidth(FONT_SMALL, str, GetFontAttribute(FONT_SMALL, FONTATTR_LETTER_SPACING));
+    return GetStringWidth(FONT_SMALL, str, GetFontLetterSpacing(FONT_SMALL));
 }
 
 static void BufferMovesString(u8 *str, u8 whichParty, u8 partyIdx)

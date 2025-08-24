@@ -425,7 +425,7 @@ static void DrawCardWindow(u8 whichWindow)
         // Print card title/subtitle
         s32 x;
         AddTextPrinterParameterized3(windowId, FONT_SHORT_COPY_1, 0, 1, sCard_TextColorTable[sWonderCardData->gfx->titleTextPal], 0, sWonderCardData->titleText);
-        x = 160 - GetStringWidth(FONT_SHORT_COPY_1, sWonderCardData->subtitleText, GetFontAttribute(FONT_SHORT_COPY_1, FONTATTR_LETTER_SPACING));
+        x = 160 - GetStringWidth(FONT_SHORT_COPY_1, sWonderCardData->subtitleText, GetFontLetterSpacing(FONT_SHORT_COPY_1));
         if (x < 0)
             x = 0;
         AddTextPrinterParameterized3(windowId, FONT_SHORT_COPY_1, x, 17, sCard_TextColorTable[sWonderCardData->gfx->titleTextPal], 0, sWonderCardData->subtitleText);
@@ -461,7 +461,7 @@ static void DrawCardWindow(u8 whichWindow)
         {
             s32 x = 0;
             s32 y = sCard_FooterTextOffsets[sWonderCardData->card.type] + 16;
-            s32 spacing = GetFontAttribute(FONT_SHORT_COPY_1, FONTATTR_LETTER_SPACING);
+            s32 spacing = GetFontLetterSpacing(FONT_SHORT_COPY_1);
             for (; i < sWonderCardData->statFooterWidth; i++)
             {
                 // Print stat text
@@ -892,7 +892,7 @@ static void DrawNewsWindows(void)
     FillWindowPixelBuffer(sWonderNewsData->windowIds[NEWS_WIN_BODY], 0);
 
     // Print title text
-    x = (224 - GetStringWidth(FONT_SHORT_COPY_1, sWonderNewsData->titleText, GetFontAttribute(FONT_SHORT_COPY_1, FONTATTR_LETTER_SPACING))) / 2;
+    x = (224 - GetStringWidth(FONT_SHORT_COPY_1, sWonderNewsData->titleText, GetFontLetterSpacing(FONT_SHORT_COPY_1))) / 2;
     if (x < 0)
         x = 0;
     AddTextPrinterParameterized3(sWonderNewsData->windowIds[NEWS_WIN_TITLE], FONT_SHORT_COPY_1, x, 6, sNews_TextColorTable[sWonderNewsData->gfx->titleTextPal], 0, sWonderNewsData->titleText);

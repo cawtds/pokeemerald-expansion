@@ -2528,8 +2528,8 @@ static u8 DisplaySelectionWindow(u8 windowType)
     DrawStdFrameWithCustomTileAndPalette(sPartyMenuInternal->windowId[0], FALSE, 0x4F, 13);
     if (windowType == SELECTWINDOW_MOVES)
         return sPartyMenuInternal->windowId[0];
-        cursorWidth = Font_GetCursorWidth(FONT_NORMAL);
-    letterSpacing = GetFontAttribute(FONT_NORMAL, FONTATTR_LETTER_SPACING);
+        cursorWidth = GetFontCursorWidth(FONT_NORMAL);
+    letterSpacing = GetFontLetterSpacing(FONT_NORMAL);
 
     for (i = 0; i < sPartyMenuInternal->numActions; i++)
     {

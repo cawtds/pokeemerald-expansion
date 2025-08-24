@@ -113,8 +113,6 @@ struct FontInfo
     u8 shadowColor:4;
 };
 
-extern const struct FontInfo gFontInfo[];
-
 struct GlyphWidthFunc
 {
     u32 fontId;
@@ -166,17 +164,16 @@ u8 DrawKeypadIcon(u8 windowId, u8 keypadIconId, u16 x, u16 y);
 u8 GetKeypadIconTileOffset(u8 keypadIconId);
 u8 GetKeypadIconWidth(u8 keypadIconId);
 u8 GetKeypadIconHeight(u8 keypadIconId);
-u8 GetFontAttribute(u8 fontId, u8 attributeId);
-
-static inline u32 Font_GetCursorWidth(enum Font fontId)
-{
-    return gFontInfo[fontId].cursorWidth;
-}
-
-static inline u32 Font_GetCursorHeight(enum Font fontId)
-{
-    return gFontInfo[fontId].cursorHeight;
-}
+u32 GetFontMaxLetterWidth(enum Font fontId);
+u32 GetFontMaxLetterHeight(enum Font fontId);
+u32 GetFontLetterSpacing(enum Font fontId);
+u32 GetFontLineSpacing(enum Font fontId);
+u32 GetFontUnknown(enum Font fontId);
+u32 GetFontForegroundColor(enum Font fontId);
+u32 GetFontBackgroundColor(enum Font fontId);
+u32 GetFontShadowColor(enum Font fontId);
+u32 GetFontCursorWidth(enum Font fontId);
+u32 GetFontCursorHeight(enum Font fontId);
 
 // braille.c
 u16 FontFunc_Braille(struct TextPrinter *textPrinter);

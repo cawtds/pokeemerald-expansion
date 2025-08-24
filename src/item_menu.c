@@ -1020,7 +1020,7 @@ static void BagMenu_PrintCursor(u8 listTaskId, u8 colorIndex)
 static void BagMenu_PrintCursorAtPos(u8 y, u8 colorIndex)
 {
     if (colorIndex == COLORID_NONE)
-        FillWindowPixelRect(WIN_ITEM_LIST, PIXEL_FILL(0), 0, y, Font_GetCursorWidth(FONT_NORMAL), Font_GetCursorHeight(FONT_NORMAL));
+        FillWindowPixelRect(WIN_ITEM_LIST, PIXEL_FILL(0), 0, y, GetFontCursorWidth(FONT_NORMAL), GetFontCursorHeight(FONT_NORMAL));
     else
         BagMenu_Print(WIN_ITEM_LIST, FONT_NORMAL, gText_SelectorArrow2, 0, y, 0, 0, 0, colorIndex);
 

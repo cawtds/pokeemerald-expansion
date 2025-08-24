@@ -537,7 +537,7 @@ void ListMenuGetScrollAndRow(u8 listTaskId, u16 *scrollOffset, u16 *selectedRow)
 u16 ListMenuGetYCoordForPrintingArrowCursor(u8 listTaskId)
 {
     struct ListMenu *list = (void *) gTasks[listTaskId].data;
-    u8 yMultiplier = GetFontAttribute(list->template.fontId, FONTATTR_MAX_LETTER_HEIGHT) + list->template.itemVerticalPadding;
+    u8 yMultiplier = GetFontMaxLetterHeight(list->template.fontId) + list->template.itemVerticalPadding;
 
     return list->selectedRow * yMultiplier + list->template.upText_Y;
 }
@@ -606,7 +606,7 @@ static void ListMenuPrintEntries(struct ListMenu *list, u16 startIndex, u16 yOff
 {
     s32 i;
     u8 x, y;
-    u8 yMultiplier = GetFontAttribute(list->template.fontId, FONTATTR_MAX_LETTER_HEIGHT) + list->template.itemVerticalPadding;
+    u8 yMultiplier = GetFontMaxLetterHeight(list->template.fontId) + list->template.itemVerticalPadding;
 
     for (i = 0; i < count; i++)
     {
@@ -626,7 +626,7 @@ static void ListMenuPrintEntries(struct ListMenu *list, u16 startIndex, u16 yOff
 
 static void ListMenuDrawCursor(struct ListMenu *list)
 {
-    u8 yMultiplier = GetFontAttribute(list->template.fontId, FONTATTR_MAX_LETTER_HEIGHT) + list->template.itemVerticalPadding;
+    u8 yMultiplier = GetFontMaxLetterHeight(list->template.fontId) + list->template.itemVerticalPadding;
     u8 x = list->template.cursor_X;
     u8 y = list->selectedRow * yMultiplier + list->template.upText_Y;
     switch (list->template.cursorKind)
@@ -662,7 +662,7 @@ static u8 ListMenuAddCursorObject(struct ListMenu *list, u32 cursorObjId)
     cursor.left = 0;
     cursor.top = DISPLAY_HEIGHT;
     cursor.rowWidth = GetWindowAttribute(list->template.windowId, WINDOW_WIDTH) * 8 + 2;
-    cursor.rowHeight = GetFontAttribute(list->template.fontId, FONTATTR_MAX_LETTER_HEIGHT) + 2;
+    cursor.rowHeight = GetFontMaxLetterHeight(list->template.fontId) + 2;
     cursor.tileTag = 0x4000;
     cursor.palTag = TAG_NONE;
     cursor.palNum = 15;
@@ -675,9 +675,9 @@ static void ListMenuErasePrintedCursor(struct ListMenu *list, u16 selectedRow)
     u8 cursorKind = list->template.cursorKind;
     if (cursorKind == CURSOR_BLACK_ARROW)
     {
-        u8 yMultiplier = GetFontAttribute(list->template.fontId, FONTATTR_MAX_LETTER_HEIGHT) + list->template.itemVerticalPadding;
-        u8 width  = Font_GetCursorWidth(list->template.fontId);
-        u8 height = Font_GetCursorHeight(list->template.fontId);
+        u8 yMultiplier = GetFontMaxLetterHeight(list->template.fontId) + list->template.itemVerticalPadding;
+        u8 width  = GetFontCursorWidth(list->template.fontId);
+        u8 height = GetFontCursorHeight(list->template.fontId);
         FillWindowPixelRect(list->template.windowId,
                             PIXEL_FILL(list->template.fillValue),
                             list->template.cursor_X,
@@ -781,7 +781,7 @@ static void ListMenuScroll(struct ListMenu *list, u8 count, bool8 movingDown)
     }
     else
     {
-        u8 yMultiplier = GetFontAttribute(list->template.fontId, FONTATTR_MAX_LETTER_HEIGHT) + list->template.itemVerticalPadding;
+        u8 yMultiplier = GetFontMaxLetterHeight(list->template.fontId) + list->template.itemVerticalPadding;
 
         if (!movingDown)
         {
