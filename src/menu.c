@@ -912,7 +912,7 @@ u8 InitMenuNormal(u8 windowId, u8 fontId, u8 left, u8 top, u8 cursorHeight, u8 n
 
 static u8 UNUSED InitMenuDefaultCursorHeight(u8 windowId, u8 fontId, u8 left, u8 top, u8 numChoices, u8 initialCursorPos)
 {
-    u8 cursorHeight = Font_GetCursorHeight(fontId);
+    u8 cursorHeight = GetFontCursorHeight(fontId);
     return InitMenuNormal(windowId, fontId, left, top, cursorHeight, numChoices, initialCursorPos);
 }
 
@@ -920,8 +920,8 @@ void RedrawMenuCursor(u8 oldPos, u8 newPos)
 {
     u8 width, height;
 
-    width = Font_GetCursorWidth(sMenu.fontId);
-    height = Font_GetCursorHeight(sMenu.fontId);
+    width = GetFontCursorWidth(sMenu.fontId);
+    height = GetFontCursorHeight(sMenu.fontId);
     FillWindowPixelRect(sMenu.windowId, PIXEL_FILL(1), sMenu.left, sMenu.optionHeight * oldPos + sMenu.top, width, height);
     AddTextPrinterParameterized(sMenu.windowId, sMenu.fontId, gText_SelectorArrow3, sMenu.left, sMenu.optionHeight * newPos + sMenu.top, 0, 0);
 }
@@ -1097,7 +1097,7 @@ static void UNUSED PrintMenuActionTextsWithSpacing(u8 windowId, u8 fontId, u8 le
 
 static void UNUSED PrintMenuActionTextsAtTop(u8 windowId, u8 fontId, u8 lineHeight, u8 itemCount, const struct MenuAction *menuActions)
 {
-    PrintMenuActionTextsAtPos(windowId, fontId, GetFontAttribute(fontId, FONTATTR_MAX_LETTER_WIDTH), 1, lineHeight, itemCount, menuActions);
+    PrintMenuActionTextsAtPos(windowId, fontId, GetFontMaxLetterWidth(fontId), 1, lineHeight, itemCount, menuActions);
 }
 
 void PrintMenuActionTexts(u8 windowId, u8 fontId, u8 left, u8 top, u8 letterSpacing, u8 lineHeight, u8 itemCount, const struct MenuAction *menuActions, const u8 *actionIds)
@@ -1107,12 +1107,12 @@ void PrintMenuActionTexts(u8 windowId, u8 fontId, u8 left, u8 top, u8 letterSpac
 
     printer.windowId = windowId;
     printer.fontId = fontId;
-    printer.fgColor = GetFontAttribute(fontId, FONTATTR_COLOR_FOREGROUND);
-    printer.bgColor = GetFontAttribute(fontId, FONTATTR_COLOR_BACKGROUND);
-    printer.shadowColor = GetFontAttribute(fontId, FONTATTR_COLOR_SHADOW);
-    printer.unk = GetFontAttribute(fontId, FONTATTR_UNKNOWN);
+    printer.fgColor = GetFontForegroundColor(fontId);
+    printer.bgColor = GetFontBackgroundColor(fontId);
+    printer.shadowColor = GetFontShadowColor(fontId);
+    printer.unk = GetFontUnknown(fontId);
     printer.letterSpacing = letterSpacing;
-    printer.lineSpacing = GetFontAttribute(fontId, FONTATTR_LINE_SPACING);
+    printer.lineSpacing = GetFontLineSpacing(fontId);
     printer.x = left;
     printer.currentX = left;
 
@@ -1129,7 +1129,7 @@ void PrintMenuActionTexts(u8 windowId, u8 fontId, u8 left, u8 top, u8 letterSpac
 
 static void UNUSED PrintMenuActionTextsAtTopById(u8 windowId, u8 fontId, u8 lineHeight, u8 itemCount, const struct MenuAction *menuActions, const u8 *actionIds)
 {
-    PrintMenuActionTexts(windowId, fontId, GetFontAttribute(fontId, FONTATTR_MAX_LETTER_WIDTH), 1, GetFontAttribute(fontId, FONTATTR_LETTER_SPACING), lineHeight, itemCount, menuActions, actionIds);
+    PrintMenuActionTexts(windowId, fontId, GetFontMaxLetterWidth(fontId), 1, GetFontLetterSpacing(fontId), lineHeight, itemCount, menuActions, actionIds);
 }
 
 void SetWindowTemplateFields(struct WindowTemplate *template, u8 bg, u8 left, u8 top, u8 width, u8 height, u8 paletteNum, u16 baseBlock)
@@ -1168,20 +1168,20 @@ static void CreateYesNoMenuAtPos(const struct WindowTemplate *window, u8 fontId,
     printer.currentChar = gText_YesNo;
     printer.windowId = sYesNoWindowId;
     printer.fontId = fontId;
-    printer.x = GetFontAttribute(fontId, FONTATTR_MAX_LETTER_WIDTH) + left;
+    printer.x = GetFontMaxLetterWidth(fontId) + left;
     printer.y = top;
     printer.currentX = printer.x;
     printer.currentY = printer.y;
-    printer.fgColor = GetFontAttribute(fontId, FONTATTR_COLOR_FOREGROUND);
-    printer.bgColor = GetFontAttribute(fontId, FONTATTR_COLOR_BACKGROUND);
-    printer.shadowColor = GetFontAttribute(fontId, FONTATTR_COLOR_SHADOW);
-    printer.unk = GetFontAttribute(fontId, FONTATTR_UNKNOWN);
-    printer.letterSpacing = GetFontAttribute(fontId, FONTATTR_LETTER_SPACING);
-    printer.lineSpacing = GetFontAttribute(fontId, FONTATTR_LINE_SPACING);
+    printer.fgColor = GetFontForegroundColor(fontId);
+    printer.bgColor = GetFontBackgroundColor(fontId);
+    printer.shadowColor = GetFontShadowColor(fontId);
+    printer.unk = GetFontUnknown(fontId);
+    printer.letterSpacing = GetFontLetterSpacing(fontId);
+    printer.lineSpacing = GetFontLineSpacing(fontId);
 
     AddTextPrinter(&printer, TEXT_SKIP_DRAW, NULL);
 
-    InitMenuNormal(sYesNoWindowId, fontId, left, top, GetFontAttribute(fontId, FONTATTR_MAX_LETTER_HEIGHT), 2, initialCursorPos);
+    InitMenuNormal(sYesNoWindowId, fontId, left, top, GetFontMaxLetterHeight(fontId), 2, initialCursorPos);
 }
 
 static void UNUSED CreateYesNoMenuInTopLeft(const struct WindowTemplate *window, u8 fontId, u16 baseTileNum, u8 paletteNum)
@@ -1217,7 +1217,7 @@ static void PrintMenuActionGridText(u8 windowId, u8 fontId, u8 left, u8 top, u8 
 
 static void UNUSED PrintMenuActionGridTextAtTop(u8 windowId, u8 fontId, u8 width, u8 height, u8 columns, u8 rows, const struct MenuAction *menuActions)
 {
-    PrintMenuActionGridText(windowId, fontId, GetFontAttribute(fontId, FONTATTR_MAX_LETTER_WIDTH), 0, width, height, columns, rows, menuActions);
+    PrintMenuActionGridText(windowId, fontId, GetFontMaxLetterWidth(fontId), 0, width, height, columns, rows, menuActions);
 }
 
 void PrintMenuActionGrid(u8 windowId, u8 fontId, u8 left, u8 top, u8 optionWidth, u8 horizontalCount, u8 verticalCount, const struct MenuAction *menuActions, const u8 *actionIds)
@@ -1228,12 +1228,12 @@ void PrintMenuActionGrid(u8 windowId, u8 fontId, u8 left, u8 top, u8 optionWidth
 
     printer.windowId = windowId;
     printer.fontId = fontId;
-    printer.fgColor = GetFontAttribute(fontId, FONTATTR_COLOR_FOREGROUND);
-    printer.bgColor = GetFontAttribute(fontId, FONTATTR_COLOR_BACKGROUND);
-    printer.shadowColor = GetFontAttribute(fontId, FONTATTR_COLOR_SHADOW);
-    printer.unk = GetFontAttribute(fontId, FONTATTR_UNKNOWN);
-    printer.letterSpacing = GetFontAttribute(fontId, FONTATTR_LETTER_SPACING);
-    printer.lineSpacing = GetFontAttribute(fontId, FONTATTR_LINE_SPACING);
+    printer.fgColor = GetFontForegroundColor(fontId);
+    printer.bgColor = GetFontBackgroundColor(fontId);
+    printer.shadowColor = GetFontShadowColor(fontId);
+    printer.unk = GetFontUnknown(fontId);
+    printer.letterSpacing = GetFontLetterSpacing(fontId);
+    printer.lineSpacing = GetFontLineSpacing(fontId);
 
     for (i = 0; i < verticalCount; i++)
     {
@@ -1241,7 +1241,7 @@ void PrintMenuActionGrid(u8 windowId, u8 fontId, u8 left, u8 top, u8 optionWidth
         {
             printer.currentChar = menuActions[actionIds[(horizontalCount * i) + j]].text;
             printer.x = (optionWidth * j) + left;
-            printer.y = (GetFontAttribute(fontId, FONTATTR_MAX_LETTER_HEIGHT) * i) + top;
+            printer.y = (GetFontMaxLetterHeight(fontId) * i) + top;
             printer.currentX = printer.x;
             printer.currentY = printer.y;
             AddTextPrinter(&printer, TEXT_SKIP_DRAW, NULL);
@@ -1253,7 +1253,7 @@ void PrintMenuActionGrid(u8 windowId, u8 fontId, u8 left, u8 top, u8 optionWidth
 
 static void UNUSED PrintMenuActionGrid_TopLeft(u8 windowId, u8 fontId, u8 optionWidth, u8 unused, u8 horizontalCount, u8 verticalCount, const struct MenuAction *menuActions, const u8 *actionIds)
 {
-    PrintMenuActionGrid(windowId, fontId, GetFontAttribute(fontId, FONTATTR_MAX_LETTER_WIDTH), 0, optionWidth, horizontalCount, verticalCount, menuActions, actionIds);
+    PrintMenuActionGrid(windowId, fontId, GetFontMaxLetterWidth(fontId), 0, optionWidth, horizontalCount, verticalCount, menuActions, actionIds);
 }
 
 static u8 InitMenuGrid(u8 windowId, u8 fontId, u8 left, u8 top, u8 optionWidth, u8 optionHeight, u8 columns, u8 rows, u8 numChoices, u8 cursorPos)
@@ -1285,7 +1285,7 @@ static u8 InitMenuGrid(u8 windowId, u8 fontId, u8 left, u8 top, u8 optionWidth, 
 
 static u8 UNUSED InitMenuGridDefaultCursorHeight(u8 windowId, u8 fontId, u8 left, u8 top, u8 width, u8 columns, u8 rows, u8 cursorPos)
 {
-    u8 cursorHeight = Font_GetCursorHeight(fontId);
+    u8 cursorHeight = GetFontCursorHeight(fontId);
     u8 numChoices = columns * rows;
     return InitMenuGrid(windowId, fontId, left, top, width, cursorHeight, columns, rows, numChoices, cursorPos);
 }
@@ -1293,8 +1293,8 @@ static u8 UNUSED InitMenuGridDefaultCursorHeight(u8 windowId, u8 fontId, u8 left
 // Erase cursor at old position, draw cursor at new position.
 static void MoveMenuGridCursor(u8 oldCursorPos, u8 newCursorPos)
 {
-    u8 cursorWidth = Font_GetCursorWidth(sMenu.fontId);
-    u8 cursorHeight = Font_GetCursorHeight(sMenu.fontId);
+    u8 cursorWidth = GetFontCursorWidth(sMenu.fontId);
+    u8 cursorHeight = GetFontCursorHeight(sMenu.fontId);
 
     u8 xPos = (oldCursorPos % sMenu.columns) * sMenu.optionWidth + sMenu.left;
     u8 yPos = (oldCursorPos / sMenu.columns) * sMenu.optionHeight + sMenu.top;
@@ -1581,10 +1581,10 @@ void PrintMenuActionTextsInUpperLeftCorner(u8 windowId, u8 itemCount, const stru
 
     printer.windowId = windowId;
     printer.fontId = FONT_NORMAL;
-    printer.fgColor = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_FOREGROUND);
-    printer.bgColor = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_BACKGROUND);
-    printer.shadowColor = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_SHADOW);
-    printer.unk = GetFontAttribute(FONT_NORMAL, FONTATTR_UNKNOWN);
+    printer.fgColor = GetFontForegroundColor(FONT_NORMAL);
+    printer.bgColor = GetFontBackgroundColor(FONT_NORMAL);
+    printer.shadowColor = GetFontShadowColor(FONT_NORMAL);
+    printer.unk = GetFontUnknown(FONT_NORMAL);
     printer.letterSpacing = 0;
     printer.lineSpacing = 0;
     printer.x = 8;
@@ -1615,10 +1615,10 @@ void CreateYesNoMenu(const struct WindowTemplate *window, u16 baseTileNum, u8 pa
     printer.y = 1;
     printer.currentX = printer.x;
     printer.currentY = printer.y;
-    printer.fgColor = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_FOREGROUND);
-    printer.bgColor = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_BACKGROUND);
-    printer.shadowColor = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_SHADOW);
-    printer.unk = GetFontAttribute(FONT_NORMAL, FONTATTR_UNKNOWN);
+    printer.fgColor = GetFontForegroundColor(FONT_NORMAL);
+    printer.bgColor = GetFontBackgroundColor(FONT_NORMAL);
+    printer.shadowColor = GetFontShadowColor(FONT_NORMAL);
+    printer.unk = GetFontUnknown(FONT_NORMAL);
     printer.letterSpacing = 0;
     printer.lineSpacing = 0;
 
@@ -1646,10 +1646,10 @@ static void UNUSED PrintMenuActionGridTextNoSpacing(u8 windowId, u8 optionWidth,
 
     printer.windowId = windowId;
     printer.fontId = FONT_NORMAL;
-    printer.fgColor = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_FOREGROUND);
-    printer.bgColor = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_BACKGROUND);
-    printer.shadowColor = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_SHADOW);
-    printer.unk = GetFontAttribute(FONT_NORMAL, FONTATTR_UNKNOWN);
+    printer.fgColor = GetFontForegroundColor(FONT_NORMAL);
+    printer.bgColor = GetFontBackgroundColor(FONT_NORMAL);
+    printer.shadowColor = GetFontShadowColor(FONT_NORMAL);
+    printer.unk = GetFontUnknown(FONT_NORMAL);
     printer.letterSpacing = 0;
     printer.lineSpacing = 0;
 
@@ -1906,8 +1906,8 @@ void AddTextPrinterParameterized3(u8 windowId, u8 fontId, u8 left, u8 top, const
     printer.y = top;
     printer.currentX = printer.x;
     printer.currentY = printer.y;
-    printer.letterSpacing = GetFontAttribute(fontId, FONTATTR_LETTER_SPACING);
-    printer.lineSpacing = GetFontAttribute(fontId, FONTATTR_LINE_SPACING);
+    printer.letterSpacing = GetFontLetterSpacing(fontId);
+    printer.lineSpacing = GetFontLineSpacing(fontId);
     printer.unk = 0;
     printer.fgColor = color[1];
     printer.bgColor = color[0];
@@ -1952,9 +1952,9 @@ void AddTextPrinterParameterized5(u8 windowId, u8 fontId, const u8 *str, u8 left
     printer.lineSpacing = lineSpacing;
     printer.unk = 0;
 
-    printer.fgColor = GetFontAttribute(fontId, FONTATTR_COLOR_FOREGROUND);
-    printer.bgColor = GetFontAttribute(fontId, FONTATTR_COLOR_BACKGROUND);
-    printer.shadowColor = GetFontAttribute(fontId, FONTATTR_COLOR_SHADOW);
+    printer.fgColor = GetFontForegroundColor(fontId);
+    printer.bgColor = GetFontBackgroundColor(fontId);
+    printer.shadowColor = GetFontShadowColor(fontId);
 
     AddTextPrinter(&printer, speed, callback);
 }

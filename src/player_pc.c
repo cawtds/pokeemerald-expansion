@@ -1087,7 +1087,7 @@ static void ItemStorage_DrawSwapArrow(u8 y, u8 b, u8 speed)
 {
     u8 windowId = sItemStorageMenu->windowIds[ITEMPC_WIN_LIST];
     if (b == 0xFF)
-        FillWindowPixelRect(windowId, PIXEL_FILL(1), 0, y, Font_GetCursorWidth(FONT_NORMAL), Font_GetCursorHeight(FONT_NORMAL));
+        FillWindowPixelRect(windowId, PIXEL_FILL(1), 0, y, GetFontCursorWidth(FONT_NORMAL), GetFontCursorHeight(FONT_NORMAL));
     else
         AddTextPrinterParameterized4(windowId, FONT_NORMAL, 0, y, 0, 0, sSwapArrowTextColors, speed, gText_SelectorArrow2);
 }
@@ -1273,7 +1273,7 @@ static void ItemStorage_ExitItemList(u8 taskId)
 static void ItemStorage_StartItemSwap(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
-    ListMenuSetUnkIndicatorsStructField(tListTaskId, 16, 1);
+    ListMenuSetTemplateField(tListTaskId, LISTFIELD_CURSORKIND, CURSOR_INVISIBLE);
     sItemStorageMenu->toSwapPos = gPlayerPCItemPageInfo.itemsAbove + gPlayerPCItemPageInfo.cursorPos;
     ItemStorage_SetSwapArrow(tListTaskId, 0, 0);
     ItemStorage_UpdateSwapLinePos(sItemStorageMenu->toSwapPos);

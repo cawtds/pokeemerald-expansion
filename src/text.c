@@ -1,17 +1,17 @@
 #include "global.h"
 #include "battle.h"
-#include "main.h"
+#include "blit.h"
+#include "dynamic_placeholder_text_util.h"
 #include "m4a.h"
+#include "main.h"
+#include "menu.h"
 #include "palette.h"
 #include "sound.h"
-#include "constants/songs.h"
 #include "string_util.h"
-#include "window.h"
 #include "text.h"
-#include "blit.h"
-#include "menu.h"
-#include "dynamic_placeholder_text_util.h"
-#include "fonts.h"
+#include "window.h"
+#include "constants/songs.h"
+#include "constants/text.h"
 
 static u16 RenderText(struct TextPrinter *);
 static u32 RenderFont(struct TextPrinter *);
@@ -23,17 +23,20 @@ static u16 FontFunc_ShortCopy2(struct TextPrinter *);
 static u16 FontFunc_ShortCopy3(struct TextPrinter *);
 static u16 FontFunc_Narrow(struct TextPrinter *);
 static u16 FontFunc_SmallNarrow(struct TextPrinter *);
+static u16 FontFunc_Braille(struct TextPrinter *);
 static void DecompressGlyph_Small(u16, bool32);
 static void DecompressGlyph_Normal(u16, bool32);
 static void DecompressGlyph_Short(u16, bool32);
 static void DecompressGlyph_Narrow(u16, bool32);
 static void DecompressGlyph_SmallNarrow(u16, bool32);
-static void DecompressGlyph_Bold(u16);
+static void DecompressGlyph_Bold(u16, bool32);
+static void DecompressGlyph_Braille(u16, bool32);
 static u32 GetGlyphWidth_Small(u16, bool32);
 static u32 GetGlyphWidth_Normal(u16, bool32);
 static u32 GetGlyphWidth_Short(u16, bool32);
 static u32 GetGlyphWidth_Narrow(u16, bool32);
 static u32 GetGlyphWidth_SmallNarrow(u16, bool32);
+static u32 GetGlyphWidth_Braille(u16, bool32);
 
 static EWRAM_DATA struct TextPrinter sTempTextPrinter = {0};
 static EWRAM_DATA struct TextPrinter sTextPrinters[WINDOWS_MAX] = {0};
@@ -69,12 +72,10 @@ static const u8 sFontHalfRowOffsets[] =
 
 static const u8 sDownArrowTiles[] = INCBIN_U8("graphics/fonts/down_arrow.4bpp");
 static const u8 sDarkDownArrowTiles[] = INCBIN_U8("graphics/fonts/down_arrow_alt.4bpp");
+static const u8 sKeypadIconTiles[] = INCBIN_U8("graphics/fonts/keypad_icons.4bpp");
 static const u8 sDownArrowYCoords[] = { 0, 1, 2, 1 };
-static const u8 sWindowVerticalScrollSpeeds[] = {
-    [OPTIONS_TEXT_SPEED_SLOW] = 1,
-    [OPTIONS_TEXT_SPEED_MID] = 2,
-    [OPTIONS_TEXT_SPEED_FAST] = 4,
-};
+
+#include "data/fonts.h"
 
 struct
 {
@@ -98,13 +99,17 @@ struct
     [CHAR_DPAD_NONE]      = { 0x22,  8, 12 }
 };
 
-static const u8 sKeypadIconTiles[] = INCBIN_U8("graphics/fonts/keypad_icons.4bpp");
+ALIGNED(4) static const u8 sScrollDistances[] = {
+    [OPTIONS_TEXT_SPEED_SLOW] = 1,
+    [OPTIONS_TEXT_SPEED_MID] = 2,
+    [OPTIONS_TEXT_SPEED_FAST] = 4,
+};
 
-const struct FontInfo gFontInfo[FONT_COUNT] =
+static const struct FontInfo sFontInfo[FONT_COUNT] =
 {
     [FONT_SMALL] =
     {
-        .fontFunction = FontFunc_Small,
+        .renderFunction = FontFunc_Small,
         .maxLetterWidth = 5,
         .maxLetterHeight = 12,
         .letterSpacing = 0,
@@ -120,7 +125,7 @@ const struct FontInfo gFontInfo[FONT_COUNT] =
 
     [FONT_NORMAL] =
     {
-        .fontFunction = FontFunc_Normal,
+        .renderFunction = FontFunc_Normal,
         .maxLetterWidth = 6,
         .maxLetterHeight = 16,
         .letterSpacing = 0,
@@ -136,7 +141,7 @@ const struct FontInfo gFontInfo[FONT_COUNT] =
 
     [FONT_SHORT] =
     {
-        .fontFunction = FontFunc_Short,
+        .renderFunction = FontFunc_Short,
         .maxLetterWidth = 6,
         .maxLetterHeight = 14,
         .letterSpacing = 0,
@@ -152,7 +157,7 @@ const struct FontInfo gFontInfo[FONT_COUNT] =
 
     [FONT_SHORT_COPY_1] =
     {
-        .fontFunction = FontFunc_ShortCopy1,
+        .renderFunction = FontFunc_ShortCopy1,
         .maxLetterWidth = 6,
         .maxLetterHeight =  14,
         .letterSpacing = 0,
@@ -168,7 +173,7 @@ const struct FontInfo gFontInfo[FONT_COUNT] =
 
     [FONT_SHORT_COPY_2] =
     {
-        .fontFunction = FontFunc_ShortCopy2,
+        .renderFunction = FontFunc_ShortCopy2,
         .maxLetterWidth = 6,
         .maxLetterHeight =  14,
         .letterSpacing = 0,
@@ -184,7 +189,7 @@ const struct FontInfo gFontInfo[FONT_COUNT] =
 
     [FONT_SHORT_COPY_3] =
     {
-        .fontFunction = FontFunc_ShortCopy3,
+        .renderFunction = FontFunc_ShortCopy3,
         .maxLetterWidth = 6,
         .maxLetterHeight =  14,
         .letterSpacing = 0,
@@ -200,7 +205,7 @@ const struct FontInfo gFontInfo[FONT_COUNT] =
 
     [FONT_BRAILLE] =
     {
-        .fontFunction = FontFunc_Braille,
+        .renderFunction = FontFunc_Braille,
         .maxLetterWidth = 8,
         .maxLetterHeight = 16,
         .letterSpacing = 0,
@@ -216,7 +221,7 @@ const struct FontInfo gFontInfo[FONT_COUNT] =
 
     [FONT_NARROW] =
     {
-        .fontFunction = FontFunc_Narrow,
+        .renderFunction = FontFunc_Narrow,
         .maxLetterWidth = 5,
         .maxLetterHeight = 16,
         .letterSpacing = 0,
@@ -232,7 +237,7 @@ const struct FontInfo gFontInfo[FONT_COUNT] =
 
     [FONT_SMALL_NARROW] =
     {
-        .fontFunction = FontFunc_SmallNarrow,
+        .renderFunction = FontFunc_SmallNarrow,
         .maxLetterWidth = 5,
         .maxLetterHeight = 8,
         .letterSpacing = 0,
@@ -248,7 +253,7 @@ const struct FontInfo gFontInfo[FONT_COUNT] =
 
     [FONT_BOLD] =
     {
-        .fontFunction = NULL,
+        .renderFunction = NULL,
         .maxLetterWidth = 8,
         .maxLetterHeight = 8,
         .letterSpacing = 0,
@@ -263,8 +268,6 @@ const struct FontInfo gFontInfo[FONT_COUNT] =
     },
 
 };
-
-static const u16 sFontBoldJapaneseGlyphs[] = INCBIN_U16("graphics/fonts/bold.hwjpnfont");
 
 void DeactivateAllTextPrinters(void)
 {
@@ -284,12 +287,12 @@ u16 AddTextPrinterParameterized(u8 windowId, u8 fontId, const u8 *str, u8 x, u8 
     printerTemplate.y = y;
     printerTemplate.currentX = x;
     printerTemplate.currentY = y;
-    printerTemplate.letterSpacing = gFontInfo[fontId].letterSpacing;
-    printerTemplate.lineSpacing = gFontInfo[fontId].lineSpacing;
-    printerTemplate.unk = gFontInfo[fontId].unk;
-    printerTemplate.fgColor = gFontInfo[fontId].fgColor;
-    printerTemplate.bgColor = gFontInfo[fontId].bgColor;
-    printerTemplate.shadowColor = gFontInfo[fontId].shadowColor;
+    printerTemplate.letterSpacing = GetFontLetterSpacing(fontId);
+    printerTemplate.lineSpacing = GetFontLineSpacing(fontId);
+    printerTemplate.unk = GetFontUnknown(fontId);
+    printerTemplate.fgColor = GetFontForegroundColor(fontId);
+    printerTemplate.bgColor = GetFontBackgroundColor(fontId);
+    printerTemplate.shadowColor = GetFontShadowColor(fontId);
     return AddTextPrinter(&printerTemplate, speed, callback);
 }
 
@@ -297,9 +300,6 @@ bool16 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u8 speed, voi
 {
     int i;
     u16 j;
-
-    if (!gFontInfo)
-        return FALSE;
 
     sTempTextPrinter.active = TRUE;
     sTempTextPrinter.state = RENDER_STATE_HANDLE_CHAR;
@@ -379,7 +379,7 @@ static u32 RenderFont(struct TextPrinter *textPrinter)
     u32 ret;
     while (TRUE)
     {
-        ret = gFontInfo[textPrinter->printerTemplate.fontId].fontFunction(textPrinter);
+        ret = GetFontRenderFunc(textPrinter->printerTemplate.fontId)(textPrinter);
         if (ret != RENDER_REPEAT)
             return ret;
     }
@@ -794,6 +794,184 @@ static u16 FontFunc_SmallNarrow(struct TextPrinter *textPrinter)
     return RenderText(textPrinter);
 }
 
+static u16 FontFunc_Braille(struct TextPrinter *textPrinter)
+{
+    u16 char_;
+    struct TextPrinterSubStruct *subStruct;
+    subStruct = (struct TextPrinterSubStruct *)(&textPrinter->subStructFields);
+
+    switch (textPrinter->state)
+    {
+    case RENDER_STATE_HANDLE_CHAR:
+        if (JOY_HELD(A_BUTTON | B_BUTTON) && subStruct->hasPrintBeenSpedUp)
+        {
+            textPrinter->delayCounter = 0;
+        }
+        if (textPrinter->delayCounter && textPrinter->textSpeed)
+        {
+            textPrinter->delayCounter --;
+            if (gTextFlags.canABSpeedUpPrint && JOY_NEW(A_BUTTON | B_BUTTON))
+            {
+                subStruct->hasPrintBeenSpedUp = TRUE;
+                textPrinter->delayCounter = 0;
+            }
+            return RENDER_UPDATE;
+        }
+        if (gTextFlags.autoScroll)
+            textPrinter->delayCounter = 3;
+        else
+            textPrinter->delayCounter = textPrinter->textSpeed;
+
+        char_ = *textPrinter->printerTemplate.currentChar++;
+        switch (char_)
+        {
+        case EOS:
+            return RENDER_FINISH;
+        case CHAR_NEWLINE:
+            textPrinter->printerTemplate.currentX = textPrinter->printerTemplate.x;
+            textPrinter->printerTemplate.currentY += GetFontMaxLetterHeight(textPrinter->printerTemplate.fontId) + textPrinter->printerTemplate.lineSpacing;
+            return RENDER_REPEAT;
+        case PLACEHOLDER_BEGIN:
+            textPrinter->printerTemplate.currentChar++;
+            return RENDER_REPEAT;
+        case EXT_CTRL_CODE_BEGIN:
+            char_ = *textPrinter->printerTemplate.currentChar++;
+            switch (char_)
+            {
+            case EXT_CTRL_CODE_COLOR:
+                textPrinter->printerTemplate.fgColor = *textPrinter->printerTemplate.currentChar++;
+                GenerateFontHalfRowLookupTable(textPrinter->printerTemplate.fgColor, textPrinter->printerTemplate.bgColor, textPrinter->printerTemplate.shadowColor);
+                return RENDER_REPEAT;
+            case EXT_CTRL_CODE_HIGHLIGHT:
+                textPrinter->printerTemplate.bgColor = *textPrinter->printerTemplate.currentChar++;
+                GenerateFontHalfRowLookupTable(textPrinter->printerTemplate.fgColor, textPrinter->printerTemplate.bgColor, textPrinter->printerTemplate.shadowColor);
+                return RENDER_REPEAT;
+            case EXT_CTRL_CODE_SHADOW:
+                textPrinter->printerTemplate.shadowColor = *textPrinter->printerTemplate.currentChar++;
+                GenerateFontHalfRowLookupTable(textPrinter->printerTemplate.fgColor, textPrinter->printerTemplate.bgColor, textPrinter->printerTemplate.shadowColor);
+                return RENDER_REPEAT;
+            case EXT_CTRL_CODE_COLOR_HIGHLIGHT_SHADOW:
+                textPrinter->printerTemplate.fgColor = *textPrinter->printerTemplate.currentChar;
+                textPrinter->printerTemplate.bgColor = *++textPrinter->printerTemplate.currentChar;
+                textPrinter->printerTemplate.shadowColor = *++textPrinter->printerTemplate.currentChar;
+                textPrinter->printerTemplate.currentChar++;
+
+                GenerateFontHalfRowLookupTable(textPrinter->printerTemplate.fgColor, textPrinter->printerTemplate.bgColor, textPrinter->printerTemplate.shadowColor);
+                return RENDER_REPEAT;
+            case EXT_CTRL_CODE_PALETTE:
+                textPrinter->printerTemplate.currentChar++;
+                return RENDER_REPEAT;
+            case EXT_CTRL_CODE_FONT:
+                subStruct->fontId = *textPrinter->printerTemplate.currentChar;
+                textPrinter->printerTemplate.currentChar++;
+                return RENDER_REPEAT;
+            case EXT_CTRL_CODE_RESET_FONT:
+                return RENDER_REPEAT;
+            case EXT_CTRL_CODE_PAUSE:
+                textPrinter->delayCounter = *textPrinter->printerTemplate.currentChar++;
+                textPrinter->state = RENDER_STATE_PAUSE;
+                return RENDER_REPEAT;
+            case EXT_CTRL_CODE_PAUSE_UNTIL_PRESS:
+                textPrinter->state = RENDER_STATE_WAIT;
+                if (gTextFlags.autoScroll)
+                    subStruct->autoScrollDelay = 0;
+                return RENDER_UPDATE;
+            case EXT_CTRL_CODE_WAIT_SE:
+                textPrinter->state = RENDER_STATE_WAIT_SE;
+                return RENDER_UPDATE;
+            case EXT_CTRL_CODE_PLAY_BGM:
+            case EXT_CTRL_CODE_PLAY_SE:
+                textPrinter->printerTemplate.currentChar += 2;
+                return RENDER_REPEAT;
+            case EXT_CTRL_CODE_ESCAPE:
+                char_ = *++textPrinter->printerTemplate.currentChar;
+                break;
+            case EXT_CTRL_CODE_SHIFT_RIGHT:
+                textPrinter->printerTemplate.currentX = textPrinter->printerTemplate.x + *textPrinter->printerTemplate.currentChar++;
+                return RENDER_REPEAT;
+            case EXT_CTRL_CODE_SHIFT_DOWN:
+                textPrinter->printerTemplate.currentY = textPrinter->printerTemplate.y + *textPrinter->printerTemplate.currentChar++;
+                return RENDER_REPEAT;
+            case EXT_CTRL_CODE_FILL_WINDOW:
+                FillWindowPixelBuffer(textPrinter->printerTemplate.windowId, PIXEL_FILL(textPrinter->printerTemplate.bgColor));
+                return RENDER_REPEAT;
+            }
+            break;
+        case CHAR_PROMPT_CLEAR:
+            textPrinter->state = RENDER_STATE_CLEAR;
+            TextPrinterInitDownArrowCounters(textPrinter);
+            return RENDER_UPDATE;
+        case CHAR_PROMPT_SCROLL:
+            textPrinter->state = RENDER_STATE_SCROLL_START;
+            TextPrinterInitDownArrowCounters(textPrinter);
+            return RENDER_UPDATE;
+        case CHAR_EXTRA_SYMBOL:
+            char_ = *textPrinter->printerTemplate.currentChar++| 0x100;
+            break;
+        case CHAR_KEYPAD_ICON:
+            textPrinter->printerTemplate.currentChar++;
+            return RENDER_PRINT;
+        }
+        DecompressGlyph_Braille(char_, FALSE);
+        CopyGlyphToWindow(textPrinter);
+        textPrinter->printerTemplate.currentX += gCurGlyph.width + textPrinter->printerTemplate.letterSpacing;
+        return RENDER_PRINT;
+    case RENDER_STATE_WAIT:
+        if (TextPrinterWait(textPrinter))
+            textPrinter->state = RENDER_STATE_HANDLE_CHAR;
+        return RENDER_UPDATE;
+    case RENDER_STATE_CLEAR:
+        if (TextPrinterWaitWithDownArrow(textPrinter))
+        {
+            FillWindowPixelBuffer(textPrinter->printerTemplate.windowId, PIXEL_FILL(textPrinter->printerTemplate.bgColor));
+            textPrinter->printerTemplate.currentX = textPrinter->printerTemplate.x;
+            textPrinter->printerTemplate.currentY = textPrinter->printerTemplate.y;
+            textPrinter->state = RENDER_STATE_HANDLE_CHAR;
+        }
+        return RENDER_UPDATE;
+    case RENDER_STATE_SCROLL_START:
+        if (TextPrinterWaitWithDownArrow(textPrinter))
+        {
+            TextPrinterClearDownArrow(textPrinter);
+            textPrinter->scrollDistance = GetFontMaxLetterHeight(textPrinter->printerTemplate.fontId) + textPrinter->printerTemplate.lineSpacing;
+            textPrinter->printerTemplate.currentX = textPrinter->printerTemplate.x;
+            textPrinter->state = RENDER_STATE_SCROLL;
+        }
+        return RENDER_UPDATE;
+    case RENDER_STATE_SCROLL:
+        if (textPrinter->scrollDistance)
+        {
+            if (textPrinter->scrollDistance < sScrollDistances[gSaveBlock2Ptr->optionsTextSpeed])
+            {
+                ScrollWindow(textPrinter->printerTemplate.windowId, 0, textPrinter->scrollDistance, PIXEL_FILL(textPrinter->printerTemplate.bgColor));
+                textPrinter->scrollDistance = 0;
+            }
+            else
+            {
+                ScrollWindow(textPrinter->printerTemplate.windowId, 0, sScrollDistances[gSaveBlock2Ptr->optionsTextSpeed], PIXEL_FILL(textPrinter->printerTemplate.bgColor));
+                textPrinter->scrollDistance -= sScrollDistances[gSaveBlock2Ptr->optionsTextSpeed];
+            }
+            CopyWindowToVram(textPrinter->printerTemplate.windowId, COPYWIN_GFX);
+        }
+        else
+        {
+            textPrinter->state = RENDER_STATE_HANDLE_CHAR;
+        }
+        return RENDER_UPDATE;
+    case RENDER_STATE_WAIT_SE:
+        if (!IsSEPlaying())
+            textPrinter->state = RENDER_STATE_HANDLE_CHAR;
+        return RENDER_UPDATE;
+    case RENDER_STATE_PAUSE:
+        if (textPrinter->delayCounter)
+            textPrinter->delayCounter --;
+        else
+            textPrinter->state = RENDER_STATE_HANDLE_CHAR;
+        return RENDER_UPDATE;
+    }
+    return RENDER_FINISH;
+}
+
 void TextPrinterInitDownArrowCounters(struct TextPrinter *textPrinter)
 {
     struct TextPrinterSubStruct *subStruct = (struct TextPrinterSubStruct *)(&textPrinter->subStructFields);
@@ -992,7 +1170,7 @@ static u16 RenderText(struct TextPrinter *textPrinter)
         {
         case CHAR_NEWLINE:
             textPrinter->printerTemplate.currentX = textPrinter->printerTemplate.x;
-            textPrinter->printerTemplate.currentY += (gFontInfo[textPrinter->printerTemplate.fontId].maxLetterHeight + textPrinter->printerTemplate.lineSpacing);
+            textPrinter->printerTemplate.currentY += (GetFontMaxLetterHeight(textPrinter->printerTemplate.fontId) + textPrinter->printerTemplate.lineSpacing);
             return RENDER_REPEAT;
         case PLACEHOLDER_BEGIN:
             textPrinter->printerTemplate.currentChar++;
@@ -1145,8 +1323,8 @@ static u16 RenderText(struct TextPrinter *textPrinter)
             return RENDER_FINISH;
         }
 
-        if (gFontInfo[subStruct->fontId].decompressFunction != NULL)
-            gFontInfo[subStruct->fontId].decompressFunction(currChar, textPrinter->japanese);
+        if (GetFontDecompressFunc(subStruct->fontId) != NULL)
+            GetFontDecompressFunc(subStruct->fontId)(currChar, textPrinter->japanese);
 
         CopyGlyphToWindow(textPrinter);
 
@@ -1185,7 +1363,7 @@ static u16 RenderText(struct TextPrinter *textPrinter)
         if (TextPrinterWaitWithDownArrow(textPrinter))
         {
             TextPrinterClearDownArrow(textPrinter);
-            textPrinter->scrollDistance = gFontInfo[textPrinter->printerTemplate.fontId].maxLetterHeight + textPrinter->printerTemplate.lineSpacing;
+            textPrinter->scrollDistance = GetFontMaxLetterHeight(textPrinter->printerTemplate.fontId) + textPrinter->printerTemplate.lineSpacing;
             textPrinter->printerTemplate.currentX = textPrinter->printerTemplate.x;
             textPrinter->state = RENDER_STATE_SCROLL;
         }
@@ -1194,7 +1372,7 @@ static u16 RenderText(struct TextPrinter *textPrinter)
         if (textPrinter->scrollDistance)
         {
             int scrollSpeed = GetPlayerTextSpeed();
-            int speed = sWindowVerticalScrollSpeeds[scrollSpeed];
+            int speed = sScrollDistances[scrollSpeed];
             if (textPrinter->scrollDistance < speed)
             {
                 ScrollWindow(textPrinter->printerTemplate.windowId, 0, textPrinter->scrollDistance, PIXEL_FILL(textPrinter->printerTemplate.bgColor));
@@ -1313,14 +1491,14 @@ static u32 UNUSED GetStringWidthFixedWidthFont(const u8 *str, u8 fontId, u8 lett
             width = lineWidths[strPos];
     }
 
-    return (u8)(GetFontAttribute(fontId, FONTATTR_MAX_LETTER_WIDTH) + letterSpacing) * width;
+    return (u8)(GetFontMaxLetterWidth(fontId) + letterSpacing) * width;
 }
 
 s32 GetStringWidth(u8 fontId, const u8 *str, s16 letterSpacing)
 {
     bool8 isJapanese;
     int minGlyphWidth;
-    u32 (*func)(u16 fontId, bool32 isJapanese);
+    WidthFunc func;
     int localLetterSpacing;
     u32 lineWidth;
     const u8 *bufferPointer;
@@ -1330,12 +1508,12 @@ s32 GetStringWidth(u8 fontId, const u8 *str, s16 letterSpacing)
     isJapanese = 0;
     minGlyphWidth = 0;
 
-    func = gFontInfo[fontId].widthFunction;
+    func = GetFontWidthFunc(fontId);
     if (func == NULL)
         return 0;
 
     if (letterSpacing == -1)
-        localLetterSpacing = GetFontAttribute(fontId, FONTATTR_LETTER_SPACING);
+        localLetterSpacing = GetFontLetterSpacing(fontId);
     else
         localLetterSpacing = letterSpacing;
 
@@ -1407,11 +1585,11 @@ s32 GetStringWidth(u8 fontId, const u8 *str, s16 letterSpacing)
                 ++str;
                 break;
             case EXT_CTRL_CODE_FONT:
-                func = gFontInfo[*++str].widthFunction;
+                func = GetFontWidthFunc(*++str);
                 if (func == NULL)
                     return 0;
                 if (letterSpacing == -1)
-                    localLetterSpacing = GetFontAttribute(*str, FONTATTR_LETTER_SPACING);
+                    localLetterSpacing = GetFontLetterSpacing(*str);
                 break;
             case EXT_CTRL_CODE_CLEAR:
                 glyphWidth = *++str;
@@ -1578,7 +1756,7 @@ u8 RenderTextHandleBold(u8 *pixels, u8 fontId, u8 *str)
             switch (fontId)
             {
             case FONT_BOLD:
-                DecompressGlyph_Bold(temp);
+                DecompressGlyph_Bold(temp, FALSE);
                 break;
             case FONT_NORMAL:
             default:
@@ -1628,37 +1806,69 @@ u8 GetKeypadIconHeight(u8 keypadIconId)
     return sKeypadIcons[keypadIconId].height;
 }
 
-u8 GetFontAttribute(u8 fontId, u8 attributeId)
+u32 GetFontMaxLetterWidth(enum Font fontId)
 {
-    int result = 0;
-    switch (attributeId)
-    {
-        case FONTATTR_MAX_LETTER_WIDTH:
-            result = gFontInfo[fontId].maxLetterWidth;
-            break;
-        case FONTATTR_MAX_LETTER_HEIGHT:
-            result = gFontInfo[fontId].maxLetterHeight;
-            break;
-        case FONTATTR_LETTER_SPACING:
-            result = gFontInfo[fontId].letterSpacing;
-            break;
-        case FONTATTR_LINE_SPACING:
-            result = gFontInfo[fontId].lineSpacing;
-            break;
-        case FONTATTR_UNKNOWN:
-            result = gFontInfo[fontId].unk;
-            break;
-        case FONTATTR_COLOR_FOREGROUND:
-            result = gFontInfo[fontId].fgColor;
-            break;
-        case FONTATTR_COLOR_BACKGROUND:
-            result = gFontInfo[fontId].bgColor;
-            break;
-        case FONTATTR_COLOR_SHADOW:
-            result = gFontInfo[fontId].shadowColor;
-            break;
-    }
-    return result;
+    return sFontInfo[fontId].maxLetterWidth;
+}
+
+u32 GetFontMaxLetterHeight(enum Font fontId)
+{
+    return sFontInfo[fontId].maxLetterHeight;
+}
+
+u32 GetFontLetterSpacing(enum Font fontId)
+{
+    return sFontInfo[fontId].letterSpacing;
+}
+
+u32 GetFontLineSpacing(enum Font fontId)
+{
+    return sFontInfo[fontId].lineSpacing;
+}
+
+u32 GetFontUnknown(enum Font fontId)
+{
+    return sFontInfo[fontId].unk;
+}
+
+u32 GetFontForegroundColor(enum Font fontId)
+{
+    return sFontInfo[fontId].fgColor;
+}
+
+u32 GetFontBackgroundColor(enum Font fontId)
+{
+    return sFontInfo[fontId].bgColor;
+}
+
+u32 GetFontShadowColor(enum Font fontId)
+{
+    return sFontInfo[fontId].shadowColor;
+}
+
+u32 GetFontCursorWidth(enum Font fontId)
+{
+    return sFontInfo[fontId].cursorWidth;
+}
+
+u32 GetFontCursorHeight(enum Font fontId)
+{
+    return sFontInfo[fontId].cursorHeight;
+}
+
+DecompressGlyphFunc GetFontDecompressFunc(enum Font fontId)
+{
+    return sFontInfo[fontId].decompressFunction;
+}
+
+RenderFunc GetFontRenderFunc(enum Font fontId)
+{
+    return sFontInfo[fontId].renderFunction;
+}
+
+WidthFunc GetFontWidthFunc(enum Font fontId)
+{
+    return sFontInfo[fontId].widthFunction;
 }
 
 static void DecompressGlyph_Small(u16 glyphId, bool32 isJapanese)
@@ -1873,7 +2083,7 @@ static u32 GetGlyphWidth_Normal(u16 glyphId, bool32 isJapanese)
         return gFontNormalLatinGlyphWidths[glyphId];
 }
 
-static void DecompressGlyph_Bold(u16 glyphId)
+static void DecompressGlyph_Bold(u16 glyphId, bool32 UNUSED isJapanese)
 {
     const u16 *glyphs;
 
@@ -1883,3 +2093,21 @@ static void DecompressGlyph_Bold(u16 glyphId)
     gCurGlyph.width = 8;
     gCurGlyph.height = 12;
 }
+
+static void DecompressGlyph_Braille(u16 glyph, bool32 UNUSED isJapanese)
+{
+    const u16 *glyphs = sFont_Braille + 0x100 * (glyph / 8) + 0x10 * (glyph % 8);
+    DecompressGlyphTile(glyphs, gCurGlyph.gfxBufferTop);
+    DecompressGlyphTile(glyphs + 0x8, gCurGlyph.gfxBufferTop + 8);
+    DecompressGlyphTile(glyphs + 0x80, gCurGlyph.gfxBufferBottom);
+    DecompressGlyphTile(glyphs + 0x88, gCurGlyph.gfxBufferBottom + 8);
+    gCurGlyph.width = 16;
+    gCurGlyph.height = 16;
+}
+
+static u32 GetGlyphWidth_Braille(u16 glyphId, bool32 isJapanese)
+{
+    return 16;
+}
+
+

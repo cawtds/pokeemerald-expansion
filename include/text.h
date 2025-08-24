@@ -2,55 +2,7 @@
 #define GUARD_TEXT_H
 
 #include "constants/characters.h"
-
-// Given as a text speed when all the text should be
-// loaded at once but not copied to vram yet.
-#define TEXT_SKIP_DRAW 0xFF
-
-enum Font
-{
-    FONT_SMALL,
-    FONT_NORMAL,
-    FONT_SHORT,
-    FONT_SHORT_COPY_1,
-    FONT_SHORT_COPY_2,
-    FONT_SHORT_COPY_3,
-    FONT_BRAILLE,
-    FONT_NARROW,
-    FONT_SMALL_NARROW, // Very similar to FONT_SMALL, some glyphs are narrower
-    FONT_BOLD, // JP glyph set only
-    FONT_COUNT
-};
-
-// Return values for font functions
-enum {
-    RENDER_PRINT,
-    RENDER_FINISH,
-    RENDER_REPEAT, // Run render function again, if e.g. a control code is encountered.
-    RENDER_UPDATE,
-};
-
-// Text printer states read by RenderText / FontFunc_Braille
-enum {
-    RENDER_STATE_HANDLE_CHAR,
-    RENDER_STATE_WAIT,
-    RENDER_STATE_CLEAR,
-    RENDER_STATE_SCROLL_START,
-    RENDER_STATE_SCROLL,
-    RENDER_STATE_WAIT_SE,
-    RENDER_STATE_PAUSE,
-};
-
-enum {
-    FONTATTR_MAX_LETTER_WIDTH,
-    FONTATTR_MAX_LETTER_HEIGHT,
-    FONTATTR_LETTER_SPACING,
-    FONTATTR_LINE_SPACING,
-    FONTATTR_UNKNOWN,   // dunno what this is yet
-    FONTATTR_COLOR_FOREGROUND,
-    FONTATTR_COLOR_BACKGROUND,
-    FONTATTR_COLOR_SHADOW
-};
+#include "constants/text.h"
 
 struct TextPrinterSubStruct
 {
@@ -96,11 +48,15 @@ struct TextPrinter
     u8 japanese;
 };
 
+typedef void (*DecompressGlyphFunc)(u16, bool32);
+typedef u16 (*RenderFunc)(struct TextPrinter*);
+typedef u32 (*WidthFunc)(u16, bool32);
+
 struct FontInfo
 {
-    u16 (*fontFunction)(struct TextPrinter *x);
-    u32 (*widthFunction)(u16 glyphId, bool32 isJapanese);
-    void (*decompressFunction)(u16 glyphId, bool32 isJapanese);
+    RenderFunc renderFunction;
+    WidthFunc widthFunction;
+    DecompressGlyphFunc decompressFunction;
     u8 cursorWidth;
     u8 cursorHeight;
     u8 maxLetterWidth;
@@ -111,14 +67,6 @@ struct FontInfo
     u8 fgColor:4;
     u8 bgColor:4;
     u8 shadowColor:4;
-};
-
-extern const struct FontInfo gFontInfo[];
-
-struct GlyphWidthFunc
-{
-    u32 fontId;
-    u32 (*func)(u16 glyphId, bool32 isJapanese);
 };
 
 typedef struct {
@@ -140,6 +88,20 @@ extern TextFlags gTextFlags;
 
 extern u8 gDisableTextPrinters;
 extern struct TextGlyph gCurGlyph;
+
+u32 GetFontMaxLetterWidth(enum Font fontId);
+u32 GetFontMaxLetterHeight(enum Font fontId);
+u32 GetFontLetterSpacing(enum Font fontId);
+u32 GetFontLineSpacing(enum Font fontId);
+u32 GetFontUnknown(enum Font fontId);
+u32 GetFontForegroundColor(enum Font fontId);
+u32 GetFontBackgroundColor(enum Font fontId);
+u32 GetFontShadowColor(enum Font fontId);
+u32 GetFontCursorWidth(enum Font fontId);
+u32 GetFontCursorHeight(enum Font fontId);
+DecompressGlyphFunc GetFontDecompressFunc(enum Font fontId);
+RenderFunc GetFontRenderFunc(enum Font fontId);
+WidthFunc GetFontWidthFunc(enum Font fontId);
 
 void DeactivateAllTextPrinters(void);
 u16 AddTextPrinterParameterized(u8 windowId, u8 fontId, const u8 *str, u8 x, u8 y, u8 speed, void (*callback)(struct TextPrinterTemplate *, u16));
@@ -166,20 +128,5 @@ u8 DrawKeypadIcon(u8 windowId, u8 keypadIconId, u16 x, u16 y);
 u8 GetKeypadIconTileOffset(u8 keypadIconId);
 u8 GetKeypadIconWidth(u8 keypadIconId);
 u8 GetKeypadIconHeight(u8 keypadIconId);
-u8 GetFontAttribute(u8 fontId, u8 attributeId);
-
-static inline u32 Font_GetCursorWidth(enum Font fontId)
-{
-    return gFontInfo[fontId].cursorWidth;
-}
-
-static inline u32 Font_GetCursorHeight(enum Font fontId)
-{
-    return gFontInfo[fontId].cursorHeight;
-}
-
-// braille.c
-u16 FontFunc_Braille(struct TextPrinter *textPrinter);
-u32 GetGlyphWidth_Braille(u16 glyphId, bool32 isJapanese);
 
 #endif // GUARD_TEXT_H
