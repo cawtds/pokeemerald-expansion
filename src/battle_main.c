@@ -1826,6 +1826,7 @@ static void ModifyPersonalityForNature(u32 *personality, u32 newNature)
 
 static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 firstTrainer)
 {
+    const struct TrainerMon *partyData;
     u32 nameHash = 0;
     u32 personalityValue;
     s32 i, j;
@@ -1853,9 +1854,10 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             monsCount = gTrainers[trainerNum].partySize;
         }
 
+        partyData = gTrainers[trainerNum].party;
         for (i = 0; i < monsCount; i++)
         {
-            const struct TrainerMon *partyData;
+            const u8 *speciesName;
             if (gTrainers[trainerNum].doubleBattle == TRUE)
                 personalityValue = 0x80;
             else if (gTrainers[trainerNum].encounterMusic_gender & F_TRAINER_FEMALE)
@@ -1866,10 +1868,10 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             for (j = 0; gTrainers[trainerNum].trainerName[j] != EOS; j++)
                 nameHash += gTrainers[trainerNum].trainerName[j];
 
-            partyData = gTrainers[trainerNum].party;
+            speciesName = GetSpeciesName(partyData[i].species);
 
-            for (j = 0; GetSpeciesName(partyData[i].species)[j] != EOS; j++)
-                nameHash += GetSpeciesName(partyData[i].species)[j];
+            for (j = 0; speciesName[j] != EOS; j++)
+                nameHash += speciesName[j];
             personalityValue += nameHash << 8;
 
             if (partyData[i].gender == TRAINER_MON_MALE)
