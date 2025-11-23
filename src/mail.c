@@ -1,7 +1,6 @@
 #include "global.h"
 #include "mail.h"
 #include "item.h"
-#include "main.h"
 #include "overworld.h"
 #include "task.h"
 #include "scanline_effect.h"
@@ -499,7 +498,7 @@ static const struct MailInfo sMailInfo[] =
 
 };
 
-void ReadMail(struct Mail *mail, void (*exitCallback)(void), bool8 hasText)
+void ReadMail(struct Mail *mail, MainCallback exitCallback, bool8 hasText)
 {
     u16 buffer[2];
     u16 species;

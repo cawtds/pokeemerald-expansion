@@ -324,7 +324,7 @@ static void CB2_ReturnToTitleScreen(void)
         }
         else
         {
-            SetMainCallback2((MainCallback)gGameContinueCallback);
+            SetMainCallback2(gGameContinueCallback);
             gGameContinueCallback = NULL;
         }
     }

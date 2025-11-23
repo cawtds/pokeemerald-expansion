@@ -1047,7 +1047,7 @@
 	.byte 0xcc
 	.endm
 
-	.macro cureifburnedparalysedorpoisoned ptr:req
+	.macro cureifburnedparalyzedorpoisoned ptr:req
 	.byte 0xcd
 	.4byte \ptr
 	.endm

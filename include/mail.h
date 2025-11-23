@@ -1,6 +1,8 @@
 #ifndef GUARD_MAIL_H
 #define GUARD_MAIL_H
 
+#include "main.h"
+
 enum MailID
 {
     ORANGE_MAIL,
@@ -19,7 +21,7 @@ enum MailID
 };
 
 // mail.h
-void ReadMail(struct Mail *mail, void (*exitCallback)(void), bool8 hasText);
+void ReadMail(struct Mail *mail, MainCallback exitCallback, bool8 hasText);
 
 // mail_data.h
 void ClearAllMail(void);
