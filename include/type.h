@@ -10,7 +10,7 @@ struct TypeInfo
     u16 menuInfoOffset;
     u8 paletteNum;
     enum DamageCategory damageCategory;
-    const u32 *const paletteTMHM;
+    const u32 *paletteTMHM;
     const u8 *effectiveness;
 };
 

@@ -1369,7 +1369,7 @@ static void CheckWonderGuardAndLevitate(void)
         }
     }
 
-    if (!IsForesightedMoveAgainstType(moveType, defType2, gBattlerTarget))
+    if (defType1 != defType2 && !IsForesightedMoveAgainstType(moveType, defType2, gBattlerTarget))
     {
         multiplier = GetTypeEffectiveness(moveType, defType2);
         switch(multiplier)
